@@ -1,0 +1,3773 @@
+{
+  "auth": {
+    "polymarket_user_channel_configured": true,
+    "polymarket_user_channel_missing_fields": [],
+    "polymarket_user_channel_sources": {
+      "api_key": "CLOB_API_KEY",
+      "api_secret": "CLOB_SECRET",
+      "passphrase": "CLOB_PASS_PHRASE"
+    }
+  },
+  "backtest_replay": {
+    "authenticated_fill_gate": false,
+    "available": true,
+    "avg_fill_prob": null,
+    "fill_adjusted_pnl_per_share_sum": null,
+    "fill_adjusted_roi": null,
+    "fill_model_version": null,
+    "generated_at": "2026-05-30T21:59:44.670680+00:00",
+    "json": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/telonex_convergence_ml/backtest_replay_latest.json",
+    "model_version": "20260530T215450Z-3e90e2b5d8da",
+    "proxy_execution_adjusted_gate": false,
+    "proxy_fill_gate": false,
+    "raw_pnl_per_share_sum": null,
+    "raw_roi": null,
+    "reason": "no selected historical replay trades",
+    "replay_events": 0,
+    "report": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/backtest_replay_latest.md",
+    "run_id": "20260530T215450Z",
+    "selected_markets": 0,
+    "selected_test_trades": 0,
+    "selected_tokens": 0,
+    "stake_sum": null,
+    "trades_with_fill_prob": 0
+  },
+  "capital_enabled": false,
+  "clob": {
+    "book_rows": 303760,
+    "latest_book_ts": "2026-05-30 23:24:06.450001+00:00",
+    "latest_books": 482,
+    "trade_rows": 1314,
+    "ws_event_counts": {
+      "best_bid_ask": 7779,
+      "book": 3439,
+      "last_trade_price": 1314,
+      "market_resolved": 1,
+      "new_market": 1316,
+      "price_change": 137092,
+      "tick_size_change": 4
+    },
+    "ws_event_rows": 150945
+  },
+  "collector": {
+    "alerts": [
+      "telonex_live_score failed (38 consecutive)"
+    ],
+    "last_loop_finished_at": "2026-05-30T23:26:41.241317+00:00",
+    "loop_count": 526,
+    "status": "degraded"
+  },
+  "event_market_inventory": {
+    "active_model_usage": {
+      "events": 89,
+      "excluded_censored_rows_in_splits": 364022,
+      "excluded_unobserved_market_rows": 539748,
+      "label_rows": 1984815,
+      "markets": 109,
+      "test_market_ratio": 0.1651376146788991,
+      "test_markets": 18,
+      "tokens": 217,
+      "usable_markets": 109
+    },
+    "completeness": {
+      "complete_for_profitable_bot_claim": false,
+      "reasons": [
+        "active observed markets 109 < 200 research target",
+        "test Odds API coverage 32.54% < 50% target",
+        "Odds API point-in-time features have insufficient test coverage"
+      ],
+      "strategy_readiness_gate": false
+    },
+    "generated_at": "2026-05-30T22:23:37.159539+00:00",
+    "market_breakdown": {
+      "active_by_sport_type": [
+        {
+          "market_type": "moneyline",
+          "markets": 40,
+          "sport_family": "soccer"
+        },
+        {
+          "market_type": "moneyline",
+          "markets": 34,
+          "sport_family": "baseball_mlb"
+        },
+        {
+          "market_type": "nrfi",
+          "markets": 15,
+          "sport_family": "baseball_mlb"
+        },
+        {
+          "market_type": "draw",
+          "markets": 6,
+          "sport_family": "soccer"
+        },
+        {
+          "market_type": "total",
+          "markets": 5,
+          "sport_family": "soccer"
+        },
+        {
+          "market_type": "spread",
+          "markets": 3,
+          "sport_family": "soccer"
+        },
+        {
+          "market_type": "total",
+          "markets": 2,
+          "sport_family": "baseball_mlb"
+        },
+        {
+          "market_type": "moneyline",
+          "markets": 2,
+          "sport_family": "basketball_wnba"
+        },
+        {
+          "market_type": "spread",
+          "markets": 1,
+          "sport_family": "baseball_mlb"
+        },
+        {
+          "market_type": "exact_score",
+          "markets": 1,
+          "sport_family": "soccer"
+        }
+      ],
+      "all_by_sport_type": [
+        {
+          "market_type": "moneyline",
+          "markets": 79,
+          "sport_family": "baseball_mlb"
+        },
+        {
+          "market_type": "nrfi",
+          "markets": 59,
+          "sport_family": "baseball_mlb"
+        },
+        {
+          "market_type": "moneyline",
+          "markets": 42,
+          "sport_family": "soccer"
+        },
+        {
+          "market_type": "total",
+          "markets": 6,
+          "sport_family": "baseball_mlb"
+        },
+        {
+          "market_type": "total",
+          "markets": 6,
+          "sport_family": "icehockey_nhl"
+        },
+        {
+          "market_type": "draw",
+          "markets": 6,
+          "sport_family": "soccer"
+        },
+        {
+          "market_type": "spread",
+          "markets": 5,
+          "sport_family": "baseball_mlb"
+        },
+        {
+          "market_type": "total",
+          "markets": 5,
+          "sport_family": "soccer"
+        },
+        {
+          "market_type": "spread",
+          "markets": 3,
+          "sport_family": "soccer"
+        },
+        {
+          "market_type": "moneyline",
+          "markets": 2,
+          "sport_family": "basketball_wnba"
+        },
+        {
+          "market_type": "moneyline",
+          "markets": 2,
+          "sport_family": "icehockey_nhl"
+        },
+        {
+          "market_type": "exact_score",
+          "markets": 1,
+          "sport_family": "soccer"
+        }
+      ]
+    },
+    "odds_api": {
+      "coverage_by_split": {
+        "test": {
+          "coverage": 0.3253589362755499,
+          "matched_markets": 5,
+          "matched_rows": 73604,
+          "matched_tokens": 10,
+          "rows": 226224
+        },
+        "train": {
+          "coverage": 0.5269398935089536,
+          "matched_markets": 44,
+          "matched_rows": 936300,
+          "matched_tokens": 87,
+          "rows": 1776863
+        },
+        "unobserved": {
+          "coverage": 0.4248834641351149,
+          "matched_markets": 24,
+          "matched_rows": 229330,
+          "matched_tokens": 48,
+          "rows": 539748
+        },
+        "val": {
+          "coverage": 0.5059320318148951,
+          "matched_markets": 6,
+          "matched_rows": 174926,
+          "matched_tokens": 12,
+          "rows": 345750
+        }
+      },
+      "feature_rows": 1414160,
+      "matched_markets": 79,
+      "matched_tokens": 157,
+      "row_coverage": 0.48956842190899696
+    },
+    "per_event_distribution_active": {
+      "fill_positive_rows": {
+        "0": 0.0,
+        "0.1": 0.0,
+        "0.25": 0.0,
+        "0.5": 0.0,
+        "0.75": 72.0,
+        "0.9": 122.40000000000002,
+        "1": 196.0
+      },
+      "label_rows": {
+        "0": 58.0,
+        "0.1": 1632.0000000000005,
+        "0.25": 8464.0,
+        "0.5": 19886.0,
+        "0.75": 27372.0,
+        "0.9": 37096.40000000001,
+        "1": 213100.0
+      },
+      "markets_per_event": {
+        "0": 1.0,
+        "0.1": 1.0,
+        "0.25": 1.0,
+        "0.5": 1.0,
+        "0.75": 1.0,
+        "0.9": 2.0,
+        "1": 4.0
+      },
+      "minute_points": {
+        "0": 27.0,
+        "0.1": 306.0,
+        "0.25": 1171.0,
+        "0.5": 2415.0,
+        "0.75": 3161.0,
+        "0.9": 3903.0,
+        "1": 8755.0
+      },
+      "span_hours": {
+        "0": 11.316666666666666,
+        "0.1": 23.106666666666666,
+        "0.25": 45.46666666666667,
+        "0.5": 137.51666666666668,
+        "0.75": 152.33333333333334,
+        "0.9": 158.53,
+        "1": 193.58333333333334
+      }
+    },
+    "per_market_distribution_active": {
+      "fill_positive_rows": {
+        "0": 0.0,
+        "0.1": 0.0,
+        "0.25": 0.0,
+        "0.5": 0.0,
+        "0.75": 47.0,
+        "0.9": 116.2,
+        "1": 195.0
+      },
+      "horizons": {
+        "0": 5.0,
+        "0.1": 5.0,
+        "0.25": 5.0,
+        "0.5": 5.0,
+        "0.75": 5.0,
+        "0.9": 5.0,
+        "1": 5.0
+      },
+      "label_rows": {
+        "0": 144.0,
+        "0.1": 5495.200000000001,
+        "0.25": 12512.0,
+        "0.5": 20268.0,
+        "0.75": 27882.0,
+        "0.9": 34761.600000000006,
+        "1": 81876.0
+      },
+      "minute_points": {
+        "0": 50.0,
+        "0.1": 752.6,
+        "0.25": 1848.0,
+        "0.5": 2550.0,
+        "0.75": 3477.0,
+        "0.9": 4108.8,
+        "1": 8619.0
+      },
+      "span_hours": {
+        "0": 18.883333333333333,
+        "0.1": 44.38,
+        "0.25": 69.33333333333333,
+        "0.5": 144.13333333333333,
+        "0.75": 156.78333333333333,
+        "0.9": 168.39666666666668,
+        "1": 192.4
+      },
+      "tokens": {
+        "0": 1.0,
+        "0.1": 2.0,
+        "0.25": 2.0,
+        "0.5": 2.0,
+        "0.75": 2.0,
+        "0.9": 2.0,
+        "1": 2.0
+      }
+    },
+    "plain_language": {
+      "active_usage_rule": "The active maker-fill model uses only markets where the historical trade target is observable; markets without trade files are retained but excluded from this target.",
+      "event_definition": "One event is the underlying sports game or match, such as Atlanta Braves vs Cincinnati Reds.",
+      "market_definition": "One market is a Polymarket contract/question for that event, such as moneyline, spread, total, draw, or NRFI.",
+      "row_definition": "One row is one token/outcome at one minute timestamp for one forecast horizon, not one game."
+    },
+    "split_summary": [
+      {
+        "fill_positive_rows": 97,
+        "label_rows": 226224,
+        "markets": 18,
+        "past_trade_feature_rows": 116762,
+        "split": "test",
+        "target_observed_rows": 159230,
+        "tokens": 36
+      },
+      {
+        "fill_positive_rows": 2820,
+        "label_rows": 1776863,
+        "markets": 75,
+        "past_trade_feature_rows": 1177192,
+        "split": "train",
+        "target_observed_rows": 1513571,
+        "tokens": 149
+      },
+      {
+        "fill_positive_rows": 0,
+        "label_rows": 539748,
+        "markets": 107,
+        "past_trade_feature_rows": 0,
+        "split": "unobserved",
+        "target_observed_rows": 0,
+        "tokens": 212
+      },
+      {
+        "fill_positive_rows": 208,
+        "label_rows": 345750,
+        "markets": 16,
+        "past_trade_feature_rows": 230990,
+        "split": "val",
+        "target_observed_rows": 312014,
+        "tokens": 32
+      }
+    ],
+    "top_active_events_by_minutes": [
+      {
+        "event_title": "CR Flamengo vs. Coritiba FBC",
+        "fill_positive_rows": 0,
+        "label_rows": 213100,
+        "markets": 3,
+        "minute_points": 8755,
+        "past_trade_feature_rows": 165720,
+        "span_hours": 167.65,
+        "sport_family": "soccer",
+        "tokens": 6
+      },
+      {
+        "event_title": "CA Boca Juniors vs. CD Universidad Cat\u00f3lica",
+        "fill_positive_rows": 1,
+        "label_rows": 65352,
+        "markets": 1,
+        "minute_points": 6792,
+        "past_trade_feature_rows": 53068,
+        "span_hours": 168.35,
+        "sport_family": "soccer",
+        "tokens": 2
+      },
+      {
+        "event_title": "SE Palmeiras vs. Associa\u00e7\u00e3o Chapecoense de Futebol",
+        "fill_positive_rows": 0,
+        "label_rows": 74222,
+        "markets": 2,
+        "minute_points": 6733,
+        "past_trade_feature_rows": 48662,
+        "span_hours": 143.96666666666667,
+        "sport_family": "soccer",
+        "tokens": 4
+      },
+      {
+        "event_title": "Switzerland vs. Jordan",
+        "fill_positive_rows": 0,
+        "label_rows": 57690,
+        "markets": 1,
+        "minute_points": 5935,
+        "past_trade_feature_rows": 46860,
+        "span_hours": 143.76666666666668,
+        "sport_family": "soccer",
+        "tokens": 2
+      },
+      {
+        "event_title": "Texas Rangers vs. Los Angeles Angels",
+        "fill_positive_rows": 196,
+        "label_rows": 53710,
+        "markets": 2,
+        "minute_points": 5606,
+        "past_trade_feature_rows": 49020,
+        "span_hours": 193.58333333333334,
+        "sport_family": "baseball_mlb",
+        "tokens": 4
+      },
+      {
+        "event_title": "Rosenborg BK vs. FK Bod\u00f8/Glimt",
+        "fill_positive_rows": 0,
+        "label_rows": 28914,
+        "markets": 1,
+        "minute_points": 4316,
+        "past_trade_feature_rows": 25224,
+        "span_hours": 184.96666666666667,
+        "sport_family": "soccer",
+        "tokens": 2
+      },
+      {
+        "event_title": "Brazil vs. Panama",
+        "fill_positive_rows": 0,
+        "label_rows": 34332,
+        "markets": 1,
+        "minute_points": 4183,
+        "past_trade_feature_rows": 27816,
+        "span_hours": 119.83333333333333,
+        "sport_family": "soccer",
+        "tokens": 2
+      },
+      {
+        "event_title": "Los Angeles Dodgers vs. Toronto Blue Jays",
+        "fill_positive_rows": 78,
+        "label_rows": 36690,
+        "markets": 1,
+        "minute_points": 3937,
+        "past_trade_feature_rows": 29198,
+        "span_hours": 156.88333333333333,
+        "sport_family": "baseball_mlb",
+        "tokens": 2
+      },
+      {
+        "event_title": "Gr\u00eamio FBPA vs. SC Corinthians Paulista",
+        "fill_positive_rows": 0,
+        "label_rows": 26678,
+        "markets": 1,
+        "minute_points": 3911,
+        "past_trade_feature_rows": 15720,
+        "span_hours": 119.93333333333334,
+        "sport_family": "soccer",
+        "tokens": 2
+      },
+      {
+        "event_title": "Colorado Rockies vs. Arizona Diamondbacks",
+        "fill_positive_rows": 128,
+        "label_rows": 35600,
+        "markets": 1,
+        "minute_points": 3901,
+        "past_trade_feature_rows": 33332,
+        "span_hours": 145.8,
+        "sport_family": "baseball_mlb",
+        "tokens": 2
+      },
+      {
+        "event_title": "Clube do Remo vs. S\u00e3o Paulo FC",
+        "fill_positive_rows": 0,
+        "label_rows": 25688,
+        "markets": 1,
+        "minute_points": 3896,
+        "past_trade_feature_rows": 14890,
+        "span_hours": 138.98333333333332,
+        "sport_family": "soccer",
+        "tokens": 2
+      },
+      {
+        "event_title": "SK Brann vs. Sarpsborg 08 FF",
+        "fill_positive_rows": 0,
+        "label_rows": 26674,
+        "markets": 1,
+        "minute_points": 3879,
+        "past_trade_feature_rows": 19412,
+        "span_hours": 135.28333333333333,
+        "sport_family": "soccer",
+        "tokens": 2
+      },
+      {
+        "event_title": "Bosnia and Herzegovina vs. North Macedonia",
+        "fill_positive_rows": 0,
+        "label_rows": 40400,
+        "markets": 2,
+        "minute_points": 3710,
+        "past_trade_feature_rows": 35056,
+        "span_hours": 135.55,
+        "sport_family": "soccer",
+        "tokens": 4
+      },
+      {
+        "event_title": "Toronto Blue Jays vs. New York Yankees",
+        "fill_positive_rows": 110,
+        "label_rows": 38722,
+        "markets": 2,
+        "minute_points": 3624,
+        "past_trade_feature_rows": 26158,
+        "span_hours": 141.95,
+        "sport_family": "baseball_mlb",
+        "tokens": 4
+      },
+      {
+        "event_title": "Seattle Mariners vs. Kansas City Royals",
+        "fill_positive_rows": 47,
+        "label_rows": 32180,
+        "markets": 1,
+        "minute_points": 3589,
+        "past_trade_feature_rows": 30834,
+        "span_hours": 146.28333333333333,
+        "sport_family": "baseball_mlb",
+        "tokens": 2
+      },
+      {
+        "event_title": "Cleveland Guardians vs. Detroit Tigers",
+        "fill_positive_rows": 72,
+        "label_rows": 30414,
+        "markets": 1,
+        "minute_points": 3562,
+        "past_trade_feature_rows": 27434,
+        "span_hours": 144.96666666666667,
+        "sport_family": "baseball_mlb",
+        "tokens": 2
+      },
+      {
+        "event_title": "Cincinnati Reds vs. Miami Marlins",
+        "fill_positive_rows": 121,
+        "label_rows": 30904,
+        "markets": 1,
+        "minute_points": 3547,
+        "past_trade_feature_rows": 30364,
+        "span_hours": 156.05,
+        "sport_family": "baseball_mlb",
+        "tokens": 2
+      },
+      {
+        "event_title": "Houston Astros vs. Texas Rangers",
+        "fill_positive_rows": 80,
+        "label_rows": 28026,
+        "markets": 1,
+        "minute_points": 3410,
+        "past_trade_feature_rows": 22796,
+        "span_hours": 152.7,
+        "sport_family": "baseball_mlb",
+        "tokens": 2
+      },
+      {
+        "event_title": "Houston Astros vs. Seattle Mariners",
+        "fill_positive_rows": 77,
+        "label_rows": 30302,
+        "markets": 1,
+        "minute_points": 3377,
+        "past_trade_feature_rows": 24652,
+        "span_hours": 153.6,
+        "sport_family": "baseball_mlb",
+        "tokens": 2
+      },
+      {
+        "event_title": "Germany vs. Finland",
+        "fill_positive_rows": 0,
+        "label_rows": 29668,
+        "markets": 3,
+        "minute_points": 3375,
+        "past_trade_feature_rows": 24330,
+        "span_hours": 140.51666666666668,
+        "sport_family": "soccer",
+        "tokens": 6
+      }
+    ],
+    "totals": {
+      "events": 108,
+      "label_rows": 2888585,
+      "labels_sha256": "32537f0d3b561eb1f7a39bcb5ed6ad4834d6f854a4443683da29c657d09f223b",
+      "labels_source": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/execution_training/telonex_clob_execution_labels_partitioned",
+      "markets": 216,
+      "sports": {
+        "baseball_mlb": 1731351,
+        "basketball_wnba": 43570,
+        "icehockey_nhl": 5347,
+        "soccer": 1108317
+      },
+      "time_max": "2026-05-29 23:59:00+00:00",
+      "time_min": "2026-03-02 00:03:00+00:00",
+      "tokens": 429
+    }
+  },
+  "favorite_longshot_bias": {
+    "decision": {
+      "bucket_1_raw_edge_gate": true,
+      "bucket_1_robust_ci_gate": false,
+      "capital_gate": false,
+      "primary_candidate": "favorite_85_95_buy_yes",
+      "primary_candidate_fee_adjusted_roi": 0.03061173657597805,
+      "reasons": [
+        "capital remains blocked until the bucket survives executable bid/ask, spread, latency, and market-disjoint validation",
+        "no favorite-longshot bucket has a positive 95% event-cluster bootstrap lower bound yet",
+        "Telonex clear-settlement sample is too small in tail buckets for executable validation"
+      ],
+      "stop_sequence_at_bucket_1": true,
+      "verdict": "PIVOT: favorite-longshot bias has raw positive pockets; build executable validation next"
+    },
+    "generated_at": "2026-05-30T22:36:24.993368+00:00",
+    "legacy_bucket_summary": [
+      {
+        "actual_resolution_rate": 0.10810810810810811,
+        "avg_observations": 4.905405405405405,
+        "avg_twap_yes_price": 0.08968018018018019,
+        "buy_no_fee_adjusted_roi": -0.02264290648297253,
+        "buy_no_raw_roi": -0.020243355715989328,
+        "buy_yes_fee_adjusted_roi": 0.20253256794749194,
+        "buy_yes_raw_roi": 0.20548495655231297,
+        "contracts": 74,
+        "edge_actual_minus_price": 0.018427927927927926,
+        "events": 74,
+        "price_bucket": "01 5-10c"
+      },
+      {
+        "actual_resolution_rate": 0.11904761904761904,
+        "avg_observations": 5.642857142857143,
+        "avg_twap_yes_price": 0.1280424933862434,
+        "buy_no_fee_adjusted_roi": 0.006931745378125184,
+        "buy_no_raw_roi": 0.010315725560475903,
+        "buy_yes_fee_adjusted_roi": -0.07336326844452884,
+        "buy_yes_raw_roi": -0.07024913449233686,
+        "contracts": 336,
+        "edge_actual_minus_price": -0.008994874338624365,
+        "events": 334,
+        "price_bucket": "02 10-15c"
+      },
+      {
+        "actual_resolution_rate": 0.21264367816091953,
+        "avg_observations": 5.701867816091954,
+        "avg_twap_yes_price": 0.20837871510673234,
+        "buy_no_fee_adjusted_roi": -0.010309679555334047,
+        "buy_no_raw_roi": -0.005387630595054335,
+        "buy_yes_fee_adjusted_roi": 0.015417366350828446,
+        "buy_yes_raw_roi": 0.020467364202733776,
+        "contracts": 1392,
+        "edge_actual_minus_price": 0.004264963054187193,
+        "events": 1171,
+        "price_bucket": "03 15-25c"
+      },
+      {
+        "actual_resolution_rate": 0.33422531442333425,
+        "avg_observations": 5.5672999732405675,
+        "avg_twap_yes_price": 0.3293894959669712,
+        "buy_no_fee_adjusted_roi": -0.013790044404188616,
+        "buy_no_raw_roi": -0.007211068760898618,
+        "buy_yes_fee_adjusted_roi": 0.007957105442687568,
+        "buy_yes_raw_roi": 0.014681155639668458,
+        "contracts": 3737,
+        "edge_actual_minus_price": 0.00483581845636305,
+        "events": 2835,
+        "price_bucket": "04 25-40c"
+      },
+      {
+        "actual_resolution_rate": 0.5009536297532483,
+        "avg_observations": 4.376385743235189,
+        "avg_twap_yes_price": 0.499836664726811,
+        "buy_no_fee_adjusted_roi": -0.0097164507294814,
+        "buy_no_raw_roi": -0.002233200532036672,
+        "buy_yes_fee_adjusted_roi": -0.005282099097743539,
+        "buy_yes_raw_roi": 0.0022346600504943082,
+        "contracts": 16778,
+        "edge_actual_minus_price": 0.001116965026437322,
+        "events": 3992,
+        "price_bucket": "05 40-60c"
+      },
+      {
+        "actual_resolution_rate": 0.6386382280557834,
+        "avg_observations": 5.372026251025431,
+        "avg_twap_yes_price": 0.6553510273838822,
+        "buy_no_fee_adjusted_roi": 0.04138767177642652,
+        "buy_no_raw_roi": 0.04849223603145359,
+        "buy_yes_fee_adjusted_roi": -0.032105237386187896,
+        "buy_yes_raw_roi": -0.025502057111003788,
+        "contracts": 2438,
+        "edge_actual_minus_price": -0.01671279932809877,
+        "events": 2264,
+        "price_bucket": "06 60-75c"
+      },
+      {
+        "actual_resolution_rate": 0.7817460317460317,
+        "avg_observations": 5.192460317460317,
+        "avg_twap_yes_price": 0.7921861897031539,
+        "buy_no_fee_adjusted_roi": 0.04505110393416217,
+        "buy_no_raw_roi": 0.0502380373191233,
+        "buy_yes_fee_adjusted_roi": -0.018052648062949584,
+        "buy_yes_raw_roi": -0.013178919416702121,
+        "contracts": 504,
+        "edge_actual_minus_price": -0.010440157957122165,
+        "events": 501,
+        "price_bucket": "07 75-85c"
+      },
+      {
+        "actual_resolution_rate": 0.9020979020979021,
+        "avg_observations": 5.440559440559441,
+        "avg_twap_yes_price": 0.8755635198135197,
+        "buy_no_fee_adjusted_roi": -0.21580794675591128,
+        "buy_no_raw_roi": -0.2132363615928226,
+        "buy_yes_fee_adjusted_roi": 0.02693787427100885,
+        "buy_yes_raw_roi": 0.030305490902628983,
+        "contracts": 143,
+        "edge_actual_minus_price": 0.02653438228438243,
+        "events": 143,
+        "price_bucket": "08 85-90c"
+      },
+      {
+        "actual_resolution_rate": 1.0,
+        "avg_observations": 4.0,
+        "avg_twap_yes_price": 0.9039285714285715,
+        "buy_no_fee_adjusted_roi": -1.0,
+        "buy_no_raw_roi": -1.0,
+        "buy_yes_fee_adjusted_roi": 0.1033999590788507,
+        "buy_yes_raw_roi": 0.10628210193599356,
+        "contracts": 7,
+        "edge_actual_minus_price": 0.09607142857142847,
+        "events": 7,
+        "price_bucket": "09 90-95c"
+      }
+    ],
+    "outputs": {
+      "json": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/execution_training/favorite_longshot_bias_latest.json",
+      "report": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/favorite_longshot_bias_latest.md"
+    },
+    "predeclared_bucket_results": [
+      {
+        "actual_resolution_rate": 0.11707317073170732,
+        "avg_observations": 5.509756097560976,
+        "avg_twap_yes_price": 0.12111856368563687,
+        "contracts": 410,
+        "description": "Classic longshot fade: buy NO when the outcome contract averages 5-15c.",
+        "direction": "buy_no",
+        "events": 384,
+        "fee_adjusted_roi": 0.0013947232742013854,
+        "fee_adjusted_roi_ci_hi": 0.03643099989644488,
+        "fee_adjusted_roi_ci_lo": -0.033823876273738555,
+        "max_price_inclusive": 0.15,
+        "min_price_exclusive": 0.05,
+        "name": "longshot_05_15_buy_no",
+        "raw_edge": 0.004045392953929541,
+        "raw_edge_gate": true,
+        "raw_roi": 0.00460288815621606,
+        "robust_ci_gate": false,
+        "source": "legacy_observations"
+      },
+      {
+        "actual_resolution_rate": 0.11904761904761904,
+        "avg_observations": 5.642857142857143,
+        "avg_twap_yes_price": 0.1280424933862434,
+        "contracts": 336,
+        "description": "Narrower longshot fade pocket surfaced by the first bucket scan.",
+        "direction": "buy_no",
+        "events": 334,
+        "fee_adjusted_roi": 0.006931745378125184,
+        "fee_adjusted_roi_ci_hi": 0.045812548360080356,
+        "fee_adjusted_roi_ci_lo": -0.034386846596458694,
+        "max_price_inclusive": 0.15,
+        "min_price_exclusive": 0.1,
+        "name": "longshot_10_15_buy_no",
+        "raw_edge": 0.008994874338624365,
+        "raw_edge_gate": true,
+        "raw_roi": 0.010315725560475903,
+        "robust_ci_gate": false,
+        "source": "legacy_observations"
+      },
+      {
+        "actual_resolution_rate": 0.8103975535168195,
+        "avg_observations": 5.23394495412844,
+        "avg_twap_yes_price": 0.8116130320240411,
+        "contracts": 654,
+        "description": "Research-prior favorite bucket: buy YES when the outcome contract averages 75-92c.",
+        "direction": "buy_yes",
+        "events": 649,
+        "fee_adjusted_roi": -0.0060776585547752445,
+        "fee_adjusted_roi_ci_hi": 0.02933631799325871,
+        "fee_adjusted_roi_ci_lo": -0.042004762853714676,
+        "max_price_inclusive": 0.92,
+        "min_price_exclusive": 0.75,
+        "name": "favorite_75_92_buy_yes",
+        "raw_edge": -0.0012154785072215901,
+        "raw_edge_gate": false,
+        "raw_roi": -0.0014976084159101894,
+        "robust_ci_gate": false,
+        "source": "legacy_observations"
+      },
+      {
+        "actual_resolution_rate": 0.9066666666666666,
+        "avg_observations": 5.373333333333333,
+        "avg_twap_yes_price": 0.876887222222222,
+        "contracts": 150,
+        "description": "High-confidence favorite pocket: buy YES when the outcome contract averages 85-95c.",
+        "direction": "buy_yes",
+        "events": 150,
+        "fee_adjusted_roi": 0.03061173657597805,
+        "fee_adjusted_roi_ci_hi": 0.08246838277226136,
+        "fee_adjusted_roi_ci_lo": -0.02947704850077026,
+        "max_price_inclusive": 0.95,
+        "min_price_exclusive": 0.85,
+        "name": "favorite_85_95_buy_yes",
+        "raw_edge": 0.02977944444444458,
+        "raw_edge_gate": true,
+        "raw_roi": 0.03396040413153361,
+        "robust_ci_gate": false,
+        "source": "legacy_observations"
+      },
+      {
+        "contracts": 0,
+        "description": "Classic longshot fade: buy NO when the outcome contract averages 5-15c.",
+        "direction": "buy_no",
+        "events": 0,
+        "fee_adjusted_roi": null,
+        "fee_adjusted_roi_ci_hi": null,
+        "fee_adjusted_roi_ci_lo": null,
+        "max_price_inclusive": 0.15,
+        "min_price_exclusive": 0.05,
+        "name": "longshot_05_15_buy_no",
+        "raw_edge": null,
+        "raw_edge_gate": false,
+        "raw_roi": null,
+        "robust_ci_gate": false,
+        "source": "telonex_clear_settlement"
+      },
+      {
+        "contracts": 0,
+        "description": "Narrower longshot fade pocket surfaced by the first bucket scan.",
+        "direction": "buy_no",
+        "events": 0,
+        "fee_adjusted_roi": null,
+        "fee_adjusted_roi_ci_hi": null,
+        "fee_adjusted_roi_ci_lo": null,
+        "max_price_inclusive": 0.15,
+        "min_price_exclusive": 0.1,
+        "name": "longshot_10_15_buy_no",
+        "raw_edge": null,
+        "raw_edge_gate": false,
+        "raw_roi": null,
+        "robust_ci_gate": false,
+        "source": "telonex_clear_settlement"
+      },
+      {
+        "contracts": 0,
+        "description": "Research-prior favorite bucket: buy YES when the outcome contract averages 75-92c.",
+        "direction": "buy_yes",
+        "events": 0,
+        "fee_adjusted_roi": null,
+        "fee_adjusted_roi_ci_hi": null,
+        "fee_adjusted_roi_ci_lo": null,
+        "max_price_inclusive": 0.92,
+        "min_price_exclusive": 0.75,
+        "name": "favorite_75_92_buy_yes",
+        "raw_edge": null,
+        "raw_edge_gate": false,
+        "raw_roi": null,
+        "robust_ci_gate": false,
+        "source": "telonex_clear_settlement"
+      },
+      {
+        "contracts": 0,
+        "description": "High-confidence favorite pocket: buy YES when the outcome contract averages 85-95c.",
+        "direction": "buy_yes",
+        "events": 0,
+        "fee_adjusted_roi": null,
+        "fee_adjusted_roi_ci_hi": null,
+        "fee_adjusted_roi_ci_lo": null,
+        "max_price_inclusive": 0.95,
+        "min_price_exclusive": 0.85,
+        "name": "favorite_85_95_buy_yes",
+        "raw_edge": null,
+        "raw_edge_gate": false,
+        "raw_roi": null,
+        "robust_ci_gate": false,
+        "source": "telonex_clear_settlement"
+      }
+    ],
+    "sources": {
+      "legacy_observations": {
+        "available": true,
+        "clean_rows": 120948,
+        "contracts": 25409,
+        "dropped_conflicting_rows": 2102,
+        "events": 5068,
+        "input_files": 41,
+        "note": "No per-row timestamp is present in these files; twap_yes_price is observation-weighted across stored lead-time snapshots.",
+        "raw_rows": 123050,
+        "source": "legacy_polymarket_warehouse_observations"
+      },
+      "telonex_clear_settlement": {
+        "available": true,
+        "clear_contracts": 40,
+        "clear_markets": 20,
+        "labels_sha256": "32537f0d3b561eb1f7a39bcb5ed6ad4834d6f854a4443683da29c657d09f223b",
+        "labels_source": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/execution_training/telonex_clob_execution_labels_partitioned",
+        "note": "Settlement is inferred only when the final CLOB midpoint clearly has one token near 1 and the rest near 0.",
+        "resolved_markets": 42,
+        "resolved_tokens": 82,
+        "source": "telonex_minute_clob_clear_settlement_inference"
+      }
+    },
+    "strategy": {
+      "bucket": "favorite_longshot_bias",
+      "fee_rate": 0.03,
+      "min_contracts": 100,
+      "min_events": 100,
+      "next_target": "favorite/longshot regime selection and executable taker/limit-entry validation",
+      "predeclared_buckets": [
+        {
+          "description": "Classic longshot fade: buy NO when the outcome contract averages 5-15c.",
+          "direction": "buy_no",
+          "max_price_inclusive": 0.15,
+          "min_price_exclusive": 0.05,
+          "name": "longshot_05_15_buy_no"
+        },
+        {
+          "description": "Narrower longshot fade pocket surfaced by the first bucket scan.",
+          "direction": "buy_no",
+          "max_price_inclusive": 0.15,
+          "min_price_exclusive": 0.1,
+          "name": "longshot_10_15_buy_no"
+        },
+        {
+          "description": "Research-prior favorite bucket: buy YES when the outcome contract averages 75-92c.",
+          "direction": "buy_yes",
+          "max_price_inclusive": 0.92,
+          "min_price_exclusive": 0.75,
+          "name": "favorite_75_92_buy_yes"
+        },
+        {
+          "description": "High-confidence favorite pocket: buy YES when the outcome contract averages 85-95c.",
+          "direction": "buy_yes",
+          "max_price_inclusive": 0.95,
+          "min_price_exclusive": 0.85,
+          "name": "favorite_85_95_buy_yes"
+        }
+      ],
+      "price_bins": [
+        0,
+        0.05,
+        0.1,
+        0.15,
+        0.25,
+        0.4,
+        0.6,
+        0.75,
+        0.85,
+        0.9,
+        0.95,
+        1.0
+      ],
+      "venue": "polymarket"
+    },
+    "telonex_bucket_summary": [
+      {
+        "actual_resolution_rate": 0.0,
+        "avg_observations": 2924.8,
+        "avg_twap_yes_price": 0.3659715092177943,
+        "buy_no_fee_adjusted_roi": 0.5662370438040113,
+        "buy_no_raw_roi": 0.5772161890805452,
+        "buy_yes_fee_adjusted_roi": -1.0,
+        "buy_yes_raw_roi": -1.0,
+        "contracts": 5,
+        "edge_actual_minus_price": -0.3659715092177943,
+        "events": 5,
+        "price_bucket": "04 25-40c"
+      },
+      {
+        "actual_resolution_rate": 0.5,
+        "avg_observations": 3435.4666666666667,
+        "avg_twap_yes_price": 0.5,
+        "buy_no_fee_adjusted_roi": -0.0075,
+        "buy_no_raw_roi": 0.0,
+        "buy_yes_fee_adjusted_roi": -0.0075,
+        "buy_yes_raw_roi": 0.0,
+        "contracts": 30,
+        "edge_actual_minus_price": 0.0,
+        "events": 15,
+        "price_bucket": "05 40-60c"
+      },
+      {
+        "actual_resolution_rate": 1.0,
+        "avg_observations": 2924.8,
+        "avg_twap_yes_price": 0.6340284907822056,
+        "buy_no_fee_adjusted_roi": -1.0,
+        "buy_no_raw_roi": -1.0,
+        "buy_yes_fee_adjusted_roi": 0.5662370438040116,
+        "buy_yes_raw_roi": 0.5772161890805454,
+        "contracts": 5,
+        "edge_actual_minus_price": 0.3659715092177944,
+        "events": 5,
+        "price_bucket": "06 60-75c"
+      }
+    ]
+  },
+  "favorite_longshot_executable": {
+    "coverage": {
+      "assets_missing_books": 833,
+      "assets_with_books": 15,
+      "assets_without_clear_settlement": 1,
+      "assets_without_entry": 8,
+      "book_rows_scanned": 2099670,
+      "candidate_tokens": 7,
+      "clear_settlement_entries": 6,
+      "selected_entries": 7,
+      "target_assets": 848
+    },
+    "executable_gate": false,
+    "gate_reasons": [
+      "need >=200 clear-settlement bets",
+      "need >=50 clear-settlement markets"
+    ],
+    "generated_at": "2026-05-30T23:16:39.248701+00:00",
+    "horizon_by_bucket": [
+      {
+        "avg_entry_ask": 0.866,
+        "avg_spread": 0.028000000000000025,
+        "bets": 5,
+        "bootstrap_ci": {
+          "ci_hi": -0.022242847279395277,
+          "ci_lo": -0.045358160919540265,
+          "clusters": 5
+        },
+        "bucket": "high_prob_token_in_favorite_or_longshot_market",
+        "horizon_sec": "300",
+        "markets": 5,
+        "pnl": -0.14710100000000012,
+        "roi": -0.033972517321016193,
+        "stake": 4.33,
+        "tokens": 5,
+        "win_rate": 0.0
+      },
+      {
+        "avg_entry_ask": 0.8619999999999999,
+        "avg_spread": 0.026000000000000023,
+        "bets": 5,
+        "bootstrap_ci": {
+          "ci_hi": -0.03060635294117649,
+          "ci_lo": -0.14797656732117817,
+          "clusters": 5
+        },
+        "bucket": "high_prob_token_in_favorite_or_longshot_market",
+        "horizon_sec": "900",
+        "markets": 5,
+        "pnl": -0.3208360000000001,
+        "roi": -0.07443990719257544,
+        "stake": 4.31,
+        "tokens": 5,
+        "win_rate": 0.0
+      },
+      {
+        "avg_entry_ask": 0.8639999999999999,
+        "avg_spread": 0.030000000000000006,
+        "bets": 5,
+        "bootstrap_ci": {
+          "ci_hi": -0.04001431924882629,
+          "ci_lo": -0.1473405034324943,
+          "clusters": 5
+        },
+        "bucket": "high_prob_token_in_favorite_or_longshot_market",
+        "horizon_sec": "3600",
+        "markets": 5,
+        "pnl": -0.37147499999999994,
+        "roi": -0.08598958333333333,
+        "stake": 4.319999999999999,
+        "tokens": 5,
+        "win_rate": 0.0
+      },
+      {
+        "avg_entry_ask": 0.85,
+        "avg_spread": 0.030000000000000027,
+        "bets": 2,
+        "bootstrap_ci": {
+          "ci_hi": 0.0030152941176470687,
+          "ci_lo": -0.009000000000000001,
+          "clusters": 2
+        },
+        "bucket": "high_prob_token_in_favorite_or_longshot_market",
+        "horizon_sec": "21600",
+        "markets": 2,
+        "pnl": -0.005086999999999993,
+        "roi": -0.0029923529411764664,
+        "stake": 1.7,
+        "tokens": 2,
+        "win_rate": 0.5
+      },
+      {
+        "avg_entry_ask": 0.8619999999999999,
+        "avg_spread": 0.026000000000000023,
+        "bets": 5,
+        "bootstrap_ci": {
+          "ci_hi": 0.007828470588235307,
+          "ci_lo": -0.05660251716247137,
+          "clusters": 5
+        },
+        "bucket": "high_prob_token_in_favorite_or_longshot_market",
+        "horizon_sec": "86400",
+        "markets": 5,
+        "pnl": -0.09685799999999994,
+        "roi": -0.022472853828306254,
+        "stake": 4.31,
+        "tokens": 5,
+        "win_rate": 0.4
+      }
+    ],
+    "inputs": {
+      "fee_rate": 0.03,
+      "horizons_sec": [
+        300,
+        900,
+        3600,
+        21600,
+        86400
+      ],
+      "manifest": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/clob_capture/telonex_download_manifest.json",
+      "max_ask": 0.95,
+      "max_spread": 0.05,
+      "min_ask": 0.85,
+      "min_ask_size": 5.0,
+      "plan": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/execution_training/favorite_longshot_telonex_target_assets_latest.parquet",
+      "settlement_threshold": 0.95
+    },
+    "outputs": {
+      "bets": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/execution_training/favorite_longshot_executable_bets_latest.parquet",
+      "json": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/execution_training/favorite_longshot_executable_backtest_latest.json",
+      "report": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/favorite_longshot_executable_backtest_latest.md"
+    },
+    "settlement_bootstrap_ci": {
+      "ci_hi": 0.16971878669275936,
+      "ci_lo": 0.14768365642994244,
+      "clusters": 6
+    },
+    "settlement_by_bucket": [
+      {
+        "avg_entry_ask": 0.86,
+        "avg_spread": 0.03500000000000001,
+        "bets": 6,
+        "bootstrap_ci": {
+          "ci_hi": 0.16971878669275936,
+          "ci_lo": 0.14768365642994244,
+          "clusters": 6
+        },
+        "bucket": "high_prob_token_in_favorite_or_longshot_market",
+        "markets": 6,
+        "pnl": 0.8183520000000001,
+        "roi": 0.15859534883720933,
+        "stake": 5.16,
+        "tokens": 6,
+        "win_rate": 1.0
+      }
+    ],
+    "settlement_total": {
+      "avg_entry_ask": 0.86,
+      "avg_spread": 0.03500000000000001,
+      "bets": 6,
+      "exit_type": "clear_settlement",
+      "markets": 6,
+      "pnl": 0.8183520000000001,
+      "roi": 0.15859534883720933,
+      "stake": 5.16,
+      "tokens": 6,
+      "win_rate": 1.0
+    },
+    "strategy": "favorite_longshot_executable_high_probability_token",
+    "strategy_version": "favorite_longshot_executable:v1",
+    "verdict": "HOLD: favorite-longshot executable bucket not yet proven"
+  },
+  "favorite_longshot_telonex_plan": {
+    "by_bucket": [
+      {
+        "bucket": "longshot_10_15_buy_no",
+        "matched_contracts": 321,
+        "matched_markets": 389,
+        "target_assets": 778,
+        "target_contracts": 336
+      },
+      {
+        "bucket": "favorite_85_95_buy_yes",
+        "matched_contracts": 142,
+        "matched_markets": 194,
+        "target_assets": 388,
+        "target_contracts": 150
+      }
+    ],
+    "generated_at": "2026-05-30T22:57:40.696565+00:00",
+    "legacy_audit": {
+      "clean_contracts": 486,
+      "input_files": 41,
+      "target_events": 343
+    },
+    "matched_contracts": 463,
+    "matched_markets": 424,
+    "matching_policy": {
+      "downloads_require_quotes_and_book_snapshot_5": true,
+      "event_date_delta_days_max": 1,
+      "event_score_min": 0.58,
+      "h2h_excludes_totals_spreads_1h_props_exact_score": true,
+      "legacy_market_kind_enforced": true,
+      "match_score_min": 0.62,
+      "side_score_min": 0.45,
+      "sport_mapped": true
+    },
+    "outputs": {
+      "json": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/execution_training/favorite_longshot_telonex_plan_latest.json",
+      "report": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/favorite_longshot_telonex_plan_latest.md",
+      "target_assets": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/execution_training/favorite_longshot_telonex_target_assets_latest.parquet"
+    },
+    "target_assets": 848,
+    "target_contracts": 486,
+    "target_events": 343,
+    "verdict": "READY_TO_DOWNLOAD_TARGETED_TELONEX_CLOB"
+  },
+  "game_state": {
+    "garbage_time_proxy_rows": 0,
+    "matched_scoreline_regime_counts": {
+      "blowout": 7,
+      "one_run": 4,
+      "pre": 7,
+      "tied": 5
+    },
+    "matches": 23,
+    "scoreboard_rows": 36,
+    "scoreline_regime_counts": {
+      "blowout": 7,
+      "close": 1,
+      "one_run": 3,
+      "pre": 22,
+      "tied": 3
+    }
+  },
+  "gate_reasons": [
+    "queue/fill model not validated on authenticated fills",
+    "need authenticated Polymarket fill/order lifecycle rows",
+    "collector not healthy",
+    "Telonex convergence research gate failed",
+    "execution-adjusted backtest replay failed: no selected historical replay trades",
+    "no predeclared executable taker strategy bucket cleared validation",
+    "Telonex model monitor hold",
+    "live paper-fill LEV/price-hold quality gate failed",
+    "Telonex market-disjoint validation gate failed",
+    "Telonex temporal validation gate failed",
+    "favorite-longshot executable Telonex backtest gate failed"
+  ],
+  "gate_warnings": [
+    "cross-venue Kalshi comparison unavailable: no verified equivalent markets",
+    "predeclared non-ML Telonex strategy buckets failed",
+    "live game-state feed too thin for event-regime/scoreline/garbage-time features",
+    "trade-flow feature family has no confirmed economic permutation impact yet",
+    "Odds feature family has no confirmed economic permutation impact in latest audit",
+    "Odds API fusion not yet proven on held-out Telonex test",
+    "live strategy LEV evidence incomplete",
+    "favorite-longshot bucket has raw edge but not robust event-cluster CI yet"
+  ],
+  "generated_at": "2026-05-30T23:26:45.379451+00:00",
+  "historical_clob": {
+    "depth_rows": 36813908,
+    "quote_rows": 7183240,
+    "telonex_depth_rows": 36813908
+  },
+  "kalshi": {
+    "verified_mappings": 0
+  },
+  "live_capital_gate": false,
+  "live_execution_quality": {
+    "alpha_fills": 692,
+    "fills": 847,
+    "fills_with_model_version": 207,
+    "gate_reasons": [
+      "need >=500 alpha paper fills with 3s post-fill books within 5s lag",
+      "3s alpha average LEV is not positive",
+      "3s alpha favorable post-fill move rate is not >52%",
+      "wallet-level whale detector unavailable from current trade feed",
+      "favorite_longshot_bias has only 13 timely 3s LEV rows after 692 fills"
+    ],
+    "generated_at": "2026-05-30T23:24:19.517650+00:00",
+    "hold_revert": {
+      "hold_rate_3s_to_120s": null,
+      "revert_rate_3s_to_120s": null,
+      "rows": 0
+    },
+    "large_trade_threshold_usd": 250.0,
+    "large_trades": 59,
+    "lev_3s_alpha_rows": 13,
+    "lev_3s_avg": -0.015682615384615375,
+    "lev_3s_avg_snapshot_lag_sec": 1.1217640000000002,
+    "lev_3s_favorable_rate": 0.0,
+    "lev_3s_max_snapshot_lag_sec": 1.121764,
+    "lev_3s_p95_snapshot_lag_sec": 1.121764,
+    "lev_3s_probe_rows": 153,
+    "lev_3s_rows": 13,
+    "lev_drift_alert_count": 0,
+    "lev_drift_latest_50_mean": -0.015682615384615375,
+    "lev_drift_max_score": 0.007296857142857149,
+    "lev_max_lag_sec": 5.0,
+    "probe_fills": 155,
+    "quality_gate": false,
+    "quarantined_strategies": [],
+    "report": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/live_execution_quality_latest.md",
+    "strategy_health_gate": false,
+    "strategy_health_rows": [
+      {
+        "avg_lev_after_3s": -0.015682615384615375,
+        "evidence_insufficient": true,
+        "favorable_rate_after_3s": 0.0,
+        "fills": 692,
+        "quarantined": false,
+        "reason": "favorite_longshot_bias has only 13 timely 3s LEV rows after 692 fills",
+        "rows_after_3s": 13,
+        "strategy": "favorite_longshot_bias"
+      }
+    ],
+    "wallet_identity_available": false,
+    "wallet_identity_reason": "market-channel last_trade_price payload lacks wallet identifiers; whale scoring needs on-chain fill decode or authenticated/user trade source"
+  },
+  "paper": {
+    "authenticated_fill_rows": 0,
+    "authenticated_lifecycle_rows": 0,
+    "fill_rows": 847,
+    "lifecycle_counts": {
+      "created": 2790,
+      "filled": 847,
+      "rejected": 1039,
+      "resting": 1751
+    },
+    "lifecycle_rows": 6427,
+    "lifecycle_source_counts": {
+      "paper": 6427
+    },
+    "order_rows": 2790
+  },
+  "security": {
+    "critical": 0,
+    "findings": 0,
+    "rotation_required_for_chat_leaked_keys": true
+  },
+  "strategy_data_readiness": {
+    "dataset": {
+      "asof_max": "2026-05-29 23:59:00+00:00",
+      "asof_min": "2026-03-02 00:03:00+00:00",
+      "labels_path": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/execution_training/telonex_clob_execution_labels_partitioned",
+      "labels_sha256": "32537f0d3b561eb1f7a39bcb5ed6ad4834d6f854a4443683da29c657d09f223b",
+      "markets": 216,
+      "rows": 2888585,
+      "sports": {
+        "baseball_mlb": 1731351,
+        "basketball_wnba": 43570,
+        "icehockey_nhl": 5347,
+        "soccer": 1108317
+      },
+      "tokens": 429
+    },
+    "gate_reasons": [
+      "Odds API point-in-time features have insufficient test coverage"
+    ],
+    "gates": {
+      "heldout_market_extent": {
+        "legacy_absolute_gate": false,
+        "legacy_absolute_min_test_markets": 100,
+        "min_test_market_ratio": 0.15,
+        "test_market_ratio": 0.1651376146788991,
+        "test_markets": 18,
+        "usable_markets": 109
+      },
+      "heldout_market_extent_gate": true,
+      "historical_l2_scale_gate": true,
+      "odds_holdout_coverage_gate": false,
+      "overall_gate": false,
+      "quality_gate": true,
+      "reasons": [
+        "Odds API point-in-time features have insufficient test coverage"
+      ],
+      "trade_confirmed_fill_holdout_gate": true
+    },
+    "generated_at": "2026-05-30T22:26:03.945932+00:00",
+    "latest_model_monitor": {
+      "adverse_selection": {
+        "available": false,
+        "trades": 0
+      },
+      "drift": {
+        "ece_page_hinkley": {
+          "alerts": [],
+          "alpha": 0.99,
+          "delta": 0.001,
+          "max_score": 0.0,
+          "threshold": 0.02
+        },
+        "roi_page_hinkley": {
+          "alerts": [],
+          "alpha": 0.99,
+          "delta": 0.0,
+          "max_score": 0.0,
+          "threshold": 0.05
+        }
+      },
+      "generated_at": "2026-05-30T22:26:00.841168+00:00",
+      "latest_run": {
+        "blend_recent_weight": 0.0,
+        "comparable_hardened_run": true,
+        "conformal_abs_error_q90": 0.000441306266548985,
+        "external_validation_gate": false,
+        "external_validation_reasons": [
+          "market_disjoint validation gate failed: market_disjoint_gate=false in telonex_walk_forward_base_odds_latest.json",
+          "temporal validation gate failed: temporal_gate=false in telonex_temporal_validation_base_odds_latest.json"
+        ],
+        "external_validation_reports": {
+          "market_disjoint": {
+            "ensemble": {
+              "blend_recent_weight": 0.0,
+              "fold_recent_models": 0,
+              "folds": 2,
+              "min_recent_positive_rows": 100,
+              "min_recent_rows": 10000,
+              "recent_model": false,
+              "recent_window_days": 21.0,
+              "requested_blend_recent_weight": 0.0
+            },
+            "exists": true,
+            "feature_count": 82,
+            "feature_set": "base_odds",
+            "gate": false,
+            "gate_key": "market_disjoint_gate",
+            "generated_at": "2026-05-30T21:58:06.655746+00:00",
+            "path": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/telonex_convergence_ml/telonex_walk_forward_base_odds_latest.json",
+            "target": {
+              "pnl_col": "maker_trade_fill_pnl_per_share",
+              "stake_col": "entry_bid",
+              "target_col": "maker_trade_fill_positive"
+            },
+            "test_ci_hi": null,
+            "test_ci_lo": null,
+            "test_roi": null,
+            "test_trades": 0
+          },
+          "temporal": {
+            "ensemble": {
+              "blend_recent_weight": 0.0,
+              "fold_recent_models": 0,
+              "folds": 1,
+              "min_recent_positive_rows": 100,
+              "min_recent_rows": 10000,
+              "recent_model": false,
+              "recent_window_days": 21.0,
+              "requested_blend_recent_weight": 0.0
+            },
+            "exists": true,
+            "feature_count": 82,
+            "feature_set": "base_odds",
+            "gate": false,
+            "gate_key": "temporal_gate",
+            "generated_at": "2026-05-30T21:59:34.831703+00:00",
+            "path": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/telonex_convergence_ml/telonex_temporal_validation_base_odds_latest.json",
+            "target": {
+              "pnl_col": "maker_trade_fill_pnl_per_share",
+              "stake_col": "entry_bid",
+              "target_col": "maker_trade_fill_positive"
+            },
+            "test_ci_hi": null,
+            "test_ci_lo": null,
+            "test_roi": null,
+            "test_trades": 0
+          }
+        },
+        "feature_set": "base_odds",
+        "generated_at": "2026-05-30T21:54:51.137295+00:00",
+        "label_coverage_gate": true,
+        "label_coverage_reasons": [],
+        "odds_feature_gate": true,
+        "odds_test_coverage": 0.2977453997362306,
+        "odds_test_matched_markets": 5,
+        "performance_gate": false,
+        "predictions": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/telonex_convergence_ml/20260530T215450Z/predictions.parquet",
+        "recent_model": false,
+        "research_gate": false,
+        "run_id": "20260530T215450Z",
+        "selection_score_col": "convergence_prob_lower",
+        "test_ci_hi": null,
+        "test_ci_lo": null,
+        "test_ece_10": 0.00022721751128733201,
+        "test_markets": 0,
+        "test_roi": null,
+        "test_trades": 0,
+        "trade_fill_target": true,
+        "uses_odds_features": true,
+        "val_roi": null
+      },
+      "outputs": {
+        "json": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/telonex_convergence_ml/telonex_model_monitor_latest.json",
+        "report": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/telonex_model_monitor_latest.md"
+      },
+      "risk": {
+        "correlated_time_block_simulation": {
+          "simulations": 2000,
+          "trades": 0
+        },
+        "simulations": 2000,
+        "trades": 0
+      },
+      "runs": [
+        {
+          "blend_recent_weight": 0.0,
+          "comparable_hardened_run": true,
+          "conformal_abs_error_q90": 0.058663028649386086,
+          "external_validation_gate": false,
+          "external_validation_reasons": [
+            "market_disjoint validation target_col mismatch: expected maker_positive, got maker_trade_fill_positive",
+            "market_disjoint validation pnl_col mismatch: expected maker_pnl_per_share, got maker_trade_fill_pnl_per_share",
+            "market_disjoint validation gate failed: market_disjoint_gate=false in telonex_walk_forward_base_odds_latest.json",
+            "temporal validation target_col mismatch: expected maker_positive, got maker_trade_fill_positive",
+            "temporal validation pnl_col mismatch: expected maker_pnl_per_share, got maker_trade_fill_pnl_per_share",
+            "temporal validation gate failed: temporal_gate=false in telonex_temporal_validation_base_odds_latest.json"
+          ],
+          "external_validation_reports": {
+            "market_disjoint": {
+              "ensemble": {
+                "blend_recent_weight": 0.0,
+                "fold_recent_models": 0,
+                "folds": 2,
+                "min_recent_positive_rows": 100,
+                "min_recent_rows": 10000,
+                "recent_model": false,
+                "recent_window_days": 21.0,
+                "requested_blend_recent_weight": 0.0
+              },
+              "exists": true,
+              "feature_count": 82,
+              "feature_set": "base_odds",
+              "gate": false,
+              "gate_key": "market_disjoint_gate",
+              "generated_at": "2026-05-30T21:58:06.655746+00:00",
+              "path": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/telonex_convergence_ml/telonex_walk_forward_base_odds_latest.json",
+              "target": {
+                "pnl_col": "maker_trade_fill_pnl_per_share",
+                "stake_col": "entry_bid",
+                "target_col": "maker_trade_fill_positive"
+              },
+              "test_ci_hi": null,
+              "test_ci_lo": null,
+              "test_roi": null,
+              "test_trades": 0
+            },
+            "temporal": {
+              "ensemble": {
+                "blend_recent_weight": 0.0,
+                "fold_recent_models": 0,
+                "folds": 1,
+                "min_recent_positive_rows": 100,
+                "min_recent_rows": 10000,
+                "recent_model": false,
+                "recent_window_days": 21.0,
+                "requested_blend_recent_weight": 0.0
+              },
+              "exists": true,
+              "feature_count": 82,
+              "feature_set": "base_odds",
+              "gate": false,
+              "gate_key": "temporal_gate",
+              "generated_at": "2026-05-30T21:59:34.831703+00:00",
+              "path": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/telonex_convergence_ml/telonex_temporal_validation_base_odds_latest.json",
+              "target": {
+                "pnl_col": "maker_trade_fill_pnl_per_share",
+                "stake_col": "entry_bid",
+                "target_col": "maker_trade_fill_positive"
+              },
+              "test_ci_hi": null,
+              "test_ci_lo": null,
+              "test_roi": null,
+              "test_trades": 0
+            }
+          },
+          "feature_set": "base_odds",
+          "generated_at": "2026-05-30T16:32:39.773963+00:00",
+          "label_coverage_gate": true,
+          "label_coverage_reasons": [],
+          "odds_feature_gate": true,
+          "odds_test_coverage": 0.0,
+          "odds_test_matched_markets": 0,
+          "performance_gate": true,
+          "predictions": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/telonex_convergence_ml/20260530T163238Z/predictions.parquet",
+          "recent_model": false,
+          "research_gate": true,
+          "run_id": "20260530T163238Z",
+          "selection_score_col": "convergence_prob_lower",
+          "test_ci_hi": 0.1449869794691568,
+          "test_ci_lo": 0.09850660598988106,
+          "test_ece_10": 0.005935130890672198,
+          "test_markets": 30,
+          "test_roi": 0.12098438986253177,
+          "test_trades": 689,
+          "trade_fill_target": false,
+          "uses_odds_features": true,
+          "val_roi": 0.1069041347838112
+        },
+        {
+          "blend_recent_weight": 0.0,
+          "comparable_hardened_run": true,
+          "conformal_abs_error_q90": 0.0,
+          "external_validation_gate": false,
+          "external_validation_reasons": [
+            "market_disjoint validation target_col mismatch: expected lev_positive, got maker_trade_fill_positive",
+            "market_disjoint validation pnl_col mismatch: expected pnl_per_share, got maker_trade_fill_pnl_per_share",
+            "market_disjoint validation stake_col mismatch: expected entry_ask, got entry_bid",
+            "market_disjoint validation gate failed: market_disjoint_gate=false in telonex_walk_forward_base_odds_latest.json",
+            "temporal validation target_col mismatch: expected lev_positive, got maker_trade_fill_positive",
+            "temporal validation pnl_col mismatch: expected pnl_per_share, got maker_trade_fill_pnl_per_share",
+            "temporal validation stake_col mismatch: expected entry_ask, got entry_bid",
+            "temporal validation gate failed: temporal_gate=false in telonex_temporal_validation_base_odds_latest.json"
+          ],
+          "external_validation_reports": {
+            "market_disjoint": {
+              "ensemble": {
+                "blend_recent_weight": 0.0,
+                "fold_recent_models": 0,
+                "folds": 2,
+                "min_recent_positive_rows": 100,
+                "min_recent_rows": 10000,
+                "recent_model": false,
+                "recent_window_days": 21.0,
+                "requested_blend_recent_weight": 0.0
+              },
+              "exists": true,
+              "feature_count": 82,
+              "feature_set": "base_odds",
+              "gate": false,
+              "gate_key": "market_disjoint_gate",
+              "generated_at": "2026-05-30T21:58:06.655746+00:00",
+              "path": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/telonex_convergence_ml/telonex_walk_forward_base_odds_latest.json",
+              "target": {
+                "pnl_col": "maker_trade_fill_pnl_per_share",
+                "stake_col": "entry_bid",
+                "target_col": "maker_trade_fill_positive"
+              },
+              "test_ci_hi": null,
+              "test_ci_lo": null,
+              "test_roi": null,
+              "test_trades": 0
+            },
+            "temporal": {
+              "ensemble": {
+                "blend_recent_weight": 0.0,
+                "fold_recent_models": 0,
+                "folds": 1,
+                "min_recent_positive_rows": 100,
+                "min_recent_rows": 10000,
+                "recent_model": false,
+                "recent_window_days": 21.0,
+                "requested_blend_recent_weight": 0.0
+              },
+              "exists": true,
+              "feature_count": 82,
+              "feature_set": "base_odds",
+              "gate": false,
+              "gate_key": "temporal_gate",
+              "generated_at": "2026-05-30T21:59:34.831703+00:00",
+              "path": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/telonex_convergence_ml/telonex_temporal_validation_base_odds_latest.json",
+              "target": {
+                "pnl_col": "maker_trade_fill_pnl_per_share",
+                "stake_col": "entry_bid",
+                "target_col": "maker_trade_fill_positive"
+              },
+              "test_ci_hi": null,
+              "test_ci_lo": null,
+              "test_roi": null,
+              "test_trades": 0
+            }
+          },
+          "feature_set": "base_odds",
+          "generated_at": "2026-05-30T19:38:48.007685+00:00",
+          "label_coverage_gate": true,
+          "label_coverage_reasons": [],
+          "odds_feature_gate": false,
+          "odds_test_coverage": 0.0,
+          "odds_test_matched_markets": 0,
+          "performance_gate": false,
+          "predictions": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/telonex_convergence_ml/20260530T193847Z/predictions.parquet",
+          "recent_model": false,
+          "research_gate": false,
+          "run_id": "20260530T193847Z",
+          "selection_score_col": "convergence_prob_lower",
+          "test_ci_hi": null,
+          "test_ci_lo": null,
+          "test_ece_10": 6.216492740453565e-05,
+          "test_markets": 0,
+          "test_roi": null,
+          "test_trades": 0,
+          "trade_fill_target": false,
+          "uses_odds_features": true,
+          "val_roi": null
+        },
+        {
+          "blend_recent_weight": 0.0,
+          "comparable_hardened_run": true,
+          "conformal_abs_error_q90": 0.0004588208304657031,
+          "external_validation_gate": false,
+          "external_validation_reasons": [
+            "market_disjoint validation target_col mismatch: expected lev_positive, got maker_trade_fill_positive",
+            "market_disjoint validation pnl_col mismatch: expected pnl_per_share, got maker_trade_fill_pnl_per_share",
+            "market_disjoint validation stake_col mismatch: expected entry_ask, got entry_bid",
+            "market_disjoint validation gate failed: market_disjoint_gate=false in telonex_walk_forward_latest.json",
+            "temporal validation target_col mismatch: expected lev_positive, got maker_trade_fill_positive",
+            "temporal validation pnl_col mismatch: expected pnl_per_share, got maker_trade_fill_pnl_per_share",
+            "temporal validation stake_col mismatch: expected entry_ask, got entry_bid",
+            "temporal validation gate failed: temporal_gate=false in telonex_temporal_validation_latest.json"
+          ],
+          "external_validation_reports": {
+            "market_disjoint": {
+              "ensemble": {
+                "blend_recent_weight": 0.0,
+                "fold_recent_models": 0,
+                "folds": 2,
+                "min_recent_positive_rows": 100,
+                "min_recent_rows": 10000,
+                "recent_model": false,
+                "recent_window_days": 21.0,
+                "requested_blend_recent_weight": 0.0
+              },
+              "exists": true,
+              "feature_count": 64,
+              "feature_set": "base",
+              "gate": false,
+              "gate_key": "market_disjoint_gate",
+              "generated_at": "2026-05-30T21:19:15.517273+00:00",
+              "path": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/telonex_convergence_ml/telonex_walk_forward_latest.json",
+              "target": {
+                "pnl_col": "maker_trade_fill_pnl_per_share",
+                "stake_col": "entry_bid",
+                "target_col": "maker_trade_fill_positive"
+              },
+              "test_ci_hi": null,
+              "test_ci_lo": null,
+              "test_roi": null,
+              "test_trades": 0
+            },
+            "temporal": {
+              "ensemble": {
+                "blend_recent_weight": 0.0,
+                "fold_recent_models": 0,
+                "folds": 1,
+                "min_recent_positive_rows": 100,
+                "min_recent_rows": 10000,
+                "recent_model": false,
+                "recent_window_days": 21.0,
+                "requested_blend_recent_weight": 0.0
+              },
+              "exists": true,
+              "feature_count": 64,
+              "feature_set": "base",
+              "gate": false,
+              "gate_key": "temporal_gate",
+              "generated_at": "2026-05-30T21:21:26.253602+00:00",
+              "path": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/telonex_convergence_ml/telonex_temporal_validation_latest.json",
+              "target": {
+                "pnl_col": "maker_trade_fill_pnl_per_share",
+                "stake_col": "entry_bid",
+                "target_col": "maker_trade_fill_positive"
+              },
+              "test_ci_hi": null,
+              "test_ci_lo": null,
+              "test_roi": null,
+              "test_trades": 0
+            }
+          },
+          "feature_set": "base",
+          "generated_at": "2026-05-30T19:54:27.106346+00:00",
+          "label_coverage_gate": true,
+          "label_coverage_reasons": [],
+          "odds_feature_gate": true,
+          "odds_test_coverage": null,
+          "odds_test_matched_markets": 0,
+          "performance_gate": false,
+          "predictions": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/telonex_convergence_ml/20260530T195425Z/predictions.parquet",
+          "recent_model": false,
+          "research_gate": false,
+          "run_id": "20260530T195425Z",
+          "selection_score_col": "convergence_prob_lower",
+          "test_ci_hi": null,
+          "test_ci_lo": null,
+          "test_ece_10": 3.35041320865154e-05,
+          "test_markets": 0,
+          "test_roi": null,
+          "test_trades": 0,
+          "trade_fill_target": false,
+          "uses_odds_features": false,
+          "val_roi": null
+        },
+        {
+          "blend_recent_weight": 0.0,
+          "comparable_hardened_run": true,
+          "conformal_abs_error_q90": 0.0015135415598203287,
+          "external_validation_gate": false,
+          "external_validation_reasons": [
+            "market_disjoint validation gate failed: market_disjoint_gate=false in telonex_walk_forward_latest.json",
+            "temporal validation gate failed: temporal_gate=false in telonex_temporal_validation_latest.json"
+          ],
+          "external_validation_reports": {
+            "market_disjoint": {
+              "ensemble": {
+                "blend_recent_weight": 0.0,
+                "fold_recent_models": 0,
+                "folds": 2,
+                "min_recent_positive_rows": 100,
+                "min_recent_rows": 10000,
+                "recent_model": false,
+                "recent_window_days": 21.0,
+                "requested_blend_recent_weight": 0.0
+              },
+              "exists": true,
+              "feature_count": 64,
+              "feature_set": "base",
+              "gate": false,
+              "gate_key": "market_disjoint_gate",
+              "generated_at": "2026-05-30T21:19:15.517273+00:00",
+              "path": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/telonex_convergence_ml/telonex_walk_forward_latest.json",
+              "target": {
+                "pnl_col": "maker_trade_fill_pnl_per_share",
+                "stake_col": "entry_bid",
+                "target_col": "maker_trade_fill_positive"
+              },
+              "test_ci_hi": null,
+              "test_ci_lo": null,
+              "test_roi": null,
+              "test_trades": 0
+            },
+            "temporal": {
+              "ensemble": {
+                "blend_recent_weight": 0.0,
+                "fold_recent_models": 0,
+                "folds": 1,
+                "min_recent_positive_rows": 100,
+                "min_recent_rows": 10000,
+                "recent_model": false,
+                "recent_window_days": 21.0,
+                "requested_blend_recent_weight": 0.0
+              },
+              "exists": true,
+              "feature_count": 64,
+              "feature_set": "base",
+              "gate": false,
+              "gate_key": "temporal_gate",
+              "generated_at": "2026-05-30T21:21:26.253602+00:00",
+              "path": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/telonex_convergence_ml/telonex_temporal_validation_latest.json",
+              "target": {
+                "pnl_col": "maker_trade_fill_pnl_per_share",
+                "stake_col": "entry_bid",
+                "target_col": "maker_trade_fill_positive"
+              },
+              "test_ci_hi": null,
+              "test_ci_lo": null,
+              "test_roi": null,
+              "test_trades": 0
+            }
+          },
+          "feature_set": "base",
+          "generated_at": "2026-05-30T20:49:25.084708+00:00",
+          "label_coverage_gate": true,
+          "label_coverage_reasons": [],
+          "odds_feature_gate": true,
+          "odds_test_coverage": null,
+          "odds_test_matched_markets": 0,
+          "performance_gate": false,
+          "predictions": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/telonex_convergence_ml/20260530T204923Z/predictions.parquet",
+          "recent_model": false,
+          "research_gate": false,
+          "run_id": "20260530T204923Z",
+          "selection_score_col": "convergence_prob_lower",
+          "test_ci_hi": null,
+          "test_ci_lo": null,
+          "test_ece_10": 0.0009170152108101254,
+          "test_markets": 0,
+          "test_roi": null,
+          "test_trades": 0,
+          "trade_fill_target": false,
+          "uses_odds_features": false,
+          "val_roi": null
+        },
+        {
+          "blend_recent_weight": 0.0,
+          "comparable_hardened_run": true,
+          "conformal_abs_error_q90": 0.0015135415598203287,
+          "external_validation_gate": false,
+          "external_validation_reasons": [
+            "market_disjoint validation gate failed: market_disjoint_gate=false in telonex_walk_forward_latest.json",
+            "temporal validation gate failed: temporal_gate=false in telonex_temporal_validation_latest.json"
+          ],
+          "external_validation_reports": {
+            "market_disjoint": {
+              "ensemble": {
+                "blend_recent_weight": 0.0,
+                "fold_recent_models": 0,
+                "folds": 2,
+                "min_recent_positive_rows": 100,
+                "min_recent_rows": 10000,
+                "recent_model": false,
+                "recent_window_days": 21.0,
+                "requested_blend_recent_weight": 0.0
+              },
+              "exists": true,
+              "feature_count": 64,
+              "feature_set": "base",
+              "gate": false,
+              "gate_key": "market_disjoint_gate",
+              "generated_at": "2026-05-30T21:19:15.517273+00:00",
+              "path": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/telonex_convergence_ml/telonex_walk_forward_latest.json",
+              "target": {
+                "pnl_col": "maker_trade_fill_pnl_per_share",
+                "stake_col": "entry_bid",
+                "target_col": "maker_trade_fill_positive"
+              },
+              "test_ci_hi": null,
+              "test_ci_lo": null,
+              "test_roi": null,
+              "test_trades": 0
+            },
+            "temporal": {
+              "ensemble": {
+                "blend_recent_weight": 0.0,
+                "fold_recent_models": 0,
+                "folds": 1,
+                "min_recent_positive_rows": 100,
+                "min_recent_rows": 10000,
+                "recent_model": false,
+                "recent_window_days": 21.0,
+                "requested_blend_recent_weight": 0.0
+              },
+              "exists": true,
+              "feature_count": 64,
+              "feature_set": "base",
+              "gate": false,
+              "gate_key": "temporal_gate",
+              "generated_at": "2026-05-30T21:21:26.253602+00:00",
+              "path": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/telonex_convergence_ml/telonex_temporal_validation_latest.json",
+              "target": {
+                "pnl_col": "maker_trade_fill_pnl_per_share",
+                "stake_col": "entry_bid",
+                "target_col": "maker_trade_fill_positive"
+              },
+              "test_ci_hi": null,
+              "test_ci_lo": null,
+              "test_roi": null,
+              "test_trades": 0
+            }
+          },
+          "feature_set": "base",
+          "generated_at": "2026-05-30T21:14:26.338803+00:00",
+          "label_coverage_gate": false,
+          "label_coverage_reasons": [
+            "calibration split has zero positive `maker_trade_fill_positive` rows",
+            "calibration split has zero trade-feature rows for trade-confirmed fill target",
+            "calibration split has zero queue-confirmed maker fill rows",
+            "calibration split has zero nonzero `maker_trade_fill_pnl_per_share` rows",
+            "val split has zero positive `maker_trade_fill_positive` rows",
+            "val split has zero trade-feature rows for trade-confirmed fill target",
+            "val split has zero queue-confirmed maker fill rows",
+            "val split has zero nonzero `maker_trade_fill_pnl_per_share` rows",
+            "test split has zero positive `maker_trade_fill_positive` rows",
+            "test split has zero trade-feature rows for trade-confirmed fill target",
+            "test split has zero queue-confirmed maker fill rows",
+            "test split has zero nonzero `maker_trade_fill_pnl_per_share` rows"
+          ],
+          "odds_feature_gate": true,
+          "odds_test_coverage": null,
+          "odds_test_matched_markets": 0,
+          "performance_gate": false,
+          "predictions": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/telonex_convergence_ml/20260530T211425Z/predictions.parquet",
+          "recent_model": false,
+          "research_gate": false,
+          "run_id": "20260530T211425Z",
+          "selection_score_col": "convergence_prob_lower",
+          "test_ci_hi": null,
+          "test_ci_lo": null,
+          "test_ece_10": 0.0009170152108101254,
+          "test_markets": 0,
+          "test_roi": null,
+          "test_trades": 0,
+          "trade_fill_target": true,
+          "uses_odds_features": false,
+          "val_roi": null
+        },
+        {
+          "blend_recent_weight": 0.0,
+          "comparable_hardened_run": true,
+          "conformal_abs_error_q90": 0.0,
+          "external_validation_gate": false,
+          "external_validation_reasons": [
+            "market_disjoint validation report is older than the model artifact: telonex_walk_forward_latest.json",
+            "market_disjoint validation gate failed: market_disjoint_gate=false in telonex_walk_forward_latest.json",
+            "temporal validation report is older than the model artifact: telonex_temporal_validation_latest.json",
+            "temporal validation gate failed: temporal_gate=false in telonex_temporal_validation_latest.json"
+          ],
+          "external_validation_reports": {
+            "market_disjoint": {
+              "ensemble": {
+                "blend_recent_weight": 0.0,
+                "fold_recent_models": 0,
+                "folds": 2,
+                "min_recent_positive_rows": 100,
+                "min_recent_rows": 10000,
+                "recent_model": false,
+                "recent_window_days": 21.0,
+                "requested_blend_recent_weight": 0.0
+              },
+              "exists": true,
+              "feature_count": 64,
+              "feature_set": "base",
+              "gate": false,
+              "gate_key": "market_disjoint_gate",
+              "generated_at": "2026-05-30T21:19:15.517273+00:00",
+              "path": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/telonex_convergence_ml/telonex_walk_forward_latest.json",
+              "target": {
+                "pnl_col": "maker_trade_fill_pnl_per_share",
+                "stake_col": "entry_bid",
+                "target_col": "maker_trade_fill_positive"
+              },
+              "test_ci_hi": null,
+              "test_ci_lo": null,
+              "test_roi": null,
+              "test_trades": 0
+            },
+            "temporal": {
+              "ensemble": {
+                "blend_recent_weight": 0.0,
+                "fold_recent_models": 0,
+                "folds": 1,
+                "min_recent_positive_rows": 100,
+                "min_recent_rows": 10000,
+                "recent_model": false,
+                "recent_window_days": 21.0,
+                "requested_blend_recent_weight": 0.0
+              },
+              "exists": true,
+              "feature_count": 64,
+              "feature_set": "base",
+              "gate": false,
+              "gate_key": "temporal_gate",
+              "generated_at": "2026-05-30T21:21:26.253602+00:00",
+              "path": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/telonex_convergence_ml/telonex_temporal_validation_latest.json",
+              "target": {
+                "pnl_col": "maker_trade_fill_pnl_per_share",
+                "stake_col": "entry_bid",
+                "target_col": "maker_trade_fill_positive"
+              },
+              "test_ci_hi": null,
+              "test_ci_lo": null,
+              "test_roi": null,
+              "test_trades": 0
+            }
+          },
+          "feature_set": "base",
+          "generated_at": "2026-05-30T21:39:39.197995+00:00",
+          "label_coverage_gate": false,
+          "label_coverage_reasons": [
+            "val split has zero positive `maker_trade_fill_positive` rows"
+          ],
+          "odds_feature_gate": true,
+          "odds_test_coverage": null,
+          "odds_test_matched_markets": 0,
+          "performance_gate": false,
+          "predictions": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/telonex_convergence_ml/20260530T213938Z/predictions.parquet",
+          "recent_model": false,
+          "research_gate": false,
+          "run_id": "20260530T213938Z",
+          "selection_score_col": "convergence_prob_lower",
+          "test_ci_hi": null,
+          "test_ci_lo": null,
+          "test_ece_10": 5.451784049110898e-05,
+          "test_markets": 0,
+          "test_roi": null,
+          "test_trades": 0,
+          "trade_fill_target": true,
+          "uses_odds_features": false,
+          "val_roi": null
+        },
+        {
+          "blend_recent_weight": 0.0,
+          "comparable_hardened_run": true,
+          "conformal_abs_error_q90": 0.000704018773833969,
+          "external_validation_gate": false,
+          "external_validation_reasons": [
+            "market_disjoint validation report is older than the model artifact: telonex_walk_forward_latest.json",
+            "market_disjoint validation gate failed: market_disjoint_gate=false in telonex_walk_forward_latest.json",
+            "temporal validation report is older than the model artifact: telonex_temporal_validation_latest.json",
+            "temporal validation gate failed: temporal_gate=false in telonex_temporal_validation_latest.json"
+          ],
+          "external_validation_reports": {
+            "market_disjoint": {
+              "ensemble": {
+                "blend_recent_weight": 0.0,
+                "fold_recent_models": 0,
+                "folds": 2,
+                "min_recent_positive_rows": 100,
+                "min_recent_rows": 10000,
+                "recent_model": false,
+                "recent_window_days": 21.0,
+                "requested_blend_recent_weight": 0.0
+              },
+              "exists": true,
+              "feature_count": 64,
+              "feature_set": "base",
+              "gate": false,
+              "gate_key": "market_disjoint_gate",
+              "generated_at": "2026-05-30T21:19:15.517273+00:00",
+              "path": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/telonex_convergence_ml/telonex_walk_forward_latest.json",
+              "target": {
+                "pnl_col": "maker_trade_fill_pnl_per_share",
+                "stake_col": "entry_bid",
+                "target_col": "maker_trade_fill_positive"
+              },
+              "test_ci_hi": null,
+              "test_ci_lo": null,
+              "test_roi": null,
+              "test_trades": 0
+            },
+            "temporal": {
+              "ensemble": {
+                "blend_recent_weight": 0.0,
+                "fold_recent_models": 0,
+                "folds": 1,
+                "min_recent_positive_rows": 100,
+                "min_recent_rows": 10000,
+                "recent_model": false,
+                "recent_window_days": 21.0,
+                "requested_blend_recent_weight": 0.0
+              },
+              "exists": true,
+              "feature_count": 64,
+              "feature_set": "base",
+              "gate": false,
+              "gate_key": "temporal_gate",
+              "generated_at": "2026-05-30T21:21:26.253602+00:00",
+              "path": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/telonex_convergence_ml/telonex_temporal_validation_latest.json",
+              "target": {
+                "pnl_col": "maker_trade_fill_pnl_per_share",
+                "stake_col": "entry_bid",
+                "target_col": "maker_trade_fill_positive"
+              },
+              "test_ci_hi": null,
+              "test_ci_lo": null,
+              "test_roi": null,
+              "test_trades": 0
+            }
+          },
+          "feature_set": "base",
+          "generated_at": "2026-05-30T21:50:00.513259+00:00",
+          "label_coverage_gate": false,
+          "label_coverage_reasons": [
+            "val split has zero positive `maker_trade_fill_positive` rows"
+          ],
+          "odds_feature_gate": true,
+          "odds_test_coverage": null,
+          "odds_test_matched_markets": 0,
+          "performance_gate": false,
+          "predictions": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/telonex_convergence_ml/20260530T214959Z/predictions.parquet",
+          "recent_model": false,
+          "research_gate": false,
+          "run_id": "20260530T214959Z",
+          "selection_score_col": "convergence_prob_lower",
+          "test_ci_hi": null,
+          "test_ci_lo": null,
+          "test_ece_10": 0.00018053374966351334,
+          "test_markets": 0,
+          "test_roi": null,
+          "test_trades": 0,
+          "trade_fill_target": true,
+          "uses_odds_features": false,
+          "val_roi": null
+        },
+        {
+          "blend_recent_weight": 0.0,
+          "comparable_hardened_run": true,
+          "conformal_abs_error_q90": 0.00020358306188925082,
+          "external_validation_gate": false,
+          "external_validation_reasons": [
+            "market_disjoint validation report is older than the model artifact: telonex_walk_forward_latest.json",
+            "market_disjoint validation gate failed: market_disjoint_gate=false in telonex_walk_forward_latest.json",
+            "temporal validation report is older than the model artifact: telonex_temporal_validation_latest.json",
+            "temporal validation gate failed: temporal_gate=false in telonex_temporal_validation_latest.json"
+          ],
+          "external_validation_reports": {
+            "market_disjoint": {
+              "ensemble": {
+                "blend_recent_weight": 0.0,
+                "fold_recent_models": 0,
+                "folds": 2,
+                "min_recent_positive_rows": 100,
+                "min_recent_rows": 10000,
+                "recent_model": false,
+                "recent_window_days": 21.0,
+                "requested_blend_recent_weight": 0.0
+              },
+              "exists": true,
+              "feature_count": 64,
+              "feature_set": "base",
+              "gate": false,
+              "gate_key": "market_disjoint_gate",
+              "generated_at": "2026-05-30T21:19:15.517273+00:00",
+              "path": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/telonex_convergence_ml/telonex_walk_forward_latest.json",
+              "target": {
+                "pnl_col": "maker_trade_fill_pnl_per_share",
+                "stake_col": "entry_bid",
+                "target_col": "maker_trade_fill_positive"
+              },
+              "test_ci_hi": null,
+              "test_ci_lo": null,
+              "test_roi": null,
+              "test_trades": 0
+            },
+            "temporal": {
+              "ensemble": {
+                "blend_recent_weight": 0.0,
+                "fold_recent_models": 0,
+                "folds": 1,
+                "min_recent_positive_rows": 100,
+                "min_recent_rows": 10000,
+                "recent_model": false,
+                "recent_window_days": 21.0,
+                "requested_blend_recent_weight": 0.0
+              },
+              "exists": true,
+              "feature_count": 64,
+              "feature_set": "base",
+              "gate": false,
+              "gate_key": "temporal_gate",
+              "generated_at": "2026-05-30T21:21:26.253602+00:00",
+              "path": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/telonex_convergence_ml/telonex_temporal_validation_latest.json",
+              "target": {
+                "pnl_col": "maker_trade_fill_pnl_per_share",
+                "stake_col": "entry_bid",
+                "target_col": "maker_trade_fill_positive"
+              },
+              "test_ci_hi": null,
+              "test_ci_lo": null,
+              "test_roi": null,
+              "test_trades": 0
+            }
+          },
+          "feature_set": "base",
+          "generated_at": "2026-05-30T21:52:21.884643+00:00",
+          "label_coverage_gate": true,
+          "label_coverage_reasons": [],
+          "odds_feature_gate": true,
+          "odds_test_coverage": null,
+          "odds_test_matched_markets": 0,
+          "performance_gate": false,
+          "predictions": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/telonex_convergence_ml/20260530T215220Z/predictions.parquet",
+          "recent_model": false,
+          "research_gate": false,
+          "run_id": "20260530T215220Z",
+          "selection_score_col": "convergence_prob_lower",
+          "test_ci_hi": null,
+          "test_ci_lo": null,
+          "test_ece_10": 0.0002027974105740197,
+          "test_markets": 0,
+          "test_roi": null,
+          "test_trades": 0,
+          "trade_fill_target": true,
+          "uses_odds_features": false,
+          "val_roi": null
+        },
+        {
+          "blend_recent_weight": 0.0,
+          "comparable_hardened_run": true,
+          "conformal_abs_error_q90": 0.000441306266548985,
+          "external_validation_gate": false,
+          "external_validation_reasons": [
+            "market_disjoint validation gate failed: market_disjoint_gate=false in telonex_walk_forward_base_odds_latest.json",
+            "temporal validation gate failed: temporal_gate=false in telonex_temporal_validation_base_odds_latest.json"
+          ],
+          "external_validation_reports": {
+            "market_disjoint": {
+              "ensemble": {
+                "blend_recent_weight": 0.0,
+                "fold_recent_models": 0,
+                "folds": 2,
+                "min_recent_positive_rows": 100,
+                "min_recent_rows": 10000,
+                "recent_model": false,
+                "recent_window_days": 21.0,
+                "requested_blend_recent_weight": 0.0
+              },
+              "exists": true,
+              "feature_count": 82,
+              "feature_set": "base_odds",
+              "gate": false,
+              "gate_key": "market_disjoint_gate",
+              "generated_at": "2026-05-30T21:58:06.655746+00:00",
+              "path": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/telonex_convergence_ml/telonex_walk_forward_base_odds_latest.json",
+              "target": {
+                "pnl_col": "maker_trade_fill_pnl_per_share",
+                "stake_col": "entry_bid",
+                "target_col": "maker_trade_fill_positive"
+              },
+              "test_ci_hi": null,
+              "test_ci_lo": null,
+              "test_roi": null,
+              "test_trades": 0
+            },
+            "temporal": {
+              "ensemble": {
+                "blend_recent_weight": 0.0,
+                "fold_recent_models": 0,
+                "folds": 1,
+                "min_recent_positive_rows": 100,
+                "min_recent_rows": 10000,
+                "recent_model": false,
+                "recent_window_days": 21.0,
+                "requested_blend_recent_weight": 0.0
+              },
+              "exists": true,
+              "feature_count": 82,
+              "feature_set": "base_odds",
+              "gate": false,
+              "gate_key": "temporal_gate",
+              "generated_at": "2026-05-30T21:59:34.831703+00:00",
+              "path": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/telonex_convergence_ml/telonex_temporal_validation_base_odds_latest.json",
+              "target": {
+                "pnl_col": "maker_trade_fill_pnl_per_share",
+                "stake_col": "entry_bid",
+                "target_col": "maker_trade_fill_positive"
+              },
+              "test_ci_hi": null,
+              "test_ci_lo": null,
+              "test_roi": null,
+              "test_trades": 0
+            }
+          },
+          "feature_set": "base_odds",
+          "generated_at": "2026-05-30T21:54:51.137295+00:00",
+          "label_coverage_gate": true,
+          "label_coverage_reasons": [],
+          "odds_feature_gate": true,
+          "odds_test_coverage": 0.2977453997362306,
+          "odds_test_matched_markets": 5,
+          "performance_gate": false,
+          "predictions": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/telonex_convergence_ml/20260530T215450Z/predictions.parquet",
+          "recent_model": false,
+          "research_gate": false,
+          "run_id": "20260530T215450Z",
+          "selection_score_col": "convergence_prob_lower",
+          "test_ci_hi": null,
+          "test_ci_lo": null,
+          "test_ece_10": 0.00022721751128733201,
+          "test_markets": 0,
+          "test_roi": null,
+          "test_trades": 0,
+          "trade_fill_target": true,
+          "uses_odds_features": true,
+          "val_roi": null
+        }
+      ],
+      "temporal_buckets": [
+        {
+          "avg_prob": 0.00014825469618168685,
+          "avg_selection_score": 1.679349848981654e-05,
+          "bucket": "2026-05-22 00:00:00+00:00",
+          "ece_10": 0.00014825469618168685,
+          "markets": 2,
+          "positive_rate": 0.0,
+          "rows": 646,
+          "trade_avg_mid_move": null,
+          "trade_favorable_mid_move_rate": null,
+          "trade_markets": 0,
+          "trade_pnl": 0.0,
+          "trade_roi": null,
+          "trade_stake": 0.0,
+          "trades": 0
+        },
+        {
+          "avg_prob": 0.0001275616823710941,
+          "avg_selection_score": 6.048633939403812e-06,
+          "bucket": "2026-05-23 00:00:00+00:00",
+          "ece_10": 0.0008815200532494912,
+          "markets": 1,
+          "positive_rate": 0.0010090817356205853,
+          "rows": 3964,
+          "trade_avg_mid_move": null,
+          "trade_favorable_mid_move_rate": null,
+          "trade_markets": 0,
+          "trade_pnl": 0.0,
+          "trade_roi": null,
+          "trade_stake": 0.0,
+          "trades": 0
+        },
+        {
+          "avg_prob": 6.4192268683159805e-06,
+          "avg_selection_score": 0.0,
+          "bucket": "2026-05-24 00:00:00+00:00",
+          "ece_10": 6.4192268683159805e-06,
+          "markets": 2,
+          "positive_rate": 0.0,
+          "rows": 88,
+          "trade_avg_mid_move": null,
+          "trade_favorable_mid_move_rate": null,
+          "trade_markets": 0,
+          "trade_pnl": 0.0,
+          "trade_roi": null,
+          "trade_stake": 0.0,
+          "trades": 0
+        },
+        {
+          "avg_prob": 8.85038539765048e-05,
+          "avg_selection_score": 8.162547735863513e-07,
+          "bucket": "2026-05-25 00:00:00+00:00",
+          "ece_10": 8.85038539765048e-05,
+          "markets": 7,
+          "positive_rate": 0.0,
+          "rows": 1908,
+          "trade_avg_mid_move": null,
+          "trade_favorable_mid_move_rate": null,
+          "trade_markets": 0,
+          "trade_pnl": 0.0,
+          "trade_roi": null,
+          "trade_stake": 0.0,
+          "trades": 0
+        },
+        {
+          "avg_prob": 0.00019032597868724502,
+          "avg_selection_score": 8.349074455715328e-05,
+          "bucket": "2026-05-26 00:00:00+00:00",
+          "ece_10": 0.00019032597868724502,
+          "markets": 6,
+          "positive_rate": 0.0,
+          "rows": 8736,
+          "trade_avg_mid_move": null,
+          "trade_favorable_mid_move_rate": null,
+          "trade_markets": 0,
+          "trade_pnl": 0.0,
+          "trade_roi": null,
+          "trade_stake": 0.0,
+          "trades": 0
+        },
+        {
+          "avg_prob": 0.00011116021771037849,
+          "avg_selection_score": 1.2973342998484612e-05,
+          "bucket": "2026-05-27 00:00:00+00:00",
+          "ece_10": 5.447730194119132e-05,
+          "markets": 8,
+          "positive_rate": 5.668291576918717e-05,
+          "rows": 17642,
+          "trade_avg_mid_move": null,
+          "trade_favorable_mid_move_rate": null,
+          "trade_markets": 0,
+          "trade_pnl": 0.0,
+          "trade_roi": null,
+          "trade_stake": 0.0,
+          "trades": 0
+        },
+        {
+          "avg_prob": 7.721094939735514e-05,
+          "avg_selection_score": 1.568547077914946e-05,
+          "bucket": "2026-05-28 00:00:00+00:00",
+          "ece_10": 4.351015801760354e-05,
+          "markets": 16,
+          "positive_rate": 0.00012072110741495868,
+          "rows": 74552,
+          "trade_avg_mid_move": null,
+          "trade_favorable_mid_move_rate": null,
+          "trade_markets": 0,
+          "trade_pnl": 0.0,
+          "trade_roi": null,
+          "trade_stake": 0.0,
+          "trades": 0
+        },
+        {
+          "avg_prob": 0.0012475296838419141,
+          "avg_selection_score": 0.000958327723448051,
+          "bucket": "2026-05-29 00:00:00+00:00",
+          "ece_10": 0.000628054970023905,
+          "markets": 11,
+          "positive_rate": 0.0016056021975471041,
+          "rows": 51694,
+          "trade_avg_mid_move": null,
+          "trade_favorable_mid_move_rate": null,
+          "trade_markets": 0,
+          "trade_pnl": 0.0,
+          "trade_roi": null,
+          "trade_stake": 0.0,
+          "trades": 0
+        }
+      ],
+      "verdict": "HOLD: latest research gate failed; latest external validation gate failed; latest test ROI is not positive; latest test CI lower bound is not positive"
+    },
+    "odds_features": {
+      "config": {
+        "max_odds_age_hours": 168.0,
+        "min_team_similarity": 0.6,
+        "sharp_books": [
+          "betonline",
+          "betonlineag",
+          "bookmaker",
+          "circa",
+          "matchbook",
+          "pinnacle"
+        ]
+      },
+      "fair": {
+        "events": 57,
+        "rows": 24558
+      },
+      "features": {
+        "by_sport": {
+          "baseball_mlb": {
+            "markets": 61,
+            "rows": 792020,
+            "tokens": 121
+          },
+          "basketball_wnba": {
+            "markets": 2,
+            "rows": 26836,
+            "tokens": 4
+          },
+          "soccer_brazil_campeonato": {
+            "markets": 8,
+            "rows": 377170,
+            "tokens": 16
+          },
+          "soccer_chile_campeonato": {
+            "markets": 1,
+            "rows": 22172,
+            "tokens": 2
+          },
+          "soccer_conmebol_copa_libertadores": {
+            "markets": 1,
+            "rows": 65500,
+            "tokens": 2
+          },
+          "soccer_norway_eliteserien": {
+            "markets": 6,
+            "rows": 130462,
+            "tokens": 12
+          }
+        },
+        "coverage_by_split": {
+          "test": {
+            "coverage": 0.3253589362755499,
+            "matched_markets": 5,
+            "matched_rows": 73604,
+            "matched_tokens": 10,
+            "rows": 226224
+          },
+          "train": {
+            "coverage": 0.5269398935089536,
+            "matched_markets": 44,
+            "matched_rows": 936300,
+            "matched_tokens": 87,
+            "rows": 1776863
+          },
+          "unobserved": {
+            "coverage": 0.4248834641351149,
+            "matched_markets": 24,
+            "matched_rows": 229330,
+            "matched_tokens": 48,
+            "rows": 539748
+          },
+          "val": {
+            "coverage": 0.5059320318148951,
+            "matched_markets": 6,
+            "matched_rows": 174926,
+            "matched_tokens": 12,
+            "rows": 345750
+          }
+        },
+        "fair_prob_quantiles": {
+          "0.0": 0.06937064517986813,
+          "0.01": 0.08136472775925196,
+          "0.05": 0.18167614015939362,
+          "0.5": 0.5,
+          "0.95": 0.8183238598406064,
+          "0.99": 0.918635272240748,
+          "1.0": 0.9306293548201319
+        },
+        "join_diagnostics": {
+          "candidate_rows_with_fair_group": 1802933,
+          "groups_with_fair": 122,
+          "join_groups": 128,
+          "mapped_label_markets": 82,
+          "mapped_label_rows": 1830923,
+          "mapped_label_tokens": 163,
+          "matched_feature_rows": 1414160,
+          "rows_after_last_allowed_snapshot": 8124,
+          "rows_before_first_odds_snapshot": 380649,
+          "rows_without_fair_group": 27990
+        },
+        "markets": 79,
+        "poly_gap_mid_quantiles": {
+          "0.0": -0.6594562347219612,
+          "0.01": -0.19515379113529785,
+          "0.05": -0.04059264257094586,
+          "0.5": 0.0,
+          "0.95": 0.04059264257094586,
+          "0.99": 0.19515379113529785,
+          "1.0": 0.6594562347219612
+        },
+        "quote_age_hours_quantiles": {
+          "0.0": 0.005555555555555556,
+          "0.01": 0.006388888888888889,
+          "0.05": 0.05638888888888889,
+          "0.5": 3.156388888888889,
+          "0.95": 22.10638888888889,
+          "0.99": 105.13972222222222,
+          "1.0": 167.95638888888888
+        },
+        "row_coverage": 0.48956842190899696,
+        "rows": 1414160,
+        "source_minutes_to_commence_quantiles": {
+          "0.0": 0.36666666666666664,
+          "0.01": 0.36666666666666664,
+          "0.05": 10.383333333333333,
+          "0.5": 1425.3833333333334,
+          "0.95": 8539.383333333333,
+          "0.99": 12934.383333333333,
+          "1.0": 12934.383333333333
+        },
+        "tokens": 157,
+        "validation": {
+          "causal_snapshots": true,
+          "non_negative_quote_age": true,
+          "pre_commence_snapshots": true,
+          "probabilities_in_bounds": true
+        }
+      },
+      "generated_at": "2026-05-30T21:48:12.821697+00:00",
+      "labels": {
+        "markets": 216,
+        "rows": 2888585,
+        "tokens": 429
+      },
+      "mapping": {
+        "diagnostics": {
+          "mapped_tokens": 163,
+          "tokens": 429,
+          "unmapped_side": 0,
+          "unsupported_market_type": 70,
+          "unsupported_market_types": {
+            "corners": 2,
+            "halftime": 4,
+            "nrfi": 64
+          }
+        },
+        "mapped_markets": 82,
+        "mapped_tokens": 163
+      },
+      "matching": {
+        "diagnostics": {
+          "markets": 216,
+          "no_odds_event_match": 91,
+          "no_slug_date": 0,
+          "no_sport_pool": 8,
+          "no_title_parse": 0
+        },
+        "matched_markets": 117
+      },
+      "outputs": {
+        "features": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/execution_training/telonex_odds_features_latest.parquet",
+        "manifest": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/execution_training/telonex_odds_features_manifest.json",
+        "report": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/telonex_odds_features_latest.md"
+      }
+    },
+    "outputs": {
+      "json": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/execution_training/strategy_data_readiness_latest.json",
+      "report": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/strategy_data_readiness_latest.md"
+    },
+    "overall_gate": false,
+    "quality": {
+      "checks": {
+        "entry_books_not_crossed": true,
+        "future_after_asof": true,
+        "future_books_not_crossed": true,
+        "market_disjoint_splits": true,
+        "non_negative_quote_age": true,
+        "prices_in_bounds": true,
+        "target_after_asof": true
+      },
+      "gate": true,
+      "market_overlap": {}
+    },
+    "split_coverage": {
+      "test": {
+        "asof_max": "2026-05-29 23:59:00+00:00",
+        "asof_min": "2026-05-22 00:02:00+00:00",
+        "lev_positive_rate": 0.0023781738453921776,
+        "lev_positive_rows": 538,
+        "maker_positive_rate": 0.03004986208359856,
+        "maker_positive_rows": 6798,
+        "maker_trade_feature_observed_rows": 116762,
+        "maker_trade_fill_any_rate": 0.044535504632576564,
+        "maker_trade_fill_any_rows": 10075,
+        "maker_trade_fill_positive_rate": 0.0004287785557677346,
+        "maker_trade_fill_positive_rows": 97,
+        "maker_trade_fill_queue_rate": 0.004831494447980762,
+        "maker_trade_fill_queue_rows": 1093,
+        "maker_trade_target_observed_rows": 159230,
+        "markets": 18,
+        "minute_grid_rows": 226224,
+        "rows": 226224,
+        "sports": {
+          "baseball_mlb": 83752,
+          "basketball_wnba": 30558,
+          "soccer": 111914
+        },
+        "tokens": 36,
+        "trade_feature_rate": 0.5161344508098168,
+        "trade_feature_rows": 116762
+      },
+      "train": {
+        "asof_max": "2026-05-29 23:59:00+00:00",
+        "asof_min": "2026-04-01 00:05:00+00:00",
+        "lev_positive_rate": 0.005085366739022649,
+        "lev_positive_rows": 9036,
+        "maker_positive_rate": 0.038346794322353495,
+        "maker_positive_rows": 68137,
+        "maker_trade_feature_observed_rows": 1177192,
+        "maker_trade_fill_any_rate": 0.08507633959399233,
+        "maker_trade_fill_any_rows": 151169,
+        "maker_trade_fill_positive_rate": 0.0015870666449805078,
+        "maker_trade_fill_positive_rows": 2820,
+        "maker_trade_fill_queue_rate": 0.01078079739405908,
+        "maker_trade_fill_queue_rows": 19156,
+        "maker_trade_target_observed_rows": 1513571,
+        "markets": 75,
+        "minute_grid_rows": 1776863,
+        "rows": 1776863,
+        "sports": {
+          "baseball_mlb": 995551,
+          "basketball_wnba": 13012,
+          "soccer": 768300
+        },
+        "tokens": 149,
+        "trade_feature_rate": 0.6625114035240759,
+        "trade_feature_rows": 1177192
+      },
+      "unobserved": {
+        "asof_max": "2026-05-29 23:59:00+00:00",
+        "asof_min": "2026-03-02 00:03:00+00:00",
+        "lev_positive_rate": 0.0010338157806976589,
+        "lev_positive_rows": 558,
+        "maker_positive_rate": 0.03851426962211995,
+        "maker_positive_rows": 20788,
+        "maker_trade_feature_observed_rows": 0,
+        "maker_trade_fill_any_rate": 0.0,
+        "maker_trade_fill_any_rows": 0,
+        "maker_trade_fill_positive_rate": 0.0,
+        "maker_trade_fill_positive_rows": 0,
+        "maker_trade_fill_queue_rate": 0.0,
+        "maker_trade_fill_queue_rows": 0,
+        "maker_trade_target_observed_rows": 0,
+        "markets": 107,
+        "minute_grid_rows": 539748,
+        "rows": 539748,
+        "sports": {
+          "baseball_mlb": 533398,
+          "icehockey_nhl": 5347,
+          "soccer": 1003
+        },
+        "tokens": 212,
+        "trade_feature_rate": 0.0,
+        "trade_feature_rows": 0
+      },
+      "val": {
+        "asof_max": "2026-05-29 23:59:00+00:00",
+        "asof_min": "2026-05-17 17:52:00+00:00",
+        "lev_positive_rate": 0.002701373825018077,
+        "lev_positive_rows": 934,
+        "maker_positive_rate": 0.02110773680404917,
+        "maker_positive_rows": 7298,
+        "maker_trade_feature_observed_rows": 230990,
+        "maker_trade_fill_any_rate": 0.06694432393347795,
+        "maker_trade_fill_any_rows": 23146,
+        "maker_trade_fill_positive_rate": 0.000601590744757773,
+        "maker_trade_fill_positive_rows": 208,
+        "maker_trade_fill_queue_rate": 0.007855386840202459,
+        "maker_trade_fill_queue_rows": 2716,
+        "maker_trade_target_observed_rows": 312014,
+        "markets": 16,
+        "minute_grid_rows": 345750,
+        "rows": 345750,
+        "sports": {
+          "baseball_mlb": 118650,
+          "soccer": 227100
+        },
+        "tokens": 32,
+        "trade_feature_rate": 0.6680838756326826,
+        "trade_feature_rows": 230990
+      }
+    },
+    "strategy": {
+      "entry_policy": "Post/quote passively near the current best bid only when the calibrated convergence score lower bound clears validation-selected threshold and liquidity caps.",
+      "exit_policy": "Mark or exit against future best bid over 30/60/120/300/900 second horizons after Polymarket fee and spread friction; live version must cancel if edge decays.",
+      "name": "trade_confirmed_passive_maker_convergence",
+      "primary_features": [
+        "L2 bid/ask depth",
+        "spread",
+        "order-book imbalance",
+        "lagged price/depth deltas",
+        "trade flow",
+        "Odds API fair-value gap when causal"
+      ],
+      "secondary_strategies": [
+        "favorite_longshot_bias",
+        "stale_price_convergence",
+        "hedge_underpricing",
+        "post_event_overreaction_fade"
+      ],
+      "target_col": "maker_trade_fill_positive",
+      "venue": "Polymarket CLOB sports markets"
+    },
+    "telonex_catalog": {
+      "assets_with_book25": 699384,
+      "assets_with_quotes": 699384,
+      "generated_at": "2026-05-30T05:58:54.289873+00:00",
+      "include_esports": false,
+      "include_nongame_sports": false,
+      "output_assets": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/clob_capture/telonex_sports_assets.parquet",
+      "quotes_from_min": "2025-10-11",
+      "quotes_to_max": "2026-05-29",
+      "raw_path": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/raw/telonex/polymarket_markets.parquet",
+      "raw_rows": 1489356,
+      "report": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/telonex_markets_latest.md",
+      "sports_assets": 778438,
+      "sports_markets": 389219
+    },
+    "telonex_download": {
+      "date_max": "2026-05-29",
+      "date_min": "2026-03-02",
+      "depth_files": 1745,
+      "depth_rows": 34575311,
+      "files_by_channel": {
+        "book_snapshot_5": 1745,
+        "quotes": 1746,
+        "trades": 946
+      },
+      "quote_rows": 6719183,
+      "rows_by_channel": {
+        "book_snapshot_5": 34575311,
+        "quotes": 6719183,
+        "trades": 168681
+      },
+      "trade_rows": 168681
+    },
+    "verdict": "HOLD: strategy is defined, but dataset is not complete enough to prove the bot"
+  },
+  "strategy_signal_diagnostics": {
+    "diagnostics": {
+      "percentage_test_market_gate": {
+        "legacy_absolute_gate": false,
+        "legacy_absolute_min_test_markets": 100,
+        "passes_percentage_gate": true,
+        "test_market_ratio": 0.1651376146788991,
+        "test_markets": 18,
+        "threshold": 0.15,
+        "usable_markets": 109
+      },
+      "raw_maker_fill_pnl": {
+        "attempt_level_context_by_horizon": [
+          {
+            "aggregate_roi_all_observed_rows_nonfills_zero": -0.00020748571733913594,
+            "horizon_sec": 30,
+            "mean_pnl_per_share_all_observed_rows_nonfills_zero": -9.812520189492972e-05,
+            "rows": 402759
+          },
+          {
+            "aggregate_roi_all_observed_rows_nonfills_zero": -0.0003347544283524232,
+            "horizon_sec": 60,
+            "mean_pnl_per_share_all_observed_rows_nonfills_zero": -0.00015828309968363933,
+            "rows": 399544
+          },
+          {
+            "aggregate_roi_all_observed_rows_nonfills_zero": -0.0005466487510438601,
+            "horizon_sec": 120,
+            "mean_pnl_per_share_all_observed_rows_nonfills_zero": -0.00025861467492283653,
+            "rows": 393968
+          },
+          {
+            "aggregate_roi_all_observed_rows_nonfills_zero": -0.0009708824300504517,
+            "horizon_sec": 300,
+            "mean_pnl_per_share_all_observed_rows_nonfills_zero": -0.0004595486547172934,
+            "rows": 398682
+          },
+          {
+            "aggregate_roi_all_observed_rows_nonfills_zero": -0.0020493936070449196,
+            "horizon_sec": 900,
+            "mean_pnl_per_share_all_observed_rows_nonfills_zero": -0.0009709965848171916,
+            "rows": 389862
+          }
+        ],
+        "by_horizon": [
+          {
+            "aggregate_roi_on_fill_entry_bid": -0.05048750126471669,
+            "fill_rate_vs_observed": 0.003776451922862059,
+            "fill_rows": 1521,
+            "horizon_sec": 30,
+            "mean_pnl_per_share_on_fills": -0.025983437337278103,
+            "median_pnl_per_share_on_fills": -0.022224999999999953,
+            "observed_target_rows": 402759,
+            "pct_profitable_fills": 0.06837606837606838,
+            "positive_fill_rows": 104
+          },
+          {
+            "aggregate_roi_on_fill_entry_bid": -0.05362115878769379,
+            "fill_rate_vs_observed": 0.005794105280019222,
+            "fill_rows": 2315,
+            "horizon_sec": 60,
+            "mean_pnl_per_share_on_fills": -0.027317953684665226,
+            "median_pnl_per_share_on_fills": -0.02336500000000001,
+            "observed_target_rows": 399544,
+            "pct_profitable_fills": 0.09503239740820735,
+            "positive_fill_rows": 220
+          },
+          {
+            "aggregate_roi_on_fill_entry_bid": -0.05864625616475258,
+            "fill_rate_vs_observed": 0.008698676034601794,
+            "fill_rows": 3427,
+            "horizon_sec": 120,
+            "mean_pnl_per_share_on_fills": -0.029730349066238695,
+            "median_pnl_per_share_on_fills": -0.02420500000000001,
+            "observed_target_rows": 393968,
+            "pct_profitable_fills": 0.12430697402976364,
+            "positive_fill_rows": 426
+          },
+          {
+            "aggregate_roi_on_fill_entry_bid": -0.06570727985502449,
+            "fill_rate_vs_observed": 0.014023708118249633,
+            "fill_rows": 5591,
+            "horizon_sec": 300,
+            "mean_pnl_per_share_on_fills": -0.0327694109747809,
+            "median_pnl_per_share_on_fills": -0.024457000000000007,
+            "observed_target_rows": 398682,
+            "pct_profitable_fills": 0.15489179037739223,
+            "positive_fill_rows": 866
+          },
+          {
+            "aggregate_roi_on_fill_entry_bid": -0.07573482087250318,
+            "fill_rate_vs_observed": 0.025934817961227305,
+            "fill_rows": 10111,
+            "horizon_sec": 900,
+            "mean_pnl_per_share_on_fills": -0.03743988433883889,
+            "median_pnl_per_share_on_fills": -0.02456500000000001,
+            "observed_target_rows": 389862,
+            "pct_profitable_fills": 0.14924339827910196,
+            "positive_fill_rows": 1509
+          }
+        ],
+        "fill_rows": 22965,
+        "labels_sha256": "32537f0d3b561eb1f7a39bcb5ed6ad4834d6f854a4443683da29c657d09f223b",
+        "labels_source": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/execution_training/telonex_clob_execution_labels_partitioned",
+        "observed_rows": 1984815,
+        "raw_passive_maker_edge_gate": false,
+        "verdict": "FAIL: raw observed maker fills are negative at every audited horizon"
+      },
+      "shap_identity_audit": {
+        "available": true,
+        "direct_identity_features_in_model": [],
+        "direct_identity_features_in_top10": [],
+        "feature_count": 82,
+        "implicit_identity_risk": true,
+        "run_id": "20260530T215450Z",
+        "sampled": true,
+        "stable_context_features_in_top10": [
+          "sport_family",
+          "odds_base_outcome"
+        ],
+        "test_rows_shap": 30000,
+        "test_rows_total": 159230,
+        "top20_original_features": [
+          {
+            "feature": "sport_family",
+            "mean_abs_shap": 0.4850302481568286
+          },
+          {
+            "feature": "bid_size_best",
+            "mean_abs_shap": 0.30154542467905837
+          },
+          {
+            "feature": "horizon_sec",
+            "mean_abs_shap": 0.2384324264260785
+          },
+          {
+            "feature": "odds_source_minutes_to_commence",
+            "mean_abs_shap": 0.17687786852326184
+          },
+          {
+            "feature": "trade_count_300s",
+            "mean_abs_shap": 0.1445612437300889
+          },
+          {
+            "feature": "trade_sell_count_300s",
+            "mean_abs_shap": 0.09708500163611782
+          },
+          {
+            "feature": "odds_base_outcome",
+            "mean_abs_shap": 0.08022665569031086
+          },
+          {
+            "feature": "last_trade_price_delta_mid",
+            "mean_abs_shap": 0.040781166640005626
+          },
+          {
+            "feature": "bid_depth_3c",
+            "mean_abs_shap": 0.033641046521260154
+          },
+          {
+            "feature": "last_trade_age_sec",
+            "mean_abs_shap": 0.03291720558913209
+          },
+          {
+            "feature": "trade_buy_size_300s",
+            "mean_abs_shap": 0.031195599527560732
+          },
+          {
+            "feature": "obi_3c_delta_30s",
+            "mean_abs_shap": 0.030992780942638305
+          },
+          {
+            "feature": "trade_buy_count_300s",
+            "mean_abs_shap": 0.03002154708701318
+          },
+          {
+            "feature": "trade_sell_size_300s",
+            "mean_abs_shap": 0.022459177770714746
+          },
+          {
+            "feature": "odds_poly_gap_bid",
+            "mean_abs_shap": 0.018603713215162992
+          },
+          {
+            "feature": "entry_spread",
+            "mean_abs_shap": 0.014984977296878891
+          },
+          {
+            "feature": "odds_quote_age_sec",
+            "mean_abs_shap": 0.014682197472942667
+          },
+          {
+            "feature": "odds_poly_gap_ask",
+            "mean_abs_shap": 0.014561753923993082
+          },
+          {
+            "feature": "lag_quote_age_60s",
+            "mean_abs_shap": 0.013606479788262217
+          },
+          {
+            "feature": "ask_depth_1c",
+            "mean_abs_shap": 0.013323598352855131
+          }
+        ],
+        "top20_transformed_features": [
+          {
+            "mean_abs_shap": 0.4850302481568286,
+            "transformed_feature": "cat__sport_family_baseball_mlb"
+          },
+          {
+            "mean_abs_shap": 0.30154542467905837,
+            "transformed_feature": "num__bid_size_best"
+          },
+          {
+            "mean_abs_shap": 0.2384324264260785,
+            "transformed_feature": "num__horizon_sec"
+          },
+          {
+            "mean_abs_shap": 0.17687786852326184,
+            "transformed_feature": "num__odds_source_minutes_to_commence"
+          },
+          {
+            "mean_abs_shap": 0.1445612437300889,
+            "transformed_feature": "num__trade_count_300s"
+          },
+          {
+            "mean_abs_shap": 0.09708500163611782,
+            "transformed_feature": "num__trade_sell_count_300s"
+          },
+          {
+            "mean_abs_shap": 0.07181429007449937,
+            "transformed_feature": "cat__odds_base_outcome_Houston Astros"
+          },
+          {
+            "mean_abs_shap": 0.040781166640005626,
+            "transformed_feature": "num__last_trade_price_delta_mid"
+          },
+          {
+            "mean_abs_shap": 0.033641046521260154,
+            "transformed_feature": "num__bid_depth_3c"
+          },
+          {
+            "mean_abs_shap": 0.03291720558913209,
+            "transformed_feature": "num__last_trade_age_sec"
+          },
+          {
+            "mean_abs_shap": 0.031195599527560732,
+            "transformed_feature": "num__trade_buy_size_300s"
+          },
+          {
+            "mean_abs_shap": 0.030992780942638305,
+            "transformed_feature": "num__obi_3c_delta_30s"
+          },
+          {
+            "mean_abs_shap": 0.03002154708701318,
+            "transformed_feature": "num__trade_buy_count_300s"
+          },
+          {
+            "mean_abs_shap": 0.022459177770714746,
+            "transformed_feature": "num__trade_sell_size_300s"
+          },
+          {
+            "mean_abs_shap": 0.018603713215162992,
+            "transformed_feature": "num__odds_poly_gap_bid"
+          },
+          {
+            "mean_abs_shap": 0.014984977296878891,
+            "transformed_feature": "num__entry_spread"
+          },
+          {
+            "mean_abs_shap": 0.014682197472942667,
+            "transformed_feature": "num__odds_quote_age_sec"
+          },
+          {
+            "mean_abs_shap": 0.014561753923993082,
+            "transformed_feature": "num__odds_poly_gap_ask"
+          },
+          {
+            "mean_abs_shap": 0.013606479788262217,
+            "transformed_feature": "num__lag_quote_age_60s"
+          },
+          {
+            "mean_abs_shap": 0.013323598352855131,
+            "transformed_feature": "num__ask_depth_1c"
+          }
+        ],
+        "transformed_identity_like_top20": [],
+        "verdict": "FAIL: top SHAP features include stable context/team-like categories that can encode market identity"
+      }
+    },
+    "generated_at": "2026-05-30T22:21:54.057264+00:00",
+    "model_run_id": "20260530T215450Z",
+    "outputs": {
+      "json": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/telonex_convergence_ml/strategy_signal_diagnostics_latest.json",
+      "report": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/strategy_signal_diagnostics_latest.md"
+    },
+    "strategy_decision": {
+      "next_strategy_focus": [
+        "Use raw PnL segmentation to find narrower positive buckets before model training.",
+        "Strip or isolate implicit identity categorical features such as sport_family and odds_base_outcome in the next validation run.",
+        "Keep the percentage-based held-out market gate; the old 100-market absolute gate is not valid for a 109-market usable universe."
+      ],
+      "passive_maker_convergence_primary_gate": false,
+      "recommended_action": "Do not promote passive maker convergence as the primary strategy until a segment has positive raw fill PnL and the identity-risk features are removed or proven harmless in market-disjoint validation."
+    }
+  },
+  "telonex": {
+    "assets_with_book25": 699384,
+    "assets_with_quotes": 699384,
+    "depth_files": 1856,
+    "depth_rows": 36813908,
+    "download_bytes": 944135438,
+    "download_files": 4761,
+    "download_rows": 44247145,
+    "files_by_channel": {
+      "book_snapshot_5": 1856,
+      "quotes": 1858,
+      "trades": 1047
+    },
+    "files_by_sport": {
+      "baseball_mlb": 2313,
+      "basketball_nba": 324,
+      "basketball_wnba": 78,
+      "icehockey_nhl": 30,
+      "soccer": 2016
+    },
+    "last_downloaded_at": "2026-05-30T23:16:26.636212+00:00",
+    "last_run_channels": [
+      "quotes",
+      "book_snapshot_5",
+      "trades"
+    ],
+    "last_run_completed_downloads": 300,
+    "last_run_date_from": "asset-plan",
+    "last_run_date_to": "asset-plan",
+    "last_run_failed_downloads": 4,
+    "last_run_rows_downloaded": 2583690,
+    "markets_generated_at": "2026-05-30T05:58:54.289873+00:00",
+    "quote_rows": 7183240,
+    "quotes_from_min": "2025-10-11",
+    "quotes_to_max": "2026-05-29",
+    "rows_by_channel": {
+      "book_snapshot_5": 36813908,
+      "quotes": 7183240,
+      "trades": 249997
+    },
+    "sports_assets": 778438,
+    "sports_markets": 389219,
+    "trade_rows": 249997
+  },
+  "telonex_convergence": {
+    "calibration_plot": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/telonex_convergence_ml/20260530T215450Z/calibration_reliability.png",
+    "conformal_abs_error_q90": 0.000441306266548985,
+    "dataset_markets": 109,
+    "dataset_rows": 1984815,
+    "dataset_tokens": 217,
+    "feature_set": "base_odds",
+    "label_coverage": {
+      "by_split": {
+        "calibration": {
+          "maker_trade_fill_any_rate": 0.09715861116086277,
+          "maker_trade_fill_any_rows": 15189,
+          "maker_trade_fill_positive_rate": 0.0010106696005936085,
+          "maker_trade_fill_positive_rows": 158,
+          "maker_trade_fill_queue_rate": 0.01283806258475552,
+          "maker_trade_fill_queue_rows": 2007,
+          "maker_trade_target_observed_rate": 1.0,
+          "maker_trade_target_observed_rows": 156332,
+          "markets": 8,
+          "nonzero_pnl_rows": 2007,
+          "positive_rate": 0.0010106696005936085,
+          "positive_rows": 158,
+          "rows": 156332,
+          "stake_sum": 75693.175,
+          "tokens": 16,
+          "trade_feature_rate": 0.8017680321367346,
+          "trade_feature_rows": 125342
+        },
+        "test": {
+          "maker_trade_fill_any_rate": 0.06327325252779,
+          "maker_trade_fill_any_rows": 10075,
+          "maker_trade_fill_positive_rate": 0.0006091816868680525,
+          "maker_trade_fill_positive_rows": 97,
+          "maker_trade_fill_queue_rate": 0.00686428436852352,
+          "maker_trade_fill_queue_rows": 1093,
+          "maker_trade_target_observed_rate": 1.0,
+          "maker_trade_target_observed_rows": 159230,
+          "markets": 18,
+          "nonzero_pnl_rows": 1093,
+          "positive_rate": 0.0006091816868680525,
+          "positive_rows": 97,
+          "rows": 159230,
+          "stake_sum": 73851.975,
+          "tokens": 36,
+          "trade_feature_rate": 0.7332914651761603,
+          "trade_feature_rows": 116762
+        },
+        "train": {
+          "maker_trade_fill_any_rate": 0.09987572436311214,
+          "maker_trade_fill_any_rows": 151169,
+          "maker_trade_fill_positive_rate": 0.0018631435195309634,
+          "maker_trade_fill_positive_rows": 2820,
+          "maker_trade_fill_queue_rate": 0.012656162148984091,
+          "maker_trade_fill_queue_rows": 19156,
+          "maker_trade_target_observed_rate": 1.0,
+          "maker_trade_target_observed_rows": 1513571,
+          "markets": 75,
+          "nonzero_pnl_rows": 19156,
+          "positive_rate": 0.0018631435195309634,
+          "positive_rows": 2820,
+          "rows": 1513571,
+          "stake_sum": 714055.6379999997,
+          "tokens": 149,
+          "trade_feature_rate": 0.7777580305119483,
+          "trade_feature_rows": 1177192
+        },
+        "val": {
+          "maker_trade_fill_any_rate": 0.05111059724309811,
+          "maker_trade_fill_any_rows": 7957,
+          "maker_trade_fill_positive_rate": 0.000321167508125538,
+          "maker_trade_fill_positive_rows": 50,
+          "maker_trade_fill_queue_rate": 0.004554155265220128,
+          "maker_trade_fill_queue_rows": 709,
+          "maker_trade_target_observed_rate": 1.0,
+          "maker_trade_target_observed_rows": 155682,
+          "markets": 8,
+          "nonzero_pnl_rows": 709,
+          "positive_rate": 0.000321167508125538,
+          "positive_rows": 50,
+          "rows": 155682,
+          "stake_sum": 75598.557,
+          "tokens": 16,
+          "trade_feature_rate": 0.6786140979689367,
+          "trade_feature_rows": 105648
+        }
+      },
+      "gate": true,
+      "pnl_col": "maker_trade_fill_pnl_per_share",
+      "reasons": [],
+      "stake_col": "entry_bid",
+      "target_col": "maker_trade_fill_positive",
+      "trade_fill_target": true
+    },
+    "label_coverage_gate": true,
+    "label_coverage_reasons": [],
+    "live_capital_gate": false,
+    "model_artifact_sha256": "3e90e2b5d8da5a95009453c5545ecb5b076312796b17796da159a22954e03649",
+    "model_version": "20260530T215450Z-3e90e2b5d8da",
+    "odds_feature_coverage": 0.5511264274000348,
+    "odds_feature_gate": true,
+    "odds_features_enabled": true,
+    "odds_test_coverage": 0.2977453997362306,
+    "odds_test_matched_markets": 5,
+    "performance_gate": false,
+    "pnl_col": "maker_trade_fill_pnl_per_share",
+    "research_gate": false,
+    "run_id": "20260530T215450Z",
+    "selection_score_col": "convergence_prob_lower",
+    "stake_col": "entry_bid",
+    "target_col": "maker_trade_fill_positive",
+    "test_brier": 0.0005182182627419229,
+    "test_ci_hi": null,
+    "test_ci_lo": null,
+    "test_ece_10": 0.00022721751128733201,
+    "test_markets": 0,
+    "test_roi": null,
+    "test_trades": 0,
+    "uses_odds_features": true,
+    "val_roi": null,
+    "val_trades": 0
+  },
+  "telonex_feature_importance": {
+    "confirmed_feature_count": 15,
+    "fdr_alpha": 0.1,
+    "feature_count": 82,
+    "feature_families": {
+      "book_depth": {
+        "confirmed_features": 2,
+        "economically_significant_features": 4,
+        "family": "book_depth",
+        "fdr_significant_features": 10,
+        "features": 17,
+        "max_abs_prob_shift": 0.010225855900218808,
+        "max_abs_roi_delta": 0.015484611723947595,
+        "max_brier_delta": 0.0016289517122336553,
+        "mean_abs_prob_shift": 0.0019358981931846203,
+        "mean_selected_trade_delta": 1.0176470588235293,
+        "positive_brier_features": 11,
+        "total_positive_brier_delta": 0.003475324638389643
+      },
+      "categorical_context": {
+        "confirmed_features": 1,
+        "economically_significant_features": 1,
+        "family": "categorical_context",
+        "fdr_significant_features": 2,
+        "features": 2,
+        "max_abs_prob_shift": 0.003647652129341166,
+        "max_abs_roi_delta": 0.005809603568374415,
+        "max_brier_delta": 0.00018359676827188338,
+        "mean_abs_prob_shift": 0.001853741343878184,
+        "mean_selected_trade_delta": -0.65,
+        "positive_brier_features": 2,
+        "total_positive_brier_delta": 0.00019969920375693536
+      },
+      "market_pair": {
+        "confirmed_features": 0,
+        "economically_significant_features": 1,
+        "family": "market_pair",
+        "fdr_significant_features": 0,
+        "features": 1,
+        "max_abs_prob_shift": 0.007875553784702794,
+        "max_abs_roi_delta": 0.017572011353480764,
+        "max_brier_delta": 7.637149046447328e-05,
+        "mean_abs_prob_shift": 0.007875553784702794,
+        "mean_selected_trade_delta": 8.7,
+        "positive_brier_features": 1,
+        "total_positive_brier_delta": 7.637149046447328e-05
+      },
+      "odds": {
+        "confirmed_features": 0,
+        "economically_significant_features": 0,
+        "family": "odds",
+        "fdr_significant_features": 4,
+        "features": 18,
+        "max_abs_prob_shift": 0.0027902734179540774,
+        "max_abs_roi_delta": 0.0013684005649235512,
+        "max_brier_delta": 3.9063516549491666e-05,
+        "mean_abs_prob_shift": 0.00039266136612838183,
+        "mean_selected_trade_delta": -0.3055555555555556,
+        "positive_brier_features": 6,
+        "total_positive_brier_delta": 8.65746136316868e-05
+      },
+      "other": {
+        "confirmed_features": 0,
+        "economically_significant_features": 0,
+        "family": "other",
+        "fdr_significant_features": 0,
+        "features": 1,
+        "max_abs_prob_shift": 0.0015162326487627076,
+        "max_abs_roi_delta": 0.0018206496502434651,
+        "max_brier_delta": 1.0364181669750282e-05,
+        "mean_abs_prob_shift": 0.0015162326487627076,
+        "mean_selected_trade_delta": 2.1,
+        "positive_brier_features": 1,
+        "total_positive_brier_delta": 1.0364181669750282e-05
+      },
+      "price_level": {
+        "confirmed_features": 3,
+        "economically_significant_features": 3,
+        "family": "price_level",
+        "fdr_significant_features": 4,
+        "features": 5,
+        "max_abs_prob_shift": 0.033838434705429875,
+        "max_abs_roi_delta": 0.040231668797433354,
+        "max_brier_delta": 0.004351147137720604,
+        "mean_abs_prob_shift": 0.019198560059527133,
+        "mean_selected_trade_delta": -8.780000000000001,
+        "positive_brier_features": 4,
+        "total_positive_brier_delta": 0.011706507314983815
+      },
+      "price_momentum": {
+        "confirmed_features": 9,
+        "economically_significant_features": 10,
+        "family": "price_momentum",
+        "fdr_significant_features": 10,
+        "features": 12,
+        "max_abs_prob_shift": 0.008941089519412665,
+        "max_abs_roi_delta": 0.053827810155744685,
+        "max_brier_delta": 0.0008444007827634777,
+        "mean_abs_prob_shift": 0.004371468356602639,
+        "mean_selected_trade_delta": -9.866666666666667,
+        "positive_brier_features": 10,
+        "total_positive_brier_delta": 0.0028822538356202405
+      },
+      "trade_flow": {
+        "confirmed_features": 0,
+        "economically_significant_features": 0,
+        "family": "trade_flow",
+        "fdr_significant_features": 0,
+        "features": 26,
+        "max_abs_prob_shift": 0.0,
+        "max_abs_roi_delta": 0.0,
+        "max_brier_delta": 0.0,
+        "mean_abs_prob_shift": 0.0,
+        "mean_selected_trade_delta": 0.0,
+        "positive_brier_features": 0,
+        "total_positive_brier_delta": 0.0
+      }
+    },
+    "generated_at": "2026-05-30T16:52:46.374598+00:00",
+    "min_economic_prob_shift": 0.015,
+    "model_version": "20260530T163238Z-4c3569fa30ce",
+    "repeats": 10,
+    "rows": 10000,
+    "run_id": "20260530T163238Z",
+    "top_abs_prob_shift": 0.02646586888541938,
+    "top_brier_delta": 0.004351147137720604,
+    "top_confirmed": true,
+    "top_feature": "horizon_sec"
+  },
+  "telonex_live_signals": {
+    "appended_signals": 0,
+    "candidate_tokens": 464,
+    "feature_rows": 2320,
+    "generated_at": "2026-05-30T20:09:38.087067+00:00",
+    "live_odds": {
+      "coverage": 0.021551724137931036,
+      "enabled": true,
+      "fair_rows": 336,
+      "feature_rows": 2320,
+      "market_match_diagnostics": {
+        "markets": 6,
+        "no_odds_event_match": 0,
+        "no_slug_date": 0,
+        "no_sport_pool": 1,
+        "no_title_parse": 0
+      },
+      "matched_markets": 5,
+      "matched_rows": 50,
+      "matched_tokens": 10,
+      "quotes_rows": 4556,
+      "token_mapping_diagnostics": {
+        "mapped_tokens": 10,
+        "tokens": 12,
+        "unmapped_side": 0,
+        "unsupported_market_type": 0,
+        "unsupported_market_types": {}
+      }
+    },
+    "max_convergence_prob_lower": 0.21213000810109747,
+    "model_run_id": "20260530T163238Z",
+    "model_version": "20260530T163238Z-4c3569fa30ce",
+    "score_margin_max": -0.21405958374405956,
+    "score_margin_p95": -0.41981197008803905,
+    "selected_signals": 0,
+    "threshold": 0.42618959184515703
+  },
+  "telonex_market_disjoint_odds_validation": {
+    "abstained_folds": 2,
+    "folds_requested": 2,
+    "folds_run": 2,
+    "folds_with_market_overlap": 0,
+    "gate": false,
+    "gate_reasons": [
+      "aggregate market-disjoint test ROI is not positive",
+      "aggregate market-disjoint ROI CI lower bound is not positive",
+      "aggregate test trades below 100",
+      "aggregate test markets below 10",
+      "no folds selected test trades"
+    ],
+    "generated_at": "2026-05-30T21:58:06.655746+00:00",
+    "positive_roi_folds": 0,
+    "report": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/telonex_walk_forward_base_odds_latest.md",
+    "row_time_order_enforced": false,
+    "row_time_order_ok_folds": 0,
+    "target": {
+      "pnl_col": "maker_trade_fill_pnl_per_share",
+      "stake_col": "entry_bid",
+      "target_col": "maker_trade_fill_positive"
+    },
+    "test_ci_hi": null,
+    "test_ci_lo": null,
+    "test_markets": 0,
+    "test_roi": null,
+    "test_trades": 0,
+    "traded_folds": 0,
+    "validation_mode": "market_disjoint"
+  },
+  "telonex_market_disjoint_validation": {
+    "abstained_folds": 2,
+    "folds_requested": 2,
+    "folds_run": 2,
+    "folds_with_market_overlap": 0,
+    "gate": false,
+    "gate_reasons": [
+      "aggregate market-disjoint test ROI is not positive",
+      "aggregate market-disjoint ROI CI lower bound is not positive",
+      "aggregate test trades below 100",
+      "aggregate test markets below 10",
+      "no folds selected test trades"
+    ],
+    "generated_at": "2026-05-30T21:19:15.517273+00:00",
+    "positive_roi_folds": 0,
+    "report": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/telonex_walk_forward_latest.md",
+    "row_time_order_enforced": false,
+    "row_time_order_ok_folds": 0,
+    "target": {
+      "pnl_col": "maker_trade_fill_pnl_per_share",
+      "stake_col": "entry_bid",
+      "target_col": "maker_trade_fill_positive"
+    },
+    "test_ci_hi": null,
+    "test_ci_lo": null,
+    "test_markets": 0,
+    "test_roi": null,
+    "test_trades": 0,
+    "traded_folds": 0,
+    "validation_mode": "market_disjoint"
+  },
+  "telonex_model_monitor": {
+    "adverse_avg_mid_move": null,
+    "adverse_favorable_mid_move_rate": null,
+    "correlated_p05_final_bankroll": null,
+    "correlated_quality_shock_std": null,
+    "ece_alerts": 0,
+    "latest_external_validation_gate": false,
+    "latest_external_validation_reasons": [
+      "market_disjoint validation gate failed: market_disjoint_gate=false in telonex_walk_forward_base_odds_latest.json",
+      "temporal validation gate failed: temporal_gate=false in telonex_temporal_validation_base_odds_latest.json"
+    ],
+    "latest_run": "20260530T215450Z",
+    "risk_p05_final_bankroll": null,
+    "roi_alerts": 0,
+    "verdict": "HOLD: latest research gate failed; latest external validation gate failed; latest test ROI is not positive; latest test CI lower bound is not positive"
+  },
+  "telonex_odds_features": {
+    "by_sport": {
+      "baseball_mlb": {
+        "markets": 61,
+        "rows": 792020,
+        "tokens": 121
+      },
+      "basketball_wnba": {
+        "markets": 2,
+        "rows": 26836,
+        "tokens": 4
+      },
+      "soccer_brazil_campeonato": {
+        "markets": 8,
+        "rows": 377170,
+        "tokens": 16
+      },
+      "soccer_chile_campeonato": {
+        "markets": 1,
+        "rows": 22172,
+        "tokens": 2
+      },
+      "soccer_conmebol_copa_libertadores": {
+        "markets": 1,
+        "rows": 65500,
+        "tokens": 2
+      },
+      "soccer_norway_eliteserien": {
+        "markets": 6,
+        "rows": 130462,
+        "tokens": 12
+      }
+    },
+    "join_diagnostics": {
+      "candidate_rows_with_fair_group": 1802933,
+      "groups_with_fair": 122,
+      "join_groups": 128,
+      "mapped_label_markets": 82,
+      "mapped_label_rows": 1830923,
+      "mapped_label_tokens": 163,
+      "matched_feature_rows": 1414160,
+      "rows_after_last_allowed_snapshot": 8124,
+      "rows_before_first_odds_snapshot": 380649,
+      "rows_without_fair_group": 27990
+    },
+    "markets": 79,
+    "row_coverage": 0.48956842190899696,
+    "rows": 1414160,
+    "tokens": 157
+  },
+  "telonex_odds_fusion_target_compatible": true,
+  "telonex_odds_fusion_validated": false,
+  "telonex_strategy_buckets": {
+    "executable_taker_gate": false,
+    "gate_reasons": [
+      "no predeclared executable taker bucket has positive test CI lower bound"
+    ],
+    "maker_research_lead_gate": false,
+    "markets": 216,
+    "odds_features": {
+      "coverage_by_split": {
+        "test": {
+          "markets": 33,
+          "matched_markets": 0,
+          "matched_rows": 0,
+          "row_coverage": 0.0,
+          "rows": 29156
+        },
+        "train": {
+          "markets": 151,
+          "matched_markets": 70,
+          "matched_rows": 1337398,
+          "row_coverage": 0.5035317682184158,
+          "rows": 2656035
+        },
+        "val": {
+          "markets": 32,
+          "matched_markets": 9,
+          "matched_rows": 76762,
+          "row_coverage": 0.37740542985535463,
+          "rows": 203394
+        }
+      },
+      "enabled": true,
+      "matched_markets": 79,
+      "matched_rows": 1414160,
+      "matched_tokens": 157,
+      "path": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/execution_training/telonex_odds_features_latest.parquet",
+      "row_coverage": 0.48956842190899696,
+      "rows": 1414160
+    },
+    "positive_test_buckets": 0,
+    "positive_test_buckets_by_side": {
+      "maker": 0,
+      "taker": 0
+    },
+    "report": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/telonex_strategy_buckets_latest.md",
+    "rows": 2888585,
+    "tokens": 429,
+    "verdict": "No predeclared test bucket cleared a positive cluster-bootstrap CI lower bound. Current Telonex data does not support live capital for maker/taker price-bucket strategies."
+  },
+  "telonex_temporal_odds_validation": {
+    "abstained_folds": 1,
+    "folds_requested": 1,
+    "folds_run": 1,
+    "folds_with_market_overlap": 1,
+    "gate": false,
+    "gate_reasons": [
+      "aggregate temporal test ROI is not positive",
+      "aggregate temporal ROI CI lower bound is not positive",
+      "aggregate test trades below 100",
+      "aggregate test markets below 5",
+      "no temporal folds selected test trades"
+    ],
+    "generated_at": "2026-05-30T21:59:34.831703+00:00",
+    "positive_roi_folds": 0,
+    "report": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/telonex_temporal_validation_base_odds_latest.md",
+    "row_time_order_enforced": false,
+    "row_time_order_ok_folds": 1,
+    "target": {
+      "pnl_col": "maker_trade_fill_pnl_per_share",
+      "stake_col": "entry_bid",
+      "target_col": "maker_trade_fill_positive"
+    },
+    "test_ci_hi": null,
+    "test_ci_lo": null,
+    "test_markets": 0,
+    "test_roi": null,
+    "test_trades": 0,
+    "traded_folds": 0,
+    "validation_mode": "strict_temporal_row_order"
+  },
+  "telonex_temporal_validation": {
+    "abstained_folds": 1,
+    "folds_requested": 1,
+    "folds_run": 1,
+    "folds_with_market_overlap": 1,
+    "gate": false,
+    "gate_reasons": [
+      "aggregate temporal test ROI is not positive",
+      "aggregate temporal ROI CI lower bound is not positive",
+      "aggregate test trades below 100",
+      "aggregate test markets below 10",
+      "no temporal folds selected test trades"
+    ],
+    "generated_at": "2026-05-30T21:21:26.253602+00:00",
+    "positive_roi_folds": 0,
+    "report": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/telonex_temporal_validation_latest.md",
+    "row_time_order_enforced": false,
+    "row_time_order_ok_folds": 1,
+    "target": {
+      "pnl_col": "maker_trade_fill_pnl_per_share",
+      "stake_col": "entry_bid",
+      "target_col": "maker_trade_fill_positive"
+    },
+    "test_ci_hi": null,
+    "test_ci_lo": null,
+    "test_markets": 0,
+    "test_roi": null,
+    "test_trades": 0,
+    "traded_folds": 0,
+    "validation_mode": "strict_temporal_row_order"
+  },
+  "training": {
+    "execution_rows": 270,
+    "queue_fill_model": {
+      "authenticated_fills": 0,
+      "authenticated_live_fill_gate": false,
+      "authenticated_rows": 0,
+      "gate_reasons": [
+        "authenticated fill rows below 500"
+      ],
+      "generated_at": "2026-05-30T23:26:08.857882+00:00",
+      "proxy_model_gate": true,
+      "report": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/queue_fill_model_latest.md",
+      "test_auc": 0.9800077639751553,
+      "test_baseline_brier": 0.24030922526600973,
+      "test_brier": 0.022436290112927686,
+      "test_rows": 401
+    },
+    "queue_rows": 2003,
+    "telonex_execution_markets": 216,
+    "telonex_execution_positive_rate": 0.0038309414471099173,
+    "telonex_execution_rows": 2888585,
+    "telonex_execution_tokens": 429
+  }
+}

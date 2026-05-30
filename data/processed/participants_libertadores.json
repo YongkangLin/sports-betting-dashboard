@@ -1,0 +1,510 @@
+[
+  {
+    "full_name": "2 de Mayo",
+    "id": "par_01kct34bmaef7s6dyxkkef1rwz"
+  },
+  {
+    "full_name": "Alianza Atl\u00e9tico",
+    "id": "par_01kct34bmdfh293bhhze9ete3q"
+  },
+  {
+    "full_name": "Alianza Lima",
+    "id": "par_01hqmks6wae7z94e40bqk0vx2h"
+  },
+  {
+    "full_name": "Am\u00e9rica de Cali",
+    "id": "par_01jq3haw4rfg8t050bhqz47v25"
+  },
+  {
+    "full_name": "Argentinos Jrs",
+    "id": "par_01hqmks6wbe5qtvqn2qcbzkh8y"
+  },
+  {
+    "full_name": "Athletico Paranaense-PR",
+    "id": "par_01hqmks6wcf9svjt6b6htzecp7"
+  },
+  {
+    "full_name": "Atl\u00e9tico Bucaramanga",
+    "id": "par_01jps98xkmf49b3xr1vyc8fvmn"
+  },
+  {
+    "full_name": "Atl\u00e9tico Grau",
+    "id": "par_01jq3haw4pfj5rrz6p6keyq8jx"
+  },
+  {
+    "full_name": "Atl\u00e9tico Nacional S.A",
+    "id": "par_01hqmks6wdfm5akdyb6bcen53n"
+  },
+  {
+    "full_name": "Aucas",
+    "id": "par_01hqmks6wefp4acc5e75hez346"
+  },
+  {
+    "full_name": "Audax Italiano",
+    "id": "par_01kct34bmef0ats29s8werqsmg"
+  },
+  {
+    "full_name": "Aurora",
+    "id": "par_01hqmks6wfe37scr3y9488vzd0"
+  },
+  {
+    "full_name": "Bahia",
+    "id": "par_01jgq6kqzee5v95vag3k7w6drd"
+  },
+  {
+    "full_name": "Barcelona SC",
+    "id": "par_01hqmks6wgf6hv7w24wvv6yw7r"
+  },
+  {
+    "full_name": "Barracas Central",
+    "id": "par_01km58mw6yf3zbzy8jhssemhvk"
+  },
+  {
+    "full_name": "Blooming",
+    "id": "par_01jgq6kqzfe6ctmet7zf8hgbb8"
+  },
+  {
+    "full_name": "Boca Juniors",
+    "id": "par_01hqmks6whee0r4cf0t3rypq5p"
+  },
+  {
+    "full_name": "Botafogo",
+    "id": "par_01hqmks6wjer09cw0p3ksyfppc"
+  },
+  {
+    "full_name": "Bragantino-SP",
+    "id": "par_01hqmks6wkfqat2jthm5dcr37g"
+  },
+  {
+    "full_name": "C.D. Cuenca",
+    "id": "par_01kdej4wv2f508nx7vprfhf6fh"
+  },
+  {
+    "full_name": "C.D. San Antonio Bulo Bulo",
+    "id": "par_01jps98xkqf0nrgxv22sdrqcms"
+  },
+  {
+    "full_name": "CA Boston River",
+    "id": "par_01hqmks6wmedrtwckbr5xpee4k"
+  },
+  {
+    "full_name": "CA Colon De Santa Fe",
+    "id": "par_01hqmks6wnfn2vpmfhpv5n24b6"
+  },
+  {
+    "full_name": "CA Juventud",
+    "id": "par_01kct34bmbejm9btk0vcr78331"
+  },
+  {
+    "full_name": "CA Tigre BA",
+    "id": "par_01km58mw70erra6y9ssyj756hm"
+  },
+  {
+    "full_name": "Carabobo FC",
+    "id": "par_01hqmks6wpe7etsw64wj4jhsqr"
+  },
+  {
+    "full_name": "Caracas FC",
+    "id": "par_01hsft8v19e0nrkm3pher3rpc4"
+  },
+  {
+    "full_name": "Central C\u00f3rdoba",
+    "id": "par_01jps98xkpe2nr00wdbmwrx1tr"
+  },
+  {
+    "full_name": "Cerro Largo",
+    "id": "par_01jq3haw4me20a42eatc533vqy"
+  },
+  {
+    "full_name": "Cerro Porte\u00f1o",
+    "id": "par_01hqmks6wqfbnvn3x3drgcnfhq"
+  },
+  {
+    "full_name": "Club Always Ready",
+    "id": "par_01hqmks6wreyss1abpwxgspzez"
+  },
+  {
+    "full_name": "Club Atletico Talleres",
+    "id": "par_01hqmks6wsfkt8pbvjfzj3gdaw"
+  },
+  {
+    "full_name": "Club Bol\u00edvar",
+    "id": "par_01hqmks6wte3namb7kc75aj58t"
+  },
+  {
+    "full_name": "Club Cienciano",
+    "id": "par_01jq3haw4sfkztw7gkc0badxe9"
+  },
+  {
+    "full_name": "Club Guaran\u00ed",
+    "id": "par_01jq3haw4nfsmby5dtkj5vxb5e"
+  },
+  {
+    "full_name": "Club Independiente Petrolero",
+    "id": "par_01ke9ksvy5fnvsbrqxmr76qwqq"
+  },
+  {
+    "full_name": "Club Universitario de Deportes",
+    "id": "par_01hsdm7gjaf219mzj9x3akp5nb"
+  },
+  {
+    "full_name": "Clube Atl\u00e9tico Mineiro",
+    "id": "par_01hqmks6wve8et8vp6cch5psmn"
+  },
+  {
+    "full_name": "Cobresal",
+    "id": "par_01hsdm7gjeeajstr75m9kvw3hz"
+  },
+  {
+    "full_name": "Colo Colo",
+    "id": "par_01hqmks6wwegevcrsmmm0rqpsb"
+  },
+  {
+    "full_name": "Coquimbo Unido",
+    "id": "par_01km8423dfe6ta5zh9kd3f8jdr"
+  },
+  {
+    "full_name": "Corinthians-SP",
+    "id": "par_01hqmks6wxe4abe1c5qr0113fs"
+  },
+  {
+    "full_name": "Cruzeiro",
+    "id": "par_01jq3haw4zf679qaagt7hsk421"
+  },
+  {
+    "full_name": "Curic\u00f3 Unido",
+    "id": "par_01hqmks6wye0780mx0bdasmegc"
+  },
+  {
+    "full_name": "Cusco FC",
+    "id": "par_01km54cec1f1va7q0sfkq7bres"
+  },
+  {
+    "full_name": "Defensa y Justicia",
+    "id": "par_01jq3haw4wev8afwaz5yrmyzrz"
+  },
+  {
+    "full_name": "Defensor Sporting",
+    "id": "par_01hqmks6wzfnnt3248bzbj933p"
+  },
+  {
+    "full_name": "Deportes Iquique",
+    "id": "par_01jgq6kqzgescv4kkbnryy4gc1"
+  },
+  {
+    "full_name": "Deportes Magallanes",
+    "id": "par_01hqmks6x0f688ew281w8gvm0k"
+  },
+  {
+    "full_name": "Deportes Tolima",
+    "id": "par_01hqmks6x1fhx8p67ekzwh30y6"
+  },
+  {
+    "full_name": "Deportivo Garcilaso",
+    "id": "par_01kct34bmffdxt9dgvyjnxfhm9"
+  },
+  {
+    "full_name": "Deportivo La Guaira",
+    "id": "par_01km5ndbdaezrv0wkkwc4x1x35"
+  },
+  {
+    "full_name": "Deportivo Maldonado",
+    "id": "par_01hqmks6x2emxbm45afyr03sk9"
+  },
+  {
+    "full_name": "Deportivo Pereira",
+    "id": "par_01hqmks6x3f93bkf36tjvhse97"
+  },
+  {
+    "full_name": "Deportivo Riestra",
+    "id": "par_01kqsfn2pdebvb2z8j415qy8d4"
+  },
+  {
+    "full_name": "Deportivo T\u00e1chira",
+    "id": "par_01hsdm7gjdf65t21zz8kdvsftk"
+  },
+  {
+    "full_name": "El Nacional (Ecu)",
+    "id": "par_01hqmks6x4f3ebv217cb1tr0cw"
+  },
+  {
+    "full_name": "Emelec",
+    "id": "par_01hqmks6x5f3ntawz7qcbwc89n"
+  },
+  {
+    "full_name": "Estudiantes La Plata",
+    "id": "par_01hqmks6x6fgrag41t8gx0m6hc"
+  },
+  {
+    "full_name": "FBC Melgar",
+    "id": "par_01hqmks6x7ehprd2jrxgeq3m0c"
+  },
+  {
+    "full_name": "Flamengo-RJ",
+    "id": "par_01hqmks6x8ed5s61wjrhwejjmw"
+  },
+  {
+    "full_name": "Fluminense-RJ",
+    "id": "par_01hqmks6x9eeqsd3sj5rnxmrzb"
+  },
+  {
+    "full_name": "Fortaleza-EC",
+    "id": "par_01hqmks6xafagat6ye0zzcaxg6"
+  },
+  {
+    "full_name": "GV San Jos\u00e9",
+    "id": "par_01jq3haw4te2xt61rbkr7qtfv3"
+  },
+  {
+    "full_name": "Godoy Cruz",
+    "id": "par_01hqmks6xbe988rbvya1ykv2xm"
+  },
+  {
+    "full_name": "Gr\u00eamio",
+    "id": "par_01hsdm7gjbfdpv3svwz6c1cpnc"
+  },
+  {
+    "full_name": "Guabir\u00e1",
+    "id": "par_01ke9ksvy6eq3srtcx18dbjj4s"
+  },
+  {
+    "full_name": "Huachipato",
+    "id": "par_01hsft8v18ee9vxkpw7h4qy6q5"
+  },
+  {
+    "full_name": "Hurac\u00e1n",
+    "id": "par_01hqmks6xcen2b7q2zwnkp7jqv"
+  },
+  {
+    "full_name": "Independiente",
+    "id": "par_01jq3haw4ffj4r3m04t9pmwar1"
+  },
+  {
+    "full_name": "Independiente Medell\u00edn",
+    "id": "par_01hqmks6xdegpsb80522evsg1d"
+  },
+  {
+    "full_name": "Independiente Rivadavia",
+    "id": "par_01km54cec2f3evdktskj6fjj0f"
+  },
+  {
+    "full_name": "Independiente Santa Fe",
+    "id": "par_01jgq6kqzhf7sv6kyp1pfq80gs"
+  },
+  {
+    "full_name": "Independiente del Valle",
+    "id": "par_01hqmks6xefbp8v6kb711kcet0"
+  },
+  {
+    "full_name": "Internacional-RS",
+    "id": "par_01hqmks6xffnys3zyqt34xfrnx"
+  },
+  {
+    "full_name": "Junior FC",
+    "id": "par_01hsfvqcx9fz4b6b0mx4q3149z"
+  },
+  {
+    "full_name": "LDU Quito",
+    "id": "par_01hsdm7gjcfj2837xqs7695hej"
+  },
+  {
+    "full_name": "Lanus",
+    "id": "par_01jq3haw4he3cve2m6bmddwt5x"
+  },
+  {
+    "full_name": "Libertad Asuncion",
+    "id": "par_01hqmks6xgf228mwgyqhenwtpv"
+  },
+  {
+    "full_name": "Libertad FC",
+    "id": "par_01khzsqh4aeket66h0fjady9ez"
+  },
+  {
+    "full_name": "Liverpool FC Montevideo",
+    "id": "par_01hqmks6xhekhsexx5ge8jwv6s"
+  },
+  {
+    "full_name": "Macar\u00e1",
+    "id": "par_01kd9e65bqfa9tr6r0a94ttkqk"
+  },
+  {
+    "full_name": "Metropolitanos FC",
+    "id": "par_01hqmks6xjerwrbr7nb1qf6jtq"
+  },
+  {
+    "full_name": "Millonarios",
+    "id": "par_01hqmks6xkf23r22j8dsx60a7f"
+  },
+  {
+    "full_name": "Mirassol",
+    "id": "par_01km54cec3f118g9rsjxgyajjk"
+  },
+  {
+    "full_name": "Monagas SC",
+    "id": "par_01hqmks6xmevst59b6584j0y2q"
+  },
+  {
+    "full_name": "Montevideo City Torque",
+    "id": "par_01kct34bmhebsbjy03jyzb8zmw"
+  },
+  {
+    "full_name": "Mushuc Runa",
+    "id": "par_01jq3haw4kf2qrbezwz6h2dt1f"
+  },
+  {
+    "full_name": "Nacional Asunci\u00f3n (Par)",
+    "id": "par_01hqmks6xnemjsh4j644jc7hka"
+  },
+  {
+    "full_name": "Nacional Potos\u00ed",
+    "id": "par_01hqmks6xpfrwre9d0z29dkzrw"
+  },
+  {
+    "full_name": "Nacional de Montevideo",
+    "id": "par_01hqmks6xqfafsykbxhz9sd67t"
+  },
+  {
+    "full_name": "O'Higgins",
+    "id": "par_01kct34bmcejn9s1566zamjssd"
+  },
+  {
+    "full_name": "OA Name",
+    "id": "par_01hqmks6xre29sjnbwjfg9vg6y"
+  },
+  {
+    "full_name": "Olimpia Asunci\u00f3n",
+    "id": "par_01hqmks6xsepsvkhksxeajaa9t"
+  },
+  {
+    "full_name": "Once Caldas",
+    "id": "par_01jq3haw4jefqt8j8z2t69a0er"
+  },
+  {
+    "full_name": "Orense SC",
+    "id": "par_01kd9e65bred2sc3hnx73ek35q"
+  },
+  {
+    "full_name": "Palestino",
+    "id": "par_01hqmks6xtfqv8zy5ps9r3ycht"
+  },
+  {
+    "full_name": "Palmeiras-SP",
+    "id": "par_01hqmks6xvf31rnwpks2xh4yeq"
+  },
+  {
+    "full_name": "Patronato de Paran\u00e1",
+    "id": "par_01hqmks6xwfjgs8y4n73xwwn6z"
+  },
+  {
+    "full_name": "Pe\u00f1arol Montevideo",
+    "id": "par_01hsft8v1afxhsq66vfacy1c1s"
+  },
+  {
+    "full_name": "Platense",
+    "id": "par_01km54cec4f04rsf3hcs7sq0g7"
+  },
+  {
+    "full_name": "Portuguesa FC",
+    "id": "par_01hqmks6xxe529cg2ghnmhdbjg"
+  },
+  {
+    "full_name": "Puerto Cabello",
+    "id": "par_01hqmks6xyf08apdqspfpzwh2h"
+  },
+  {
+    "full_name": "Racing Club",
+    "id": "par_01hqmks6xzf4ca8s6kqtshax7k"
+  },
+  {
+    "full_name": "Recoleta FC",
+    "id": "par_01kct34bmgeznvafybsd9b7m0y"
+  },
+  {
+    "full_name": "River Plate",
+    "id": "par_01hqmks6y0f2a8zpn1dr78j97n"
+  },
+  {
+    "full_name": "Rosario Central",
+    "id": "par_01hsft8v1bfbg8hc72s9anmrmd"
+  },
+  {
+    "full_name": "San Lorenzo",
+    "id": "par_01hsft8v1def7bxh99tfvmhqmv"
+  },
+  {
+    "full_name": "Santos",
+    "id": "par_01km58mw6zejxrvm67q3y0k0e7"
+  },
+  {
+    "full_name": "Sao Paulo",
+    "id": "par_01hsft8v1ce6a82wh59g7zawzs"
+  },
+  {
+    "full_name": "Sport Huancayo",
+    "id": "par_01hqmks6y1fbes6p40k40s7sz9"
+  },
+  {
+    "full_name": "Sporting Cristal",
+    "id": "par_01hqmks6y2fyarybp9txrnk6t6"
+  },
+  {
+    "full_name": "Sportivo Luque\u00f1o",
+    "id": "par_01jq3haw4qfpbt3100x6h8sn9s"
+  },
+  {
+    "full_name": "Sportivo Trinidense",
+    "id": "par_01hqmks6y3epgt03rt7rd20ya3"
+  },
+  {
+    "full_name": "The Strongest",
+    "id": "par_01hqmks6y4ebrtz0d4fsmgrwwm"
+  },
+  {
+    "full_name": "UCV FC",
+    "id": "par_01jgq6kqzjfzvb0n6kkdmgzzfz"
+  },
+  {
+    "full_name": "Union Santa Fe",
+    "id": "par_01jq3haw4gedvsjgsvn17pbnxz"
+  },
+  {
+    "full_name": "Universidad Cat\u00f3lica (CHI)",
+    "id": "par_01km5ndbdbfmdb7jepsq3w7ej4"
+  },
+  {
+    "full_name": "Universidad Cat\u00f3lica del Ecuador",
+    "id": "par_01hqmks6y5epfa9mvdwn1tmpc1"
+  },
+  {
+    "full_name": "Universidad de Chile",
+    "id": "par_01jps98xkkf0nvfre3n2qk374v"
+  },
+  {
+    "full_name": "Uni\u00f3n Espa\u00f1ola",
+    "id": "par_01jq3haw4xf5yvrcdezde3d7ab"
+  },
+  {
+    "full_name": "Vasco da Gama",
+    "id": "par_01jq3haw4yfcytxe38p874cjak"
+  },
+  {
+    "full_name": "Velez Sarsfield",
+    "id": "par_01hqmks6y6fnpsya650cemzay9"
+  },
+  {
+    "full_name": "Vit\u00f3ria",
+    "id": "par_01jq3haw4veprvsqvgqxadpwkp"
+  },
+  {
+    "full_name": "Zamora FC",
+    "id": "par_01hqmks6y7eg9tj1hp1szxbve1"
+  },
+  {
+    "full_name": "\u00c1guilas Doradas",
+    "id": "par_01hqmks6y8e5n8eampcbqg6rvs"
+  },
+  {
+    "full_name": "\u00d1ublense",
+    "id": "par_01hqmks6y9e6c84r005kpgkdrh"
+  }
+]

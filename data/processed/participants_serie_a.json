@@ -1,0 +1,246 @@
+[
+  {
+    "full_name": "AC Milan",
+    "id": "par_01hzeqm0cmfb587eprz8x80qnq"
+  },
+  {
+    "full_name": "AS Roma",
+    "id": "par_01hzeqm0cpfgr8ycy3njyatg8s"
+  },
+  {
+    "full_name": "Alessandria",
+    "id": "par_01hzeqm0cnewc9cp86zr8mt3r6"
+  },
+  {
+    "full_name": "Ascoli",
+    "id": "par_01hzeqm0cqf3dtqc4tjmzzz7ty"
+  },
+  {
+    "full_name": "Atalanta BC",
+    "id": "par_01hzeqm0creht8mrt007fhmwcj"
+  },
+  {
+    "full_name": "Avellino",
+    "id": "par_01k2ymqk2ff4sb7mwxyq486sd0"
+  },
+  {
+    "full_name": "Bari",
+    "id": "par_01hzeqm0csfh0b3ctb2q8f1hj7"
+  },
+  {
+    "full_name": "Benevento",
+    "id": "par_01hzeqm0ctfpytmdn0nd4snhrw"
+  },
+  {
+    "full_name": "Bologna",
+    "id": "par_01hzeqm0cvebytap8c13vp6b07"
+  },
+  {
+    "full_name": "Brescia",
+    "id": "par_01hzeqm0cwfchbggd2x653a13n"
+  },
+  {
+    "full_name": "Cagliari",
+    "id": "par_01hzeqm0cxfr8vfesv3c0rc7ew"
+  },
+  {
+    "full_name": "Carpi",
+    "id": "par_01hzeqm0cyf6ja8jmvn8w28d2j"
+  },
+  {
+    "full_name": "Carrarese",
+    "id": "par_01j3esb3zbfztb9dq73vv1aprs"
+  },
+  {
+    "full_name": "Cesena FC",
+    "id": "par_01j3esb3zce49am01jznzzxscm"
+  },
+  {
+    "full_name": "Chievo",
+    "id": "par_01hzeqm0czez1rk3jv5qka3pd0"
+  },
+  {
+    "full_name": "Cittadella",
+    "id": "par_01hzeqm0d0ftysaspfet7fx674"
+  },
+  {
+    "full_name": "Como",
+    "id": "par_01hzeqm0d1ftsag00x175jv44m"
+  },
+  {
+    "full_name": "Cosenza",
+    "id": "par_01hzeqm0d2e2ktfxz48n6f7tb9"
+  },
+  {
+    "full_name": "Cremonese",
+    "id": "par_01hzeqm0d3f3bvcf71grh6j7sw"
+  },
+  {
+    "full_name": "Crotone",
+    "id": "par_01hzeqm0d4ersbd7z6t43p4g1w"
+  },
+  {
+    "full_name": "Empoli",
+    "id": "par_01hzeqm0d5fnvs7mchmerbfyxr"
+  },
+  {
+    "full_name": "Feralpisal\u00f2",
+    "id": "par_01hzeqm0d6e3atjfhsm7ttb537"
+  },
+  {
+    "full_name": "Fiorentina",
+    "id": "par_01hzeqm0d7fmca2ra58kscwc9t"
+  },
+  {
+    "full_name": "Foggia",
+    "id": "par_01hzeqm0d8ek7vybdt1hpafn1n"
+  },
+  {
+    "full_name": "Frosinone",
+    "id": "par_01hzeqm0d9fr3v1357n1gfpdpr"
+  },
+  {
+    "full_name": "Genoa",
+    "id": "par_01hzeqm0dafztamxab93h9ny2m"
+  },
+  {
+    "full_name": "Hellas Verona",
+    "id": "par_01hzeqm0dbfvh83qba4frv9y1j"
+  },
+  {
+    "full_name": "Inter Milan",
+    "id": "par_01hzeqm0dcfygapy57r2hc6px1"
+  },
+  {
+    "full_name": "Juve Stabia",
+    "id": "par_01hzeqm0ddemc93kamwamvp5wc"
+  },
+  {
+    "full_name": "Juventus",
+    "id": "par_01hzeqm0defd2tmb7ehhsc26qb"
+  },
+  {
+    "full_name": "Lazio",
+    "id": "par_01hzeqm0dffj5s1aj7r6njkab3"
+  },
+  {
+    "full_name": "Lecce",
+    "id": "par_01hzeqm0dgf7392yjy00kk1s9g"
+  },
+  {
+    "full_name": "Lecco",
+    "id": "par_01hzeqm0dhfmmb47h9kg2zv0ch"
+  },
+  {
+    "full_name": "Livorno",
+    "id": "par_01hzeqm0dje859c6hygt5qwew6"
+  },
+  {
+    "full_name": "Mantova",
+    "id": "par_01j3esb3zdep8sa223wd3mq4s6"
+  },
+  {
+    "full_name": "Modena",
+    "id": "par_01hzeqm0dkebb90pnm5yh1f2kv"
+  },
+  {
+    "full_name": "Monza",
+    "id": "par_01hzeqm0dmegyahwt17193mkj4"
+  },
+  {
+    "full_name": "Napoli",
+    "id": "par_01hzeqm0dne0jr71ntq7sztnqj"
+  },
+  {
+    "full_name": "Padova",
+    "id": "par_01hzeqm0dpenqbeh4ysfp43pk3"
+  },
+  {
+    "full_name": "Palermo",
+    "id": "par_01hzeqm0dqek890yktekaynejf"
+  },
+  {
+    "full_name": "Parma",
+    "id": "par_01hzeqm0drejv8crqs26b743gj"
+  },
+  {
+    "full_name": "Perugia",
+    "id": "par_01hzeqm0dsejw9b1k0avy3b239"
+  },
+  {
+    "full_name": "Pescara",
+    "id": "par_01hzeqm0dtfkcvx8pgq6gdavd6"
+  },
+  {
+    "full_name": "Pisa",
+    "id": "par_01hzeqm0dvew78d20fc58ang5n"
+  },
+  {
+    "full_name": "Pordenone",
+    "id": "par_01hzeqm0dwf3ytkahvyz1cjtt8"
+  },
+  {
+    "full_name": "Reggiana",
+    "id": "par_01hzeqm0dxfsjaxbcadtf84q0z"
+  },
+  {
+    "full_name": "Reggina",
+    "id": "par_01hzeqm0dyez4r64k290eemagy"
+  },
+  {
+    "full_name": "SPAL",
+    "id": "par_01hzeqm0e2f279d4pvefc6qgcp"
+  },
+  {
+    "full_name": "Salernitana",
+    "id": "par_01hzeqm0dzegvv5j6fer62dcxw"
+  },
+  {
+    "full_name": "Sampdoria",
+    "id": "par_01hzeqm0e0f2c9f38kwa6c7ymg"
+  },
+  {
+    "full_name": "Sassuolo",
+    "id": "par_01hzeqm0e1fw88k9y4zayh2wxx"
+  },
+  {
+    "full_name": "Spezia",
+    "id": "par_01hzeqm0e3fa9amtakh0s9rrdn"
+  },
+  {
+    "full_name": "S\u00fcdtirol",
+    "id": "par_01hzeqm0e4fa9bc28dk8336tsw"
+  },
+  {
+    "full_name": "Ternana",
+    "id": "par_01hzeqm0e5e0vbwse94j99yrnq"
+  },
+  {
+    "full_name": "Torino",
+    "id": "par_01hzeqm0e6eg4b002qebnwsv1v"
+  },
+  {
+    "full_name": "Trapani",
+    "id": "par_01hzeqm0e7fm99g2k6n9mt2r0g"
+  },
+  {
+    "full_name": "US Catanzaro 1929",
+    "id": "par_01hzeqm0e9f5avwb18h3vqag4h"
+  },
+  {
+    "full_name": "Udinese",
+    "id": "par_01hzeqm0e8ec291vpvhdg299g1"
+  },
+  {
+    "full_name": "Venezia",
+    "id": "par_01hzeqm0eaf9wvz1wk1msx8wjw"
+  },
+  {
+    "full_name": "Vicenza",
+    "id": "par_01hzeqm0ebej59cyjpt1rqh9e3"
+  },
+  {
+    "full_name": "Virtus Entella",
+    "id": "par_01hzeqm0ece9w8pgakjnkgdwxw"
+  }
+]

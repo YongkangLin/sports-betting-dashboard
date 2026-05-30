@@ -1,0 +1,1369 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:,">
+<title>Sports Betting Strategy Evidence Dashboard</title>
+<style>
+  :root {
+    color-scheme: light;
+    --bg: #f6f7f9;
+    --panel: #ffffff;
+    --ink: #1d2430;
+    --muted: #627083;
+    --line: #d8dee8;
+    --soft-line: #e9edf3;
+    --danger: #b42318;
+    --danger-bg: #fff1ef;
+    --warn: #9a5b00;
+    --warn-bg: #fff7e6;
+    --good: #067647;
+    --good-bg: #ecfdf3;
+    --info: #175cd3;
+    --info-bg: #eff6ff;
+    --shadow: 0 10px 30px rgba(29, 36, 48, 0.07);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  a {
+    color: var(--info);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .page {
+    width: min(1440px, calc(100vw - 32px));
+    margin: 0 auto;
+    padding: 24px 0 40px;
+  }
+
+  .topbar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 20px;
+    align-items: start;
+    padding: 24px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+  }
+
+  .eyebrow {
+    margin: 0 0 6px;
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(28px, 4vw, 44px);
+    line-height: 1.05;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: 20px;
+  }
+
+  h3 {
+    margin: 0;
+    font-size: 15px;
+  }
+
+  .subtitle {
+    max-width: 880px;
+    margin: 12px 0 0;
+    color: var(--muted);
+  }
+
+  .status-stack {
+    display: grid;
+    gap: 8px;
+    justify-items: end;
+    min-width: 220px;
+  }
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 28px;
+    padding: 4px 10px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: var(--muted);
+    background: #f9fafb;
+    font-size: 12px;
+    font-weight: 800;
+    white-space: nowrap;
+  }
+
+  .pill.bad {
+    border-color: #f1a6a0;
+    color: var(--danger);
+    background: var(--danger-bg);
+  }
+
+  .pill.warn {
+    border-color: #f2d28c;
+    color: var(--warn);
+    background: var(--warn-bg);
+  }
+
+  .pill.good {
+    border-color: #9bd9b8;
+    color: var(--good);
+    background: var(--good-bg);
+  }
+
+  .pill.info {
+    border-color: #b9d3ff;
+    color: var(--info);
+    background: var(--info-bg);
+  }
+
+  .mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  }
+
+  .muted {
+    color: var(--muted);
+  }
+
+  .grid {
+    display: grid;
+    gap: 16px;
+  }
+
+  .metrics {
+    grid-template-columns: repeat(6, minmax(150px, 1fr));
+  }
+
+  .two {
+    grid-template-columns: minmax(0, 1.2fr) minmax(360px, 0.8fr);
+  }
+
+  .plain-cards {
+    grid-template-columns: repeat(3, minmax(220px, 1fr));
+  }
+
+  .plain-card {
+    min-width: 0;
+    padding: 16px;
+    border: 1px solid var(--soft-line);
+    border-radius: 8px;
+    background: #fbfcfe;
+  }
+
+  .plain-card.bad {
+    border-color: #f1a6a0;
+    background: var(--danger-bg);
+  }
+
+  .plain-card.warn {
+    border-color: #f2d28c;
+    background: var(--warn-bg);
+  }
+
+  .plain-card.good {
+    border-color: #9bd9b8;
+    background: var(--good-bg);
+  }
+
+  .plain-label {
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  .plain-answer {
+    margin-top: 6px;
+    font-size: 24px;
+    font-weight: 850;
+    line-height: 1.1;
+  }
+
+  .plain-copy {
+    margin-top: 8px;
+    color: var(--muted);
+  }
+
+  .band {
+    margin-top: 18px;
+    padding: 22px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+  }
+
+  .section-head {
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+  }
+
+  .section-head p {
+    margin: 5px 0 0;
+    color: var(--muted);
+  }
+
+  .metric {
+    min-width: 0;
+    min-height: 118px;
+    padding: 14px;
+    border: 1px solid var(--soft-line);
+    border-radius: 8px;
+    background: #fbfcfe;
+  }
+
+  .metric-label {
+    min-height: 18px;
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .metric-value {
+    margin-top: 8px;
+    font-size: 26px;
+    font-weight: 850;
+    line-height: 1.1;
+    word-break: break-word;
+  }
+
+  .metric-note {
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  .metric-help {
+    margin-top: 10px;
+    padding-top: 9px;
+    border-top: 1px solid var(--soft-line);
+    color: var(--ink);
+    font-size: 13px;
+  }
+
+  .callout {
+    padding: 16px;
+    border: 1px solid #f1a6a0;
+    border-radius: 8px;
+    background: var(--danger-bg);
+  }
+
+  .callout strong {
+    color: var(--danger);
+  }
+
+  .copy-list {
+    display: grid;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .copy-list li {
+    padding: 10px 12px;
+    border: 1px solid var(--soft-line);
+    border-radius: 8px;
+    background: #fbfcfe;
+  }
+
+  .copy-list .bad {
+    border-color: #f1a6a0;
+    background: var(--danger-bg);
+  }
+
+  .copy-list .warn {
+    border-color: #f2d28c;
+    background: var(--warn-bg);
+  }
+
+  .copy-list .good {
+    border-color: #9bd9b8;
+    background: var(--good-bg);
+  }
+
+  .kv {
+    display: grid;
+    grid-template-columns: minmax(150px, 0.7fr) minmax(0, 1.3fr);
+    gap: 8px 12px;
+    margin: 0;
+  }
+
+  .kv dt {
+    color: var(--muted);
+    font-weight: 700;
+  }
+
+  .kv dd {
+    min-width: 0;
+    margin: 0;
+    word-break: break-word;
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--soft-line);
+    border-radius: 8px;
+  }
+
+  table {
+    width: 100%;
+    min-width: 900px;
+    border-collapse: collapse;
+    background: #fff;
+  }
+
+  th,
+  td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--soft-line);
+    text-align: left;
+    vertical-align: top;
+  }
+
+  th {
+    color: var(--muted);
+    background: #f9fafb;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+
+  tr:last-child td {
+    border-bottom: 0;
+  }
+
+  .note {
+    margin-top: 12px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  .link-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .link-row a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 30px;
+    padding: 4px 9px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #fff;
+    font-size: 13px;
+  }
+
+  .artifact-grid {
+    grid-template-columns: repeat(3, minmax(240px, 1fr));
+  }
+
+  .term-grid {
+    grid-template-columns: repeat(4, minmax(180px, 1fr));
+  }
+
+  .term {
+    min-width: 0;
+    padding: 12px;
+    border: 1px solid var(--soft-line);
+    border-radius: 8px;
+    background: #fbfcfe;
+  }
+
+  .term strong {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .artifact {
+    min-width: 0;
+    padding: 12px;
+    border: 1px solid var(--soft-line);
+    border-radius: 8px;
+    background: #fbfcfe;
+  }
+
+  .artifact h3 {
+    display: flex;
+    gap: 8px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .artifact .path {
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 12px;
+    word-break: break-word;
+  }
+
+  footer {
+    margin-top: 18px;
+    color: var(--muted);
+    font-size: 13px;
+    text-align: right;
+  }
+
+  @media (max-width: 1180px) {
+    .metrics {
+      grid-template-columns: repeat(3, minmax(150px, 1fr));
+    }
+
+    .plain-cards,
+    .artifact-grid,
+    .term-grid {
+      grid-template-columns: repeat(2, minmax(240px, 1fr));
+    }
+  }
+
+  @media (max-width: 780px) {
+    .page {
+      width: min(100vw - 20px, 720px);
+      padding-top: 10px;
+    }
+
+    .topbar,
+    .two,
+    .metrics,
+    .plain-cards,
+    .artifact-grid,
+    .term-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .topbar,
+    .band {
+      padding: 16px;
+    }
+
+    .status-stack {
+      justify-items: start;
+      min-width: 0;
+    }
+
+    .section-head {
+      display: grid;
+    }
+
+    .kv {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">Current repo evidence</p>
+      <h1>Sports Betting Strategy Evidence Dashboard</h1>
+      <p class="subtitle">A plain-English readout of whether the current betting model is actually tradable. Good-looking ML scores are separated from the harder question: did a realistic strategy make money after fills, timing, and market conditions?</p>
+    </div>
+    <div class="status-stack">
+      <span class="pill bad" id="overall-pill">HOLD</span>
+      <span class="muted" id="rendered-at">embedded snapshot</span>
+      <span class="muted mono" id="source-mode">loading artifacts...</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="band">
+      <div class="section-head">
+        <div>
+          <h2>Start Here</h2>
+          <p>The three questions that matter before reading any ML metric.</p>
+        </div>
+      </div>
+      <div class="grid plain-cards" id="plain-grid"></div>
+    </section>
+
+    <section class="band">
+      <div class="section-head">
+        <div>
+          <h2>Bottom Line</h2>
+          <p>What this means in plain English.</p>
+        </div>
+        <span class="pill bad" id="capital-pill">Capital off</span>
+      </div>
+      <div class="grid two">
+        <div class="callout" id="verdict-copy"></div>
+        <div>
+          <h3>Primary blockers</h3>
+          <ul class="copy-list" id="gate-reasons"></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="section-head">
+        <div>
+          <h2>Scoreboard</h2>
+          <p>Each number has a short read so big ML-looking values do not get mistaken for profit.</p>
+        </div>
+      </div>
+      <div class="grid metrics" id="metric-grid"></div>
+    </section>
+
+    <section class="band">
+      <div class="section-head">
+        <div>
+          <h2>Why The ML Is Still A Hold</h2>
+          <p>The current candidate is judged by whether simulated maker orders actually fill and make money, not just whether the classifier looks smart.</p>
+        </div>
+        <span class="pill bad" id="model-gate-pill">Research hold</span>
+      </div>
+      <div class="grid two">
+        <dl class="kv" id="model-kv"></dl>
+        <div>
+          <h3>Data sanity</h3>
+          <ul class="copy-list" id="data-sanity"></ul>
+        </div>
+      </div>
+      <div class="link-row">
+        <a href="reports/telonex_convergence_model_latest.md">Telonex model report</a>
+        <a href="reports/strategy_data_readiness_latest.md">strategy readiness</a>
+        <a href="reports/telonex_model_monitor_latest.md">model monitor</a>
+        <a href="reports/live_execution_status_latest.md">live status report</a>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="section-head">
+        <div>
+          <h2>Run History</h2>
+          <p>This keeps the tempting old green numbers visible, with the catch shown next to them.</p>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Run</th>
+              <th>Target</th>
+              <th>Inputs</th>
+              <th>Decision rule</th>
+              <th>Tuning window</th>
+              <th>Final check</th>
+              <th>Gate</th>
+              <th>Plain read</th>
+            </tr>
+          </thead>
+          <tbody id="run-table"></tbody>
+        </table>
+      </div>
+      <p class="note">The older profitable-looking run is not treated as proof because it used <span class="mono">maker_positive</span>, not the current trade-fill PnL target, and the latest fill-aware run abstains from all trades.</p>
+    </section>
+
+    <section class="band">
+      <div class="section-head">
+        <div>
+          <h2>Trust Checks</h2>
+          <p>These checks answer: would this survive contact with real markets?</p>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Gate</th>
+              <th>Status</th>
+              <th>Evidence</th>
+            </tr>
+          </thead>
+          <tbody id="gate-table"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="section-head">
+        <div>
+          <h2>Term Decoder</h2>
+          <p>Short translations for the labels that usually make ML dashboards feel slippery.</p>
+        </div>
+      </div>
+      <div class="grid term-grid" id="term-grid"></div>
+    </section>
+
+    <section class="band">
+      <div class="section-head">
+        <div>
+          <h2>Old Inputs Ignored</h2>
+          <p>These were the main source of the confusing old page. They are no longer used for the top-level verdict.</p>
+        </div>
+      </div>
+      <ul class="copy-list" id="retired-list"></ul>
+    </section>
+
+    <section class="band">
+      <div class="section-head">
+        <div>
+          <h2>Data Files Loaded</h2>
+          <p>When opened from a local file, browsers may block fetches. The embedded snapshot below still reflects the current repo at edit time.</p>
+        </div>
+        <span class="pill info" id="artifact-count">checking</span>
+      </div>
+      <div class="grid artifact-grid" id="artifact-grid"></div>
+    </section>
+  </main>
+
+  <footer id="footer"></footer>
+</div>
+
+<script>
+const ARTIFACTS = {
+  liveExecution: { label: "Live execution status", path: "reports/live_execution_status.json" },
+  latestTelonexSummary: { label: "Latest maker-fill model", path: "data/processed/telonex_convergence_ml/20260530T215450Z/summary.json" },
+  strategyReadiness: { label: "Strategy/data readiness", path: "data/processed/execution_training/strategy_data_readiness_latest.json" },
+  eventMarketInventory: { label: "Event/market inventory", path: "data/processed/execution_training/event_market_inventory_latest.json" },
+  signalDiagnostics: { label: "Signal diagnostics", path: "data/processed/telonex_convergence_ml/strategy_signal_diagnostics_latest.json" },
+  favoriteLongshotBias: { label: "Favorite-longshot bias", path: "data/processed/execution_training/favorite_longshot_bias_latest.json" },
+  backtestReplay: { label: "Backtest replay", path: "data/processed/telonex_convergence_ml/backtest_replay_latest.json" },
+  modelMonitor: { label: "Model monitor", path: "data/processed/telonex_convergence_ml/telonex_model_monitor_latest.json" },
+  featureImportance: { label: "Feature importance audit", path: "data/processed/telonex_convergence_ml/telonex_feature_importance_latest.json" },
+  marketDisjoint: { label: "Market-disjoint validation", path: "data/processed/telonex_convergence_ml/telonex_walk_forward_base_odds_latest.json" },
+  temporal: { label: "Temporal validation", path: "data/processed/telonex_convergence_ml/telonex_temporal_validation_base_odds_latest.json" },
+  liveSignals: { label: "Live Telonex signals", path: "data/processed/clob_capture/live_telonex_convergence_signals_latest.json" },
+  strategyBuckets: { label: "Strategy buckets", path: "data/processed/execution_training/telonex_strategy_buckets_latest.json" },
+  modelAudit: { label: "Legacy outcome model audit", path: "data/processed/model_data_audit.json" },
+  intragame: { label: "Intragame coverage", path: "data/processed/intragame_data_coverage.json" },
+  clobDepth: { label: "Historical CLOB depth report", path: "data/processed/poly_history_depth_report.json" }
+};
+
+const RUN_ARTIFACTS = [
+  "20260530T215450Z"
+].map(runId => ({
+  label: runId,
+  path: `data/processed/telonex_convergence_ml/${runId}/summary.json`
+}));
+
+const SNAPSHOT = {
+  generatedAt: "2026-05-30T22:39:44.975739+00:00",
+  editedAt: "2026-05-30",
+  loadedFrom: "embedded current snapshot",
+  overall: {
+    verdict: "HOLD",
+    capitalEnabled: false,
+    liveCapitalGate: false,
+    collectorStatus: "degraded",
+    collectorLoops: 516
+  },
+  latestModel: {
+    runId: "20260530T215450Z",
+    modelVersion: "20260530T215450Z-3e90e2b5d8da",
+    targetCol: "maker_trade_fill_positive",
+    pnlCol: "maker_trade_fill_pnl_per_share",
+    featureSet: "base_odds",
+    selectedThreshold: 1.000001,
+    selectionScoreCol: "convergence_prob_lower",
+    selectionAbstained: true,
+    researchGate: false,
+    performanceGate: false,
+    liveCapitalGate: false,
+    datasetRows: 1984815,
+    datasetMarkets: 109,
+    datasetTokens: 217,
+    positiveRate: 0.0015744540423162864,
+    valTrades: 0,
+    testTrades: 0,
+    testMarkets: 0,
+    testRoi: null,
+    testCiLo: null,
+    testCiHi: null,
+    testAuc: 0.963893685247139,
+    testEce: 0.00022721751128733201,
+    oddsFeatureCoverage: 0.5511264274000348,
+    oddsTestCoverage: 0.2977453997362306,
+    oddsTestMatchedMarkets: 5,
+    testFillPositiveRows: 97,
+    testRows: 159230
+  },
+  execution: {
+    latestBooks: 474,
+    bookRows: 303052,
+    wsRows: 150891,
+    tradeRows: 1314,
+    paperOrders: 2570,
+    paperFills: 818,
+    lifecycleRows: 5958,
+    authFills: 0,
+    telonexQuoteRows: 6719183,
+    telonexDepthRows: 34575311,
+    telonexTradeRows: 168681,
+    liveSignalsSelected: 0,
+    liveSignalRows: 2320,
+    liveSignalCandidates: 464,
+    liveSignalMaxLower: 0.21213000810109747,
+    liveSignalThreshold: 0.42618959184515703
+  },
+  readiness: {
+    overallGate: false,
+    rows: 2888585,
+    markets: 216,
+    tokens: 429,
+    activeMarkets: 109,
+    activeEvents: 89,
+    testOddsCoverage: 0.3253589362755499,
+    activeObservedMarketTarget: 200
+  },
+  gateReasons: [
+    "queue/fill model not validated on authenticated fills",
+    "Polymarket user-channel credentials not configured",
+    "collector not healthy",
+    "Telonex convergence research gate failed",
+    "execution-adjusted backtest replay failed: no selected historical replay trades",
+    "no predeclared executable taker strategy bucket cleared validation",
+    "Telonex model monitor hold",
+    "live paper-fill LEV/price-hold quality gate failed",
+    "Telonex market-disjoint validation gate failed",
+    "Telonex temporal validation gate failed"
+  ],
+  warnings: [
+    "Odds API fusion not yet proven on held-out Telonex test",
+    "live strategy LEV evidence incomplete",
+    "favorite-longshot bucket has raw edge but not robust event-cluster CI yet",
+    "live game-state feed too thin for event-regime/scoreline/garbage-time features"
+  ],
+  plainCards: [
+    {
+      tone: "bad",
+      label: "Can this trade real money?",
+      answer: "No",
+      copy: "The live-capital gate is closed. The current fill-aware model picked 0 test trades."
+    },
+    {
+      tone: "warn",
+      label: "Is the ML score impressive?",
+      answer: "Maybe, but not useful yet",
+      copy: "AUC is high, but the model abstains once the target becomes real fills and PnL."
+    },
+    {
+      tone: "warn",
+      label: "Is the data the problem?",
+      answer: "Partly",
+      copy: "There is a lot of CLOB data now, but authenticated fills, test odds coverage, and validation gates are still missing."
+    }
+  ],
+  gates: [
+    { name: "Live money", ok: false, evidence: "Off. The dashboard is saying research only." },
+    { name: "Current model makes trades", ok: false, evidence: "No. Run 20260530T215450Z selects 0 validation trades and 0 test trades." },
+    { name: "Works on different markets", ok: false, evidence: "No. The market-disjoint check failed, so the edge has not generalized." },
+    { name: "Works in later time periods", ok: false, evidence: "No. The temporal check failed, so it has not proven it survives time." },
+    { name: "Enough clean inputs", ok: false, evidence: "Not yet. Test odds coverage is weak and active observed markets are below the target." },
+    { name: "Real fill proof", ok: false, evidence: "No. There are 0 authenticated fills, so paper fills are not enough." },
+    { name: "Historical order-book data", ok: true, evidence: "Yes. Telonex has millions of quote/depth/trade rows; raw data scale is no longer the main excuse." },
+    { name: "Secret hygiene", ok: false, evidence: "Not safe for live execution until chat-leaked keys are rotated." }
+  ],
+  modelRuns: [
+    {
+      runId: "20260530T163238Z",
+      targetCol: "maker_positive",
+      featureSet: "base_odds",
+      selectedThreshold: 0.42618959184515703,
+      selectionAbstained: false,
+      valTrades: 746,
+      valRoi: 0.1069041347838112,
+      valCiLo: 0.0900146559883014,
+      testTrades: 689,
+      testRoi: 0.12098438986253177,
+      testCiLo: 0.09850660598988106,
+      researchGate: true,
+      liveCapitalGate: false,
+      note: "Positive, but legacy maker-positive target. Not fill-PnL proof."
+    },
+    {
+      runId: "20260530T193847Z",
+      targetCol: "lev_positive",
+      featureSet: "base_odds",
+      selectedThreshold: 1.000001,
+      selectionAbstained: true,
+      valTrades: 0,
+      valRoi: null,
+      valCiLo: null,
+      testTrades: 0,
+      testRoi: null,
+      testCiLo: null,
+      researchGate: false,
+      liveCapitalGate: false,
+      note: "LEV target abstained from all trades."
+    },
+    {
+      runId: "20260530T195425Z",
+      targetCol: "lev_positive",
+      featureSet: "base",
+      selectedThreshold: 1.000001,
+      selectionAbstained: true,
+      valTrades: 0,
+      valRoi: null,
+      valCiLo: null,
+      testTrades: 0,
+      testRoi: null,
+      testCiLo: null,
+      researchGate: false,
+      liveCapitalGate: false,
+      note: "LEV target without odds features abstained."
+    },
+    {
+      runId: "20260530T204923Z",
+      targetCol: "maker_trade_fill_positive",
+      featureSet: "base",
+      selectedThreshold: 1.000001,
+      selectionAbstained: true,
+      valTrades: 0,
+      valRoi: null,
+      valCiLo: null,
+      testTrades: 0,
+      testRoi: null,
+      testCiLo: null,
+      researchGate: false,
+      liveCapitalGate: false,
+      note: "Fill-aware target; abstained."
+    },
+    {
+      runId: "20260530T211425Z",
+      targetCol: "maker_trade_fill_positive",
+      featureSet: "base",
+      selectedThreshold: 1.000001,
+      selectionAbstained: true,
+      valTrades: 0,
+      valRoi: null,
+      valCiLo: null,
+      testTrades: 0,
+      testRoi: null,
+      testCiLo: null,
+      researchGate: false,
+      liveCapitalGate: false,
+      note: "Fill-aware target; abstained."
+    },
+    {
+      runId: "20260530T215450Z",
+      targetCol: "maker_trade_fill_positive",
+      featureSet: "base_odds",
+      selectedThreshold: 1.000001,
+      selectionAbstained: true,
+      valTrades: 0,
+      valRoi: null,
+      valCiLo: null,
+      testTrades: 0,
+      testRoi: null,
+      testCiLo: null,
+      researchGate: false,
+      liveCapitalGate: false,
+      note: "Current fill-aware odds run; abstained."
+    }
+  ],
+  dataSanity: [
+    { tone: "bad", text: "No profitable executable bot is proven. The latest fill-aware model chooses not to trade." },
+    { tone: "warn", text: "The classifier looks smart on paper, but profitable fill examples are tiny: 97 positive rows out of 159,230 test rows." },
+    { tone: "warn", text: "Odds coverage in the test period is weak, so the model is partly flying with missing market context." },
+    { tone: "warn", text: "The older outcome/proxy dashboard used stale or missing inputs and should not be trusted for the current verdict." },
+    { tone: "good", text: "The repo now has a lot of historical order-book data, so the next bottleneck is proof quality, not just data volume." }
+  ],
+  terms: [
+    { term: "AUC", copy: "A ranking score. High AUC can mean the model sorts examples well, but it does not mean trades make money." },
+    { term: "ECE", copy: "Calibration error. Low ECE means probabilities look calibrated, not that the strategy is profitable." },
+    { term: "ROI", copy: "Profit divided by stake. Useful only when the backtest uses realistic prices, fees, spreads, and fills." },
+    { term: "CI low", copy: "The pessimistic side of the confidence range. If this is below zero, the edge is not statistically convincing." },
+    { term: "Gate", copy: "A pass/fail safety check. HOLD means the model is not allowed to graduate." },
+    { term: "Fill-aware", copy: "Checks whether an order would actually execute, not just whether the prediction was right." },
+    { term: "Market-disjoint", copy: "Tests on markets the model did not train on. This catches memorization and overfitting." },
+    { term: "Temporal", copy: "Tests on later time periods. This catches strategies that only worked in the past slice." }
+  ],
+  retiredArtifacts: [
+    { path: "data/processed/polymarket_ml/20260529T212018Z/summary.json", reason: "Missing in repo and stale relative to current Telonex runs." },
+    { path: "data/processed/proxy_convergence_ml/20260529T212608Z/summary.json", reason: "Missing in repo; old dashboard used an embedded fallback instead." },
+    { path: "data/processed/trade_sim/proxy_portfolio_stress_latest.json", reason: "Missing in repo; should not drive current status." },
+    { path: "data/processed/trade_sim/proxy_trade_path_latest.json", reason: "Missing in repo; the old chart was a visualization/debug proxy, not proof." }
+  ],
+  artifactSizes: {
+    "reports/live_execution_status.json": 133217,
+    "data/processed/telonex_convergence_ml/20260530T215450Z/summary.json": 31520,
+    "data/processed/execution_training/strategy_data_readiness_latest.json": 59646,
+    "data/processed/execution_training/event_market_inventory_latest.json": 14494,
+    "data/processed/telonex_convergence_ml/strategy_signal_diagnostics_latest.json": 11136,
+    "data/processed/execution_training/favorite_longshot_bias_latest.json": 14815,
+    "data/processed/telonex_convergence_ml/backtest_replay_latest.json": 1678,
+    "data/processed/telonex_convergence_ml/telonex_model_monitor_latest.json": 44140,
+    "data/processed/telonex_convergence_ml/telonex_feature_importance_latest.json": 45484,
+    "data/processed/telonex_convergence_ml/telonex_walk_forward_base_odds_latest.json": 10127,
+    "data/processed/telonex_convergence_ml/telonex_temporal_validation_base_odds_latest.json": 8797,
+    "data/processed/clob_capture/live_telonex_convergence_signals_latest.json": 3995,
+    "data/processed/execution_training/telonex_strategy_buckets_latest.json": 103708,
+    "data/processed/model_data_audit.json": 61397,
+    "data/processed/intragame_data_coverage.json": 30664,
+    "data/processed/poly_history_depth_report.json": 3921
+  }
+};
+
+const state = {
+  loaded: {},
+  health: {},
+  runSummaries: []
+};
+
+const $ = id => document.getElementById(id);
+
+function esc(value) {
+  return String(value ?? "--")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;");
+}
+
+function clone(obj) {
+  return JSON.parse(JSON.stringify(obj));
+}
+
+function num(value) {
+  if (value === null || value === undefined || value === "") return null;
+  const n = Number(value);
+  return Number.isFinite(n) ? n : null;
+}
+
+function fmtInt(value) {
+  const n = num(value);
+  return n === null ? "--" : Math.round(n).toLocaleString();
+}
+
+function fmtPct(value, digits = 2) {
+  const n = num(value);
+  return n === null ? "--" : `${(n * 100).toFixed(digits)}%`;
+}
+
+function fmtProb(value) {
+  const n = num(value);
+  return n === null ? "--" : n.toFixed(6);
+}
+
+function fmtGate(ok, pass = "PASS", fail = "HOLD") {
+  return `<span class="pill ${ok ? "good" : "bad"}">${ok ? pass : fail}</span>`;
+}
+
+function fmtSize(bytes) {
+  const n = num(bytes);
+  if (n === null) return "--";
+  if (n >= 1024 * 1024) return `${(n / (1024 * 1024)).toFixed(1)} MB`;
+  if (n >= 1024) return `${(n / 1024).toFixed(1)} KB`;
+  return `${n} B`;
+}
+
+function targetRead(targetCol) {
+  if (targetCol === "maker_trade_fill_positive") return "realistic fill-profit target";
+  if (targetCol === "maker_positive") return "older maker-price target";
+  if (targetCol === "lev_positive") return "short-term price-move target";
+  return "model target";
+}
+
+function summarizeRun(summary) {
+  const target = summary.target || {};
+  const gates = summary.profit_gates || {};
+  const trading = summary.trading || {};
+  const val = trading.val || {};
+  const test = trading.test || {};
+  const currentFillTarget = target.target_col === "maker_trade_fill_positive";
+  const abstained = Boolean(summary.selection_abstained) || Number(summary.selected_threshold) > 1;
+  let note = "Audit run.";
+  if (!currentFillTarget && gates.research_gate) {
+    note = "Looks profitable, but it did not use the current fill-profit target.";
+  } else if (abstained) {
+    note = currentFillTarget ? "Current realistic target; model chose not to trade." : "Older target; model chose not to trade.";
+  } else if (gates.research_gate) {
+    note = "Research passed, but live money is still blocked.";
+  }
+  return {
+    runId: summary.run_id,
+    targetCol: target.target_col,
+    featureSet: target.feature_set,
+    selectedThreshold: summary.selected_threshold,
+    selectionAbstained: abstained,
+    valTrades: val.trades,
+    valRoi: val.roi,
+    valCiLo: val.ci_lo,
+    testTrades: test.trades,
+    testRoi: test.roi,
+    testCiLo: test.ci_lo,
+    researchGate: Boolean(gates.research_gate),
+    liveCapitalGate: Boolean(gates.live_capital_gate),
+    note
+  };
+}
+
+function deriveDashboard() {
+  const data = clone(SNAPSHOT);
+  const live = state.loaded.liveExecution;
+  const latest = state.loaded.latestTelonexSummary;
+  const readiness = state.loaded.strategyReadiness;
+  const inventory = state.loaded.eventMarketInventory;
+  const signals = state.loaded.liveSignals;
+
+  if (live) {
+    data.generatedAt = live.generated_at || data.generatedAt;
+    data.loadedFrom = "loaded repo artifacts";
+    data.overall.liveCapitalGate = Boolean(live.live_capital_gate);
+    data.overall.capitalEnabled = Boolean(live.capital_enabled);
+    data.overall.collectorStatus = live.collector?.status || data.overall.collectorStatus;
+    data.overall.collectorLoops = live.collector?.loop_count ?? data.overall.collectorLoops;
+    data.gateReasons = live.gate_reasons || data.gateReasons;
+    data.warnings = live.gate_warnings || data.warnings;
+
+    data.execution.latestBooks = live.clob?.latest_books ?? data.execution.latestBooks;
+    data.execution.bookRows = live.clob?.book_rows ?? data.execution.bookRows;
+    data.execution.wsRows = live.clob?.ws_event_rows ?? data.execution.wsRows;
+    data.execution.tradeRows = live.clob?.trade_rows ?? data.execution.tradeRows;
+    data.execution.paperOrders = live.paper?.order_rows ?? data.execution.paperOrders;
+    data.execution.paperFills = live.paper?.fill_rows ?? data.execution.paperFills;
+    data.execution.lifecycleRows = live.paper?.lifecycle_rows ?? data.execution.lifecycleRows;
+    data.execution.authFills = live.paper?.authenticated_fill_rows ?? data.execution.authFills;
+    data.execution.telonexQuoteRows = live.telonex?.quote_rows ?? data.execution.telonexQuoteRows;
+    data.execution.telonexDepthRows = live.telonex?.depth_rows ?? data.execution.telonexDepthRows;
+    data.execution.telonexTradeRows = live.telonex?.trade_rows ?? data.execution.telonexTradeRows;
+
+    const liveModel = live.telonex_convergence || {};
+    data.latestModel.runId = liveModel.run_id || data.latestModel.runId;
+    data.latestModel.modelVersion = liveModel.model_version || data.latestModel.modelVersion;
+    data.latestModel.targetCol = liveModel.target_col || data.latestModel.targetCol;
+    data.latestModel.pnlCol = liveModel.pnl_col || data.latestModel.pnlCol;
+    data.latestModel.featureSet = liveModel.feature_set || data.latestModel.featureSet;
+    data.latestModel.researchGate = Boolean(liveModel.research_gate);
+    data.latestModel.performanceGate = Boolean(liveModel.performance_gate);
+    data.latestModel.liveCapitalGate = Boolean(liveModel.live_capital_gate);
+    data.latestModel.datasetRows = liveModel.dataset_rows ?? data.latestModel.datasetRows;
+    data.latestModel.datasetMarkets = liveModel.dataset_markets ?? data.latestModel.datasetMarkets;
+    data.latestModel.datasetTokens = liveModel.dataset_tokens ?? data.latestModel.datasetTokens;
+    data.latestModel.testTrades = liveModel.test_trades ?? data.latestModel.testTrades;
+    data.latestModel.testMarkets = liveModel.test_markets ?? data.latestModel.testMarkets;
+    data.latestModel.testRoi = liveModel.test_roi ?? data.latestModel.testRoi;
+    data.latestModel.testCiLo = liveModel.test_ci_lo ?? data.latestModel.testCiLo;
+    data.latestModel.testCiHi = liveModel.test_ci_hi ?? data.latestModel.testCiHi;
+    data.latestModel.testEce = liveModel.test_ece_10 ?? data.latestModel.testEce;
+    data.latestModel.oddsTestCoverage = liveModel.odds_test_coverage ?? data.latestModel.oddsTestCoverage;
+    data.latestModel.oddsTestMatchedMarkets = liveModel.odds_test_matched_markets ?? data.latestModel.oddsTestMatchedMarkets;
+
+    const liveSignals = live.telonex_live_signals || {};
+    data.execution.liveSignalsSelected = liveSignals.selected_signals ?? data.execution.liveSignalsSelected;
+    data.execution.liveSignalRows = liveSignals.feature_rows ?? data.execution.liveSignalRows;
+    data.execution.liveSignalCandidates = liveSignals.candidate_tokens ?? data.execution.liveSignalCandidates;
+    data.execution.liveSignalMaxLower = liveSignals.max_convergence_prob_lower ?? data.execution.liveSignalMaxLower;
+    data.execution.liveSignalThreshold = liveSignals.threshold ?? data.execution.liveSignalThreshold;
+  }
+
+  if (latest) {
+    const target = latest.target || {};
+    const gates = latest.profit_gates || {};
+    const dataset = latest.dataset || {};
+    const trading = latest.trading || {};
+    const test = trading.test || {};
+    const classification = latest.classification?.test || {};
+    const odds = latest.odds_features || {};
+    const oddsTest = odds.coverage_by_split?.test || {};
+    const labelTest = latest.label_coverage?.by_split?.test || {};
+    data.latestModel.runId = latest.run_id || data.latestModel.runId;
+    data.latestModel.targetCol = target.target_col || data.latestModel.targetCol;
+    data.latestModel.pnlCol = target.pnl_col || data.latestModel.pnlCol;
+    data.latestModel.featureSet = target.feature_set || data.latestModel.featureSet;
+    data.latestModel.selectedThreshold = latest.selected_threshold ?? data.latestModel.selectedThreshold;
+    data.latestModel.selectionAbstained = Boolean(latest.selection_abstained);
+    data.latestModel.selectionScoreCol = latest.uncertainty?.selection_score_col || data.latestModel.selectionScoreCol;
+    data.latestModel.researchGate = Boolean(gates.research_gate);
+    data.latestModel.performanceGate = Boolean(gates.performance_gate);
+    data.latestModel.liveCapitalGate = Boolean(gates.live_capital_gate);
+    data.latestModel.datasetRows = dataset.rows ?? data.latestModel.datasetRows;
+    data.latestModel.datasetMarkets = dataset.markets ?? data.latestModel.datasetMarkets;
+    data.latestModel.datasetTokens = dataset.tokens ?? data.latestModel.datasetTokens;
+    data.latestModel.positiveRate = dataset.positive_rate ?? data.latestModel.positiveRate;
+    data.latestModel.valTrades = trading.val?.trades ?? data.latestModel.valTrades;
+    data.latestModel.testTrades = test.trades ?? data.latestModel.testTrades;
+    data.latestModel.testMarkets = test.markets ?? data.latestModel.testMarkets;
+    data.latestModel.testRoi = test.roi ?? data.latestModel.testRoi;
+    data.latestModel.testCiLo = test.ci_lo ?? data.latestModel.testCiLo;
+    data.latestModel.testCiHi = test.ci_hi ?? data.latestModel.testCiHi;
+    data.latestModel.testAuc = classification.auc ?? data.latestModel.testAuc;
+    data.latestModel.testEce = classification.ece_10 ?? data.latestModel.testEce;
+    data.latestModel.oddsFeatureCoverage = odds.row_coverage ?? data.latestModel.oddsFeatureCoverage;
+    data.latestModel.oddsTestCoverage = oddsTest.row_coverage ?? data.latestModel.oddsTestCoverage;
+    data.latestModel.oddsTestMatchedMarkets = oddsTest.matched_markets ?? data.latestModel.oddsTestMatchedMarkets;
+    data.latestModel.testFillPositiveRows = labelTest.positive_rows ?? data.latestModel.testFillPositiveRows;
+    data.latestModel.testRows = labelTest.rows ?? data.latestModel.testRows;
+  }
+
+  if (readiness) {
+    data.readiness.overallGate = Boolean(readiness.overall_gate || readiness.gates?.overall_gate);
+    data.readiness.rows = readiness.dataset?.rows ?? data.readiness.rows;
+    data.readiness.markets = readiness.dataset?.markets ?? data.readiness.markets;
+    data.readiness.tokens = readiness.dataset?.tokens ?? data.readiness.tokens;
+  }
+
+  if (inventory) {
+    data.readiness.activeMarkets = inventory.active_model_usage?.markets ?? data.readiness.activeMarkets;
+    data.readiness.activeEvents = inventory.active_model_usage?.events ?? data.readiness.activeEvents;
+    data.readiness.testOddsCoverage = inventory.odds_api?.coverage_by_split?.test?.coverage ?? data.readiness.testOddsCoverage;
+  }
+
+  if (signals) {
+    data.execution.liveSignalsSelected = signals.selected_signals ?? data.execution.liveSignalsSelected;
+    data.execution.liveSignalRows = signals.feature_rows ?? data.execution.liveSignalRows;
+    data.execution.liveSignalCandidates = signals.candidate_tokens ?? data.execution.liveSignalCandidates;
+    data.execution.liveSignalMaxLower = signals.max_convergence_prob_lower ?? data.execution.liveSignalMaxLower;
+    data.execution.liveSignalThreshold = signals.threshold ?? data.execution.liveSignalThreshold;
+  }
+
+  if (state.runSummaries.length) {
+    const dynamicRuns = state.runSummaries.map(summarizeRun);
+    const byRunId = new Map(dynamicRuns.map(run => [run.runId, run]));
+    data.modelRuns = data.modelRuns.map(run => byRunId.get(run.runId) || run);
+    for (const run of dynamicRuns) {
+      if (!data.modelRuns.some(existing => existing.runId === run.runId)) {
+        data.modelRuns.push(run);
+      }
+    }
+  }
+
+  return data;
+}
+
+function renderVerdict(data) {
+  const current = data.latestModel;
+  $("overall-pill").textContent = data.overall.liveCapitalGate ? "REVIEW" : "HOLD";
+  $("overall-pill").className = "pill " + (data.overall.liveCapitalGate ? "warn" : "bad");
+  $("capital-pill").textContent = data.overall.capitalEnabled ? "Capital enabled" : "Capital off";
+  $("capital-pill").className = "pill " + (data.overall.capitalEnabled ? "warn" : "bad");
+  $("rendered-at").textContent = `status ${new Date(data.generatedAt).toLocaleString()}`;
+  $("source-mode").textContent = data.loadedFrom;
+  $("verdict-copy").innerHTML = `
+    <strong>No executable profitable strategy is proven.</strong>
+    The current model run <span class="mono">${esc(current.runId)}</span> is the stricter version that asks
+    whether orders would actually fill and profit. It selected
+    <strong>${fmtInt(current.testTrades)} test trades</strong>. That means the model is effectively saying
+    "I do not see a safe trade under the current rules." Live money stays off because the model abstains,
+    outside validation fails, real authenticated fills are missing, and the data-readiness gate is not clear.
+  `;
+  $("gate-reasons").innerHTML = data.gateReasons.slice(0, 10).map(reason => `<li class="bad">${esc(reason)}</li>`).join("");
+}
+
+function renderPlainCards(data) {
+  const m = data.latestModel;
+  const e = data.execution;
+  const r = data.readiness;
+  const cards = [
+    {
+      tone: data.overall.liveCapitalGate ? "warn" : "bad",
+      label: "Can this trade real money?",
+      answer: data.overall.liveCapitalGate ? "Review only" : "No",
+      copy: data.overall.liveCapitalGate
+        ? "Some checks may be green, but this still needs human review before capital."
+        : "The live-money gate is closed. Treat this as research, not a bot."
+    },
+    {
+      tone: m.testTrades > 0 && m.testRoi > 0 ? "warn" : "bad",
+      label: "Did the current model find bets?",
+      answer: `${fmtInt(m.testTrades)} test trades`,
+      copy: m.testTrades > 0
+        ? `It found trades, but the pessimistic profit check is ${fmtPct(m.testCiLo)}.`
+        : "No. Under realistic fill-profit rules, the latest model abstained."
+    },
+    {
+      tone: e.authFills > 0 && r.overallGate ? "good" : "warn",
+      label: "Is this just bad data?",
+      answer: "Mixed",
+      copy: `There is lots of order-book history, but only ${fmtInt(e.authFills)} authenticated fills and ${fmtPct(m.oddsTestCoverage)} test odds coverage.`
+    }
+  ];
+  $("plain-grid").innerHTML = cards.map(card => `
+    <div class="plain-card ${esc(card.tone)}">
+      <div class="plain-label">${esc(card.label)}</div>
+      <div class="plain-answer">${esc(card.answer)}</div>
+      <div class="plain-copy">${esc(card.copy)}</div>
+    </div>
+  `).join("");
+}
+
+function renderMetrics(data) {
+  const m = data.latestModel;
+  const e = data.execution;
+  const r = data.readiness;
+  const metrics = [
+    ["Current run", m.runId, targetRead(m.targetCol), "This is the run the dashboard trusts most."],
+    ["Research status", m.researchGate ? "PASS" : "HOLD", `profit check ${m.performanceGate ? "passed" : "failed"}`, "HOLD means do not treat the model as a working strategy."],
+    ["Trades found", fmtInt(m.testTrades), `profit ${fmtPct(m.testRoi)} / pessimistic case ${fmtPct(m.testCiLo)}`, "Zero is not a typo. The stricter model found no test trades worth taking."],
+    ["Live picks now", fmtInt(e.liveSignalsSelected), `${fmtInt(e.liveSignalRows)} rows scored`, "This is what the model would pick from current live data. Zero means no live setup cleared the threshold."],
+    ["Paper fills", fmtInt(e.paperFills), `${fmtInt(e.authFills)} real authenticated fills`, "Paper fills help debug, but real fills are needed before believing execution."],
+    ["Odds coverage", fmtPct(m.oddsTestCoverage), `${fmtInt(m.oddsTestMatchedMarkets)} matched test markets`, "Low coverage means many test rows lack the sportsbook context the model wants."],
+    ["Order-book history", fmtInt(e.telonexDepthRows), `${fmtInt(e.telonexQuoteRows)} quotes / ${fmtInt(e.telonexTradeRows)} trades`, "This is the strongest part of the data story: there is meaningful historical CLOB depth."],
+    ["Active markets", fmtInt(r.activeMarkets), `${fmtInt(r.activeEvents)} events / target ${fmtInt(r.activeObservedMarketTarget)}`, "More independent markets are needed before trusting generalization."],
+    ["Collector health", data.overall.collectorStatus, `${fmtInt(data.overall.collectorLoops)} loops`, "The data collector is still degraded, so live evidence is not clean enough."],
+    ["Latest books", fmtInt(e.latestBooks), `${fmtInt(e.wsRows)} WebSocket events`, "Fresh books exist, but book collection alone does not prove profitable execution."],
+    ["Winning examples", fmtPct(m.positiveRate, 3), `${fmtInt(m.testFillPositiveRows)} positive test rows`, "The thing being predicted is rare, which makes easy-looking ML scores dangerous."],
+    ["ML ranking score", fmtPct(m.testAuc), `calibration error ${fmtPct(m.testEce, 3)}`, "Good ML metrics are nice, but profit gates decide whether this is tradable."]
+  ];
+  $("metric-grid").innerHTML = metrics.map(([label, value, note, help]) => `
+    <div class="metric">
+      <div class="metric-label">${esc(label)}</div>
+      <div class="metric-value">${esc(value)}</div>
+      <div class="metric-note">${esc(note)}</div>
+      <div class="metric-help">${esc(help)}</div>
+    </div>
+  `).join("");
+}
+
+function renderModel(data) {
+  const m = data.latestModel;
+  $("model-gate-pill").textContent = m.researchGate ? "Research pass" : "Research hold";
+  $("model-gate-pill").className = "pill " + (m.researchGate ? "warn" : "bad");
+  const rows = [
+    ["Run", m.runId],
+    ["Model version", m.modelVersion],
+    ["What it predicts", `${targetRead(m.targetCol)} (${m.targetCol})`],
+    ["Profit label", m.pnlCol],
+    ["Inputs used", m.featureSet],
+    ["Decision score", m.selectionScoreCol],
+    ["Required score", fmtProb(m.selectedThreshold)],
+    ["Decision", m.selectionAbstained ? "abstained; no trades cleared the bar" : "selected trades"],
+    ["Dataset", `${fmtInt(m.datasetRows)} rows / ${fmtInt(m.datasetMarkets)} markets / ${fmtInt(m.datasetTokens)} tokens`],
+    ["Tuning-window trades", fmtInt(m.valTrades)],
+    ["Final-check trades", fmtInt(m.testTrades)],
+    ["Odds coverage", `${fmtPct(m.oddsFeatureCoverage)} overall / ${fmtPct(m.oddsTestCoverage)} test`]
+  ];
+  $("model-kv").innerHTML = rows.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("");
+  $("data-sanity").innerHTML = data.dataSanity.map(item => `<li class="${esc(item.tone)}">${esc(item.text)}</li>`).join("");
+}
+
+function renderRuns(data) {
+  $("run-table").innerHTML = data.modelRuns.map(run => {
+    const selection = run.selectionAbstained ? "abstained" : `threshold ${fmtProb(run.selectedThreshold)}`;
+    const val = `${fmtInt(run.valTrades)} trades<br><span class="muted">ROI ${fmtPct(run.valRoi)} / CI low ${fmtPct(run.valCiLo)}</span>`;
+    const test = `${fmtInt(run.testTrades)} trades<br><span class="muted">ROI ${fmtPct(run.testRoi)} / CI low ${fmtPct(run.testCiLo)}</span>`;
+    const gate = `${fmtGate(run.researchGate, "RESEARCH", "HOLD")} ${fmtGate(run.liveCapitalGate, "LIVE", "NO LIVE")}`;
+    return `
+      <tr>
+        <td class="mono">${esc(run.runId)}</td>
+        <td><strong>${esc(targetRead(run.targetCol))}</strong><br><span class="muted mono">${esc(run.targetCol)}</span></td>
+        <td>${esc(run.featureSet)}</td>
+        <td>${esc(selection)}</td>
+        <td>${val}</td>
+        <td>${test}</td>
+        <td>${gate}</td>
+        <td>${esc(run.note)}</td>
+      </tr>
+    `;
+  }).join("");
+}
+
+function renderGlossary(data) {
+  $("term-grid").innerHTML = data.terms.map(item => `
+    <div class="term">
+      <strong>${esc(item.term)}</strong>
+      <span class="muted">${esc(item.copy)}</span>
+    </div>
+  `).join("");
+}
+
+function renderGates(data) {
+  $("gate-table").innerHTML = data.gates.map(gate => `
+    <tr>
+      <td><strong>${esc(gate.name)}</strong></td>
+      <td>${fmtGate(gate.ok)}</td>
+      <td>${esc(gate.evidence)}</td>
+    </tr>
+  `).join("");
+}
+
+function renderRetired(data) {
+  $("retired-list").innerHTML = data.retiredArtifacts.map(item => `
+    <li class="warn"><span class="mono">${esc(item.path)}</span><br><span class="muted">${esc(item.reason)}</span></li>
+  `).join("");
+}
+
+function renderArtifacts(data) {
+  const entries = Object.values(ARTIFACTS);
+  const loaded = entries.filter(item => state.health[item.path]?.ok).length;
+  $("artifact-count").textContent = `${loaded}/${entries.length} loaded`;
+  $("artifact-grid").innerHTML = entries.map(item => {
+    const health = state.health[item.path] || { ok: false, label: "embedded", error: "using embedded snapshot" };
+    const cls = health.ok ? "good" : health.label === "embedded" ? "warn" : "bad";
+    const size = data.artifactSizes[item.path];
+    return `
+      <div class="artifact">
+        <h3>
+          <span>${esc(item.label)}</span>
+          <span class="pill ${cls}">${esc(health.label)}</span>
+        </h3>
+        <div class="path mono">${esc(item.path)}</div>
+        <div class="note">${health.ok ? `Fetched ${fmtSize(size)}` : esc(health.error || "not fetched")}</div>
+      </div>
+    `;
+  }).join("");
+}
+
+function renderAll() {
+  const data = deriveDashboard();
+  renderVerdict(data);
+  renderPlainCards(data);
+  renderMetrics(data);
+  renderModel(data);
+  renderRuns(data);
+  renderGates(data);
+  renderGlossary(data);
+  renderRetired(data);
+  renderArtifacts(data);
+  $("footer").textContent = `Rendered ${new Date().toLocaleString()} from ${data.loadedFrom}.`;
+}
+
+async function fetchJson(key, path) {
+  try {
+    const res = await fetch(`${path}?t=${Date.now()}`);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const json = await res.json();
+    state.loaded[key] = json;
+    state.health[path] = { ok: true, label: "loaded" };
+    return json;
+  } catch (error) {
+    state.health[path] = { ok: false, label: "embedded", error: error.message };
+    return null;
+  }
+}
+
+async function loadArtifacts() {
+  renderAll();
+  const loads = Object.entries(ARTIFACTS).map(([key, info]) => fetchJson(key, info.path));
+  const runLoads = RUN_ARTIFACTS.map(info => fetchJson(`run:${info.label}`, info.path));
+  const runResults = await Promise.all(runLoads);
+  state.runSummaries = runResults.filter(Boolean);
+  await Promise.all(loads);
+  renderAll();
+}
+
+loadArtifacts();
+</script>
+</body>
+</html>

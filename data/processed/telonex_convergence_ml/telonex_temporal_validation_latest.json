@@ -1,0 +1,244 @@
+{
+  "aggregate": {
+    "abstained_folds": 1,
+    "folds_with_market_overlap": 1,
+    "market_overlap_pairs_total": {
+      "calibration_test": 5,
+      "calibration_val": 9,
+      "train_calibration": 10,
+      "train_test": 3,
+      "train_val": 7,
+      "val_test": 29
+    },
+    "positive_roi_folds": 0,
+    "row_time_order_ok_folds": 1,
+    "test_ci_hi": null,
+    "test_ci_lo": null,
+    "test_markets": 0,
+    "test_roi": null,
+    "test_trades": 0,
+    "traded_folds": 0
+  },
+  "dataset": {
+    "markets": 179,
+    "positive_rate": 0.000592059642123827,
+    "rows": 2219371,
+    "time_max": "2026-05-29 23:59:00+00:00",
+    "time_min": "2026-05-15 00:01:00+00:00",
+    "tokens": 357
+  },
+  "ensemble": {
+    "blend_recent_weight": 0.0,
+    "fold_recent_models": 0,
+    "folds": 1,
+    "min_recent_positive_rows": 100,
+    "min_recent_rows": 10000,
+    "recent_model": false,
+    "recent_window_days": 21.0,
+    "requested_blend_recent_weight": 0.0
+  },
+  "feature_audit": {
+    "all_null_features": [],
+    "categorical_feature_count": 3,
+    "feature_count": 64,
+    "high_missing_features": {},
+    "numeric_feature_count": 61,
+    "numeric_missing_ratio": {
+      "depth_imbalance_delta_300s": 0.1522282664773037,
+      "depth_imbalance_delta_60s": 0.14889804363488574,
+      "lag_quote_age_300s": 0.1522282664773037,
+      "lag_quote_age_30s": 0.13901145865202347,
+      "lag_quote_age_60s": 0.14889804363488574,
+      "last_trade_age_sec": 0.5157024219925376,
+      "last_trade_price": 0.5157024219925376,
+      "last_trade_price_delta_mid": 0.5157024219925376,
+      "last_trade_size": 0.5157024219925376,
+      "mid_abs_delta_300s": 0.1522282664773037,
+      "mid_abs_delta_30s": 0.13901145865202347,
+      "mid_abs_delta_60s": 0.14889804363488574,
+      "mid_delta_300s": 0.1522282664773037,
+      "mid_delta_30s": 0.13901145865202347,
+      "mid_delta_60s": 0.14889804363488574,
+      "obi_3c_delta_300s": 0.1522282664773037,
+      "obi_3c_delta_60s": 0.14889804363488574,
+      "spread_delta_300s": 0.1522282664773037,
+      "spread_delta_30s": 0.13901145865202347,
+      "spread_delta_60s": 0.14889804363488574
+    },
+    "split_feature_audit": {
+      "all": {
+        "all_null_features": [],
+        "high_missing_features": {},
+        "rows": 2219371
+      }
+    },
+    "unsafe_feature_columns": []
+  },
+  "feature_set": "base",
+  "folds": [
+    {
+      "conformal_abs_error_q90": 1.0709045931098e-05,
+      "ensemble": {
+        "blend_recent_weight": 0.0,
+        "historical_model": true,
+        "historical_sample_weight": {
+          "mean_weight": 1.000343110944254,
+          "model_random_seed": 43,
+          "p01_weight": 0.4858531508662929,
+          "p50_weight": 0.4996486108231524,
+          "p99_weight": 0.5132878141540977,
+          "positive_rate": 0.001936205610693592,
+          "positive_rows": 405,
+          "rows": 209172,
+          "sample_half_life_days": 60.0
+        },
+        "recent_model": false,
+        "recent_model_audit": {
+          "blend_recent_weight": 0.0,
+          "cutoff": "2026-04-28 23:00:00+00:00",
+          "enabled": true,
+          "markets": 20,
+          "min_recent_positive_rows": 100,
+          "min_recent_rows": 10000,
+          "positive_rate": 0.001936205610693592,
+          "positive_rows": 405,
+          "reason": "trained",
+          "rows": 209172,
+          "window_days": 21.0
+        },
+        "recent_window_days": 21.0
+      },
+      "fold": 1,
+      "market_overlap": {
+        "calibration_test": 5,
+        "calibration_val": 9,
+        "train_calibration": 10,
+        "train_test": 3,
+        "train_val": 7,
+        "val_test": 29
+      },
+      "market_overlap_total": 63,
+      "markets": {
+        "calibration": 13,
+        "test": 50,
+        "train": 20,
+        "val": 38
+      },
+      "ranges": {
+        "calibration": {
+          "markets": 13,
+          "max_asof": "2026-05-21 23:00:00+00:00",
+          "max_target": "2026-05-21 23:00:30+00:00",
+          "min_asof": "2026-05-20 00:01:00+00:00",
+          "rows": 110152,
+          "tokens": 26
+        },
+        "test": {
+          "markets": 50,
+          "max_asof": "2026-05-25 23:59:00+00:00",
+          "max_target": "2026-05-25 23:59:30+00:00",
+          "min_asof": "2026-05-24 00:01:00+00:00",
+          "rows": 226720,
+          "tokens": 100
+        },
+        "train": {
+          "markets": 20,
+          "max_asof": "2026-05-19 23:00:00+00:00",
+          "max_target": "2026-05-19 23:00:30+00:00",
+          "min_asof": "2026-05-15 00:01:00+00:00",
+          "rows": 209172,
+          "tokens": 40
+        },
+        "val": {
+          "markets": 38,
+          "max_asof": "2026-05-23 23:00:00+00:00",
+          "max_target": "2026-05-23 23:00:30+00:00",
+          "min_asof": "2026-05-22 00:01:00+00:00",
+          "rows": 130283,
+          "tokens": 75
+        }
+      },
+      "row_time_order_ok": true,
+      "rows": {
+        "calibration": 110152,
+        "test": 226720,
+        "train": 209172,
+        "val": 130283
+      },
+      "selection_abstained": true,
+      "test_brier": 0.00022936098614325024,
+      "test_ci_hi": null,
+      "test_ci_lo": null,
+      "test_ece_10": 0.00015536858642557563,
+      "test_markets": 0,
+      "test_roi": null,
+      "test_trades": 0,
+      "threshold": 1.000001,
+      "token_overlap": {
+        "calibration_test": 10,
+        "calibration_val": 18,
+        "train_calibration": 20,
+        "train_test": 6,
+        "train_val": 14,
+        "val_test": 58
+      },
+      "val_roi": null,
+      "val_trades": 0,
+      "window": {
+        "calibration_end": "2026-05-22 00:01:00+00:00",
+        "fold": 1,
+        "start": "2026-05-15 00:01:00+00:00",
+        "test_end": "2026-05-26 00:01:00+00:00",
+        "train_end": "2026-05-20 00:01:00+00:00",
+        "validation_end": "2026-05-24 00:01:00+00:00"
+      }
+    }
+  ],
+  "folds_requested": 1,
+  "folds_run": 1,
+  "gate_reasons": [
+    "aggregate temporal test ROI is not positive",
+    "aggregate temporal ROI CI lower bound is not positive",
+    "aggregate test trades below 100",
+    "aggregate test markets below 10",
+    "no temporal folds selected test trades"
+  ],
+  "generated_at": "2026-05-30T21:21:26.253602+00:00",
+  "limitations": [
+    "Temporal validation enforces no future rows, but it allows the same market to appear in earlier and later split roles.",
+    "Same-market overlap is realistic for live market-state learning but optimistic for unseen-market generalization.",
+    "Historical CLOB backtest ROI remains a ceiling until authenticated order lifecycle, queue position, fills, and market impact are captured live."
+  ],
+  "odds_features": {
+    "enabled": false
+  },
+  "outputs": {
+    "json": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/telonex_convergence_ml/telonex_temporal_validation_latest.json",
+    "report": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/telonex_temporal_validation_latest.md"
+  },
+  "purge_hours": 1.0,
+  "random_seed": 42,
+  "sample_half_life_days": 60.0,
+  "target": {
+    "pnl_col": "maker_trade_fill_pnl_per_share",
+    "stake_col": "entry_bid",
+    "target_col": "maker_trade_fill_positive"
+  },
+  "temporal_gate": false,
+  "time_filter": {
+    "dropped_rows": 669214,
+    "end_before": null,
+    "rows_after": 2219371,
+    "rows_before": 2888585,
+    "start_after": "2026-05-15 00:00:00+00:00"
+  },
+  "train_mode": "expanding",
+  "validation_mode": "strict_temporal_row_order",
+  "window_days": {
+    "calibration": 2.0,
+    "step": 3.0,
+    "test": 2.0,
+    "train": 5.0,
+    "validation": 2.0
+  }
+}

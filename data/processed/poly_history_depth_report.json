@@ -1,0 +1,87 @@
+{
+  "generated_at": "2026-05-28T17:05:00Z",
+  "question": "Why do Poly obs span ~22-29 days despite days_back=180, and can we reach 90-day validation?",
+  "verdict": "90-day validation is NOT achievable with the current CLOB prices-history API. The ~22-29 day obs span is API-limited (price history retention), not a days_back or pagination bug.",
+  "can_reach_90d": false,
+  "root_cause": "CLOB /prices-history returns empty arrays for resolved MLB tokens whose games commenced before ~2026-04-28. When history exists, it typically covers only ~5-6 calendar days before game time (median ~6.3d), insufficient for 2h-lead backtests on older games.",
+  "gamma_resolved_events_mlb": {
+    "with_days_back_180_filter": {
+      "pages": 50,
+      "page_size": 100,
+      "count": 1004,
+      "event_endDate_span_days": 78,
+      "event_endDate_min": "2026-03-10T17:05:00Z",
+      "event_endDate_max": "2026-05-28T01:38:00Z",
+      "descriptor_commence_span_days": 78
+    },
+    "without_date_filter_50_pages": {
+      "count": 3646,
+      "event_endDate_span_days": 615,
+      "event_endDate_min": "2024-09-26T12:00:00Z",
+      "event_endDate_max": "2026-06-04T02:10:00Z"
+    },
+    "note": "start_date_min/end_date_max do not block old events in deep pages; they change sort/filter on early pages. Removing the filter adds events but does not fix price history."
+  },
+  "prices_history_mlb": {
+    "sample_60d_old_event": {
+      "title": "St. Louis Cardinals vs. Houston Astros",
+      "endDate": "2026-03-29T16:05:00Z",
+      "decision_2h_before_commence": "2026-03-22T14:05:00Z",
+      "history_rows": 0,
+      "price_at_decision": null
+    },
+    "matched_events_with_winner": {
+      "total": 745,
+      "with_price_at_2h_lead": 314,
+      "commence_min_with_price": "2026-04-28T22:11:00Z",
+      "commence_max_with_price": "2026-05-21T01:39:00Z",
+      "obs_span_days": 22
+    },
+    "history_depth_when_present": {
+      "events_with_nonempty_history": 314,
+      "days_before_game_mean": 5.34,
+      "days_before_game_median": 6.27,
+      "days_before_game_max": 8.24
+    },
+    "apr28_game_alt_intervals": {
+      "1h_6h_1d_1w_max": 0,
+      "1m": 37,
+      "startTs_endTs": "400 invalid filters (interval too long)"
+    }
+  },
+  "collect_observations_drop_reasons_mlb": {
+    "resolved_events": 1004,
+    "no_warehouse_match": 258,
+    "no_price_history_empty": 431,
+    "success_events": 314,
+    "success_commence_span_days": 22
+  },
+  "filter_comparison_mlb": {
+    "with_start_date_min_filter": {"events": 1004, "with_price_at_2h": 314},
+    "without_filter": {"events": 3646, "with_price_at_2h": 405}
+  },
+  "odds_warehouse_baseball_mlb": {
+    "total_events": 1300,
+    "commence_span_days": 270,
+    "commence_min": "2025-08-31T16:11:00Z",
+    "commence_max": "2026-05-29T00:06:00Z",
+    "events_last_180d": 857,
+    "commence_span_last_180d_days": 64,
+    "warehouse_wider_than_poly_obs": true
+  },
+  "manifest_actual_span_days": {
+    "mlb": 22,
+    "nba": 28,
+    "nhl": 29,
+    "requested_days_back": 180
+  },
+  "recommendations": [
+    "Do not expect 90-day validation until Polymarket exposes longer-retention price history or an alternative historical midpoint source is ingested.",
+    "Keep daily --force obs collection to grow a forward-looking dataset; span will increase ~1 day per day of collection, not retroactively.",
+    "Optional minor gain: paginate resolved events without start_date_min (405 vs 314 MLB events with price) — still ~24d span, not 90d.",
+    "Update VALIDATION.md gate 1 to note CLOB retention (~1 week pre-game, ~3-4 weeks of game dates) as the binding constraint.",
+    "MLB live scanner remains HOLD until obs span reaches 90d via time, not config changes."
+  ],
+  "code_fix_applied": false,
+  "code_fix_rationale": "No safe minimal fix: increasing max_pages or days_back does not restore deleted CLOB history; date filter removal yields marginal event gain only."
+}

@@ -1,0 +1,172 @@
+{
+  "coverage": {
+    "assets_missing_books": 833,
+    "assets_with_books": 15,
+    "assets_without_clear_settlement": 1,
+    "assets_without_entry": 8,
+    "book_rows_scanned": 2099670,
+    "candidate_tokens": 7,
+    "clear_settlement_entries": 6,
+    "selected_entries": 7,
+    "target_assets": 848
+  },
+  "executable_gate": false,
+  "gate_reasons": [
+    "need >=200 clear-settlement bets",
+    "need >=50 clear-settlement markets"
+  ],
+  "generated_at": "2026-05-30T23:16:39.248701+00:00",
+  "horizon_by_bucket": [
+    {
+      "avg_entry_ask": 0.866,
+      "avg_spread": 0.028000000000000025,
+      "bets": 5,
+      "bootstrap_ci": {
+        "ci_hi": -0.022242847279395277,
+        "ci_lo": -0.045358160919540265,
+        "clusters": 5
+      },
+      "bucket": "high_prob_token_in_favorite_or_longshot_market",
+      "horizon_sec": "300",
+      "markets": 5,
+      "pnl": -0.14710100000000012,
+      "roi": -0.033972517321016193,
+      "stake": 4.33,
+      "tokens": 5,
+      "win_rate": 0.0
+    },
+    {
+      "avg_entry_ask": 0.8619999999999999,
+      "avg_spread": 0.026000000000000023,
+      "bets": 5,
+      "bootstrap_ci": {
+        "ci_hi": -0.03060635294117649,
+        "ci_lo": -0.14797656732117817,
+        "clusters": 5
+      },
+      "bucket": "high_prob_token_in_favorite_or_longshot_market",
+      "horizon_sec": "900",
+      "markets": 5,
+      "pnl": -0.3208360000000001,
+      "roi": -0.07443990719257544,
+      "stake": 4.31,
+      "tokens": 5,
+      "win_rate": 0.0
+    },
+    {
+      "avg_entry_ask": 0.8639999999999999,
+      "avg_spread": 0.030000000000000006,
+      "bets": 5,
+      "bootstrap_ci": {
+        "ci_hi": -0.04001431924882629,
+        "ci_lo": -0.1473405034324943,
+        "clusters": 5
+      },
+      "bucket": "high_prob_token_in_favorite_or_longshot_market",
+      "horizon_sec": "3600",
+      "markets": 5,
+      "pnl": -0.37147499999999994,
+      "roi": -0.08598958333333333,
+      "stake": 4.319999999999999,
+      "tokens": 5,
+      "win_rate": 0.0
+    },
+    {
+      "avg_entry_ask": 0.85,
+      "avg_spread": 0.030000000000000027,
+      "bets": 2,
+      "bootstrap_ci": {
+        "ci_hi": 0.0030152941176470687,
+        "ci_lo": -0.009000000000000001,
+        "clusters": 2
+      },
+      "bucket": "high_prob_token_in_favorite_or_longshot_market",
+      "horizon_sec": "21600",
+      "markets": 2,
+      "pnl": -0.005086999999999993,
+      "roi": -0.0029923529411764664,
+      "stake": 1.7,
+      "tokens": 2,
+      "win_rate": 0.5
+    },
+    {
+      "avg_entry_ask": 0.8619999999999999,
+      "avg_spread": 0.026000000000000023,
+      "bets": 5,
+      "bootstrap_ci": {
+        "ci_hi": 0.007828470588235307,
+        "ci_lo": -0.05660251716247137,
+        "clusters": 5
+      },
+      "bucket": "high_prob_token_in_favorite_or_longshot_market",
+      "horizon_sec": "86400",
+      "markets": 5,
+      "pnl": -0.09685799999999994,
+      "roi": -0.022472853828306254,
+      "stake": 4.31,
+      "tokens": 5,
+      "win_rate": 0.4
+    }
+  ],
+  "inputs": {
+    "fee_rate": 0.03,
+    "horizons_sec": [
+      300,
+      900,
+      3600,
+      21600,
+      86400
+    ],
+    "manifest": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/clob_capture/telonex_download_manifest.json",
+    "max_ask": 0.95,
+    "max_spread": 0.05,
+    "min_ask": 0.85,
+    "min_ask_size": 5.0,
+    "plan": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/execution_training/favorite_longshot_telonex_target_assets_latest.parquet",
+    "settlement_threshold": 0.95
+  },
+  "outputs": {
+    "bets": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/execution_training/favorite_longshot_executable_bets_latest.parquet",
+    "json": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/execution_training/favorite_longshot_executable_backtest_latest.json",
+    "report": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/favorite_longshot_executable_backtest_latest.md"
+  },
+  "settlement_bootstrap_ci": {
+    "ci_hi": 0.16971878669275936,
+    "ci_lo": 0.14768365642994244,
+    "clusters": 6
+  },
+  "settlement_by_bucket": [
+    {
+      "avg_entry_ask": 0.86,
+      "avg_spread": 0.03500000000000001,
+      "bets": 6,
+      "bootstrap_ci": {
+        "ci_hi": 0.16971878669275936,
+        "ci_lo": 0.14768365642994244,
+        "clusters": 6
+      },
+      "bucket": "high_prob_token_in_favorite_or_longshot_market",
+      "markets": 6,
+      "pnl": 0.8183520000000001,
+      "roi": 0.15859534883720933,
+      "stake": 5.16,
+      "tokens": 6,
+      "win_rate": 1.0
+    }
+  ],
+  "settlement_total": {
+    "avg_entry_ask": 0.86,
+    "avg_spread": 0.03500000000000001,
+    "bets": 6,
+    "exit_type": "clear_settlement",
+    "markets": 6,
+    "pnl": 0.8183520000000001,
+    "roi": 0.15859534883720933,
+    "stake": 5.16,
+    "tokens": 6,
+    "win_rate": 1.0
+  },
+  "strategy": "favorite_longshot_executable_high_probability_token",
+  "strategy_version": "favorite_longshot_executable:v1",
+  "verdict": "HOLD: favorite-longshot executable bucket not yet proven"
+}

@@ -1,0 +1,13 @@
+{
+  "collector": "polymarket_http_book",
+  "duration_sec": 5.0,
+  "generated_at": "2026-05-30T23:29:05.028072+00:00",
+  "interval_sec": 1.0,
+  "iterations": 1,
+  "pair_map_rows": 0,
+  "report": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/live_clob_capture_latest.md",
+  "rows_appended": 30,
+  "selected_path": null,
+  "source": "recent_paper",
+  "token_count": 30
+}

@@ -1,0 +1,338 @@
+{
+  "alerts": [
+    "telonex_live_score failed (39 consecutive)"
+  ],
+  "last_loop_finished_at": "2026-05-30T23:26:41.241317+00:00",
+  "last_loop_started_at": "2026-05-30T23:27:50.453765+00:00",
+  "loop_count": 527,
+  "started_at": "2026-05-29T22:56:51.160360+00:00",
+  "status": "running",
+  "tasks": {
+    "dashboard_status": {
+      "consecutive_failures": 0,
+      "last_error_at": "2026-05-30T18:00:00.436327+00:00",
+      "last_result": {
+        "cmd": [
+          "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/.venv/bin/python",
+          "scripts/109_update_live_dashboard_status.py"
+        ],
+        "duration_sec": 9.136,
+        "name": "dashboard_status",
+        "ok": true,
+        "returncode": 0,
+        "started_at": "2026-05-30T23:26:41.241742+00:00",
+        "stderr_tail": "",
+        "stdout_tail": "{\n  \"gate_reasons\": [\n    \"queue/fill model not validated on authenticated fills\",\n    \"need authenticated Polymarket fill/order lifecycle rows\",\n    \"collector not healthy\",\n    \"Telonex convergence research gate failed\",\n    \"execution-adjusted backtest replay failed: no selected historical replay trades\",\n    \"no predeclared executable taker strategy bucket cleared validation\",\n    \"Telonex model monitor hold\",\n    \"live paper-fill LEV/price-hold quality gate failed\",\n    \"Telonex market-disjoint validation gate failed\",\n    \"Telonex temporal validation gate failed\",\n    \"favorite-longshot executable Telonex backtest gate failed\"\n  ],\n  \"json\": \"/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/live_execution_status.json\",\n  \"live_capital_gate\": false,\n  \"report\": \"/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/live_execution_status_latest.md\"\n}\n"
+      },
+      "last_run_at": "2026-05-30T23:26:50.377872+00:00",
+      "last_success_at": "2026-05-30T23:26:50.377902+00:00"
+    },
+    "execution_training": {
+      "consecutive_failures": 0,
+      "last_error_at": "2026-05-30T20:52:05.663602+00:00",
+      "last_result": {
+        "cmd": [
+          "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/.venv/bin/python",
+          "scripts/103_build_execution_training_set.py"
+        ],
+        "duration_sec": 60.065,
+        "name": "execution_training",
+        "ok": true,
+        "returncode": 0,
+        "started_at": "2026-05-30T23:24:29.112195+00:00",
+        "stderr_tail": "",
+        "stdout_tail": "{\n  \"generated_at\": \"2026-05-30T23:25:29.083281+00:00\",\n  \"latest_path\": \"/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/execution_training/execution_training_latest.parquet\",\n  \"report\": \"/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/execution_training_latest.md\",\n  \"retention\": {\n    \"deleted_bytes\": 48315,\n    \"deleted_files\": 1,\n    \"enabled\": true,\n    \"retained_runs\": 24\n  },\n  \"rows\": 270,\n  \"run_path\": \"/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/execution_training/execution_training_20260530T232529Z.parquet\"\n}\n"
+      },
+      "last_run_at": "2026-05-30T23:25:29.177043+00:00",
+      "last_success_at": "2026-05-30T23:25:29.177085+00:00"
+    },
+    "game_state": {
+      "consecutive_failures": 0,
+      "last_result": {
+        "cmd": [
+          "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/.venv/bin/python",
+          "scripts/107_collect_live_game_state.py"
+        ],
+        "duration_sec": 7.458,
+        "name": "game_state",
+        "ok": true,
+        "returncode": 0,
+        "started_at": "2026-05-30T23:26:10.106329+00:00",
+        "stderr_tail": "",
+        "stdout_tail": "{\n  \"appended\": {\n    \"matches\": 23,\n    \"scoreboards\": 36\n  },\n  \"garbage_time_proxy_rows\": 0,\n  \"generated_at\": \"2026-05-30T23:26:17.487138+00:00\",\n  \"matched_scoreline_regime_counts\": {\n    \"blowout\": 7,\n    \"one_run\": 4,\n    \"pre\": 7,\n    \"tied\": 5\n  },\n  \"matches\": 23,\n  \"report\": \"/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/live_game_state_latest.md\",\n  \"scoreboard_rows\": 36,\n  \"scoreline_regime_counts\": {\n    \"blowout\": 7,\n    \"close\": 1,\n    \"one_run\": 3,\n    \"pre\": 22,\n    \"tied\": 3\n  }\n}\n"
+      },
+      "last_run_at": "2026-05-30T23:26:17.564357+00:00",
+      "last_success_at": "2026-05-30T23:26:17.564387+00:00"
+    },
+    "http_capture": {
+      "consecutive_failures": 0,
+      "last_result": {
+        "cmd": [
+          "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/.venv/bin/python",
+          "scripts/101_collect_live_clob_snapshots.py",
+          "--from-active-sports",
+          "--max-tokens",
+          "30",
+          "--active-max-pages",
+          "3",
+          "--once"
+        ],
+        "duration_sec": 12.229,
+        "name": "http_capture",
+        "ok": true,
+        "returncode": 0,
+        "started_at": "2026-05-30T23:27:50.454182+00:00",
+        "stderr_tail": "",
+        "stdout_tail": "{\n  \"collector\": \"polymarket_http_book\",\n  \"duration_sec\": 0.0,\n  \"generated_at\": \"2026-05-30T23:28:02.580323+00:00\",\n  \"interval_sec\": 15.0,\n  \"iterations\": 1,\n  \"pair_map_rows\": 6,\n  \"report\": \"/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/live_clob_capture_latest.md\",\n  \"rows_appended\": 30,\n  \"selected_path\": null,\n  \"source\": \"active_sports\",\n  \"token_count\": 30\n}\n"
+      },
+      "last_run_at": "2026-05-30T23:28:02.683162+00:00",
+      "last_success_at": "2026-05-30T23:28:02.683200+00:00"
+    },
+    "kalshi_candidates": {
+      "consecutive_failures": 0,
+      "last_result": {
+        "cmd": [
+          "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/.venv/bin/python",
+          "scripts/104_build_cross_venue_candidates.py",
+          "--max-events",
+          "20",
+          "--max-candidates-per-event",
+          "5"
+        ],
+        "duration_sec": 11.07,
+        "name": "kalshi_candidates",
+        "ok": true,
+        "returncode": 0,
+        "started_at": "2026-05-30T23:26:17.565259+00:00",
+        "stderr_tail": "",
+        "stdout_tail": "{\n  \"output\": null,\n  \"report\": \"/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/cross_venue_candidates_latest.md\",\n  \"rows\": 0\n}\n"
+      },
+      "last_run_at": "2026-05-30T23:26:28.635812+00:00",
+      "last_success_at": "2026-05-30T23:26:28.635865+00:00"
+    },
+    "kalshi_verified": {
+      "consecutive_failures": 0,
+      "last_result": {
+        "cmd": [
+          "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/.venv/bin/python",
+          "scripts/113_verify_kalshi_mappings.py"
+        ],
+        "duration_sec": 0.543,
+        "name": "kalshi_verified",
+        "ok": true,
+        "returncode": 0,
+        "started_at": "2026-05-30T23:26:28.636999+00:00",
+        "stderr_tail": "",
+        "stdout_tail": "{\n  \"output\": null,\n  \"report\": \"/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/kalshi_verified_mappings_latest.md\",\n  \"verified_rows\": 0\n}\n"
+      },
+      "last_run_at": "2026-05-30T23:26:29.180041+00:00",
+      "last_success_at": "2026-05-30T23:26:29.180078+00:00"
+    },
+    "live_execution_quality": {
+      "consecutive_failures": 0,
+      "last_result": {
+        "cmd": [
+          "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/.venv/bin/python",
+          "scripts/130_monitor_live_execution_quality.py",
+          "--max-lag-sec",
+          "5"
+        ],
+        "duration_sec": 8.795,
+        "name": "live_execution_quality",
+        "ok": true,
+        "returncode": 0,
+        "started_at": "2026-05-30T23:29:05.132318+00:00",
+        "stderr_tail": "",
+        "stdout_tail": "{\n  \"fills\": 850,\n  \"gate_reasons\": [\n    \"need >=500 alpha paper fills with 3s post-fill books within 5s lag\",\n    \"3s alpha average LEV is not positive\",\n    \"3s alpha favorable post-fill move rate is not >52%\",\n    \"wallet-level whale detector unavailable from current trade feed\",\n    \"favorite_longshot_bias has only 13 timely 3s LEV rows after 692 fills\"\n  ],\n  \"lev_drift_alerts\": 0,\n  \"quality_gate\": false,\n  \"quarantined_strategies\": [],\n  \"report\": \"/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/live_execution_quality_latest.md\"\n}\n"
+      },
+      "last_run_at": "2026-05-30T23:29:13.927414+00:00",
+      "last_success_at": "2026-05-30T23:29:13.927461+00:00"
+    },
+    "model_monitor": {
+      "consecutive_failures": 0,
+      "last_result": {
+        "cmd": [
+          "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/.venv/bin/python",
+          "scripts/124_monitor_telonex_model_health.py"
+        ],
+        "duration_sec": 1.094,
+        "name": "model_monitor",
+        "ok": true,
+        "returncode": 0,
+        "started_at": "2026-05-30T23:26:09.011688+00:00",
+        "stderr_tail": "",
+        "stdout_tail": "{\n  \"latest_run\": \"20260530T215450Z\",\n  \"report\": \"/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/telonex_model_monitor_latest.md\",\n  \"risk_p05\": null,\n  \"verdict\": \"HOLD: latest research gate failed; latest external validation gate failed; latest test ROI is not positive; latest test CI lower bound is not positive\"\n}\n"
+      },
+      "last_run_at": "2026-05-30T23:26:10.105361+00:00",
+      "last_success_at": "2026-05-30T23:26:10.105396+00:00"
+    },
+    "paper_trade": {
+      "consecutive_failures": 0,
+      "last_error_at": "2026-05-30T20:01:16.290584+00:00",
+      "last_result": {
+        "cmd": [
+          "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/.venv/bin/python",
+          "scripts/102_paper_trade_live.py"
+        ],
+        "duration_sec": 13.522,
+        "name": "paper_trade",
+        "ok": true,
+        "returncode": 0,
+        "started_at": "2026-05-30T23:28:43.181539+00:00",
+        "stderr_tail": "Telonex live scorer skipped: no research-gated and validation-gated base_odds/base Telonex model artifact found: base_odds: market_disjoint validation gate failed: market_disjoint_gate=false in telonex_walk_forward_base_odds_latest.json; temporal validation gate failed: temporal_gate=false in telonex_temporal_validation_base_odds_latest.json | base: market_disjoint validation gate failed: market_disjoint_gate=false in telonex_walk_forward_latest.json; temporal validation gate failed: temporal_gate=false in telonex_temporal_validation_latest.json\n",
+        "stdout_tail": "{\n  \"fill_probability_gate\": {\n    \"avg_fill_prob\": null,\n    \"candidate_orders\": 0,\n    \"enabled\": true,\n    \"min_fill_prob\": 0.02,\n    \"reason\": null,\n    \"rejected_orders\": 0,\n    \"used\": false\n  },\n  \"fills\": 3,\n  \"latest_books\": 482,\n  \"lifecycle_events\": 41,\n  \"orders\": 19,\n  \"post_fill_capture\": {\n    \"duration_sec\": 5.0,\n    \"enabled\": true,\n    \"interval_sec\": 1.0,\n    \"iterations\": 4,\n    \"rows_appended\": 12,\n    \"token_count\": 3\n  },\n  \"report\": \"/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/paper_trading_latest.md\",\n  \"rows_appended\": {\n    \"fills\": 3,\n    \"lifecycle_events\": 41,\n    \"orders\": 19,\n    \"signals\": 19\n  },\n  \"signals\": 19,\n  \"strategy_quarantine\": {\n    \"dropped_signals\": 0,\n    \"enabled\": true,\n    \"input_signals\": 19,\n    \"min_avg_lev_after_3s\": 0.0,\n    \"min_favorable_rate_after_3s\": 0.52,\n    \"min_rows\": 100,\n    \"output_signals\": 19,\n    \"quarantined_strategies\": [],\n    \"reason\": \"favorite_longshot_bias has only 13 timely 3s LEV rows after 692 fills\",\n    \"rows_by_strategy\": [\n      {\n        \"avg_lev_after_3s\": -0.015682615384615375,\n        \"evidence_insufficient\": true,\n        \"favorable_rate_after_3s\": 0.0,\n        \"fills\": 692,\n        \"quarantined\": false,\n        \"reason\": \"favorite_longshot_bias has only 13 timely 3s LEV rows after 692 fills\",\n        \"rows_after_3s\": 13,\n        \"strategy\": \"favorite_longshot_bias\"\n      }\n    ],\n    \"source\": \"/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/clob_capture/live_execution_quality_latest.json\",\n    \"used\": true\n  }\n}\n"
+      },
+      "last_run_at": "2026-05-30T23:28:56.703604+00:00",
+      "last_success_at": "2026-05-30T23:28:56.703645+00:00"
+    },
+    "post_trade_http_capture": {
+      "consecutive_failures": 0,
+      "last_result": {
+        "cmd": [
+          "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/.venv/bin/python",
+          "scripts/101_collect_live_clob_snapshots.py",
+          "--from-recent-paper",
+          "--paper-lookback-min",
+          "15",
+          "--max-tokens",
+          "30",
+          "--duration-sec",
+          "5.0",
+          "--interval-sec",
+          "1"
+        ],
+        "duration_sec": 8.427,
+        "name": "post_trade_http_capture",
+        "ok": true,
+        "returncode": 0,
+        "started_at": "2026-05-30T23:28:56.704577+00:00",
+        "stderr_tail": "",
+        "stdout_tail": "{\n  \"collector\": \"polymarket_http_book\",\n  \"duration_sec\": 5.0,\n  \"generated_at\": \"2026-05-30T23:29:05.028072+00:00\",\n  \"interval_sec\": 1.0,\n  \"iterations\": 1,\n  \"pair_map_rows\": 0,\n  \"report\": \"/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/live_clob_capture_latest.md\",\n  \"rows_appended\": 30,\n  \"selected_path\": null,\n  \"source\": \"recent_paper\",\n  \"token_count\": 30\n}\n"
+      },
+      "last_run_at": "2026-05-30T23:29:05.131203+00:00",
+      "last_success_at": "2026-05-30T23:29:05.131251+00:00"
+    },
+    "queue_fill_model": {
+      "consecutive_failures": 0,
+      "last_error_at": "2026-05-30T18:06:23.224652+00:00",
+      "last_result": {
+        "cmd": [
+          "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/.venv/bin/python",
+          "scripts/129_train_queue_fill_model.py"
+        ],
+        "duration_sec": 25.742,
+        "name": "queue_fill_model",
+        "ok": true,
+        "returncode": 0,
+        "started_at": "2026-05-30T23:25:43.269198+00:00",
+        "stderr_tail": "",
+        "stdout_tail": "{\n  \"authenticated_live_fill_gate\": false,\n  \"proxy_model_gate\": true,\n  \"report\": \"/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/queue_fill_model_latest.md\",\n  \"test_auc\": 0.9800077639751553,\n  \"test_brier\": 0.022436290112927686\n}\n"
+      },
+      "last_run_at": "2026-05-30T23:26:09.010769+00:00",
+      "last_success_at": "2026-05-30T23:26:09.010805+00:00"
+    },
+    "queue_training": {
+      "consecutive_failures": 0,
+      "last_result": {
+        "cmd": [
+          "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/.venv/bin/python",
+          "scripts/111_build_queue_fill_labels.py"
+        ],
+        "duration_sec": 14.089,
+        "name": "queue_training",
+        "ok": true,
+        "returncode": 0,
+        "started_at": "2026-05-30T23:25:29.178372+00:00",
+        "stderr_tail": "",
+        "stdout_tail": "{\n  \"authenticated_user_channel_rows\": 0,\n  \"generated_at\": \"2026-05-30T23:25:43.157412+00:00\",\n  \"label_horizon_sec\": 60,\n  \"live_paper_order_rows\": 2003,\n  \"live_rows\": 2003,\n  \"output\": \"/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/execution_training/queue_fill_training_latest.parquet\",\n  \"report\": \"/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/queue_fill_training_latest.md\",\n  \"rows\": 2003,\n  \"sources\": {\n    \"live_paper_order\": 2003\n  }\n}\n"
+      },
+      "last_run_at": "2026-05-30T23:25:43.267494+00:00",
+      "last_success_at": "2026-05-30T23:25:43.267560+00:00"
+    },
+    "secret_hygiene": {
+      "consecutive_failures": 0,
+      "last_result": {
+        "cmd": [
+          "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/.venv/bin/python",
+          "scripts/108_scan_secret_hygiene.py",
+          "--no-env"
+        ],
+        "duration_sec": 2.87,
+        "name": "secret_hygiene",
+        "ok": true,
+        "returncode": 0,
+        "started_at": "2026-05-30T23:26:29.180968+00:00",
+        "stderr_tail": "",
+        "stdout_tail": "{\n  \"critical\": 0,\n  \"findings\": 0,\n  \"report\": \"/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/secret_hygiene_latest.md\"\n}\n"
+      },
+      "last_run_at": "2026-05-30T23:26:32.051355+00:00",
+      "last_success_at": "2026-05-30T23:26:32.051379+00:00"
+    },
+    "telonex_live_score": {
+      "consecutive_failures": 39,
+      "last_error_at": "2026-05-30T23:28:43.180758+00:00",
+      "last_result": {
+        "cmd": [
+          "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/.venv/bin/python",
+          "scripts/125_score_live_telonex_convergence.py",
+          "--feature-set",
+          "base_odds",
+          "--dry-run"
+        ],
+        "duration_sec": 6.605,
+        "name": "telonex_live_score",
+        "ok": false,
+        "returncode": 1,
+        "started_at": "2026-05-30T23:28:36.576025+00:00",
+        "stderr_tail": "Traceback (most recent call last):\n  File \"/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/scripts/125_score_live_telonex_convergence.py\", line 88, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/scripts/125_score_live_telonex_convergence.py\", line 49, in main\n    result = score_latest_telonex_live(\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/src/models/telonex_live_scoring.py\", line 1309, in score_latest_telonex_live\n    artifact, summary, resolved_model_dir = load_telonex_model(model_dir, feature_set=feature_set)\n                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/src/models/telonex_live_scoring.py\", line 1144, in load_telonex_model\n    raise FileNotFoundError(f\"no research-gated and validation-gated {requested} Telonex model artifact found{suffix}\")\nFileNotFoundError: no research-gated and validation-gated base_odds Telonex model artifact found: base_odds: market_disjoint validation gate failed: market_disjoint_gate=false in telonex_walk_forward_base_odds_latest.json; temporal validation gate failed: temporal_gate=false in telonex_temporal_validation_base_odds_latest.json\n",
+        "stdout_tail": ""
+      },
+      "last_run_at": "2026-05-30T23:28:43.180729+00:00",
+      "last_success_at": "2026-05-30T20:09:38.550837+00:00"
+    },
+    "user_lifecycle": {
+      "consecutive_failures": 0,
+      "last_result": {
+        "cmd": [
+          "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/.venv/bin/python",
+          "scripts/112_collect_polymarket_user_channel.py",
+          "--duration-sec",
+          "5",
+          "--allow-unconfigured"
+        ],
+        "duration_sec": 8.871,
+        "name": "user_lifecycle",
+        "ok": true,
+        "returncode": 0,
+        "started_at": "2026-05-30T23:29:13.928438+00:00",
+        "stderr_tail": "",
+        "stdout_tail": "   \"0x85c4d4d692e1f64720cec9f7abd5752965edd4e93cc31eaa7ebfabbc52af594f\",\n    \"0xace6e342a17568a71bc005db5df3247c63342d6379365a04cdb29672f77fc494\",\n    \"0x7e954780b7325b7b920ef5c9c304f22199a2ba263faea78914c0e872fbf981c4\",\n    \"0x42ab9e3680f1f49a9826b113c95dbcfde2cd84015d4e1ea053d0dc93d9b50916\",\n    \"0x7b725c941e1194f8b356086e3ff32ff48926fe8fb9694a9bc7e93bdddc5dd99e\",\n    \"0xce292e361999f9b0a5db6de743f118a908d4d76541ddaaeef816595f0b7043df\",\n    \"0x67361aef8273b99b9ebbfd425050f7d2d8806a42fd4f2faf344a53c02cca3b46\",\n    \"0x7dab04c23cab8d0d50610c1d0a81deca8edff40d146d783b9db3727eba1aebb8\",\n    \"0x7e3356d9806bb220339a4736a9f8b65f9d4786693fff97d345ea5d2a7890c9ed\",\n    \"0xe41ca885d956858e7e87ad83e0c45ff38caf66fc51d94c4943e66265915a43a5\",\n    \"0x27a8ca0b7bdb05c3cea73c9f5365cd0d90bcf00cf552869c40ebe6349a16418c\",\n    \"0x139362c12320dc37da3555ee718860fa237bdecd144eb4877f88765ddcd6935e\",\n    \"0x867d1952c5628a529c57d81423d8d99ccd35c75c7a947a409f2f755cb26a0b38\",\n    \"0x7f9ed4d22c50b2de1e7cc123089bf72c63343331b54c724f9bce038ca21fcbe7\",\n    \"0xc4658ed5baa0a6853f27a6a6f12719a2851b0d1b1dc6563ae738c520725588fa\",\n    \"0xffdeedb13344c84fb9c12e96c9414f23cee9a2753bad18c36501ff9d3cd49d06\",\n    \"0x0e20b8647d427c463b9702985de2416862eeea2e206f4289e0a2f48d6d1e1a74\",\n    \"0x95f49f04c9a0f40fe1cf390ed4dc582d5537987aa03d77f03fb9d7cf997ca867\",\n    \"0xe3628a6546d3c0ab3ac68a33423509e114fd070a7255b49acc7e75e3f31ac617\",\n    \"0x91b328455ac0c9b2acca76c9af2cdad5256608e0a95155bed40baa7fdb788f2a\",\n    \"0xc5a2c58ff5d56b45a5e29f8f0ab76b63715c0cd44935a66b058cc7523eb0418d\",\n    \"0xf6790baa5f35524ff585cae977c774d0cc0faae67befae4dee2f2aeffa789b52\",\n    \"0xc8bc8ec8ba9f741f8b301a8e93fe3728028e1108b4b0faec2107bd5244857c50\",\n    \"0xe354c0d25a2e63fa16f290d73728fe4a1451992bc950455b35b44caa2eb772f8\",\n    \"0x9a8f678f44a99cd1b5f2821f61e3bfd49c606f7c23883ea8d6b9d9fbbd9d6cb3\",\n    \"0x682c21740bd0603c31bbcb7b6cf06d7141994c65c4872f331b1a2bae081f7405\",\n    \"0x4f88f71304752610aef186cff0deb6b90b041a37739bebd29a96486f3977a5f6\",\n    \"0x303ef29bfa673f956aee16eed1f4023392c098d1c87ab11d94580c162b6393f9\",\n    \"0xd8fdf3c770ed5a238fb03cbf3b3d8eb77396b807edc17cc8b9f98deef94e4524\",\n    \"0xb83e958350a25a31adb7b43336a91b91a8ba1d8028e592eb90b9c12702800087\",\n    \"0xdbf71a9b9d66fcc6e14ee73aad01e04b78634ff073828a8f9219c05fb52c5773\",\n    \"0x9a19276a2f655031a3e3b1ff62603e85cf8583bc3f42728ee2636f032c6dc363\",\n    \"0x31d05be8442c93ce84db2e5d62953de4d0cca233604ebc45bf0d4fb93497d1d7\",\n    \"0x55f96739e8e45b579e137c22a488ffe41eae5f8d6c8d81a827858c2341e8ef85\",\n    \"0x85f50f1a21ce796ed67e49c5acfd189a48ba2372739a051ea2389d0200fb91cb\",\n    \"0x9ae51adf340f442c2201fc186115cb6aff5a21019212d0717f81e5ee1635a631\",\n    \"0x4543aca13a9008eec71d4b9a6ddca363584082cf61bec4c7448d324d983ac0fc\",\n    \"0x4ecb35ac39b770dd8b12a4568e173293e3a9c6608b4f1237fea17a34e6c76197\",\n    \"0xc7d6fc243b08248e4b15ab1fd8cdd9841e9193d3e49b9e4a953bfb0488365967\",\n    \"0xd1da8b51f4b869bdfda497c475e454d6d344a00134051d932b94ce16fdfc51b7\",\n    \"0x12a7eab9d219fa96ccf91eebeeaf14ba4b49dfb2c86e1bd84a70ee68ee84a101\",\n    \"0x8ebea758b1f60d3668031674844609e7bdf59f690390ec5b2e2a31b27901c078\",\n    \"0x31785cc3ad965e4b98409b39a9af1186c48196b0785115cf26fc5a182f0e6d36\",\n    \"0x7b87b1ca188d0ee4e90a60f0a9872b3b9b572a22b81604c4a49eed4d4bc85161\",\n    \"0x679ac644c8cc8bd94d9086bc84c63ecfaa3995fbd4b69232e58eda42b4a12b32\",\n    \"0xd1815f4c816b198d8b9d93f3d7c5fac2240ff74e1228d3dbd1e0ccdfce4cbad0\",\n    \"0x1b7bcbf1e0a45f039fd888db6f3f9a0076a2b55e64ffecded2f694e182572aef\",\n    \"0xad1a62ec640f5462afd7864cd1dd0a60e2a71e13e83406800a719f307744498a\",\n    \"0x932a4b3cb22083b3be909dbd3fd70e330feee8b9a9b10a62d8114ebb5c2bd68b\",\n    \"0xb83e2669f3765c5a2f999c440fd70e8c69c8b3a09ea411b09dead7b732edc9d0\",\n    \"0x99346678b3629dc00b581f0a88267c58936b53a00faae885c96a66f5686dca09\",\n    \"0x399beeeacd5e980fb37dc7464f214b79eb88e7a4f577816bffbc1b8f0d1e9866\",\n    \"0x985d113dc0753b57190b7e49bbdb9251c30b587e9cb418b9df59195f44490432\",\n    \"0xcd374940b2c8e8c519d0a9ef110cb70f42b64ddf9a07f0e6116204c294696a34\"\n  ]\n}\n"
+      },
+      "last_run_at": "2026-05-30T23:29:22.799758+00:00",
+      "last_success_at": "2026-05-30T23:29:22.799789+00:00"
+    },
+    "ws_capture": {
+      "consecutive_failures": 0,
+      "last_error_at": "2026-05-29T22:57:09.937441+00:00",
+      "last_result": {
+        "cmd": [
+          "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/.venv/bin/python",
+          "scripts/105_collect_polymarket_ws.py",
+          "--max-tokens",
+          "12",
+          "--duration-sec",
+          "30.0"
+        ],
+        "duration_sec": 33.887,
+        "name": "ws_capture",
+        "ok": true,
+        "returncode": 0,
+        "started_at": "2026-05-30T23:28:02.687265+00:00",
+        "stderr_tail": "",
+        "stdout_tail": "{\n  \"book_snapshots\": 0,\n  \"duration_sec\": 30.0,\n  \"event_counts\": {\n    \"new_market\": 2\n  },\n  \"events\": 2,\n  \"report\": \"/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/polymarket_ws_capture_latest.md\",\n  \"rows_appended\": {\n    \"books\": 0,\n    \"raw_events\": 2,\n    \"trades\": 0\n  },\n  \"token_count\": 12,\n  \"top_of_book_updates\": 0,\n  \"trades\": 0\n}\n"
+      },
+      "last_run_at": "2026-05-30T23:28:36.574685+00:00",
+      "last_success_at": "2026-05-30T23:28:36.574751+00:00"
+    }
+  }
+}

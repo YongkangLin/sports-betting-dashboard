@@ -1,0 +1,45 @@
+{
+  "meta": {
+    "generated_at": "2026-05-28T19:20:54.743613+00:00",
+    "min_edge": 0.03,
+    "count": 2
+  },
+  "picks": [
+    {
+      "sport": "boxing_boxing",
+      "event_id": "4969bfe58f66839e8238446ec144820c",
+      "commence_time": "2026-05-31T00:30:00Z",
+      "home_team": "Lourdes Juarez",
+      "away_team": "Yokasta Valle",
+      "pick": "Lourdes Juarez",
+      "book": "draftkings",
+      "price_american": 280,
+      "price_decimal": 3.8,
+      "implied": 0.2631578947368421,
+      "sharp_fair": 0.3318786156500558,
+      "edge": 0.06872072091321368,
+      "ev_per_dollar": 0.2611387394702118,
+      "half_kelly_pct": 4.6631917762537825,
+      "anchor": "pinnacle",
+      "last_update": "2026-05-28T19:20:23Z"
+    },
+    {
+      "sport": "boxing_boxing",
+      "event_id": "d58c4d37143af4806a6a9ac100de6998",
+      "commence_time": "2026-05-30T18:00:00Z",
+      "home_team": "Kevin Lerena",
+      "away_team": "Ryad Merhy",
+      "pick": "Ryad Merhy",
+      "book": "betus",
+      "price_american": 145,
+      "price_decimal": 2.45,
+      "implied": 0.4081632653061224,
+      "sharp_fair": 0.44357932957757024,
+      "edge": 0.035416064271447834,
+      "ev_per_dollar": 0.08676935746504721,
+      "half_kelly_pct": 2.9920468091395587,
+      "anchor": "pinnacle",
+      "last_update": "2026-05-28T19:20:03Z"
+    }
+  ]
+}

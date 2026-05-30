@@ -1,0 +1,24 @@
+{
+  "appended": {
+    "matches": 23,
+    "scoreboards": 36
+  },
+  "garbage_time_proxy_rows": 0,
+  "generated_at": "2026-05-30T23:26:17.487138+00:00",
+  "matched_scoreline_regime_counts": {
+    "blowout": 7,
+    "one_run": 4,
+    "pre": 7,
+    "tied": 5
+  },
+  "matches": 23,
+  "report": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/live_game_state_latest.md",
+  "scoreboard_rows": 36,
+  "scoreline_regime_counts": {
+    "blowout": 7,
+    "close": 1,
+    "one_run": 3,
+    "pre": 22,
+    "tied": 3
+  }
+}

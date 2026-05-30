@@ -1,0 +1,132 @@
+{
+  "tennis": {
+    "path": "data/processed/poly_wh_obs_tennis_20260524_20260528.parquet",
+    "span_days": 4,
+    "mtime": 1780011781.1421838
+  },
+  "epl": {
+    "path": "data/processed/poly_wh_obs_epl_20251213_20260524.parquet",
+    "span_days": 162,
+    "mtime": 1780011780.7173626
+  },
+  "serie_a": {
+    "path": "data/processed/poly_wh_obs_serie_a_20251212_20260524.parquet",
+    "span_days": 163,
+    "mtime": 1780011781.1381378
+  },
+  "ufc": {
+    "path": "data/processed/poly_wh_obs_ufc_20260517_20260517.parquet",
+    "span_days": 0,
+    "mtime": 1780011781.3456018
+  },
+  "mlb_spread": {
+    "path": "data/processed/poly_wh_obs_mlb_spread_20260326_20260528.parquet",
+    "span_days": 63,
+    "mtime": 1780011780.772477
+  },
+  "nba_spread": {
+    "path": "data/processed/poly_wh_obs_nba_spread_20251206_20260527.parquet",
+    "span_days": 172,
+    "mtime": 1780011780.8148396
+  },
+  "nfl_total": {
+    "path": "data/processed/poly_wh_obs_nfl_total_20251130_20260208.parquet",
+    "span_days": 70,
+    "mtime": 1780011781.1110978
+  },
+  "nhl": {
+    "path": "data/processed/poly_wh_obs_nhl_20251227_20260528.parquet",
+    "span_days": 152,
+    "mtime": 1780011781.1140862
+  },
+  "nfl": {
+    "path": "data/processed/poly_wh_obs_nfl_20251130_20260208.parquet",
+    "span_days": 70,
+    "mtime": 1780011780.8563771
+  },
+  "mlb": {
+    "path": "data/processed/poly_wh_obs_mlb_20260326_20260528.parquet",
+    "span_days": 63,
+    "mtime": 1780011780.7549872
+  },
+  "libertadores": {
+    "path": "data/processed/poly_wh_obs_libertadores_20251129_20260528.parquet",
+    "span_days": 180,
+    "mtime": 1780011780.731443
+  },
+  "ucl": {
+    "path": "data/processed/poly_wh_obs_ucl_20260120_20260506.parquet",
+    "span_days": 106,
+    "mtime": 1780011781.257891
+  },
+  "nfl_spread": {
+    "path": "data/processed/poly_wh_obs_nfl_spread_20251130_20260208.parquet",
+    "span_days": 70,
+    "mtime": 1780011781.1091015
+  },
+  "nhl_total": {
+    "path": "data/processed/poly_wh_obs_nhl_total_20251227_20260528.parquet",
+    "span_days": 152,
+    "mtime": 1780011781.135908
+  },
+  "la_liga": {
+    "path": "data/processed/poly_wh_obs_la_liga_20251212_20260524.parquet",
+    "span_days": 163,
+    "mtime": 1780011780.7240014
+  },
+  "serie_b": {
+    "path": "data/processed/poly_wh_obs_serie_b_20251227_20260501.parquet",
+    "span_days": 125,
+    "mtime": 1780011781.138964
+  },
+  "mlb_total": {
+    "path": "data/processed/poly_wh_obs_mlb_total_20260326_20260528.parquet",
+    "span_days": 63,
+    "mtime": 1780011780.787924
+  },
+  "nba_total": {
+    "path": "data/processed/poly_wh_obs_nba_total_20251206_20260527.parquet",
+    "span_days": 172,
+    "mtime": 1780011780.8334873
+  },
+  "kbo": {
+    "path": "data/processed/poly_wh_obs_kbo_20260407_20260527.parquet",
+    "span_days": 50,
+    "mtime": 1780011780.7221372
+  },
+  "bundesliga": {
+    "path": "data/processed/poly_wh_obs_bundesliga_20251212_20260525.parquet",
+    "span_days": 164,
+    "mtime": 1780011780.7097235
+  },
+  "nhl_spread": {
+    "path": "data/processed/poly_wh_obs_nhl_spread_20251227_20260528.parquet",
+    "span_days": 152,
+    "mtime": 1780011781.117713
+  },
+  "boxing": {
+    "path": "data/processed/poly_wh_obs_boxing_20260503_20260503.parquet",
+    "span_days": 0,
+    "mtime": 1780011780.6971645
+  },
+  "nba": {
+    "path": "data/processed/poly_wh_obs_nba_20251206_20260527.parquet",
+    "span_days": 172,
+    "mtime": 1780011780.8046706
+  },
+  "brazil": {
+    "path": "data/processed/poly_wh_obs_brazil_20260128_20260525.parquet",
+    "span_days": 117,
+    "mtime": 1780011780.6984427
+  },
+  "wnba": {
+    "path": "data/processed/poly_wh_obs_wnba_20260508_20260528.parquet",
+    "span_days": 20,
+    "mtime": 1780011781.3467536
+  },
+  "ligue1": {
+    "path": "data/processed/poly_wh_obs_ligue1_20251212_20260517.parquet",
+    "span_days": 156,
+    "mtime": 1780011780.7338638
+  }
+}
