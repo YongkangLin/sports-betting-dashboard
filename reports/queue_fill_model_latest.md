@@ -1,13 +1,13 @@
 # Queue / Fill Model
 
-- Generated: 2026-05-30T23:26:08.857882+00:00
-- Rows: 2,003
-- Sources: {'live_paper_order': 2003}
+- Generated: 2026-05-30T23:55:25.508525+00:00
+- Rows: 2,095
+- Sources: {'live_paper_order': 2095}
 - Authenticated rows/fills: 0 / 0
 - Proxy model gate: True
 - Authenticated live-fill gate: False
 - AUC gate source: test
-- Model version: `queue-fill-d7d4993c015f`
+- Model version: `queue-fill-554575e69a45`
 
 This model estimates passive limit-order fill probability. Current coverage is useful for paper/live simulation, but live capital remains blocked until authenticated Polymarket order lifecycle/fill rows exist.
 
@@ -15,9 +15,9 @@ This model estimates passive limit-order fill probability. Current coverage is u
 
 | Split | Rows | Fill rate | Avg prob | Brier | Baseline Brier | AUC | ECE |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| train | 1,201 | 39.80% | 42.15% | 0.017275333630547604 | 0.23959633971412947 | 0.9999406818405412 | 2.35% |
-| val | 401 | 39.15% | 39.15% | 0.007176904033633472 | 0.2382743457703276 | 0.997141589224183 | 0.00% |
-| test | 401 | 40.15% | 38.19% | 0.022436290112927686 | 0.24030922526600973 | 0.9800077639751553 | 1.96% |
+| train | 1,257 | 38.42% | 39.77% | 0.00982326012196866 | 0.23660152311732105 | 0.999989300292637 | 1.35% |
+| val | 419 | 44.87% | 44.87% | 0.011592226389913739 | 0.2515194149042213 | 0.9909390255134936 | 0.00% |
+| test | 419 | 36.04% | 33.90% | 0.016852704794177244 | 0.23107637801106168 | 0.978377977661362 | 2.14% |
 
 ## Gate Reasons
 

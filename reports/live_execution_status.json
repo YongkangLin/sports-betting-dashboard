@@ -34,27 +34,27 @@
   },
   "capital_enabled": false,
   "clob": {
-    "book_rows": 303760,
-    "latest_book_ts": "2026-05-30 23:24:06.450001+00:00",
-    "latest_books": 482,
+    "book_rows": 304200,
+    "latest_book_ts": "2026-05-30 23:52:53.681988+00:00",
+    "latest_books": 486,
     "trade_rows": 1314,
     "ws_event_counts": {
       "best_bid_ask": 7779,
       "book": 3439,
       "last_trade_price": 1314,
       "market_resolved": 1,
-      "new_market": 1316,
+      "new_market": 1328,
       "price_change": 137092,
       "tick_size_change": 4
     },
-    "ws_event_rows": 150945
+    "ws_event_rows": 150957
   },
   "collector": {
     "alerts": [
-      "telonex_live_score failed (38 consecutive)"
+      "telonex_live_score failed (44 consecutive)"
     ],
-    "last_loop_finished_at": "2026-05-30T23:26:41.241317+00:00",
-    "loop_count": 526,
+    "last_loop_finished_at": "2026-05-30T23:56:02.241115+00:00",
+    "loop_count": 532,
     "status": "degraded"
   },
   "event_market_inventory": {
@@ -1026,94 +1026,309 @@
   },
   "favorite_longshot_executable": {
     "coverage": {
-      "assets_missing_books": 833,
-      "assets_with_books": 15,
-      "assets_without_clear_settlement": 1,
-      "assets_without_entry": 8,
-      "book_rows_scanned": 2099670,
-      "candidate_tokens": 7,
-      "clear_settlement_entries": 6,
-      "selected_entries": 7,
+      "assets_missing_books": 200,
+      "assets_with_books": 648,
+      "assets_without_clear_settlement": 31,
+      "assets_without_entry": 358,
+      "book_rows_scanned": 41899516,
+      "candidate_tokens": 290,
+      "clear_settlement_entries": 259,
+      "selected_entries": 290,
       "target_assets": 848
     },
     "executable_gate": false,
     "gate_reasons": [
-      "need >=200 clear-settlement bets",
-      "need >=50 clear-settlement markets"
+      "clear-settlement cluster bootstrap CI lower bound is not positive"
     ],
-    "generated_at": "2026-05-30T23:16:39.248701+00:00",
+    "generated_at": "2026-05-30T23:55:47.849358+00:00",
     "horizon_by_bucket": [
       {
-        "avg_entry_ask": 0.866,
-        "avg_spread": 0.028000000000000025,
-        "bets": 5,
+        "avg_entry_ask": 0.9071428571428571,
+        "avg_spread": 0.010000000000000009,
+        "bets": 7,
         "bootstrap_ci": {
-          "ci_hi": -0.022242847279395277,
-          "ci_lo": -0.045358160919540265,
-          "clusters": 5
+          "ci_hi": -0.011832025117739406,
+          "ci_lo": -0.017265134706814587,
+          "clusters": 7
+        },
+        "bucket": "favorite_85_95_buy_high_token",
+        "horizon_sec": "300",
+        "markets": 7,
+        "pnl": -0.09679200000000004,
+        "roi": -0.0152428346456693,
+        "stake": 6.35,
+        "tokens": 7,
+        "win_rate": 0.0
+      },
+      {
+        "avg_entry_ask": 0.8775961538461539,
+        "avg_spread": 0.011634615384615394,
+        "bets": 104,
+        "bootstrap_ci": {
+          "ci_hi": -0.01996261620182206,
+          "ci_lo": -0.02254170724998771,
+          "clusters": 104
         },
         "bucket": "high_prob_token_in_favorite_or_longshot_market",
         "horizon_sec": "300",
-        "markets": 5,
-        "pnl": -0.14710100000000012,
-        "roi": -0.033972517321016193,
-        "stake": 4.33,
-        "tokens": 5,
+        "markets": 104,
+        "pnl": -1.9360420000000014,
+        "roi": -0.021212249370001112,
+        "stake": 91.27,
+        "tokens": 104,
         "win_rate": 0.0
       },
       {
-        "avg_entry_ask": 0.8619999999999999,
-        "avg_spread": 0.026000000000000023,
-        "bets": 5,
+        "avg_entry_ask": 0.865,
+        "avg_spread": 0.012500000000000011,
+        "bets": 4,
         "bootstrap_ci": {
-          "ci_hi": -0.03060635294117649,
-          "ci_lo": -0.14797656732117817,
-          "clusters": 5
+          "ci_hi": 0.05703227665706049,
+          "ci_lo": -0.029077385342939015,
+          "clusters": 4
+        },
+        "bucket": "longshot_10_15_buy_complement_token",
+        "horizon_sec": "300",
+        "markets": 4,
+        "pnl": 0.013095999999999938,
+        "roi": 0.003784971098265878,
+        "stake": 3.46,
+        "tokens": 4,
+        "win_rate": 0.25
+      },
+      {
+        "avg_entry_ask": 0.8746951219512196,
+        "avg_spread": 0.011646341463414644,
+        "bets": 164,
+        "bootstrap_ci": {
+          "ci_hi": -0.020251623336674886,
+          "ci_lo": -0.021610204078996102,
+          "clusters": 164
+        },
+        "bucket": "longshot_10_15_buy_no_token",
+        "horizon_sec": "300",
+        "markets": 164,
+        "pnl": -2.997656000000002,
+        "roi": -0.020896869989543404,
+        "stake": 143.45000000000002,
+        "tokens": 164,
+        "win_rate": 0.0
+      },
+      {
+        "avg_entry_ask": 0.9071428571428571,
+        "avg_spread": 0.010000000000000009,
+        "bets": 7,
+        "bootstrap_ci": {
+          "ci_hi": -0.011832025117739406,
+          "ci_lo": -0.017265134706814587,
+          "clusters": 7
+        },
+        "bucket": "favorite_85_95_buy_high_token",
+        "horizon_sec": "900",
+        "markets": 7,
+        "pnl": -0.09679200000000004,
+        "roi": -0.0152428346456693,
+        "stake": 6.35,
+        "tokens": 7,
+        "win_rate": 0.0
+      },
+      {
+        "avg_entry_ask": 0.8776635514018691,
+        "avg_spread": 0.011495327102803748,
+        "bets": 107,
+        "bootstrap_ci": {
+          "ci_hi": -0.019162721090422993,
+          "ci_lo": -0.02645142631251603,
+          "clusters": 107
         },
         "bucket": "high_prob_token_in_favorite_or_longshot_market",
         "horizon_sec": "900",
-        "markets": 5,
-        "pnl": -0.3208360000000001,
-        "roi": -0.07443990719257544,
-        "stake": 4.31,
-        "tokens": 5,
+        "markets": 107,
+        "pnl": -2.076700000000001,
+        "roi": -0.02211372590778406,
+        "stake": 93.91,
+        "tokens": 107,
         "win_rate": 0.0
       },
       {
-        "avg_entry_ask": 0.8639999999999999,
-        "avg_spread": 0.030000000000000006,
-        "bets": 5,
+        "avg_entry_ask": 0.8633333333333333,
+        "avg_spread": 0.013333333333333345,
+        "bets": 3,
         "bootstrap_ci": {
-          "ci_hi": -0.04001431924882629,
-          "ci_lo": -0.1473405034324943,
-          "clusters": 5
+          "ci_hi": -0.019545977011494266,
+          "ci_lo": -0.020275581395348845,
+          "clusters": 3
+        },
+        "bucket": "longshot_10_15_buy_complement_token",
+        "horizon_sec": "900",
+        "markets": 3,
+        "pnl": -0.05187900000000002,
+        "roi": -0.02003050193050194,
+        "stake": 2.59,
+        "tokens": 3,
+        "win_rate": 0.0
+      },
+      {
+        "avg_entry_ask": 0.8744578313253012,
+        "avg_spread": 0.01174698795180724,
+        "bets": 166,
+        "bootstrap_ci": {
+          "ci_hi": -0.020017370864571164,
+          "ci_lo": -0.0214243088433877,
+          "clusters": 166
+        },
+        "bucket": "longshot_10_15_buy_no_token",
+        "horizon_sec": "900",
+        "markets": 166,
+        "pnl": -3.0023290000000014,
+        "roi": -0.020682894736842115,
+        "stake": 145.16,
+        "tokens": 166,
+        "win_rate": 0.0
+      },
+      {
+        "avg_entry_ask": 0.9071428571428571,
+        "avg_spread": 0.010000000000000009,
+        "bets": 7,
+        "bootstrap_ci": {
+          "ci_hi": -0.009016596151538787,
+          "ci_lo": -0.026354952182251725,
+          "clusters": 7
+        },
+        "bucket": "favorite_85_95_buy_high_token",
+        "horizon_sec": "3600",
+        "markets": 7,
+        "pnl": -0.10702300000000006,
+        "roi": -0.016854015748031508,
+        "stake": 6.35,
+        "tokens": 7,
+        "win_rate": 0.0
+      },
+      {
+        "avg_entry_ask": 0.8778095238095238,
+        "avg_spread": 0.011619047619047628,
+        "bets": 105,
+        "bootstrap_ci": {
+          "ci_hi": -0.012010769491317325,
+          "ci_lo": -0.030789883848690035,
+          "clusters": 105
         },
         "bucket": "high_prob_token_in_favorite_or_longshot_market",
         "horizon_sec": "3600",
-        "markets": 5,
-        "pnl": -0.37147499999999994,
-        "roi": -0.08598958333333333,
-        "stake": 4.319999999999999,
-        "tokens": 5,
+        "markets": 105,
+        "pnl": -1.901678650000001,
+        "roi": -0.020632295215362927,
+        "stake": 92.17,
+        "tokens": 105,
+        "win_rate": 0.12380952380952381
+      },
+      {
+        "avg_entry_ask": 0.8633333333333333,
+        "avg_spread": 0.013333333333333345,
+        "bets": 3,
+        "bootstrap_ci": {
+          "ci_hi": -0.019545977011494266,
+          "ci_lo": -0.020275581395348845,
+          "clusters": 3
+        },
+        "bucket": "longshot_10_15_buy_complement_token",
+        "horizon_sec": "3600",
+        "markets": 3,
+        "pnl": -0.05187900000000002,
+        "roi": -0.02003050193050194,
+        "stake": 2.59,
+        "tokens": 3,
         "win_rate": 0.0
       },
       {
-        "avg_entry_ask": 0.85,
-        "avg_spread": 0.030000000000000027,
-        "bets": 2,
+        "avg_entry_ask": 0.875030303030303,
+        "avg_spread": 0.011636363636363646,
+        "bets": 165,
         "bootstrap_ci": {
-          "ci_hi": 0.0030152941176470687,
-          "ci_lo": -0.009000000000000001,
-          "clusters": 2
+          "ci_hi": -0.01947758684300109,
+          "ci_lo": -0.021103071092653903,
+          "clusters": 165
+        },
+        "bucket": "longshot_10_15_buy_no_token",
+        "horizon_sec": "3600",
+        "markets": 165,
+        "pnl": -2.930263000000002,
+        "roi": -0.020295491065244507,
+        "stake": 144.38,
+        "tokens": 165,
+        "win_rate": 0.006060606060606061
+      },
+      {
+        "avg_entry_ask": 0.9075000000000001,
+        "avg_spread": 0.010000000000000009,
+        "bets": 4,
+        "bootstrap_ci": {
+          "ci_hi": -0.0050983606557377026,
+          "ci_lo": -0.01384203296703297,
+          "clusters": 4
+        },
+        "bucket": "favorite_85_95_buy_high_token",
+        "horizon_sec": "21600",
+        "markets": 4,
+        "pnl": -0.030361,
+        "roi": -0.008363911845730026,
+        "stake": 3.6300000000000003,
+        "tokens": 4,
+        "win_rate": 0.0
+      },
+      {
+        "avg_entry_ask": 0.8788095238095237,
+        "avg_spread": 0.012142857142857153,
+        "bets": 42,
+        "bootstrap_ci": {
+          "ci_hi": -0.005182875504554251,
+          "ci_lo": -0.015230485397230145,
+          "clusters": 42
         },
         "bucket": "high_prob_token_in_favorite_or_longshot_market",
         "horizon_sec": "21600",
-        "markets": 2,
-        "pnl": -0.005086999999999993,
-        "roi": -0.0029923529411764664,
-        "stake": 1.7,
-        "tokens": 2,
-        "win_rate": 0.5
+        "markets": 42,
+        "pnl": -0.3801470000000001,
+        "roi": -0.010299295583852619,
+        "stake": 36.91,
+        "tokens": 42,
+        "win_rate": 0.23809523809523808
+      },
+      {
+        "avg_entry_ask": 0.86,
+        "avg_spread": 0.020000000000000018,
+        "bets": 1,
+        "bootstrap_ci": {
+          "ci_hi": null,
+          "ci_lo": null,
+          "clusters": 1
+        },
+        "bucket": "longshot_10_15_buy_complement_token",
+        "horizon_sec": "21600",
+        "markets": 1,
+        "pnl": -0.017437000000000008,
+        "roi": -0.020275581395348848,
+        "stake": 0.86,
+        "tokens": 1,
+        "win_rate": 0.0
+      },
+      {
+        "avg_entry_ask": 0.874848484848485,
+        "avg_spread": 0.011757575757575769,
+        "bets": 165,
+        "bootstrap_ci": {
+          "ci_hi": -0.018731206351474728,
+          "ci_lo": -0.021244357652846983,
+          "clusters": 165
+        },
+        "bucket": "longshot_10_15_buy_no_token",
+        "horizon_sec": "21600",
+        "markets": 165,
+        "pnl": -2.890875000000001,
+        "roi": -0.020026844475233813,
+        "stake": 144.35000000000002,
+        "tokens": 165,
+        "win_rate": 0.012121212121212121
       },
       {
         "avg_entry_ask": 0.8619999999999999,
@@ -1157,11 +1372,149 @@
       "report": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/favorite_longshot_executable_backtest_latest.md"
     },
     "settlement_bootstrap_ci": {
-      "ci_hi": 0.16971878669275936,
-      "ci_lo": 0.14768365642994244,
-      "clusters": 6
+      "ci_hi": 0.056215971005656264,
+      "ci_lo": -0.03373709390492994,
+      "clusters": 259
     },
     "settlement_by_bucket": [
+      {
+        "avg_entry_ask": 0.9075000000000001,
+        "avg_spread": 0.010000000000000009,
+        "bets": 4,
+        "bootstrap_ci": {
+          "ci_hi": 0.10510886426592794,
+          "ci_lo": 0.09620109890109886,
+          "clusters": 4
+        },
+        "bucket": "favorite_85_95_buy_high_token",
+        "markets": 4,
+        "pnl": 0.3599289999999999,
+        "roi": 0.09915399449035808,
+        "stake": 3.6300000000000003,
+        "tokens": 4,
+        "win_rate": 1.0
+      },
+      {
+        "avg_entry_ask": 0.876304347826087,
+        "avg_spread": 0.012282608695652182,
+        "bets": 92,
+        "bootstrap_ci": {
+          "ci_hi": 0.08951584498441996,
+          "ci_lo": -0.051114063940109776,
+          "clusters": 92
+        },
+        "bucket": "high_prob_token_in_favorite_or_longshot_market",
+        "markets": 92,
+        "pnl": 2.108503,
+        "roi": 0.026153597122302155,
+        "stake": 80.62,
+        "tokens": 92,
+        "win_rate": 0.9021739130434783
+      },
+      {
+        "avg_entry_ask": 0.8633333333333333,
+        "avg_spread": 0.013333333333333345,
+        "bets": 3,
+        "bootstrap_ci": {
+          "ci_hi": 0.1585906976744186,
+          "ci_lo": 0.14552528735632184,
+          "clusters": 3
+        },
+        "bucket": "longshot_10_15_buy_complement_token",
+        "markets": 3,
+        "pnl": 0.399383,
+        "roi": 0.1542019305019305,
+        "stake": 2.59,
+        "tokens": 3,
+        "win_rate": 1.0
+      },
+      {
+        "avg_entry_ask": 0.874625,
+        "avg_spread": 0.01175000000000001,
+        "bets": 160,
+        "bootstrap_ci": {
+          "ci_hi": 0.05706406257429334,
+          "ci_lo": -0.056326965804569314,
+          "clusters": 160
+        },
+        "bucket": "longshot_10_15_buy_no_token",
+        "markets": 160,
+        "pnl": 0.5967279999999998,
+        "roi": 0.004264170358725167,
+        "stake": 139.94,
+        "tokens": 160,
+        "win_rate": 0.88125
+      }
+    ],
+    "settlement_by_phase": [
+      {
+        "avg_entry_ask": 0.89,
+        "avg_spread": 0.015000000000000013,
+        "bets": 2,
+        "bootstrap_ci": {
+          "ci_hi": 0.12029550561797751,
+          "ci_lo": -1.0,
+          "clusters": 2
+        },
+        "entry_phase": "0_15m",
+        "markets": 2,
+        "pnl": -0.782937,
+        "roi": -0.43985224719101124,
+        "stake": 1.78,
+        "tokens": 2,
+        "win_rate": 0.5
+      },
+      {
+        "avg_entry_ask": 0.8751704545454545,
+        "avg_spread": 0.011704545454545466,
+        "bets": 176,
+        "bootstrap_ci": {
+          "ci_hi": 0.06701514715073716,
+          "ci_lo": -0.03591813418858612,
+          "clusters": 176
+        },
+        "entry_phase": "12_24h",
+        "markets": 176,
+        "pnl": 2.4557579999999994,
+        "roi": 0.015943374667272605,
+        "stake": 154.03,
+        "tokens": 176,
+        "win_rate": 0.8920454545454546
+      },
+      {
+        "avg_entry_ask": 0.8793939393939394,
+        "avg_spread": 0.010000000000000009,
+        "bets": 33,
+        "bootstrap_ci": {
+          "ci_hi": 0.1318497219717936,
+          "ci_lo": -0.10237518547666832,
+          "clusters": 33
+        },
+        "entry_phase": "15_60m",
+        "markets": 33,
+        "pnl": 0.8845609999999997,
+        "roi": 0.03048108201240523,
+        "stake": 29.02,
+        "tokens": 33,
+        "win_rate": 0.9090909090909091
+      },
+      {
+        "avg_entry_ask": 0.8740000000000001,
+        "avg_spread": 0.01100000000000001,
+        "bets": 30,
+        "bootstrap_ci": {
+          "ci_hi": 0.13998911928092037,
+          "ci_lo": -0.12555536240032755,
+          "clusters": 30
+        },
+        "entry_phase": "1_3h",
+        "markets": 30,
+        "pnl": 0.6906779999999998,
+        "roi": 0.026341647597253996,
+        "stake": 26.220000000000002,
+        "tokens": 30,
+        "win_rate": 0.9
+      },
       {
         "avg_entry_ask": 0.86,
         "avg_spread": 0.03500000000000001,
@@ -1171,26 +1524,164 @@
           "ci_lo": 0.14768365642994244,
           "clusters": 6
         },
-        "bucket": "high_prob_token_in_favorite_or_longshot_market",
+        "entry_phase": "24h_plus",
         "markets": 6,
         "pnl": 0.8183520000000001,
         "roi": 0.15859534883720933,
         "stake": 5.16,
         "tokens": 6,
         "win_rate": 1.0
+      },
+      {
+        "avg_entry_ask": 0.8733333333333334,
+        "avg_spread": 0.010000000000000009,
+        "bets": 3,
+        "bootstrap_ci": {
+          "ci_hi": 0.1585906976744186,
+          "ci_lo": 0.12029550561797751,
+          "clusters": 3
+        },
+        "entry_phase": "3_6h",
+        "markets": 3,
+        "pnl": 0.370058,
+        "roi": 0.14124351145038166,
+        "stake": 2.62,
+        "tokens": 3,
+        "win_rate": 1.0
+      },
+      {
+        "avg_entry_ask": 0.8799999999999999,
+        "avg_spread": 0.011666666666666678,
+        "bets": 6,
+        "bootstrap_ci": {
+          "ci_hi": 0.14124465648854964,
+          "ci_lo": -0.434645179584121,
+          "clusters": 6
+        },
+        "entry_phase": "6_12h",
+        "markets": 6,
+        "pnl": -0.29582200000000003,
+        "roi": -0.05602689393939395,
+        "stake": 5.279999999999999,
+        "tokens": 6,
+        "win_rate": 0.8333333333333334
+      },
+      {
+        "avg_entry_ask": 0.89,
+        "avg_spread": 0.010000000000000009,
+        "bets": 3,
+        "bootstrap_ci": {
+          "ci_hi": 0.13276363636363636,
+          "ci_lo": -1.0,
+          "clusters": 3
+        },
+        "entry_phase": "at_end",
+        "markets": 3,
+        "pnl": -0.6761050000000001,
+        "roi": -0.2532228464419476,
+        "stake": 2.67,
+        "tokens": 3,
+        "win_rate": 0.6666666666666666
+      }
+    ],
+    "settlement_by_sport": [
+      {
+        "avg_entry_ask": 0.8766666666666666,
+        "avg_spread": 0.01111111111111112,
+        "bets": 9,
+        "bootstrap_ci": {
+          "ci_hi": 0.1512991591784339,
+          "ci_lo": 0.1244214097744361,
+          "clusters": 9
+        },
+        "markets": 9,
+        "pnl": 1.080873,
+        "roi": 0.13699277566539925,
+        "sport_family": "americanfootball_nfl",
+        "stake": 7.89,
+        "tokens": 9,
+        "win_rate": 1.0
+      },
+      {
+        "avg_entry_ask": 0.877906976744186,
+        "avg_spread": 0.012325581395348848,
+        "bets": 86,
+        "bootstrap_ci": {
+          "ci_hi": 0.09552681666652724,
+          "ci_lo": -0.05180770706143328,
+          "clusters": 86
+        },
+        "markets": 86,
+        "pnl": 2.2477720000000003,
+        "roi": 0.02977181456953643,
+        "sport_family": "basketball_nba",
+        "stake": 75.5,
+        "tokens": 86,
+        "win_rate": 0.9069767441860465
+      },
+      {
+        "avg_entry_ask": 0.865,
+        "avg_spread": 0.010000000000000009,
+        "bets": 2,
+        "bootstrap_ci": {
+          "ci_hi": 0.1585906976744186,
+          "ci_lo": -1.0,
+          "clusters": 2
+        },
+        "markets": 2,
+        "pnl": -0.7336119999999999,
+        "roi": -0.4240531791907514,
+        "sport_family": "basketball_wnba",
+        "stake": 1.73,
+        "tokens": 2,
+        "win_rate": 0.5
+      },
+      {
+        "avg_entry_ask": 0.86,
+        "avg_spread": 0.015000000000000013,
+        "bets": 2,
+        "bootstrap_ci": {
+          "ci_hi": 0.17197058823529415,
+          "ci_lo": 0.14552528735632184,
+          "clusters": 2
+        },
+        "markets": 2,
+        "pnl": 0.272782,
+        "roi": 0.15859418604651165,
+        "sport_family": "icehockey_nhl",
+        "stake": 1.72,
+        "tokens": 2,
+        "win_rate": 1.0
+      },
+      {
+        "avg_entry_ask": 0.874625,
+        "avg_spread": 0.01175000000000001,
+        "bets": 160,
+        "bootstrap_ci": {
+          "ci_hi": 0.05706406257429334,
+          "ci_lo": -0.056326965804569314,
+          "clusters": 160
+        },
+        "markets": 160,
+        "pnl": 0.5967279999999998,
+        "roi": 0.004264170358725167,
+        "sport_family": "soccer",
+        "stake": 139.94,
+        "tokens": 160,
+        "win_rate": 0.88125
       }
     ],
     "settlement_total": {
-      "avg_entry_ask": 0.86,
-      "avg_spread": 0.03500000000000001,
-      "bets": 6,
+      "avg_entry_ask": 0.8755984555984556,
+      "avg_spread": 0.01193050193050194,
+      "bets": 259,
       "exit_type": "clear_settlement",
-      "markets": 6,
-      "pnl": 0.8183520000000001,
-      "roi": 0.15859534883720933,
-      "stake": 5.16,
-      "tokens": 6,
-      "win_rate": 1.0
+      "markets": 259,
+      "pnl": 3.464542999999999,
+      "roi": 0.015277109974424549,
+      "stake": 226.78,
+      "tokens": 259,
+      "win_rate": 0.8918918918918919
     },
     "strategy": "favorite_longshot_executable_high_probability_token",
     "strategy_version": "favorite_longshot_executable:v1",
@@ -1244,19 +1735,19 @@
   "game_state": {
     "garbage_time_proxy_rows": 0,
     "matched_scoreline_regime_counts": {
-      "blowout": 7,
-      "one_run": 4,
+      "blowout": 8,
+      "one_run": 5,
       "pre": 7,
-      "tied": 5
+      "tied": 3
     },
     "matches": 23,
     "scoreboard_rows": 36,
     "scoreline_regime_counts": {
       "blowout": 7,
       "close": 1,
-      "one_run": 3,
+      "one_run": 4,
       "pre": 22,
-      "tied": 3
+      "tied": 2
     }
   },
   "gate_reasons": [
@@ -1282,11 +1773,11 @@
     "live strategy LEV evidence incomplete",
     "favorite-longshot bucket has raw edge but not robust event-cluster CI yet"
   ],
-  "generated_at": "2026-05-30T23:26:45.379451+00:00",
+  "generated_at": "2026-05-30T23:56:08.577558+00:00",
   "historical_clob": {
-    "depth_rows": 36813908,
+    "depth_rows": 80798964,
     "quote_rows": 7183240,
-    "telonex_depth_rows": 36813908
+    "telonex_depth_rows": 80798964
   },
   "kalshi": {
     "verified_mappings": 0
@@ -1294,8 +1785,8 @@
   "live_capital_gate": false,
   "live_execution_quality": {
     "alpha_fills": 692,
-    "fills": 847,
-    "fills_with_model_version": 207,
+    "fills": 865,
+    "fills_with_model_version": 225,
     "gate_reasons": [
       "need >=500 alpha paper fills with 3s post-fill books within 5s lag",
       "3s alpha average LEV is not positive",
@@ -1303,7 +1794,7 @@
       "wallet-level whale detector unavailable from current trade feed",
       "favorite_longshot_bias has only 13 timely 3s LEV rows after 692 fills"
     ],
-    "generated_at": "2026-05-30T23:24:19.517650+00:00",
+    "generated_at": "2026-05-30T23:53:08.729353+00:00",
     "hold_revert": {
       "hold_rate_3s_to_120s": null,
       "revert_rate_3s_to_120s": null,
@@ -1317,13 +1808,13 @@
     "lev_3s_favorable_rate": 0.0,
     "lev_3s_max_snapshot_lag_sec": 1.121764,
     "lev_3s_p95_snapshot_lag_sec": 1.121764,
-    "lev_3s_probe_rows": 153,
+    "lev_3s_probe_rows": 171,
     "lev_3s_rows": 13,
     "lev_drift_alert_count": 0,
     "lev_drift_latest_50_mean": -0.015682615384615375,
     "lev_drift_max_score": 0.007296857142857149,
     "lev_max_lag_sec": 5.0,
-    "probe_fills": 155,
+    "probe_fills": 173,
     "quality_gate": false,
     "quarantined_strategies": [],
     "report": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/live_execution_quality_latest.md",
@@ -1346,18 +1837,18 @@
   "paper": {
     "authenticated_fill_rows": 0,
     "authenticated_lifecycle_rows": 0,
-    "fill_rows": 847,
+    "fill_rows": 865,
     "lifecycle_counts": {
-      "created": 2790,
-      "filled": 847,
-      "rejected": 1039,
-      "resting": 1751
+      "created": 2908,
+      "filled": 865,
+      "rejected": 1087,
+      "resting": 1821
     },
-    "lifecycle_rows": 6427,
+    "lifecycle_rows": 6681,
     "lifecycle_source_counts": {
-      "paper": 6427
+      "paper": 6681
     },
-    "order_rows": 2790
+    "order_rows": 2908
   },
   "security": {
     "critical": 0,
@@ -3178,40 +3669,39 @@
   "telonex": {
     "assets_with_book25": 699384,
     "assets_with_quotes": 699384,
-    "depth_files": 1856,
-    "depth_rows": 36813908,
-    "download_bytes": 944135438,
-    "download_files": 4761,
-    "download_rows": 44247145,
+    "depth_files": 2490,
+    "depth_rows": 80798964,
+    "download_bytes": 1945350216,
+    "download_files": 5395,
+    "download_rows": 88232201,
     "files_by_channel": {
-      "book_snapshot_5": 1856,
+      "book_snapshot_5": 2490,
       "quotes": 1858,
       "trades": 1047
     },
     "files_by_sport": {
-      "baseball_mlb": 2313,
-      "basketball_nba": 324,
-      "basketball_wnba": 78,
-      "icehockey_nhl": 30,
-      "soccer": 2016
+      "americanfootball_nfl": 22,
+      "baseball_mlb": 2319,
+      "basketball_nba": 566,
+      "basketball_wnba": 84,
+      "icehockey_nhl": 48,
+      "soccer": 2356
     },
-    "last_downloaded_at": "2026-05-30T23:16:26.636212+00:00",
+    "last_downloaded_at": "2026-05-30T23:48:51.787361+00:00",
     "last_run_channels": [
-      "quotes",
-      "book_snapshot_5",
-      "trades"
+      "book_snapshot_5"
     ],
-    "last_run_completed_downloads": 300,
+    "last_run_completed_downloads": 350,
     "last_run_date_from": "asset-plan",
     "last_run_date_to": "asset-plan",
-    "last_run_failed_downloads": 4,
-    "last_run_rows_downloaded": 2583690,
+    "last_run_failed_downloads": 0,
+    "last_run_rows_downloaded": 18030618,
     "markets_generated_at": "2026-05-30T05:58:54.289873+00:00",
     "quote_rows": 7183240,
     "quotes_from_min": "2025-10-11",
     "quotes_to_max": "2026-05-29",
     "rows_by_channel": {
-      "book_snapshot_5": 36813908,
+      "book_snapshot_5": 80798964,
       "quotes": 7183240,
       "trades": 249997
     },
@@ -3748,7 +4238,7 @@
     "validation_mode": "strict_temporal_row_order"
   },
   "training": {
-    "execution_rows": 270,
+    "execution_rows": 276,
     "queue_fill_model": {
       "authenticated_fills": 0,
       "authenticated_live_fill_gate": false,
@@ -3756,15 +4246,15 @@
       "gate_reasons": [
         "authenticated fill rows below 500"
       ],
-      "generated_at": "2026-05-30T23:26:08.857882+00:00",
+      "generated_at": "2026-05-30T23:55:25.508525+00:00",
       "proxy_model_gate": true,
       "report": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/queue_fill_model_latest.md",
-      "test_auc": 0.9800077639751553,
-      "test_baseline_brier": 0.24030922526600973,
-      "test_brier": 0.022436290112927686,
-      "test_rows": 401
+      "test_auc": 0.978377977661362,
+      "test_baseline_brier": 0.23107637801106168,
+      "test_brier": 0.016852704794177244,
+      "test_rows": 419
     },
-    "queue_rows": 2003,
+    "queue_rows": 2095,
     "telonex_execution_markets": 216,
     "telonex_execution_positive_rate": 0.0038309414471099173,
     "telonex_execution_rows": 2888585,

@@ -1,6 +1,6 @@
 # Telonex Model Monitor
 
-- Generated: 2026-05-30T23:26:10.022261+00:00
+- Generated: 2026-05-30T23:55:26.841236+00:00
 - Latest run: `20260530T215450Z` / `base_odds`
 - Latest selection score: `convergence_prob_lower`
 - Monitor verdict: HOLD: latest research gate failed; latest external validation gate failed; latest test ROI is not positive; latest test CI lower bound is not positive

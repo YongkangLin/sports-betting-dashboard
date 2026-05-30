@@ -1,7 +1,7 @@
 # Execution Training Set
 
-- Generated: 2026-05-30T23:25:29.083439+00:00
-- Rows: 270
+- Generated: 2026-05-30T23:54:42.924908+00:00
+- Rows: 276
 - Output: /Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/execution_training/execution_training_latest.parquet
 - Retention deleted/kept snapshots: 1 / 24
 
@@ -14,7 +14,7 @@ This table trains convergence/LEV models. It must grow to hundreds or thousands 
 ```text
               strategy  horizon_sec  rows positive_rate  mean_pnl_usd
  data_collection_probe           30     3           0.0     -0.248140
- data_collection_probe          300    27          0.16      0.095291
+ data_collection_probe          300    33      0.129032      0.026791
 favorite_longshot_bias           30     7      0.142857     -1.886190
 favorite_longshot_bias           60   106      0.056604     -3.971289
 favorite_longshot_bias          120    74      0.347222     -5.775728
