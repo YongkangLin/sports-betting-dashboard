@@ -1,9 +1,5 @@
 # Sports Betting Dashboard
 
-Public, mobile-friendly dashboard mirror for the private Sports-Betting ML trading research repo.
+Public GitHub Pages mirror for the private Sports-Betting research dashboard.
 
-Dashboard URL:
-
-- https://yongkanglin.github.io/sports-betting-dashboard/
-
-This repository contains only static dashboard/report artifacts. It intentionally excludes raw data, local secrets, parquet files, model binaries, and logs.
+This repo intentionally contains only static HTML, compact JSON, and Markdown reports. Raw data, parquet files, model binaries, logs, and local secrets are excluded.

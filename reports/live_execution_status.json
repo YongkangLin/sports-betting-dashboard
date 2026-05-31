@@ -34,8 +34,8 @@
   },
   "capital_enabled": false,
   "clob": {
-    "book_rows": 304356,
-    "latest_book_ts": "2026-05-31 00:03:55.063249+00:00",
+    "book_rows": 304442,
+    "latest_book_ts": "2026-05-31 00:09:18.290225+00:00",
     "latest_books": 486,
     "trade_rows": 1314,
     "ws_event_counts": {
@@ -43,18 +43,18 @@
       "book": 3439,
       "last_trade_price": 1314,
       "market_resolved": 1,
-      "new_market": 1329,
+      "new_market": 1344,
       "price_change": 137092,
       "tick_size_change": 4
     },
-    "ws_event_rows": 150958
+    "ws_event_rows": 150973
   },
   "collector": {
     "alerts": [
-      "telonex_live_score failed (46 consecutive)"
+      "telonex_live_score failed (47 consecutive)"
     ],
-    "last_loop_finished_at": "2026-05-31T00:06:33.494242+00:00",
-    "loop_count": 534,
+    "last_loop_finished_at": "2026-05-31T00:12:22.572536+00:00",
+    "loop_count": 535,
     "status": "degraded"
   },
   "event_market_inventory": {
@@ -3616,7 +3616,7 @@
     "live strategy LEV evidence incomplete",
     "favorite-longshot bucket has raw edge but not robust event-cluster CI yet"
   ],
-  "generated_at": "2026-05-31T00:06:48.755378+00:00",
+  "generated_at": "2026-05-31T00:12:26.967238+00:00",
   "historical_clob": {
     "depth_rows": 80798964,
     "quote_rows": 7183240,
@@ -3628,8 +3628,8 @@
   "live_capital_gate": false,
   "live_execution_quality": {
     "alpha_fills": 692,
-    "fills": 871,
-    "fills_with_model_version": 231,
+    "fills": 874,
+    "fills_with_model_version": 234,
     "gate_reasons": [
       "need >=500 alpha paper fills with 3s post-fill books within 5s lag",
       "3s alpha average LEV is not positive",
@@ -3637,7 +3637,7 @@
       "wallet-level whale detector unavailable from current trade feed",
       "favorite_longshot_bias has only 13 timely 3s LEV rows after 692 fills"
     ],
-    "generated_at": "2026-05-31T00:04:10.261450+00:00",
+    "generated_at": "2026-05-31T00:09:40.546746+00:00",
     "hold_revert": {
       "hold_rate_3s_to_120s": null,
       "revert_rate_3s_to_120s": null,
@@ -3651,13 +3651,13 @@
     "lev_3s_favorable_rate": 0.0,
     "lev_3s_max_snapshot_lag_sec": 1.121764,
     "lev_3s_p95_snapshot_lag_sec": 1.121764,
-    "lev_3s_probe_rows": 177,
+    "lev_3s_probe_rows": 180,
     "lev_3s_rows": 13,
     "lev_drift_alert_count": 0,
     "lev_drift_latest_50_mean": -0.015682615384615375,
     "lev_drift_max_score": 0.007296857142857149,
     "lev_max_lag_sec": 5.0,
-    "probe_fills": 179,
+    "probe_fills": 182,
     "quality_gate": false,
     "quarantined_strategies": [],
     "report": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/live_execution_quality_latest.md",
@@ -3680,18 +3680,18 @@
   "paper": {
     "authenticated_fill_rows": 0,
     "authenticated_lifecycle_rows": 0,
-    "fill_rows": 871,
+    "fill_rows": 874,
     "lifecycle_counts": {
-      "created": 2954,
-      "filled": 871,
-      "rejected": 1103,
-      "resting": 1851
+      "created": 2977,
+      "filled": 874,
+      "rejected": 1111,
+      "resting": 1866
     },
-    "lifecycle_rows": 6779,
+    "lifecycle_rows": 6828,
     "lifecycle_source_counts": {
-      "paper": 6779
+      "paper": 6828
     },
-    "order_rows": 2954
+    "order_rows": 2977
   },
   "security": {
     "critical": 0,
@@ -6089,15 +6089,15 @@
       "gate_reasons": [
         "authenticated fill rows below 500"
       ],
-      "generated_at": "2026-05-31T00:05:54.140076+00:00",
+      "generated_at": "2026-05-31T00:11:47.118134+00:00",
       "proxy_model_gate": true,
       "report": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/queue_fill_model_latest.md",
-      "test_auc": 0.9755381604696673,
-      "test_baseline_brier": 0.22723746790844224,
-      "test_brier": 0.018774609620253714,
-      "test_rows": 426
+      "test_auc": 0.9786776212832552,
+      "test_baseline_brier": 0.22561158458841013,
+      "test_brier": 0.017018668245573337,
+      "test_rows": 428
     },
-    "queue_rows": 2127,
+    "queue_rows": 2139,
     "telonex_execution_markets": 216,
     "telonex_execution_positive_rate": 0.0038309414471099173,
     "telonex_execution_rows": 2888585,
