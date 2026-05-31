@@ -619,21 +619,11 @@
       <div class="section-head">
         <div>
           <h2>Top Summary</h2>
-          <p>What matters for a trader: strategy, performance, PnL, confidence, and whether live capital is allowed.</p>
+          <p>The only numbers that decide whether this is tradable right now.</p>
         </div>
         <span class="pill bad" id="capital-pill">Capital off</span>
       </div>
-      <div class="summary-stack">
-        <div class="grid plain-cards" id="plain-grid"></div>
-        <div class="grid summary-two">
-          <div class="callout" id="verdict-copy"></div>
-          <div>
-            <h3>Why live money is off</h3>
-            <ul class="copy-list" id="gate-reasons"></ul>
-          </div>
-        </div>
-        <div class="grid metrics" id="metric-grid"></div>
-      </div>
+      <div class="grid metrics" id="metric-grid"></div>
     </section>
 
     <section class="band">
@@ -1345,22 +1335,12 @@ function deriveDashboard() {
 }
 
 function renderVerdict(data) {
-  const current = data.latestModel;
   $("overall-pill").textContent = data.overall.liveCapitalGate ? "REVIEW" : "HOLD";
   $("overall-pill").className = "pill " + (data.overall.liveCapitalGate ? "warn" : "bad");
   $("capital-pill").textContent = data.overall.capitalEnabled ? "Capital enabled" : "Capital off";
   $("capital-pill").className = "pill " + (data.overall.capitalEnabled ? "warn" : "bad");
   $("rendered-at").textContent = `status ${new Date(data.generatedAt).toLocaleString()}`;
   $("source-mode").textContent = data.loadedFrom;
-  $("verdict-copy").innerHTML = `
-    <strong>No executable profitable strategy is proven.</strong>
-    The current model run <span class="mono">${esc(current.runId)}</span> is the stricter version that asks
-    whether orders would actually fill and profit. It selected
-    <strong>${fmtInt(current.testTrades)} test trades</strong>. That means the model is effectively saying
-    "I do not see a safe trade under the current rules." Live money stays off because the model abstains,
-    outside validation fails, real authenticated fills are missing, and the data-readiness gate is not clear.
-  `;
-  $("gate-reasons").innerHTML = data.gateReasons.slice(0, 10).map(reason => `<li class="bad">${esc(reason)}</li>`).join("");
 }
 
 function renderPlainCards(data) {
@@ -1419,23 +1399,16 @@ function renderPlainCards(data) {
 }
 
 function renderMetrics(data) {
-  const m = data.latestModel;
   const e = data.execution;
-  const r = data.readiness;
   const f = data.favoriteLongshotExecutable;
   const fv = data.favoriteLongshotRuleValidation;
-  const mb = data.microstructureBuckets;
   const metrics = [
-    ["Strategy being tested", "Favorite-longshot", "Buy high-probability side / fade longshot demand", "This is the only bucket with positive raw executable settlement ROI right now."],
-    ["Backtest result", fmtPct(f.roi), `${fmtInt(f.settledEntries)} settled / win rate ${fmtPct(f.winRate)}`, "Positive average ROI, but not enough confidence to risk capital."],
-    ["Confidence floor", fmtPct(f.ciLo), "Needs to be above 0%", "This is the important conservative number. Below zero means the edge can still be noise."],
-    ["Rule validation", fv.gate ? "PASS" : "HOLD", `${fmtInt(fv.marketTestBets)} market-disjoint bets / ROI ${fmtPct(fv.marketTestRoi)}`, "Out-of-sample validation is still the main blocker."],
-    ["Live picks", fmtInt(e.liveSignalsSelected), `${fmtInt(e.liveSignalRows)} current rows scored`, "A profitable bot should find live opportunities without forcing trades."],
-    ["Real fills", fmtInt(e.authFills), `${fmtInt(e.paperFills)} paper fills`, "Real authenticated fills are required before production sizing."],
-    ["CLOB history", fmtInt(e.telonexDepthRows), `${fmtInt(e.telonexQuoteRows)} quotes / ${fmtInt(e.telonexTradeRows)} trades`, "This is enough to build replays and improve validation quality."],
-    ["Replay events", fmtInt(f.settledEntries), `${fmtInt(f.bookAssets)}/${fmtInt(f.targetAssets)} target assets with books`, "Each replay below shows the actual event price path and decision points."],
-    ["Strict arbs", fmtInt(mb.strictNetArbRows), `${fmtInt(mb.nearArbRows)} near rows`, "Near-arbs are not enough; strict fee-adjusted arbs are what matter."],
-    ["Active universe", fmtInt(r.activeMarkets), `${fmtInt(r.activeEvents)} events`, "More independent markets make validation harder to fool."]
+    ["Live capital", data.overall.capitalEnabled ? "ON" : "OFF", data.overall.capitalEnabled ? "review required" : "research only", "No real-money trading until validation and real fill proof clear."],
+    ["Strategy", "Favorite-longshot", "buy high-probability side", "Current best bucket: fade longshot demand on Polymarket sports markets."],
+    ["Backtest ROI", fmtPct(f.roi), `${fmtInt(f.settledEntries)} settled entries`, "Positive average return, but this is not enough by itself."],
+    ["Confidence floor", fmtPct(f.ciLo), "must be above 0%", "Below zero means the apparent edge can still be noise."],
+    ["Validation", fv.gate ? "PASS" : "HOLD", `${fmtPct(fv.marketTestRoi)} market-disjoint ROI`, "This must pass before treating the strategy as real."],
+    ["Execution proof", `${fmtInt(e.authFills)} real fills`, `${fmtInt(e.liveSignalsSelected)} live picks now`, "Paper fills do not prove we can execute profitably."]
   ];
   $("metric-grid").innerHTML = metrics.map(([label, value, note, help]) => `
     <div class="metric">
@@ -1758,7 +1731,6 @@ function renderArtifacts(data) {
 function renderAll() {
   const data = deriveDashboard();
   renderVerdict(data);
-  renderPlainCards(data);
   renderMetrics(data);
   renderReplay(data);
   $("footer").textContent = `Rendered ${new Date().toLocaleString()} from ${data.loadedFrom}.`;
