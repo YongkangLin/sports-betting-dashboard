@@ -23814,12 +23814,18 @@
   "events_needing_action": 1,
   "events_with_sportsbook_match": 276,
   "events_with_sportsbook_points": 276,
-  "generated_at": "2026-05-31T09:21:28.675654+00:00",
+  "generated_at": "2026-05-31T09:26:24.185791+00:00",
   "matched_events_with_complete_15m_cache": 276,
   "matched_events_with_complete_5m_cache": 0,
   "outputs": {
     "json": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/reports/replay_sportsbook_gap_audit_latest.json",
     "report": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/reports/replay_sportsbook_gap_audit_latest.md"
   },
-  "total_events": 277
+  "total_events": 277,
+  "unique_cache_15m_cached_snapshots": 17026,
+  "unique_cache_15m_expected_snapshots": 17026,
+  "unique_cache_15m_missing_snapshots": 0,
+  "unique_cache_5m_cached_snapshots": 16908,
+  "unique_cache_5m_expected_snapshots": 46443,
+  "unique_cache_5m_missing_snapshots": 29535
 }

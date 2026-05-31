@@ -1,6 +1,6 @@
 # Replay Sportsbook Gap Audit
 
-- Generated: 2026-05-31T09:21:28.675654+00:00
+- Generated: 2026-05-31T09:26:24.185791+00:00
 - Replay events audited: 277
 - Events with sportsbook overlay points: 276
 - Events with matched Odds API event but no usable sportsbook line: 0
@@ -21,9 +21,10 @@
 |---|---:|
 | CLOB one-minute replay events with no missing minutes | 277 / 277 |
 | Odds matched events with complete 15m raw cache | 276 / 276 |
-| Odds matched events with missing 15m raw cache | 0 |
+| Unique 15m raw cache snapshots cached / expected / missing | 17,026 / 17,026 / 0 |
 | Odds matched events with complete 5m raw cache | 0 / 276 |
 | Odds matched events with any missing 5m cache | 276 |
+| Unique 5m raw cache snapshots cached / expected / missing | 16,908 / 46,443 / 29,535 |
 
 ## Classification Counts
 
