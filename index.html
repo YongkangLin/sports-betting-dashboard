@@ -692,6 +692,12 @@
     pointer-events: all;
   }
 
+  .chart-series {
+    stroke-dasharray: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
   footer {
     display: none;
   }
@@ -1572,10 +1578,13 @@ function renderPlainCards(data) {
 function renderMetrics(data) {
   const e = data.execution;
   const f = data.favoriteLongshotExecutable;
+  const replaySummary = data.favoriteLongshotEventReplays?.summary || {};
+  const replayEvents = replaySummary.events_with_series ?? (data.favoriteLongshotEventReplays?.events || []).length;
+  const replayPoints = replaySummary.total_series_points ?? 0;
   const metrics = [
     ["Strategy", "Favorite-longshot", "buy high-probability side", "Current best bucket: fade longshot demand on Polymarket sports markets."],
-    ["Backtest ROI", fmtPct(f.roi), `${fmtInt(f.settledEntries)} settled events`, "Average return from settled replayable events."],
-    ["Win rate", fmtPct(f.winRate), `${fmtInt(f.settledMarkets)} markets`, "How often the selected side resolved correctly."],
+    ["Backtest ROI", fmtPct(f.roi), `${fmtInt(f.settledEntries)} settled events`, "Positive average, but the conservative confidence bound is still below zero."],
+    ["Replay sample", `${fmtInt(replayEvents)} events`, `${fmtInt(replayPoints)} one-minute points`, "Too small for final proof; target is thousands of events per major market/sport."],
     ["Live picks", fmtInt(e.liveSignalsSelected), `${fmtInt(e.liveSignalCandidates)} candidates scanned`, "Current signals clearing the live threshold."]
   ];
   $("metric-grid").innerHTML = metrics.map(([label, value, note, help]) => `
@@ -1622,17 +1631,48 @@ function shortLabel(value, max = 24) {
 }
 
 function strategyLabel(value) {
-  const key = String(value || "favorite-longshot").toLowerCase();
+  const raw = String(value || "favorite-longshot");
+  const key = raw.toLowerCase();
   const labels = {
     "favorite-longshot": "Favorite-longshot fade",
     "favorite_longshot": "Favorite-longshot fade",
+    "favorite-longshot fade": "Favorite-longshot fade",
+    "favorite longshot fade": "Favorite-longshot fade",
     "high_prob_token_in_favorite_or_longshot_market": "Favorite-longshot fade"
   };
   if (labels[key]) return labels[key];
-  return key
+  return raw
     .replaceAll("_", " ")
     .replaceAll("-", " ")
     .replace(/\b\w/g, letter => letter.toUpperCase());
+}
+
+function marketLabel(event) {
+  const raw = String(
+    event?.market_label
+    || event?.sport_market
+    || event?.market_type
+    || event?.sport_family
+    || "unknown market"
+  ).trim();
+  const key = raw.toLowerCase();
+  const labels = {
+    baseball_mlb: "MLB",
+    basketball_nba: "NBA",
+    basketball_wnba: "WNBA",
+    icehockey_nhl: "NHL",
+    soccer: "Soccer"
+  };
+  if (labels[key]) return labels[key];
+  return raw
+    .replaceAll("_", " ")
+    .replaceAll("-", " ")
+    .replace(/\b\w/g, letter => letter.toUpperCase());
+}
+
+function replayExperimentLabel(event) {
+  const eventName = event?.title || event?.question || event?.slug || event?.replay_id || "Event";
+  return `${eventName} x ${strategyLabel(event?.strategy_label || event?.strategy || event?.bucket)} x ${marketLabel(event)}`;
 }
 
 function replaySide(event) {
@@ -1656,7 +1696,7 @@ function replaySide(event) {
 function replayOptionLabel(event) {
   const stats = event.stats || {};
   const pos = replayPosition(stats);
-  return `${event.title || event.slug || event.replay_id} | ${replaySide(event).order} | ${fmtSignedUsd(pos.pnlUsd)} / ROI ${fmtPct(stats.roi)}`;
+  return `${replayExperimentLabel(event)} | ${replaySide(event).order} | ${fmtSignedUsd(pos.pnlUsd)} / ROI ${fmtPct(stats.roi)}`;
 }
 
 function replayPricePoints(event) {
@@ -1982,7 +2022,7 @@ function drawReplayChart(event) {
   const visibleMarkers = markers.filter(marker => num(marker.offset_sec) >= bounds.minX && num(marker.offset_sec) <= bounds.maxX);
   const spanX = Math.max(1, bounds.maxX - bounds.minX);
   if ($("chart-title")) {
-    $("chart-title").textContent = `${shortLabel(event.outcome, 18)} / ${shortLabel(event.other_outcome, 18)}`;
+    $("chart-title").textContent = replayExperimentLabel(event);
   }
   const priceValues = [
     ...visiblePoints.flatMap(point => [point.selected, point.other]),
@@ -2067,8 +2107,8 @@ function drawReplayChart(event) {
     ${grid}
     <line x1="${pad.left}" y1="${pad.top}" x2="${pad.left}" y2="${height - pad.bottom}" stroke="#d8dee8" />
     <line x1="${pad.left}" y1="${height - pad.bottom}" x2="${width - pad.right}" y2="${height - pad.bottom}" stroke="#d8dee8" />
-    <polyline points="${replayPath(visiblePoints, "other", sx, sy)}" fill="none" stroke="#f59e0b" stroke-width="3" opacity="0.82" />
-    <polyline points="${replayPath(visiblePoints, "selected", sx, sy)}" fill="none" stroke="#1f77b4" stroke-width="2.8" />
+    <polyline class="chart-series" points="${replayPath(visiblePoints, "other", sx, sy)}" fill="none" stroke="#f59e0b" stroke-width="3" stroke-dasharray="none" opacity="0.95" />
+    <polyline class="chart-series" points="${replayPath(visiblePoints, "selected", sx, sy)}" fill="none" stroke="#1f77b4" stroke-width="3" stroke-dasharray="none" opacity="0.98" />
     ${lineLabels}
     <rect data-chart-pan="xy" x="${pad.left}" y="${pad.top}" width="${plotW}" height="${plotH}" fill="transparent" pointer-events="all" cursor="move" />
     ${markerSvg}
@@ -2380,10 +2420,12 @@ function renderReplay(data) {
     const side = replaySide(event);
     $("replay-title").textContent = event.title || event.slug || "Backtest event";
     $("replay-event-strip").innerHTML = [
+      ["Strategy", strategyLabel(event.strategy_label || event.strategy || event.bucket)],
+      ["Market", marketLabel(event)],
       ["Order", side.order],
-      ["Start", fmtUsd(pos.bankroll, 0)],
       ["Position", replayTradeAmount(stats)],
-      ["Event PnL", `${fmtSignedUsd(pos.pnlUsd)} (${fmtPct(stats.roi)})`]
+      ["Event PnL", `${fmtSignedUsd(pos.pnlUsd)} (${fmtPct(stats.roi)})`],
+      ["Start", fmtUsd(pos.bankroll, 0)]
     ].map(([k, v]) => `<div class="event-stat"><span>${esc(k)}</span><strong>${esc(v)}</strong></div>`).join("");
     $("decision-title").textContent = "Loading event";
     $("decision-action").textContent = "--";
@@ -2404,11 +2446,13 @@ function renderReplay(data) {
   const selectedMarker = markers[markerIndex];
   $("replay-title").textContent = fullEvent.title || fullEvent.slug || "Backtest event";
   $("replay-event-strip").innerHTML = [
+    ["Strategy", strategyLabel(fullEvent.strategy_label || fullEvent.strategy || fullEvent.bucket)],
+    ["Market", marketLabel(fullEvent)],
     ["Order", side.order],
     ["Result", stats.won ? "Won" : "Lost"],
-    ["Start", fmtUsd(finalPos.bankroll, 0)],
     ["Position", replayTradeAmount(stats)],
     ["Event PnL", `${fmtSignedUsd(finalPos.pnlUsd)} (${fmtPct(stats.roi)})`],
+    ["Start", fmtUsd(finalPos.bankroll, 0)],
     ["End", fmtUsd(finalPos.endBalance)]
   ].map(([k, v]) => `<div class="event-stat"><span>${esc(k)}</span><strong>${esc(v)}</strong></div>`).join("");
   if (fullEvent.load_error) {
