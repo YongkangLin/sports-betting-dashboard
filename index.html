@@ -654,9 +654,25 @@
 
   .decision-rationale {
     margin-top: 12px;
-    padding-top: 12px;
-    border-top: 1px solid var(--soft-line);
+    margin-bottom: 12px;
+    padding: 12px;
+    border: 1px solid #b9d3ff;
+    border-radius: 8px;
+    background: var(--info-bg);
     color: var(--muted);
+  }
+
+  .decision-rationale strong {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--ink);
+    font-size: 12px;
+    font-weight: 850;
+    text-transform: uppercase;
+  }
+
+  .decision-rationale span {
+    display: block;
   }
 
   .replay-detail .kv {
@@ -762,7 +778,7 @@
     <section class="band">
       <div class="section-head">
         <div>
-          <h2>Backtest Event Replay</h2>
+          <h2>Event Replay</h2>
           <p>Pick an event, then click a buy or sell point to see the trade details and rationale.</p>
         </div>
         <span class="pill warn" id="replay-count-pill">loading</span>
@@ -795,8 +811,8 @@
               </div>
               <span class="pill info" id="decision-action">--</span>
             </div>
-            <dl class="kv" id="replay-kv"></dl>
             <div class="decision-rationale" id="replay-rationale"></div>
+            <dl class="kv" id="replay-kv"></dl>
           </div>
         </div>
       </div>
@@ -1720,6 +1736,8 @@ function replayDecisionRationale(event, marker) {
   const action = marker?.action || "MARK";
   const pos = replayPosition(stats, marker);
   const side = replaySide(event);
+  const sourceReason = String(marker?.reason || event?.rationale || "").trim();
+  if (sourceReason) return sourceReason;
   if (action === "BUY") {
     return `${side.order} at ${fmtPrice(marker.price)} with ${fmtUsd(pos.stakeUsd)} from a ${fmtUsd(pos.bankroll, 0)} starting balance.`;
   }
@@ -2049,7 +2067,7 @@ function drawReplayChart(event) {
     ${grid}
     <line x1="${pad.left}" y1="${pad.top}" x2="${pad.left}" y2="${height - pad.bottom}" stroke="#d8dee8" />
     <line x1="${pad.left}" y1="${height - pad.bottom}" x2="${width - pad.right}" y2="${height - pad.bottom}" stroke="#d8dee8" />
-    <polyline points="${replayPath(visiblePoints, "other", sx, sy)}" fill="none" stroke="#f59e0b" stroke-width="5" opacity="0.5" stroke-dasharray="7 5" />
+    <polyline points="${replayPath(visiblePoints, "other", sx, sy)}" fill="none" stroke="#f59e0b" stroke-width="3" opacity="0.82" />
     <polyline points="${replayPath(visiblePoints, "selected", sx, sy)}" fill="none" stroke="#1f77b4" stroke-width="2.8" />
     ${lineLabels}
     <rect data-chart-pan="xy" x="${pad.left}" y="${pad.top}" width="${plotW}" height="${plotH}" fill="transparent" pointer-events="all" cursor="move" />
@@ -2280,7 +2298,7 @@ function renderDecisionPanel(event, marker) {
   $("decision-action").className = `pill ${actionTone}`;
   if (!marker) {
     $("replay-kv").innerHTML = "";
-    $("replay-rationale").textContent = "No buy or mark point is available for this event.";
+    $("replay-rationale").innerHTML = `<strong>Rationale</strong><span>No buy or mark point is available for this event.</span>`;
     return;
   }
   const priceName = action === "BUY" ? "Buy price" : action === "SETTLEMENT" ? "Final price" : "Sell price";
@@ -2298,7 +2316,7 @@ function renderDecisionPanel(event, marker) {
     ["End balance", fmtUsd(pos.endBalance)]
   ];
   $("replay-kv").innerHTML = rows.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("");
-  $("replay-rationale").textContent = replayDecisionRationale(event, marker);
+  $("replay-rationale").innerHTML = `<strong>Rationale</strong><span>${esc(replayDecisionRationale(event, marker))}</span>`;
 }
 
 function renderReplay(data) {
@@ -2319,7 +2337,7 @@ function renderReplay(data) {
     $("decision-action").textContent = "--";
     $("decision-action").className = "pill info";
     $("replay-kv").innerHTML = "";
-    $("replay-rationale").textContent = "Paper trade replays will appear here after paper executions are logged with price series, entry, exit, size, and PnL.";
+    $("replay-rationale").innerHTML = `<strong>Rationale</strong><span>Paper trade replays will appear here after paper executions are logged with price series, entry, exit, size, and PnL.</span>`;
     drawReplayChart({ series_points: [] });
     if ($("chart-title")) $("chart-title").textContent = "Paper trade replay";
     return;
@@ -2336,7 +2354,7 @@ function renderReplay(data) {
     $("decision-action").textContent = "--";
     $("decision-action").className = "pill info";
     $("replay-kv").innerHTML = "";
-    $("replay-rationale").textContent = "The public dashboard loads this from favorite_longshot_event_replays_latest.json. If you are opening the file directly, use the GitHub Pages page so browser fetches work.";
+    $("replay-rationale").innerHTML = `<strong>Rationale</strong><span>The public dashboard loads this from favorite_longshot_event_replays_latest.json. If you are opening the file directly, use the GitHub Pages page so browser fetches work.</span>`;
     drawReplayChart({ series_points: [] });
     return;
   }
@@ -2360,7 +2378,7 @@ function renderReplay(data) {
     const stats = event.stats || {};
     const pos = replayPosition(stats);
     const side = replaySide(event);
-    $("replay-title").textContent = `${event.title || event.slug || "Backtest event"} x ${strategyLabel(event.bucket || replay.strategy)}`;
+    $("replay-title").textContent = event.title || event.slug || "Backtest event";
     $("replay-event-strip").innerHTML = [
       ["Order", side.order],
       ["Start", fmtUsd(pos.bankroll, 0)],
@@ -2371,7 +2389,7 @@ function renderReplay(data) {
     $("decision-action").textContent = "--";
     $("decision-action").className = "pill info";
     $("replay-kv").innerHTML = "";
-    $("replay-rationale").textContent = "Loading minute-level prices.";
+    $("replay-rationale").innerHTML = `<strong>Rationale</strong><span>Loading minute-level prices.</span>`;
     drawReplayChart({ series_points: [] });
     loadReplayDetail(event);
     return;
@@ -2384,7 +2402,7 @@ function renderReplay(data) {
   const markers = fullEvent.markers || [];
   const markerIndex = selectedReplayMarkerIndex(fullEvent);
   const selectedMarker = markers[markerIndex];
-  $("replay-title").textContent = `${fullEvent.title || fullEvent.slug || "Backtest event"} x ${strategyLabel(fullEvent.bucket || replay.strategy)}`;
+  $("replay-title").textContent = fullEvent.title || fullEvent.slug || "Backtest event";
   $("replay-event-strip").innerHTML = [
     ["Order", side.order],
     ["Result", stats.won ? "Won" : "Lost"],
@@ -2398,7 +2416,7 @@ function renderReplay(data) {
     $("decision-action").textContent = "--";
     $("decision-action").className = "pill bad";
     $("replay-kv").innerHTML = "";
-    $("replay-rationale").textContent = `Could not load event detail: ${fullEvent.load_error}`;
+    $("replay-rationale").innerHTML = `<strong>Rationale</strong><span>Could not load event detail: ${esc(fullEvent.load_error)}</span>`;
   } else {
     renderDecisionPanel(fullEvent, selectedMarker);
   }
