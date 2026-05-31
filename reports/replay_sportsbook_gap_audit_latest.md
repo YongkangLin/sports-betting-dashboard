@@ -1,76 +1,120 @@
 # Replay Sportsbook Gap Audit
 
-- Generated: 2026-05-31T07:55:23.927208+00:00
-- Replay events: 277
-- Events with sportsbook points: 265
-- Events without sportsbook points: 12
-- Starts more than 1h after CLOB start: 7
-- Ends more than 1h before CLOB end: 2
-- Internal sportsbook gap over 30m: 37
-- Internal sportsbook gap over 2h: 29
-- Median sportsbook points per covered event: 92
-- Median CLOB-window overlap ratio: 100.0%
+- Generated: 2026-05-31T08:16:10.936342+00:00
+- Replay events audited: 277
+- Events with sportsbook overlay points: 267
+- Events with matched Odds API event but no usable sportsbook line: 6
+- Events needing data/action review: 48
 
 ## Interpretation
 
-These gaps are not automatically safe to fill. A missing sportsbook point can mean the sportsbook did not offer that market yet, stopped offering it near/in-play, or the historical API snapshot did not include the matched market. The dashboard shows gaps instead of drawing fake continuous sportsbook prices.
+- Polymarket CLOB series can run to settlement, where prices become 0/100.
+- Sportsbook series are quoted fair probabilities only. They normally stop at the last offered line when the book suspends or removes the market; they do not settle to 0/100.
+- A late sportsbook start is only a data problem when the Odds API event was already listed and our quote pull/side matching still has no usable line.
 
-## Worst Late Starts
+## Classification Counts
 
-| Event | Market | Book start late | Book points | Overlap |
-|---|---:|---:|---:|---:|
-| Vålerenga vs Kristiansund BK total 1.5 | Soccer | 186.3h | 2 | 0.0% |
-| Knicks vs Grizzlies | NBA | 132.6h | 101 | 15.1% |
-| Wizards vs Magic | NBA | 131.0h | 105 | 15.5% |
-| 76ers vs Nuggets | NBA | 130.6h | 115 | 17.2% |
-| Pacers vs Knicks | NBA | 129.6h | 107 | 16.6% |
-| Warriors vs Knicks | NBA | 129.1h | 127 | 17.6% |
-| Rockets vs Wizards | NBA | 128.4h | 117 | 17.1% |
-| Jazz vs Spurs | NBA | 0.6h | 97 | 97.2% |
-| Pacers vs Hornets | NBA | 0.4h | 98 | 98.0% |
-| ATA vs GEN | Soccer | -0.1h | 91 | 100.0% |
-| ATA vs TOR | Soccer | -0.1h | 96 | 100.0% |
-| Angers vs Paris Saint Germain | Soccer | -0.1h | 80 | 97.9% |
-| Elche CF vs Barcelona | Soccer | -0.1h | 95 | 100.0% |
-| Hornets vs Knicks | NBA | -0.1h | 106 | 100.0% |
-| Le Havre vs Paris Saint Germain | Soccer | -0.1h | 96 | 99.7% |
+| Classification | Events |
+|---|---:|
+| has_sportsbook_overlay | 267 |
+| internal_quote_gap_over_30m | 38 |
+| sportsbook_event_not_listed_until_after_clob_start | 7 |
+| matched_event_no_quotes_in_warehouse | 5 |
+| no_odds_event_match | 4 |
+| sportsbook_last_quote_not_settlement | 3 |
+| sportsbook_starts_after_clob | 2 |
+| quotes_present_but_incomplete_sides_or_target | 1 |
 
-## Worst Early Ends
+## Events Needing Review
 
-| Event | Market | Book end early | Book points | Overlap |
-|---|---:|---:|---:|---:|
-| Ducks vs Oilers total 4.5 | NHL | 1.9h | 12 | 46.8% |
-| Hamburger SV vs Bayern Munich | Soccer | 1.1h | 85 | 94.9% |
-| Patriots vs Jets | NFL | 1.0h | 82 | 95.0% |
-| Grizzlies vs Rockets | NBA | 0.8h | 112 | 64.9% |
-| Spurs vs Bucks | NBA | 0.7h | 102 | 96.8% |
-| Pistons vs Pacers | NBA | 0.6h | 100 | 97.7% |
-| Wizards vs Trail Blazers | NBA | 0.6h | 102 | 97.7% |
-| Suns vs Nuggets | NBA | 0.5h | 17 | 84.8% |
-| Real Madrid vs Real Sociedad | Soccer | 0.5h | 92 | 97.8% |
-| Wizards vs Suns | NBA | 0.4h | 16 | 85.9% |
-| Bucks vs Clippers | NBA | 0.4h | 121 | 90.0% |
-| Angers vs Paris Saint Germain | Soccer | 0.4h | 80 | 97.9% |
-| Pacers vs Rockets | NBA | 0.2h | 18 | 94.4% |
-| Suns vs Thunder | NBA | 0.2h | 92 | 99.1% |
-| Borussia Dortmund vs SC Freiburg | Soccer | 0.2h | 74 | 99.0% |
+| Event | Sport | Points | Classifications | Diagnostic |
+|---|---|---:|---|---|
+| Manchester United vs Crystal Palace | soccer | 144 | has_sportsbook_overlay, internal_quote_gap_over_30m |  |
+| Newcastle United vs PSV Eindhoven | soccer | 187 | has_sportsbook_overlay, internal_quote_gap_over_30m |  |
+| Palmeiras vs Grêmio | soccer | 0 | matched_event_no_quotes_in_warehouse | matched_event_no_quotes_in_warehouse |
+| Paris Saint Germain vs Lyon | soccer | 182 | has_sportsbook_overlay, internal_quote_gap_over_30m |  |
+| Real Madrid vs Celta Vigo | soccer | 157 | has_sportsbook_overlay, internal_quote_gap_over_30m |  |
+| Wizards vs Bulls | basketball_nba | 35 | has_sportsbook_overlay, internal_quote_gap_over_30m |  |
+| Wizards vs Hawks | basketball_nba | 74 | has_sportsbook_overlay, internal_quote_gap_over_30m |  |
+| AS Monaco vs Paris Saint Germain | soccer | 0 | matched_event_no_quotes_in_warehouse | matched_event_no_quotes_in_warehouse |
+| Bayer Leverkusen vs Arsenal | soccer | 0 | matched_event_no_quotes_in_warehouse | matched_event_no_quotes_in_warehouse |
+| Bayern Munich vs VfB Stuttgart | soccer | 141 | has_sportsbook_overlay, internal_quote_gap_over_30m |  |
+| CRE vs Napoli | soccer | 164 | has_sportsbook_overlay, internal_quote_gap_over_30m |  |
+| Manchester United vs West Ham United | soccer | 192 | has_sportsbook_overlay, internal_quote_gap_over_30m |  |
+| ROM vs GEN | soccer | 158 | has_sportsbook_overlay, internal_quote_gap_over_30m |  |
+| VfB Stuttgart vs VfL Wolfsburg | soccer | 142 | has_sportsbook_overlay, internal_quote_gap_over_30m |  |
+| Bragantino vs Ceará | soccer | 0 | no_odds_event_match |  |
+| Lille vs Nantes | soccer | 176 | has_sportsbook_overlay, internal_quote_gap_over_30m |  |
+| Lille vs Nice | soccer | 180 | has_sportsbook_overlay, internal_quote_gap_over_30m |  |
+| Mirassol vs Chapecoense | soccer | 200 | has_sportsbook_overlay, internal_quote_gap_over_30m |  |
+| Nets vs Heat | basketball_nba | 42 | has_sportsbook_overlay, internal_quote_gap_over_30m |  |
+| PAR vs Napoli | soccer | 146 | has_sportsbook_overlay, internal_quote_gap_over_30m |  |
+| PAR vs ROM | soccer | 170 | has_sportsbook_overlay, internal_quote_gap_over_30m |  |
+| RC Lens vs Nice | soccer | 164 | has_sportsbook_overlay, internal_quote_gap_over_30m |  |
+| VER vs MIL | soccer | 146 | has_sportsbook_overlay, internal_quote_gap_over_30m |  |
+| 1. FC Köln vs Bayern Munich | soccer | 185 | has_sportsbook_overlay, internal_quote_gap_over_30m |  |
+| Barcelona vs Celta Vigo | soccer | 187 | has_sportsbook_overlay, internal_quote_gap_over_30m |  |
+| CRE vs MIL | soccer | 143 | has_sportsbook_overlay, internal_quote_gap_over_30m |  |
+| Jets vs Jaguars | americanfootball_nfl | 89 | has_sportsbook_overlay, internal_quote_gap_over_30m |  |
+| Juventus vs BOL | soccer | 169 | has_sportsbook_overlay, internal_quote_gap_over_30m |  |
+| Nottingham Forest vs Burnley | soccer | 0 | matched_event_no_quotes_in_warehouse | matched_event_no_quotes_in_warehouse |
+| Tottenham Hotspur vs Sporting Lisbon | soccer | 0 | no_odds_event_match |  |
+| ATA vs PAR | soccer | 137 | has_sportsbook_overlay, internal_quote_gap_over_30m |  |
+| Arsenal vs Fulham | soccer | 164 | has_sportsbook_overlay, internal_quote_gap_over_30m |  |
+| Club Brugge vs Arsenal | soccer | 181 | has_sportsbook_overlay, internal_quote_gap_over_30m |  |
+| Qarabağ FK vs Newcastle United | soccer | 0 | matched_event_no_quotes_in_warehouse | matched_event_no_quotes_in_warehouse |
+| ROM vs CAG | soccer | 172 | has_sportsbook_overlay, internal_quote_gap_over_30m |  |
+| Rennes vs Nantes | soccer | 158 | has_sportsbook_overlay, internal_quote_gap_over_30m |  |
+| Suns vs Thunder | basketball_nba | 92 | has_sportsbook_overlay, internal_quote_gap_over_30m |  |
+| VER vs COM | soccer | 148 | has_sportsbook_overlay, internal_quote_gap_over_30m |  |
+| VfB Stuttgart vs Hamburger SV | soccer | 154 | has_sportsbook_overlay, internal_quote_gap_over_30m |  |
+| LEE vs Burnley | soccer | 86 | has_sportsbook_overlay, internal_quote_gap_over_30m |  |
+| Lille vs Le Havre | soccer | 151 | has_sportsbook_overlay, internal_quote_gap_over_30m |  |
+| Sporting Lisbon vs Barcelona | soccer | 0 | no_odds_event_match |  |
+| Venezia vs Juve Stabia | soccer | 151 | has_sportsbook_overlay, internal_quote_gap_over_30m |  |
+| Borussia Dortmund vs Bodø/Glimt | soccer | 181 | has_sportsbook_overlay, internal_quote_gap_over_30m |  |
+| Barcelona vs BM | soccer | 0 | no_odds_event_match |  |
+| Fredrikstad FK vs IK Start spread away-1.5 | soccer | 0 | quotes_present_but_incomplete_sides_or_target | quotes_present_but_incomplete_sides_or_target |
+| Napoli vs BOL | soccer | 169 | has_sportsbook_overlay, internal_quote_gap_over_30m |  |
+| Paris Saint Germain vs AS Monaco | soccer | 193 | has_sportsbook_overlay, internal_quote_gap_over_30m |  |
 
-## Worst Internal Gaps
+## Largest Late Starts
 
-| Event | Market | Max gap | Book points |
-|---|---:|---:|---:|
-| Wizards vs Bulls | NBA | 21.0h | 35 |
-| Wizards vs Hawks | NBA | 10.5h | 74 |
-| Real Madrid vs Celta Vigo | Soccer | 9.5h | 157 |
-| Bayern Munich vs VfB Stuttgart | Soccer | 8.5h | 141 |
-| ATA vs PAR | Soccer | 8.5h | 137 |
-| ROM vs GEN | Soccer | 8.3h | 158 |
-| VfB Stuttgart vs VfL Wolfsburg | Soccer | 7.5h | 142 |
-| Manchester United vs Crystal Palace | Soccer | 7.2h | 144 |
-| PAR vs Napoli | Soccer | 6.0h | 146 |
-| VfB Stuttgart vs Hamburger SV | Soccer | 6.0h | 154 |
-| Napoli vs BOL | Soccer | 6.0h | 169 |
-| VER vs MIL | Soccer | 6.0h | 146 |
-| Juventus vs BOL | Soccer | 6.0h | 169 |
-| ROM vs CAG | Soccer | 5.8h | 172 |
-| CRE vs MIL | Soccer | 5.0h | 143 |
+| Event | Sport | Start gap | First seen gap | Points | Classification |
+|---|---|---:|---:|---:|---|
+| Vålerenga vs Kristiansund BK total 1.5 | soccer | 7.8d | 6.2d | 2 | has_sportsbook_overlay, sportsbook_event_not_listed_until_after_clob_start |
+| Knicks vs Grizzlies | basketball_nba | 5.5d | 6.5d | 101 | has_sportsbook_overlay, sportsbook_event_not_listed_until_after_clob_start |
+| Wizards vs Magic | basketball_nba | 5.5d | 5.5d | 105 | has_sportsbook_overlay, sportsbook_event_not_listed_until_after_clob_start |
+| 76ers vs Nuggets | basketball_nba | 5.4d | 5.5d | 115 | has_sportsbook_overlay, sportsbook_event_not_listed_until_after_clob_start |
+| Pacers vs Knicks | basketball_nba | 5.4d | 5.4d | 107 | has_sportsbook_overlay, sportsbook_event_not_listed_until_after_clob_start |
+| Warriors vs Knicks | basketball_nba | 5.4d | 6.3d | 127 | has_sportsbook_overlay, sportsbook_event_not_listed_until_after_clob_start |
+| Rockets vs Wizards | basketball_nba | 5.4d | 6.5d | 117 | has_sportsbook_overlay, sportsbook_event_not_listed_until_after_clob_start |
+| Jazz vs Spurs | basketball_nba | 36.6m | 36.6m | 97 | has_sportsbook_overlay, sportsbook_starts_after_clob |
+| Pacers vs Hornets | basketball_nba | 25.6m | 25.6m | 98 | has_sportsbook_overlay, sportsbook_starts_after_clob |
+| ATA vs GEN | soccer | -4.4m | -5.3h | 91 | has_sportsbook_overlay |
+| ATA vs TOR | soccer | -4.4m | 11.4h | 96 | has_sportsbook_overlay |
+| Angers vs Paris Saint Germain | soccer | -4.4m | -5.5d | 80 | has_sportsbook_overlay |
+
+## Largest Internal Quote Gaps
+
+| Event | Sport | Max gap | Median gap | Points |
+|---|---|---:|---:|---:|
+| Wizards vs Bulls | basketball_nba | 21.0h | 12.5m | 35 |
+| Nets vs Heat | basketball_nba | 18.5h | 15.0m | 42 |
+| Wizards vs Hawks | basketball_nba | 10.5h | 15.0m | 74 |
+| Real Madrid vs Celta Vigo | soccer | 9.5h | 15.0m | 157 |
+| Bayern Munich vs VfB Stuttgart | soccer | 8.5h | 15.0m | 141 |
+| ATA vs PAR | soccer | 8.5h | 15.0m | 137 |
+| ROM vs GEN | soccer | 8.3h | 15.0m | 158 |
+| VfB Stuttgart vs VfL Wolfsburg | soccer | 7.5h | 15.0m | 142 |
+| Manchester United vs Crystal Palace | soccer | 7.2h | 15.0m | 144 |
+| PAR vs Napoli | soccer | 6.0h | 15.0m | 146 |
+| VfB Stuttgart vs Hamburger SV | soccer | 6.0h | 15.0m | 154 |
+| Napoli vs BOL | soccer | 6.0h | 15.0m | 169 |
+
+## Cited Examples
+
+| Event | Sportsbook match | Points | Start gap | Last quote to final | Last selected fair | Notes |
+|---|---|---:|---:|---:|---:|---|
+| 76ers vs Nuggets | Denver Nuggets vs Philadelphia 76ers 2026-03-18T01:10:00+00:00 | 115 | 5.4d | 5.1m | 97.1% | has_sportsbook_overlay, sportsbook_event_not_listed_until_after_clob_start |
+| Oilers vs Ducks total 4.5 | Anaheim Ducks vs Edmonton Oilers 2026-04-25T02:10:00+00:00 | 12 | -4.4m | 1.7h | 84.6% | has_sportsbook_overlay, sportsbook_last_quote_not_settlement |

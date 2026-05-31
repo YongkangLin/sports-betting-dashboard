@@ -314,7 +314,10 @@
 
   .strategy-stat {
     min-width: 0;
-    padding: 2px 0 0;
+    padding: 12px;
+    border: 1px solid var(--soft-line);
+    border-radius: 8px;
+    background: #fbfcfe;
   }
 
   .strategy-stat .metric-value {
@@ -1829,7 +1832,7 @@ function strategyAuditSplit(row) {
 
 function unavailableStrategyMetrics(reason) {
   return [
-    ["Backtest ROI", "not validated", reason, "No strategy-specific held-out edge is proven yet."],
+    ["Strategy Backtest ROI", "not validated", reason, "No strategy-specific held-out edge is proven yet."],
     ["Replay sample", "0 events", "0 one-minute points", "No replayable historical event set has passed the data gate yet."],
     ["Live picks", "0", "monitor only", "No live signal is cleared for capital."]
   ];
@@ -1863,8 +1866,8 @@ function renderStrategyOverview(data) {
       status: favoriteAudit && favoriteAudit.ci_lo > 0 ? "Research pass" : "Candidate, not proven",
       tone: favoriteAudit && favoriteAudit.ci_lo > 0 ? "good" : "warn",
       metrics: [
-        ["Backtest ROI", fmtPct(f.roi), `${fmtInt(f.settledEntries)} settled events`, `Resolution-hold replay is positive; short-horizon executable audit is ${fmtPct(favoriteAudit?.roi)} on ${strategyAuditSplit(favoriteAudit)}.`],
-        ["Replay sample", `${fmtInt(replayEvents)} events`, `${fmtInt(replayPoints)} CLOB minute points`, `${fmtInt(replayClobTwoSidedEvents)} have actual CLOB both sides; ${fmtInt(replayBothCompleteEvents)} also have complete-side sportsbook overlays from ${fmtInt(replaySportsbookPoints)} fair-probability points.`],
+        ["Strategy Backtest ROI", fmtPct(f.roi), `${fmtInt(f.settledEntries)} settled events`, `Favorite-longshot only. Resolution-hold replay is positive; short-horizon executable audit is ${fmtPct(favoriteAudit?.roi)} on ${strategyAuditSplit(favoriteAudit)}.`],
+        ["Replay sample", `${fmtInt(replayEvents)} events`, `${fmtInt(replayPoints)} one-minute points`, `${fmtInt(replayClobTwoSidedEvents)} have actual CLOB both sides; ${fmtInt(replayBothCompleteEvents)} also have complete-side sportsbook overlays from ${fmtInt(replaySportsbookPoints)} fair-probability points.`],
         ["Live picks", fmtInt(e.liveSignalsSelected), `${fmtInt(e.liveSignalCandidates)} candidates scanned`, "No current signal clears the live threshold."]
       ]
     },
@@ -1874,7 +1877,7 @@ function renderStrategyOverview(data) {
       status: sharpAudit && sharpAudit.ci_lo > 0 ? "Research pass" : "Not proven",
       tone: sharpAudit && sharpAudit.ci_lo > 0 ? "good" : "bad",
       metrics: [
-        ["Backtest ROI", fmtPct(sharpAudit?.roi), `${fmtInt(sharpAudit?.rows)} rows`, `Best available audit row is ${strategyAuditSplit(sharpAudit)} across ${fmtInt(sharpAudit?.markets)} markets.`],
+        ["Strategy Backtest ROI", fmtPct(sharpAudit?.roi), `${fmtInt(sharpAudit?.rows)} rows`, `Sharp-consensus only. Best available audit row is ${strategyAuditSplit(sharpAudit)} across ${fmtInt(sharpAudit?.markets)} markets.`],
         ["Replay sample", "0 events", `${fmtInt(sb.strategyCandidateRows)} candidate rows`, "Needs replayable event paths once the rule has a positive held-out bucket."],
         ["Live picks", "0", `${fmtPct(sb.oddsTestCoverage)} test odds coverage`, "Odds coverage is still too thin for a capital gate."]
       ]
@@ -1892,7 +1895,7 @@ function renderStrategyOverview(data) {
       status: m.researchGate ? "Research pass" : "Hold",
       tone: m.researchGate ? "warn" : "bad",
       metrics: [
-        ["Backtest ROI", fmtPct(m.testRoi), `${fmtInt(m.testTrades)} test trades`, "Market-disjoint and temporal validation remain below the capital gate."],
+        ["Strategy Backtest ROI", fmtPct(m.testRoi), `${fmtInt(m.testTrades)} test trades`, "Fill-aware convergence only. Market-disjoint and temporal validation remain below the capital gate."],
         ["Replay sample", "0 events", "not replay-ready", "The convergence model needs reliable historical fills/LEV replays before dashboard playback is meaningful."],
         ["Live picks", "0", "abstained", "Current run does not select live trades after execution filters."]
       ]
@@ -1903,7 +1906,7 @@ function renderStrategyOverview(data) {
       status: mb.yesNoGate ? "Candidate" : "Monitor",
       tone: mb.yesNoGate ? "warn" : "info",
       metrics: [
-        ["Backtest ROI", "not validated", `${fmtInt(mb.strictNetArbRows)} strict arbs`, "Strict executable arb evidence is not large enough to claim profitability."],
+        ["Strategy Backtest ROI", "not validated", `${fmtInt(mb.strictNetArbRows)} strict arbs`, "YES + NO hedge/arb only. Strict executable arb evidence is not large enough to claim profitability."],
         ["Replay sample", "0 events", "research only", "Needs paired YES/NO order books with executable sizing before replaying trades."],
         ["Live picks", "0", "monitor only", "No live hedge/arb signal is cleared for capital."]
       ]
@@ -1914,7 +1917,7 @@ function renderStrategyOverview(data) {
       status: mb.priceShockGate ? "Candidate" : "Not ready",
       tone: mb.priceShockGate ? "warn" : "bad",
       metrics: [
-        ["Backtest ROI", "not validated", `play-by-play coverage ${fmtPct(sb.playByPlayCoverage)}`, "No post-event trading rule has a positive held-out bucket yet."],
+        ["Strategy Backtest ROI", "not validated", `play-by-play coverage ${fmtPct(sb.playByPlayCoverage)}`, "Post-event shock only. No post-event trading rule has a positive held-out bucket yet."],
         ["Replay sample", `${fmtInt(sb.playByPlayMarkets)} MLB markets`, `${fmtInt(sb.playByPlayRows)} event-state rows`, "Game-state data exists now; trade replays still need event-shock signals that pass validation."],
         ["Live picks", "0", featureBlocker || "monitor only", "No live post-event shock signal is cleared for capital."]
       ]
@@ -1935,7 +1938,7 @@ function renderStrategyOverview(data) {
   $("strategy-overview").innerHTML = `
     <div class="strategy-grid-head">
       <span>Strategy</span>
-      <span>Backtest ROI</span>
+      <span>Strategy Backtest ROI</span>
       <span>Replay sample</span>
       <span>Live picks</span>
     </div>
@@ -2666,9 +2669,9 @@ function drawReplayChart(event) {
     if (endGap && endGap !== "aligned") gapBits.push(`end ${endGap}`);
     if (coverage.maxGapSec && coverage.maxGapSec > 30 * 60) gapBits.push(`max gap ${durationLabel(coverage.maxGapSec)}`);
     const gapText = gapBits.length ? `; ${gapBits.join(", ")}` : "";
-    setChartSourceNote(`${fmtInt(clobPointCount)} CLOB minute pts; ${fmtInt(sportsbookPointCount)} book snapshots; book span ${fmtPct(coverage.coverage)}${gapText}`);
+    setChartSourceNote(`${fmtInt(clobPointCount)} CLOB minute pts; ${fmtInt(sportsbookPointCount)} book snapshots; book span ${fmtPct(coverage.coverage)}${gapText}. Sportsbooks show last quoted fair %, not settlement.`);
   } else if (showSportsbooks) {
-    setChartSourceNote(`${fmtInt(sportsbookPointCount)} sportsbook snapshots`);
+    setChartSourceNote(`${fmtInt(sportsbookPointCount)} sportsbook snapshots. Sportsbooks show last quoted fair %, not settlement.`);
   } else {
     setChartSourceNote(`${fmtInt(clobPointCount)} CLOB minute pts`);
   }

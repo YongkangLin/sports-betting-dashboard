@@ -1,14 +1,14 @@
 # Odds API Replay-Aligned Snapshot Pull
 
-- Generated: 2026-05-31T06:38:35.359313+00:00
+- Generated: 2026-05-31T07:57:46.325313+00:00
 - Replay manifest: `/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/data/processed/execution_training/favorite_longshot_event_replays_latest.json`
-- Step minutes: 15
+- Step minutes: 5
 - Markets: h2h,spreads,totals
 - Regions: us,uk,eu
 - Workers: 8
 - Dry run: True
-- Planned snapshots: 0
-- Cached before run: 17,012
+- Planned snapshots: 29,517
+- Cached before run: 16,895
 - Attempted: 0
 - Successful: 0
 - Empty: 0
@@ -20,17 +20,17 @@
 
 | Sport | Replay events | Snapshots | Cached | Success | Empty | Failed | Events | Quotes |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
-| americanfootball_nfl | 9 | 0 | 504 | 0 | 0 | 0 | 0 | 0 |
-| basketball_nba | 89 | 0 | 3,906 | 0 | 0 | 0 | 0 | 0 |
-| basketball_wnba | 2 | 0 | 45 | 0 | 0 | 0 | 0 | 0 |
-| icehockey_nhl | 2 | 0 | 42 | 0 | 0 | 0 | 0 | 0 |
-| soccer_brazil_campeonato | 10 | 0 | 800 | 0 | 0 | 0 | 0 | 0 |
-| soccer_conmebol_copa_libertadores | 7 | 0 | 633 | 0 | 0 | 0 | 0 | 0 |
-| soccer_epl | 31 | 0 | 1,901 | 0 | 0 | 0 | 0 | 0 |
-| soccer_france_ligue_one | 23 | 0 | 1,836 | 0 | 0 | 0 | 0 | 0 |
-| soccer_germany_bundesliga | 20 | 0 | 1,314 | 0 | 0 | 0 | 0 | 0 |
-| soccer_italy_serie_a | 38 | 0 | 2,568 | 0 | 0 | 0 | 0 | 0 |
-| soccer_italy_serie_b | 5 | 0 | 290 | 0 | 0 | 0 | 0 | 0 |
-| soccer_norway_eliteserien | 2 | 0 | 761 | 0 | 0 | 0 | 0 | 0 |
-| soccer_spain_la_liga | 18 | 0 | 1,393 | 0 | 0 | 0 | 0 | 0 |
-| soccer_uefa_champs_league | 17 | 0 | 1,019 | 0 | 0 | 0 | 0 | 0 |
+| americanfootball_nfl | 9 | 887 | 503 | 0 | 0 | 0 | 0 | 0 |
+| basketball_nba | 89 | 6,556 | 3,878 | 0 | 0 | 0 | 0 | 0 |
+| basketball_wnba | 2 | 52 | 43 | 0 | 0 | 0 | 0 | 0 |
+| icehockey_nhl | 2 | 46 | 40 | 0 | 0 | 0 | 0 | 0 |
+| soccer_brazil_campeonato | 10 | 1,420 | 795 | 0 | 0 | 0 | 0 | 0 |
+| soccer_conmebol_copa_libertadores | 7 | 1,127 | 630 | 0 | 0 | 0 | 0 | 0 |
+| soccer_epl | 31 | 3,305 | 1,887 | 0 | 0 | 0 | 0 | 0 |
+| soccer_france_ligue_one | 23 | 3,213 | 1,824 | 0 | 0 | 0 | 0 | 0 |
+| soccer_germany_bundesliga | 20 | 2,275 | 1,304 | 0 | 0 | 0 | 0 | 0 |
+| soccer_italy_serie_a | 38 | 4,417 | 2,549 | 0 | 0 | 0 | 0 | 0 |
+| soccer_italy_serie_b | 5 | 493 | 286 | 0 | 0 | 0 | 0 | 0 |
+| soccer_norway_eliteserien | 2 | 1,481 | 761 | 0 | 0 | 0 | 0 | 0 |
+| soccer_spain_la_liga | 18 | 2,461 | 1,384 | 0 | 0 | 0 | 0 | 0 |
+| soccer_uefa_champs_league | 17 | 1,784 | 1,011 | 0 | 0 | 0 | 0 | 0 |

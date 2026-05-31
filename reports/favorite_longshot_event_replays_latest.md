@@ -1,14 +1,14 @@
 # Favorite-Longshot Event Replays
 
-- Generated: 2026-05-31T07:54:48.865120+00:00
+- Generated: 2026-05-31T08:16:04.973620+00:00
 - Events with replay series: 277 / 277
 - Series cadence: 1min
 - Total minute points: 329,406
 - Polymarket CLOB actual two-sided coverage: 277 / 277
-- Sportsbook complete-side overlay coverage: 265 / 277 (95.7%)
-- Complete on both venues: 265 / 277
+- Sportsbook complete-side overlay coverage: 267 / 277 (96.4%)
+- Complete on both venues: 267 / 277
 - Odds API event matches: 273 / 277
-- Total sportsbook points: 23,511
+- Total sportsbook points: 23,565
 - Event detail files: 277
 - Output: `/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/data/processed/execution_training/favorite_longshot_event_replays_latest.json`
 
@@ -34,5 +34,5 @@
 | Manchester United vs Crystal Palace | No | soccer | 0.1462 | 17.20% | 950 | 144 |
 | Metz vs Paris Saint Germain | No | soccer | 0.1462 | 17.20% | 1,198 | 87 |
 | Newcastle United vs PSV Eindhoven | No | soccer | 0.1462 | 17.20% | 1,291 | 187 |
-| Oilers vs Ducks total 4.5 | Over | icehockey_nhl | 0.1462 | 17.20% | 203 | 0 |
+| Oilers vs Ducks total 4.5 | Over | icehockey_nhl | 0.1462 | 17.20% | 203 | 12 |
 | Pacers vs Warriors | Warriors | basketball_nba | 0.1462 | 17.20% | 229 | 22 |
