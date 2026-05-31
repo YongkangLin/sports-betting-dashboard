@@ -41,7 +41,7 @@
     "sportsbook_native_5m_density_gate": false,
     "trade_confirmed_fill_holdout_gate": true
   },
-  "generated_at": "2026-05-31T10:43:56.914015+00:00",
+  "generated_at": "2026-05-31T11:13:15.098382+00:00",
   "latest_model_monitor": {
     "adverse_selection": {
       "available": false,
@@ -1076,7 +1076,11 @@
       "complete 5m replay cache 155 / 276 = 56.16% < 95%"
     ],
     "unique_cache_5m_expected_snapshots": 46443,
-    "unique_cache_5m_missing_snapshots": 15310
+    "unique_cache_5m_missing_snapshots": 15310,
+    "warehouse_extra_quote_rows_inside_replay_windows": 42741,
+    "warehouse_extra_snapshot_events": 0,
+    "warehouse_extra_snapshots_inside_replay_windows": 0,
+    "warehouse_partition_window_checked_events": 276
   },
   "strategy": {
     "entry_policy": "Post/quote passively near the current best bid only when the calibrated convergence score lower bound clears validation-selected threshold and liquidity caps.",

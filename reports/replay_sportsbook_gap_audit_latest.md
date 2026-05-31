@@ -1,6 +1,6 @@
 # Replay Sportsbook Gap Audit
 
-- Generated: 2026-05-31T10:37:27.009185+00:00
+- Generated: 2026-05-31T11:13:10.945718+00:00
 - Replay events audited: 277
 - Events with sportsbook overlay points: 276
 - Events with matched Odds API event but no usable sportsbook line: 0
@@ -25,6 +25,9 @@
 | Odds matched events with complete 5m raw cache | 155 / 276 |
 | Odds matched events with any missing 5m cache | 121 |
 | Unique 5m raw cache snapshots cached / expected / missing | 31,133 / 46,443 / 15,310 |
+| Warehouse all-partition replay-window checks | 276 / 276 |
+| Events with extra non-replay sportsbook timestamps inside replay window | 0 |
+| Extra non-replay sportsbook timestamps inside replay windows | 0 |
 
 ## Cache Coverage By Sport
 

@@ -113,7 +113,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 470197.0,
-      "title": "76ers vs Nuggets"
+      "title": "76ers vs Nuggets",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 27700,
+        "all_snapshot_count": 327,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 412,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 27288,
+        "replay_snapshot_count": 327
+      }
     },
     {
       "classifications": [
@@ -216,7 +227,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 38.0,
-      "title": "ATA vs GEN"
+      "title": "ATA vs GEN",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 8,
+        "all_quote_rows": 12708,
+        "all_snapshot_count": 89,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 42,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 7,
+        "replay_quote_rows": 12666,
+        "replay_snapshot_count": 89
+      }
     },
     {
       "classifications": [
@@ -319,7 +341,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 50.0,
-      "title": "ATA vs TOR"
+      "title": "ATA vs TOR",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 8,
+        "all_quote_rows": 13623,
+        "all_snapshot_count": 94,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 57,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 7,
+        "replay_quote_rows": 13566,
+        "replay_snapshot_count": 94
+      }
     },
     {
       "classifications": [
@@ -422,7 +455,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 38.0,
-      "title": "Angers vs Paris Saint Germain"
+      "title": "Angers vs Paris Saint Germain",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 6,
+        "all_quote_rows": 11463,
+        "all_snapshot_count": 81,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 30,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 5,
+        "replay_quote_rows": 11433,
+        "replay_snapshot_count": 81
+      }
     },
     {
       "classifications": [
@@ -525,7 +569,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "Athletico Paranaense vs Vit\u00f3ria"
+      "title": "Athletico Paranaense vs Vit\u00f3ria",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 5,
+        "all_quote_rows": 37821,
+        "all_snapshot_count": 281,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 60,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 4,
+        "replay_quote_rows": 37761,
+        "replay_snapshot_count": 281
+      }
     },
     {
       "classifications": [
@@ -628,7 +683,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "COM vs TOR"
+      "title": "COM vs TOR",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 8,
+        "all_quote_rows": 9414,
+        "all_snapshot_count": 67,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 30,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 7,
+        "replay_quote_rows": 9384,
+        "replay_snapshot_count": 67
+      }
     },
     {
       "classifications": [
@@ -731,7 +797,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "CRE vs COM"
+      "title": "CRE vs COM",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 8,
+        "all_quote_rows": 13605,
+        "all_snapshot_count": 93,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 48,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 7,
+        "replay_quote_rows": 13557,
+        "replay_snapshot_count": 93
+      }
     },
     {
       "classifications": [
@@ -834,7 +911,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 44.0,
-      "title": "Cardinals vs Rams"
+      "title": "Cardinals vs Rams",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 20508,
+        "all_snapshot_count": 288,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 188,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 20320,
+        "replay_snapshot_count": 288
+      }
     },
     {
       "classifications": [
@@ -937,7 +1025,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 44.0,
-      "title": "Cavaliers vs Mavericks"
+      "title": "Cavaliers vs Mavericks",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 25448,
+        "all_snapshot_count": 288,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 422,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 25026,
+        "replay_snapshot_count": 288
+      }
     },
     {
       "classifications": [
@@ -1040,7 +1139,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "Elche CF vs Barcelona"
+      "title": "Elche CF vs Barcelona",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 12222,
+        "all_snapshot_count": 93,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 54,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 12168,
+        "replay_snapshot_count": 93
+      }
     },
     {
       "classifications": [
@@ -1143,7 +1253,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "Everton vs Burnley"
+      "title": "Everton vs Burnley",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 37203,
+        "all_snapshot_count": 254,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 693,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 36510,
+        "replay_snapshot_count": 254
+      }
     },
     {
       "classifications": [
@@ -1246,7 +1367,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 45.0,
-      "title": "Hornets vs Knicks"
+      "title": "Hornets vs Knicks",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 26454,
+        "all_snapshot_count": 288,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 316,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 26138,
+        "replay_snapshot_count": 288
+      }
     },
     {
       "classifications": [
@@ -1349,7 +1481,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "Kings vs Lakers"
+      "title": "Kings vs Lakers",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 4372,
+        "all_snapshot_count": 54,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 94,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 4278,
+        "replay_snapshot_count": 54
+      }
     },
     {
       "classifications": [
@@ -1452,7 +1595,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 45.0,
-      "title": "LAZ vs CRE"
+      "title": "LAZ vs CRE",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 8,
+        "all_quote_rows": 11751,
+        "all_snapshot_count": 82,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 30,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 7,
+        "replay_quote_rows": 11721,
+        "replay_snapshot_count": 82
+      }
     },
     {
       "classifications": [
@@ -1555,7 +1709,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 41.0,
-      "title": "Le Havre vs Paris Saint Germain"
+      "title": "Le Havre vs Paris Saint Germain",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 6,
+        "all_quote_rows": 13683,
+        "all_snapshot_count": 95,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 60,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 5,
+        "replay_quote_rows": 13623,
+        "replay_snapshot_count": 95
+      }
     },
     {
       "classifications": [
@@ -1658,7 +1823,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 38.0,
-      "title": "Manchester United vs Crystal Palace"
+      "title": "Manchester United vs Crystal Palace",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 27933,
+        "all_snapshot_count": 190,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 444,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 27489,
+        "replay_snapshot_count": 190
+      }
     },
     {
       "classifications": [
@@ -1761,7 +1937,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 50.0,
-      "title": "Metz vs Paris Saint Germain"
+      "title": "Metz vs Paris Saint Germain",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 6,
+        "all_quote_rows": 34215,
+        "all_snapshot_count": 240,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 42,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 5,
+        "replay_quote_rows": 34173,
+        "replay_snapshot_count": 240
+      }
     },
     {
       "classifications": [
@@ -1864,7 +2051,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 38.0,
-      "title": "Newcastle United vs PSV Eindhoven"
+      "title": "Newcastle United vs PSV Eindhoven",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 13107,
+        "all_snapshot_count": 91,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 60,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 13047,
+        "replay_snapshot_count": 91
+      }
     },
     {
       "classifications": [
@@ -1961,7 +2159,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 38.0,
-      "title": "Oilers vs Ducks total 4.5"
+      "title": "Oilers vs Ducks total 4.5",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 2,
+        "all_quote_rows": 1980,
+        "all_snapshot_count": 41,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 1,
+        "replay_quote_rows": 1980,
+        "replay_snapshot_count": 41
+      }
     },
     {
       "classifications": [
@@ -2064,7 +2273,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "Pacers vs Warriors"
+      "title": "Pacers vs Warriors",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 3454,
+        "all_snapshot_count": 46,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 3454,
+        "replay_snapshot_count": 46
+      }
     },
     {
       "classifications": [
@@ -2167,7 +2387,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 46.0,
-      "title": "Palmeiras vs Athletico Paranaense"
+      "title": "Palmeiras vs Athletico Paranaense",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 5,
+        "all_quote_rows": 37419,
+        "all_snapshot_count": 282,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 60,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 4,
+        "replay_quote_rows": 37359,
+        "replay_snapshot_count": 282
+      }
     },
     {
       "classifications": [
@@ -2270,7 +2501,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 53.0,
-      "title": "Palmeiras vs Gr\u00eamio"
+      "title": "Palmeiras vs Gr\u00eamio",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 5,
+        "all_quote_rows": 2940,
+        "all_snapshot_count": 28,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 4,
+        "replay_quote_rows": 2940,
+        "replay_snapshot_count": 28
+      }
     },
     {
       "classifications": [
@@ -2373,7 +2615,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 637.0,
-      "title": "Paris Saint Germain vs Lyon"
+      "title": "Paris Saint Germain vs Lyon",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 6,
+        "all_quote_rows": 13191,
+        "all_snapshot_count": 92,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 48,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 5,
+        "replay_quote_rows": 13143,
+        "replay_snapshot_count": 92
+      }
     },
     {
       "classifications": [
@@ -2476,7 +2729,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 50.0,
-      "title": "RB Leipzig vs Borussia Monchengladbach"
+      "title": "RB Leipzig vs Borussia Monchengladbach",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 9672,
+        "all_snapshot_count": 68,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 171,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 9501,
+        "replay_snapshot_count": 68
+      }
     },
     {
       "classifications": [
@@ -2579,7 +2843,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "ROM vs FIO"
+      "title": "ROM vs FIO",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 8,
+        "all_quote_rows": 12531,
+        "all_snapshot_count": 86,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 186,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 7,
+        "replay_quote_rows": 12345,
+        "replay_snapshot_count": 86
+      }
     },
     {
       "classifications": [
@@ -2682,7 +2957,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 39.0,
-      "title": "Real Madrid vs Celta Vigo"
+      "title": "Real Madrid vs Celta Vigo",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 11826,
+        "all_snapshot_count": 93,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 54,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 11772,
+        "replay_snapshot_count": 93
+      }
     },
     {
       "classifications": [
@@ -2786,7 +3072,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 464557.0,
-      "title": "Warriors vs Knicks"
+      "title": "Warriors vs Knicks",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 28962,
+        "all_snapshot_count": 332,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 420,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 28542,
+        "replay_snapshot_count": 332
+      }
     },
     {
       "classifications": [
@@ -2889,7 +3186,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 44.0,
-      "title": "Warriors vs Thunder"
+      "title": "Warriors vs Thunder",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 3802,
+        "all_snapshot_count": 48,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 3802,
+        "replay_snapshot_count": 48
+      }
     },
     {
       "classifications": [
@@ -2992,7 +3300,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 38.0,
-      "title": "Wizards vs Bulls"
+      "title": "Wizards vs Bulls",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 3168,
+        "all_snapshot_count": 41,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 3168,
+        "replay_snapshot_count": 41
+      }
     },
     {
       "classifications": [
@@ -3095,7 +3414,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 43.0,
-      "title": "Wizards vs Hawks"
+      "title": "Wizards vs Hawks",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 2014,
+        "all_snapshot_count": 28,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 2014,
+        "replay_snapshot_count": 28
+      }
     },
     {
       "classifications": [
@@ -3199,7 +3529,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 470977.0,
-      "title": "Wizards vs Magic"
+      "title": "Wizards vs Magic",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 25410,
+        "all_snapshot_count": 290,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 412,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 24998,
+        "replay_snapshot_count": 290
+      }
     },
     {
       "classifications": [
@@ -3302,7 +3643,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 43.0,
-      "title": "76ers vs Thunder"
+      "title": "76ers vs Thunder",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 23168,
+        "all_snapshot_count": 273,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 328,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 22840,
+        "replay_snapshot_count": 273
+      }
     },
     {
       "classifications": [
@@ -3405,7 +3757,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "AS Monaco vs Paris Saint Germain"
+      "title": "AS Monaco vs Paris Saint Germain",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 13608,
+        "all_snapshot_count": 94,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 60,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 13548,
+        "replay_snapshot_count": 94
+      }
     },
     {
       "classifications": [
@@ -3508,7 +3871,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "Atl\u00e9tico Madrid vs Bod\u00f8/Glimt"
+      "title": "Atl\u00e9tico Madrid vs Bod\u00f8/Glimt",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 12762,
+        "all_snapshot_count": 95,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 54,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 12708,
+        "replay_snapshot_count": 95
+      }
     },
     {
       "classifications": [
@@ -3611,7 +3985,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 49.0,
-      "title": "Bayer Leverkusen vs Arsenal"
+      "title": "Bayer Leverkusen vs Arsenal",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 12387,
+        "all_snapshot_count": 85,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 30,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 12357,
+        "replay_snapshot_count": 85
+      }
     },
     {
       "classifications": [
@@ -3714,7 +4099,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 46.0,
-      "title": "Bayern Munich vs VfB Stuttgart"
+      "title": "Bayern Munich vs VfB Stuttgart",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 10569,
+        "all_snapshot_count": 72,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 177,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 10392,
+        "replay_snapshot_count": 72
+      }
     },
     {
       "classifications": [
@@ -3817,7 +4213,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 44.0,
-      "title": "Bournemouth vs Arsenal"
+      "title": "Bournemouth vs Arsenal",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 33723,
+        "all_snapshot_count": 233,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 585,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 33138,
+        "replay_snapshot_count": 233
+      }
     },
     {
       "classifications": [
@@ -3920,7 +4327,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 38.0,
-      "title": "Brighton and Hove Albion vs Wolverhampton Wanderers"
+      "title": "Brighton and Hove Albion vs Wolverhampton Wanderers",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 27153,
+        "all_snapshot_count": 189,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 297,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 26856,
+        "replay_snapshot_count": 189
+      }
     },
     {
       "classifications": [
@@ -4023,7 +4441,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 38.0,
-      "title": "Bulls vs Celtics"
+      "title": "Bulls vs Celtics",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 1560,
+        "all_snapshot_count": 28,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 1560,
+        "replay_snapshot_count": 28
+      }
     },
     {
       "classifications": [
@@ -4126,7 +4555,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 47.0,
-      "title": "CAG vs MIL"
+      "title": "CAG vs MIL",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 8,
+        "all_quote_rows": 13377,
+        "all_snapshot_count": 93,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 57,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 7,
+        "replay_quote_rows": 13320,
+        "replay_snapshot_count": 93
+      }
     },
     {
       "classifications": [
@@ -4229,7 +4669,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 43.0,
-      "title": "CRE vs Napoli"
+      "title": "CRE vs Napoli",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 8,
+        "all_quote_rows": 9696,
+        "all_snapshot_count": 69,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 30,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 7,
+        "replay_quote_rows": 9666,
+        "replay_snapshot_count": 69
+      }
     },
     {
       "classifications": [
@@ -4332,7 +4783,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "Connecticut Sun vs Golden State Valkyries"
+      "title": "Connecticut Sun vs Golden State Valkyries",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 2,
+        "all_quote_rows": 2256,
+        "all_snapshot_count": 43,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 1,
+        "replay_quote_rows": 2256,
+        "replay_snapshot_count": 43
+      }
     },
     {
       "classifications": [
@@ -4435,7 +4897,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 51.0,
-      "title": "Cruzeiro vs Vit\u00f3ria"
+      "title": "Cruzeiro vs Vit\u00f3ria",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 5,
+        "all_quote_rows": 38709,
+        "all_snapshot_count": 288,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 78,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 4,
+        "replay_quote_rows": 38631,
+        "replay_snapshot_count": 288
+      }
     },
     {
       "classifications": [
@@ -4538,7 +5011,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "Everton vs Manchester City"
+      "title": "Everton vs Manchester City",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 37419,
+        "all_snapshot_count": 252,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 711,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 36708,
+        "replay_snapshot_count": 252
+      }
     },
     {
       "classifications": [
@@ -4641,7 +5125,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 53.0,
-      "title": "Frosinone vs Padova"
+      "title": "Frosinone vs Padova",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 2,
+        "all_quote_rows": 9540,
+        "all_snapshot_count": 74,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 132,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 1,
+        "replay_quote_rows": 9408,
+        "replay_snapshot_count": 74
+      }
     },
     {
       "classifications": [
@@ -4744,7 +5239,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 42.0,
-      "title": "GEN vs Inter Milan"
+      "title": "GEN vs Inter Milan",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 8,
+        "all_quote_rows": 11811,
+        "all_snapshot_count": 83,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 30,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 7,
+        "replay_quote_rows": 11781,
+        "replay_snapshot_count": 83
+      }
     },
     {
       "classifications": [
@@ -4847,7 +5353,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 50.0,
-      "title": "Grizzlies vs Timberwolves"
+      "title": "Grizzlies vs Timberwolves",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 3058,
+        "all_snapshot_count": 42,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 3058,
+        "replay_snapshot_count": 42
+      }
     },
     {
       "classifications": [
@@ -4950,7 +5467,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 40.0,
-      "title": "Jazz vs Nuggets"
+      "title": "Jazz vs Nuggets",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 3440,
+        "all_snapshot_count": 49,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 3440,
+        "replay_snapshot_count": 49
+      }
     },
     {
       "classifications": [
@@ -5054,7 +5582,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 1599.0,
-      "title": "Jazz vs Spurs"
+      "title": "Jazz vs Spurs",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 24026,
+        "all_snapshot_count": 282,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 296,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 23730,
+        "replay_snapshot_count": 282
+      }
     },
     {
       "classifications": [
@@ -5157,7 +5696,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 44.0,
-      "title": "Kings vs Suns"
+      "title": "Kings vs Suns",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 3948,
+        "all_snapshot_count": 51,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 3948,
+        "replay_snapshot_count": 51
+      }
     },
     {
       "classifications": [
@@ -5260,7 +5810,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 50.0,
-      "title": "Kings vs Warriors"
+      "title": "Kings vs Warriors",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 5128,
+        "all_snapshot_count": 61,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 92,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 5036,
+        "replay_snapshot_count": 61
+      }
     },
     {
       "classifications": [
@@ -5363,7 +5924,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "LEE vs Arsenal"
+      "title": "LEE vs Arsenal",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 28806,
+        "all_snapshot_count": 199,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 588,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 28218,
+        "replay_snapshot_count": 199
+      }
     },
     {
       "classifications": [
@@ -5466,7 +6038,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "Lanus vs LDU Quito"
+      "title": "Lanus vs LDU Quito",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 3,
+        "all_quote_rows": 29979,
+        "all_snapshot_count": 287,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 33,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 2,
+        "replay_quote_rows": 29946,
+        "replay_snapshot_count": 287
+      }
     },
     {
       "classifications": [
@@ -5569,7 +6152,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 45.0,
-      "title": "Liverpool vs Galatasaray"
+      "title": "Liverpool vs Galatasaray",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 13155,
+        "all_snapshot_count": 92,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 54,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 13101,
+        "replay_snapshot_count": 92
+      }
     },
     {
       "classifications": [
@@ -5672,7 +6266,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 41.0,
-      "title": "Liverpool vs LEE"
+      "title": "Liverpool vs LEE",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 33870,
+        "all_snapshot_count": 233,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 588,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 33282,
+        "replay_snapshot_count": 233
+      }
     },
     {
       "classifications": [
@@ -5775,7 +6380,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 47.0,
-      "title": "Manchester United vs West Ham United"
+      "title": "Manchester United vs West Ham United",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 36891,
+        "all_snapshot_count": 263,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 282,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 36609,
+        "replay_snapshot_count": 263
+      }
     },
     {
       "classifications": [
@@ -5878,7 +6494,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 40.0,
-      "title": "Mavericks vs Timberwolves"
+      "title": "Mavericks vs Timberwolves",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 2754,
+        "all_snapshot_count": 37,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 2754,
+        "replay_snapshot_count": 37
+      }
     },
     {
       "classifications": [
@@ -5981,7 +6608,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 38.0,
-      "title": "Mirassol vs Club Always Ready"
+      "title": "Mirassol vs Club Always Ready",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 3,
+        "all_quote_rows": 31467,
+        "all_snapshot_count": 288,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 33,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 2,
+        "replay_quote_rows": 31434,
+        "replay_snapshot_count": 288
+      }
     },
     {
       "classifications": [
@@ -6084,7 +6722,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "Modena vs Carrarese"
+      "title": "Modena vs Carrarese",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 2,
+        "all_quote_rows": 8991,
+        "all_snapshot_count": 69,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 1,
+        "replay_quote_rows": 8991,
+        "replay_snapshot_count": 69
+      }
     },
     {
       "classifications": [
@@ -6187,7 +6836,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 218.0,
-      "title": "Nottingham Forest vs Arsenal"
+      "title": "Nottingham Forest vs Arsenal",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 27765,
+        "all_snapshot_count": 190,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 588,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 27177,
+        "replay_snapshot_count": 190
+      }
     },
     {
       "classifications": [
@@ -6290,7 +6950,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 44.0,
-      "title": "Nuggets vs Cavaliers"
+      "title": "Nuggets vs Cavaliers",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 2642,
+        "all_snapshot_count": 35,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 2642,
+        "replay_snapshot_count": 35
+      }
     },
     {
       "classifications": [
@@ -6393,7 +7064,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "PIS vs MIL"
+      "title": "PIS vs MIL",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 8,
+        "all_quote_rows": 13482,
+        "all_snapshot_count": 93,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 57,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 7,
+        "replay_quote_rows": 13425,
+        "replay_snapshot_count": 93
+      }
     },
     {
       "classifications": [
@@ -6497,7 +7179,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 466297.0,
-      "title": "Pacers vs Knicks"
+      "title": "Pacers vs Knicks",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 26908,
+        "all_snapshot_count": 311,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 424,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 26484,
+        "replay_snapshot_count": 311
+      }
     },
     {
       "classifications": [
@@ -6600,7 +7293,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 46.0,
-      "title": "Pacers vs Rockets"
+      "title": "Pacers vs Rockets",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 2688,
+        "all_snapshot_count": 41,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 2688,
+        "replay_snapshot_count": 41
+      }
     },
     {
       "classifications": [
@@ -6703,7 +7407,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 38.0,
-      "title": "Paris Saint Germain vs Marseille"
+      "title": "Paris Saint Germain vs Marseille",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 6,
+        "all_quote_rows": 13065,
+        "all_snapshot_count": 91,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 54,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 5,
+        "replay_quote_rows": 13011,
+        "replay_snapshot_count": 91
+      }
     },
     {
       "classifications": [
@@ -6806,7 +7521,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 278.0,
-      "title": "Paris Saint Germain vs Rennes"
+      "title": "Paris Saint Germain vs Rennes",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 6,
+        "all_quote_rows": 37482,
+        "all_snapshot_count": 258,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 60,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 5,
+        "replay_quote_rows": 37422,
+        "replay_snapshot_count": 258
+      }
     },
     {
       "classifications": [
@@ -6909,7 +7635,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 45.0,
-      "title": "Pistons vs Pacers"
+      "title": "Pistons vs Pacers",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 26416,
+        "all_snapshot_count": 288,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 308,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 26108,
+        "replay_snapshot_count": 288
+      }
     },
     {
       "classifications": [
@@ -7012,7 +7749,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 38.0,
-      "title": "RC Lens vs Nantes"
+      "title": "RC Lens vs Nantes",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 6,
+        "all_quote_rows": 12810,
+        "all_snapshot_count": 88,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 48,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 5,
+        "replay_quote_rows": 12762,
+        "replay_snapshot_count": 88
+      }
     },
     {
       "classifications": [
@@ -7115,7 +7863,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 47.0,
-      "title": "RC Lens vs Toulouse"
+      "title": "RC Lens vs Toulouse",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 6,
+        "all_quote_rows": 12789,
+        "all_snapshot_count": 89,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 48,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 5,
+        "replay_quote_rows": 12741,
+        "replay_snapshot_count": 89
+      }
     },
     {
       "classifications": [
@@ -7218,7 +7977,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 38.0,
-      "title": "ROM vs GEN"
+      "title": "ROM vs GEN",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 8,
+        "all_quote_rows": 12798,
+        "all_snapshot_count": 88,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 57,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 7,
+        "replay_quote_rows": 12741,
+        "replay_snapshot_count": 88
+      }
     },
     {
       "classifications": [
@@ -7321,7 +8091,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 47.0,
-      "title": "Real Madrid vs Alav\u00e9s"
+      "title": "Real Madrid vs Alav\u00e9s",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 11880,
+        "all_snapshot_count": 92,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 165,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 11715,
+        "replay_snapshot_count": 92
+      }
     },
     {
       "classifications": [
@@ -7424,7 +8205,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "Real Madrid vs Oviedo"
+      "title": "Real Madrid vs Oviedo",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 12369,
+        "all_snapshot_count": 91,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 180,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 12189,
+        "replay_snapshot_count": 91
+      }
     },
     {
       "classifications": [
@@ -7527,7 +8319,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 44.0,
-      "title": "Titans vs Jaguars"
+      "title": "Titans vs Jaguars",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 17532,
+        "all_snapshot_count": 244,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 84,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 17448,
+        "replay_snapshot_count": 244
+      }
     },
     {
       "classifications": [
@@ -7630,7 +8433,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 42.0,
-      "title": "Tottenham Hotspur vs Arsenal"
+      "title": "Tottenham Hotspur vs Arsenal",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 32538,
+        "all_snapshot_count": 221,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 597,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 31941,
+        "replay_snapshot_count": 221
+      }
     },
     {
       "classifications": [
@@ -7733,7 +8547,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 43.0,
-      "title": "Venezia vs Mantova"
+      "title": "Venezia vs Mantova",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 2,
+        "all_quote_rows": 8559,
+        "all_snapshot_count": 65,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 1,
+        "replay_quote_rows": 8559,
+        "replay_snapshot_count": 65
+      }
     },
     {
       "classifications": [
@@ -7836,7 +8661,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 38.0,
-      "title": "VfB Stuttgart vs VfL Wolfsburg"
+      "title": "VfB Stuttgart vs VfL Wolfsburg",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 9864,
+        "all_snapshot_count": 68,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 30,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 9834,
+        "replay_snapshot_count": 68
+      }
     },
     {
       "classifications": [
@@ -7939,7 +8775,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 38.0,
-      "title": "Vikings vs Seahawks"
+      "title": "Vikings vs Seahawks",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 21578,
+        "all_snapshot_count": 282,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 188,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 21390,
+        "replay_snapshot_count": 282
+      }
     },
     {
       "classifications": [
@@ -8042,7 +8889,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 218.0,
-      "title": "Villarreal vs Getafe"
+      "title": "Villarreal vs Getafe",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 8253,
+        "all_snapshot_count": 62,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 27,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 8226,
+        "replay_snapshot_count": 62
+      }
     },
     {
       "classifications": [
@@ -8145,7 +9003,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 38.0,
-      "title": "Warriors vs Nuggets"
+      "title": "Warriors vs Nuggets",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 4428,
+        "all_snapshot_count": 56,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 4428,
+        "replay_snapshot_count": 56
+      }
     },
     {
       "classifications": [
@@ -8248,7 +9117,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "Werder Bremen vs Bayern Munich"
+      "title": "Werder Bremen vs Bayern Munich",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 10056,
+        "all_snapshot_count": 71,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 30,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 10026,
+        "replay_snapshot_count": 71
+      }
     },
     {
       "classifications": [
@@ -8351,7 +9231,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 46.0,
-      "title": "76ers vs Celtics"
+      "title": "76ers vs Celtics",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 19538,
+        "all_snapshot_count": 230,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 192,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 19346,
+        "replay_snapshot_count": 230
+      }
     },
     {
       "classifications": [
@@ -8454,7 +9345,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 44.0,
-      "title": "76ers vs Pistons"
+      "title": "76ers vs Pistons",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 25758,
+        "all_snapshot_count": 288,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 424,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 25334,
+        "replay_snapshot_count": 288
+      }
     },
     {
       "classifications": [
@@ -8557,7 +9459,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "AS Monaco vs Nantes"
+      "title": "AS Monaco vs Nantes",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 6,
+        "all_quote_rows": 13371,
+        "all_snapshot_count": 94,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 60,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 5,
+        "replay_quote_rows": 13311,
+        "replay_snapshot_count": 94
+      }
     },
     {
       "classifications": [
@@ -8660,7 +9573,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 46.0,
-      "title": "Arsenal vs AST"
+      "title": "Arsenal vs AST",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 38295,
+        "all_snapshot_count": 262,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 732,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 37563,
+        "replay_snapshot_count": 262
+      }
     },
     {
       "classifications": [
@@ -8763,7 +9687,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 65.0,
-      "title": "Bayer Leverkusen vs VfL Wolfsburg"
+      "title": "Bayer Leverkusen vs VfL Wolfsburg",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 9381,
+        "all_snapshot_count": 66,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 171,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 9210,
+        "replay_snapshot_count": 66
+      }
     },
     {
       "classifications": [
@@ -8866,7 +9801,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 45.0,
-      "title": "Bournemouth vs Burnley"
+      "title": "Bournemouth vs Burnley",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 28959,
+        "all_snapshot_count": 203,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 147,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 28812,
+        "replay_snapshot_count": 203
+      }
     },
     {
       "classifications": [
@@ -8969,7 +9915,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 46.0,
-      "title": "Bragantino vs Remo"
+      "title": "Bragantino vs Remo",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 5,
+        "all_quote_rows": 39534,
+        "all_snapshot_count": 279,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 69,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 4,
+        "replay_quote_rows": 39465,
+        "replay_snapshot_count": 279
+      }
     },
     {
       "classifications": [
@@ -9072,7 +10029,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 278.0,
-      "title": "Brentford vs Burnley"
+      "title": "Brentford vs Burnley",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 29112,
+        "all_snapshot_count": 200,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 150,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 28962,
+        "replay_snapshot_count": 200
+      }
     },
     {
       "classifications": [
@@ -9175,7 +10143,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 44.0,
-      "title": "Brighton and Hove Albion vs Burnley"
+      "title": "Brighton and Hove Albion vs Burnley",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 28677,
+        "all_snapshot_count": 196,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 585,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 28092,
+        "replay_snapshot_count": 196
+      }
     },
     {
       "classifications": [
@@ -9278,7 +10257,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 43.0,
-      "title": "Bucks vs Trail Blazers"
+      "title": "Bucks vs Trail Blazers",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 3376,
+        "all_snapshot_count": 49,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 3376,
+        "replay_snapshot_count": 49
+      }
     },
     {
       "classifications": [
@@ -9381,7 +10371,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 41.0,
-      "title": "Bulls vs Clippers"
+      "title": "Bulls vs Clippers",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 4830,
+        "all_snapshot_count": 57,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 94,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 4736,
+        "replay_snapshot_count": 57
+      }
     },
     {
       "classifications": [
@@ -9484,7 +10485,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 45.0,
-      "title": "Clippers vs Bucks"
+      "title": "Clippers vs Bucks",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 23174,
+        "all_snapshot_count": 263,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 312,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 22862,
+        "replay_snapshot_count": 263
+      }
     },
     {
       "classifications": [
@@ -9587,7 +10599,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 49.0,
-      "title": "Clippers vs Kings"
+      "title": "Clippers vs Kings",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 2618,
+        "all_snapshot_count": 34,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 2618,
+        "replay_snapshot_count": 34
+      }
     },
     {
       "classifications": [
@@ -9690,7 +10713,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 48.0,
-      "title": "Deportivo La Guaira vs Fluminense"
+      "title": "Deportivo La Guaira vs Fluminense",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 3,
+        "all_quote_rows": 30603,
+        "all_snapshot_count": 287,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 24,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 2,
+        "replay_quote_rows": 30579,
+        "replay_snapshot_count": 287
+      }
     },
     {
       "classifications": [
@@ -9794,7 +10828,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 47.0,
-      "title": "Ducks vs Oilers total 4.5"
+      "title": "Ducks vs Oilers total 4.5",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 2,
+        "all_quote_rows": 1966,
+        "all_snapshot_count": 43,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 1,
+        "replay_quote_rows": 1966,
+        "replay_snapshot_count": 43
+      }
     },
     {
       "classifications": [
@@ -9897,7 +10942,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 45.0,
-      "title": "Everton vs Arsenal"
+      "title": "Everton vs Arsenal",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 38235,
+        "all_snapshot_count": 264,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 729,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 37506,
+        "replay_snapshot_count": 264
+      }
     },
     {
       "classifications": [
@@ -10000,7 +11056,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 46.0,
-      "title": "Flamengo-RJ vs BAH"
+      "title": "Flamengo-RJ vs BAH",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 5,
+        "all_quote_rows": 41067,
+        "all_snapshot_count": 288,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 69,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 4,
+        "replay_quote_rows": 40998,
+        "replay_snapshot_count": 288
+      }
     },
     {
       "classifications": [
@@ -10103,7 +11170,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 44.0,
-      "title": "Hornets vs Kings"
+      "title": "Hornets vs Kings",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 4136,
+        "all_snapshot_count": 50,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 4136,
+        "replay_snapshot_count": 50
+      }
     },
     {
       "classifications": [
@@ -10206,7 +11284,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "Jazz vs Rockets"
+      "title": "Jazz vs Rockets",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 4370,
+        "all_snapshot_count": 58,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 94,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 4276,
+        "replay_snapshot_count": 58
+      }
     },
     {
       "classifications": [
@@ -10309,7 +11398,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 38.0,
-      "title": "Jazz vs Warriors"
+      "title": "Jazz vs Warriors",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 4876,
+        "all_snapshot_count": 61,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 4876,
+        "replay_snapshot_count": 61
+      }
     },
     {
       "classifications": [
@@ -10412,7 +11512,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "Kings vs Knicks"
+      "title": "Kings vs Knicks",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 2474,
+        "all_snapshot_count": 34,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 2474,
+        "replay_snapshot_count": 34
+      }
     },
     {
       "classifications": [
@@ -10515,7 +11626,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 40.0,
-      "title": "Kings vs Rockets"
+      "title": "Kings vs Rockets",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 2358,
+        "all_snapshot_count": 34,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 2358,
+        "replay_snapshot_count": 34
+      }
     },
     {
       "classifications": [
@@ -10619,7 +11741,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 476857.0,
-      "title": "Knicks vs Grizzlies"
+      "title": "Knicks vs Grizzlies",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 24906,
+        "all_snapshot_count": 287,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 402,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 24504,
+        "replay_snapshot_count": 287
+      }
     },
     {
       "classifications": [
@@ -10722,7 +11855,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 38.0,
-      "title": "Knicks vs Nets"
+      "title": "Knicks vs Nets",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 2408,
+        "all_snapshot_count": 33,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 2408,
+        "replay_snapshot_count": 33
+      }
     },
     {
       "classifications": [
@@ -10825,7 +11969,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 38.0,
-      "title": "Lille vs Nantes"
+      "title": "Lille vs Nantes",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 6,
+        "all_quote_rows": 11454,
+        "all_snapshot_count": 79,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 30,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 5,
+        "replay_quote_rows": 11424,
+        "replay_snapshot_count": 79
+      }
     },
     {
       "classifications": [
@@ -10928,7 +12083,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 53.0,
-      "title": "Lille vs Nice"
+      "title": "Lille vs Nice",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 6,
+        "all_quote_rows": 12831,
+        "all_snapshot_count": 89,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 48,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 5,
+        "replay_quote_rows": 12783,
+        "replay_snapshot_count": 89
+      }
     },
     {
       "classifications": [
@@ -11031,7 +12197,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "Manchester City vs Wolverhampton Wanderers"
+      "title": "Manchester City vs Wolverhampton Wanderers",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 28356,
+        "all_snapshot_count": 203,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 573,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 27783,
+        "replay_snapshot_count": 203
+      }
     },
     {
       "classifications": [
@@ -11134,7 +12311,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 38.0,
-      "title": "Mirassol vs Chapecoense"
+      "title": "Mirassol vs Chapecoense",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 5,
+        "all_quote_rows": 40302,
+        "all_snapshot_count": 283,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 69,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 4,
+        "replay_quote_rows": 40233,
+        "replay_snapshot_count": 283
+      }
     },
     {
       "classifications": [
@@ -11237,7 +12425,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "Mirassol vs LDU Quito"
+      "title": "Mirassol vs LDU Quito",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 3,
+        "all_quote_rows": 30531,
+        "all_snapshot_count": 285,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 30,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 2,
+        "replay_quote_rows": 30501,
+        "replay_snapshot_count": 285
+      }
     },
     {
       "classifications": [
@@ -11340,7 +12539,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "Napoli vs UDI"
+      "title": "Napoli vs UDI",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 8,
+        "all_quote_rows": 11994,
+        "all_snapshot_count": 81,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 180,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 7,
+        "replay_quote_rows": 11814,
+        "replay_snapshot_count": 81
+      }
     },
     {
       "classifications": [
@@ -11443,7 +12653,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 48.0,
-      "title": "Nets vs Heat"
+      "title": "Nets vs Heat",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 2426,
+        "all_snapshot_count": 33,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 2426,
+        "replay_snapshot_count": 33
+      }
     },
     {
       "classifications": [
@@ -11546,7 +12767,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 45.0,
-      "title": "PAR vs Napoli"
+      "title": "PAR vs Napoli",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 8,
+        "all_quote_rows": 9396,
+        "all_snapshot_count": 66,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 174,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 7,
+        "replay_quote_rows": 9222,
+        "replay_snapshot_count": 66
+      }
     },
     {
       "classifications": [
@@ -11649,7 +12881,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 38.0,
-      "title": "PAR vs ROM"
+      "title": "PAR vs ROM",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 8,
+        "all_quote_rows": 11598,
+        "all_snapshot_count": 79,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 180,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 7,
+        "replay_quote_rows": 11418,
+        "replay_snapshot_count": 79
+      }
     },
     {
       "classifications": [
@@ -11752,7 +12995,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 42.0,
-      "title": "Pacers vs Clippers"
+      "title": "Pacers vs Clippers",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 5400,
+        "all_snapshot_count": 66,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 92,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 5308,
+        "replay_snapshot_count": 66
+      }
     },
     {
       "classifications": [
@@ -11856,7 +13110,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 1538.0,
-      "title": "Pacers vs Hornets"
+      "title": "Pacers vs Hornets",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 25468,
+        "all_snapshot_count": 283,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 420,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 25048,
+        "replay_snapshot_count": 283
+      }
     },
     {
       "classifications": [
@@ -11959,7 +13224,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 45.0,
-      "title": "Pacers vs Pistons"
+      "title": "Pacers vs Pistons",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 1522,
+        "all_snapshot_count": 27,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 1522,
+        "replay_snapshot_count": 27
+      }
     },
     {
       "classifications": [
@@ -12062,7 +13338,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 53.0,
-      "title": "Palermo vs Avellino"
+      "title": "Palermo vs Avellino",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 2,
+        "all_quote_rows": 10419,
+        "all_snapshot_count": 83,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 126,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 1,
+        "replay_quote_rows": 10293,
+        "replay_snapshot_count": 83
+      }
     },
     {
       "classifications": [
@@ -12165,7 +13452,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 38.0,
-      "title": "Palmeiras vs Santos"
+      "title": "Palmeiras vs Santos",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 5,
+        "all_quote_rows": 40103,
+        "all_snapshot_count": 283,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 69,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 4,
+        "replay_quote_rows": 40034,
+        "replay_snapshot_count": 283
+      }
     },
     {
       "classifications": [
@@ -12268,7 +13566,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 39.0,
-      "title": "Pelicans vs Thunder"
+      "title": "Pelicans vs Thunder",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 22682,
+        "all_snapshot_count": 271,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 94,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 22588,
+        "replay_snapshot_count": 271
+      }
     },
     {
       "classifications": [
@@ -12371,7 +13680,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "Pelicans vs Thunder"
+      "title": "Pelicans vs Thunder",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 2998,
+        "all_snapshot_count": 41,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 2998,
+        "replay_snapshot_count": 41
+      }
     },
     {
       "classifications": [
@@ -12474,7 +13794,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 218.0,
-      "title": "RC Lens vs Nice"
+      "title": "RC Lens vs Nice",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 6,
+        "all_quote_rows": 30756,
+        "all_snapshot_count": 215,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 30,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 5,
+        "replay_quote_rows": 30726,
+        "replay_snapshot_count": 215
+      }
     },
     {
       "classifications": [
@@ -12577,7 +13908,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 50.0,
-      "title": "ROM vs SAS"
+      "title": "ROM vs SAS",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 8,
+        "all_quote_rows": 11694,
+        "all_snapshot_count": 81,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 30,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 7,
+        "replay_quote_rows": 11664,
+        "replay_snapshot_count": 81
+      }
     },
     {
       "classifications": [
@@ -12680,7 +14022,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 44.0,
-      "title": "Real Madrid vs Real Betis"
+      "title": "Real Madrid vs Real Betis",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 9117,
+        "all_snapshot_count": 73,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 27,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 9090,
+        "replay_snapshot_count": 73
+      }
     },
     {
       "classifications": [
@@ -12783,7 +14136,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 65.0,
-      "title": "SC Freiburg vs Bayern Munich"
+      "title": "SC Freiburg vs Bayern Munich",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 9606,
+        "all_snapshot_count": 68,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 171,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 9435,
+        "replay_snapshot_count": 68
+      }
     },
     {
       "classifications": [
@@ -12886,7 +14250,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 45.0,
-      "title": "Spurs vs Kings"
+      "title": "Spurs vs Kings",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 3176,
+        "all_snapshot_count": 41,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 3176,
+        "replay_snapshot_count": 41
+      }
     },
     {
       "classifications": [
@@ -12989,7 +14364,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 38.0,
-      "title": "Suns vs Nuggets"
+      "title": "Suns vs Nuggets",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 2746,
+        "all_snapshot_count": 42,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 2746,
+        "replay_snapshot_count": 42
+      }
     },
     {
       "classifications": [
@@ -13092,7 +14478,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 41.0,
-      "title": "TSG Hoffenheim vs VfL Wolfsburg"
+      "title": "TSG Hoffenheim vs VfL Wolfsburg",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 10392,
+        "all_snapshot_count": 72,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 30,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 10362,
+        "replay_snapshot_count": 72
+      }
     },
     {
       "classifications": [
@@ -13195,7 +14592,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 46.0,
-      "title": "VER vs MIL"
+      "title": "VER vs MIL",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 8,
+        "all_quote_rows": 9408,
+        "all_snapshot_count": 65,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 177,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 7,
+        "replay_quote_rows": 9231,
+        "replay_snapshot_count": 65
+      }
     },
     {
       "classifications": [
@@ -13299,7 +14707,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 670836.0,
-      "title": "V\u00e5lerenga vs Kristiansund BK total 1.5"
+      "title": "V\u00e5lerenga vs Kristiansund BK total 1.5",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 71,
+        "all_quote_rows": 27104,
+        "all_snapshot_count": 690,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 3828,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 1,
+        "replay_quote_rows": 23276,
+        "replay_snapshot_count": 690
+      }
     },
     {
       "classifications": [
@@ -13402,7 +14821,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 39.0,
-      "title": "Wizards vs Suns"
+      "title": "Wizards vs Suns",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 2642,
+        "all_snapshot_count": 38,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 2642,
+        "replay_snapshot_count": 38
+      }
     },
     {
       "classifications": [
@@ -13505,7 +14935,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 42.0,
-      "title": "Wizards vs Warriors"
+      "title": "Wizards vs Warriors",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 4398,
+        "all_snapshot_count": 54,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 4398,
+        "replay_snapshot_count": 54
+      }
     },
     {
       "classifications": [
@@ -13608,7 +15049,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 44.0,
-      "title": "1. FC K\u00f6ln vs Bayern Munich"
+      "title": "1. FC K\u00f6ln vs Bayern Munich",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 13050,
+        "all_snapshot_count": 92,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 45,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 13005,
+        "replay_snapshot_count": 92
+      }
     },
     {
       "classifications": [
@@ -13711,7 +15163,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 41.0,
-      "title": "AS Monaco vs Angers"
+      "title": "AS Monaco vs Angers",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 6,
+        "all_quote_rows": 12171,
+        "all_snapshot_count": 85,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 30,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 5,
+        "replay_quote_rows": 12141,
+        "replay_snapshot_count": 85
+      }
     },
     {
       "classifications": [
@@ -13814,7 +15277,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 45.0,
-      "title": "Athletico Paranaense vs Chapecoense"
+      "title": "Athletico Paranaense vs Chapecoense",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 5,
+        "all_quote_rows": 24330,
+        "all_snapshot_count": 191,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 24,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 4,
+        "replay_quote_rows": 24306,
+        "replay_snapshot_count": 191
+      }
     },
     {
       "classifications": [
@@ -13917,7 +15391,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "Atl\u00e9tico Madrid vs Club Brugge"
+      "title": "Atl\u00e9tico Madrid vs Club Brugge",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 11907,
+        "all_snapshot_count": 84,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 30,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 11877,
+        "replay_snapshot_count": 84
+      }
     },
     {
       "classifications": [
@@ -14020,7 +15505,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 43.0,
-      "title": "Barcelona vs Celta Vigo"
+      "title": "Barcelona vs Celta Vigo",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 11940,
+        "all_snapshot_count": 93,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 171,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 11769,
+        "replay_snapshot_count": 93
+      }
     },
     {
       "classifications": [
@@ -14123,7 +15619,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "Bayer Leverkusen vs FC St. Pauli"
+      "title": "Bayer Leverkusen vs FC St. Pauli",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 9840,
+        "all_snapshot_count": 68,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 30,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 9810,
+        "replay_snapshot_count": 68
+      }
     },
     {
       "classifications": [
@@ -14226,7 +15733,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 38.0,
-      "title": "Bayern Munich vs SPO"
+      "title": "Bayern Munich vs SPO",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 11649,
+        "all_snapshot_count": 83,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 30,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 11619,
+        "replay_snapshot_count": 83
+      }
     },
     {
       "classifications": [
@@ -14329,7 +15847,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 38.0,
-      "title": "Bayern Munich vs TSG Hoffenheim"
+      "title": "Bayern Munich vs TSG Hoffenheim",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 11028,
+        "all_snapshot_count": 78,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 30,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 10998,
+        "replay_snapshot_count": 78
+      }
     },
     {
       "classifications": [
@@ -14432,7 +15961,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 39.0,
-      "title": "Bucks vs Clippers"
+      "title": "Bucks vs Clippers",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 3902,
+        "all_snapshot_count": 49,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 3902,
+        "replay_snapshot_count": 49
+      }
     },
     {
       "classifications": [
@@ -14535,7 +16075,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 38.0,
-      "title": "CRE vs MIL"
+      "title": "CRE vs MIL",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 8,
+        "all_quote_rows": 8514,
+        "all_snapshot_count": 59,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 18,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 7,
+        "replay_quote_rows": 8496,
+        "replay_snapshot_count": 59
+      }
     },
     {
       "classifications": [
@@ -14638,7 +16189,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 45.0,
-      "title": "Cavaliers vs Wizards"
+      "title": "Cavaliers vs Wizards",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 1330,
+        "all_snapshot_count": 24,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 1330,
+        "replay_snapshot_count": 24
+      }
     },
     {
       "classifications": [
@@ -14741,7 +16303,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 38.0,
-      "title": "FLU vs Vit\u00f3ria"
+      "title": "FLU vs Vit\u00f3ria",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 5,
+        "all_quote_rows": 39435,
+        "all_snapshot_count": 276,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 66,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 4,
+        "replay_quote_rows": 39369,
+        "replay_snapshot_count": 276
+      }
     },
     {
       "classifications": [
@@ -14844,7 +16417,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "Flamengo-RJ vs Estudiantes La Plata"
+      "title": "Flamengo-RJ vs Estudiantes La Plata",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 3,
+        "all_quote_rows": 2427,
+        "all_snapshot_count": 29,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 2,
+        "replay_quote_rows": 2427,
+        "replay_snapshot_count": 29
+      }
     },
     {
       "classifications": [
@@ -14947,7 +16531,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "Inter Milan vs Bod\u00f8/Glimt"
+      "title": "Inter Milan vs Bod\u00f8/Glimt",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 13635,
+        "all_snapshot_count": 96,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 60,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 13575,
+        "replay_snapshot_count": 96
+      }
     },
     {
       "classifications": [
@@ -15050,7 +16645,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 42.0,
-      "title": "Jets vs Jaguars"
+      "title": "Jets vs Jaguars",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 18200,
+        "all_snapshot_count": 246,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 96,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 18104,
+        "replay_snapshot_count": 246
+      }
     },
     {
       "classifications": [
@@ -15153,7 +16759,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 46.0,
-      "title": "Juventus vs BOL"
+      "title": "Juventus vs BOL",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 8,
+        "all_quote_rows": 12876,
+        "all_snapshot_count": 89,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 195,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 7,
+        "replay_quote_rows": 12681,
+        "replay_snapshot_count": 89
+      }
     },
     {
       "classifications": [
@@ -15256,7 +16873,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 38.0,
-      "title": "LEC vs Juventus"
+      "title": "LEC vs Juventus",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 8,
+        "all_quote_rows": 13062,
+        "all_snapshot_count": 89,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 195,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 7,
+        "replay_quote_rows": 12867,
+        "replay_snapshot_count": 89
+      }
     },
     {
       "classifications": [
@@ -15359,7 +16987,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 41.0,
-      "title": "Liverpool vs West Ham United"
+      "title": "Liverpool vs West Ham United",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 29103,
+        "all_snapshot_count": 201,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 594,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 28509,
+        "replay_snapshot_count": 201
+      }
     },
     {
       "classifications": [
@@ -15462,7 +17101,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 40.0,
-      "title": "MAD vs Espanyol"
+      "title": "MAD vs Espanyol",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 12033,
+        "all_snapshot_count": 93,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 48,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 11985,
+        "replay_snapshot_count": 93
+      }
     },
     {
       "classifications": [
@@ -15565,7 +17215,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "Manchester City vs Galatasaray"
+      "title": "Manchester City vs Galatasaray",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 12705,
+        "all_snapshot_count": 94,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 54,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 12651,
+        "replay_snapshot_count": 94
+      }
     },
     {
       "classifications": [
@@ -15668,7 +17329,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 44.0,
-      "title": "Marseille vs Auxerre"
+      "title": "Marseille vs Auxerre",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 6,
+        "all_quote_rows": 13443,
+        "all_snapshot_count": 92,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 57,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 5,
+        "replay_quote_rows": 13386,
+        "replay_snapshot_count": 92
+      }
     },
     {
       "classifications": [
@@ -15771,7 +17443,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "Mavericks vs Timberwolves"
+      "title": "Mavericks vs Timberwolves",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 2576,
+        "all_snapshot_count": 36,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 2576,
+        "replay_snapshot_count": 36
+      }
     },
     {
       "classifications": [
@@ -15874,7 +17557,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 46.0,
-      "title": "Nottingham Forest vs Burnley"
+      "title": "Nottingham Forest vs Burnley",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 25866,
+        "all_snapshot_count": 177,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 588,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 25278,
+        "replay_snapshot_count": 177
+      }
     },
     {
       "classifications": [
@@ -15977,7 +17671,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 46.0,
-      "title": "Nuggets vs Pelicans"
+      "title": "Nuggets vs Pelicans",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 2968,
+        "all_snapshot_count": 41,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 2968,
+        "replay_snapshot_count": 41
+      }
     },
     {
       "classifications": [
@@ -16080,7 +17785,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 44.0,
-      "title": "Pistons vs Nets"
+      "title": "Pistons vs Nets",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 25842,
+        "all_snapshot_count": 288,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 516,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 25326,
+        "replay_snapshot_count": 288
+      }
     },
     {
       "classifications": [
@@ -16183,7 +17899,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 38.0,
-      "title": "RB Leipzig vs Union Berlin"
+      "title": "RB Leipzig vs Union Berlin",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 12609,
+        "all_snapshot_count": 85,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 180,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 12429,
+        "replay_snapshot_count": 85
+      }
     },
     {
       "classifications": [
@@ -16286,7 +18013,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 98.0,
-      "title": "RC Lens vs Auxerre"
+      "title": "RC Lens vs Auxerre",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 6,
+        "all_quote_rows": 25821,
+        "all_snapshot_count": 179,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 30,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 5,
+        "replay_quote_rows": 25791,
+        "replay_snapshot_count": 179
+      }
     },
     {
       "classifications": [
@@ -16389,7 +18127,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 42.0,
-      "title": "Raiders vs Eagles"
+      "title": "Raiders vs Eagles",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 18030,
+        "all_snapshot_count": 241,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 92,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 17938,
+        "replay_snapshot_count": 241
+      }
     },
     {
       "classifications": [
@@ -16492,7 +18241,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 40.0,
-      "title": "Real Sociedad vs Oviedo"
+      "title": "Real Sociedad vs Oviedo",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 8775,
+        "all_snapshot_count": 66,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 27,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 8748,
+        "replay_snapshot_count": 66
+      }
     },
     {
       "classifications": [
@@ -16596,7 +18356,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 461737.0,
-      "title": "Rockets vs Wizards"
+      "title": "Rockets vs Wizards",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 27390,
+        "all_snapshot_count": 320,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 434,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 26956,
+        "replay_snapshot_count": 320
+      }
     },
     {
       "classifications": [
@@ -16699,7 +18470,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 38.0,
-      "title": "SAS vs Inter Milan"
+      "title": "SAS vs Inter Milan",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 8,
+        "all_quote_rows": 11322,
+        "all_snapshot_count": 78,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 30,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 7,
+        "replay_quote_rows": 11292,
+        "replay_snapshot_count": 78
+      }
     },
     {
       "classifications": [
@@ -16802,7 +18584,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "TOR vs Inter Milan"
+      "title": "TOR vs Inter Milan",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 8,
+        "all_quote_rows": 11406,
+        "all_snapshot_count": 78,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 180,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 7,
+        "replay_quote_rows": 11226,
+        "replay_snapshot_count": 78
+      }
     },
     {
       "classifications": [
@@ -16905,7 +18698,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "TOR vs Juventus"
+      "title": "TOR vs Juventus",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 8,
+        "all_quote_rows": 14451,
+        "all_snapshot_count": 99,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 201,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 7,
+        "replay_quote_rows": 14250,
+        "replay_snapshot_count": 99
+      }
     },
     {
       "classifications": [
@@ -17008,7 +18812,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 42.0,
-      "title": "Titans vs 49ers"
+      "title": "Titans vs 49ers",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 21280,
+        "all_snapshot_count": 288,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 204,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 21076,
+        "replay_snapshot_count": 288
+      }
     },
     {
       "classifications": [
@@ -17111,7 +18926,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 38.0,
-      "title": "Tottenham Hotspur vs Slavia Praha"
+      "title": "Tottenham Hotspur vs Slavia Praha",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 13308,
+        "all_snapshot_count": 93,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 60,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 13248,
+        "replay_snapshot_count": 93
+      }
     },
     {
       "classifications": [
@@ -17214,7 +19040,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 218.0,
-      "title": "UDI vs Inter Milan"
+      "title": "UDI vs Inter Milan",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 8,
+        "all_quote_rows": 8622,
+        "all_snapshot_count": 60,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 30,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 7,
+        "replay_quote_rows": 8592,
+        "replay_snapshot_count": 60
+      }
     },
     {
       "classifications": [
@@ -17317,7 +19154,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 41.0,
-      "title": "VER vs Napoli"
+      "title": "VER vs Napoli",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 8,
+        "all_quote_rows": 11526,
+        "all_snapshot_count": 81,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 30,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 7,
+        "replay_quote_rows": 11496,
+        "replay_snapshot_count": 81
+      }
     },
     {
       "classifications": [
@@ -17420,7 +19268,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 50.0,
-      "title": "Villarreal vs Alav\u00e9s"
+      "title": "Villarreal vs Alav\u00e9s",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 9372,
+        "all_snapshot_count": 73,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 24,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 9348,
+        "replay_snapshot_count": 73
+      }
     },
     {
       "classifications": [
@@ -17523,7 +19382,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "ATA vs PAR"
+      "title": "ATA vs PAR",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 8,
+        "all_quote_rows": 9654,
+        "all_snapshot_count": 69,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 30,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 7,
+        "replay_quote_rows": 9624,
+        "replay_snapshot_count": 69
+      }
     },
     {
       "classifications": [
@@ -17626,7 +19496,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 38.0,
-      "title": "Arsenal vs Fulham"
+      "title": "Arsenal vs Fulham",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 31602,
+        "all_snapshot_count": 216,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 597,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 31005,
+        "replay_snapshot_count": 216
+      }
     },
     {
       "classifications": [
@@ -17729,7 +19610,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 41.0,
-      "title": "Barcelona vs Villarreal"
+      "title": "Barcelona vs Villarreal",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 9693,
+        "all_snapshot_count": 73,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 27,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 9666,
+        "replay_snapshot_count": 73
+      }
     },
     {
       "classifications": [
@@ -17832,7 +19724,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 45.0,
-      "title": "Bayern Munich vs Atalanta BC"
+      "title": "Bayern Munich vs Atalanta BC",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 13248,
+        "all_snapshot_count": 93,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 60,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 13188,
+        "replay_snapshot_count": 93
+      }
     },
     {
       "classifications": [
@@ -17935,7 +19838,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "Borussia Dortmund vs SC Freiburg"
+      "title": "Borussia Dortmund vs SC Freiburg",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 10683,
+        "all_snapshot_count": 75,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 177,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 10506,
+        "replay_snapshot_count": 75
+      }
     },
     {
       "classifications": [
@@ -18038,7 +19952,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 44.0,
-      "title": "Chargers vs Broncos"
+      "title": "Chargers vs Broncos",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 21258,
+        "all_snapshot_count": 288,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 200,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 21058,
+        "replay_snapshot_count": 288
+      }
     },
     {
       "classifications": [
@@ -18141,7 +20066,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 43.0,
-      "title": "Club Brugge vs Arsenal"
+      "title": "Club Brugge vs Arsenal",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 13158,
+        "all_snapshot_count": 91,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 57,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 13101,
+        "replay_snapshot_count": 91
+      }
     },
     {
       "classifications": [
@@ -18244,7 +20180,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "Elche CF vs Barcelona"
+      "title": "Elche CF vs Barcelona",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 12222,
+        "all_snapshot_count": 93,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 54,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 12168,
+        "replay_snapshot_count": 93
+      }
     },
     {
       "classifications": [
@@ -18347,7 +20294,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 50.0,
-      "title": "FC St. Pauli vs Bayern Munich"
+      "title": "FC St. Pauli vs Bayern Munich",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 11406,
+        "all_snapshot_count": 80,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 174,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 11232,
+        "replay_snapshot_count": 80
+      }
     },
     {
       "classifications": [
@@ -18450,7 +20408,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 40.0,
-      "title": "Grizzlies vs Thunder"
+      "title": "Grizzlies vs Thunder",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 4814,
+        "all_snapshot_count": 59,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 92,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 4722,
+        "replay_snapshot_count": 59
+      }
     },
     {
       "classifications": [
@@ -18553,7 +20522,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 46.0,
-      "title": "Hawks vs Thunder"
+      "title": "Hawks vs Thunder",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 3054,
+        "all_snapshot_count": 41,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 3054,
+        "replay_snapshot_count": 41
+      }
     },
     {
       "classifications": [
@@ -18656,7 +20636,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 44.0,
-      "title": "Inter Milan vs BOL"
+      "title": "Inter Milan vs BOL",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 8,
+        "all_quote_rows": 12897,
+        "all_snapshot_count": 92,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 57,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 7,
+        "replay_quote_rows": 12840,
+        "replay_snapshot_count": 92
+      }
     },
     {
       "classifications": [
@@ -18759,7 +20750,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 64.0,
-      "title": "Jazz vs Thunder"
+      "title": "Jazz vs Thunder",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 3456,
+        "all_snapshot_count": 46,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 3456,
+        "replay_snapshot_count": 46
+      }
     },
     {
       "classifications": [
@@ -18862,7 +20864,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 44.0,
-      "title": "Knicks vs Jazz"
+      "title": "Knicks vs Jazz",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 3176,
+        "all_snapshot_count": 40,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 3176,
+        "replay_snapshot_count": 40
+      }
     },
     {
       "classifications": [
@@ -18965,7 +20978,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 40.0,
-      "title": "LEC vs Inter Milan"
+      "title": "LEC vs Inter Milan",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 8,
+        "all_quote_rows": 11829,
+        "all_snapshot_count": 81,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 30,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 7,
+        "replay_quote_rows": 11799,
+        "replay_snapshot_count": 81
+      }
     },
     {
       "classifications": [
@@ -19068,7 +21092,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 43.0,
-      "title": "Liverpool vs Sunderland"
+      "title": "Liverpool vs Sunderland",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 37836,
+        "all_snapshot_count": 266,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 285,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 37551,
+        "replay_snapshot_count": 266
+      }
     },
     {
       "classifications": [
@@ -19171,7 +21206,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 97.0,
-      "title": "Lyon vs Nantes"
+      "title": "Lyon vs Nantes",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 6,
+        "all_quote_rows": 37032,
+        "all_snapshot_count": 255,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 57,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 5,
+        "replay_quote_rows": 36975,
+        "replay_snapshot_count": 255
+      }
     },
     {
       "classifications": [
@@ -19274,7 +21320,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 42.0,
-      "title": "MIL vs SAS"
+      "title": "MIL vs SAS",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 8,
+        "all_quote_rows": 8508,
+        "all_snapshot_count": 60,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 18,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 7,
+        "replay_quote_rows": 8490,
+        "replay_snapshot_count": 60
+      }
     },
     {
       "classifications": [
@@ -19377,7 +21434,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "Mallorca vs Oviedo"
+      "title": "Mallorca vs Oviedo",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 12165,
+        "all_snapshot_count": 89,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 180,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 11985,
+        "replay_snapshot_count": 89
+      }
     },
     {
       "classifications": [
@@ -19480,7 +21548,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 38.0,
-      "title": "Manchester City vs Brentford"
+      "title": "Manchester City vs Brentford",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 32376,
+        "all_snapshot_count": 219,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 594,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 31782,
+        "replay_snapshot_count": 219
+      }
     },
     {
       "classifications": [
@@ -19583,7 +21662,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 38.0,
-      "title": "Metz vs AS Monaco"
+      "title": "Metz vs AS Monaco",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 6,
+        "all_quote_rows": 12147,
+        "all_snapshot_count": 84,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 30,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 5,
+        "replay_quote_rows": 12117,
+        "replay_snapshot_count": 84
+      }
     },
     {
       "classifications": [
@@ -19686,7 +21776,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 50.0,
-      "title": "Nets vs Pistons"
+      "title": "Nets vs Pistons",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 25366,
+        "all_snapshot_count": 288,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 412,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 24954,
+        "replay_snapshot_count": 288
+      }
     },
     {
       "classifications": [
@@ -19789,7 +21890,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "PAR vs Juventus"
+      "title": "PAR vs Juventus",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 8,
+        "all_quote_rows": 12953,
+        "all_snapshot_count": 90,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 57,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 7,
+        "replay_quote_rows": 12896,
+        "replay_snapshot_count": 90
+      }
     },
     {
       "classifications": [
@@ -19892,7 +22004,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 42.0,
-      "title": "PIS vs Juventus"
+      "title": "PIS vs Juventus",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 8,
+        "all_quote_rows": 13275,
+        "all_snapshot_count": 93,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 54,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 7,
+        "replay_quote_rows": 13221,
+        "replay_snapshot_count": 93
+      }
     },
     {
       "classifications": [
@@ -19995,7 +22118,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 38.0,
-      "title": "Paris Saint Germain vs Lorient"
+      "title": "Paris Saint Germain vs Lorient",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 6,
+        "all_quote_rows": 10677,
+        "all_snapshot_count": 74,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 30,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 5,
+        "replay_quote_rows": 10647,
+        "replay_snapshot_count": 74
+      }
     },
     {
       "classifications": [
@@ -20098,7 +22232,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 43.0,
-      "title": "Patriots vs Jets"
+      "title": "Patriots vs Jets",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 17194,
+        "all_snapshot_count": 239,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 76,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 17118,
+        "replay_snapshot_count": 239
+      }
     },
     {
       "classifications": [
@@ -20201,7 +22346,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "Qaraba\u011f FK vs Newcastle United"
+      "title": "Qaraba\u011f FK vs Newcastle United",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 10872,
+        "all_snapshot_count": 80,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 30,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 10842,
+        "replay_snapshot_count": 80
+      }
     },
     {
       "classifications": [
@@ -20304,7 +22460,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "RC Lens vs Le Havre"
+      "title": "RC Lens vs Le Havre",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 6,
+        "all_quote_rows": 27468,
+        "all_snapshot_count": 189,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 57,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 5,
+        "replay_quote_rows": 27411,
+        "replay_snapshot_count": 189
+      }
     },
     {
       "classifications": [
@@ -20407,7 +22574,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "ROM vs CAG"
+      "title": "ROM vs CAG",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 8,
+        "all_quote_rows": 13197,
+        "all_snapshot_count": 92,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 57,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 7,
+        "replay_quote_rows": 13140,
+        "replay_snapshot_count": 92
+      }
     },
     {
       "classifications": [
@@ -20510,7 +22688,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "Real Madrid vs Real Sociedad"
+      "title": "Real Madrid vs Real Sociedad",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 12306,
+        "all_snapshot_count": 94,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 54,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 12252,
+        "replay_snapshot_count": 94
+      }
     },
     {
       "classifications": [
@@ -20613,7 +22802,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "Rennes vs Nantes"
+      "title": "Rennes vs Nantes",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 6,
+        "all_quote_rows": 10893,
+        "all_snapshot_count": 75,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 30,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 5,
+        "replay_quote_rows": 10863,
+        "replay_snapshot_count": 75
+      }
     },
     {
       "classifications": [
@@ -20716,7 +22916,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 42.0,
-      "title": "Rockets vs Grizzlies"
+      "title": "Rockets vs Grizzlies",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 1946,
+        "all_snapshot_count": 27,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 1946,
+        "replay_snapshot_count": 27
+      }
     },
     {
       "classifications": [
@@ -20819,7 +23030,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 58.0,
-      "title": "Spurs vs Warriors"
+      "title": "Spurs vs Warriors",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 3602,
+        "all_snapshot_count": 52,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 3602,
+        "replay_snapshot_count": 52
+      }
     },
     {
       "classifications": [
@@ -20922,7 +23144,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 41.0,
-      "title": "Sunderland vs Manchester City"
+      "title": "Sunderland vs Manchester City",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 38445,
+        "all_snapshot_count": 264,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 735,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 37710,
+        "replay_snapshot_count": 264
+      }
     },
     {
       "classifications": [
@@ -21025,7 +23258,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 43.0,
-      "title": "Suns vs Thunder"
+      "title": "Suns vs Thunder",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 4406,
+        "all_snapshot_count": 60,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 4406,
+        "replay_snapshot_count": 60
+      }
     },
     {
       "classifications": [
@@ -21129,7 +23373,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 46.0,
-      "title": "Suns vs Thunder"
+      "title": "Suns vs Thunder",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 21956,
+        "all_snapshot_count": 260,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 308,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 21648,
+        "replay_snapshot_count": 260
+      }
     },
     {
       "classifications": [
@@ -21232,7 +23487,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 41.0,
-      "title": "Trail Blazers vs Thunder"
+      "title": "Trail Blazers vs Thunder",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 2506,
+        "all_snapshot_count": 39,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 2506,
+        "replay_snapshot_count": 39
+      }
     },
     {
       "classifications": [
@@ -21335,7 +23601,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 38.0,
-      "title": "VER vs COM"
+      "title": "VER vs COM",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 8,
+        "all_quote_rows": 8004,
+        "all_snapshot_count": 56,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 162,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 7,
+        "replay_quote_rows": 7842,
+        "replay_snapshot_count": 56
+      }
     },
     {
       "classifications": [
@@ -21438,7 +23715,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 45.0,
-      "title": "VfB Stuttgart vs Hamburger SV"
+      "title": "VfB Stuttgart vs Hamburger SV",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 10362,
+        "all_snapshot_count": 72,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 171,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 10191,
+        "replay_snapshot_count": 72
+      }
     },
     {
       "classifications": [
@@ -21541,7 +23829,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 158.0,
-      "title": "Wizards vs Raptors"
+      "title": "Wizards vs Raptors",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 1678,
+        "all_snapshot_count": 27,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 1678,
+        "replay_snapshot_count": 27
+      }
     },
     {
       "classifications": [
@@ -21644,7 +23943,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 48.0,
-      "title": "Wizards vs Spurs"
+      "title": "Wizards vs Spurs",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 2776,
+        "all_snapshot_count": 37,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 2776,
+        "replay_snapshot_count": 37
+      }
     },
     {
       "classifications": [
@@ -21747,7 +24057,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 43.0,
-      "title": "Arsenal vs Brentford"
+      "title": "Arsenal vs Brentford",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 36408,
+        "all_snapshot_count": 256,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 249,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 36159,
+        "replay_snapshot_count": 256
+      }
     },
     {
       "classifications": [
@@ -21850,7 +24171,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 42.0,
-      "title": "Arsenal vs Brighton and Hove Albion"
+      "title": "Arsenal vs Brighton and Hove Albion",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 29349,
+        "all_snapshot_count": 203,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 588,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 28761,
+        "replay_snapshot_count": 203
+      }
     },
     {
       "classifications": [
@@ -21953,7 +24285,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 50.0,
-      "title": "Barcelona vs Espanyol"
+      "title": "Barcelona vs Espanyol",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 10368,
+        "all_snapshot_count": 80,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 162,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 10206,
+        "replay_snapshot_count": 80
+      }
     },
     {
       "classifications": [
@@ -22056,7 +24399,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "Barcelona vs Real Betis"
+      "title": "Barcelona vs Real Betis",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 11367,
+        "all_snapshot_count": 90,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 162,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 11205,
+        "replay_snapshot_count": 90
+      }
     },
     {
       "classifications": [
@@ -22159,7 +24513,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 56.0,
-      "title": "Borussia Dortmund vs Werder Bremen"
+      "title": "Borussia Dortmund vs Werder Bremen",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 12960,
+        "all_snapshot_count": 90,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 45,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 12915,
+        "replay_snapshot_count": 90
+      }
     },
     {
       "classifications": [
@@ -22262,7 +24627,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 40.0,
-      "title": "Flamengo-RJ vs Internacional"
+      "title": "Flamengo-RJ vs Internacional",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 5,
+        "all_quote_rows": 40299,
+        "all_snapshot_count": 288,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 66,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 4,
+        "replay_quote_rows": 40233,
+        "replay_snapshot_count": 288
+      }
     },
     {
       "classifications": [
@@ -22365,7 +24741,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 47.0,
-      "title": "Grizzlies vs Rockets"
+      "title": "Grizzlies vs Rockets",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 1746,
+        "all_snapshot_count": 27,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 1746,
+        "replay_snapshot_count": 27
+      }
     },
     {
       "classifications": [
@@ -22468,7 +24855,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 53.0,
-      "title": "Jazz vs Knicks"
+      "title": "Jazz vs Knicks",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 1594,
+        "all_snapshot_count": 29,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 1594,
+        "replay_snapshot_count": 29
+      }
     },
     {
       "classifications": [
@@ -22571,7 +24969,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 47.0,
-      "title": "Jazz vs Lakers"
+      "title": "Jazz vs Lakers",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 2068,
+        "all_snapshot_count": 30,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 2068,
+        "replay_snapshot_count": 30
+      }
     },
     {
       "classifications": [
@@ -22674,7 +25083,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 52.0,
-      "title": "Kings vs Warriors"
+      "title": "Kings vs Warriors",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 4426,
+        "all_snapshot_count": 53,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 4426,
+        "replay_snapshot_count": 53
+      }
     },
     {
       "classifications": [
@@ -22777,7 +25197,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "LDU Quito vs Club Always Ready"
+      "title": "LDU Quito vs Club Always Ready",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 3,
+        "all_quote_rows": 30306,
+        "all_snapshot_count": 286,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 99,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 2,
+        "replay_quote_rows": 30207,
+        "replay_snapshot_count": 286
+      }
     },
     {
       "classifications": [
@@ -22881,7 +25312,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 39.0,
-      "title": "LEE vs Burnley"
+      "title": "LEE vs Burnley",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 36447,
+        "all_snapshot_count": 234,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 693,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 35754,
+        "replay_snapshot_count": 234
+      }
     },
     {
       "classifications": [
@@ -22984,7 +25426,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 217.0,
-      "title": "Lille vs Le Havre"
+      "title": "Lille vs Le Havre",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 6,
+        "all_quote_rows": 9396,
+        "all_snapshot_count": 65,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 30,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 5,
+        "replay_quote_rows": 9366,
+        "replay_snapshot_count": 65
+      }
     },
     {
       "classifications": [
@@ -23087,7 +25540,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 38.0,
-      "title": "Manchester City vs Fulham"
+      "title": "Manchester City vs Fulham",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 36933,
+        "all_snapshot_count": 254,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 696,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 36237,
+        "replay_snapshot_count": 254
+      }
     },
     {
       "classifications": [
@@ -23190,7 +25654,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 46.0,
-      "title": "Manchester United vs Wolverhampton Wanderers"
+      "title": "Manchester United vs Wolverhampton Wanderers",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 38796,
+        "all_snapshot_count": 266,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 732,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 38064,
+        "replay_snapshot_count": 266
+      }
     },
     {
       "classifications": [
@@ -23293,7 +25768,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 53.0,
-      "title": "Mavericks vs Thunder"
+      "title": "Mavericks vs Thunder",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 4320,
+        "all_snapshot_count": 54,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 90,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 4230,
+        "replay_snapshot_count": 54
+      }
     },
     {
       "classifications": [
@@ -23396,7 +25882,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 279.0,
-      "title": "Napoli vs SAS"
+      "title": "Napoli vs SAS",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 8,
+        "all_quote_rows": 12639,
+        "all_snapshot_count": 87,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 30,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 7,
+        "replay_quote_rows": 12609,
+        "replay_snapshot_count": 87
+      }
     },
     {
       "classifications": [
@@ -23499,7 +25996,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 39.0,
-      "title": "Nets vs Trail Blazers"
+      "title": "Nets vs Trail Blazers",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 3670,
+        "all_snapshot_count": 53,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 3670,
+        "replay_snapshot_count": 53
+      }
     },
     {
       "classifications": [
@@ -23602,7 +26110,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 42.0,
-      "title": "Nice vs Paris Saint Germain"
+      "title": "Nice vs Paris Saint Germain",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 6,
+        "all_quote_rows": 13257,
+        "all_snapshot_count": 91,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 57,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 5,
+        "replay_quote_rows": 13200,
+        "replay_snapshot_count": 91
+      }
     },
     {
       "classifications": [
@@ -23705,7 +26224,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 48.0,
-      "title": "Raiders vs Texans"
+      "title": "Raiders vs Texans",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 20948,
+        "all_snapshot_count": 288,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 202,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 20746,
+        "replay_snapshot_count": 288
+      }
     },
     {
       "classifications": [
@@ -23808,7 +26338,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 38.0,
-      "title": "Slavia Praha vs Barcelona"
+      "title": "Slavia Praha vs Barcelona",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 13278,
+        "all_snapshot_count": 93,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 60,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 13218,
+        "replay_snapshot_count": 93
+      }
     },
     {
       "classifications": [
@@ -23911,7 +26452,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 38.0,
-      "title": "Suns vs Thunder"
+      "title": "Suns vs Thunder",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 1518,
+        "all_snapshot_count": 25,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 1518,
+        "replay_snapshot_count": 25
+      }
     },
     {
       "classifications": [
@@ -24014,7 +26566,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 49.0,
-      "title": "Venezia vs Juve Stabia"
+      "title": "Venezia vs Juve Stabia",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 2,
+        "all_quote_rows": 8442,
+        "all_snapshot_count": 65,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 1,
+        "replay_quote_rows": 8442,
+        "replay_snapshot_count": 65
+      }
     },
     {
       "classifications": [
@@ -24117,7 +26680,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 53.0,
-      "title": "Bulls vs Knicks"
+      "title": "Bulls vs Knicks",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 26400,
+        "all_snapshot_count": 288,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 420,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 25980,
+        "replay_snapshot_count": 288
+      }
     },
     {
       "classifications": [
@@ -24220,7 +26794,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 41.0,
-      "title": "Jazz vs Trail Blazers"
+      "title": "Jazz vs Trail Blazers",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 4292,
+        "all_snapshot_count": 52,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 4292,
+        "replay_snapshot_count": 52
+      }
     },
     {
       "classifications": [
@@ -24323,7 +26908,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 47.0,
-      "title": "Kings vs Rockets"
+      "title": "Kings vs Rockets",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 2648,
+        "all_snapshot_count": 34,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 2648,
+        "replay_snapshot_count": 34
+      }
     },
     {
       "classifications": [
@@ -24426,7 +27022,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 40.0,
-      "title": "Nets vs Thunder"
+      "title": "Nets vs Thunder",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 2840,
+        "all_snapshot_count": 42,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 2840,
+        "replay_snapshot_count": 42
+      }
     },
     {
       "classifications": [
@@ -24529,7 +27136,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "Pelicans vs Lakers"
+      "title": "Pelicans vs Lakers",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 3992,
+        "all_snapshot_count": 56,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 3992,
+        "replay_snapshot_count": 56
+      }
     },
     {
       "classifications": [
@@ -24632,7 +27250,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 62.0,
-      "title": "Real Madrid vs AS Monaco"
+      "title": "Real Madrid vs AS Monaco",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 12990,
+        "all_snapshot_count": 92,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 57,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 12933,
+        "replay_snapshot_count": 92
+      }
     },
     {
       "classifications": [
@@ -24735,7 +27364,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "Thunder vs 76ers"
+      "title": "Thunder vs 76ers",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 26020,
+        "all_snapshot_count": 288,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 330,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 25690,
+        "replay_snapshot_count": 288
+      }
     },
     {
       "classifications": [
@@ -24838,7 +27478,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "Thunder vs Mavericks"
+      "title": "Thunder vs Mavericks",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 2774,
+        "all_snapshot_count": 38,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 2774,
+        "replay_snapshot_count": 38
+      }
     },
     {
       "classifications": [
@@ -24941,7 +27592,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 45.0,
-      "title": "Wizards vs Trail Blazers"
+      "title": "Wizards vs Trail Blazers",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 25790,
+        "all_snapshot_count": 288,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 308,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 25482,
+        "replay_snapshot_count": 288
+      }
     },
     {
       "classifications": [
@@ -25044,7 +27706,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 43.0,
-      "title": "Borussia Dortmund vs Bod\u00f8/Glimt"
+      "title": "Borussia Dortmund vs Bod\u00f8/Glimt",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 12471,
+        "all_snapshot_count": 95,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 51,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 12420,
+        "replay_snapshot_count": 95
+      }
     },
     {
       "classifications": [
@@ -25147,7 +27820,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 53.0,
-      "title": "Wizards vs Lakers"
+      "title": "Wizards vs Lakers",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 3594,
+        "all_snapshot_count": 49,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 3594,
+        "replay_snapshot_count": 49
+      }
     },
     {
       "classifications": [
@@ -25230,7 +27914,11 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": null,
-      "title": "Barcelona vs Bayern Munich"
+      "title": "Barcelona vs Bayern Munich",
+      "warehouse_partition_window_audit": {
+        "checked": false,
+        "reason": "no_odds_event_match"
+      }
     },
     {
       "classifications": [
@@ -25333,7 +28021,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 42.0,
-      "title": "Spurs vs Bucks"
+      "title": "Spurs vs Bucks",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 21634,
+        "all_snapshot_count": 257,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 272,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 21362,
+        "replay_snapshot_count": 257
+      }
     },
     {
       "classifications": [
@@ -25434,7 +28133,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 82297.0,
-      "title": "Fredrikstad FK vs IK Start spread away-1.5"
+      "title": "Fredrikstad FK vs IK Start spread away-1.5",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 71,
+        "all_quote_rows": 7564,
+        "all_snapshot_count": 690,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 1060,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 1,
+        "replay_quote_rows": 6504,
+        "replay_snapshot_count": 690
+      }
     },
     {
       "classifications": [
@@ -25537,7 +28247,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 43.0,
-      "title": "Jazz vs Spurs"
+      "title": "Jazz vs Spurs",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 3108,
+        "all_snapshot_count": 41,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 3108,
+        "replay_snapshot_count": 41
+      }
     },
     {
       "classifications": [
@@ -25640,7 +28361,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "Napoli vs BOL"
+      "title": "Napoli vs BOL",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 8,
+        "all_quote_rows": 13053,
+        "all_snapshot_count": 89,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 192,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 7,
+        "replay_quote_rows": 12861,
+        "replay_snapshot_count": 89
+      }
     },
     {
       "classifications": [
@@ -25743,7 +28475,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 62.0,
-      "title": "Villarreal vs Ajax"
+      "title": "Villarreal vs Ajax",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 13335,
+        "all_snapshot_count": 95,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 57,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 13278,
+        "replay_snapshot_count": 95
+      }
     },
     {
       "classifications": [
@@ -25846,7 +28589,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "Wolverhampton Wanderers vs Liverpool"
+      "title": "Wolverhampton Wanderers vs Liverpool",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 38976,
+        "all_snapshot_count": 266,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 732,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 38244,
+        "replay_snapshot_count": 266
+      }
     },
     {
       "classifications": [
@@ -25949,7 +28703,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 38.0,
-      "title": "Bayer Leverkusen vs Hamburger SV"
+      "title": "Bayer Leverkusen vs Hamburger SV",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 9930,
+        "all_snapshot_count": 68,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 177,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 9753,
+        "replay_snapshot_count": 68
+      }
     },
     {
       "classifications": [
@@ -26052,7 +28817,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 38.0,
-      "title": "Bayern Munich vs 1. FC Heidenheim"
+      "title": "Bayern Munich vs 1. FC Heidenheim",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 9939,
+        "all_snapshot_count": 68,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 177,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 9762,
+        "replay_snapshot_count": 68
+      }
     },
     {
       "classifications": [
@@ -26155,7 +28931,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 158.0,
-      "title": "CAG vs Juventus"
+      "title": "CAG vs Juventus",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 8,
+        "all_quote_rows": 13515,
+        "all_snapshot_count": 93,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 57,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 7,
+        "replay_quote_rows": 13458,
+        "replay_snapshot_count": 93
+      }
     },
     {
       "classifications": [
@@ -26258,7 +29045,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 38.0,
-      "title": "Crystal Palace vs Burnley"
+      "title": "Crystal Palace vs Burnley",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 38052,
+        "all_snapshot_count": 259,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 699,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 37353,
+        "replay_snapshot_count": 259
+      }
     },
     {
       "classifications": [
@@ -26362,7 +29160,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "Hamburger SV vs Bayern Munich"
+      "title": "Hamburger SV vs Bayern Munich",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 11835,
+        "all_snapshot_count": 84,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 30,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 11805,
+        "replay_snapshot_count": 84
+      }
     },
     {
       "classifications": [
@@ -26465,7 +29274,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 38.0,
-      "title": "MAD vs Real Betis"
+      "title": "MAD vs Real Betis",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 10383,
+        "all_snapshot_count": 84,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 27,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 10356,
+        "replay_snapshot_count": 84
+      }
     },
     {
       "classifications": [
@@ -26568,7 +29388,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "New York Liberty vs Portland Fire"
+      "title": "New York Liberty vs Portland Fire",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 2,
+        "all_quote_rows": 2718,
+        "all_snapshot_count": 50,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 1,
+        "replay_quote_rows": 2718,
+        "replay_snapshot_count": 50
+      }
     },
     {
       "classifications": [
@@ -26671,7 +29502,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 43.0,
-      "title": "Paris Saint Germain vs AS Monaco"
+      "title": "Paris Saint Germain vs AS Monaco",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 13677,
+        "all_snapshot_count": 94,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 60,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 13617,
+        "replay_snapshot_count": 94
+      }
     },
     {
       "classifications": [
@@ -26774,7 +29616,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 50.0,
-      "title": "Arsenal vs Bournemouth"
+      "title": "Arsenal vs Bournemouth",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 23028,
+        "all_snapshot_count": 161,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 399,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 22629,
+        "replay_snapshot_count": 161
+      }
     },
     {
       "classifications": [
@@ -26877,7 +29730,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 53.0,
-      "title": "Bayer Leverkusen vs Augsburg"
+      "title": "Bayer Leverkusen vs Augsburg",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 9840,
+        "all_snapshot_count": 68,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 177,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 9663,
+        "replay_snapshot_count": 68
+      }
     },
     {
       "classifications": [
@@ -26980,7 +29844,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 62.0,
-      "title": "Bod\u00f8/Glimt vs Manchester City"
+      "title": "Bod\u00f8/Glimt vs Manchester City",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 11466,
+        "all_snapshot_count": 84,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 27,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 11439,
+        "replay_snapshot_count": 84
+      }
     },
     {
       "classifications": [
@@ -27083,7 +29958,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "Bulls vs Nuggets"
+      "title": "Bulls vs Nuggets",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 4290,
+        "all_snapshot_count": 53,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 4290,
+        "replay_snapshot_count": 53
+      }
     },
     {
       "classifications": [
@@ -27186,7 +30072,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 41.0,
-      "title": "TSG Hoffenheim vs FC St. Pauli"
+      "title": "TSG Hoffenheim vs FC St. Pauli",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 10200,
+        "all_snapshot_count": 71,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 30,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 10170,
+        "replay_snapshot_count": 71
+      }
     },
     {
       "classifications": [
@@ -27289,7 +30186,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "BOL vs CRE"
+      "title": "BOL vs CRE",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 8,
+        "all_quote_rows": 13503,
+        "all_snapshot_count": 93,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 57,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 7,
+        "replay_quote_rows": 13446,
+        "replay_snapshot_count": 93
+      }
     },
     {
       "classifications": [
@@ -27392,7 +30300,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 49.0,
-      "title": "Cruzeiro vs Universidad Cat\u00f3lica (CHI)"
+      "title": "Cruzeiro vs Universidad Cat\u00f3lica (CHI)",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 3,
+        "all_quote_rows": 29400,
+        "all_snapshot_count": 288,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 27,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 2,
+        "replay_quote_rows": 29373,
+        "replay_snapshot_count": 288
+      }
     },
     {
       "classifications": [
@@ -27495,7 +30414,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "Girona vs Barcelona"
+      "title": "Girona vs Barcelona",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 4,
+        "all_quote_rows": 12639,
+        "all_snapshot_count": 94,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 54,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 3,
+        "replay_quote_rows": 12585,
+        "replay_snapshot_count": 94
+      }
     },
     {
       "classifications": [
@@ -27598,7 +30528,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "Kings vs Clippers"
+      "title": "Kings vs Clippers",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 5166,
+        "all_snapshot_count": 61,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 94,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 5072,
+        "replay_snapshot_count": 61
+      }
     },
     {
       "classifications": [
@@ -27701,7 +30642,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "Lille vs Auxerre"
+      "title": "Lille vs Auxerre",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 6,
+        "all_quote_rows": 12873,
+        "all_snapshot_count": 90,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 48,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 5,
+        "replay_quote_rows": 12825,
+        "replay_snapshot_count": 90
+      }
     },
     {
       "classifications": [
@@ -27804,7 +30756,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 50.0,
-      "title": "MIL vs UDI"
+      "title": "MIL vs UDI",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 8,
+        "all_quote_rows": 10881,
+        "all_snapshot_count": 77,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 174,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 7,
+        "replay_quote_rows": 10707,
+        "replay_snapshot_count": 77
+      }
     },
     {
       "classifications": [
@@ -27907,7 +30870,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 53.0,
-      "title": "Napoli vs LAZ"
+      "title": "Napoli vs LAZ",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 8,
+        "all_quote_rows": 11220,
+        "all_snapshot_count": 78,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 177,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 7,
+        "replay_quote_rows": 11043,
+        "replay_snapshot_count": 78
+      }
     },
     {
       "classifications": [
@@ -28010,7 +30984,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 158.0,
-      "title": "Nets vs Celtics"
+      "title": "Nets vs Celtics",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 2110,
+        "all_snapshot_count": 31,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 2110,
+        "replay_snapshot_count": 31
+      }
     },
     {
       "classifications": [
@@ -28113,7 +31098,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "Pacers vs Thunder"
+      "title": "Pacers vs Thunder",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 3202,
+        "all_snapshot_count": 43,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 3202,
+        "replay_snapshot_count": 43
+      }
     },
     {
       "classifications": [
@@ -28216,7 +31212,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 61.0,
-      "title": "Hornets vs Thunder"
+      "title": "Hornets vs Thunder",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 2880,
+        "all_snapshot_count": 39,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 2880,
+        "replay_snapshot_count": 39
+      }
     },
     {
       "classifications": [
@@ -28319,7 +31326,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 40.0,
-      "title": "Wizards vs Pistons"
+      "title": "Wizards vs Pistons",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 2048,
+        "all_snapshot_count": 29,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 0,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 2048,
+        "replay_snapshot_count": 29
+      }
     },
     {
       "classifications": [
@@ -28422,7 +31440,18 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "Manchester City vs AST"
+      "title": "Manchester City vs AST",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 30483,
+        "all_snapshot_count": 205,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 600,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 29883,
+        "replay_snapshot_count": 205
+      }
     },
     {
       "classifications": [
@@ -28525,13 +31554,24 @@
         "missing_cache_snapshots": 0
       },
       "start_gap_sec": 37.0,
-      "title": "Mavericks vs Cavaliers"
+      "title": "Mavericks vs Cavaliers",
+      "warehouse_partition_window_audit": {
+        "all_partition_files": 14,
+        "all_quote_rows": 23204,
+        "all_snapshot_count": 263,
+        "checked": true,
+        "extra_quote_rows_inside_replay_window": 314,
+        "extra_snapshots_inside_replay_window": 0,
+        "replay_partition_files": 13,
+        "replay_quote_rows": 22890,
+        "replay_snapshot_count": 263
+      }
     }
   ],
   "events_needing_action": 1,
   "events_with_sportsbook_match": 276,
   "events_with_sportsbook_points": 276,
-  "generated_at": "2026-05-31T10:37:27.009185+00:00",
+  "generated_at": "2026-05-31T11:13:10.945718+00:00",
   "matched_events_with_complete_15m_cache": 276,
   "matched_events_with_complete_5m_cache": 155,
   "outputs": {
@@ -28544,5 +31584,9 @@
   "unique_cache_15m_missing_snapshots": 0,
   "unique_cache_5m_cached_snapshots": 31133,
   "unique_cache_5m_expected_snapshots": 46443,
-  "unique_cache_5m_missing_snapshots": 15310
+  "unique_cache_5m_missing_snapshots": 15310,
+  "warehouse_extra_quote_rows_inside_replay_windows": 42741,
+  "warehouse_extra_snapshot_events": 0,
+  "warehouse_extra_snapshots_inside_replay_windows": 0,
+  "warehouse_partition_window_checked_events": 276
 }
