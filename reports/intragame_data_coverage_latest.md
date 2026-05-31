@@ -11,7 +11,7 @@ This audit checks the partitioned fact store for post-commence price rows. It al
 
 | Existing files | Missing files | Manifest files | Rows | Quote rows | Depth rows | Trade rows | Depth files | Date span |
 |---:|---:|---:|---:|---:|---:|---:|---:|---|
-| 1,136 | 5,189 | 6,325 | 51,344,670 | 7,618,994 | 42,864,676 | 861,000 | 380 | 2025-10-26 to 2026-05-29 |
+| 6,325 | 0 | 6,325 | 120,810,937 | 14,538,432 | 105,207,694 | 1,064,811 | 2,692 | 2025-10-26 to 2026-05-29 |
 
 ## Interpretation
 

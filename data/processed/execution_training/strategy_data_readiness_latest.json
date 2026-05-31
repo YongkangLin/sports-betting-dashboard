@@ -15,12 +15,11 @@
     "tokens": 429
   },
   "gate_reasons": [
-    "Telonex manifest references raw files not present in this worktree",
     "Odds API point-in-time features have insufficient test coverage"
   ],
   "gates": {
     "complete_side_market_data_gate": true,
-    "download_manifest_integrity_gate": false,
+    "download_manifest_integrity_gate": true,
     "heldout_market_extent": {
       "legacy_absolute_gate": false,
       "legacy_absolute_min_test_markets": 100,
@@ -35,12 +34,11 @@
     "overall_gate": false,
     "quality_gate": true,
     "reasons": [
-      "Telonex manifest references raw files not present in this worktree",
       "Odds API point-in-time features have insufficient test coverage"
     ],
     "trade_confirmed_fill_holdout_gate": true
   },
-  "generated_at": "2026-05-31T09:36:20.401219+00:00",
+  "generated_at": "2026-05-31T09:50:04.882467+00:00",
   "latest_model_monitor": {
     "adverse_selection": {
       "available": false,
@@ -431,14 +429,14 @@
       ]
     },
     "fair": {
-      "events": 57,
-      "rows": 24558
+      "events": 59,
+      "rows": 25614
     },
     "features": {
       "by_sport": {
         "baseball_mlb": {
           "markets": 61,
-          "rows": 792020,
+          "rows": 768020,
           "tokens": 121
         },
         "basketball_wnba": {
@@ -458,7 +456,7 @@
         },
         "soccer_conmebol_copa_libertadores": {
           "markets": 1,
-          "rows": 65500,
+          "rows": 65486,
           "tokens": 2
         },
         "soccer_norway_eliteserien": {
@@ -469,16 +467,16 @@
       },
       "coverage_by_split": {
         "test": {
-          "coverage": 0.3253589362755499,
+          "coverage": 0.3244483343942287,
           "matched_markets": 5,
-          "matched_rows": 73604,
+          "matched_rows": 73398,
           "matched_tokens": 10,
           "rows": 226224
         },
         "train": {
-          "coverage": 0.5269398935089536,
+          "coverage": 0.5140103654586763,
           "matched_markets": 44,
-          "matched_rows": 936300,
+          "matched_rows": 913326,
           "matched_tokens": 87,
           "rows": 1776863
         },
@@ -490,65 +488,395 @@
           "rows": 539748
         },
         "val": {
-          "coverage": 0.5059320318148951,
+          "coverage": 0.5035198843094721,
           "matched_markets": 6,
-          "matched_rows": 174926,
+          "matched_rows": 174092,
           "matched_tokens": 12,
           "rows": 345750
         }
       },
+      "coverage_by_split_market_type": [
+        {
+          "coverage": 0.0,
+          "market_type": "exact_score",
+          "matched_markets": 0,
+          "matched_rows": 0,
+          "rows": 5666,
+          "split": "test"
+        },
+        {
+          "coverage": 0.3508293754513003,
+          "market_type": "h2h",
+          "matched_markets": 4,
+          "matched_rows": 68992,
+          "rows": 196654,
+          "split": "test"
+        },
+        {
+          "coverage": 0.0,
+          "market_type": "nrfi",
+          "matched_markets": 0,
+          "matched_rows": 0,
+          "rows": 17196,
+          "split": "test"
+        },
+        {
+          "coverage": 0.6568276684555754,
+          "market_type": "spreads",
+          "matched_markets": 1,
+          "matched_rows": 4406,
+          "rows": 6708,
+          "split": "test"
+        },
+        {
+          "coverage": 0.0,
+          "market_type": "corners",
+          "matched_markets": 0,
+          "matched_rows": 0,
+          "rows": 700,
+          "split": "train"
+        },
+        {
+          "coverage": 0.6001440064945706,
+          "market_type": "h2h",
+          "matched_markets": 41,
+          "matched_rows": 882672,
+          "rows": 1470767,
+          "split": "train"
+        },
+        {
+          "coverage": 0.0,
+          "market_type": "halftime",
+          "matched_markets": 0,
+          "matched_rows": 0,
+          "rows": 13672,
+          "split": "train"
+        },
+        {
+          "coverage": 0.0,
+          "market_type": "nrfi",
+          "matched_markets": 0,
+          "matched_rows": 0,
+          "rows": 240514,
+          "split": "train"
+        },
+        {
+          "coverage": 0.0,
+          "market_type": "spreads",
+          "matched_markets": 0,
+          "matched_rows": 0,
+          "rows": 6036,
+          "split": "train"
+        },
+        {
+          "coverage": 0.6785761721344136,
+          "market_type": "totals",
+          "matched_markets": 3,
+          "matched_rows": 30654,
+          "rows": 45174,
+          "split": "train"
+        },
+        {
+          "coverage": 0.7827958036170679,
+          "market_type": "h2h",
+          "matched_markets": 17,
+          "matched_rows": 160798,
+          "rows": 205415,
+          "split": "unobserved"
+        },
+        {
+          "coverage": 0.0,
+          "market_type": "nrfi",
+          "matched_markets": 0,
+          "matched_rows": 0,
+          "rows": 257012,
+          "split": "unobserved"
+        },
+        {
+          "coverage": 1.0,
+          "market_type": "spreads",
+          "matched_markets": 4,
+          "matched_rows": 42286,
+          "rows": 42286,
+          "split": "unobserved"
+        },
+        {
+          "coverage": 0.7491365777080062,
+          "market_type": "totals",
+          "matched_markets": 3,
+          "matched_rows": 26246,
+          "rows": 35035,
+          "split": "unobserved"
+        },
+        {
+          "coverage": 0.529992693619094,
+          "market_type": "h2h",
+          "matched_markets": 6,
+          "matched_rows": 174092,
+          "rows": 328480,
+          "split": "val"
+        },
+        {
+          "coverage": 0.0,
+          "market_type": "nrfi",
+          "matched_markets": 0,
+          "matched_rows": 0,
+          "rows": 17270,
+          "split": "val"
+        }
+      ],
+      "coverage_by_split_sport": [
+        {
+          "coverage": 0.6718406724615532,
+          "matched_markets": 4,
+          "matched_rows": 56268,
+          "rows": 83752,
+          "split": "test",
+          "sport_family": "baseball_mlb"
+        },
+        {
+          "coverage": 0.5605733359513058,
+          "matched_markets": 1,
+          "matched_rows": 17130,
+          "rows": 30558,
+          "split": "test",
+          "sport_family": "basketball_wnba"
+        },
+        {
+          "coverage": 0.0,
+          "matched_markets": 0,
+          "matched_rows": 0,
+          "rows": 111914,
+          "split": "test",
+          "sport_family": "soccer"
+        },
+        {
+          "coverage": 0.420739871689145,
+          "matched_markets": 29,
+          "matched_rows": 418868,
+          "rows": 995551,
+          "split": "train",
+          "sport_family": "baseball_mlb"
+        },
+        {
+          "coverage": 0.7459268367660621,
+          "matched_markets": 1,
+          "matched_rows": 9706,
+          "rows": 13012,
+          "split": "train",
+          "sport_family": "basketball_wnba"
+        },
+        {
+          "coverage": 0.6309410386567746,
+          "matched_markets": 14,
+          "matched_rows": 484752,
+          "rows": 768300,
+          "split": "train",
+          "sport_family": "soccer"
+        },
+        {
+          "coverage": 0.4299416195786261,
+          "matched_markets": 24,
+          "matched_rows": 229330,
+          "rows": 533398,
+          "split": "unobserved",
+          "sport_family": "baseball_mlb"
+        },
+        {
+          "coverage": 0.0,
+          "matched_markets": 0,
+          "matched_rows": 0,
+          "rows": 5347,
+          "split": "unobserved",
+          "sport_family": "icehockey_nhl"
+        },
+        {
+          "coverage": 0.0,
+          "matched_markets": 0,
+          "matched_rows": 0,
+          "rows": 1003,
+          "split": "unobserved",
+          "sport_family": "soccer"
+        },
+        {
+          "coverage": 0.5356426464391066,
+          "matched_markets": 4,
+          "matched_rows": 63554,
+          "rows": 118650,
+          "split": "val",
+          "sport_family": "baseball_mlb"
+        },
+        {
+          "coverage": 0.4867371202113606,
+          "matched_markets": 2,
+          "matched_rows": 110538,
+          "rows": 227100,
+          "split": "val",
+          "sport_family": "soccer"
+        }
+      ],
       "fair_prob_quantiles": {
-        "0.0": 0.06937064517986813,
+        "0.0": 0.06962685755698608,
         "0.01": 0.08136472775925196,
-        "0.05": 0.18167614015939362,
+        "0.05": 0.18061360495460507,
         "0.5": 0.5,
-        "0.95": 0.8183238598406064,
+        "0.95": 0.8193863950453949,
         "0.99": 0.918635272240748,
-        "1.0": 0.9306293548201319
+        "1.0": 0.930373142443014
       },
       "join_diagnostics": {
-        "candidate_rows_with_fair_group": 1802933,
-        "groups_with_fair": 122,
-        "join_groups": 128,
-        "mapped_label_markets": 82,
-        "mapped_label_rows": 1830923,
-        "mapped_label_tokens": 163,
-        "matched_feature_rows": 1414160,
+        "candidate_rows_with_fair_group": 1807836,
+        "groups_with_fair": 129,
+        "join_groups": 143,
+        "mapped_label_markets": 90,
+        "mapped_label_rows": 1836270,
+        "mapped_label_tokens": 178,
+        "matched_feature_rows": 1390146,
         "rows_after_last_allowed_snapshot": 8124,
-        "rows_before_first_odds_snapshot": 380649,
-        "rows_without_fair_group": 27990
+        "rows_before_first_odds_snapshot": 409566,
+        "rows_without_fair_group": 28434
       },
       "markets": 79,
       "poly_gap_mid_quantiles": {
-        "0.0": -0.6594562347219612,
-        "0.01": -0.19515379113529785,
-        "0.05": -0.04059264257094586,
+        "0.0": -0.6582422098623939,
+        "0.01": -0.20186656550137183,
+        "0.05": -0.043059426142259605,
         "0.5": 0.0,
-        "0.95": 0.04059264257094586,
-        "0.99": 0.19515379113529785,
-        "1.0": 0.6594562347219612
+        "0.95": 0.04305942614225955,
+        "0.99": 0.20186656550137194,
+        "1.0": 0.6582422098623937
       },
       "quote_age_hours_quantiles": {
-        "0.0": 0.005555555555555556,
-        "0.01": 0.006388888888888889,
-        "0.05": 0.05638888888888889,
-        "0.5": 3.156388888888889,
-        "0.95": 22.10638888888889,
-        "0.99": 105.13972222222222,
+        "0.0": 0.005833333333333334,
+        "0.01": 0.07305555555555555,
+        "0.05": 0.37277777777777776,
+        "0.5": 4.539444444444444,
+        "0.95": 22.673055555555557,
+        "0.99": 107.85055555555789,
         "1.0": 167.95638888888888
       },
-      "row_coverage": 0.48956842190899696,
-      "rows": 1414160,
+      "row_coverage": 0.48125500894036355,
+      "rows": 1390146,
       "source_minutes_to_commence_quantiles": {
-        "0.0": 0.36666666666666664,
-        "0.01": 0.36666666666666664,
-        "0.05": 10.383333333333333,
-        "0.5": 1425.3833333333334,
-        "0.95": 8539.383333333333,
+        "0.0": 10.383333333333333,
+        "0.01": 10.383333333333333,
+        "0.05": 135.35,
+        "0.5": 1450.3833333333334,
+        "0.95": 8584.383333333333,
         "0.99": 12934.383333333333,
         "1.0": 12934.383333333333
       },
       "tokens": 157,
+      "top_uncovered_test_events": [
+        {
+          "event_title": "Luxembourg vs. Italy",
+          "market_type": "h2h",
+          "rows": 19884,
+          "sport_family": "soccer"
+        },
+        {
+          "event_title": "Germany vs. Finland",
+          "market_type": "h2h",
+          "rows": 18580,
+          "sport_family": "soccer"
+        },
+        {
+          "event_title": "Singapore vs. Mongolia",
+          "market_type": "h2h",
+          "rows": 17822,
+          "sport_family": "soccer"
+        },
+        {
+          "event_title": "Arizona Diamondbacks vs. Seattle Mariners",
+          "market_type": "nrfi",
+          "rows": 17196,
+          "sport_family": "baseball_mlb"
+        },
+        {
+          "event_title": "Netherlands vs. Algeria",
+          "market_type": "h2h",
+          "rows": 13644,
+          "sport_family": "soccer"
+        },
+        {
+          "event_title": "Phoenix Mercury vs. New York Liberty",
+          "market_type": "h2h",
+          "rows": 13428,
+          "sport_family": "basketball_wnba"
+        },
+        {
+          "event_title": "Austria vs. Tunisia",
+          "market_type": "h2h",
+          "rows": 9074,
+          "sport_family": "soccer"
+        },
+        {
+          "event_title": "Slovakia vs. Malta",
+          "market_type": "h2h",
+          "rows": 8904,
+          "sport_family": "soccer"
+        },
+        {
+          "event_title": "T\u00fcrkiye vs. North Macedonia",
+          "market_type": "h2h",
+          "rows": 8398,
+          "sport_family": "soccer"
+        },
+        {
+          "event_title": "Korea Republic vs. El Salvador",
+          "market_type": "h2h",
+          "rows": 7048,
+          "sport_family": "soccer"
+        },
+        {
+          "event_title": "Fenerbah\u00e7e SK vs. Samsunspor - Exact Score",
+          "market_type": "exact_score",
+          "rows": 5666,
+          "sport_family": "soccer"
+        },
+        {
+          "event_title": "Arizona Diamondbacks vs. Seattle Mariners",
+          "market_type": "h2h",
+          "rows": 4232,
+          "sport_family": "baseball_mlb"
+        },
+        {
+          "event_title": "Houston Astros vs. Texas Rangers",
+          "market_type": "h2h",
+          "rows": 3230,
+          "sport_family": "baseball_mlb"
+        },
+        {
+          "event_title": "Atlanta Braves vs. Cincinnati Reds",
+          "market_type": "h2h",
+          "rows": 2654,
+          "sport_family": "baseball_mlb"
+        },
+        {
+          "event_title": "Luxembourg vs. Italy - More Markets",
+          "market_type": "spreads",
+          "rows": 1166,
+          "sport_family": "soccer"
+        },
+        {
+          "event_title": "Fenerbah\u00e7e SK vs. Samsunspor - More Markets",
+          "market_type": "spreads",
+          "rows": 964,
+          "sport_family": "soccer"
+        },
+        {
+          "event_title": "France vs. C\u00f4te d'Ivoire",
+          "market_type": "h2h",
+          "rows": 764,
+          "sport_family": "soccer"
+        },
+        {
+          "event_title": "Tampa Bay Rays vs. New York Yankees",
+          "market_type": "spreads",
+          "rows": 172,
+          "sport_family": "baseball_mlb"
+        }
+      ],
       "validation": {
         "causal_snapshots": true,
         "non_negative_quote_age": true,
@@ -556,7 +884,7 @@
         "probabilities_in_bounds": true
       }
     },
-    "generated_at": "2026-05-30T21:48:12.821697+00:00",
+    "generated_at": "2026-05-31T09:49:53.181304+00:00",
     "labels": {
       "markets": 216,
       "rows": 2888585,
@@ -564,7 +892,7 @@
     },
     "mapping": {
       "diagnostics": {
-        "mapped_tokens": 163,
+        "mapped_tokens": 178,
         "tokens": 429,
         "unmapped_side": 0,
         "unsupported_market_type": 70,
@@ -574,23 +902,23 @@
           "nrfi": 64
         }
       },
-      "mapped_markets": 82,
-      "mapped_tokens": 163
+      "mapped_markets": 90,
+      "mapped_tokens": 178
     },
     "matching": {
       "diagnostics": {
         "markets": 216,
         "no_odds_event_match": 91,
         "no_slug_date": 0,
-        "no_sport_pool": 8,
+        "no_sport_pool": 0,
         "no_title_parse": 0
       },
-      "matched_markets": 117
+      "matched_markets": 125
     },
     "outputs": {
-      "features": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/execution_training/telonex_odds_features_latest.parquet",
-      "manifest": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/execution_training/telonex_odds_features_manifest.json",
-      "report": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/telonex_odds_features_latest.md"
+      "features": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/data/processed/execution_training/telonex_odds_features_latest.parquet",
+      "manifest": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/data/processed/execution_training/telonex_odds_features_manifest.json",
+      "report": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/reports/telonex_odds_features_latest.md"
     }
   },
   "outputs": {
@@ -759,13 +1087,13 @@
   "telonex_download": {
     "date_max": "2026-05-29",
     "date_min": "2025-10-26",
-    "depth_files": 380,
-    "depth_rows": 42864676,
-    "existing_files": 1136,
+    "depth_files": 2692,
+    "depth_rows": 105207694,
+    "existing_files": 6325,
     "files_by_channel": {
-      "book_snapshot_5": 380,
-      "quotes": 380,
-      "trades": 376
+      "book_snapshot_5": 2692,
+      "quotes": 2224,
+      "trades": 1409
     },
     "manifest_files": 6325,
     "manifest_files_by_channel": {
@@ -778,19 +1106,15 @@
       "quotes": 14538432,
       "trades": 1064811
     },
-    "missing_files": 5189,
-    "missing_files_by_channel": {
-      "book_snapshot_5": 2312,
-      "quotes": 1844,
-      "trades": 1033
-    },
-    "quote_rows": 7618994,
+    "missing_files": 0,
+    "missing_files_by_channel": {},
+    "quote_rows": 14538432,
     "rows_by_channel": {
-      "book_snapshot_5": 42864676,
-      "quotes": 7618994,
-      "trades": 861000
+      "book_snapshot_5": 105207694,
+      "quotes": 14538432,
+      "trades": 1064811
     },
-    "trade_rows": 861000
+    "trade_rows": 1064811
   },
   "verdict": "HOLD: strategy is defined, but dataset is not complete enough to prove the bot"
 }

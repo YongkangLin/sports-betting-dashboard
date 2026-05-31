@@ -1,9 +1,9 @@
 # Strategy And Data Readiness
 
-- Generated: 2026-05-31T09:36:20.401219+00:00
+- Generated: 2026-05-31T09:50:04.882467+00:00
 - Overall gate: False
 - Verdict: HOLD: strategy is defined, but dataset is not complete enough to prove the bot
-- Gate reasons: Telonex manifest references raw files not present in this worktree; Odds API point-in-time features have insufficient test coverage
+- Gate reasons: Odds API point-in-time features have insufficient test coverage
 
 ## Active Strategy
 
@@ -19,8 +19,8 @@
 - Labels/markets/tokens: 2,888,585 / 216 / 429
 - Time span: 2026-03-02 00:03:00+00:00 to 2026-05-29 23:59:00+00:00
 - Sports: {'baseball_mlb': 1731351, 'soccer': 1108317, 'basketball_wnba': 43570, 'icehockey_nhl': 5347}
-- Telonex quote/depth/trade rows: 7,618,994 / 42,864,676 / 861,000
-- Telonex manifest files existing/missing/total: 1,136 / 5,189 / 6,325
+- Telonex quote/depth/trade rows: 14,538,432 / 105,207,694 / 1,064,811
+- Telonex manifest files existing/missing/total: 6,325 / 0 / 6,325
 - Telonex downloaded date span: 2025-10-26 to 2026-05-29
 - Telonex catalog quote span: 2025-10-11 to 2026-05-29
 
@@ -37,15 +37,15 @@
 
 | Split | Rows | Markets | Tokens | Target observed | Past trade rows | Taker+ | Maker+ | Fill queue | Fill+ | Odds coverage |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| train | 1,776,863 | 75 | 149 | 1,513,571 | 1,177,192 | 9,036 | 68,137 | 19,156 | 2,820 | 52.69% |
-| val | 345,750 | 16 | 32 | 312,014 | 230,990 | 934 | 7,298 | 2,716 | 208 | 50.59% |
-| test | 226,224 | 18 | 36 | 159,230 | 116,762 | 538 | 6,798 | 1,093 | 97 | 32.54% |
+| train | 1,776,863 | 75 | 149 | 1,513,571 | 1,177,192 | 9,036 | 68,137 | 19,156 | 2,820 | 51.40% |
+| val | 345,750 | 16 | 32 | 312,014 | 230,990 | 934 | 7,298 | 2,716 | 208 | 50.35% |
+| test | 226,224 | 18 | 36 | 159,230 | 116,762 | 538 | 6,798 | 1,093 | 97 | 32.44% |
 
 ## Gates
 
 | Gate | Status |
 |---|---:|
-| download_manifest_integrity_gate | False |
+| download_manifest_integrity_gate | True |
 | historical_l2_scale_gate | True |
 | heldout_market_extent_gate | True |
 | trade_confirmed_fill_holdout_gate | True |

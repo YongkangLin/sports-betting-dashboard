@@ -1,43 +1,103 @@
 # Telonex Odds API Features
 
-- Generated: 2026-05-30T21:48:12.821697+00:00
+- Generated: 2026-05-31T09:49:53.181304+00:00
 - Label rows: 2,888,585
 - Candidate markets/tokens: 216 / 429
-- Matched markets: 117
-- Mapped tokens: 163
-- Feature rows: 1,414,160
+- Matched markets: 125
+- Mapped tokens: 178
+- Feature rows: 1,390,146
 - Feature markets/tokens: 79 / 157
-- Feature coverage: 48.96%
+- Feature coverage: 48.13%
 - Max odds age hours: 168.0
-- Output: `/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/execution_training/telonex_odds_features_latest.parquet`
+- Output: `/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/data/processed/execution_training/telonex_odds_features_latest.parquet`
 
 ## Coverage By Sport
 
 | Sport | Rows | Markets | Tokens |
 |---|---:|---:|---:|
-| baseball_mlb | 792,020 | 61 | 121 |
+| baseball_mlb | 768,020 | 61 | 121 |
 | basketball_wnba | 26,836 | 2 | 4 |
 | soccer_brazil_campeonato | 377,170 | 8 | 16 |
 | soccer_chile_campeonato | 22,172 | 1 | 2 |
-| soccer_conmebol_copa_libertadores | 65,500 | 1 | 2 |
+| soccer_conmebol_copa_libertadores | 65,486 | 1 | 2 |
 | soccer_norway_eliteserien | 130,462 | 6 | 12 |
 
 ## Coverage By Split
 
 | Split | Rows | Matched rows | Coverage | Matched markets | Matched tokens |
 |---|---:|---:|---:|---:|---:|
-| test | 226,224 | 73,604 | 32.54% | 5 | 10 |
-| train | 1,776,863 | 936,300 | 52.69% | 44 | 87 |
+| test | 226,224 | 73,398 | 32.44% | 5 | 10 |
+| train | 1,776,863 | 913,326 | 51.40% | 44 | 87 |
 | unobserved | 539,748 | 229,330 | 42.49% | 24 | 48 |
-| val | 345,750 | 174,926 | 50.59% | 6 | 12 |
+| val | 345,750 | 174,092 | 50.35% | 6 | 12 |
+
+## Coverage By Split And Sport
+
+| Split | Sport | Rows | Matched rows | Coverage | Matched markets |
+|---|---|---:|---:|---:|---:|
+| test | baseball_mlb | 83,752 | 56,268 | 67.18% | 4 |
+| test | basketball_wnba | 30,558 | 17,130 | 56.06% | 1 |
+| test | soccer | 111,914 | 0 | 0.00% | 0 |
+| train | baseball_mlb | 995,551 | 418,868 | 42.07% | 29 |
+| train | basketball_wnba | 13,012 | 9,706 | 74.59% | 1 |
+| train | soccer | 768,300 | 484,752 | 63.09% | 14 |
+| unobserved | baseball_mlb | 533,398 | 229,330 | 42.99% | 24 |
+| unobserved | icehockey_nhl | 5,347 | 0 | 0.00% | 0 |
+| unobserved | soccer | 1,003 | 0 | 0.00% | 0 |
+| val | baseball_mlb | 118,650 | 63,554 | 53.56% | 4 |
+| val | soccer | 227,100 | 110,538 | 48.67% | 2 |
+
+## Coverage By Split And Market Type
+
+| Split | Market type | Rows | Matched rows | Coverage | Matched markets |
+|---|---|---:|---:|---:|---:|
+| test | exact_score | 5,666 | 0 | 0.00% | 0 |
+| test | h2h | 196,654 | 68,992 | 35.08% | 4 |
+| test | nrfi | 17,196 | 0 | 0.00% | 0 |
+| test | spreads | 6,708 | 4,406 | 65.68% | 1 |
+| train | corners | 700 | 0 | 0.00% | 0 |
+| train | h2h | 1,470,767 | 882,672 | 60.01% | 41 |
+| train | halftime | 13,672 | 0 | 0.00% | 0 |
+| train | nrfi | 240,514 | 0 | 0.00% | 0 |
+| train | spreads | 6,036 | 0 | 0.00% | 0 |
+| train | totals | 45,174 | 30,654 | 67.86% | 3 |
+| unobserved | h2h | 205,415 | 160,798 | 78.28% | 17 |
+| unobserved | nrfi | 257,012 | 0 | 0.00% | 0 |
+| unobserved | spreads | 42,286 | 42,286 | 100.00% | 4 |
+| unobserved | totals | 35,035 | 26,246 | 74.91% | 3 |
+| val | h2h | 328,480 | 174,092 | 53.00% | 6 |
+| val | nrfi | 17,270 | 0 | 0.00% | 0 |
+
+## Top Uncovered Test Events
+
+| Sport | Market type | Event | Rows |
+|---|---|---|---:|
+| soccer | h2h | Luxembourg vs. Italy | 19,884 |
+| soccer | h2h | Germany vs. Finland | 18,580 |
+| soccer | h2h | Singapore vs. Mongolia | 17,822 |
+| baseball_mlb | nrfi | Arizona Diamondbacks vs. Seattle Mariners | 17,196 |
+| soccer | h2h | Netherlands vs. Algeria | 13,644 |
+| basketball_wnba | h2h | Phoenix Mercury vs. New York Liberty | 13,428 |
+| soccer | h2h | Austria vs. Tunisia | 9,074 |
+| soccer | h2h | Slovakia vs. Malta | 8,904 |
+| soccer | h2h | Türkiye vs. North Macedonia | 8,398 |
+| soccer | h2h | Korea Republic vs. El Salvador | 7,048 |
+| soccer | exact_score | Fenerbahçe SK vs. Samsunspor - Exact Score | 5,666 |
+| baseball_mlb | h2h | Arizona Diamondbacks vs. Seattle Mariners | 4,232 |
+| baseball_mlb | h2h | Houston Astros vs. Texas Rangers | 3,230 |
+| baseball_mlb | h2h | Atlanta Braves vs. Cincinnati Reds | 2,654 |
+| soccer | spreads | Luxembourg vs. Italy - More Markets | 1,166 |
+| soccer | spreads | Fenerbahçe SK vs. Samsunspor - More Markets | 964 |
+| soccer | h2h | France vs. Côte d'Ivoire | 764 |
+| baseball_mlb | spreads | Tampa Bay Rays vs. New York Yankees | 172 |
 
 ## Diagnostics
 
-- Match diagnostics: `{'markets': 216, 'no_slug_date': 0, 'no_title_parse': 0, 'no_sport_pool': 8, 'no_odds_event_match': 91}`
-- Mapping diagnostics: `{'tokens': 429, 'mapped_tokens': 163, 'unsupported_market_type': 70, 'unsupported_market_types': {'nrfi': 64, 'halftime': 4, 'corners': 2}, 'unmapped_side': 0}`
-- Join diagnostics: `{'mapped_label_rows': 1830923, 'mapped_label_markets': 82, 'mapped_label_tokens': 163, 'join_groups': 128, 'groups_with_fair': 122, 'candidate_rows_with_fair_group': 1802933, 'matched_feature_rows': 1414160, 'rows_before_first_odds_snapshot': 380649, 'rows_after_last_allowed_snapshot': 8124, 'rows_without_fair_group': 27990}`
+- Match diagnostics: `{'markets': 216, 'no_slug_date': 0, 'no_title_parse': 0, 'no_sport_pool': 0, 'no_odds_event_match': 91}`
+- Mapping diagnostics: `{'tokens': 429, 'mapped_tokens': 178, 'unsupported_market_type': 70, 'unsupported_market_types': {'nrfi': 64, 'halftime': 4, 'corners': 2}, 'unmapped_side': 0}`
+- Join diagnostics: `{'mapped_label_rows': 1836270, 'mapped_label_markets': 90, 'mapped_label_tokens': 178, 'join_groups': 143, 'groups_with_fair': 129, 'candidate_rows_with_fair_group': 1807836, 'matched_feature_rows': 1390146, 'rows_before_first_odds_snapshot': 409566, 'rows_after_last_allowed_snapshot': 8124, 'rows_without_fair_group': 28434}`
 - Validation checks: `{'probabilities_in_bounds': True, 'causal_snapshots': True, 'pre_commence_snapshots': True, 'non_negative_quote_age': True}`
-- Odds quote age hours quantiles: `{'0.0': 0.005555555555555556, '0.01': 0.006388888888888889, '0.05': 0.05638888888888889, '0.5': 3.156388888888889, '0.95': 22.10638888888889, '0.99': 105.13972222222222, '1.0': 167.95638888888888}`
-- Odds fair probability quantiles: `{'0.0': 0.06937064517986813, '0.01': 0.08136472775925196, '0.05': 0.18167614015939362, '0.5': 0.5, '0.95': 0.8183238598406064, '0.99': 0.918635272240748, '1.0': 0.9306293548201319}`
+- Odds quote age hours quantiles: `{'0.0': 0.005833333333333334, '0.01': 0.07305555555555555, '0.05': 0.37277777777777776, '0.5': 4.539444444444444, '0.95': 22.673055555555557, '0.99': 107.85055555555789, '1.0': 167.95638888888888}`
+- Odds fair probability quantiles: `{'0.0': 0.06962685755698608, '0.01': 0.08136472775925196, '0.05': 0.18061360495460507, '0.5': 0.5, '0.95': 0.8193863950453949, '0.99': 0.918635272240748, '1.0': 0.930373142443014}`
 
 Only pre-commence Odds API snapshots are used, and each feature row requires odds_snapshot_ts <= asof_ts. Unsupported markets remain unmapped rather than imputed.
