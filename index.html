@@ -960,7 +960,10 @@ const ARTIFACTS = {
   liveExecution: { label: "Live execution status", path: "data/status/latest_status.json" },
   latestTelonexSummary: { label: "Latest maker-fill model", path: "data/model/telonex_convergence/20260530T215450Z/summary.json" },
   liveSignals: { label: "Live Telonex signals", path: "data/live/clob/live_telonex_convergence_signals_latest.json" },
-  strategyBuckets: { label: "Strategy bucket audit", path: "data/model/training/telonex_strategy_buckets_latest.json" }
+  strategyBuckets: { label: "Strategy bucket audit", path: "data/model/training/telonex_strategy_buckets_latest.json" },
+  favoriteLongshotEventReplays: { label: "Favorite-longshot event replays", path: "data/model/replays/favorite_longshot_event_replays_latest.json" },
+  replaySportsbookGapAudit: { label: "Replay sportsbook gap audit", path: "data/model/replays/audits/replay_sportsbook_gap_audit_latest.json" },
+  dashboardSportsbookIntegrityAudit: { label: "Dashboard sportsbook integrity audit", path: "data/model/replays/audits/dashboard_sportsbook_integrity_audit_latest.json" }
 };
 
 const RUN_ARTIFACTS = [
@@ -1323,7 +1326,10 @@ const SNAPSHOT = {
     "data/status/latest_status.json": 133217,
     "data/model/telonex_convergence/20260530T215450Z/summary.json": 31520,
     "data/live/clob/live_telonex_convergence_signals_latest.json": 3995,
-    "data/model/training/telonex_strategy_buckets_latest.json": 100352
+    "data/model/training/telonex_strategy_buckets_latest.json": 100352,
+    "data/model/replays/favorite_longshot_event_replays_latest.json": 3526677,
+    "data/model/replays/audits/replay_sportsbook_gap_audit_latest.json": 1094086,
+    "data/model/replays/audits/dashboard_sportsbook_integrity_audit_latest.json": 442651
   }
 };
 
@@ -3392,7 +3398,7 @@ function renderReplay(data) {
     $("decision-action").textContent = "--";
     $("decision-action").className = "pill info";
     $("replay-kv").innerHTML = "";
-    $("replay-rationale").innerHTML = `<strong>Rationale</strong><span>The protected Telonex/Odds dataset is available, but replay playback needs separate minute-level event paths and trade markers. Those replay artifacts are not part of the lean repo; use live signals, validation, and execution-quality gates for the current model workflow.</span>`;
+    $("replay-rationale").innerHTML = `<strong>Rationale</strong><span>The protected Telonex/Odds dataset is available, but replay playback depends on the compact event replay bundle loading successfully. Check the artifact health panel if this empty state appears on the public dashboard.</span>`;
     drawReplayChart({ series_points: [] });
     return;
   }
