@@ -1070,7 +1070,10 @@ const SNAPSHOT = {
     marketRule: "exclude_last_15m",
     marketTestBets: 58,
     marketTestRoi: 0.023843006716712755,
-    marketTestCiLo: -0.07552670546302616
+    marketTestCiLo: -0.07552670546302616,
+    qualityCounts: {},
+    temporalTestQualityBreakdown: [],
+    marketTestQualityBreakdown: []
   },
   favoriteLongshotEventReplays: {
     summary: {
@@ -1328,7 +1331,7 @@ const SNAPSHOT = {
     "data/processed/execution_training/strategy_data_readiness_latest.json": 59646,
     "data/processed/execution_training/event_market_inventory_latest.json": 14494,
     "data/processed/execution_training/favorite_longshot_executable_backtest_latest.json": 72452,
-    "data/processed/execution_training/favorite_longshot_rule_validation_latest.json": 58000,
+    "data/processed/execution_training/favorite_longshot_rule_validation_latest.json": 68000,
     "data/processed/execution_training/favorite_longshot_event_replays_latest.json": 427000,
     "data/processed/clob_capture/live_telonex_convergence_signals_latest.json": 3995,
     "data/processed/execution_training/telonex_strategy_buckets_latest.json": 100352,
@@ -1676,6 +1679,9 @@ function deriveDashboard() {
     data.favoriteLongshotRuleValidation.marketTestBets = favMarketTest.bets ?? data.favoriteLongshotRuleValidation.marketTestBets;
     data.favoriteLongshotRuleValidation.marketTestRoi = favMarketTest.roi ?? data.favoriteLongshotRuleValidation.marketTestRoi;
     data.favoriteLongshotRuleValidation.marketTestCiLo = favMarketTest.ci_lo ?? data.favoriteLongshotRuleValidation.marketTestCiLo;
+    data.favoriteLongshotRuleValidation.qualityCounts = favRules.input?.sportsbook_quality_counts || data.favoriteLongshotRuleValidation.qualityCounts;
+    data.favoriteLongshotRuleValidation.temporalTestQualityBreakdown = favTemporal.selected_rule_test_quality_breakdown || data.favoriteLongshotRuleValidation.temporalTestQualityBreakdown;
+    data.favoriteLongshotRuleValidation.marketTestQualityBreakdown = favMarket.selected_rule_test_quality_breakdown || data.favoriteLongshotRuleValidation.marketTestQualityBreakdown;
     applyStrategyBuckets(live.telonex_strategy_buckets);
     applyMicrostructure(live.telonex_microstructure_buckets);
 
@@ -1797,6 +1803,9 @@ function deriveDashboard() {
     data.favoriteLongshotRuleValidation.marketTestBets = marketTest.bets ?? data.favoriteLongshotRuleValidation.marketTestBets;
     data.favoriteLongshotRuleValidation.marketTestRoi = marketTest.roi ?? data.favoriteLongshotRuleValidation.marketTestRoi;
     data.favoriteLongshotRuleValidation.marketTestCiLo = marketTest.ci_lo ?? data.favoriteLongshotRuleValidation.marketTestCiLo;
+    data.favoriteLongshotRuleValidation.qualityCounts = favoriteRuleValidation.input?.sportsbook_quality_counts || data.favoriteLongshotRuleValidation.qualityCounts;
+    data.favoriteLongshotRuleValidation.temporalTestQualityBreakdown = temporal.selected_rule_test_quality_breakdown || data.favoriteLongshotRuleValidation.temporalTestQualityBreakdown;
+    data.favoriteLongshotRuleValidation.marketTestQualityBreakdown = market.selected_rule_test_quality_breakdown || data.favoriteLongshotRuleValidation.marketTestQualityBreakdown;
   }
 
   if (favoriteLongshotEventReplays) {
@@ -1875,6 +1884,26 @@ function unavailableStrategyMetrics(reason) {
   ];
 }
 
+function qualityTierLabel(tier) {
+  const labels = {
+    complete_5m: "complete 5m",
+    complete_15m_partial_5m: "15m complete, 5m partial",
+    complete_5m_source_quote_gap: "source quote gap",
+    complete_5m_sportsbook_listed_late: "sportsbook listed late",
+    complete_5m_sportsbook_stopped_before_settlement: "sportsbook stopped before settlement",
+    no_odds_event_match: "no Odds match"
+  };
+  return labels[tier] || String(tier || "unknown").replaceAll("_", " ");
+}
+
+function qualitySplitSentence(rows) {
+  if (!Array.isArray(rows) || !rows.length) return "";
+  return rows
+    .slice(0, 3)
+    .map(row => `${fmtInt(row.bets)} ${qualityTierLabel(row.sportsbook_quality_tier)} bets at ${fmtPct(row.roi)} ROI`)
+    .join("; ");
+}
+
 function renderStrategyOverview(data) {
   const e = data.execution;
   const f = data.favoriteLongshotExecutable;
@@ -1891,6 +1920,7 @@ function renderStrategyOverview(data) {
   const replayBothCompleteEvents = replaySummary.two_sided_complete_events ?? 0;
   const favoriteAudit = strategyAuditRow(data, "favorite_longshot_fade_v2");
   const sharpAudit = strategyAuditRow(data, "sharp_consensus_clob_mispricing");
+  const favQualitySplit = qualitySplitSentence(data.favoriteLongshotRuleValidation.marketTestQualityBreakdown);
   const featureBlocker = [
     sb.playByPlayCoverage > 0 ? null : "play-by-play 0%",
     sb.playerNewsCoverage > 0 ? null : "injury/news 0%",
@@ -1904,7 +1934,7 @@ function renderStrategyOverview(data) {
       tone: favoriteAudit && favoriteAudit.ci_lo > 0 ? "good" : "warn",
       metrics: [
         ["Strategy Backtest ROI", fmtPct(f.roi), `${fmtInt(f.settledEntries)} settled events`, `Favorite-longshot only. Resolution-hold replay is positive; short-horizon executable audit is ${fmtPct(favoriteAudit?.roi)} on ${strategyAuditSplit(favoriteAudit)}.`],
-        ["Replay sample", `${fmtInt(replayEvents)} events`, `${fmtInt(replayPoints)} one-minute points`, `${fmtInt(replayClobTwoSidedEvents)} have actual CLOB both sides; ${fmtInt(replayBothCompleteEvents)} also have complete-side sportsbook overlays from ${fmtInt(replaySportsbookPoints)} fair-probability points.`],
+        ["Replay sample", `${fmtInt(replayEvents)} events`, `${fmtInt(replayPoints)} one-minute points`, `${fmtInt(replayClobTwoSidedEvents)} have actual CLOB both sides; ${fmtInt(replayBothCompleteEvents)} also have complete-side sportsbook overlays from ${fmtInt(replaySportsbookPoints)} fair-probability points. ${favQualitySplit ? `Selected-rule test quality split: ${favQualitySplit}.` : ""}`],
         ["Live picks", fmtInt(e.liveSignalsSelected), `${fmtInt(e.liveSignalCandidates)} candidates scanned`, "No current signal clears the live threshold."]
       ]
     },

@@ -1,6 +1,6 @@
 # Favorite-Longshot Rule Validation
 
-- Generated: 2026-05-31T03:43:23.036703+00:00
+- Generated: 2026-05-31T11:18:00.053695+00:00
 - Verdict: HOLD: favorite-longshot rule not yet proven out of sample
 - Overall gate: False
 - Gate reasons: temporal selected rule failed, market-disjoint selected rule failed
@@ -13,6 +13,15 @@
 |---|---|---:|---:|---:|---:|---:|---:|---|
 | temporal | nba_only | 39 | 7.47% | -1.67% | 6 | 13.49% | 11.62% | False |
 | market_disjoint | entry_15m_to_24h | 76 | 0.39% | -7.23% | 57 | 1.99% | -6.16% | False |
+
+## Data Quality Split
+
+| Validation | Quality tier | Test bets | Test markets | Test ROI | Test CI low | Test win rate |
+|---|---|---:|---:|---:|---:|---:|
+| temporal | complete_5m | 5 | 5 | 13.78% | 11.54% | 100.00% |
+| temporal | complete_5m_source_quote_gap | 1 | 1 | 12.03% | n/a | 100.00% |
+| market_disjoint | complete_5m | 30 | 30 | 2.37% | -9.37% | 90.00% |
+| market_disjoint | complete_15m_partial_5m | 27 | 27 | 1.57% | -15.29% | 88.89% |
 
 ## Candidate Test Summary
 

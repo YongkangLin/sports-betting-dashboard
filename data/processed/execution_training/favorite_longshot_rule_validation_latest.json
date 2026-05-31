@@ -5,13 +5,22 @@
     "temporal selected rule failed",
     "market-disjoint selected rule failed"
   ],
-  "generated_at": "2026-05-31T03:43:23.036703+00:00",
+  "generated_at": "2026-05-31T11:18:00.053695+00:00",
   "input": {
     "bets_path": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/data/processed/execution_training/favorite_longshot_executable_bets_latest.parquet",
     "entry_ts_max": "2026-05-26 00:00:04.542000+00:00",
     "entry_ts_min": "2025-10-26 00:00:07.861000+00:00",
     "markets": 277,
-    "settlement_rows": 277
+    "settlement_rows": 277,
+    "sportsbook_gap_audit": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/reports/replay_sportsbook_gap_audit_latest.json",
+    "sportsbook_quality_counts": {
+      "complete_15m_partial_5m": 121,
+      "complete_5m": 146,
+      "complete_5m_source_quote_gap": 3,
+      "complete_5m_sportsbook_listed_late": 5,
+      "complete_5m_sportsbook_stopped_before_settlement": 1,
+      "no_odds_event_match": 1
+    }
   },
   "market_disjoint": {
     "candidates": [
@@ -901,6 +910,101 @@
       "min_hours_to_end": 0.25
     },
     "selected_rule_id": "entry_15m_to_24h",
+    "selected_rule_quality_breakdown": [
+      {
+        "avg_entry_ask": 0.8765248226950355,
+        "avg_spread": 0.011205673758865258,
+        "bets": 141,
+        "ci_hi": 0.09064913514247057,
+        "ci_lo": -0.008467556644403452,
+        "markets": 141,
+        "pnl": 4.990378,
+        "roi": 0.04037849340561534,
+        "sportsbook_quality_tier": "complete_5m",
+        "stake": 123.59,
+        "win_rate": 0.9148936170212766
+      },
+      {
+        "avg_entry_ask": 0.8754237288135593,
+        "avg_spread": 0.01152542372881357,
+        "bets": 118,
+        "ci_hi": 0.05148930530902256,
+        "ci_lo": -0.08668113130855136,
+        "markets": 118,
+        "pnl": -1.633429,
+        "roi": -0.015812478218780252,
+        "sportsbook_quality_tier": "complete_15m_partial_5m",
+        "stake": 103.3,
+        "win_rate": 0.864406779661017
+      },
+      {
+        "avg_entry_ask": 0.8866666666666667,
+        "avg_spread": 0.013333333333333345,
+        "bets": 3,
+        "ci_hi": 0.14552528735632184,
+        "ci_lo": 0.10811111111111107,
+        "markets": 3,
+        "pnl": 0.33097,
+        "roi": 0.12442481203007517,
+        "sportsbook_quality_tier": "complete_5m_source_quote_gap",
+        "stake": 2.66,
+        "win_rate": 1.0
+      },
+      {
+        "avg_entry_ask": 0.85,
+        "avg_spread": 0.010000000000000009,
+        "bets": 1,
+        "ci_hi": null,
+        "ci_lo": null,
+        "markets": 1,
+        "pnl": 0.14617500000000003,
+        "roi": 0.17197058823529415,
+        "sportsbook_quality_tier": "complete_5m_sportsbook_stopped_before_settlement",
+        "stake": 0.85,
+        "win_rate": 1.0
+      },
+      {
+        "avg_entry_ask": 0.93,
+        "avg_spread": 0.040000000000000036,
+        "bets": 1,
+        "ci_hi": null,
+        "ci_lo": null,
+        "markets": 1,
+        "pnl": 0.06804699999999995,
+        "roi": 0.07316881720430102,
+        "sportsbook_quality_tier": "no_odds_event_match",
+        "stake": 0.93,
+        "win_rate": 1.0
+      }
+    ],
+    "selected_rule_test_quality_breakdown": [
+      {
+        "avg_entry_ask": 0.8763333333333333,
+        "avg_spread": 0.01100000000000001,
+        "bets": 30,
+        "ci_hi": 0.13572470945689333,
+        "ci_lo": -0.09372188636363638,
+        "markets": 30,
+        "pnl": 0.6228440000000002,
+        "roi": 0.02369128946367441,
+        "sportsbook_quality_tier": "complete_5m",
+        "stake": 26.29,
+        "win_rate": 0.9
+      },
+      {
+        "avg_entry_ask": 0.8722222222222222,
+        "avg_spread": 0.01074074074074075,
+        "bets": 27,
+        "ci_hi": 0.14222346295220362,
+        "ci_lo": -0.15293046581137765,
+        "markets": 27,
+        "pnl": 0.36949500000000024,
+        "roi": 0.015689808917197463,
+        "sportsbook_quality_tier": "complete_15m_partial_5m",
+        "stake": 23.55,
+        "win_rate": 0.8888888888888888
+      }
+    ],
     "test": {
       "avg_entry_ask": 0.8743859649122807,
       "avg_spread": 0.01087719298245615,
@@ -931,6 +1035,86 @@
     "report": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/reports/favorite_longshot_rule_validation_latest.md"
   },
   "overall_gate": false,
+  "quality_breakdown": [
+    {
+      "avg_entry_ask": 0.8769863013698631,
+      "avg_spread": 0.011232876712328777,
+      "bets": 146,
+      "ci_hi": 0.08241823466063194,
+      "ci_lo": -0.03475848684921087,
+      "markets": 146,
+      "pnl": 3.5313359999999987,
+      "roi": 0.02757994376757262,
+      "sportsbook_quality_tier": "complete_5m",
+      "stake": 128.04000000000002,
+      "win_rate": 0.9041095890410958
+    },
+    {
+      "avg_entry_ask": 0.8759504132231405,
+      "avg_spread": 0.012148760330578521,
+      "bets": 121,
+      "ci_hi": 0.05202344593674448,
+      "ci_lo": -0.08315577854935668,
+      "markets": 121,
+      "pnl": -1.3316820000000005,
+      "roi": -0.012564223039909431,
+      "sportsbook_quality_tier": "complete_15m_partial_5m",
+      "stake": 105.99,
+      "win_rate": 0.8677685950413223
+    },
+    {
+      "avg_entry_ask": 0.8560000000000001,
+      "avg_spread": 0.03400000000000001,
+      "bets": 5,
+      "ci_hi": 0.17197058823529415,
+      "ci_lo": 0.15332890046296296,
+      "markets": 5,
+      "pnl": 0.7015200000000001,
+      "roi": 0.1639065420560748,
+      "sportsbook_quality_tier": "complete_5m_sportsbook_listed_late",
+      "stake": 4.28,
+      "win_rate": 1.0
+    },
+    {
+      "avg_entry_ask": 0.8866666666666667,
+      "avg_spread": 0.013333333333333345,
+      "bets": 3,
+      "ci_hi": 0.14552528735632184,
+      "ci_lo": 0.10811111111111107,
+      "markets": 3,
+      "pnl": 0.33097,
+      "roi": 0.12442481203007517,
+      "sportsbook_quality_tier": "complete_5m_source_quote_gap",
+      "stake": 2.66,
+      "win_rate": 1.0
+    },
+    {
+      "avg_entry_ask": 0.85,
+      "avg_spread": 0.010000000000000009,
+      "bets": 1,
+      "ci_hi": null,
+      "ci_lo": null,
+      "markets": 1,
+      "pnl": 0.14617500000000003,
+      "roi": 0.17197058823529415,
+      "sportsbook_quality_tier": "complete_5m_sportsbook_stopped_before_settlement",
+      "stake": 0.85,
+      "win_rate": 1.0
+    },
+    {
+      "avg_entry_ask": 0.93,
+      "avg_spread": 0.040000000000000036,
+      "bets": 1,
+      "ci_hi": null,
+      "ci_lo": null,
+      "markets": 1,
+      "pnl": 0.06804699999999995,
+      "roi": 0.07316881720430102,
+      "sportsbook_quality_tier": "no_odds_event_match",
+      "stake": 0.93,
+      "win_rate": 1.0
+    }
+  ],
   "temporal": {
     "candidates": [
       {
@@ -1821,6 +2005,88 @@
       ]
     },
     "selected_rule_id": "nba_only",
+    "selected_rule_quality_breakdown": [
+      {
+        "avg_entry_ask": 0.8798780487804879,
+        "avg_spread": 0.010609756097560985,
+        "bets": 82,
+        "ci_hi": 0.0822007133908686,
+        "ci_lo": -0.053220045474522,
+        "markets": 82,
+        "pnl": 1.6143709999999993,
+        "roi": 0.022375204435204424,
+        "sportsbook_quality_tier": "complete_5m",
+        "stake": 72.15,
+        "win_rate": 0.9024390243902439
+      },
+      {
+        "avg_entry_ask": 0.8560000000000001,
+        "avg_spread": 0.03400000000000001,
+        "bets": 5,
+        "ci_hi": 0.17197058823529415,
+        "ci_lo": 0.15332890046296296,
+        "markets": 5,
+        "pnl": 0.7015200000000001,
+        "roi": 0.1639065420560748,
+        "sportsbook_quality_tier": "complete_5m_sportsbook_listed_late",
+        "stake": 4.28,
+        "win_rate": 1.0
+      },
+      {
+        "avg_entry_ask": 0.88,
+        "avg_spread": 0.040000000000000036,
+        "bets": 1,
+        "ci_hi": null,
+        "ci_lo": null,
+        "markets": 1,
+        "pnl": 0.11683199999999999,
+        "roi": 0.13276363636363636,
+        "sportsbook_quality_tier": "complete_15m_partial_5m",
+        "stake": 0.88,
+        "win_rate": 1.0
+      },
+      {
+        "avg_entry_ask": 0.89,
+        "avg_spread": 0.010000000000000009,
+        "bets": 1,
+        "ci_hi": null,
+        "ci_lo": null,
+        "markets": 1,
+        "pnl": 0.10706299999999999,
+        "roi": 0.12029550561797751,
+        "sportsbook_quality_tier": "complete_5m_source_quote_gap",
+        "stake": 0.89,
+        "win_rate": 1.0
+      }
+    ],
+    "selected_rule_test_quality_breakdown": [
+      {
+        "avg_entry_ask": 0.876,
+        "avg_spread": 0.010000000000000009,
+        "bets": 5,
+        "ci_hi": 0.1612431235431236,
+        "ci_lo": 0.11539306487695748,
+        "markets": 5,
+        "pnl": 0.60377,
+        "roi": 0.13784703196347034,
+        "sportsbook_quality_tier": "complete_5m",
+        "stake": 4.38,
+        "win_rate": 1.0
+      },
+      {
+        "avg_entry_ask": 0.89,
+        "avg_spread": 0.010000000000000009,
+        "bets": 1,
+        "ci_hi": null,
+        "ci_lo": null,
+        "markets": 1,
+        "pnl": 0.10706299999999999,
+        "roi": 0.12029550561797751,
+        "sportsbook_quality_tier": "complete_5m_source_quote_gap",
+        "stake": 0.89,
+        "win_rate": 1.0
+      }
+    ],
     "test": {
       "avg_entry_ask": 0.8783333333333333,
       "avg_spread": 0.010000000000000009,
