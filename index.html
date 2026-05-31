@@ -1811,6 +1811,8 @@ function renderStrategyOverview(data) {
   const replaySummary = data.favoriteLongshotEventReplays?.summary || {};
   const replayEvents = replaySummary.events_with_series ?? (data.favoriteLongshotEventReplays?.events || []).length;
   const replayPoints = replaySummary.total_series_points ?? 0;
+  const replaySportsbookEvents = replaySummary.sportsbook_events ?? 0;
+  const replaySportsbookPoints = replaySummary.total_sportsbook_points ?? 0;
   const favoriteAudit = strategyAuditRow(data, "favorite_longshot_fade_v2");
   const sharpAudit = strategyAuditRow(data, "sharp_consensus_clob_mispricing");
   const featureBlocker = [
@@ -1826,7 +1828,7 @@ function renderStrategyOverview(data) {
       tone: favoriteAudit && favoriteAudit.ci_lo > 0 ? "good" : "warn",
       metrics: [
         ["Backtest ROI", fmtPct(f.roi), `${fmtInt(f.settledEntries)} settled events`, `Resolution-hold replay is positive; short-horizon executable audit is ${fmtPct(favoriteAudit?.roi)} on ${strategyAuditSplit(favoriteAudit)}.`],
-        ["Replay sample", `${fmtInt(replayEvents)} events`, `${fmtInt(replayPoints)} one-minute points`, "Too small for final proof; target is thousands of events per major sport/market."],
+        ["Replay sample", `${fmtInt(replayEvents)} events`, `${fmtInt(replayPoints)} CLOB minute points`, `${fmtInt(replaySportsbookEvents)} events have sportsbook overlays from ${fmtInt(replaySportsbookPoints)} fair-probability points; target is thousands of events per major sport/market.`],
         ["Live picks", fmtInt(e.liveSignalsSelected), `${fmtInt(e.liveSignalCandidates)} candidates scanned`, "No current signal clears the live threshold."]
       ]
     },
