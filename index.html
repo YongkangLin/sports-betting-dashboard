@@ -648,6 +648,7 @@ const ARTIFACTS = {
   eventMarketInventory: { label: "Event/market inventory", path: "data/processed/execution_training/event_market_inventory_latest.json" },
   signalDiagnostics: { label: "Signal diagnostics", path: "data/processed/telonex_convergence_ml/strategy_signal_diagnostics_latest.json" },
   favoriteLongshotBias: { label: "Favorite-longshot bias", path: "data/processed/execution_training/favorite_longshot_bias_latest.json" },
+  favoriteLongshotExecutable: { label: "Favorite-longshot executable", path: "data/processed/execution_training/favorite_longshot_executable_backtest_latest.json" },
   backtestReplay: { label: "Backtest replay", path: "data/processed/telonex_convergence_ml/backtest_replay_latest.json" },
   modelMonitor: { label: "Model monitor", path: "data/processed/telonex_convergence_ml/telonex_model_monitor_latest.json" },
   featureImportance: { label: "Feature importance audit", path: "data/processed/telonex_convergence_ml/telonex_feature_importance_latest.json" },
@@ -735,6 +736,17 @@ const SNAPSHOT = {
     activeEvents: 89,
     testOddsCoverage: 0.3253589362755499,
     activeObservedMarketTarget: 200
+  },
+  favoriteLongshotExecutable: {
+    gate: false,
+    selectedEntries: 290,
+    settledEntries: 259,
+    settledMarkets: 259,
+    roi: 0.015277109974424549,
+    ciLo: -0.03373709390492994,
+    winRate: 0.8918918918918919,
+    bookAssets: 648,
+    targetAssets: 848
   },
   gateReasons: [
     "queue/fill model not validated on authenticated fills",
@@ -912,6 +924,7 @@ const SNAPSHOT = {
     "data/processed/execution_training/event_market_inventory_latest.json": 14494,
     "data/processed/telonex_convergence_ml/strategy_signal_diagnostics_latest.json": 11136,
     "data/processed/execution_training/favorite_longshot_bias_latest.json": 14815,
+    "data/processed/execution_training/favorite_longshot_executable_backtest_latest.json": 72452,
     "data/processed/telonex_convergence_ml/backtest_replay_latest.json": 1678,
     "data/processed/telonex_convergence_ml/telonex_model_monitor_latest.json": 44140,
     "data/processed/telonex_convergence_ml/telonex_feature_importance_latest.json": 45484,
@@ -1026,6 +1039,7 @@ function deriveDashboard() {
   const readiness = state.loaded.strategyReadiness;
   const inventory = state.loaded.eventMarketInventory;
   const signals = state.loaded.liveSignals;
+  const favoriteExecutable = state.loaded.favoriteLongshotExecutable;
 
   if (live) {
     data.generatedAt = live.generated_at || data.generatedAt;
@@ -1048,6 +1062,19 @@ function deriveDashboard() {
     data.execution.telonexQuoteRows = live.telonex?.quote_rows ?? data.execution.telonexQuoteRows;
     data.execution.telonexDepthRows = live.telonex?.depth_rows ?? data.execution.telonexDepthRows;
     data.execution.telonexTradeRows = live.telonex?.trade_rows ?? data.execution.telonexTradeRows;
+    const fav = live.favorite_longshot_executable || {};
+    const favCoverage = fav.coverage || {};
+    const favSettlement = fav.settlement_total || {};
+    const favCi = fav.settlement_bootstrap_ci || {};
+    data.favoriteLongshotExecutable.gate = Boolean(fav.executable_gate);
+    data.favoriteLongshotExecutable.selectedEntries = favCoverage.selected_entries ?? data.favoriteLongshotExecutable.selectedEntries;
+    data.favoriteLongshotExecutable.settledEntries = favCoverage.clear_settlement_entries ?? data.favoriteLongshotExecutable.settledEntries;
+    data.favoriteLongshotExecutable.bookAssets = favCoverage.assets_with_books ?? data.favoriteLongshotExecutable.bookAssets;
+    data.favoriteLongshotExecutable.targetAssets = favCoverage.target_assets ?? data.favoriteLongshotExecutable.targetAssets;
+    data.favoriteLongshotExecutable.settledMarkets = favSettlement.markets ?? data.favoriteLongshotExecutable.settledMarkets;
+    data.favoriteLongshotExecutable.roi = favSettlement.roi ?? data.favoriteLongshotExecutable.roi;
+    data.favoriteLongshotExecutable.winRate = favSettlement.win_rate ?? data.favoriteLongshotExecutable.winRate;
+    data.favoriteLongshotExecutable.ciLo = favCi.ci_lo ?? data.favoriteLongshotExecutable.ciLo;
 
     const liveModel = live.telonex_convergence || {};
     data.latestModel.runId = liveModel.run_id || data.latestModel.runId;
@@ -1138,6 +1165,21 @@ function deriveDashboard() {
     data.execution.liveSignalThreshold = signals.threshold ?? data.execution.liveSignalThreshold;
   }
 
+  if (favoriteExecutable) {
+    const coverage = favoriteExecutable.coverage || {};
+    const settlement = favoriteExecutable.settlement_total || {};
+    const ci = favoriteExecutable.settlement_bootstrap_ci || {};
+    data.favoriteLongshotExecutable.gate = Boolean(favoriteExecutable.executable_gate);
+    data.favoriteLongshotExecutable.selectedEntries = coverage.selected_entries ?? data.favoriteLongshotExecutable.selectedEntries;
+    data.favoriteLongshotExecutable.settledEntries = coverage.clear_settlement_entries ?? data.favoriteLongshotExecutable.settledEntries;
+    data.favoriteLongshotExecutable.bookAssets = coverage.assets_with_books ?? data.favoriteLongshotExecutable.bookAssets;
+    data.favoriteLongshotExecutable.targetAssets = coverage.target_assets ?? data.favoriteLongshotExecutable.targetAssets;
+    data.favoriteLongshotExecutable.settledMarkets = settlement.markets ?? data.favoriteLongshotExecutable.settledMarkets;
+    data.favoriteLongshotExecutable.roi = settlement.roi ?? data.favoriteLongshotExecutable.roi;
+    data.favoriteLongshotExecutable.winRate = settlement.win_rate ?? data.favoriteLongshotExecutable.winRate;
+    data.favoriteLongshotExecutable.ciLo = ci.ci_lo ?? data.favoriteLongshotExecutable.ciLo;
+  }
+
   if (state.runSummaries.length) {
     const dynamicRuns = state.runSummaries.map(summarizeRun);
     const byRunId = new Map(dynamicRuns.map(run => [run.runId, run]));
@@ -1175,6 +1217,7 @@ function renderPlainCards(data) {
   const m = data.latestModel;
   const e = data.execution;
   const r = data.readiness;
+  const f = data.favoriteLongshotExecutable;
   const cards = [
     {
       tone: data.overall.liveCapitalGate ? "warn" : "bad",
@@ -1193,10 +1236,16 @@ function renderPlainCards(data) {
         : "No. Under realistic fill-profit rules, the latest model abstained."
     },
     {
+      tone: f.gate ? "good" : "warn",
+      label: "Did favorite-longshot work?",
+      answer: f.gate ? "Passed" : "Not proven",
+      copy: `${fmtInt(f.settledEntries)} settled executable entries show ${fmtPct(f.roi)} ROI, but the pessimistic CI is ${fmtPct(f.ciLo)}.`
+    },
+    {
       tone: e.authFills > 0 && r.overallGate ? "good" : "warn",
       label: "Is this just bad data?",
       answer: "Mixed",
-      copy: `There is lots of order-book history, but only ${fmtInt(e.authFills)} authenticated fills and ${fmtPct(m.oddsTestCoverage)} test odds coverage.`
+      copy: `CLOB coverage is stronger now (${fmtInt(f.bookAssets)}/${fmtInt(f.targetAssets)} target assets), but there are still ${fmtInt(e.authFills)} authenticated fills.`
     }
   ];
   $("plain-grid").innerHTML = cards.map(card => `
@@ -1212,11 +1261,13 @@ function renderMetrics(data) {
   const m = data.latestModel;
   const e = data.execution;
   const r = data.readiness;
+  const f = data.favoriteLongshotExecutable;
   const metrics = [
     ["Current run", m.runId, targetRead(m.targetCol), "This is the run the dashboard trusts most."],
     ["Research status", m.researchGate ? "PASS" : "HOLD", `profit check ${m.performanceGate ? "passed" : "failed"}`, "HOLD means do not treat the model as a working strategy."],
     ["Trades found", fmtInt(m.testTrades), `profit ${fmtPct(m.testRoi)} / pessimistic case ${fmtPct(m.testCiLo)}`, "Zero is not a typo. The stricter model found no test trades worth taking."],
     ["Live picks now", fmtInt(e.liveSignalsSelected), `${fmtInt(e.liveSignalRows)} rows scored`, "This is what the model would pick from current live data. Zero means no live setup cleared the threshold."],
+    ["Favorite-longshot", `${fmtInt(f.settledEntries)} settled`, `ROI ${fmtPct(f.roi)} / CI low ${fmtPct(f.ciLo)}`, "This is the strongest current non-ML bucket, but it is still not statistically proven."],
     ["Paper fills", fmtInt(e.paperFills), `${fmtInt(e.authFills)} real authenticated fills`, "Paper fills help debug, but real fills are needed before believing execution."],
     ["Odds coverage", fmtPct(m.oddsTestCoverage), `${fmtInt(m.oddsTestMatchedMarkets)} matched test markets`, "Low coverage means many test rows lack the sportsbook context the model wants."],
     ["Order-book history", fmtInt(e.telonexDepthRows), `${fmtInt(e.telonexQuoteRows)} quotes / ${fmtInt(e.telonexTradeRows)} trades`, "This is the strongest part of the data story: there is meaningful historical CLOB depth."],
