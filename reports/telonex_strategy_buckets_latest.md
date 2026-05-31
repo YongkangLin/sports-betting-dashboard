@@ -1,6 +1,6 @@
 # Telonex Strategy Bucket Audit
 
-- Generated: 2026-05-31T04:15:34.207274+00:00
+- Generated: 2026-05-31T04:43:41.231087+00:00
 - Labels: 2,888,585
 - Markets/tokens: 216 / 429
 - Sports: {'baseball_mlb': 1731351, 'soccer': 1108317, 'basketball_wnba': 43570, 'icehockey_nhl': 5347}
@@ -8,7 +8,7 @@
 - Odds API feature coverage: 48.96%
 - Odds API split coverage: `{'test': {'rows': 226224, 'matched_rows': 73604, 'row_coverage': 0.3253589362755499, 'markets': 18, 'matched_markets': 5}, 'train': {'rows': 1776863, 'matched_rows': 936300, 'row_coverage': 0.5269398935089536, 'markets': 75, 'matched_markets': 44}, 'unobserved': {'rows': 539748, 'matched_rows': 229330, 'row_coverage': 0.4248834641351149, 'markets': 107, 'matched_markets': 24}, 'val': {'rows': 345750, 'matched_rows': 174926, 'row_coverage': 0.5059320318148951, 'markets': 16, 'matched_markets': 6}}`
 - Player/news feature coverage: 0.00% / status `missing_public_timestamped_feed`
-- Play-by-play feature coverage: 0.00% / status `missing_feature_file`
+- Play-by-play feature coverage: 52.27% / status `available`
 - Sentiment feature coverage: 0.00% / status `missing_feature_file`
 - Minimum bucket rows/markets: 1000 / 5
 - Positive test buckets total/taker/maker: 0 / 0 / 0
@@ -195,7 +195,7 @@ This is a fixed-bucket audit, not a model-selection sweep. The buckets are meant
 
 ## Play-By-Play Event State
 
-- Status: missing_feature_file
+- Status: available
 - Contract: causal event logs only; features include score differential, clock, possession, recent scoring/penalty/injury events, and win-probability/event-shock deltas.
 - Current use: required before the post-event shock strategy can graduate beyond generic price-shock research.
 

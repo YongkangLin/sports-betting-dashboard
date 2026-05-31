@@ -1,6 +1,6 @@
 # Live Execution Status
 
-- Generated: 2026-05-31T03:44:07.588875+00:00
+- Generated: 2026-05-31T04:54:20.560661+00:00
 - Capital enabled: False
 - Live capital gate: False
 - Gate reasons: queue/fill model not validated on authenticated fills, need authenticated Polymarket fill/order lifecycle rows, Telonex convergence research gate failed, execution-adjusted backtest replay failed: no selected historical replay trades, no predeclared executable taker strategy bucket cleared validation, Telonex microstructure bucket audit failed, Telonex model monitor hold, live paper-fill LEV/price-hold quality gate failed, Telonex market-disjoint validation gate failed, Telonex temporal validation gate failed, favorite-longshot executable Telonex backtest gate failed, favorite-longshot out-of-sample rule validation failed

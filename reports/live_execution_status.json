@@ -3344,7 +3344,7 @@
     "live strategy LEV evidence incomplete",
     "favorite-longshot bucket has raw edge but not robust event-cluster CI yet"
   ],
-  "generated_at": "2026-05-31T03:44:07.588875+00:00",
+  "generated_at": "2026-05-31T04:54:20.560661+00:00",
   "historical_clob": {
     "depth_rows": 105207074,
     "quote_rows": 7183240,
@@ -8582,32 +8582,39 @@
     "odds_features": {
       "coverage_by_split": {
         "test": {
-          "markets": 33,
-          "matched_markets": 0,
-          "matched_rows": 0,
-          "row_coverage": 0.0,
-          "rows": 29156
+          "markets": 18,
+          "matched_markets": 5,
+          "matched_rows": 73604,
+          "row_coverage": 0.3253589362755499,
+          "rows": 226224
         },
         "train": {
-          "markets": 151,
-          "matched_markets": 70,
-          "matched_rows": 1337398,
-          "row_coverage": 0.5035317682184158,
-          "rows": 2656035
+          "markets": 75,
+          "matched_markets": 44,
+          "matched_rows": 936300,
+          "row_coverage": 0.5269398935089536,
+          "rows": 1776863
+        },
+        "unobserved": {
+          "markets": 107,
+          "matched_markets": 24,
+          "matched_rows": 229330,
+          "row_coverage": 0.4248834641351149,
+          "rows": 539748
         },
         "val": {
-          "markets": 32,
-          "matched_markets": 9,
-          "matched_rows": 76762,
-          "row_coverage": 0.37740542985535463,
-          "rows": 203394
+          "markets": 16,
+          "matched_markets": 6,
+          "matched_rows": 174926,
+          "row_coverage": 0.5059320318148951,
+          "rows": 345750
         }
       },
       "enabled": true,
       "matched_markets": 79,
       "matched_rows": 1414160,
       "matched_tokens": 157,
-      "path": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/execution_training/telonex_odds_features_latest.parquet",
+      "path": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/data/processed/execution_training/telonex_odds_features_latest.parquet",
       "row_coverage": 0.48956842190899696,
       "rows": 1414160
     },
@@ -8616,7 +8623,7 @@
       "maker": 0,
       "taker": 0
     },
-    "report": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/telonex_strategy_buckets_latest.md",
+    "report": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/reports/telonex_strategy_buckets_latest.md",
     "rows": 2888585,
     "tokens": 429,
     "verdict": "No predeclared test bucket cleared a positive cluster-bootstrap CI lower bound. Current Telonex data does not support live capital for maker/taker price-bucket strategies."

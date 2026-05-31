@@ -28,7 +28,7 @@
   "gate_reasons": [
     "no predeclared executable taker bucket has positive test CI lower bound"
   ],
-  "generated_at": "2026-05-31T04:15:34.207274+00:00",
+  "generated_at": "2026-05-31T04:43:41.231087+00:00",
   "horizon_spread_buckets": [
     {
       "avg_line_lag_gap_5m": 0.0007974632949128942,
@@ -4838,15 +4838,35 @@
     "report": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/reports/telonex_strategy_buckets_latest.md"
   },
   "play_by_play_features": {
-    "enabled": false,
-    "feature_columns": [],
-    "matched_markets": 0,
-    "matched_rows": 0,
+    "enabled": true,
+    "feature_columns": [
+      "pbp_available",
+      "pbp_events_seen",
+      "pbp_last_event_age_sec",
+      "pbp_recent_events_5m",
+      "pbp_recent_score_events_5m",
+      "pbp_recent_penalties_5m",
+      "pbp_recent_timeouts_5m",
+      "pbp_recent_substitutions_5m",
+      "pbp_recent_injuries_5m",
+      "pbp_score_for",
+      "pbp_score_against",
+      "pbp_score_diff",
+      "pbp_abs_score_diff",
+      "pbp_period",
+      "pbp_clock_seconds_remaining",
+      "pbp_possession_for",
+      "pbp_red_card_diff",
+      "pbp_expected_points_delta_5m",
+      "pbp_win_prob_delta_5m"
+    ],
+    "matched_markets": 86,
+    "matched_rows": 1509729,
     "path": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/data/processed/execution_training/play_by_play_features_latest.parquet",
     "required_for": "post-event shock and live state validation",
-    "row_coverage": 0.0,
-    "rows": 0,
-    "status": "missing_feature_file"
+    "row_coverage": 0.5226534791255927,
+    "rows": 174624,
+    "status": "available"
   },
   "player_news_features": {
     "enabled": false,

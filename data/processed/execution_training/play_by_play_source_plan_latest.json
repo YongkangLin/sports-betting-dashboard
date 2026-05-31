@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-31T04:27:17.140407+00:00",
+  "generated_at": "2026-05-31T04:43:52.555359+00:00",
   "model_contract": {
     "first_targets": [
       "fair_price_after - market_price_after",
@@ -16,11 +16,11 @@
     "icehockey_nhl"
   ],
   "play_by_play_features": {
-    "exists": false,
-    "markets": 0,
+    "exists": true,
+    "markets": 86,
     "path": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/data/processed/execution_training/play_by_play_features_latest.parquet",
-    "rows": 0,
-    "status": "missing_feature_file"
+    "rows": 174624,
+    "status": "present"
   },
   "priorities": [
     {

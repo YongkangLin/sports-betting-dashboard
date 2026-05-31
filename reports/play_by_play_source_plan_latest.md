@@ -1,7 +1,7 @@
 # Play-By-Play Source Plan
 
-- Generated: 2026-05-31T04:27:17.140407+00:00
-- Feature file status: missing_feature_file / rows 0 / markets 0
+- Generated: 2026-05-31T04:43:52.555359+00:00
+- Feature file status: present / rows 174,624 / markets 86
 - Rule: raw text is parser input only; model inputs must be structured state and consequence fields.
 
 ## Priority By Current Telonex Labels
