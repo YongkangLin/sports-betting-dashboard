@@ -580,6 +580,14 @@
     white-space: nowrap;
   }
 
+  .chart-source-note {
+    flex: 0 0 auto;
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
   .window-buttons {
     display: inline-flex;
     flex: 0 0 auto;
@@ -631,6 +639,25 @@
     border-top: 1px solid var(--soft-line);
     color: var(--muted);
     font-size: 12px;
+  }
+
+  .chart-legend.active {
+    display: flex;
+  }
+
+  .legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+    font-weight: 700;
+  }
+
+  .legend-swatch {
+    width: 18px;
+    height: 3px;
+    border-radius: 999px;
+    flex: 0 0 auto;
   }
 
   .legend-dot {
@@ -894,8 +921,10 @@
         <div class="replay-chart-shell">
           <div class="chart-toolbar">
             <div class="chart-title" id="chart-title">Minute replay</div>
+            <div class="chart-source-note" id="chart-source-note"></div>
           </div>
           <svg class="replay-chart" id="replay-chart" role="img" aria-label="Backtest event price path"></svg>
+          <div class="chart-legend" id="chart-legend"></div>
         </div>
         <div class="replay-detail">
           <h3 id="replay-title">No event selected</h3>
@@ -2194,7 +2223,9 @@ function sportsbookPricePoints(event) {
   return (event.sportsbook_series_points || []).map(point => {
     const row = { offset: Number(point[0]) };
     schema.slice(1).forEach((name, index) => {
-      row[name] = num(point[index + 1]);
+      const value = num(point[index + 1]);
+      row[name] = value;
+      row[`${name} opposite`] = value === null ? null : Math.max(0, Math.min(1, 1 - value));
     });
     return row;
   }).filter(point => Number.isFinite(point.offset));
@@ -2209,11 +2240,38 @@ function replayHasSportsbook(event) {
 function replayDataSourceOptions(event) {
   const hasSportsbook = replayHasSportsbook(event);
   const sportsbookPointCount = event?.sportsbook_series_point_count ?? (event?.sportsbook_series_points || []).length;
+  const bookCount = Math.max(0, (event?.sportsbook_series_schema || []).length - 2);
   return [
+    { value: "both", label: hasSportsbook ? `CLOB + sportsbook consensus (${fmtInt(sportsbookPointCount)} book pts)` : "CLOB + sportsbook consensus", enabled: hasSportsbook },
     { value: "polymarket", label: "Polymarket CLOB", enabled: true },
-    { value: "sportsbooks", label: hasSportsbook ? `Sportsbook fair % (${fmtInt(sportsbookPointCount)} pts)` : "Sportsbook fair %", enabled: hasSportsbook },
-    { value: "both", label: hasSportsbook ? `Both (${fmtInt(sportsbookPointCount)} book pts)` : "Both", enabled: hasSportsbook },
+    { value: "sportsbooks", label: hasSportsbook ? `Sportsbook consensus (${fmtInt(sportsbookPointCount)} pts)` : "Sportsbook consensus", enabled: hasSportsbook },
+    { value: "sportsbook_books", label: hasSportsbook ? `Sportsbook by book (${fmtInt(bookCount)} books)` : "Sportsbook by book", enabled: hasSportsbook && bookCount > 0 },
   ];
+}
+
+function sportsbookKeysForMode(event, sourceMode) {
+  const schemaKeys = (event.sportsbook_series_schema || []).slice(1);
+  if (!schemaKeys.length) return [];
+  if (sourceMode === "sportsbook_books") {
+    return schemaKeys.filter(key => key !== "Sportsbook consensus");
+  }
+  return schemaKeys.includes("Sportsbook consensus") ? ["Sportsbook consensus"] : [schemaKeys[0]];
+}
+
+function setChartSourceNote(text = "") {
+  if ($("chart-source-note")) $("chart-source-note").textContent = text;
+}
+
+function renderChartLegend(items = []) {
+  const legend = $("chart-legend");
+  if (!legend) return;
+  legend.classList.toggle("active", Boolean(items.length));
+  legend.innerHTML = items.map(item => `
+    <span class="legend-item">
+      <span class="legend-swatch" style="background:${esc(item.color)}; opacity:${item.opacity ?? 1}"></span>
+      <span>${esc(item.label)}</span>
+    </span>
+  `).join("");
 }
 
 function replayPath(points, key, sx, sy) {
@@ -2495,8 +2553,9 @@ function drawReplayChart(event) {
   const bookPoints = sportsbookPricePoints(event);
   const sourceMode = state.selectedReplayDataSource || "polymarket";
   const showPolymarket = sourceMode === "polymarket" || sourceMode === "both" || !bookPoints.length;
-  const showSportsbooks = bookPoints.length && (sourceMode === "sportsbooks" || sourceMode === "both");
-  const points = sourceMode === "both" && bookPoints.length
+  const showSportsbooks = bookPoints.length && (sourceMode === "sportsbooks" || sourceMode === "sportsbook_books" || sourceMode === "both");
+  const sportsbookKeys = sportsbookKeysForMode(event, sourceMode);
+  const points = showPolymarket && showSportsbooks
     ? [...polyPoints, ...bookPoints]
     : showPolymarket ? polyPoints : bookPoints;
   const selectedIndex = selectedReplayMarkerIndex(event);
@@ -2508,6 +2567,8 @@ function drawReplayChart(event) {
     state.replayChart = null;
     svg.innerHTML = `<text x="24" y="42" fill="#627083">No price series available for this event.</text>`;
     if ($("chart-title")) $("chart-title").textContent = "Minute replay";
+    setChartSourceNote("");
+    renderChartLegend([]);
     return;
   }
 
@@ -2531,9 +2592,18 @@ function drawReplayChart(event) {
   if ($("chart-title")) {
     $("chart-title").textContent = replayExperimentLabel(event);
   }
+  const clobPointCount = event.series_point_count ?? polyPoints.length;
+  const sportsbookPointCount = event.sportsbook_series_point_count ?? bookPoints.length;
+  if (showPolymarket && showSportsbooks) {
+    setChartSourceNote(`${fmtInt(clobPointCount)} CLOB minute pts; ${fmtInt(sportsbookPointCount)} sportsbook snapshots`);
+  } else if (showSportsbooks) {
+    setChartSourceNote(`${fmtInt(sportsbookPointCount)} sportsbook snapshots`);
+  } else {
+    setChartSourceNote(`${fmtInt(clobPointCount)} CLOB minute pts`);
+  }
   const priceValues = [
     ...(showPolymarket ? visiblePolyPoints.flatMap(point => [point.selected, point.other]) : []),
-    ...(showSportsbooks ? visibleBookPoints.flatMap(point => (event.sportsbook_series_schema || []).slice(1).map(name => point[name])) : []),
+    ...(showSportsbooks ? visibleBookPoints.flatMap(point => sportsbookKeys.flatMap(name => [point[name], point[`${name} opposite`]])) : []),
     ...visibleMarkers.map(marker => num(marker.price))
   ].filter(value => value !== null);
   let minY = Math.max(0, Math.min(...priceValues));
@@ -2573,26 +2643,65 @@ function drawReplayChart(event) {
     const y = Math.max(pad.top + 12, Math.min(height - pad.bottom - 8, sy(last[key]) + dy));
     return `<text x="${(width - pad.right + 10).toFixed(1)}" y="${y.toFixed(1)}" fill="${color}" font-size="12" font-weight="800" paint-order="stroke" stroke="#fff" stroke-width="4">${esc(shortLabel(label, 16))}</text>`;
   };
-  const sportsbookSchema = event.sportsbook_series_schema || [];
-  const sportsbookKeys = sportsbookSchema.slice(1);
   const sportsbookColors = ["#16a34a", "#7c3aed", "#dc2626", "#0891b2", "#9333ea", "#65a30d", "#be123c", "#0f766e", "#a16207"];
+  const sportsbookOtherColor = sourceMode === "sportsbook_books" ? null : "#be123c";
   const polyLabels = showPolymarket ? [
-    lineLabel(visiblePolyPoints, "selected", event.outcome || "Selected", "#1f77b4", -22),
-    lineLabel(visiblePolyPoints, "other", event.other_outcome || "Other side", "#f59e0b", 18)
+    lineLabel(visiblePolyPoints, "selected", `PM ${event.outcome || "Selected"}`, "#1f77b4", -22),
+    lineLabel(visiblePolyPoints, "other", `PM ${event.other_outcome || "Other side"}`, "#f59e0b", 18)
   ] : [];
-  const bookLabels = showSportsbooks ? sportsbookKeys.slice(0, 3).map((key, index) =>
-    lineLabel(visibleBookPoints, key, key, sportsbookColors[index % sportsbookColors.length], index * 16 - 18)
-  ) : [];
+  const bookLabels = showSportsbooks ? sportsbookKeys.slice(0, sourceMode === "sportsbook_books" ? 4 : 1).flatMap((key, index) => {
+    const selectedColor = sportsbookColors[index % sportsbookColors.length];
+    const otherColor = sportsbookOtherColor || selectedColor;
+    const selectedLabel = key === "Sportsbook consensus" ? `SB ${event.outcome || "selected"}` : `${key} sel`;
+    const otherLabel = key === "Sportsbook consensus" ? `SB ${event.other_outcome || "opposite"}` : `${key} opp`;
+    return [
+      lineLabel(visibleBookPoints, key, selectedLabel, selectedColor, index * 20 - 26),
+      lineLabel(visibleBookPoints, `${key} opposite`, otherLabel, otherColor, index * 20 - 8)
+    ];
+  }) : [];
   const lineLabels = [...polyLabels, ...bookLabels].join("");
-  const sportsbookLines = showSportsbooks ? sportsbookKeys.map((key, index) => `
-    <polyline class="chart-series" points="${replayPath(visibleBookPoints, key, sx, sy)}" fill="none" stroke="${sportsbookColors[index % sportsbookColors.length]}" stroke-width="${key === "Sportsbook consensus" ? "3" : "1.8"}" stroke-dasharray="none" opacity="${key === "Sportsbook consensus" ? "0.95" : "0.55"}" />
-  `).join("") : "";
-  const sportsbookDots = showSportsbooks ? sportsbookKeys.map((key, index) =>
-    visibleBookPoints
-      .filter(point => point[key] !== null)
-      .map(point => `<circle cx="${sx(point.offset).toFixed(1)}" cy="${sy(point[key]).toFixed(1)}" r="${key === "Sportsbook consensus" ? "4.2" : "2.8"}" fill="${sportsbookColors[index % sportsbookColors.length]}" opacity="${key === "Sportsbook consensus" ? "0.92" : "0.5"}" />`)
-      .join("")
-  ).join("") : "";
+  const sportsbookLines = showSportsbooks ? sportsbookKeys.flatMap((key, index) => {
+    const selectedColor = sportsbookColors[index % sportsbookColors.length];
+    const otherColor = sportsbookOtherColor || selectedColor;
+    const isConsensus = key === "Sportsbook consensus";
+    const selectedOpacity = isConsensus ? 0.95 : 0.58;
+    const otherOpacity = isConsensus ? 0.88 : 0.34;
+    const selectedWidth = isConsensus ? 3 : 1.8;
+    const otherWidth = isConsensus ? 2.6 : 1.6;
+    return [
+      `<polyline class="chart-series" points="${replayPath(visibleBookPoints, key, sx, sy)}" fill="none" stroke="${selectedColor}" stroke-width="${selectedWidth}" stroke-dasharray="none" opacity="${selectedOpacity}" />`,
+      `<polyline class="chart-series" points="${replayPath(visibleBookPoints, `${key} opposite`, sx, sy)}" fill="none" stroke="${otherColor}" stroke-width="${otherWidth}" stroke-dasharray="none" opacity="${otherOpacity}" />`
+    ];
+  }).join("") : "";
+  const sportsbookDots = showSportsbooks ? sportsbookKeys.flatMap((key, index) => {
+    const selectedColor = sportsbookColors[index % sportsbookColors.length];
+    const otherColor = sportsbookOtherColor || selectedColor;
+    const isConsensus = key === "Sportsbook consensus";
+    return [
+      ...visibleBookPoints
+        .filter(point => point[key] !== null)
+        .map(point => `<circle cx="${sx(point.offset).toFixed(1)}" cy="${sy(point[key]).toFixed(1)}" r="${isConsensus ? "4.2" : "2.8"}" fill="${selectedColor}" opacity="${isConsensus ? "0.92" : "0.5"}" />`),
+      ...visibleBookPoints
+        .filter(point => point[`${key} opposite`] !== null)
+        .map(point => `<circle cx="${sx(point.offset).toFixed(1)}" cy="${sy(point[`${key} opposite`]).toFixed(1)}" r="${isConsensus ? "4.0" : "2.5"}" fill="${otherColor}" opacity="${isConsensus ? "0.82" : "0.32"}" />`)
+    ];
+  }).join("") : "";
+  const legendItems = [
+    ...(showPolymarket ? [
+      { label: `Polymarket ${event.outcome || "selected"}`, color: "#1f77b4", opacity: 0.98 },
+      { label: `Polymarket ${event.other_outcome || "opposite"}`, color: "#f59e0b", opacity: 0.95 }
+    ] : []),
+    ...(showSportsbooks ? sportsbookKeys.flatMap((key, index) => {
+      const selectedColor = sportsbookColors[index % sportsbookColors.length];
+      const otherColor = sportsbookOtherColor || selectedColor;
+      const sourceLabel = key === "Sportsbook consensus" ? "Sportsbook consensus" : key;
+      return [
+        { label: `${sourceLabel} ${event.outcome || "selected"}`, color: selectedColor, opacity: key === "Sportsbook consensus" ? 0.95 : 0.58 },
+        { label: `${sourceLabel} ${event.other_outcome || "opposite"}`, color: otherColor, opacity: key === "Sportsbook consensus" ? 0.88 : 0.34 }
+      ];
+    }) : [])
+  ];
+  renderChartLegend(legendItems);
   const polyLines = showPolymarket ? `
     <polyline class="chart-series" points="${replayPath(visiblePolyPoints, "other", sx, sy)}" fill="none" stroke="#f59e0b" stroke-width="3" stroke-dasharray="none" opacity="0.95" />
     <polyline class="chart-series" points="${replayPath(visiblePolyPoints, "selected", sx, sy)}" fill="none" stroke="#1f77b4" stroke-width="3" stroke-dasharray="none" opacity="0.98" />
@@ -3053,7 +3162,9 @@ function renderReplay(data) {
   if (dataSourceSelect) {
     const options = replayDataSourceOptions(fullEvent);
     const enabledValues = options.filter(option => option.enabled).map(option => option.value);
-    if (!enabledValues.includes(state.selectedReplayDataSource)) {
+    if (enabledValues.includes(state.preferredReplayDataSource) && state.selectedReplayDataSource !== state.preferredReplayDataSource) {
+      state.selectedReplayDataSource = state.preferredReplayDataSource;
+    } else if (!enabledValues.includes(state.selectedReplayDataSource)) {
       state.selectedReplayDataSource = enabledValues.includes(state.preferredReplayDataSource)
         ? state.preferredReplayDataSource
         : enabledValues.includes("both")
