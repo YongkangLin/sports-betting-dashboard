@@ -1,10 +1,10 @@
 # Replay Sportsbook Gap Audit
 
-- Generated: 2026-05-31T08:39:21.570862+00:00
+- Generated: 2026-05-31T09:21:28.675654+00:00
 - Replay events audited: 277
-- Events with sportsbook overlay points: 273
+- Events with sportsbook overlay points: 276
 - Events with matched Odds API event but no usable sportsbook line: 0
-- Events needing data/action review: 4
+- Events needing data/action review: 1
 
 ## Interpretation
 
@@ -13,27 +13,35 @@
 - A late sportsbook start is only a data problem when the Odds API event was already listed and our quote pull/side matching still has no usable line.
 - Internal quote gaps with complete raw cache are source/book availability gaps, not local missing-download gaps.
 - End gaps with complete raw cache mean the book stopped offering a usable complete line before the Polymarket market settled.
+- The dashboard CLOB line is a one-minute replay series. Sportsbook overlays are historical Odds API snapshots; this audit treats 15-minute raw-cache coverage as the current dashboard completeness gate and separately reports how much five-minute native coverage is still uncached.
+
+## Cache And Series Completeness
+
+| Check | Result |
+|---|---:|
+| CLOB one-minute replay events with no missing minutes | 277 / 277 |
+| Odds matched events with complete 15m raw cache | 276 / 276 |
+| Odds matched events with missing 15m raw cache | 0 |
+| Odds matched events with complete 5m raw cache | 0 / 276 |
+| Odds matched events with any missing 5m cache | 276 |
 
 ## Classification Counts
 
 | Classification | Events |
 |---|---:|
-| has_sportsbook_overlay | 273 |
+| has_sportsbook_overlay | 276 |
 | sportsbook_event_not_listed_until_after_clob_start | 8 |
-| no_odds_event_match | 4 |
 | sportsbook_last_quote_not_settlement | 4 |
 | source_quote_gap_cache_complete | 3 |
 | sportsbook_starts_after_clob | 2 |
+| no_odds_event_match | 1 |
 | source_ended_before_market_end_cache_complete | 1 |
 
 ## Events Needing Review
 
 | Event | Sport | Points | Classifications | Diagnostic |
 |---|---|---:|---|---|
-| Bragantino vs Ceará | soccer | 0 | no_odds_event_match |  |
-| Tottenham Hotspur vs Sporting Lisbon | soccer | 0 | no_odds_event_match |  |
-| Sporting Lisbon vs Barcelona | soccer | 0 | no_odds_event_match |  |
-| Barcelona vs BM | soccer | 0 | no_odds_event_match |  |
+| Barcelona vs Bayern Munich | soccer | 0 | no_odds_event_match |  |
 
 ## Largest Late Starts
 
@@ -73,5 +81,5 @@
 
 | Event | Sportsbook match | Points | Start gap | Last quote to final | Last selected fair | Notes |
 |---|---|---:|---:|---:|---:|---|
-| 76ers vs Nuggets | Denver Nuggets vs Philadelphia 76ers 2026-03-18T01:10:00+00:00 | 115 | 5.4d | 5.1m | 97.1% | has_sportsbook_overlay, sportsbook_event_not_listed_until_after_clob_start |
 | Oilers vs Ducks total 4.5 | Anaheim Ducks vs Edmonton Oilers 2026-04-25T02:10:00+00:00 | 11 | 38s | 1.7h | 84.6% | has_sportsbook_overlay, sportsbook_last_quote_not_settlement |
+| 76ers vs Nuggets | Denver Nuggets vs Philadelphia 76ers 2026-03-18T01:10:00+00:00 | 115 | 5.4d | 5.1m | 97.1% | has_sportsbook_overlay, sportsbook_event_not_listed_until_after_clob_start |

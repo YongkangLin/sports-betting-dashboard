@@ -2,9 +2,9 @@
   "clob_actual_opposite_minutes": 329406,
   "clob_derived_other_events": 0,
   "clob_two_sided_events": 277,
-  "complete_both_venues_events": 273,
+  "complete_both_venues_events": 276,
   "events": 277,
-  "generated_at": "2026-05-31T08:36:57.507980+00:00",
+  "generated_at": "2026-05-31T09:21:23.088467+00:00",
   "missing_examples": [
     {
       "clob_two_sided": true,
@@ -12,34 +12,10 @@
       "outcome": "No",
       "sportsbook_match": null,
       "sportsbook_points": 0,
-      "title": "Bragantino vs Cear\u00e1"
-    },
-    {
-      "clob_two_sided": true,
-      "market": "Soccer",
-      "outcome": "No",
-      "sportsbook_match": null,
-      "sportsbook_points": 0,
-      "title": "Tottenham Hotspur vs Sporting Lisbon"
-    },
-    {
-      "clob_two_sided": true,
-      "market": "Soccer",
-      "outcome": "No",
-      "sportsbook_match": null,
-      "sportsbook_points": 0,
-      "title": "Sporting Lisbon vs Barcelona"
-    },
-    {
-      "clob_two_sided": true,
-      "market": "Soccer",
-      "outcome": "No",
-      "sportsbook_match": null,
-      "sportsbook_points": 0,
-      "title": "Barcelona vs BM"
+      "title": "Barcelona vs Bayern Munich"
     }
   ],
-  "odds_event_matches": 273,
-  "sportsbook_complete_side_events": 273,
-  "sportsbook_complete_side_points": 18926
+  "odds_event_matches": 276,
+  "sportsbook_complete_side_events": 276,
+  "sportsbook_complete_side_points": 19211
 }

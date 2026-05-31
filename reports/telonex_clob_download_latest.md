@@ -8,12 +8,12 @@
 - Day order: event-first
 - Max files per asset: 3
 - Selected assets: 392
-- Attempted downloads: 1000
-- Completed downloads: 992
+- Attempted downloads: 1146
+- Completed downloads: 1136
 - Skipped existing: 0
-- Failed downloads: 8
-- Rows downloaded this run: 39,856,890
-- Bytes downloaded this run: 945,559,098
+- Failed downloads: 10
+- Rows downloaded this run: 51,344,670
+- Bytes downloaded this run: 1,211,567,265
 - Manifest: `/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/data/processed/clob_capture/telonex_download_manifest.json`
 
 ## Completed
@@ -79,3 +79,5 @@
 - `trades` `2026-03-01` `fl1-asm-ang-2026-02-28-ang` `Yes`: download failed: HTTP 404 trades 2026-03-01 {"detail":"File not found: polymarket/trades/2026-03-01 with asset_id=32019468013521771580299866192215226102865691705248729402980415118343685723092"}
 - `trades` `2026-03-01` `fl1-hac-psg-2026-02-28-draw` `No`: download failed: HTTP 404 trades 2026-03-01 {"detail":"File not found: polymarket/trades/2026-03-01 with asset_id=59129686418852030248179786965124281907601199177585992884829971586436458072414"}
 - `trades` `2026-03-01` `fl1-hac-psg-2026-02-28-draw` `Yes`: download failed: HTTP 404 trades 2026-03-01 {"detail":"File not found: polymarket/trades/2026-03-01 with asset_id=94606723263320007773463785831081819218179159561655731486816568215346017206249"}
+- `trades` `2026-03-01` `fr2-pau-ass-2026-02-28-draw` `No`: download failed: HTTP 404 trades 2026-03-01 {"detail":"File not found: polymarket/trades/2026-03-01 with asset_id=9771958075928350846590874836256505604198741924709308231463799974922357193609"}
+- `trades` `2026-03-01` `fr2-pau-ass-2026-02-28-draw` `Yes`: download failed: HTTP 404 trades 2026-03-01 {"detail":"File not found: polymarket/trades/2026-03-01 with asset_id=95422148639205530124138852545560934264358718757475649203622094299283130653478"}
