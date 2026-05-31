@@ -529,7 +529,14 @@
   .replay-chart {
     display: block;
     width: 100%;
-    height: 380px;
+    height: 460px;
+    cursor: grab;
+    touch-action: none;
+    user-select: none;
+  }
+
+  .replay-chart.dragging {
+    cursor: grabbing;
   }
 
   .chart-legend {
@@ -750,9 +757,11 @@
           <div class="chart-toolbar">
             <div class="chart-title" id="chart-title">Minute replay</div>
             <div class="window-buttons" aria-label="Replay time range">
-              <button class="window-button active" type="button" data-replay-window="90m">90m</button>
-              <button class="window-button" type="button" data-replay-window="1d">1d</button>
-              <button class="window-button" type="button" data-replay-window="full">Full</button>
+              <button class="window-button active" type="button" data-replay-window="full">Full</button>
+              <button class="window-button" type="button" data-replay-window="movement">Active</button>
+              <button class="window-button" type="button" data-replay-window="trade">Trade</button>
+              <button class="window-button" type="button" data-replay-zoom="in">+</button>
+              <button class="window-button" type="button" data-replay-zoom="out">-</button>
             </div>
           </div>
           <svg class="replay-chart" id="replay-chart" role="img" aria-label="Backtest event price path"></svg>
@@ -1106,12 +1115,17 @@ const state = {
   runSummaries: [],
   selectedReplayId: null,
   selectedReplayMarkerById: {},
-  replayWindow: "90m",
+  replayWindow: "full",
+  replayZoomById: {},
+  replayChart: null,
+  replayDrag: null,
   replayDetails: {},
   replayLoading: {}
 };
 
 const $ = id => document.getElementById(id);
+const REPLAY_BANKROLL_USD = 1000;
+const REPLAY_POSITION_FRACTION = 0.05;
 
 function esc(value) {
   return String(value ?? "--")
@@ -1144,6 +1158,19 @@ function fmtPct(value, digits = 2) {
 function fmtPrice(value, digits = 3) {
   const n = num(value);
   return n === null ? "--" : n.toFixed(digits);
+}
+
+function fmtUsd(value, digits = 2) {
+  const n = num(value);
+  if (n === null) return "--";
+  return `$${n.toLocaleString(undefined, { minimumFractionDigits: digits, maximumFractionDigits: digits })}`;
+}
+
+function fmtSignedUsd(value, digits = 2) {
+  const n = num(value);
+  if (n === null) return "--";
+  const amount = Math.abs(n).toLocaleString(undefined, { minimumFractionDigits: digits, maximumFractionDigits: digits });
+  return `${n >= 0 ? "+" : "-"}$${amount}`;
 }
 
 function fmtSigned(value, digits = 4) {
@@ -1571,18 +1598,20 @@ function strategyLabel(value) {
 
 function replayOptionLabel(event) {
   const stats = event.stats || {};
-  return `${event.title || event.slug || event.replay_id} | ${event.outcome || "token"} | PnL ${fmtSigned(stats.pnl)} / ROI ${fmtPct(stats.roi)}`;
+  const pos = replayPosition(stats);
+  return `${event.title || event.slug || event.replay_id} | ${event.outcome || "token"} | ${fmtSignedUsd(pos.pnlUsd)} / ROI ${fmtPct(stats.roi)}`;
 }
 
 function replayPricePoints(event) {
   const schema = event.series_schema || [];
   const minuteSchema = schema.includes("selected_mid") && schema.includes("other_mid");
   return (event.series_points || []).map(point => {
+    const otherRaw = num(point[2]);
     if (minuteSchema || point.length === 3) {
       return {
         offset: Number(point[0]),
         selected: num(point[1]),
-        other: num(point[2])
+        other: otherRaw === null ? null : 1 - otherRaw
       };
     }
     return {
@@ -1612,42 +1641,71 @@ function replayMarkerPnl(marker) {
   return `${fmtSigned(marker.pnl)}${marker.roi !== undefined ? ` (${fmtPct(marker.roi)})` : ""}`;
 }
 
-function replayTradeAmount(stats) {
-  const stake = num(stats?.stake);
+function replayPosition(stats, marker = null) {
   const entry = num(stats?.entry_ask);
-  if (stake === null) return "--";
-  const shares = entry && entry > 0 ? stake / entry : null;
-  return shares === null
-    ? `${fmtPrice(stake, 4)} stake`
-    : `${fmtPrice(stake, 4)} stake / ${fmtPrice(shares, 3)} contract`;
+  const topAskSize = num(stats?.entry_ask_size);
+  const targetStake = REPLAY_BANKROLL_USD * REPLAY_POSITION_FRACTION;
+  const depthCap = entry && topAskSize ? entry * topAskSize : null;
+  const stakeUsd = Math.max(0, Math.min(targetStake, depthCap ?? targetStake));
+  const contracts = entry && entry > 0 ? stakeUsd / entry : null;
+  const pnlPerContract = marker ? num(marker.pnl) : num(stats?.pnl);
+  const pnlUsd = contracts !== null && pnlPerContract !== null ? contracts * pnlPerContract : null;
+  const markPrice = marker ? num(marker.price) : num(stats?.final_mid);
+  const markValueUsd = contracts !== null && markPrice !== null ? contracts * markPrice : null;
+  return {
+    bankroll: REPLAY_BANKROLL_USD,
+    targetStake,
+    depthCap,
+    stakeUsd,
+    contracts,
+    pnlUsd,
+    markValueUsd,
+    endBalance: pnlUsd === null ? null : REPLAY_BANKROLL_USD + pnlUsd,
+    cappedByDepth: depthCap !== null && depthCap < targetStake
+  };
+}
+
+function replayTradeAmount(stats) {
+  const pos = replayPosition(stats);
+  if (num(pos.stakeUsd) === null) return "--";
+  const cap = pos.cappedByDepth ? " depth capped" : "";
+  return pos.contracts === null
+    ? `${fmtUsd(pos.stakeUsd)}${cap}`
+    : `${fmtUsd(pos.stakeUsd)} / ${fmtPrice(pos.contracts, 2)} contracts${cap}`;
 }
 
 function replayDecisionRationale(event, marker) {
   const stats = event.stats || {};
   const action = marker?.action || "MARK";
+  const pos = replayPosition(stats, marker);
   if (action === "BUY") {
-    return `Buy ${event.outcome || "the contract"} at ${fmtPrice(marker.price)} using ${replayTradeAmount(stats)}.`;
+    return `Buy ${event.outcome || "the contract"} at ${fmtPrice(marker.price)} with ${fmtUsd(pos.stakeUsd)} from a ${fmtUsd(pos.bankroll, 0)} starting balance.`;
   }
   if (action === "SETTLEMENT") {
-    return `Final result: ${stats.won ? "won" : "lost"} with total PnL ${replayMarkerPnl(marker)}.`;
+    return `Final result: ${stats.won ? "won" : "lost"} with dollar PnL ${fmtSignedUsd(pos.pnlUsd)} and ending balance ${fmtUsd(pos.endBalance)}.`;
   }
-  return `Sell check at ${fmtPrice(marker.price)}. If exited here, PnL would be ${replayMarkerPnl(marker)}.`;
+  return `Sell check at ${fmtPrice(marker.price)}. If exited here, dollar PnL would be ${fmtSignedUsd(pos.pnlUsd)}.`;
 }
 
 function selectedReplayMarkerIndex(event) {
   const markers = event.markers || [];
-  let index = Number(state.selectedReplayMarkerById[event.replay_id]);
+  const stored = state.selectedReplayMarkerById[event.replay_id];
+  let index = Number(stored);
   if (!Number.isInteger(index) || index < 0 || index >= markers.length) {
-    index = 0;
+    if (state.replayWindow === "movement") {
+      index = markers.findIndex(marker => marker.action === "SETTLEMENT");
+    }
+    if (!Number.isInteger(index) || index < 0) index = 0;
   }
   state.selectedReplayMarkerById[event.replay_id] = index;
   return index;
 }
 
-function preferredWindowForMarker(marker) {
-  const label = String(marker?.horizon_label || marker?.label || "").toLowerCase();
-  if (label.includes("1d")) return "1d";
-  return "90m";
+function replayOffsetFromIso(event, isoValue) {
+  const start = Date.parse(event?.series_start_ts);
+  const ts = Date.parse(isoValue || "");
+  if (!Number.isFinite(start) || !Number.isFinite(ts)) return null;
+  return (ts - start) / 1000;
 }
 
 function setWindowButtonState() {
@@ -1656,28 +1714,106 @@ function setWindowButtonState() {
   });
 }
 
-function replayWindowBounds(points, markers, selectedMarker) {
-  const fullMin = Math.min(...points.map(point => point.offset));
-  const fullMax = Math.max(...points.map(point => point.offset));
+function replayMarkerOffsets(markers) {
+  return markers.map(marker => num(marker.offset_sec)).filter(value => value !== null);
+}
+
+function clampReplayRange(minX, maxX, fullMin, fullMax) {
+  const fullSpan = Math.max(1, fullMax - fullMin);
+  const minSpan = Math.min(fullSpan, 5 * 60);
+  let nextMin = Number.isFinite(minX) ? minX : fullMin;
+  let nextMax = Number.isFinite(maxX) ? maxX : fullMax;
+  if (nextMax - nextMin < minSpan) {
+    const mid = (nextMin + nextMax) / 2;
+    nextMin = mid - minSpan / 2;
+    nextMax = mid + minSpan / 2;
+  }
+  if (nextMax - nextMin >= fullSpan * 0.995) {
+    return { minX: fullMin, maxX: fullMax };
+  }
+  if (nextMin < fullMin) {
+    nextMax += fullMin - nextMin;
+    nextMin = fullMin;
+  }
+  if (nextMax > fullMax) {
+    nextMin -= nextMax - fullMax;
+    nextMax = fullMax;
+  }
+  nextMin = Math.max(fullMin, nextMin);
+  nextMax = Math.min(fullMax, nextMax);
+  return { minX: nextMin, maxX: nextMax };
+}
+
+function replayWindowStats(points, minX, maxX) {
+  const values = [];
+  points.forEach(point => {
+    if (point.offset < minX || point.offset > maxX) return;
+    if (point.selected !== null) values.push(point.selected);
+    if (point.other !== null) values.push(point.other);
+  });
+  if (!values.length) return { count: 0, spread: 0 };
+  return {
+    count: values.length,
+    spread: Math.max(...values) - Math.min(...values)
+  };
+}
+
+function activeMovementBounds(points, markers, event, fullMin, fullMax) {
+  const settlementMarker = [...markers].reverse().find(marker => marker.action === "SETTLEMENT");
+  const settlementOffset = num(settlementMarker?.offset_sec);
+  const eventEndOffset = replayOffsetFromIso(event, event?.event_end_ts);
+  const anchor = settlementOffset ?? eventEndOffset ?? fullMax;
+  const windowSec = Math.min(6 * 3600, Math.max(10 * 60, fullMax - fullMin));
+  let minX = Math.max(fullMin, anchor - windowSec);
+  let maxX = Math.min(fullMax, anchor + 10 * 60);
+  if (maxX - minX < 10 * 60) {
+    minX = Math.max(fullMin, maxX - 10 * 60);
+  }
+
+  const current = replayWindowStats(points, minX, maxX);
+  if (current.count >= 10 && current.spread >= 0.03) {
+    return { minX, maxX };
+  }
+
+  let best = { minX, maxX, spread: current.spread, count: current.count };
+  const step = Math.max(1, Math.floor(points.length / 180));
+  for (let i = 0; i < points.length; i += step) {
+    const start = points[i].offset;
+    const end = Math.min(fullMax, start + windowSec);
+    const stats = replayWindowStats(points, start, end);
+    if (stats.count >= 10 && stats.spread > best.spread) {
+      best = { minX: start, maxX: end, spread: stats.spread, count: stats.count };
+    }
+  }
+  return { minX: best.minX, maxX: best.maxX };
+}
+
+function replayWindowBounds(points, markers, selectedMarker, event) {
+  const markerOffsets = replayMarkerOffsets(markers);
+  const fullMin = Math.min(...points.map(point => point.offset), ...markerOffsets);
+  const fullMax = Math.max(...points.map(point => point.offset), ...markerOffsets);
   const buyMarker = markers.find(marker => marker.action === "BUY") || markers[0];
   const buyOffset = num(buyMarker?.offset_sec) ?? fullMin;
   const focusOffset = num(selectedMarker?.offset_sec) ?? buyOffset;
   const action = selectedMarker?.action || "BUY";
   let minX = fullMin;
   let maxX = fullMax;
-  if (state.replayWindow === "full") {
-    return { minX, maxX, fullMin, fullMax };
-  }
-  if (state.replayWindow === "1d") {
+  if (state.replayWindow === "movement") {
+    const active = activeMovementBounds(points, markers, event, fullMin, fullMax);
+    minX = active.minX;
+    maxX = active.maxX;
+  } else if (state.replayWindow === "trade") {
+    const settlementMarker = [...markers].reverse().find(marker => marker.action === "SETTLEMENT");
+    const settlementOffset = num(settlementMarker?.offset_sec) ?? fullMax;
     minX = Math.min(buyOffset, focusOffset) - 15 * 60;
-    maxX = Math.max(buyOffset + 24 * 3600, focusOffset + 15 * 60);
-  } else if (action === "SETTLEMENT") {
+    maxX = Math.max(settlementOffset, focusOffset, buyOffset) + 15 * 60;
+  } else if (state.replayWindow !== "full" && action === "SETTLEMENT") {
     minX = focusOffset - 90 * 60;
     maxX = focusOffset + 10 * 60;
-  } else if (action === "MARK" && focusOffset - buyOffset <= 90 * 60) {
+  } else if (state.replayWindow !== "full" && action === "MARK" && focusOffset - buyOffset <= 90 * 60) {
     minX = buyOffset - 10 * 60;
     maxX = buyOffset + 90 * 60;
-  } else {
+  } else if (state.replayWindow !== "full") {
     minX = focusOffset - 10 * 60;
     maxX = focusOffset + 90 * 60;
   }
@@ -1685,21 +1821,46 @@ function replayWindowBounds(points, markers, selectedMarker) {
   maxX = Math.min(fullMax, maxX);
   if (focusOffset > maxX) {
     maxX = Math.min(fullMax, focusOffset + 10 * 60);
-    minX = Math.max(fullMin, maxX - (state.replayWindow === "1d" ? 24 * 3600 : 90 * 60));
+    minX = Math.max(fullMin, maxX - 90 * 60);
   }
   if (maxX - minX < 10 * 60) {
     maxX = Math.min(fullMax, minX + 10 * 60);
   }
+  const zoom = state.replayZoomById[event?.replay_id];
+  if (zoom && Number.isFinite(zoom.minX) && Number.isFinite(zoom.maxX)) {
+    const clamped = clampReplayRange(zoom.minX, zoom.maxX, fullMin, fullMax);
+    minX = clamped.minX;
+    maxX = clamped.maxX;
+  }
   return { minX, maxX, fullMin, fullMax };
 }
 
-function xTicksFor(minX, maxX) {
+function xTicksFor(event, minX, maxX, plotW) {
   const span = Math.max(1, maxX - minX);
-  const tickCount = span <= 2 * 3600 ? 4 : 5;
-  return Array.from({ length: tickCount }, (_, index) => {
-    if (tickCount === 1) return minX;
-    return minX + (span * index) / (tickCount - 1);
-  });
+  const targetCount = Math.max(3, Math.floor(plotW / 125));
+  const intervals = [
+    60, 5 * 60, 15 * 60, 30 * 60, 3600, 2 * 3600,
+    3 * 3600, 6 * 3600, 12 * 3600, 86400, 2 * 86400,
+    3 * 86400, 7 * 86400
+  ];
+  const interval = intervals.find(candidate => Math.ceil(span / candidate) <= targetCount) || intervals[intervals.length - 1];
+  const startEpoch = Date.parse(event?.series_start_ts || "");
+  if (!Number.isFinite(startEpoch)) {
+    return Array.from({ length: targetCount }, (_, index) => {
+      if (targetCount === 1) return minX;
+      return minX + (span * index) / (targetCount - 1);
+    });
+  }
+  const startSec = startEpoch / 1000;
+  const firstTickEpoch = Math.ceil((startSec + minX) / interval) * interval;
+  const ticks = [];
+  for (let epoch = firstTickEpoch; epoch <= startSec + maxX + 1; epoch += interval) {
+    const offset = epoch - startSec;
+    if (offset >= minX - 1 && offset <= maxX + 1) ticks.push(offset);
+  }
+  if (!ticks.some(value => Math.abs(value - minX) < interval * 0.25)) ticks.unshift(minX);
+  if (!ticks.some(value => Math.abs(value - maxX) < interval * 0.25)) ticks.push(maxX);
+  return ticks.slice(0, 10);
 }
 
 function drawReplayChart(event) {
@@ -1717,12 +1878,12 @@ function drawReplayChart(event) {
   }
 
   const width = 940;
-  const height = 380;
+  const height = 420;
   const pad = { left: 54, right: 128, top: 22, bottom: 44 };
   const plotW = width - pad.left - pad.right;
   const plotH = height - pad.top - pad.bottom;
   const selectedMarker = markers.find(marker => marker.index === selectedIndex);
-  const bounds = replayWindowBounds(points, markers, selectedMarker);
+  const bounds = replayWindowBounds(points, markers, selectedMarker, event);
   let visiblePoints = points.filter(point => point.offset >= bounds.minX && point.offset <= bounds.maxX);
   if (visiblePoints.length < 2) {
     visiblePoints = points;
@@ -1731,7 +1892,7 @@ function drawReplayChart(event) {
   }
   const visibleMarkers = markers.filter(marker => num(marker.offset_sec) >= bounds.minX && num(marker.offset_sec) <= bounds.maxX);
   const spanX = Math.max(1, bounds.maxX - bounds.minX);
-  const windowLabel = state.replayWindow === "full" ? "full" : state.replayWindow;
+  const windowLabel = state.replayWindow === "movement" ? "active movement" : state.replayWindow;
   if ($("chart-title")) {
     $("chart-title").textContent = `${shortLabel(event.outcome, 18)} / ${shortLabel(event.other_outcome, 18)} - ${windowLabel}`;
   }
@@ -1751,11 +1912,11 @@ function drawReplayChart(event) {
   }
   const sx = value => pad.left + ((value - bounds.minX) / spanX) * plotW;
   const sy = value => pad.top + (1 - ((value - minY) / Math.max(0.0001, maxY - minY))) * plotH;
-  const yTicks = [0, 0.25, 0.5, 0.75, 1].filter(value => value >= minY - 0.001 && value <= maxY + 0.001);
-  if (!yTicks.length) {
-    yTicks.push(minY, (minY + maxY) / 2, maxY);
+  let yTicks = [0, 0.25, 0.5, 0.75, 1].filter(value => value >= minY - 0.001 && value <= maxY + 0.001);
+  if (yTicks.length < 3) {
+    yTicks = [minY, (minY + maxY) / 2, maxY];
   }
-  const xTicks = xTicksFor(bounds.minX, bounds.maxX);
+  const xTicks = xTicksFor(event, bounds.minX, bounds.maxX, plotW);
 
   const grid = yTicks.map(value => `
     <line x1="${pad.left}" y1="${sy(value).toFixed(1)}" x2="${width - pad.right}" y2="${sy(value).toFixed(1)}" stroke="#e9edf3" />
@@ -1771,8 +1932,8 @@ function drawReplayChart(event) {
     return `<text x="${(width - pad.right + 10).toFixed(1)}" y="${y.toFixed(1)}" fill="${color}" font-size="12" font-weight="800" paint-order="stroke" stroke="#fff" stroke-width="4">${esc(shortLabel(label, 16))}</text>`;
   };
   const lineLabels = [
-    lineLabel("selected", event.outcome || "Selected", "#1f77b4", -5),
-    lineLabel("other", event.other_outcome || "Other side", "#f59e0b", 9)
+    lineLabel("selected", event.outcome || "Selected", "#1f77b4", -22),
+    lineLabel("other", "Opposite book", "#f59e0b", 18)
   ].join("");
   const markerSvg = visibleMarkers.map(marker => {
     const action = marker.action || "MARK";
@@ -1793,17 +1954,103 @@ function drawReplayChart(event) {
   }).join("");
 
   svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
+  state.replayChart = {
+    replayId: event.replay_id,
+    minX: bounds.minX,
+    maxX: bounds.maxX,
+    fullMin: bounds.fullMin,
+    fullMax: bounds.fullMax,
+    pad,
+    plotW,
+    width,
+    height
+  };
   svg.innerHTML = `
     <rect x="0" y="0" width="${width}" height="${height}" fill="#fff" pointer-events="none" />
     ${grid}
     <line x1="${pad.left}" y1="${pad.top}" x2="${pad.left}" y2="${height - pad.bottom}" stroke="#d8dee8" />
     <line x1="${pad.left}" y1="${height - pad.bottom}" x2="${width - pad.right}" y2="${height - pad.bottom}" stroke="#d8dee8" />
-    <polyline points="${replayPath(visiblePoints, "other", sx, sy)}" fill="none" stroke="#f59e0b" stroke-width="2.4" opacity="0.9" />
-    <polyline points="${replayPath(visiblePoints, "selected", sx, sy)}" fill="none" stroke="#1f77b4" stroke-width="3" />
+    <polyline points="${replayPath(visiblePoints, "other", sx, sy)}" fill="none" stroke="#f59e0b" stroke-width="5" opacity="0.5" stroke-dasharray="7 5" />
+    <polyline points="${replayPath(visiblePoints, "selected", sx, sy)}" fill="none" stroke="#1f77b4" stroke-width="2.8" />
     ${lineLabels}
     ${markerSvg}
     ${xAxis}
   `;
+}
+
+function setReplayZoomRange(minX, maxX) {
+  const chart = state.replayChart;
+  if (!chart?.replayId) return;
+  const range = clampReplayRange(minX, maxX, chart.fullMin, chart.fullMax);
+  const fullSpan = Math.max(1, chart.fullMax - chart.fullMin);
+  if (range.maxX - range.minX >= fullSpan * 0.995) {
+    delete state.replayZoomById[chart.replayId];
+  } else {
+    state.replayZoomById[chart.replayId] = range;
+  }
+  renderReplay(deriveDashboard());
+}
+
+function replaySvgOffsetFromPointer(event) {
+  const svg = $("replay-chart");
+  const chart = state.replayChart;
+  if (!svg || !chart) return null;
+  const rect = svg.getBoundingClientRect();
+  const x = ((event.clientX - rect.left) / Math.max(1, rect.width)) * chart.width;
+  const clampedX = Math.max(chart.pad.left, Math.min(chart.pad.left + chart.plotW, x));
+  return chart.minX + ((clampedX - chart.pad.left) / chart.plotW) * (chart.maxX - chart.minX);
+}
+
+function zoomReplayChart(factor, anchorOffset = null) {
+  const chart = state.replayChart;
+  if (!chart?.replayId) return;
+  const span = Math.max(1, chart.maxX - chart.minX);
+  const anchor = Number.isFinite(anchorOffset) ? anchorOffset : chart.minX + span / 2;
+  const nextMin = anchor - (anchor - chart.minX) * factor;
+  const nextMax = anchor + (chart.maxX - anchor) * factor;
+  setReplayZoomRange(nextMin, nextMax);
+}
+
+function handleReplayWheel(event) {
+  if (!event.target.closest?.("#replay-chart")) return;
+  event.preventDefault();
+  const anchor = replaySvgOffsetFromPointer(event);
+  zoomReplayChart(event.deltaY < 0 ? 0.72 : 1.38, anchor);
+}
+
+function handleReplayPointerDown(event) {
+  if (!event.target.closest?.("#replay-chart") || event.target.closest?.("[data-marker-index]")) return;
+  const chart = state.replayChart;
+  if (!chart?.replayId) return;
+  $("replay-chart").classList.add("dragging");
+  state.replayDrag = {
+    clientX: event.clientX,
+    minX: chart.minX,
+    maxX: chart.maxX,
+    fullMin: chart.fullMin,
+    fullMax: chart.fullMax,
+    plotW: chart.plotW,
+    width: chart.width
+  };
+}
+
+function handleReplayPointerMove(event) {
+  const drag = state.replayDrag;
+  const chart = state.replayChart;
+  if (!drag || !chart?.replayId) return;
+  const svg = $("replay-chart");
+  const rect = svg.getBoundingClientRect();
+  const dxSvg = ((event.clientX - drag.clientX) / Math.max(1, rect.width)) * drag.width;
+  const span = drag.maxX - drag.minX;
+  const delta = -(dxSvg / Math.max(1, drag.plotW)) * span;
+  const range = clampReplayRange(drag.minX + delta, drag.maxX + delta, drag.fullMin, drag.fullMax);
+  state.replayZoomById[chart.replayId] = range;
+  renderReplay(deriveDashboard());
+}
+
+function handleReplayPointerUp() {
+  state.replayDrag = null;
+  $("replay-chart")?.classList.remove("dragging");
 }
 
 async function loadReplayDetail(event) {
@@ -1831,6 +2078,7 @@ async function loadReplayDetail(event) {
 function renderDecisionPanel(event, marker) {
   const stats = event.stats || {};
   const action = marker?.action || "MARK";
+  const pos = replayPosition(stats, marker);
   const token = event.outcome || "contract";
   const actionText = action === "BUY" ? "BUY" : action === "SETTLEMENT" ? "RESULT" : "SELL";
   const actionTone = action === "BUY" ? "good" : action === "SETTLEMENT" ? (stats.won ? "good" : "bad") : "warn";
@@ -1847,12 +2095,17 @@ function renderDecisionPanel(event, marker) {
     return;
   }
   const priceName = action === "BUY" ? "Buy price" : action === "SETTLEMENT" ? "Final price" : "Sell price";
+  const markerRoi = action === "BUY" ? 0 : (marker.roi !== undefined ? marker.roi : stats.roi);
   const rows = [
     ["Action", action === "BUY" ? "Buy" : action === "SETTLEMENT" ? "Result" : "Sell"],
-    ["Amount", replayTradeAmount(stats)],
+    ["Start balance", fmtUsd(pos.bankroll, 0)],
+    ["Position", replayTradeAmount(stats)],
+    ["Contracts", pos.contracts === null ? "--" : fmtPrice(pos.contracts, 2)],
     ["Time", replayTimeLabel(event, marker.offset_sec)],
     [priceName, fmtPrice(marker.price)],
-    ["PnL", replayMarkerPnl(marker)]
+    [action === "BUY" ? "Cost" : "Value", action === "BUY" ? fmtUsd(pos.stakeUsd) : fmtUsd(pos.markValueUsd)],
+    ["PnL", `${fmtSignedUsd(pos.pnlUsd)} (${fmtPct(markerRoi)})`],
+    ["End balance", fmtUsd(pos.endBalance)]
   ];
   $("replay-kv").innerHTML = rows.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("");
   $("replay-rationale").textContent = replayDecisionRationale(event, marker);
@@ -1894,10 +2147,13 @@ function renderReplay(data) {
   const detail = state.replayDetails[event.replay_id];
   if (!detail) {
     const stats = event.stats || {};
+    const pos = replayPosition(stats);
     $("replay-title").textContent = `${event.title || event.slug || "Backtest event"} x ${strategyLabel(event.bucket || replay.strategy)}`;
     $("replay-event-strip").innerHTML = [
-      ["Token", event.outcome || "--"],
-      ["PnL", `${fmtSigned(stats.pnl)} (${fmtPct(stats.roi)})`]
+      ["Contract", event.outcome || "--"],
+      ["Start", fmtUsd(pos.bankroll, 0)],
+      ["Position", replayTradeAmount(stats)],
+      ["Event PnL", `${fmtSignedUsd(pos.pnlUsd)} (${fmtPct(stats.roi)})`]
     ].map(([k, v]) => `<div class="event-stat"><span>${esc(k)}</span><strong>${esc(v)}</strong></div>`).join("");
     $("decision-title").textContent = "Loading event";
     $("decision-action").textContent = "--";
@@ -1911,6 +2167,7 @@ function renderReplay(data) {
 
   const fullEvent = { ...event, ...detail };
   const stats = fullEvent.stats || {};
+  const finalPos = replayPosition(stats);
   const markers = fullEvent.markers || [];
   const markerIndex = selectedReplayMarkerIndex(fullEvent);
   const selectedMarker = markers[markerIndex];
@@ -1918,7 +2175,10 @@ function renderReplay(data) {
   $("replay-event-strip").innerHTML = [
     ["Contract", fullEvent.outcome || "--"],
     ["Result", stats.won ? "Won" : "Lost"],
-    ["Event PnL", `${fmtSigned(stats.pnl)} (${fmtPct(stats.roi)})`]
+    ["Start", fmtUsd(finalPos.bankroll, 0)],
+    ["Position", replayTradeAmount(stats)],
+    ["Event PnL", `${fmtSignedUsd(finalPos.pnlUsd)} (${fmtPct(stats.roi)})`],
+    ["End", fmtUsd(finalPos.endBalance)]
   ].map(([k, v]) => `<div class="event-stat"><span>${esc(k)}</span><strong>${esc(v)}</strong></div>`).join("");
   if (fullEvent.load_error) {
     $("decision-title").textContent = "Load failed";
@@ -2056,15 +2316,22 @@ async function loadArtifacts() {
 document.addEventListener("change", event => {
   if (event.target && event.target.id === "replay-select") {
     state.selectedReplayId = event.target.value;
-    state.replayWindow = "90m";
+    state.replayWindow = "full";
+    delete state.replayZoomById[state.selectedReplayId];
     renderReplay(deriveDashboard());
   }
 });
 
 document.addEventListener("click", event => {
+  const zoomButton = event.target.closest("[data-replay-zoom]");
+  if (zoomButton) {
+    zoomReplayChart(zoomButton.dataset.replayZoom === "in" ? 0.55 : 1.8);
+    return;
+  }
   const windowButton = event.target.closest("[data-replay-window]");
   if (windowButton) {
-    state.replayWindow = windowButton.dataset.replayWindow || "90m";
+    state.replayWindow = windowButton.dataset.replayWindow || "full";
+    if (state.selectedReplayId) delete state.replayZoomById[state.selectedReplayId];
     renderReplay(deriveDashboard());
     return;
   }
@@ -2074,8 +2341,6 @@ document.addEventListener("click", event => {
   if (!Number.isInteger(index)) return;
   state.selectedReplayMarkerById[state.selectedReplayId] = index;
   const detail = state.replayDetails[state.selectedReplayId];
-  const marker = detail?.markers?.[index];
-  state.replayWindow = preferredWindowForMarker(marker);
   renderReplay(deriveDashboard());
 });
 
@@ -2086,6 +2351,12 @@ document.addEventListener("keydown", event => {
   event.preventDefault();
   markerTarget.click();
 });
+
+$("replay-chart").addEventListener("wheel", handleReplayWheel, { passive: false });
+$("replay-chart").addEventListener("pointerdown", handleReplayPointerDown);
+document.addEventListener("pointermove", handleReplayPointerMove);
+document.addEventListener("pointerup", handleReplayPointerUp);
+document.addEventListener("pointercancel", handleReplayPointerUp);
 
 loadArtifacts();
 </script>
