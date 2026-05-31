@@ -4,7 +4,7 @@
   "clob_two_sided_events": 277,
   "complete_both_venues_events": 276,
   "events": 277,
-  "generated_at": "2026-05-31T14:11:09.011093+00:00",
+  "generated_at": "2026-05-31T14:43:56.314682+00:00",
   "missing_examples": [
     {
       "clob_two_sided": true,

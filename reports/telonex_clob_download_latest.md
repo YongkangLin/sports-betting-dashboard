@@ -1,83 +1,71 @@
 # Telonex CLOB Download
 
-- Generated: 2026-05-31T08:24:40.406061+00:00
+- Generated: 2026-05-31T14:15:43.998381+00:00
 - Dry run: False
 - Asset plan: `/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/data/processed/execution_training/favorite_longshot_telonex_target_assets_latest.parquet`
-- Channels: quotes, book_snapshot_5, trades
-- Dates: 2026-03-01 to 2026-05-29
+- Channels: quotes, trades
+- Dates: asset-plan to asset-plan
 - Day order: event-first
-- Max files per asset: 3
-- Selected assets: 392
-- Attempted downloads: 1146
-- Completed downloads: 1136
-- Skipped existing: 0
-- Failed downloads: 10
-- Rows downloaded this run: 51,344,670
-- Bytes downloaded this run: 1,211,567,265
+- Market scope: all
+- Max files per asset: 8
+- Selected assets: 120
+- Attempted downloads: 300
+- Completed downloads: 300
+- Skipped existing: 116
+- Failed downloads: 0
+- Rows downloaded this run: 1,156,646
+- Bytes downloaded this run: 27,277,464
 - Manifest: `/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/data/processed/clob_capture/telonex_download_manifest.json`
 
 ## Completed
 
-- `quotes` `2026-05-07` `basketball_nba` `nba-lal-okc-2026-05-07` `Lakers` rows=10,784
-- `book_snapshot_5` `2026-05-07` `basketball_nba` `nba-lal-okc-2026-05-07` `Lakers` rows=20,875
-- `trades` `2026-05-07` `basketball_nba` `nba-lal-okc-2026-05-07` `Lakers` rows=4,556
-- `quotes` `2026-05-07` `basketball_nba` `nba-lal-okc-2026-05-07` `Thunder` rows=10,784
-- `book_snapshot_5` `2026-05-07` `basketball_nba` `nba-lal-okc-2026-05-07` `Thunder` rows=20,875
-- `trades` `2026-05-07` `basketball_nba` `nba-lal-okc-2026-05-07` `Thunder` rows=4,556
-- `quotes` `2026-03-03` `basketball_nba` `nba-hou-was-2026-03-02` `Rockets` rows=16,248
-- `book_snapshot_5` `2026-03-03` `basketball_nba` `nba-hou-was-2026-03-02` `Rockets` rows=76,671
-- `trades` `2026-03-03` `basketball_nba` `nba-hou-was-2026-03-02` `Rockets` rows=2,047
-- `quotes` `2026-03-03` `basketball_nba` `nba-hou-was-2026-03-02` `Wizards` rows=16,248
-- `book_snapshot_5` `2026-03-03` `basketball_nba` `nba-hou-was-2026-03-02` `Wizards` rows=76,671
-- `trades` `2026-03-03` `basketball_nba` `nba-hou-was-2026-03-02` `Wizards` rows=2,047
-- `quotes` `2026-03-04` `basketball_nba` `nba-was-orl-2026-03-03` `Magic` rows=11,360
-- `book_snapshot_5` `2026-03-04` `basketball_nba` `nba-was-orl-2026-03-03` `Magic` rows=39,719
-- `trades` `2026-03-04` `basketball_nba` `nba-was-orl-2026-03-03` `Magic` rows=1,417
-- `quotes` `2026-03-04` `basketball_nba` `nba-was-orl-2026-03-03` `Wizards` rows=11,360
-- `book_snapshot_5` `2026-03-04` `basketball_nba` `nba-was-orl-2026-03-03` `Wizards` rows=39,719
-- `trades` `2026-03-04` `basketball_nba` `nba-was-orl-2026-03-03` `Wizards` rows=1,417
-- `quotes` `2026-03-16` `basketball_nba` `nba-gsw-nyk-2026-03-15` `Knicks` rows=50,286
-- `book_snapshot_5` `2026-03-16` `basketball_nba` `nba-gsw-nyk-2026-03-15` `Knicks` rows=309,708
-- `trades` `2026-03-16` `basketball_nba` `nba-gsw-nyk-2026-03-15` `Knicks` rows=9,672
-- `quotes` `2026-03-16` `basketball_nba` `nba-gsw-nyk-2026-03-15` `Warriors` rows=50,286
-- `book_snapshot_5` `2026-03-16` `basketball_nba` `nba-gsw-nyk-2026-03-15` `Warriors` rows=309,708
-- `trades` `2026-03-16` `basketball_nba` `nba-gsw-nyk-2026-03-15` `Warriors` rows=9,672
-- `quotes` `2026-03-17` `basketball_nba` `nba-ind-nyk-2026-03-17` `Knicks` rows=11,943
-- `book_snapshot_5` `2026-03-17` `basketball_nba` `nba-ind-nyk-2026-03-17` `Knicks` rows=54,269
-- `trades` `2026-03-17` `basketball_nba` `nba-ind-nyk-2026-03-17` `Knicks` rows=2,355
-- `quotes` `2026-03-17` `basketball_nba` `nba-ind-nyk-2026-03-17` `Pacers` rows=11,943
-- `book_snapshot_5` `2026-03-17` `basketball_nba` `nba-ind-nyk-2026-03-17` `Pacers` rows=54,269
-- `trades` `2026-03-17` `basketball_nba` `nba-ind-nyk-2026-03-17` `Pacers` rows=2,355
-- `quotes` `2026-03-18` `basketball_nba` `nba-phi-den-2026-03-17` `76ers` rows=6,809
-- `book_snapshot_5` `2026-03-18` `basketball_nba` `nba-phi-den-2026-03-17` `76ers` rows=36,214
-- `trades` `2026-03-18` `basketball_nba` `nba-phi-den-2026-03-17` `76ers` rows=1,689
-- `quotes` `2026-03-18` `basketball_nba` `nba-phi-den-2026-03-17` `Nuggets` rows=6,809
-- `book_snapshot_5` `2026-03-18` `basketball_nba` `nba-phi-den-2026-03-17` `Nuggets` rows=36,214
-- `trades` `2026-03-18` `basketball_nba` `nba-phi-den-2026-03-17` `Nuggets` rows=1,689
-- `quotes` `2026-04-02` `basketball_nba` `nba-nyk-mem-2026-04-01` `Grizzlies` rows=24,471
-- `book_snapshot_5` `2026-04-02` `basketball_nba` `nba-nyk-mem-2026-04-01` `Grizzlies` rows=139,284
-- `trades` `2026-04-02` `basketball_nba` `nba-nyk-mem-2026-04-01` `Grizzlies` rows=1,357
-- `quotes` `2026-04-02` `basketball_nba` `nba-nyk-mem-2026-04-01` `Knicks` rows=24,471
-- `book_snapshot_5` `2026-04-02` `basketball_nba` `nba-nyk-mem-2026-04-01` `Knicks` rows=139,284
-- `trades` `2026-04-02` `basketball_nba` `nba-nyk-mem-2026-04-01` `Knicks` rows=1,357
-- `quotes` `2026-04-03` `basketball_nba` `nba-chi-nyk-2026-04-03` `Bulls` rows=12,524
-- `book_snapshot_5` `2026-04-03` `basketball_nba` `nba-chi-nyk-2026-04-03` `Bulls` rows=65,630
-- `trades` `2026-04-03` `basketball_nba` `nba-chi-nyk-2026-04-03` `Bulls` rows=3,460
-- `quotes` `2026-04-03` `basketball_nba` `nba-chi-nyk-2026-04-03` `Knicks` rows=12,524
-- `book_snapshot_5` `2026-04-03` `basketball_nba` `nba-chi-nyk-2026-04-03` `Knicks` rows=65,630
-- `trades` `2026-04-03` `basketball_nba` `nba-chi-nyk-2026-04-03` `Knicks` rows=3,460
-- `quotes` `2026-03-01` `basketball_nba` `nba-tor-was-2026-02-28` `Raptors` rows=30,584
-- `book_snapshot_5` `2026-03-01` `basketball_nba` `nba-tor-was-2026-02-28` `Raptors` rows=240,798
-
-## Errors
-
-- `quotes` `2026-03-01` `fl1-asm-ang-2026-02-28-ang` `No`: download failed: HTTP 404 quotes 2026-03-01 {"detail":"File not found: polymarket/quotes/2026-03-01 with asset_id=59296274919036470604869646290714250894749942421790163106709788428942980977562"}
-- `book_snapshot_5` `2026-03-01` `fl1-asm-ang-2026-02-28-ang` `No`: download failed: HTTP 404 book_snapshot_5 2026-03-01 {"detail":"File not found: polymarket/book_snapshot_5/2026-03-01 with asset_id=59296274919036470604869646290714250894749942421790163106709788428942980977562"}
-- `trades` `2026-03-01` `fl1-asm-ang-2026-02-28-ang` `No`: download failed: HTTP 404 trades 2026-03-01 {"detail":"File not found: polymarket/trades/2026-03-01 with asset_id=59296274919036470604869646290714250894749942421790163106709788428942980977562"}
-- `quotes` `2026-03-01` `fl1-asm-ang-2026-02-28-ang` `Yes`: download failed: HTTP 404 quotes 2026-03-01 {"detail":"File not found: polymarket/quotes/2026-03-01 with asset_id=32019468013521771580299866192215226102865691705248729402980415118343685723092"}
-- `book_snapshot_5` `2026-03-01` `fl1-asm-ang-2026-02-28-ang` `Yes`: download failed: HTTP 404 book_snapshot_5 2026-03-01 {"detail":"File not found: polymarket/book_snapshot_5/2026-03-01 with asset_id=32019468013521771580299866192215226102865691705248729402980415118343685723092"}
-- `trades` `2026-03-01` `fl1-asm-ang-2026-02-28-ang` `Yes`: download failed: HTTP 404 trades 2026-03-01 {"detail":"File not found: polymarket/trades/2026-03-01 with asset_id=32019468013521771580299866192215226102865691705248729402980415118343685723092"}
-- `trades` `2026-03-01` `fl1-hac-psg-2026-02-28-draw` `No`: download failed: HTTP 404 trades 2026-03-01 {"detail":"File not found: polymarket/trades/2026-03-01 with asset_id=59129686418852030248179786965124281907601199177585992884829971586436458072414"}
-- `trades` `2026-03-01` `fl1-hac-psg-2026-02-28-draw` `Yes`: download failed: HTTP 404 trades 2026-03-01 {"detail":"File not found: polymarket/trades/2026-03-01 with asset_id=94606723263320007773463785831081819218179159561655731486816568215346017206249"}
-- `trades` `2026-03-01` `fr2-pau-ass-2026-02-28-draw` `No`: download failed: HTTP 404 trades 2026-03-01 {"detail":"File not found: polymarket/trades/2026-03-01 with asset_id=9771958075928350846590874836256505604198741924709308231463799974922357193609"}
-- `trades` `2026-03-01` `fr2-pau-ass-2026-02-28-draw` `Yes`: download failed: HTTP 404 trades 2026-03-01 {"detail":"File not found: polymarket/trades/2026-03-01 with asset_id=95422148639205530124138852545560934264358718757475649203622094299283130653478"}
+- `quotes` `2026-04-04` `basketball_nba` `nba-chi-nyk-2026-04-03` `Bulls` rows=2,564
+- `trades` `2026-04-04` `basketball_nba` `nba-chi-nyk-2026-04-03` `Bulls` rows=266
+- `quotes` `2026-04-02` `basketball_nba` `nba-chi-nyk-2026-04-03` `Bulls` rows=1,138
+- `trades` `2026-04-02` `basketball_nba` `nba-chi-nyk-2026-04-03` `Bulls` rows=169
+- `quotes` `2026-04-01` `basketball_nba` `nba-chi-nyk-2026-04-03` `Bulls` rows=212
+- `trades` `2026-04-01` `basketball_nba` `nba-chi-nyk-2026-04-03` `Bulls` rows=30
+- `quotes` `2026-04-04` `basketball_nba` `nba-chi-nyk-2026-04-03` `Knicks` rows=2,564
+- `trades` `2026-04-04` `basketball_nba` `nba-chi-nyk-2026-04-03` `Knicks` rows=266
+- `quotes` `2026-04-02` `basketball_nba` `nba-chi-nyk-2026-04-03` `Knicks` rows=1,138
+- `trades` `2026-04-02` `basketball_nba` `nba-chi-nyk-2026-04-03` `Knicks` rows=169
+- `quotes` `2026-04-01` `basketball_nba` `nba-chi-nyk-2026-04-03` `Knicks` rows=212
+- `trades` `2026-04-01` `basketball_nba` `nba-chi-nyk-2026-04-03` `Knicks` rows=30
+- `quotes` `2025-10-26` `basketball_nba` `nba-phx-den-2025-10-25` `Nuggets` rows=6,683
+- `trades` `2025-10-26` `basketball_nba` `nba-phx-den-2025-10-25` `Nuggets` rows=751
+- `quotes` `2025-10-25` `basketball_nba` `nba-phx-den-2025-10-25` `Nuggets` rows=3,342
+- `trades` `2025-10-25` `basketball_nba` `nba-phx-den-2025-10-25` `Nuggets` rows=632
+- `quotes` `2025-10-24` `basketball_nba` `nba-phx-den-2025-10-25` `Nuggets` rows=192
+- `trades` `2025-10-24` `basketball_nba` `nba-phx-den-2025-10-25` `Nuggets` rows=62
+- `quotes` `2025-10-23` `basketball_nba` `nba-phx-den-2025-10-25` `Nuggets` rows=485
+- `trades` `2025-10-23` `basketball_nba` `nba-phx-den-2025-10-25` `Nuggets` rows=1
+- `quotes` `2025-10-26` `basketball_nba` `nba-phx-den-2025-10-25` `Suns` rows=6,683
+- `trades` `2025-10-26` `basketball_nba` `nba-phx-den-2025-10-25` `Suns` rows=751
+- `quotes` `2025-10-25` `basketball_nba` `nba-phx-den-2025-10-25` `Suns` rows=3,342
+- `trades` `2025-10-25` `basketball_nba` `nba-phx-den-2025-10-25` `Suns` rows=632
+- `quotes` `2025-10-24` `basketball_nba` `nba-phx-den-2025-10-25` `Suns` rows=192
+- `trades` `2025-10-24` `basketball_nba` `nba-phx-den-2025-10-25` `Suns` rows=62
+- `quotes` `2025-10-23` `basketball_nba` `nba-phx-den-2025-10-25` `Suns` rows=485
+- `trades` `2025-10-23` `basketball_nba` `nba-phx-den-2025-10-25` `Suns` rows=1
+- `quotes` `2025-10-28` `basketball_nba` `nba-bkn-hou-2025-10-28` `Nets` rows=2,854
+- `trades` `2025-10-28` `basketball_nba` `nba-bkn-hou-2025-10-28` `Nets` rows=265
+- `quotes` `2025-10-27` `basketball_nba` `nba-bkn-hou-2025-10-28` `Nets` rows=9,652
+- `trades` `2025-10-27` `basketball_nba` `nba-bkn-hou-2025-10-28` `Nets` rows=1,261
+- `quotes` `2025-10-26` `basketball_nba` `nba-bkn-hou-2025-10-28` `Nets` rows=375
+- `trades` `2025-10-26` `basketball_nba` `nba-bkn-hou-2025-10-28` `Nets` rows=101
+- `quotes` `2025-10-25` `basketball_nba` `nba-bkn-hou-2025-10-28` `Nets` rows=57
+- `trades` `2025-10-25` `basketball_nba` `nba-bkn-hou-2025-10-28` `Nets` rows=10
+- `quotes` `2025-10-28` `basketball_nba` `nba-bkn-hou-2025-10-28` `Rockets` rows=2,854
+- `trades` `2025-10-28` `basketball_nba` `nba-bkn-hou-2025-10-28` `Rockets` rows=265
+- `quotes` `2025-10-27` `basketball_nba` `nba-bkn-hou-2025-10-28` `Rockets` rows=9,652
+- `trades` `2025-10-27` `basketball_nba` `nba-bkn-hou-2025-10-28` `Rockets` rows=1,261
+- `quotes` `2025-10-26` `basketball_nba` `nba-bkn-hou-2025-10-28` `Rockets` rows=375
+- `trades` `2025-10-26` `basketball_nba` `nba-bkn-hou-2025-10-28` `Rockets` rows=101
+- `quotes` `2025-10-25` `basketball_nba` `nba-bkn-hou-2025-10-28` `Rockets` rows=57
+- `trades` `2025-10-25` `basketball_nba` `nba-bkn-hou-2025-10-28` `Rockets` rows=10
+- `quotes` `2025-10-26` `basketball_nba` `nba-phx-den-2025-10-26` `Nuggets` rows=1,486
+- `trades` `2025-10-26` `basketball_nba` `nba-phx-den-2025-10-26` `Nuggets` rows=4
+- `quotes` `2025-10-25` `basketball_nba` `nba-phx-den-2025-10-26` `Nuggets` rows=137
+- `trades` `2025-10-25` `basketball_nba` `nba-phx-den-2025-10-26` `Nuggets` rows=1
+- `quotes` `2025-10-26` `basketball_nba` `nba-phx-den-2025-10-26` `Suns` rows=1,486
+- `trades` `2025-10-26` `basketball_nba` `nba-phx-den-2025-10-26` `Suns` rows=4

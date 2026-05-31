@@ -1,18 +1,21 @@
 {
   "dataset": {
     "asof_max": "2026-05-29 23:59:00+00:00",
-    "asof_min": "2026-03-02 00:03:00+00:00",
+    "asof_min": "2025-10-26 00:01:00+00:00",
     "labels_path": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/data/processed/execution_training/telonex_clob_execution_labels_partitioned",
-    "labels_sha256": "32537f0d3b561eb1f7a39bcb5ed6ad4834d6f854a4443683da29c657d09f223b",
-    "markets": 216,
-    "rows": 2888585,
+    "labels_sha256": "a0a6e936af3ca1f7dbe20717dd54aad3f0078761c7c11a0784d7fb95862677da",
+    "markets": 632,
+    "rows": 5418878,
     "sports": {
+      "americanfootball_nfl": 66302,
       "baseball_mlb": 1731351,
-      "basketball_wnba": 43570,
-      "icehockey_nhl": 5347,
-      "soccer": 1108317
+      "basketball_nba": 900769,
+      "basketball_wnba": 55474,
+      "icehockey_nhl": 13693,
+      "soccer": 2625089,
+      "tennis": 26200
     },
-    "tokens": 429
+    "tokens": 1261
   },
   "gate_reasons": [
     "sportsbook native 5-minute density gate failed: complete 5m replay cache 167 / 276 = 60.51% < 95%"
@@ -24,17 +27,17 @@
       "legacy_absolute_gate": false,
       "legacy_absolute_min_test_markets": 100,
       "min_test_market_ratio": 0.15,
-      "test_market_ratio": 0.1651376146788991,
-      "test_markets": 18,
-      "usable_markets": 109
+      "test_market_ratio": 0.1523809523809524,
+      "test_markets": 48,
+      "usable_markets": 315
     },
     "heldout_market_extent_gate": true,
     "historical_l2_scale_gate": true,
     "odds_holdout_coverage": {
-      "eligible_matched_test_markets": 5,
-      "eligible_test_coverage": 0.7557921617892374,
-      "eligible_test_rows": 97114,
-      "full_test_coverage": 0.3244483343942287,
+      "eligible_matched_test_markets": 22,
+      "eligible_test_coverage": 0.8495199417118271,
+      "eligible_test_rows": 463902,
+      "full_test_coverage": 0.4621892694460212,
       "gate": true,
       "min_eligible_test_coverage": 0.75,
       "min_eligible_test_markets": 5,
@@ -52,7 +55,7 @@
     "sportsbook_native_5m_density_gate": false,
     "trade_confirmed_fill_holdout_gate": true
   },
-  "generated_at": "2026-05-31T14:11:56.545044+00:00",
+  "generated_at": "2026-05-31T14:45:59.047403+00:00",
   "latest_model_monitor": {
     "adverse_selection": {
       "available": false,
@@ -414,7 +417,7 @@
     "complete_both_venues_rate": 0.9963898916967509,
     "events": 277,
     "gate": true,
-    "generated_at": "2026-05-31T14:11:09.011093+00:00",
+    "generated_at": "2026-05-31T14:43:56.314682+00:00",
     "min_complete_both_venues_rate": 0.95,
     "missing_examples": [
       {
@@ -447,25 +450,40 @@
       ]
     },
     "fair": {
-      "events": 59,
-      "rows": 25614
+      "events": 446,
+      "rows": 1030418
     },
     "features": {
       "by_sport": {
+        "americanfootball_nfl": {
+          "markets": 14,
+          "rows": 66302,
+          "tokens": 28
+        },
         "baseball_mlb": {
           "markets": 61,
           "rows": 768020,
           "tokens": 121
         },
+        "basketball_nba": {
+          "markets": 184,
+          "rows": 670184,
+          "tokens": 367
+        },
         "basketball_wnba": {
-          "markets": 2,
-          "rows": 26836,
-          "tokens": 4
+          "markets": 5,
+          "rows": 38740,
+          "tokens": 10
+        },
+        "icehockey_nhl": {
+          "markets": 7,
+          "rows": 5412,
+          "tokens": 14
         },
         "soccer_brazil_campeonato": {
-          "markets": 8,
-          "rows": 377170,
-          "tokens": 16
+          "markets": 23,
+          "rows": 508516,
+          "tokens": 46
         },
         "soccer_chile_campeonato": {
           "markets": 1,
@@ -473,72 +491,107 @@
           "tokens": 2
         },
         "soccer_conmebol_copa_libertadores": {
-          "markets": 1,
-          "rows": 65486,
-          "tokens": 2
+          "markets": 9,
+          "rows": 127698,
+          "tokens": 18
+        },
+        "soccer_epl": {
+          "markets": 32,
+          "rows": 242528,
+          "tokens": 64
+        },
+        "soccer_france_ligue_one": {
+          "markets": 25,
+          "rows": 177138,
+          "tokens": 50
+        },
+        "soccer_germany_bundesliga": {
+          "markets": 20,
+          "rows": 149272,
+          "tokens": 40
+        },
+        "soccer_italy_serie_a": {
+          "markets": 50,
+          "rows": 371330,
+          "tokens": 100
+        },
+        "soccer_italy_serie_b": {
+          "markets": 5,
+          "rows": 26752,
+          "tokens": 10
         },
         "soccer_norway_eliteserien": {
           "markets": 6,
           "rows": 130462,
           "tokens": 12
+        },
+        "soccer_spain_la_liga": {
+          "markets": 23,
+          "rows": 185194,
+          "tokens": 46
+        },
+        "soccer_uefa_champs_league": {
+          "markets": 19,
+          "rows": 160696,
+          "tokens": 38
         }
       },
       "coverage_by_split": {
         "test": {
-          "coverage": 0.3244483343942287,
-          "eligible_coverage": 0.7557921617892374,
-          "eligible_markets": 5,
-          "eligible_matched_markets": 5,
-          "eligible_matched_rows": 73398,
-          "eligible_matched_tokens": 10,
-          "eligible_rows": 97114,
-          "eligible_tokens": 10,
-          "matched_markets": 5,
-          "matched_rows": 73398,
-          "matched_tokens": 10,
-          "rows": 226224
+          "coverage": 0.4621892694460212,
+          "eligible_coverage": 0.8495199417118271,
+          "eligible_markets": 22,
+          "eligible_matched_markets": 22,
+          "eligible_matched_rows": 394094,
+          "eligible_matched_tokens": 44,
+          "eligible_rows": 463902,
+          "eligible_tokens": 44,
+          "matched_markets": 22,
+          "matched_rows": 394094,
+          "matched_tokens": 44,
+          "rows": 852668
         },
         "train": {
-          "coverage": 0.5140103654586763,
-          "eligible_coverage": 0.7111906751252316,
-          "eligible_markets": 46,
-          "eligible_matched_markets": 44,
-          "eligible_matched_rows": 913326,
-          "eligible_matched_tokens": 87,
-          "eligible_rows": 1284221,
-          "eligible_tokens": 91,
-          "matched_markets": 44,
-          "matched_rows": 913326,
-          "matched_tokens": 87,
-          "rows": 1776863
+          "coverage": 0.7083509661488766,
+          "eligible_coverage": 0.7924393289537978,
+          "eligible_markets": 206,
+          "eligible_matched_markets": 205,
+          "eligible_matched_rows": 1459594,
+          "eligible_matched_tokens": 409,
+          "eligible_rows": 1841900,
+          "eligible_tokens": 411,
+          "matched_markets": 205,
+          "matched_rows": 1459594,
+          "matched_tokens": 409,
+          "rows": 2060552
         },
         "unobserved": {
-          "coverage": 0.4248834641351149,
-          "eligible_coverage": 0.9442305712815234,
-          "eligible_markets": 33,
-          "eligible_matched_markets": 24,
-          "eligible_matched_rows": 229330,
-          "eligible_matched_tokens": 48,
-          "eligible_rows": 242875,
-          "eligible_tokens": 65,
-          "matched_markets": 24,
-          "matched_rows": 229330,
-          "matched_tokens": 48,
-          "rows": 539748
+          "coverage": 0.7603137853428874,
+          "eligible_coverage": 0.9615945519964207,
+          "eligible_markets": 237,
+          "eligible_matched_markets": 226,
+          "eligible_matched_rows": 1175658,
+          "eligible_matched_tokens": 451,
+          "eligible_rows": 1222613,
+          "eligible_tokens": 472,
+          "matched_markets": 226,
+          "matched_rows": 1175658,
+          "matched_tokens": 451,
+          "rows": 1546280
         },
         "val": {
-          "coverage": 0.5035198843094721,
-          "eligible_coverage": 0.8209563331132699,
-          "eligible_markets": 6,
-          "eligible_matched_markets": 6,
-          "eligible_matched_rows": 174092,
-          "eligible_matched_tokens": 12,
-          "eligible_rows": 212060,
-          "eligible_tokens": 12,
-          "matched_markets": 6,
-          "matched_rows": 174092,
-          "matched_tokens": 12,
-          "rows": 345750
+          "coverage": 0.6473673567665716,
+          "eligible_coverage": 0.7744246710624757,
+          "eligible_markets": 33,
+          "eligible_matched_markets": 31,
+          "eligible_matched_rows": 621070,
+          "eligible_matched_tokens": 62,
+          "eligible_rows": 801976,
+          "eligible_tokens": 66,
+          "matched_markets": 31,
+          "matched_rows": 621070,
+          "matched_tokens": 62,
+          "rows": 959378
         }
       },
       "coverage_by_split_market_type": [
@@ -555,15 +608,15 @@
           "split": "test"
         },
         {
-          "coverage": 0.3508293754513003,
-          "eligible_coverage": 0.7455692919512406,
-          "eligible_markets": 4,
-          "eligible_matched_rows": 68992,
-          "eligible_rows": 92536,
+          "coverage": 0.4731217919987035,
+          "eligible_coverage": 0.8429208829779075,
+          "eligible_markets": 20,
+          "eligible_matched_rows": 373682,
+          "eligible_rows": 443318,
           "market_type": "h2h",
-          "matched_markets": 4,
-          "matched_rows": 68992,
-          "rows": 196654,
+          "matched_markets": 20,
+          "matched_rows": 373682,
+          "rows": 789822,
           "split": "test"
         },
         {
@@ -575,7 +628,7 @@
           "market_type": "nrfi",
           "matched_markets": 0,
           "matched_rows": 0,
-          "rows": 17196,
+          "rows": 34466,
           "split": "test"
         },
         {
@@ -591,39 +644,27 @@
           "split": "test"
         },
         {
-          "coverage": 0.0,
-          "eligible_coverage": 0.0,
-          "eligible_markets": 0,
-          "eligible_matched_rows": 0,
-          "eligible_rows": 0,
-          "market_type": "corners",
-          "matched_markets": 0,
-          "matched_rows": 0,
-          "rows": 700,
-          "split": "train"
+          "coverage": 1.0,
+          "eligible_coverage": 1.0,
+          "eligible_markets": 1,
+          "eligible_matched_rows": 16006,
+          "eligible_rows": 16006,
+          "market_type": "totals",
+          "matched_markets": 1,
+          "matched_rows": 16006,
+          "rows": 16006,
+          "split": "test"
         },
         {
-          "coverage": 0.6001440064945706,
-          "eligible_coverage": 0.7154748327574174,
-          "eligible_markets": 41,
-          "eligible_matched_rows": 882672,
-          "eligible_rows": 1233687,
+          "coverage": 0.7884250771629112,
+          "eligible_coverage": 0.7924393289537978,
+          "eligible_markets": 206,
+          "eligible_matched_rows": 1459594,
+          "eligible_rows": 1841900,
           "market_type": "h2h",
-          "matched_markets": 41,
-          "matched_rows": 882672,
-          "rows": 1470767,
-          "split": "train"
-        },
-        {
-          "coverage": 0.0,
-          "eligible_coverage": 0.0,
-          "eligible_markets": 0,
-          "eligible_matched_rows": 0,
-          "eligible_rows": 0,
-          "market_type": "halftime",
-          "matched_markets": 0,
-          "matched_rows": 0,
-          "rows": 13672,
+          "matched_markets": 205,
+          "matched_rows": 1459594,
+          "rows": 1851278,
           "split": "train"
         },
         {
@@ -635,43 +676,19 @@
           "market_type": "nrfi",
           "matched_markets": 0,
           "matched_rows": 0,
-          "rows": 240514,
+          "rows": 209274,
           "split": "train"
         },
         {
-          "coverage": 0.0,
-          "eligible_coverage": 0.0,
-          "eligible_markets": 1,
-          "eligible_matched_rows": 0,
-          "eligible_rows": 6036,
-          "market_type": "spreads",
-          "matched_markets": 0,
-          "matched_rows": 0,
-          "rows": 6036,
-          "split": "train"
-        },
-        {
-          "coverage": 0.6785761721344136,
-          "eligible_coverage": 0.6888848937030878,
-          "eligible_markets": 4,
-          "eligible_matched_rows": 30654,
-          "eligible_rows": 44498,
-          "market_type": "totals",
-          "matched_markets": 3,
-          "matched_rows": 30654,
-          "rows": 45174,
-          "split": "train"
-        },
-        {
-          "coverage": 0.7827958036170679,
-          "eligible_coverage": 0.9712722132959638,
-          "eligible_markets": 19,
-          "eligible_matched_rows": 160798,
-          "eligible_rows": 165554,
+          "coverage": 0.9153481926319437,
+          "eligible_coverage": 0.9690117208732869,
+          "eligible_markets": 214,
+          "eligible_matched_rows": 1101714,
+          "eligible_rows": 1136946,
           "market_type": "h2h",
-          "matched_markets": 17,
-          "matched_rows": 160798,
-          "rows": 205415,
+          "matched_markets": 212,
+          "matched_rows": 1101714,
+          "rows": 1203601,
           "split": "unobserved"
         },
         {
@@ -699,27 +716,51 @@
           "split": "unobserved"
         },
         {
-          "coverage": 0.7491365777080062,
-          "eligible_coverage": 0.7491365777080062,
-          "eligible_markets": 10,
-          "eligible_matched_rows": 26246,
-          "eligible_rows": 35035,
+          "coverage": 0.7297664876328347,
+          "eligible_coverage": 0.7297664876328347,
+          "eligible_markets": 19,
+          "eligible_matched_rows": 31658,
+          "eligible_rows": 43381,
           "market_type": "totals",
-          "matched_markets": 3,
-          "matched_rows": 26246,
-          "rows": 35035,
+          "matched_markets": 10,
+          "matched_rows": 31658,
+          "rows": 43381,
           "split": "unobserved"
         },
         {
-          "coverage": 0.529992693619094,
-          "eligible_coverage": 0.8209563331132699,
-          "eligible_markets": 6,
-          "eligible_matched_rows": 174092,
-          "eligible_rows": 212060,
+          "coverage": 0.0,
+          "eligible_coverage": 0.0,
+          "eligible_markets": 0,
+          "eligible_matched_rows": 0,
+          "eligible_rows": 0,
+          "market_type": "corners",
+          "matched_markets": 0,
+          "matched_rows": 0,
+          "rows": 700,
+          "split": "val"
+        },
+        {
+          "coverage": 0.6902438302589914,
+          "eligible_coverage": 0.7901799209848746,
+          "eligible_markets": 29,
+          "eligible_matched_rows": 606422,
+          "eligible_rows": 767448,
           "market_type": "h2h",
-          "matched_markets": 6,
-          "matched_rows": 174092,
-          "rows": 328480,
+          "matched_markets": 29,
+          "matched_rows": 606422,
+          "rows": 878562,
+          "split": "val"
+        },
+        {
+          "coverage": 0.0,
+          "eligible_coverage": 0.0,
+          "eligible_markets": 0,
+          "eligible_matched_rows": 0,
+          "eligible_rows": 0,
+          "market_type": "halftime",
+          "matched_markets": 0,
+          "matched_rows": 0,
+          "rows": 13672,
           "split": "val"
         },
         {
@@ -731,20 +772,44 @@
           "market_type": "nrfi",
           "matched_markets": 0,
           "matched_rows": 0,
-          "rows": 17270,
+          "rows": 31240,
+          "split": "val"
+        },
+        {
+          "coverage": 0.0,
+          "eligible_coverage": 0.0,
+          "eligible_markets": 1,
+          "eligible_matched_rows": 0,
+          "eligible_rows": 6036,
+          "market_type": "spreads",
+          "matched_markets": 0,
+          "matched_rows": 0,
+          "rows": 6036,
+          "split": "val"
+        },
+        {
+          "coverage": 0.502194185408667,
+          "eligible_coverage": 0.514109223641724,
+          "eligible_markets": 3,
+          "eligible_matched_rows": 14648,
+          "eligible_rows": 28492,
+          "market_type": "totals",
+          "matched_markets": 2,
+          "matched_rows": 14648,
+          "rows": 29168,
           "split": "val"
         }
       ],
       "coverage_by_split_sport": [
         {
-          "coverage": 0.6718406724615532,
-          "eligible_coverage": 0.8454234028487289,
-          "eligible_markets": 4,
-          "eligible_matched_rows": 56268,
-          "eligible_rows": 66556,
-          "matched_markets": 4,
-          "matched_rows": 56268,
-          "rows": 83752,
+          "coverage": 0.5920000790506023,
+          "eligible_coverage": 0.7134979992378049,
+          "eligible_markets": 8,
+          "eligible_matched_rows": 119822,
+          "eligible_rows": 167936,
+          "matched_markets": 8,
+          "matched_rows": 119822,
+          "rows": 202402,
           "split": "test",
           "sport_family": "baseball_mlb"
         },
@@ -761,52 +826,76 @@
           "sport_family": "basketball_wnba"
         },
         {
-          "coverage": 0.0,
-          "eligible_coverage": 0.0,
-          "eligible_markets": 0,
-          "eligible_matched_rows": 0,
-          "eligible_rows": 0,
-          "matched_markets": 0,
-          "matched_rows": 0,
-          "rows": 111914,
+          "coverage": 0.41494058492064007,
+          "eligible_coverage": 0.9688554979503256,
+          "eligible_markets": 13,
+          "eligible_matched_rows": 257142,
+          "eligible_rows": 265408,
+          "matched_markets": 13,
+          "matched_rows": 257142,
+          "rows": 619708,
           "split": "test",
           "sport_family": "soccer"
         },
         {
-          "coverage": 0.420739871689145,
-          "eligible_coverage": 0.5547648658277674,
-          "eligible_markets": 29,
-          "eligible_matched_rows": 418868,
-          "eligible_rows": 755037,
-          "matched_markets": 29,
-          "matched_rows": 418868,
-          "rows": 995551,
+          "coverage": 1.0,
+          "eligible_coverage": 1.0,
+          "eligible_markets": 1,
+          "eligible_matched_rows": 9466,
+          "eligible_rows": 9466,
+          "matched_markets": 1,
+          "matched_rows": 9466,
+          "rows": 9466,
+          "split": "train",
+          "sport_family": "americanfootball_nfl"
+        },
+        {
+          "coverage": 0.40827157188004437,
+          "eligible_coverage": 0.597409554674512,
+          "eligible_markets": 17,
+          "eligible_matched_rows": 269872,
+          "eligible_rows": 451737,
+          "matched_markets": 17,
+          "matched_rows": 269872,
+          "rows": 661011,
           "split": "train",
           "sport_family": "baseball_mlb"
         },
         {
-          "coverage": 0.7459268367660621,
-          "eligible_coverage": 0.7459268367660621,
-          "eligible_markets": 1,
-          "eligible_matched_rows": 9706,
-          "eligible_rows": 13012,
-          "matched_markets": 1,
-          "matched_rows": 9706,
-          "rows": 13012,
+          "coverage": 0.7279357478208021,
+          "eligible_coverage": 0.7279357478208021,
+          "eligible_markets": 112,
+          "eligible_matched_rows": 535380,
+          "eligible_rows": 735477,
+          "matched_markets": 112,
+          "matched_rows": 535380,
+          "rows": 735477,
           "split": "train",
-          "sport_family": "basketball_wnba"
+          "sport_family": "basketball_nba"
         },
         {
-          "coverage": 0.6309410386567746,
-          "eligible_coverage": 0.939128817525941,
-          "eligible_markets": 16,
-          "eligible_matched_rows": 484752,
-          "eligible_rows": 516172,
-          "matched_markets": 14,
-          "matched_rows": 484752,
-          "rows": 768300,
+          "coverage": 0.9851481367190245,
+          "eligible_coverage": 0.999466848516785,
+          "eligible_markets": 76,
+          "eligible_matched_rows": 644876,
+          "eligible_rows": 645220,
+          "matched_markets": 75,
+          "matched_rows": 644876,
+          "rows": 654598,
           "split": "train",
           "sport_family": "soccer"
+        },
+        {
+          "coverage": 1.0,
+          "eligible_coverage": 1.0,
+          "eligible_markets": 13,
+          "eligible_matched_rows": 56836,
+          "eligible_rows": 56836,
+          "matched_markets": 13,
+          "matched_rows": 56836,
+          "rows": 56836,
+          "split": "unobserved",
+          "sport_family": "americanfootball_nfl"
         },
         {
           "coverage": 0.4299416195786261,
@@ -821,16 +910,52 @@
           "sport_family": "baseball_mlb"
         },
         {
-          "coverage": 0.0,
-          "eligible_coverage": 0.0,
-          "eligible_markets": 8,
-          "eligible_matched_rows": 0,
-          "eligible_rows": 5347,
-          "matched_markets": 0,
-          "matched_rows": 0,
-          "rows": 5347,
+          "coverage": 0.8155506618590131,
+          "eligible_coverage": 0.8156098741529526,
+          "eligible_markets": 72,
+          "eligible_matched_rows": 134804,
+          "eligible_rows": 165280,
+          "matched_markets": 72,
+          "matched_rows": 134804,
+          "rows": 165292,
+          "split": "unobserved",
+          "sport_family": "basketball_nba"
+        },
+        {
+          "coverage": 1.0,
+          "eligible_coverage": 1.0,
+          "eligible_markets": 3,
+          "eligible_matched_rows": 11904,
+          "eligible_rows": 11904,
+          "matched_markets": 3,
+          "matched_rows": 11904,
+          "rows": 11904,
+          "split": "unobserved",
+          "sport_family": "basketball_wnba"
+        },
+        {
+          "coverage": 0.39523844300007305,
+          "eligible_coverage": 0.39523844300007305,
+          "eligible_markets": 17,
+          "eligible_matched_rows": 5412,
+          "eligible_rows": 13693,
+          "matched_markets": 7,
+          "matched_rows": 5412,
+          "rows": 13693,
           "split": "unobserved",
           "sport_family": "icehockey_nhl"
+        },
+        {
+          "coverage": 0.9978550849372833,
+          "eligible_coverage": 1.0,
+          "eligible_markets": 107,
+          "eligible_matched_rows": 737372,
+          "eligible_rows": 737372,
+          "matched_markets": 107,
+          "matched_rows": 737372,
+          "rows": 738957,
+          "split": "unobserved",
+          "sport_family": "soccer"
         },
         {
           "coverage": 0.0,
@@ -840,114 +965,126 @@
           "eligible_rows": 0,
           "matched_markets": 0,
           "matched_rows": 0,
-          "rows": 1003,
+          "rows": 26200,
           "split": "unobserved",
-          "sport_family": "soccer"
+          "sport_family": "tennis"
         },
         {
-          "coverage": 0.5356426464391066,
-          "eligible_coverage": 0.6268889327283488,
-          "eligible_markets": 4,
-          "eligible_matched_rows": 63554,
-          "eligible_rows": 101380,
-          "matched_markets": 4,
-          "matched_rows": 63554,
-          "rows": 118650,
+          "coverage": 0.4453757398218449,
+          "eligible_coverage": 0.49124958786679856,
+          "eligible_markets": 12,
+          "eligible_matched_rows": 148996,
+          "eligible_rows": 303300,
+          "matched_markets": 12,
+          "matched_rows": 148996,
+          "rows": 334540,
           "split": "val",
           "sport_family": "baseball_mlb"
         },
         {
-          "coverage": 0.4867371202113606,
-          "eligible_coverage": 0.9987170220455367,
-          "eligible_markets": 2,
-          "eligible_matched_rows": 110538,
-          "eligible_rows": 110680,
-          "matched_markets": 2,
-          "matched_rows": 110538,
-          "rows": 227100,
+          "coverage": 0.7459268367660621,
+          "eligible_coverage": 0.7459268367660621,
+          "eligible_markets": 1,
+          "eligible_matched_rows": 9706,
+          "eligible_rows": 13012,
+          "matched_markets": 1,
+          "matched_rows": 9706,
+          "rows": 13012,
+          "split": "val",
+          "sport_family": "basketball_wnba"
+        },
+        {
+          "coverage": 0.7557181290105357,
+          "eligible_coverage": 0.9520326810305066,
+          "eligible_markets": 20,
+          "eligible_matched_rows": 462368,
+          "eligible_rows": 485664,
+          "matched_markets": 18,
+          "matched_rows": 462368,
+          "rows": 611826,
           "split": "val",
           "sport_family": "soccer"
         }
       ],
       "fair_prob_quantiles": {
         "0.0": 0.06962685755698608,
-        "0.01": 0.08136472775925196,
-        "0.05": 0.18061360495460507,
+        "0.01": 0.1038952450868161,
+        "0.05": 0.11843945231496976,
         "0.5": 0.5,
-        "0.95": 0.8193863950453949,
-        "0.99": 0.918635272240748,
+        "0.95": 0.8815605476850302,
+        "0.99": 0.8961047549131839,
         "1.0": 0.930373142443014
       },
       "join_diagnostics": {
-        "candidate_rows_with_fair_group": 1807836,
-        "groups_with_fair": 129,
-        "join_groups": 143,
-        "mapped_label_markets": 90,
-        "mapped_label_rows": 1836270,
-        "mapped_label_tokens": 178,
-        "matched_feature_rows": 1390146,
-        "rows_after_last_allowed_snapshot": 8124,
-        "rows_before_first_odds_snapshot": 409566,
-        "rows_without_fair_group": 28434
+        "candidate_rows_with_fair_group": 4299627,
+        "groups_with_fair": 737,
+        "join_groups": 755,
+        "mapped_label_markets": 498,
+        "mapped_label_rows": 4330391,
+        "mapped_label_tokens": 993,
+        "matched_feature_rows": 3650416,
+        "rows_after_last_allowed_snapshot": 8468,
+        "rows_before_first_odds_snapshot": 640743,
+        "rows_without_fair_group": 30764
       },
-      "markets": 79,
+      "markets": 484,
       "odds_strategy_universe": {
         "coverage_by_split": {
           "test": {
-            "coverage": 0.3244483343942287,
-            "eligible_coverage": 0.7557921617892374,
-            "eligible_markets": 5,
-            "eligible_matched_markets": 5,
-            "eligible_matched_rows": 73398,
-            "eligible_matched_tokens": 10,
-            "eligible_rows": 97114,
-            "eligible_tokens": 10,
-            "matched_markets": 5,
-            "matched_rows": 73398,
-            "matched_tokens": 10,
-            "rows": 226224
+            "coverage": 0.4621892694460212,
+            "eligible_coverage": 0.8495199417118271,
+            "eligible_markets": 22,
+            "eligible_matched_markets": 22,
+            "eligible_matched_rows": 394094,
+            "eligible_matched_tokens": 44,
+            "eligible_rows": 463902,
+            "eligible_tokens": 44,
+            "matched_markets": 22,
+            "matched_rows": 394094,
+            "matched_tokens": 44,
+            "rows": 852668
           },
           "train": {
-            "coverage": 0.5140103654586763,
-            "eligible_coverage": 0.7111906751252316,
-            "eligible_markets": 46,
-            "eligible_matched_markets": 44,
-            "eligible_matched_rows": 913326,
-            "eligible_matched_tokens": 87,
-            "eligible_rows": 1284221,
-            "eligible_tokens": 91,
-            "matched_markets": 44,
-            "matched_rows": 913326,
-            "matched_tokens": 87,
-            "rows": 1776863
+            "coverage": 0.7083509661488766,
+            "eligible_coverage": 0.7924393289537978,
+            "eligible_markets": 206,
+            "eligible_matched_markets": 205,
+            "eligible_matched_rows": 1459594,
+            "eligible_matched_tokens": 409,
+            "eligible_rows": 1841900,
+            "eligible_tokens": 411,
+            "matched_markets": 205,
+            "matched_rows": 1459594,
+            "matched_tokens": 409,
+            "rows": 2060552
           },
           "unobserved": {
-            "coverage": 0.4248834641351149,
-            "eligible_coverage": 0.9442305712815234,
-            "eligible_markets": 33,
-            "eligible_matched_markets": 24,
-            "eligible_matched_rows": 229330,
-            "eligible_matched_tokens": 48,
-            "eligible_rows": 242875,
-            "eligible_tokens": 65,
-            "matched_markets": 24,
-            "matched_rows": 229330,
-            "matched_tokens": 48,
-            "rows": 539748
+            "coverage": 0.7603137853428874,
+            "eligible_coverage": 0.9615945519964207,
+            "eligible_markets": 237,
+            "eligible_matched_markets": 226,
+            "eligible_matched_rows": 1175658,
+            "eligible_matched_tokens": 451,
+            "eligible_rows": 1222613,
+            "eligible_tokens": 472,
+            "matched_markets": 226,
+            "matched_rows": 1175658,
+            "matched_tokens": 451,
+            "rows": 1546280
           },
           "val": {
-            "coverage": 0.5035198843094721,
-            "eligible_coverage": 0.8209563331132699,
-            "eligible_markets": 6,
-            "eligible_matched_markets": 6,
-            "eligible_matched_rows": 174092,
-            "eligible_matched_tokens": 12,
-            "eligible_rows": 212060,
-            "eligible_tokens": 12,
-            "matched_markets": 6,
-            "matched_rows": 174092,
-            "matched_tokens": 12,
-            "rows": 345750
+            "coverage": 0.6473673567665716,
+            "eligible_coverage": 0.7744246710624757,
+            "eligible_markets": 33,
+            "eligible_matched_markets": 31,
+            "eligible_matched_rows": 621070,
+            "eligible_matched_tokens": 62,
+            "eligible_rows": 801976,
+            "eligible_tokens": 66,
+            "matched_markets": 31,
+            "matched_rows": 621070,
+            "matched_tokens": 62,
+            "rows": 959378
           }
         },
         "coverage_by_split_market_type": [
@@ -964,15 +1101,15 @@
             "split": "test"
           },
           {
-            "coverage": 0.3508293754513003,
-            "eligible_coverage": 0.7455692919512406,
-            "eligible_markets": 4,
-            "eligible_matched_rows": 68992,
-            "eligible_rows": 92536,
+            "coverage": 0.4731217919987035,
+            "eligible_coverage": 0.8429208829779075,
+            "eligible_markets": 20,
+            "eligible_matched_rows": 373682,
+            "eligible_rows": 443318,
             "market_type": "h2h",
-            "matched_markets": 4,
-            "matched_rows": 68992,
-            "rows": 196654,
+            "matched_markets": 20,
+            "matched_rows": 373682,
+            "rows": 789822,
             "split": "test"
           },
           {
@@ -984,7 +1121,7 @@
             "market_type": "nrfi",
             "matched_markets": 0,
             "matched_rows": 0,
-            "rows": 17196,
+            "rows": 34466,
             "split": "test"
           },
           {
@@ -1000,39 +1137,27 @@
             "split": "test"
           },
           {
-            "coverage": 0.0,
-            "eligible_coverage": 0.0,
-            "eligible_markets": 0,
-            "eligible_matched_rows": 0,
-            "eligible_rows": 0,
-            "market_type": "corners",
-            "matched_markets": 0,
-            "matched_rows": 0,
-            "rows": 700,
-            "split": "train"
+            "coverage": 1.0,
+            "eligible_coverage": 1.0,
+            "eligible_markets": 1,
+            "eligible_matched_rows": 16006,
+            "eligible_rows": 16006,
+            "market_type": "totals",
+            "matched_markets": 1,
+            "matched_rows": 16006,
+            "rows": 16006,
+            "split": "test"
           },
           {
-            "coverage": 0.6001440064945706,
-            "eligible_coverage": 0.7154748327574174,
-            "eligible_markets": 41,
-            "eligible_matched_rows": 882672,
-            "eligible_rows": 1233687,
+            "coverage": 0.7884250771629112,
+            "eligible_coverage": 0.7924393289537978,
+            "eligible_markets": 206,
+            "eligible_matched_rows": 1459594,
+            "eligible_rows": 1841900,
             "market_type": "h2h",
-            "matched_markets": 41,
-            "matched_rows": 882672,
-            "rows": 1470767,
-            "split": "train"
-          },
-          {
-            "coverage": 0.0,
-            "eligible_coverage": 0.0,
-            "eligible_markets": 0,
-            "eligible_matched_rows": 0,
-            "eligible_rows": 0,
-            "market_type": "halftime",
-            "matched_markets": 0,
-            "matched_rows": 0,
-            "rows": 13672,
+            "matched_markets": 205,
+            "matched_rows": 1459594,
+            "rows": 1851278,
             "split": "train"
           },
           {
@@ -1044,43 +1169,19 @@
             "market_type": "nrfi",
             "matched_markets": 0,
             "matched_rows": 0,
-            "rows": 240514,
+            "rows": 209274,
             "split": "train"
           },
           {
-            "coverage": 0.0,
-            "eligible_coverage": 0.0,
-            "eligible_markets": 1,
-            "eligible_matched_rows": 0,
-            "eligible_rows": 6036,
-            "market_type": "spreads",
-            "matched_markets": 0,
-            "matched_rows": 0,
-            "rows": 6036,
-            "split": "train"
-          },
-          {
-            "coverage": 0.6785761721344136,
-            "eligible_coverage": 0.6888848937030878,
-            "eligible_markets": 4,
-            "eligible_matched_rows": 30654,
-            "eligible_rows": 44498,
-            "market_type": "totals",
-            "matched_markets": 3,
-            "matched_rows": 30654,
-            "rows": 45174,
-            "split": "train"
-          },
-          {
-            "coverage": 0.7827958036170679,
-            "eligible_coverage": 0.9712722132959638,
-            "eligible_markets": 19,
-            "eligible_matched_rows": 160798,
-            "eligible_rows": 165554,
+            "coverage": 0.9153481926319437,
+            "eligible_coverage": 0.9690117208732869,
+            "eligible_markets": 214,
+            "eligible_matched_rows": 1101714,
+            "eligible_rows": 1136946,
             "market_type": "h2h",
-            "matched_markets": 17,
-            "matched_rows": 160798,
-            "rows": 205415,
+            "matched_markets": 212,
+            "matched_rows": 1101714,
+            "rows": 1203601,
             "split": "unobserved"
           },
           {
@@ -1108,27 +1209,51 @@
             "split": "unobserved"
           },
           {
-            "coverage": 0.7491365777080062,
-            "eligible_coverage": 0.7491365777080062,
-            "eligible_markets": 10,
-            "eligible_matched_rows": 26246,
-            "eligible_rows": 35035,
+            "coverage": 0.7297664876328347,
+            "eligible_coverage": 0.7297664876328347,
+            "eligible_markets": 19,
+            "eligible_matched_rows": 31658,
+            "eligible_rows": 43381,
             "market_type": "totals",
-            "matched_markets": 3,
-            "matched_rows": 26246,
-            "rows": 35035,
+            "matched_markets": 10,
+            "matched_rows": 31658,
+            "rows": 43381,
             "split": "unobserved"
           },
           {
-            "coverage": 0.529992693619094,
-            "eligible_coverage": 0.8209563331132699,
-            "eligible_markets": 6,
-            "eligible_matched_rows": 174092,
-            "eligible_rows": 212060,
+            "coverage": 0.0,
+            "eligible_coverage": 0.0,
+            "eligible_markets": 0,
+            "eligible_matched_rows": 0,
+            "eligible_rows": 0,
+            "market_type": "corners",
+            "matched_markets": 0,
+            "matched_rows": 0,
+            "rows": 700,
+            "split": "val"
+          },
+          {
+            "coverage": 0.6902438302589914,
+            "eligible_coverage": 0.7901799209848746,
+            "eligible_markets": 29,
+            "eligible_matched_rows": 606422,
+            "eligible_rows": 767448,
             "market_type": "h2h",
-            "matched_markets": 6,
-            "matched_rows": 174092,
-            "rows": 328480,
+            "matched_markets": 29,
+            "matched_rows": 606422,
+            "rows": 878562,
+            "split": "val"
+          },
+          {
+            "coverage": 0.0,
+            "eligible_coverage": 0.0,
+            "eligible_markets": 0,
+            "eligible_matched_rows": 0,
+            "eligible_rows": 0,
+            "market_type": "halftime",
+            "matched_markets": 0,
+            "matched_rows": 0,
+            "rows": 13672,
             "split": "val"
           },
           {
@@ -1140,20 +1265,44 @@
             "market_type": "nrfi",
             "matched_markets": 0,
             "matched_rows": 0,
-            "rows": 17270,
+            "rows": 31240,
+            "split": "val"
+          },
+          {
+            "coverage": 0.0,
+            "eligible_coverage": 0.0,
+            "eligible_markets": 1,
+            "eligible_matched_rows": 0,
+            "eligible_rows": 6036,
+            "market_type": "spreads",
+            "matched_markets": 0,
+            "matched_rows": 0,
+            "rows": 6036,
+            "split": "val"
+          },
+          {
+            "coverage": 0.502194185408667,
+            "eligible_coverage": 0.514109223641724,
+            "eligible_markets": 3,
+            "eligible_matched_rows": 14648,
+            "eligible_rows": 28492,
+            "market_type": "totals",
+            "matched_markets": 2,
+            "matched_rows": 14648,
+            "rows": 29168,
             "split": "val"
           }
         ],
         "coverage_by_split_sport": [
           {
-            "coverage": 0.6718406724615532,
-            "eligible_coverage": 0.8454234028487289,
-            "eligible_markets": 4,
-            "eligible_matched_rows": 56268,
-            "eligible_rows": 66556,
-            "matched_markets": 4,
-            "matched_rows": 56268,
-            "rows": 83752,
+            "coverage": 0.5920000790506023,
+            "eligible_coverage": 0.7134979992378049,
+            "eligible_markets": 8,
+            "eligible_matched_rows": 119822,
+            "eligible_rows": 167936,
+            "matched_markets": 8,
+            "matched_rows": 119822,
+            "rows": 202402,
             "split": "test",
             "sport_family": "baseball_mlb"
           },
@@ -1170,52 +1319,76 @@
             "sport_family": "basketball_wnba"
           },
           {
-            "coverage": 0.0,
-            "eligible_coverage": 0.0,
-            "eligible_markets": 0,
-            "eligible_matched_rows": 0,
-            "eligible_rows": 0,
-            "matched_markets": 0,
-            "matched_rows": 0,
-            "rows": 111914,
+            "coverage": 0.41494058492064007,
+            "eligible_coverage": 0.9688554979503256,
+            "eligible_markets": 13,
+            "eligible_matched_rows": 257142,
+            "eligible_rows": 265408,
+            "matched_markets": 13,
+            "matched_rows": 257142,
+            "rows": 619708,
             "split": "test",
             "sport_family": "soccer"
           },
           {
-            "coverage": 0.420739871689145,
-            "eligible_coverage": 0.5547648658277674,
-            "eligible_markets": 29,
-            "eligible_matched_rows": 418868,
-            "eligible_rows": 755037,
-            "matched_markets": 29,
-            "matched_rows": 418868,
-            "rows": 995551,
+            "coverage": 1.0,
+            "eligible_coverage": 1.0,
+            "eligible_markets": 1,
+            "eligible_matched_rows": 9466,
+            "eligible_rows": 9466,
+            "matched_markets": 1,
+            "matched_rows": 9466,
+            "rows": 9466,
+            "split": "train",
+            "sport_family": "americanfootball_nfl"
+          },
+          {
+            "coverage": 0.40827157188004437,
+            "eligible_coverage": 0.597409554674512,
+            "eligible_markets": 17,
+            "eligible_matched_rows": 269872,
+            "eligible_rows": 451737,
+            "matched_markets": 17,
+            "matched_rows": 269872,
+            "rows": 661011,
             "split": "train",
             "sport_family": "baseball_mlb"
           },
           {
-            "coverage": 0.7459268367660621,
-            "eligible_coverage": 0.7459268367660621,
-            "eligible_markets": 1,
-            "eligible_matched_rows": 9706,
-            "eligible_rows": 13012,
-            "matched_markets": 1,
-            "matched_rows": 9706,
-            "rows": 13012,
+            "coverage": 0.7279357478208021,
+            "eligible_coverage": 0.7279357478208021,
+            "eligible_markets": 112,
+            "eligible_matched_rows": 535380,
+            "eligible_rows": 735477,
+            "matched_markets": 112,
+            "matched_rows": 535380,
+            "rows": 735477,
             "split": "train",
-            "sport_family": "basketball_wnba"
+            "sport_family": "basketball_nba"
           },
           {
-            "coverage": 0.6309410386567746,
-            "eligible_coverage": 0.939128817525941,
-            "eligible_markets": 16,
-            "eligible_matched_rows": 484752,
-            "eligible_rows": 516172,
-            "matched_markets": 14,
-            "matched_rows": 484752,
-            "rows": 768300,
+            "coverage": 0.9851481367190245,
+            "eligible_coverage": 0.999466848516785,
+            "eligible_markets": 76,
+            "eligible_matched_rows": 644876,
+            "eligible_rows": 645220,
+            "matched_markets": 75,
+            "matched_rows": 644876,
+            "rows": 654598,
             "split": "train",
             "sport_family": "soccer"
+          },
+          {
+            "coverage": 1.0,
+            "eligible_coverage": 1.0,
+            "eligible_markets": 13,
+            "eligible_matched_rows": 56836,
+            "eligible_rows": 56836,
+            "matched_markets": 13,
+            "matched_rows": 56836,
+            "rows": 56836,
+            "split": "unobserved",
+            "sport_family": "americanfootball_nfl"
           },
           {
             "coverage": 0.4299416195786261,
@@ -1230,16 +1403,52 @@
             "sport_family": "baseball_mlb"
           },
           {
-            "coverage": 0.0,
-            "eligible_coverage": 0.0,
-            "eligible_markets": 8,
-            "eligible_matched_rows": 0,
-            "eligible_rows": 5347,
-            "matched_markets": 0,
-            "matched_rows": 0,
-            "rows": 5347,
+            "coverage": 0.8155506618590131,
+            "eligible_coverage": 0.8156098741529526,
+            "eligible_markets": 72,
+            "eligible_matched_rows": 134804,
+            "eligible_rows": 165280,
+            "matched_markets": 72,
+            "matched_rows": 134804,
+            "rows": 165292,
+            "split": "unobserved",
+            "sport_family": "basketball_nba"
+          },
+          {
+            "coverage": 1.0,
+            "eligible_coverage": 1.0,
+            "eligible_markets": 3,
+            "eligible_matched_rows": 11904,
+            "eligible_rows": 11904,
+            "matched_markets": 3,
+            "matched_rows": 11904,
+            "rows": 11904,
+            "split": "unobserved",
+            "sport_family": "basketball_wnba"
+          },
+          {
+            "coverage": 0.39523844300007305,
+            "eligible_coverage": 0.39523844300007305,
+            "eligible_markets": 17,
+            "eligible_matched_rows": 5412,
+            "eligible_rows": 13693,
+            "matched_markets": 7,
+            "matched_rows": 5412,
+            "rows": 13693,
             "split": "unobserved",
             "sport_family": "icehockey_nhl"
+          },
+          {
+            "coverage": 0.9978550849372833,
+            "eligible_coverage": 1.0,
+            "eligible_markets": 107,
+            "eligible_matched_rows": 737372,
+            "eligible_rows": 737372,
+            "matched_markets": 107,
+            "matched_rows": 737372,
+            "rows": 738957,
+            "split": "unobserved",
+            "sport_family": "soccer"
           },
           {
             "coverage": 0.0,
@@ -1249,31 +1458,43 @@
             "eligible_rows": 0,
             "matched_markets": 0,
             "matched_rows": 0,
-            "rows": 1003,
+            "rows": 26200,
             "split": "unobserved",
-            "sport_family": "soccer"
+            "sport_family": "tennis"
           },
           {
-            "coverage": 0.5356426464391066,
-            "eligible_coverage": 0.6268889327283488,
-            "eligible_markets": 4,
-            "eligible_matched_rows": 63554,
-            "eligible_rows": 101380,
-            "matched_markets": 4,
-            "matched_rows": 63554,
-            "rows": 118650,
+            "coverage": 0.4453757398218449,
+            "eligible_coverage": 0.49124958786679856,
+            "eligible_markets": 12,
+            "eligible_matched_rows": 148996,
+            "eligible_rows": 303300,
+            "matched_markets": 12,
+            "matched_rows": 148996,
+            "rows": 334540,
             "split": "val",
             "sport_family": "baseball_mlb"
           },
           {
-            "coverage": 0.4867371202113606,
-            "eligible_coverage": 0.9987170220455367,
-            "eligible_markets": 2,
-            "eligible_matched_rows": 110538,
-            "eligible_rows": 110680,
-            "matched_markets": 2,
-            "matched_rows": 110538,
-            "rows": 227100,
+            "coverage": 0.7459268367660621,
+            "eligible_coverage": 0.7459268367660621,
+            "eligible_markets": 1,
+            "eligible_matched_rows": 9706,
+            "eligible_rows": 13012,
+            "matched_markets": 1,
+            "matched_rows": 9706,
+            "rows": 13012,
+            "split": "val",
+            "sport_family": "basketball_wnba"
+          },
+          {
+            "coverage": 0.7557181290105357,
+            "eligible_coverage": 0.9520326810305066,
+            "eligible_markets": 20,
+            "eligible_matched_rows": 462368,
+            "eligible_rows": 485664,
+            "matched_markets": 18,
+            "matched_rows": 462368,
+            "rows": 611826,
             "split": "val",
             "sport_family": "soccer"
           }
@@ -1286,36 +1507,78 @@
         ]
       },
       "poly_gap_mid_quantiles": {
-        "0.0": -0.6582422098623939,
-        "0.01": -0.20186656550137183,
-        "0.05": -0.043059426142259605,
+        "0.0": -0.8902926271123066,
+        "0.01": -0.08883427853278913,
+        "0.05": -0.029436532000284843,
         "0.5": 0.0,
-        "0.95": 0.04305942614225955,
-        "0.99": 0.20186656550137194,
-        "1.0": 0.6582422098623937
+        "0.95": 0.029436532000284787,
+        "0.99": 0.08883427853278925,
+        "1.0": 0.8902926271123066
       },
       "quote_age_hours_quantiles": {
-        "0.0": 0.005833333333333334,
-        "0.01": 0.07305555555555555,
-        "0.05": 0.37277777777777776,
-        "0.5": 4.539444444444444,
-        "0.95": 22.673055555555557,
-        "0.99": 107.85055555555789,
+        "0.0": 0.0,
+        "0.01": 0.006111111111111111,
+        "0.05": 0.006388888888888889,
+        "0.5": 0.23972222222222223,
+        "0.95": 18.323055555555555,
+        "0.99": 26.00583333333333,
         "1.0": 167.95638888888888
       },
-      "row_coverage": 0.48125500894036355,
-      "rows": 1390146,
+      "row_coverage": 0.6736479396657389,
+      "rows": 3650416,
       "source_minutes_to_commence_quantiles": {
-        "0.0": 10.383333333333333,
+        "0.0": 0.38333333333333336,
         "0.01": 10.383333333333333,
-        "0.05": 135.35,
-        "0.5": 1450.3833333333334,
-        "0.95": 8584.383333333333,
-        "0.99": 12934.383333333333,
+        "0.05": 64.38333333333334,
+        "0.5": 704.3833333333333,
+        "0.95": 6184.383333333333,
+        "0.99": 9934.383333333333,
         "1.0": 12934.383333333333
       },
-      "tokens": 157,
+      "tokens": 966,
       "top_uncovered_test_events": [
+        {
+          "event_title": "Switzerland vs. Jordan",
+          "market_type": "h2h",
+          "rows": 71258,
+          "sport_family": "soccer"
+        },
+        {
+          "event_title": "Japan vs. Iceland",
+          "market_type": "h2h",
+          "rows": 42908,
+          "sport_family": "soccer"
+        },
+        {
+          "event_title": "Germany vs. Finland",
+          "market_type": "h2h",
+          "rows": 39726,
+          "sport_family": "soccer"
+        },
+        {
+          "event_title": "Singapore vs. Mongolia",
+          "market_type": "h2h",
+          "rows": 35198,
+          "sport_family": "soccer"
+        },
+        {
+          "event_title": "NJ/NY Gotham FC vs. Houston Dash",
+          "market_type": "h2h",
+          "rows": 34990,
+          "sport_family": "soccer"
+        },
+        {
+          "event_title": "Brazil vs. Panama",
+          "market_type": "h2h",
+          "rows": 34600,
+          "sport_family": "soccer"
+        },
+        {
+          "event_title": "Chicago Stars FC vs. San Diego Wave FC",
+          "market_type": "h2h",
+          "rows": 20108,
+          "sport_family": "soccer"
+        },
         {
           "event_title": "Luxembourg vs. Italy",
           "market_type": "h2h",
@@ -1323,21 +1586,21 @@
           "sport_family": "soccer"
         },
         {
-          "event_title": "Germany vs. Finland",
-          "market_type": "h2h",
-          "rows": 18580,
-          "sport_family": "soccer"
-        },
-        {
-          "event_title": "Singapore vs. Mongolia",
-          "market_type": "h2h",
-          "rows": 17822,
-          "sport_family": "soccer"
+          "event_title": "Tampa Bay Rays vs. New York Yankees",
+          "market_type": "nrfi",
+          "rows": 17270,
+          "sport_family": "baseball_mlb"
         },
         {
           "event_title": "Arizona Diamondbacks vs. Seattle Mariners",
           "market_type": "nrfi",
           "rows": 17196,
+          "sport_family": "baseball_mlb"
+        },
+        {
+          "event_title": "Minnesota Twins vs. Chicago White Sox",
+          "market_type": "h2h",
+          "rows": 13996,
           "sport_family": "baseball_mlb"
         },
         {
@@ -1351,6 +1614,12 @@
           "market_type": "h2h",
           "rows": 13428,
           "sport_family": "basketball_wnba"
+        },
+        {
+          "event_title": "Tampa Bay Rays vs. New York Yankees",
+          "market_type": "h2h",
+          "rows": 11910,
+          "sport_family": "baseball_mlb"
         },
         {
           "event_title": "Austria vs. Tunisia",
@@ -1371,58 +1640,22 @@
           "sport_family": "soccer"
         },
         {
+          "event_title": "Seattle Mariners vs. Athletics",
+          "market_type": "h2h",
+          "rows": 8136,
+          "sport_family": "baseball_mlb"
+        },
+        {
+          "event_title": "Clube do Remo vs. S\u00e3o Paulo FC",
+          "market_type": "h2h",
+          "rows": 8124,
+          "sport_family": "soccer"
+        },
+        {
           "event_title": "Korea Republic vs. El Salvador",
           "market_type": "h2h",
           "rows": 7048,
           "sport_family": "soccer"
-        },
-        {
-          "event_title": "Fenerbah\u00e7e SK vs. Samsunspor - Exact Score",
-          "market_type": "exact_score",
-          "rows": 5666,
-          "sport_family": "soccer"
-        },
-        {
-          "event_title": "Arizona Diamondbacks vs. Seattle Mariners",
-          "market_type": "h2h",
-          "rows": 4232,
-          "sport_family": "baseball_mlb"
-        },
-        {
-          "event_title": "Houston Astros vs. Texas Rangers",
-          "market_type": "h2h",
-          "rows": 3230,
-          "sport_family": "baseball_mlb"
-        },
-        {
-          "event_title": "Atlanta Braves vs. Cincinnati Reds",
-          "market_type": "h2h",
-          "rows": 2654,
-          "sport_family": "baseball_mlb"
-        },
-        {
-          "event_title": "Luxembourg vs. Italy - More Markets",
-          "market_type": "spreads",
-          "rows": 1166,
-          "sport_family": "soccer"
-        },
-        {
-          "event_title": "Fenerbah\u00e7e SK vs. Samsunspor - More Markets",
-          "market_type": "spreads",
-          "rows": 964,
-          "sport_family": "soccer"
-        },
-        {
-          "event_title": "France vs. C\u00f4te d'Ivoire",
-          "market_type": "h2h",
-          "rows": 764,
-          "sport_family": "soccer"
-        },
-        {
-          "event_title": "Tampa Bay Rays vs. New York Yankees",
-          "market_type": "spreads",
-          "rows": 172,
-          "sport_family": "baseball_mlb"
         }
       ],
       "validation": {
@@ -1432,17 +1665,17 @@
         "probabilities_in_bounds": true
       }
     },
-    "generated_at": "2026-05-31T14:06:17.253654+00:00",
+    "generated_at": "2026-05-31T14:44:17.331623+00:00",
     "labels": {
-      "markets": 216,
-      "rows": 2888585,
-      "tokens": 429
+      "markets": 632,
+      "rows": 5418878,
+      "tokens": 1261
     },
     "mapping": {
       "diagnostics": {
-        "mapped_tokens": 178,
-        "tokens": 429,
-        "unmapped_side": 0,
+        "mapped_tokens": 993,
+        "tokens": 1261,
+        "unmapped_side": 3,
         "unsupported_market_type": 70,
         "unsupported_market_types": {
           "corners": 2,
@@ -1450,18 +1683,18 @@
           "nrfi": 64
         }
       },
-      "mapped_markets": 90,
-      "mapped_tokens": 178
+      "mapped_markets": 498,
+      "mapped_tokens": 993
     },
     "matching": {
       "diagnostics": {
-        "markets": 216,
-        "no_odds_event_match": 91,
+        "markets": 632,
+        "no_odds_event_match": 93,
         "no_slug_date": 0,
-        "no_sport_pool": 0,
+        "no_sport_pool": 5,
         "no_title_parse": 0
       },
-      "matched_markets": 125
+      "matched_markets": 534
     },
     "outputs": {
       "features": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/data/processed/execution_training/telonex_odds_features_latest.parquet",
@@ -1490,65 +1723,66 @@
   "split_coverage": {
     "test": {
       "asof_max": "2026-05-29 23:59:00+00:00",
-      "asof_min": "2026-05-22 00:02:00+00:00",
-      "lev_positive_rate": 0.0023781738453921776,
-      "lev_positive_rows": 538,
-      "maker_positive_rate": 0.03004986208359856,
-      "maker_positive_rows": 6798,
-      "maker_trade_feature_observed_rows": 116762,
-      "maker_trade_fill_any_rate": 0.044535504632576564,
-      "maker_trade_fill_any_rows": 10075,
-      "maker_trade_fill_positive_rate": 0.0004287785557677346,
-      "maker_trade_fill_positive_rows": 97,
-      "maker_trade_fill_queue_rate": 0.004831494447980762,
-      "maker_trade_fill_queue_rows": 1093,
-      "maker_trade_target_observed_rows": 159230,
-      "markets": 18,
-      "minute_grid_rows": 226224,
-      "rows": 226224,
+      "asof_min": "2026-05-17 17:52:00+00:00",
+      "lev_positive_rate": 0.001769739218546961,
+      "lev_positive_rows": 1509,
+      "maker_positive_rate": 0.021682530598075688,
+      "maker_positive_rows": 18488,
+      "maker_trade_feature_observed_rows": 544884,
+      "maker_trade_fill_any_rate": 0.051119544770062905,
+      "maker_trade_fill_any_rows": 43588,
+      "maker_trade_fill_positive_rate": 0.00036473750627442333,
+      "maker_trade_fill_positive_rows": 311,
+      "maker_trade_fill_queue_rate": 0.00516379176889481,
+      "maker_trade_fill_queue_rows": 4403,
+      "maker_trade_target_observed_rows": 730124,
+      "markets": 48,
+      "minute_grid_rows": 852668,
+      "rows": 852668,
       "sports": {
-        "baseball_mlb": 83752,
+        "baseball_mlb": 202402,
         "basketball_wnba": 30558,
-        "soccer": 111914
+        "soccer": 619708
       },
-      "tokens": 36,
-      "trade_feature_rate": 0.5161344508098168,
-      "trade_feature_rows": 116762
+      "tokens": 96,
+      "trade_feature_rate": 0.6390341844657006,
+      "trade_feature_rows": 544884
     },
     "train": {
-      "asof_max": "2026-05-29 23:59:00+00:00",
-      "asof_min": "2026-04-01 00:05:00+00:00",
-      "lev_positive_rate": 0.005085366739022649,
-      "lev_positive_rows": 9036,
-      "maker_positive_rate": 0.038346794322353495,
-      "maker_positive_rows": 68137,
-      "maker_trade_feature_observed_rows": 1177192,
-      "maker_trade_fill_any_rate": 0.08507633959399233,
-      "maker_trade_fill_any_rows": 151169,
-      "maker_trade_fill_positive_rate": 0.0015870666449805078,
-      "maker_trade_fill_positive_rows": 2820,
-      "maker_trade_fill_queue_rate": 0.01078079739405908,
-      "maker_trade_fill_queue_rows": 19156,
-      "maker_trade_target_observed_rows": 1513571,
-      "markets": 75,
-      "minute_grid_rows": 1776863,
-      "rows": 1776863,
+      "asof_max": "2026-05-11 18:54:00+00:00",
+      "asof_min": "2025-10-26 00:01:00+00:00",
+      "lev_positive_rate": 0.003276306543101072,
+      "lev_positive_rows": 6751,
+      "maker_positive_rate": 0.03198754508500635,
+      "maker_positive_rows": 65912,
+      "maker_trade_feature_observed_rows": 1749456,
+      "maker_trade_fill_any_rate": 0.28851006914651994,
+      "maker_trade_fill_any_rows": 594490,
+      "maker_trade_fill_positive_rate": 0.000974981461278337,
+      "maker_trade_fill_positive_rows": 2009,
+      "maker_trade_fill_queue_rate": 0.016217984307117704,
+      "maker_trade_fill_queue_rows": 33418,
+      "maker_trade_target_observed_rows": 1948779,
+      "markets": 220,
+      "minute_grid_rows": 2060552,
+      "rows": 2060552,
       "sports": {
-        "baseball_mlb": 995551,
-        "basketball_wnba": 13012,
-        "soccer": 768300
+        "americanfootball_nfl": 9466,
+        "baseball_mlb": 661011,
+        "basketball_nba": 735477,
+        "soccer": 654598
       },
-      "tokens": 149,
-      "trade_feature_rate": 0.6625114035240759,
-      "trade_feature_rows": 1177192
+      "tokens": 439,
+      "trade_feature_rate": 0.8490229802499525,
+      "trade_feature_rows": 1749456
     },
     "unobserved": {
       "asof_max": "2026-05-29 23:59:00+00:00",
-      "asof_min": "2026-03-02 00:03:00+00:00",
-      "lev_positive_rate": 0.0010338157806976589,
-      "lev_positive_rows": 558,
-      "maker_positive_rate": 0.03851426962211995,
-      "maker_positive_rows": 20788,
+      "asof_min": "2025-10-29 00:01:00+00:00",
+      "lev_positive_rate": 0.0016193703598313372,
+      "lev_positive_rows": 2504,
+      "maker_positive_rate": 0.027392839589207647,
+      "maker_positive_rows": 42357,
       "maker_trade_feature_observed_rows": 0,
       "maker_trade_fill_any_rate": 0.0,
       "maker_trade_fill_any_rows": 0,
@@ -1557,43 +1791,48 @@
       "maker_trade_fill_queue_rate": 0.0,
       "maker_trade_fill_queue_rows": 0,
       "maker_trade_target_observed_rows": 0,
-      "markets": 107,
-      "minute_grid_rows": 539748,
-      "rows": 539748,
+      "markets": 317,
+      "minute_grid_rows": 1546280,
+      "rows": 1546280,
       "sports": {
+        "americanfootball_nfl": 56836,
         "baseball_mlb": 533398,
-        "icehockey_nhl": 5347,
-        "soccer": 1003
+        "basketball_nba": 165292,
+        "basketball_wnba": 11904,
+        "icehockey_nhl": 13693,
+        "soccer": 738957,
+        "tennis": 26200
       },
-      "tokens": 212,
+      "tokens": 632,
       "trade_feature_rate": 0.0,
       "trade_feature_rows": 0
     },
     "val": {
       "asof_max": "2026-05-29 23:59:00+00:00",
-      "asof_min": "2026-05-17 17:52:00+00:00",
-      "lev_positive_rate": 0.002701373825018077,
-      "lev_positive_rows": 934,
-      "maker_positive_rate": 0.02110773680404917,
-      "maker_positive_rows": 7298,
-      "maker_trade_feature_observed_rows": 230990,
-      "maker_trade_fill_any_rate": 0.06694432393347795,
-      "maker_trade_fill_any_rows": 23146,
-      "maker_trade_fill_positive_rate": 0.000601590744757773,
-      "maker_trade_fill_positive_rows": 208,
-      "maker_trade_fill_queue_rate": 0.007855386840202459,
-      "maker_trade_fill_queue_rows": 2716,
-      "maker_trade_target_observed_rows": 312014,
-      "markets": 16,
-      "minute_grid_rows": 345750,
-      "rows": 345750,
+      "asof_min": "2026-05-10 00:01:00+00:00",
+      "lev_positive_rate": 0.003724288028284993,
+      "lev_positive_rows": 3573,
+      "maker_positive_rate": 0.02277308839685713,
+      "maker_positive_rows": 21848,
+      "maker_trade_feature_observed_rows": 648626,
+      "maker_trade_fill_any_rate": 0.08353328927701073,
+      "maker_trade_fill_any_rows": 80140,
+      "maker_trade_fill_positive_rate": 0.0011298987468964267,
+      "maker_trade_fill_positive_rows": 1084,
+      "maker_trade_fill_queue_rate": 0.008928701721323607,
+      "maker_trade_fill_queue_rows": 8566,
+      "maker_trade_target_observed_rows": 823070,
+      "markets": 47,
+      "minute_grid_rows": 959378,
+      "rows": 959378,
       "sports": {
-        "baseball_mlb": 118650,
-        "soccer": 227100
+        "baseball_mlb": 334540,
+        "basketball_wnba": 13012,
+        "soccer": 611826
       },
-      "tokens": 32,
-      "trade_feature_rate": 0.6680838756326826,
-      "trade_feature_rows": 230990
+      "tokens": 94,
+      "trade_feature_rate": 0.6760901333989314,
+      "trade_feature_rows": 648626
     }
   },
   "sportsbook_gap_audit": {
@@ -1665,35 +1904,35 @@
   },
   "telonex_download": {
     "date_max": "2026-05-29",
-    "date_min": "2025-10-26",
+    "date_min": "2025-10-23",
     "depth_files": 2692,
     "depth_rows": 105207694,
-    "existing_files": 6325,
+    "existing_files": 6625,
     "files_by_channel": {
       "book_snapshot_5": 2692,
-      "quotes": 2224,
-      "trades": 1409
+      "quotes": 2374,
+      "trades": 1559
     },
-    "manifest_files": 6325,
+    "manifest_files": 6625,
     "manifest_files_by_channel": {
       "book_snapshot_5": 2692,
-      "quotes": 2224,
-      "trades": 1409
+      "quotes": 2374,
+      "trades": 1559
     },
     "manifest_rows_by_channel": {
       "book_snapshot_5": 105207694,
-      "quotes": 14538432,
-      "trades": 1064811
+      "quotes": 15595425,
+      "trades": 1164464
     },
     "missing_files": 0,
     "missing_files_by_channel": {},
-    "quote_rows": 14538432,
+    "quote_rows": 15595425,
     "rows_by_channel": {
       "book_snapshot_5": 105207694,
-      "quotes": 14538432,
-      "trades": 1064811
+      "quotes": 15595425,
+      "trades": 1164464
     },
-    "trade_rows": 1064811
+    "trade_rows": 1164464
   },
   "verdict": "HOLD: strategy is defined, but dataset is not complete enough to prove the bot"
 }
