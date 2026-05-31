@@ -243,6 +243,13 @@
     font-size: 18px;
   }
 
+  .strategy-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(150px, 1fr));
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
   .strategy-list {
     display: grid;
     gap: 0;
@@ -764,6 +771,10 @@
     .strategy-row {
       grid-template-columns: 1fr;
     }
+
+    .strategy-metrics {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
 </head>
@@ -779,10 +790,9 @@
     <section class="band">
       <div class="section-head">
         <div>
-          <h2>Summary</h2>
+          <h2>Strategy Evidence</h2>
         </div>
       </div>
-      <div class="grid metrics" id="metric-grid"></div>
       <div class="strategy-overview" id="strategy-overview"></div>
     </section>
 
@@ -1541,31 +1551,24 @@ function renderVerdict(data) {
   }
 }
 
-function renderMetrics(data) {
+function strategyEvidenceMetrics(data) {
   const e = data.execution;
   const f = data.favoriteLongshotExecutable;
   const replaySummary = data.favoriteLongshotEventReplays?.summary || {};
   const replayEvents = replaySummary.events_with_series ?? (data.favoriteLongshotEventReplays?.events || []).length;
   const replayPoints = replaySummary.total_series_points ?? 0;
-  const metrics = [
+  return [
     ["Backtest ROI", fmtPct(f.roi), `${fmtInt(f.settledEntries)} settled events`, "Positive average, but the conservative confidence bound is still below zero."],
     ["Replay sample", `${fmtInt(replayEvents)} events`, `${fmtInt(replayPoints)} one-minute points`, "Too small for final proof; target is thousands of events per major market/sport."],
     ["Live picks", fmtInt(e.liveSignalsSelected), `${fmtInt(e.liveSignalCandidates)} candidates scanned`, "Current signals clearing the live threshold."]
   ];
-  $("metric-grid").innerHTML = metrics.map(([label, value, note, help]) => `
-    <div class="metric">
-      <div class="metric-label">${esc(label)}</div>
-      <div class="metric-value">${esc(value)}</div>
-      <div class="metric-note">${esc(note)}</div>
-      <div class="metric-help">${esc(help)}</div>
-    </div>
-  `).join("");
 }
 
 function renderStrategyOverview(data) {
   const f = data.favoriteLongshotExecutable;
   const m = data.latestModel;
   const mb = data.microstructureBuckets;
+  const metrics = strategyEvidenceMetrics(data);
   const rows = [
     {
       name: "Favorite-longshot fade",
@@ -1594,6 +1597,16 @@ function renderStrategyOverview(data) {
   ];
   $("strategy-overview").innerHTML = `
     <h3>Strategies Calculated</h3>
+    <div class="strategy-metrics">
+      ${metrics.map(([label, value, note, help]) => `
+        <div class="metric">
+          <div class="metric-label">${esc(label)}</div>
+          <div class="metric-value">${esc(value)}</div>
+          <div class="metric-note">${esc(note)}</div>
+          <div class="metric-help">${esc(help)}</div>
+        </div>
+      `).join("")}
+    </div>
     <div class="strategy-list">
       ${rows.map(row => `
         <div class="strategy-row">
@@ -2123,11 +2136,13 @@ function drawReplayChart(event) {
     lineLabel("selected", event.outcome || "Selected", "#1f77b4", -22),
     lineLabel("other", event.other_outcome || "Other side", "#f59e0b", 18)
   ].join("");
+  const markerPoints = [];
   const markerSvg = visibleMarkers.map(marker => {
     const action = marker.action || "MARK";
     const color = action === "BUY" ? "#067647" : action === "SETTLEMENT" ? "#1d2430" : "#b42318";
     const x = sx(num(marker.offset_sec));
     const y = sy(num(marker.price));
+    markerPoints.push({ index: marker.index, x, y });
     const labelY = action === "BUY" ? y - 12 : y + 22;
     const displayLabel = action === "MARK" ? (marker.horizon_label || "mark") : action === "SETTLEMENT" ? "settle" : "buy";
     const isSelected = marker.index === selectedIndex;
@@ -2154,7 +2169,8 @@ function drawReplayChart(event) {
     minY,
     maxY,
     width,
-    height
+    height,
+    markerPoints
   };
   svg.innerHTML = `
     <rect x="0" y="0" width="${width}" height="${height}" fill="#fff" pointer-events="none" />
@@ -2165,10 +2181,10 @@ function drawReplayChart(event) {
     <polyline class="chart-series" points="${replayPath(visiblePoints, "selected", sx, sy)}" fill="none" stroke="#1f77b4" stroke-width="3" stroke-dasharray="none" opacity="0.98" />
     ${lineLabels}
     <rect data-chart-pan="xy" x="${pad.left}" y="${pad.top}" width="${plotW}" height="${plotH}" fill="transparent" pointer-events="all" cursor="move" />
-    ${markerSvg}
-    ${xAxis}
     <rect data-chart-pan="y-scale" x="0" y="${pad.top}" width="${pad.left}" height="${plotH}" fill="transparent" pointer-events="all" cursor="ns-resize" />
     <rect data-chart-pan="x-scale" x="${pad.left}" y="${height - pad.bottom}" width="${plotW}" height="${pad.bottom}" fill="transparent" pointer-events="all" cursor="ew-resize" />
+    ${xAxis}
+    ${markerSvg}
   `;
 }
 
@@ -2222,6 +2238,22 @@ function replaySvgValueFromPointer(event) {
   if (!point || !chart) return null;
   const y = Math.max(chart.pad.top, Math.min(chart.pad.top + chart.plotH, point.y));
   return chart.maxY - ((y - chart.pad.top) / chart.plotH) * (chart.maxY - chart.minY);
+}
+
+function nearestReplayMarkerIndex(event) {
+  const chart = state.replayChart;
+  const point = replaySvgPointFromPointer(event);
+  if (!point || !chart?.markerPoints?.length) return null;
+  let best = null;
+  for (const marker of chart.markerPoints) {
+    const dx = marker.x - point.x;
+    const dy = marker.y - point.y;
+    const dist2 = dx * dx + dy * dy;
+    if (!best || dist2 < best.dist2) {
+      best = { index: marker.index, dist2 };
+    }
+  }
+  return best && best.dist2 <= 24 * 24 ? best.index : null;
 }
 
 function zoomReplayChart(factor, anchorOffset = null) {
@@ -2659,7 +2691,6 @@ function renderArtifacts(data) {
 function renderAll() {
   const data = deriveDashboard();
   renderVerdict(data);
-  renderMetrics(data);
   renderStrategyOverview(data);
   renderReplay(data);
   $("footer").textContent = `Rendered ${new Date().toLocaleString()} from ${data.loadedFrom}.`;
@@ -2751,7 +2782,8 @@ document.addEventListener("click", event => {
   }
   const markerTarget = event.target.closest("[data-marker-index]");
   if (!markerTarget || !state.selectedReplayId) return;
-  const index = Number(markerTarget.dataset.markerIndex);
+  const nearestIndex = nearestReplayMarkerIndex(event);
+  const index = nearestIndex ?? Number(markerTarget.dataset.markerIndex);
   if (!Number.isInteger(index)) return;
   state.selectedReplayMarkerById[state.selectedReplayId] = index;
   const detail = state.replayDetails[state.selectedReplayId];
