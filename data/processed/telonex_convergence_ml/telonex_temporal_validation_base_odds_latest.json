@@ -1,0 +1,585 @@
+{
+  "aggregate": {
+    "abstained_folds": 4,
+    "folds_with_market_overlap": 0,
+    "market_overlap_pairs_total": {},
+    "positive_roi_folds": 0,
+    "row_time_order_ok_folds": 4,
+    "test_ci_hi": null,
+    "test_ci_lo": null,
+    "test_markets": 0,
+    "test_roi": null,
+    "test_trades": 0,
+    "traded_folds": 0
+  },
+  "dataset": {
+    "markets": 411,
+    "positive_rate": 0.0012008675476802568,
+    "rows": 3886357,
+    "time_max": "2026-05-29 23:59:00+00:00",
+    "time_min": "2025-10-26 00:01:00+00:00",
+    "tokens": 809
+  },
+  "ensemble": {
+    "blend_recent_weight": 0.0,
+    "fold_recent_models": 0,
+    "folds": 4,
+    "min_recent_positive_rows": 100,
+    "min_recent_rows": 10000,
+    "recent_model": false,
+    "recent_window_days": 21.0,
+    "requested_blend_recent_weight": 0.0
+  },
+  "feature_audit": {
+    "all_null_features": [],
+    "categorical_feature_count": 6,
+    "feature_count": 83,
+    "high_missing_features": {},
+    "numeric_feature_count": 77,
+    "numeric_missing_ratio": {
+      "depth_imbalance_delta_300s": 0.10580062510983937,
+      "depth_imbalance_delta_60s": 0.09933055558200135,
+      "lag_quote_age_300s": 0.10580062510983937,
+      "lag_quote_age_30s": 0.09583396481589314,
+      "lag_quote_age_60s": 0.09933055558200135,
+      "last_trade_age_sec": 0.14495245804747223,
+      "last_trade_price": 0.14495245804747223,
+      "last_trade_price_delta_mid": 0.14495245804747223,
+      "last_trade_size": 0.14495245804747223,
+      "mid_abs_delta_300s": 0.10580062510983937,
+      "mid_abs_delta_60s": 0.09933055558200135,
+      "mid_delta_300s": 0.10580062510983937,
+      "mid_delta_60s": 0.09933055558200135,
+      "obi_3c_delta_300s": 0.10580062510983937,
+      "obi_3c_delta_60s": 0.09933055558200135,
+      "odds_date_gap_days": 0.28927193255791994,
+      "odds_quote_age_sec": 0.28927193255791994,
+      "odds_source_minutes_to_commence": 0.28927193255791994,
+      "spread_delta_300s": 0.10580062510983937,
+      "spread_delta_60s": 0.09933055558200135
+    },
+    "split_feature_audit": {
+      "all": {
+        "all_null_features": [],
+        "high_missing_features": {},
+        "rows": 3886357
+      }
+    },
+    "unsafe_feature_columns": []
+  },
+  "feature_set": "base_odds",
+  "folds": [
+    {
+      "conformal_abs_error_q90": 0.0025575447570332483,
+      "ensemble": {
+        "blend_recent_weight": 0.0,
+        "historical_model": true,
+        "historical_sample_weight": {
+          "mean_weight": 1.0087637908437306,
+          "model_random_seed": 43,
+          "p01_weight": 0.45166480992772456,
+          "p50_weight": 0.49384175083124926,
+          "p99_weight": 0.5499246654831734,
+          "positive_rate": 0.0003205813207950417,
+          "positive_rows": 3,
+          "rows": 9358,
+          "sample_half_life_days": 60.0
+        },
+        "recent_model": false,
+        "recent_model_audit": {
+          "blend_recent_weight": 0.0,
+          "cutoff": "2025-10-25 00:09:00+00:00",
+          "enabled": false,
+          "markets": 12,
+          "min_recent_positive_rows": 100,
+          "min_recent_rows": 10000,
+          "positive_rate": 0.0003205813207950417,
+          "positive_rows": 3,
+          "reason": "recent rows 9358 < 10000; recent positive rows 3 < 100",
+          "rows": 9358,
+          "window_days": 21.0
+        },
+        "recent_window_days": 21.0
+      },
+      "fold": 1,
+      "market_overlap": {},
+      "market_overlap_total": 0,
+      "markets": {
+        "calibration": 4,
+        "test": 6,
+        "train": 12,
+        "val": 8
+      },
+      "ranges": {
+        "calibration": {
+          "markets": 4,
+          "max_asof": "2025-11-20 01:09:00+00:00",
+          "max_target": "2025-11-20 01:09:30+00:00",
+          "min_asof": "2025-11-18 00:01:00+00:00",
+          "rows": 2889,
+          "tokens": 7
+        },
+        "test": {
+          "markets": 6,
+          "max_asof": "2025-11-30 21:14:00+00:00",
+          "max_target": "2025-11-30 21:14:30+00:00",
+          "min_asof": "2025-11-26 00:01:00+00:00",
+          "rows": 7547,
+          "tokens": 7
+        },
+        "train": {
+          "markets": 12,
+          "max_asof": "2025-11-15 00:09:00+00:00",
+          "max_target": "2025-11-15 00:09:30+00:00",
+          "min_asof": "2025-10-26 00:01:00+00:00",
+          "rows": 9358,
+          "tokens": 23
+        },
+        "val": {
+          "markets": 8,
+          "max_asof": "2025-11-25 03:09:00+00:00",
+          "max_target": "2025-11-25 03:09:30+00:00",
+          "min_asof": "2025-11-22 00:19:00+00:00",
+          "rows": 1926,
+          "tokens": 13
+        }
+      },
+      "row_time_order_ok": true,
+      "rows": {
+        "calibration": 2889,
+        "test": 7547,
+        "train": 9358,
+        "val": 1926
+      },
+      "selection_abstained": true,
+      "test_brier": 0.00026494927529533427,
+      "test_ci_hi": null,
+      "test_ci_lo": null,
+      "test_ece_10": 0.00046759194767354516,
+      "test_markets": 0,
+      "test_roi": null,
+      "test_trades": 0,
+      "threshold": 1.000001,
+      "token_overlap": {},
+      "val_roi": null,
+      "val_trades": 0,
+      "window": {
+        "calibration_end": "2025-11-21 00:01:00+00:00",
+        "fold": 1,
+        "start": "2025-10-26 00:01:00+00:00",
+        "test_end": "2025-12-01 00:01:00+00:00",
+        "train_end": "2025-11-16 00:01:00+00:00",
+        "validation_end": "2025-11-26 00:01:00+00:00"
+      }
+    },
+    {
+      "conformal_abs_error_q90": 0.0,
+      "ensemble": {
+        "blend_recent_weight": 0.0,
+        "historical_model": true,
+        "historical_sample_weight": {
+          "mean_weight": 1.060146415322539,
+          "model_random_seed": 44,
+          "p01_weight": 0.4309396719271882,
+          "p50_weight": 0.4784798399101401,
+          "p99_weight": 0.5887801254446374,
+          "positive_rate": 0.0009568614942987002,
+          "positive_rows": 12,
+          "rows": 12541,
+          "sample_half_life_days": 60.0
+        },
+        "recent_model": false,
+        "recent_model_audit": {
+          "blend_recent_weight": 0.0,
+          "cutoff": "2025-11-01 00:39:00+00:00",
+          "enabled": false,
+          "markets": 14,
+          "min_recent_positive_rows": 100,
+          "min_recent_rows": 10000,
+          "positive_rate": 0.0009364092959904657,
+          "positive_rows": 11,
+          "reason": "recent positive rows 11 < 100",
+          "rows": 11747,
+          "window_days": 21.0
+        },
+        "recent_window_days": 21.0
+      },
+      "fold": 2,
+      "market_overlap": {},
+      "market_overlap_total": 0,
+      "markets": {
+        "calibration": 10,
+        "test": 11,
+        "train": 18,
+        "val": 4
+      },
+      "ranges": {
+        "calibration": {
+          "markets": 10,
+          "max_asof": "2025-11-27 03:09:00+00:00",
+          "max_target": "2025-11-27 03:09:30+00:00",
+          "min_asof": "2025-11-24 00:01:00+00:00",
+          "rows": 2942,
+          "tokens": 13
+        },
+        "test": {
+          "markets": 11,
+          "max_asof": "2025-12-07 21:34:00+00:00",
+          "max_target": "2025-12-07 21:34:30+00:00",
+          "min_asof": "2025-12-05 00:01:00+00:00",
+          "rows": 72164,
+          "tokens": 22
+        },
+        "train": {
+          "markets": 18,
+          "max_asof": "2025-11-22 00:39:00+00:00",
+          "max_target": "2025-11-22 00:39:30+00:00",
+          "min_asof": "2025-10-26 00:01:00+00:00",
+          "rows": 12541,
+          "tokens": 34
+        },
+        "val": {
+          "markets": 4,
+          "max_asof": "2025-12-02 01:24:00+00:00",
+          "max_target": "2025-12-02 01:24:30+00:00",
+          "min_asof": "2025-11-29 00:01:00+00:00",
+          "rows": 7875,
+          "tokens": 7
+        }
+      },
+      "row_time_order_ok": true,
+      "rows": {
+        "calibration": 2942,
+        "test": 72164,
+        "train": 12541,
+        "val": 7875
+      },
+      "selection_abstained": true,
+      "test_brier": 0.0003751411086599864,
+      "test_ci_hi": null,
+      "test_ci_lo": null,
+      "test_ece_10": 0.0003782775409851984,
+      "test_markets": 0,
+      "test_roi": null,
+      "test_trades": 0,
+      "threshold": 1.000001,
+      "token_overlap": {},
+      "val_roi": null,
+      "val_trades": 0,
+      "window": {
+        "calibration_end": "2025-11-28 00:01:00+00:00",
+        "fold": 2,
+        "start": "2025-10-26 00:01:00+00:00",
+        "test_end": "2025-12-08 00:01:00+00:00",
+        "train_end": "2025-11-23 00:01:00+00:00",
+        "validation_end": "2025-12-03 00:01:00+00:00"
+      }
+    },
+    {
+      "conformal_abs_error_q90": 0.00823045267489712,
+      "ensemble": {
+        "blend_recent_weight": 0.0,
+        "historical_model": true,
+        "historical_sample_weight": {
+          "mean_weight": 1.0299826193987398,
+          "model_random_seed": 45,
+          "p01_weight": 0.40490417729929157,
+          "p50_weight": 0.4817544923297553,
+          "p99_weight": 0.6002946477123795,
+          "positive_rate": 0.0007652911049626184,
+          "positive_rows": 13,
+          "rows": 16987,
+          "sample_half_life_days": 60.0
+        },
+        "recent_model": false,
+        "recent_model_audit": {
+          "blend_recent_weight": 0.0,
+          "cutoff": "2025-11-08 02:39:00+00:00",
+          "enabled": false,
+          "markets": 21,
+          "min_recent_positive_rows": 100,
+          "min_recent_rows": 10000,
+          "positive_rate": 0.0013314101852879175,
+          "positive_rows": 12,
+          "reason": "recent rows 9013 < 10000; recent positive rows 12 < 100",
+          "rows": 9013,
+          "window_days": 21.0
+        },
+        "recent_window_days": 21.0
+      },
+      "fold": 3,
+      "market_overlap": {},
+      "market_overlap_total": 0,
+      "markets": {
+        "calibration": 3,
+        "test": 15,
+        "train": 29,
+        "val": 13
+      },
+      "ranges": {
+        "calibration": {
+          "markets": 3,
+          "max_asof": "2025-12-02 01:24:00+00:00",
+          "max_target": "2025-12-02 01:24:30+00:00",
+          "min_asof": "2025-11-30 00:01:00+00:00",
+          "rows": 6371,
+          "tokens": 5
+        },
+        "test": {
+          "markets": 15,
+          "max_asof": "2025-12-14 20:29:00+00:00",
+          "max_target": "2025-12-14 20:29:30+00:00",
+          "min_asof": "2025-12-11 00:01:00+00:00",
+          "rows": 80586,
+          "tokens": 30
+        },
+        "train": {
+          "markets": 29,
+          "max_asof": "2025-11-29 02:39:00+00:00",
+          "max_target": "2025-11-29 02:39:30+00:00",
+          "min_asof": "2025-10-26 00:01:00+00:00",
+          "rows": 16987,
+          "tokens": 49
+        },
+        "val": {
+          "markets": 13,
+          "max_asof": "2025-12-08 20:24:00+00:00",
+          "max_target": "2025-12-08 20:24:30+00:00",
+          "min_asof": "2025-12-05 00:01:00+00:00",
+          "rows": 84054,
+          "tokens": 26
+        }
+      },
+      "row_time_order_ok": true,
+      "rows": {
+        "calibration": 6371,
+        "test": 80586,
+        "train": 16987,
+        "val": 84054
+      },
+      "selection_abstained": true,
+      "test_brier": 1.1559356544396252e-05,
+      "test_ci_hi": null,
+      "test_ci_lo": null,
+      "test_ece_10": 0.0008070912174564673,
+      "test_markets": 0,
+      "test_roi": null,
+      "test_trades": 0,
+      "threshold": 1.000001,
+      "token_overlap": {},
+      "val_roi": null,
+      "val_trades": 0,
+      "window": {
+        "calibration_end": "2025-12-05 00:01:00+00:00",
+        "fold": 3,
+        "start": "2025-10-26 00:01:00+00:00",
+        "test_end": "2025-12-15 00:01:00+00:00",
+        "train_end": "2025-11-30 00:01:00+00:00",
+        "validation_end": "2025-12-10 00:01:00+00:00"
+      }
+    },
+    {
+      "conformal_abs_error_q90": 0.00010195758564437195,
+      "ensemble": {
+        "blend_recent_weight": 0.0,
+        "historical_model": true,
+        "historical_sample_weight": {
+          "mean_weight": 1.050422004249985,
+          "model_random_seed": 46,
+          "p01_weight": 0.37933028939797786,
+          "p50_weight": 0.5064508156938051,
+          "p99_weight": 0.6023232330868492,
+          "positive_rate": 0.001366346472341835,
+          "positive_rows": 33,
+          "rows": 24152,
+          "sample_half_life_days": 60.0
+        },
+        "recent_model": false,
+        "recent_model_audit": {
+          "blend_recent_weight": 0.0,
+          "cutoff": "2025-11-14 01:24:00+00:00",
+          "enabled": false,
+          "markets": 22,
+          "min_recent_positive_rows": 100,
+          "min_recent_rows": 10000,
+          "positive_rate": 0.00202020202020202,
+          "positive_rows": 30,
+          "reason": "recent positive rows 30 < 100",
+          "rows": 14850,
+          "window_days": 21.0
+        },
+        "recent_window_days": 21.0
+      },
+      "fold": 4,
+      "market_overlap": {},
+      "market_overlap_total": 0,
+      "markets": {
+        "calibration": 13,
+        "test": 4,
+        "train": 33,
+        "val": 15
+      },
+      "ranges": {
+        "calibration": {
+          "markets": 13,
+          "max_asof": "2025-12-11 20:24:00+00:00",
+          "max_target": "2025-12-11 20:24:30+00:00",
+          "min_asof": "2025-12-07 00:01:00+00:00",
+          "rows": 90990,
+          "tokens": 26
+        },
+        "test": {
+          "markets": 4,
+          "max_asof": "2025-12-21 13:08:00+00:00",
+          "max_target": "2025-12-21 13:09:00+00:00",
+          "min_asof": "2025-12-18 00:03:00+00:00",
+          "rows": 26237,
+          "tokens": 7
+        },
+        "train": {
+          "markets": 33,
+          "max_asof": "2025-12-05 01:24:00+00:00",
+          "max_target": "2025-12-05 01:24:30+00:00",
+          "min_asof": "2025-10-26 00:01:00+00:00",
+          "rows": 24152,
+          "tokens": 56
+        },
+        "val": {
+          "markets": 15,
+          "max_asof": "2025-12-15 20:24:00+00:00",
+          "max_target": "2025-12-15 20:24:30+00:00",
+          "min_asof": "2025-12-14 00:01:00+00:00",
+          "rows": 83886,
+          "tokens": 30
+        }
+      },
+      "row_time_order_ok": true,
+      "rows": {
+        "calibration": 90990,
+        "test": 26237,
+        "train": 24152,
+        "val": 83886
+      },
+      "selection_abstained": true,
+      "test_brier": 1.6620727717795532e-06,
+      "test_ci_hi": null,
+      "test_ci_lo": null,
+      "test_ece_10": 0.00022310866412467801,
+      "test_markets": 0,
+      "test_roi": null,
+      "test_trades": 0,
+      "threshold": 1.000001,
+      "token_overlap": {},
+      "val_roi": null,
+      "val_trades": 0,
+      "window": {
+        "calibration_end": "2025-12-12 00:01:00+00:00",
+        "fold": 4,
+        "start": "2025-10-26 00:01:00+00:00",
+        "test_end": "2025-12-22 00:01:00+00:00",
+        "train_end": "2025-12-07 00:01:00+00:00",
+        "validation_end": "2025-12-17 00:01:00+00:00"
+      }
+    }
+  ],
+  "folds_requested": 4,
+  "folds_run": 4,
+  "gate_reasons": [
+    "aggregate temporal test ROI is not positive",
+    "aggregate temporal ROI CI lower bound is not positive",
+    "aggregate test trades below 100",
+    "aggregate test markets below 40",
+    "no temporal folds selected test trades"
+  ],
+  "generated_at": "2026-05-31T15:50:54.021910+00:00",
+  "limitations": [
+    "Temporal validation enforces no future rows, but it allows the same market to appear in earlier and later split roles.",
+    "Same-market overlap is realistic for live market-state learning but optimistic for unseen-market generalization.",
+    "Historical CLOB backtest ROI remains a ceiling until authenticated order lifecycle, queue position, fills, and market impact are captured live."
+  ],
+  "odds_features": {
+    "coverage_by_split": {
+      "test": {
+        "markets": 62,
+        "matched_markets": 34,
+        "matched_rows": 659568,
+        "matched_tokens": 67,
+        "row_coverage": 0.6042545394580134,
+        "rows": 1091540
+      },
+      "train": {
+        "markets": 287,
+        "matched_markets": 272,
+        "matched_rows": 1606455,
+        "matched_tokens": 533,
+        "row_coverage": 0.7683490626500631,
+        "rows": 2090788
+      },
+      "val": {
+        "markets": 62,
+        "matched_markets": 47,
+        "matched_rows": 496120,
+        "matched_tokens": 93,
+        "row_coverage": 0.7046868807961035,
+        "rows": 704029
+      }
+    },
+    "enabled": true,
+    "fallback_policy": "Rows without causal Odds API matches keep odds_has_feature/odds_api_available=0 and use entry_mid as the fair-probability fallback so missing sportsbook coverage is explicit rather than silently median-imputed.",
+    "fallback_to_polymarket_mid_rows": 1124214,
+    "feature_rows": 3998455,
+    "matched_label_rows": 2762143,
+    "matched_markets": 353,
+    "matched_tokens": 693,
+    "max_snapshot_age_min": 10077.383333333333,
+    "path": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/data/processed/execution_training/telonex_odds_features_latest.parquet",
+    "row_coverage": 0.7107280674420801,
+    "sha256": "9d00f04fd4f9c8b1b2394778df78bc42633806ea3588f6b0e0e78e5519b41f3f",
+    "sports": {
+      "americanfootball_nfl": 363808,
+      "baseball_mlb": 526994,
+      "basketball_nba": 540921,
+      "basketball_wnba": 27370,
+      "soccer_brazil_campeonato": 443488,
+      "soccer_chile_campeonato": 16296,
+      "soccer_conmebol_copa_libertadores": 127564,
+      "soccer_epl": 96980,
+      "soccer_france_ligue_one": 111382,
+      "soccer_germany_bundesliga": 105438,
+      "soccer_italy_serie_a": 171606,
+      "soccer_italy_serie_b": 20312,
+      "soccer_norway_eliteserien": 106808,
+      "soccer_spain_la_liga": 69782,
+      "soccer_uefa_champs_league": 33394
+    }
+  },
+  "outputs": {
+    "json": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/data/processed/telonex_convergence_ml/telonex_temporal_validation_base_odds_latest.json",
+    "report": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/reports/telonex_temporal_validation_base_odds_latest.md"
+  },
+  "purge_hours": 1.0,
+  "random_seed": 42,
+  "sample_half_life_days": 60.0,
+  "target": {
+    "pnl_col": "maker_trade_fill_pnl_per_share",
+    "stake_col": "entry_bid",
+    "target_col": "maker_trade_fill_positive"
+  },
+  "temporal_gate": false,
+  "time_filter": {
+    "dropped_rows": 0,
+    "end_before": null,
+    "rows_after": 3886357,
+    "rows_before": 3886357,
+    "start_after": null
+  },
+  "train_mode": "expanding",
+  "validation_mode": "strict_temporal_row_order",
+  "window_days": {
+    "calibration": 5.0,
+    "step": 7.0,
+    "test": 5.0,
+    "train": 21.0,
+    "validation": 5.0
+  }
+}
