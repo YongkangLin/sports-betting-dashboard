@@ -155,47 +155,11 @@
   }
 
   .metrics {
-    grid-template-columns: repeat(4, minmax(150px, 1fr));
+    grid-template-columns: repeat(3, minmax(150px, 1fr));
   }
 
   .two {
     grid-template-columns: minmax(0, 1.2fr) minmax(360px, 0.8fr);
-  }
-
-  .plain-cards {
-    grid-template-columns: repeat(3, minmax(220px, 1fr));
-  }
-
-  .summary-stack {
-    display: grid;
-    gap: 16px;
-  }
-
-  .summary-two {
-    grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
-  }
-
-  .plain-card {
-    min-width: 0;
-    padding: 16px;
-    border: 1px solid var(--soft-line);
-    border-radius: 8px;
-    background: #fbfcfe;
-  }
-
-  .plain-card.bad {
-    border-color: #f1a6a0;
-    background: var(--danger-bg);
-  }
-
-  .plain-card.warn {
-    border-color: #f2d28c;
-    background: var(--warn-bg);
-  }
-
-  .plain-card.good {
-    border-color: #9bd9b8;
-    background: var(--good-bg);
   }
 
   .plain-label {
@@ -203,18 +167,6 @@
     font-size: 12px;
     font-weight: 800;
     text-transform: uppercase;
-  }
-
-  .plain-answer {
-    margin-top: 6px;
-    font-size: 24px;
-    font-weight: 850;
-    line-height: 1.1;
-  }
-
-  .plain-copy {
-    margin-top: 8px;
-    color: var(--muted);
   }
 
   .band {
@@ -276,6 +228,51 @@
     border-top: 1px solid var(--soft-line);
     color: var(--ink);
     font-size: 13px;
+  }
+
+  .strategy-overview {
+    margin-top: 16px;
+    padding: 16px;
+    border: 1px solid var(--soft-line);
+    border-radius: 8px;
+    background: #fbfcfe;
+  }
+
+  .strategy-overview h3 {
+    margin: 0 0 12px;
+    font-size: 18px;
+  }
+
+  .strategy-list {
+    display: grid;
+    gap: 0;
+  }
+
+  .strategy-row {
+    display: grid;
+    grid-template-columns: minmax(180px, 0.7fr) minmax(0, 1.4fr) minmax(150px, 0.5fr);
+    gap: 12px;
+    align-items: start;
+    padding: 12px 0;
+    border-top: 1px solid var(--soft-line);
+  }
+
+  .strategy-row:first-child {
+    border-top: 0;
+    padding-top: 0;
+  }
+
+  .strategy-row:last-child {
+    padding-bottom: 0;
+  }
+
+  .strategy-row strong {
+    display: block;
+    line-height: 1.2;
+  }
+
+  .strategy-copy {
+    color: var(--muted);
   }
 
   .callout {
@@ -713,7 +710,6 @@
       grid-template-columns: repeat(3, minmax(150px, 1fr));
     }
 
-    .plain-cards,
     .artifact-grid,
     .term-grid {
       grid-template-columns: repeat(2, minmax(240px, 1fr));
@@ -728,10 +724,8 @@
 
     .topbar,
     .two,
-    .summary-two,
     .replay-layout,
     .metrics,
-    .plain-cards,
     .artifact-grid,
     .term-grid {
       grid-template-columns: 1fr;
@@ -766,6 +760,10 @@
     .event-strip {
       grid-template-columns: 1fr;
     }
+
+    .strategy-row {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
 </head>
@@ -785,6 +783,7 @@
         </div>
       </div>
       <div class="grid metrics" id="metric-grid"></div>
+      <div class="strategy-overview" id="strategy-overview"></div>
     </section>
 
     <section class="band">
@@ -1542,61 +1541,6 @@ function renderVerdict(data) {
   }
 }
 
-function renderPlainCards(data) {
-  const m = data.latestModel;
-  const e = data.execution;
-  const f = data.favoriteLongshotExecutable;
-  const fv = data.favoriteLongshotRuleValidation;
-  const mb = data.microstructureBuckets;
-  const cards = [
-    {
-      tone: data.overall.liveCapitalGate ? "warn" : "bad",
-      label: "Live capital",
-      answer: data.overall.liveCapitalGate ? "Review" : "Off",
-      copy: data.overall.liveCapitalGate
-        ? "Some checks may be green, but this still needs human review before capital."
-        : "Do not trade real money yet. The evidence is still research-only."
-    },
-    {
-      tone: f.roi > 0 ? "warn" : "bad",
-      label: "Best current bucket",
-      answer: "Favorite-longshot",
-      copy: `${fmtInt(f.settledEntries)} settled entries show ${fmtPct(f.roi)} ROI, but the conservative confidence bound is ${fmtPct(f.ciLo)}.`
-    },
-    {
-      tone: fv.gate ? "good" : "warn",
-      label: "Out-of-sample proof",
-      answer: fv.gate ? "Passed" : "Not enough",
-      copy: `Market-disjoint test is ${fmtPct(fv.marketTestRoi)} ROI with CI low ${fmtPct(fv.marketTestCiLo)}.`
-    },
-    {
-      tone: e.liveSignalsSelected > 0 ? "warn" : "bad",
-      label: "Live picks now",
-      answer: fmtInt(e.liveSignalsSelected),
-      copy: "Current live scoring has not found a trade that clears the threshold."
-    },
-    {
-      tone: mb.gate ? "good" : "warn",
-      label: "Microstructure edge",
-      answer: mb.gate ? "Candidate" : "None",
-      copy: `Strict YES+NO arbs: ${fmtInt(mb.strictNetArbRows)}. Price-shock rule: ${mb.selectedRule}.`
-    },
-    {
-      tone: e.authFills > 0 ? "good" : "warn",
-      label: "Execution proof",
-      answer: `${fmtInt(e.authFills)} real fills`,
-      copy: `Paper fills are useful, but real authenticated fills are still required before trusting live execution.`
-    }
-  ];
-  $("plain-grid").innerHTML = cards.map(card => `
-    <div class="plain-card ${esc(card.tone)}">
-      <div class="plain-label">${esc(card.label)}</div>
-      <div class="plain-answer">${esc(card.answer)}</div>
-      <div class="plain-copy">${esc(card.copy)}</div>
-    </div>
-  `).join("");
-}
-
 function renderMetrics(data) {
   const e = data.execution;
   const f = data.favoriteLongshotExecutable;
@@ -1604,7 +1548,6 @@ function renderMetrics(data) {
   const replayEvents = replaySummary.events_with_series ?? (data.favoriteLongshotEventReplays?.events || []).length;
   const replayPoints = replaySummary.total_series_points ?? 0;
   const metrics = [
-    ["Strategy", "Favorite-longshot", "buy high-probability side", "Current best bucket: fade longshot demand on Polymarket sports markets."],
     ["Backtest ROI", fmtPct(f.roi), `${fmtInt(f.settledEntries)} settled events`, "Positive average, but the conservative confidence bound is still below zero."],
     ["Replay sample", `${fmtInt(replayEvents)} events`, `${fmtInt(replayPoints)} one-minute points`, "Too small for final proof; target is thousands of events per major market/sport."],
     ["Live picks", fmtInt(e.liveSignalsSelected), `${fmtInt(e.liveSignalCandidates)} candidates scanned`, "Current signals clearing the live threshold."]
@@ -1617,6 +1560,50 @@ function renderMetrics(data) {
       <div class="metric-help">${esc(help)}</div>
     </div>
   `).join("");
+}
+
+function renderStrategyOverview(data) {
+  const f = data.favoriteLongshotExecutable;
+  const m = data.latestModel;
+  const mb = data.microstructureBuckets;
+  const rows = [
+    {
+      name: "Favorite-longshot fade",
+      copy: `Buy the boring high-probability side when the crowd overpays for lottery-like longshots. Current replay sample: ${fmtInt(f.settledEntries)} settled events, ROI ${fmtPct(f.roi)}, confidence-low ${fmtPct(f.ciLo)}.`,
+      status: f.gate ? "Research pass" : "Candidate, not proven",
+      tone: f.gate ? "good" : "warn"
+    },
+    {
+      name: "Fill-aware convergence ML",
+      copy: `Predict whether a CLOB entry can actually fill and later exit profitably. Current run ${m.runId} abstains because the realistic fill-profit target does not clear the threshold.`,
+      status: m.researchGate ? "Research pass" : "Hold",
+      tone: m.researchGate ? "warn" : "bad"
+    },
+    {
+      name: "YES + NO hedge/arb",
+      copy: `Look for binary markets where buying both sides or hedging after a move is underpriced. Strict net arbs found: ${fmtInt(mb.strictNetArbRows)}; near-arb rows are research-only until executable proof improves.`,
+      status: mb.yesNoGate ? "Candidate" : "Monitor",
+      tone: mb.yesNoGate ? "warn" : "info"
+    },
+    {
+      name: "Post-event price shock",
+      copy: `Test whether prices overreact after sudden market moves and then revert. Current selected rule is ${mb.selectedRule || "none"} with insufficient validation/test support.`,
+      status: mb.priceShockGate ? "Candidate" : "Not ready",
+      tone: mb.priceShockGate ? "warn" : "bad"
+    }
+  ];
+  $("strategy-overview").innerHTML = `
+    <h3>Strategies Calculated</h3>
+    <div class="strategy-list">
+      ${rows.map(row => `
+        <div class="strategy-row">
+          <strong>${esc(row.name)}</strong>
+          <div class="strategy-copy">${esc(row.copy)}</div>
+          <span class="pill ${esc(row.tone)}">${esc(row.status)}</span>
+        </div>
+      `).join("")}
+    </div>
+  `;
 }
 
 function replayTimeLabel(event, offsetSec) {
@@ -1660,7 +1647,11 @@ function strategyLabel(value) {
     "favorite_longshot": "Favorite-longshot fade",
     "favorite-longshot fade": "Favorite-longshot fade",
     "favorite longshot fade": "Favorite-longshot fade",
-    "high_prob_token_in_favorite_or_longshot_market": "Favorite-longshot fade"
+    "high_prob_token_in_favorite_or_longshot_market": "Favorite-longshot fade",
+    "favorite_85_95_buy_high_token": "Favorite-longshot fade",
+    "longshot_10_15_buy_no_token": "Favorite-longshot fade",
+    "longshot_10_15_buy_complement_token": "Favorite-longshot fade",
+    "downloaded_manifest_high_prob_token": "Favorite-longshot fade"
   };
   if (labels[key]) return labels[key];
   return raw
@@ -1693,8 +1684,7 @@ function marketLabel(event) {
 }
 
 function replayExperimentLabel(event) {
-  const eventName = event?.title || event?.question || event?.slug || event?.replay_id || "Event";
-  return `${eventName} x ${strategyLabel(event?.strategy_label || event?.strategy || event?.bucket)} x ${marketLabel(event)}`;
+  return event?.title || event?.question || event?.slug || event?.replay_id || "Event";
 }
 
 function replayStrategyValue(event) {
@@ -2670,6 +2660,7 @@ function renderAll() {
   const data = deriveDashboard();
   renderVerdict(data);
   renderMetrics(data);
+  renderStrategyOverview(data);
   renderReplay(data);
   $("footer").textContent = `Rendered ${new Date().toLocaleString()} from ${data.loadedFrom}.`;
 }

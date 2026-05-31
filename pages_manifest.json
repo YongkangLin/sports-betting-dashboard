@@ -2,7 +2,7 @@
   "dashboard": "index.html",
   "data_processed_artifacts_copied": 8,
   "event_replay_details_copied": 275,
-  "generated_at": "2026-05-31T03:00:07.797337+00:00",
+  "generated_at": "2026-05-31T03:15:42.195214+00:00",
   "note": "Static dashboard bundle for GitHub Pages. Raw data, .env, parquet, joblib, and logs are intentionally excluded.",
   "reports_copied": 55
 }
