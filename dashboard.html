@@ -657,6 +657,7 @@ const ARTIFACTS = {
   temporal: { label: "Temporal validation", path: "data/processed/telonex_convergence_ml/telonex_temporal_validation_base_odds_latest.json" },
   liveSignals: { label: "Live Telonex signals", path: "data/processed/clob_capture/live_telonex_convergence_signals_latest.json" },
   strategyBuckets: { label: "Strategy buckets", path: "data/processed/execution_training/telonex_strategy_buckets_latest.json" },
+  microstructureBuckets: { label: "Microstructure buckets", path: "data/processed/execution_training/telonex_microstructure_buckets_latest.json" },
   modelAudit: { label: "Legacy outcome model audit", path: "data/processed/model_data_audit.json" },
   intragame: { label: "Intragame coverage", path: "data/processed/intragame_data_coverage.json" },
   clobDepth: { label: "Historical CLOB depth report", path: "data/processed/poly_history_depth_report.json" }
@@ -760,6 +761,25 @@ const SNAPSHOT = {
     marketTestRoi: 0.023843006716712755,
     marketTestCiLo: -0.07552670546302616
   },
+  microstructureBuckets: {
+    gate: false,
+    yesNoGate: false,
+    strictNetArbRows: 0,
+    nearArbRows: 160845,
+    nearArbMarkets: 142,
+    minAskSum: 1.0,
+    maxNetEdge: -0.0002970000000000002,
+    priceShockGate: false,
+    selectedRule: "none",
+    validationRows: 0,
+    validationMarkets: 0,
+    validationRoi: null,
+    validationCiLo: null,
+    testRows: 0,
+    testMarkets: 0,
+    testRoi: null,
+    testCiLo: null
+  },
   gateReasons: [
     "queue/fill model not validated on authenticated fills",
     "Polymarket user-channel credentials not configured",
@@ -770,7 +790,8 @@ const SNAPSHOT = {
     "Telonex model monitor hold",
     "live paper-fill LEV/price-hold quality gate failed",
     "Telonex market-disjoint validation gate failed",
-    "Telonex temporal validation gate failed"
+    "Telonex temporal validation gate failed",
+    "Telonex microstructure bucket audit failed"
   ],
   warnings: [
     "Odds API fusion not yet proven on held-out Telonex test",
@@ -945,6 +966,7 @@ const SNAPSHOT = {
     "data/processed/telonex_convergence_ml/telonex_temporal_validation_base_odds_latest.json": 8797,
     "data/processed/clob_capture/live_telonex_convergence_signals_latest.json": 3995,
     "data/processed/execution_training/telonex_strategy_buckets_latest.json": 103708,
+    "data/processed/execution_training/telonex_microstructure_buckets_latest.json": 100352,
     "data/processed/model_data_audit.json": 61397,
     "data/processed/intragame_data_coverage.json": 30664,
     "data/processed/poly_history_depth_report.json": 3921
@@ -1054,6 +1076,33 @@ function deriveDashboard() {
   const signals = state.loaded.liveSignals;
   const favoriteExecutable = state.loaded.favoriteLongshotExecutable;
   const favoriteRuleValidation = state.loaded.favoriteLongshotRuleValidation;
+  const microstructureBuckets = state.loaded.microstructureBuckets;
+
+  function applyMicrostructure(artifact) {
+    if (!artifact) return;
+    const arb = artifact.yes_no_arbitrage || {};
+    const shock = artifact.price_shock || {};
+    const selected = shock.selected_rule || {};
+    const val = selected.splits?.val || {};
+    const test = selected.splits?.test || {};
+    data.microstructureBuckets.gate = Boolean(artifact.overall_gate);
+    data.microstructureBuckets.yesNoGate = Boolean(arb.gate);
+    data.microstructureBuckets.strictNetArbRows = arb.strict_net_buy_both_rows ?? data.microstructureBuckets.strictNetArbRows;
+    data.microstructureBuckets.nearArbRows = arb.near_buy_both_rows ?? data.microstructureBuckets.nearArbRows;
+    data.microstructureBuckets.nearArbMarkets = arb.near_buy_both_markets ?? data.microstructureBuckets.nearArbMarkets;
+    data.microstructureBuckets.minAskSum = arb.min_binary_ask_sum ?? data.microstructureBuckets.minAskSum;
+    data.microstructureBuckets.maxNetEdge = arb.max_net_buy_both_edge ?? data.microstructureBuckets.maxNetEdge;
+    data.microstructureBuckets.priceShockGate = Boolean(shock.gate);
+    data.microstructureBuckets.selectedRule = shock.selected_rule_id || data.microstructureBuckets.selectedRule;
+    data.microstructureBuckets.validationRows = val.rows ?? data.microstructureBuckets.validationRows;
+    data.microstructureBuckets.validationMarkets = val.markets ?? data.microstructureBuckets.validationMarkets;
+    data.microstructureBuckets.validationRoi = val.roi ?? data.microstructureBuckets.validationRoi;
+    data.microstructureBuckets.validationCiLo = val.ci_lo ?? data.microstructureBuckets.validationCiLo;
+    data.microstructureBuckets.testRows = test.rows ?? data.microstructureBuckets.testRows;
+    data.microstructureBuckets.testMarkets = test.markets ?? data.microstructureBuckets.testMarkets;
+    data.microstructureBuckets.testRoi = test.roi ?? data.microstructureBuckets.testRoi;
+    data.microstructureBuckets.testCiLo = test.ci_lo ?? data.microstructureBuckets.testCiLo;
+  }
 
   if (live) {
     data.generatedAt = live.generated_at || data.generatedAt;
@@ -1103,6 +1152,7 @@ function deriveDashboard() {
     data.favoriteLongshotRuleValidation.marketTestBets = favMarketTest.bets ?? data.favoriteLongshotRuleValidation.marketTestBets;
     data.favoriteLongshotRuleValidation.marketTestRoi = favMarketTest.roi ?? data.favoriteLongshotRuleValidation.marketTestRoi;
     data.favoriteLongshotRuleValidation.marketTestCiLo = favMarketTest.ci_lo ?? data.favoriteLongshotRuleValidation.marketTestCiLo;
+    applyMicrostructure(live.telonex_microstructure_buckets);
 
     const liveModel = live.telonex_convergence || {};
     data.latestModel.runId = liveModel.run_id || data.latestModel.runId;
@@ -1224,6 +1274,8 @@ function deriveDashboard() {
     data.favoriteLongshotRuleValidation.marketTestCiLo = marketTest.ci_lo ?? data.favoriteLongshotRuleValidation.marketTestCiLo;
   }
 
+  applyMicrostructure(microstructureBuckets);
+
   if (state.runSummaries.length) {
     const dynamicRuns = state.runSummaries.map(summarizeRun);
     const byRunId = new Map(dynamicRuns.map(run => [run.runId, run]));
@@ -1263,6 +1315,7 @@ function renderPlainCards(data) {
   const r = data.readiness;
   const f = data.favoriteLongshotExecutable;
   const fv = data.favoriteLongshotRuleValidation;
+  const mb = data.microstructureBuckets;
   const cards = [
     {
       tone: data.overall.liveCapitalGate ? "warn" : "bad",
@@ -1293,6 +1346,12 @@ function renderPlainCards(data) {
       copy: `Market-disjoint test for ${fv.marketRule} is ${fmtPct(fv.marketTestRoi)} ROI, but CI low is ${fmtPct(fv.marketTestCiLo)}.`
     },
     {
+      tone: mb.gate ? "good" : "warn",
+      label: "Any CLOB micro edge?",
+      answer: mb.gate ? "Candidate" : "No",
+      copy: `YES+NO strict arbs: ${fmtInt(mb.strictNetArbRows)}. Price-shock rule ${mb.selectedRule} has test CI low ${fmtPct(mb.testCiLo)}.`
+    },
+    {
       tone: e.authFills > 0 && r.overallGate ? "good" : "warn",
       label: "Is this just bad data?",
       answer: "Mixed",
@@ -1314,6 +1373,7 @@ function renderMetrics(data) {
   const r = data.readiness;
   const f = data.favoriteLongshotExecutable;
   const fv = data.favoriteLongshotRuleValidation;
+  const mb = data.microstructureBuckets;
   const metrics = [
     ["Current run", m.runId, targetRead(m.targetCol), "This is the run the dashboard trusts most."],
     ["Research status", m.researchGate ? "PASS" : "HOLD", `profit check ${m.performanceGate ? "passed" : "failed"}`, "HOLD means do not treat the model as a working strategy."],
@@ -1321,6 +1381,8 @@ function renderMetrics(data) {
     ["Live picks now", fmtInt(e.liveSignalsSelected), `${fmtInt(e.liveSignalRows)} rows scored`, "This is what the model would pick from current live data. Zero means no live setup cleared the threshold."],
     ["Favorite-longshot", `${fmtInt(f.settledEntries)} settled`, `ROI ${fmtPct(f.roi)} / CI low ${fmtPct(f.ciLo)}`, "This is the strongest current non-ML bucket, but it is still not statistically proven."],
     ["Rule validation", fv.gate ? "PASS" : "HOLD", `${fv.marketRule}: ${fmtPct(fv.marketTestRoi)} test ROI / CI low ${fmtPct(fv.marketTestCiLo)}`, "This tests predeclared favorite-longshot rules out of sample. HOLD means do not deploy it."],
+    ["YES+NO arb", fmtInt(mb.strictNetArbRows), `${fmtInt(mb.nearArbRows)} near rows / max edge ${fmtPct(mb.maxNetEdge)}`, "Near-arb is not guaranteed profit. Strict fee-adjusted buy-both rows are the important number."],
+    ["Price-shock rules", mb.priceShockGate ? "PASS" : "HOLD", `${mb.selectedRule}: test ${fmtPct(mb.testRoi)} / CI low ${fmtPct(mb.testCiLo)}`, "This checks whether post-jump CLOB moves should be faded or followed after fees and spread."],
     ["Paper fills", fmtInt(e.paperFills), `${fmtInt(e.authFills)} real authenticated fills`, "Paper fills help debug, but real fills are needed before believing execution."],
     ["Odds coverage", fmtPct(m.oddsTestCoverage), `${fmtInt(m.oddsTestMatchedMarkets)} matched test markets`, "Low coverage means many test rows lack the sportsbook context the model wants."],
     ["Order-book history", fmtInt(e.telonexDepthRows), `${fmtInt(e.telonexQuoteRows)} quotes / ${fmtInt(e.telonexTradeRows)} trades`, "This is the strongest part of the data story: there is meaningful historical CLOB depth."],

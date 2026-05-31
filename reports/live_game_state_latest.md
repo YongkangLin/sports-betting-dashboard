@@ -1,6 +1,6 @@
 # Live Game State
 
-- Generated: 2026-05-31T00:11:55.284961+00:00
+- Generated: 2026-05-31T00:22:22.980062+00:00
 - ESPN scoreboard rows: 27
 - Polymarket event matches: 19
 - Rows appended: {'scoreboards': 27, 'matches': 19}
@@ -18,9 +18,9 @@ This feed supplies score/status timestamps for post-event overreaction research.
        Boston Red Sox vs. Cleveland Guardians baseball_mlb  Cleveland Guardians        Boston Red Sox           0           0          pre              pre               False          1.0
       Toronto Blue Jays vs. Baltimore Orioles baseball_mlb    Baltimore Orioles     Toronto Blue Jays           0           0          pre              pre               False          1.0
               Miami Marlins vs. New York Mets baseball_mlb        New York Mets         Miami Marlins           0           0          pre              pre               False          1.0
+        Los Angeles Angels vs. Tampa Bay Rays baseball_mlb       Tampa Bay Rays    Los Angeles Angels           0           0          pre              pre               False          1.0
     San Diego Padres vs. Washington Nationals baseball_mlb Washington Nationals      San Diego Padres           0           0          pre              pre               False          1.0
          Kansas City Royals vs. Texas Rangers baseball_mlb        Texas Rangers    Kansas City Royals           0           0          pre              pre               False          1.0
-        Los Angeles Angels vs. Tampa Bay Rays baseball_mlb       Tampa Bay Rays    Los Angeles Angels           0           0          pre              pre               False          1.0
          Milwaukee Brewers vs. Houston Astros baseball_mlb       Houston Astros     Milwaukee Brewers           0           0          pre              pre               False          1.0
 Philadelphia Phillies vs. Los Angeles Dodgers baseball_mlb  Los Angeles Dodgers Philadelphia Phillies           0           0          pre              pre               False          1.0
          Chicago Cubs vs. St. Louis Cardinals baseball_mlb  St. Louis Cardinals          Chicago Cubs           0           0          pre              pre               False          1.0
