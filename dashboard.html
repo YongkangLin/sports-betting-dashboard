@@ -438,13 +438,19 @@
 
   .replay-controls {
     display: grid;
-    grid-template-columns: minmax(160px, 0.25fr) minmax(0, 1fr);
-    gap: 10px;
-    align-items: center;
+    grid-template-columns: minmax(150px, 0.75fr) minmax(180px, 0.9fr) minmax(280px, 1.8fr);
+    gap: 12px;
+    align-items: end;
     margin-bottom: 14px;
   }
 
+  .replay-filter {
+    min-width: 0;
+  }
+
   .replay-controls label {
+    display: block;
+    margin-bottom: 5px;
     color: var(--muted);
     font-size: 12px;
     font-weight: 800;
@@ -785,7 +791,7 @@
       <div class="section-head">
         <div>
           <h2>Event Replay</h2>
-          <p>Pick an event, then click a buy or sell point to see the trade details and rationale.</p>
+          <p>Choose a market, strategy, and event, then click a buy or sell point to see the trade details and rationale.</p>
         </div>
         <span class="pill warn" id="replay-count-pill">loading</span>
       </div>
@@ -794,10 +800,24 @@
         <button class="replay-tab" type="button" data-replay-tab="paper">Paper Trade</button>
       </div>
       <div class="replay-controls">
-        <label for="replay-select">Event</label>
-        <select id="replay-select">
-          <option>loading backtest events...</option>
-        </select>
+        <div class="replay-filter">
+          <label for="replay-market-select">Market</label>
+          <select id="replay-market-select">
+            <option>loading markets...</option>
+          </select>
+        </div>
+        <div class="replay-filter">
+          <label for="replay-strategy-select">Strategy</label>
+          <select id="replay-strategy-select">
+            <option>loading strategies...</option>
+          </select>
+        </div>
+        <div class="replay-filter">
+          <label for="replay-select">Event</label>
+          <select id="replay-select">
+            <option>loading backtest events...</option>
+          </select>
+        </div>
       </div>
       <div class="replay-layout">
         <div class="replay-chart-shell">
@@ -1154,6 +1174,8 @@ const state = {
   health: {},
   runSummaries: [],
   selectedReplayId: null,
+  selectedReplayMarket: "__all__",
+  selectedReplayStrategy: "__all__",
   selectedReplayMarkerById: {},
   replayTab: "backtest",
   replayWindow: "full",
@@ -1673,6 +1695,48 @@ function marketLabel(event) {
 function replayExperimentLabel(event) {
   const eventName = event?.title || event?.question || event?.slug || event?.replay_id || "Event";
   return `${eventName} x ${strategyLabel(event?.strategy_label || event?.strategy || event?.bucket)} x ${marketLabel(event)}`;
+}
+
+function replayStrategyValue(event) {
+  return strategyLabel(event?.strategy_label || event?.strategy || event?.bucket);
+}
+
+function replayMarketValue(event) {
+  return marketLabel(event);
+}
+
+function replayOptionCounts(events, valueFn) {
+  const counts = new Map();
+  events.forEach(item => {
+    const value = valueFn(item);
+    counts.set(value, (counts.get(value) || 0) + 1);
+  });
+  return [...counts.entries()].sort((a, b) => {
+    const countDelta = b[1] - a[1];
+    return countDelta || a[0].localeCompare(b[0]);
+  });
+}
+
+function replayFilterMatch(value, selectedValue) {
+  return selectedValue === "__all__" || value === selectedValue;
+}
+
+function replayEventsForFilters(events) {
+  return events.filter(item => (
+    replayFilterMatch(replayMarketValue(item), state.selectedReplayMarket)
+    && replayFilterMatch(replayStrategyValue(item), state.selectedReplayStrategy)
+  ));
+}
+
+function renderReplayFilterOptions(select, rows, selectedValue, allLabel) {
+  const values = rows.map(([value]) => value);
+  const active = selectedValue !== "__all__" && values.includes(selectedValue) ? selectedValue : "__all__";
+  select.innerHTML = [
+    `<option value="__all__">${esc(allLabel)}</option>`,
+    ...rows.map(([value, count]) => `<option value="${esc(value)}">${esc(value)} (${fmtInt(count)})</option>`)
+  ].join("");
+  select.value = active;
+  return active;
 }
 
 function replaySide(event) {
@@ -2366,10 +2430,16 @@ function renderReplay(data) {
     button.classList.toggle("active", button.dataset.replayTab === state.replayTab);
   });
   const select = $("replay-select");
+  const marketSelect = $("replay-market-select");
+  const strategySelect = $("replay-strategy-select");
   if (state.replayTab === "paper") {
     $("replay-count-pill").textContent = "no paper trades";
     $("replay-count-pill").className = "pill warn";
+    marketSelect.disabled = true;
+    strategySelect.disabled = true;
     select.disabled = true;
+    marketSelect.innerHTML = `<option>No paper markets yet</option>`;
+    strategySelect.innerHTML = `<option>No paper strategies yet</option>`;
     select.innerHTML = `<option>No paper trades yet</option>`;
     $("replay-title").textContent = "Paper Trade";
     $("replay-event-strip").innerHTML = "";
@@ -2383,11 +2453,18 @@ function renderReplay(data) {
     return;
   }
 
+  marketSelect.disabled = false;
+  strategySelect.disabled = false;
   select.disabled = false;
-  $("replay-count-pill").textContent = events.length ? `${fmtInt(events.length)} events` : "no events";
-  $("replay-count-pill").className = "pill " + (events.length ? "info" : "warn");
   if (!events.length) {
+    marketSelect.disabled = true;
+    strategySelect.disabled = true;
+    select.disabled = true;
+    marketSelect.innerHTML = `<option>No markets loaded</option>`;
+    strategySelect.innerHTML = `<option>No strategies loaded</option>`;
     select.innerHTML = `<option>No replay data loaded</option>`;
+    $("replay-count-pill").textContent = "no events";
+    $("replay-count-pill").className = "pill warn";
     $("replay-title").textContent = "No event replay data loaded";
     $("replay-event-strip").innerHTML = "";
     $("decision-title").textContent = "No point selected";
@@ -2399,15 +2476,48 @@ function renderReplay(data) {
     return;
   }
 
-  const selectedStillExists = events.some(event => event.replay_id === state.selectedReplayId);
-  if (!state.selectedReplayId || !selectedStillExists) {
-    state.selectedReplayId = events[0].replay_id;
+  state.selectedReplayMarket = renderReplayFilterOptions(
+    marketSelect,
+    replayOptionCounts(events, replayMarketValue),
+    state.selectedReplayMarket,
+    "All markets"
+  );
+  const marketFiltered = events.filter(item => replayFilterMatch(replayMarketValue(item), state.selectedReplayMarket));
+  state.selectedReplayStrategy = renderReplayFilterOptions(
+    strategySelect,
+    replayOptionCounts(marketFiltered, replayStrategyValue),
+    state.selectedReplayStrategy,
+    "All strategies"
+  );
+  const filteredEvents = replayEventsForFilters(events);
+  $("replay-count-pill").textContent = filteredEvents.length
+    ? `${fmtInt(filteredEvents.length)} / ${fmtInt(events.length)} events`
+    : "no matching events";
+  $("replay-count-pill").className = "pill " + (filteredEvents.length ? "info" : "warn");
+
+  if (!filteredEvents.length) {
+    select.disabled = true;
+    select.innerHTML = `<option>No events for selected filters</option>`;
+    $("replay-title").textContent = "No matching event";
+    $("replay-event-strip").innerHTML = "";
+    $("decision-title").textContent = "No point selected";
+    $("decision-action").textContent = "--";
+    $("decision-action").className = "pill info";
+    $("replay-kv").innerHTML = "";
+    $("replay-rationale").innerHTML = `<strong>Rationale</strong><span>No replay event matches the selected market and strategy.</span>`;
+    drawReplayChart({ series_points: [] });
+    return;
   }
-  const event = events.find(item => item.replay_id === state.selectedReplayId) || events[0];
+
+  const selectedStillExists = filteredEvents.some(event => event.replay_id === state.selectedReplayId);
+  if (!state.selectedReplayId || !selectedStillExists) {
+    state.selectedReplayId = filteredEvents[0].replay_id;
+  }
+  const event = filteredEvents.find(item => item.replay_id === state.selectedReplayId) || filteredEvents[0];
   const currentOptions = Array.from(select.options).map(option => option.value).join("|");
-  const nextOptions = events.map(event => event.replay_id).join("|");
+  const nextOptions = filteredEvents.map(event => event.replay_id).join("|");
   if (currentOptions !== nextOptions) {
-    select.innerHTML = events.map(item => `
+    select.innerHTML = filteredEvents.map(item => `
       <option value="${esc(item.replay_id)}">${esc(replayOptionLabel(item))}</option>
     `).join("");
   }
@@ -2589,6 +2699,27 @@ async function loadArtifacts() {
 }
 
 document.addEventListener("change", event => {
+  if (event.target && event.target.id === "replay-market-select") {
+    state.selectedReplayMarket = event.target.value || "__all__";
+    state.selectedReplayStrategy = "__all__";
+    state.selectedReplayId = null;
+    state.replayWindow = "full";
+    state.replayZoomById = {};
+    state.replayYRangeById = {};
+    state.replayDrag = null;
+    renderReplay(deriveDashboard());
+    return;
+  }
+  if (event.target && event.target.id === "replay-strategy-select") {
+    state.selectedReplayStrategy = event.target.value || "__all__";
+    state.selectedReplayId = null;
+    state.replayWindow = "full";
+    state.replayZoomById = {};
+    state.replayYRangeById = {};
+    state.replayDrag = null;
+    renderReplay(deriveDashboard());
+    return;
+  }
   if (event.target && event.target.id === "replay-select") {
     state.selectedReplayId = event.target.value;
     state.replayWindow = "full";
@@ -2603,6 +2734,8 @@ document.addEventListener("click", event => {
   if (tabButton) {
     state.replayTab = tabButton.dataset.replayTab || "backtest";
     state.selectedReplayId = null;
+    state.selectedReplayMarket = "__all__";
+    state.selectedReplayStrategy = "__all__";
     state.replayWindow = "full";
     state.replayZoomById = {};
     state.replayYRangeById = {};
