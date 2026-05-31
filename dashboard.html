@@ -756,13 +756,6 @@
         <div class="replay-chart-shell">
           <div class="chart-toolbar">
             <div class="chart-title" id="chart-title">Minute replay</div>
-            <div class="window-buttons" aria-label="Replay time range">
-              <button class="window-button active" type="button" data-replay-window="full">Full</button>
-              <button class="window-button" type="button" data-replay-window="movement">Active</button>
-              <button class="window-button" type="button" data-replay-window="trade">Trade</button>
-              <button class="window-button" type="button" data-replay-zoom="in">+</button>
-              <button class="window-button" type="button" data-replay-zoom="out">-</button>
-            </div>
           </div>
           <svg class="replay-chart" id="replay-chart" role="img" aria-label="Backtest event price path"></svg>
         </div>
@@ -1596,10 +1589,28 @@ function strategyLabel(value) {
     .replace(/\b\w/g, letter => letter.toUpperCase());
 }
 
+function replaySide(event) {
+  const outcome = String(event?.outcome || "").trim();
+  const lower = outcome.toLowerCase();
+  if (lower === "yes") {
+    return { side: "YES", order: "Buy YES", sell: "Sell YES", display: "YES" };
+  }
+  if (lower === "no") {
+    return { side: "NO", order: "Buy NO", sell: "Sell NO", display: "NO" };
+  }
+  const display = outcome || "selected contract";
+  return {
+    side: "OUTCOME",
+    order: `Buy outcome: ${display}`,
+    sell: `Sell outcome: ${display}`,
+    display: `Outcome: ${display}`
+  };
+}
+
 function replayOptionLabel(event) {
   const stats = event.stats || {};
   const pos = replayPosition(stats);
-  return `${event.title || event.slug || event.replay_id} | ${event.outcome || "token"} | ${fmtSignedUsd(pos.pnlUsd)} / ROI ${fmtPct(stats.roi)}`;
+  return `${event.title || event.slug || event.replay_id} | ${replaySide(event).order} | ${fmtSignedUsd(pos.pnlUsd)} / ROI ${fmtPct(stats.roi)}`;
 }
 
 function replayPricePoints(event) {
@@ -1611,7 +1622,7 @@ function replayPricePoints(event) {
       return {
         offset: Number(point[0]),
         selected: num(point[1]),
-        other: otherRaw === null ? null : 1 - otherRaw
+        other: otherRaw
       };
     }
     return {
@@ -1678,13 +1689,14 @@ function replayDecisionRationale(event, marker) {
   const stats = event.stats || {};
   const action = marker?.action || "MARK";
   const pos = replayPosition(stats, marker);
+  const side = replaySide(event);
   if (action === "BUY") {
-    return `Buy ${event.outcome || "the contract"} at ${fmtPrice(marker.price)} with ${fmtUsd(pos.stakeUsd)} from a ${fmtUsd(pos.bankroll, 0)} starting balance.`;
+    return `${side.order} at ${fmtPrice(marker.price)} with ${fmtUsd(pos.stakeUsd)} from a ${fmtUsd(pos.bankroll, 0)} starting balance.`;
   }
   if (action === "SETTLEMENT") {
     return `Final result: ${stats.won ? "won" : "lost"} with dollar PnL ${fmtSignedUsd(pos.pnlUsd)} and ending balance ${fmtUsd(pos.endBalance)}.`;
   }
-  return `Sell check at ${fmtPrice(marker.price)}. If exited here, dollar PnL would be ${fmtSignedUsd(pos.pnlUsd)}.`;
+  return `${side.sell} check at ${fmtPrice(marker.price)}. If exited here, dollar PnL would be ${fmtSignedUsd(pos.pnlUsd)}.`;
 }
 
 function selectedReplayMarkerIndex(event) {
@@ -1892,9 +1904,8 @@ function drawReplayChart(event) {
   }
   const visibleMarkers = markers.filter(marker => num(marker.offset_sec) >= bounds.minX && num(marker.offset_sec) <= bounds.maxX);
   const spanX = Math.max(1, bounds.maxX - bounds.minX);
-  const windowLabel = state.replayWindow === "movement" ? "active movement" : state.replayWindow;
   if ($("chart-title")) {
-    $("chart-title").textContent = `${shortLabel(event.outcome, 18)} / ${shortLabel(event.other_outcome, 18)} - ${windowLabel}`;
+    $("chart-title").textContent = `${shortLabel(event.outcome, 18)} / ${shortLabel(event.other_outcome, 18)}`;
   }
   const priceValues = [
     ...visiblePoints.flatMap(point => [point.selected, point.other]),
@@ -1933,7 +1944,7 @@ function drawReplayChart(event) {
   };
   const lineLabels = [
     lineLabel("selected", event.outcome || "Selected", "#1f77b4", -22),
-    lineLabel("other", "Opposite book", "#f59e0b", 18)
+    lineLabel("other", event.other_outcome || "Other side", "#f59e0b", 18)
   ].join("");
   const markerSvg = visibleMarkers.map(marker => {
     const action = marker.action || "MARK";
@@ -2079,13 +2090,16 @@ function renderDecisionPanel(event, marker) {
   const stats = event.stats || {};
   const action = marker?.action || "MARK";
   const pos = replayPosition(stats, marker);
-  const token = event.outcome || "contract";
-  const actionText = action === "BUY" ? "BUY" : action === "SETTLEMENT" ? "RESULT" : "SELL";
+  const side = replaySide(event);
+  const actionText = action === "BUY"
+    ? (side.side === "OUTCOME" ? "BUY" : `BUY ${side.side}`)
+    : action === "SETTLEMENT" ? "RESULT"
+      : (side.side === "OUTCOME" ? "SELL" : `SELL ${side.side}`);
   const actionTone = action === "BUY" ? "good" : action === "SETTLEMENT" ? (stats.won ? "good" : "bad") : "warn";
   const title =
-    action === "BUY" ? `Buy ${token}`
+    action === "BUY" ? side.order
       : action === "SETTLEMENT" ? `Final result: ${stats.won ? "won" : "lost"}`
-        : `Sell check ${token}`;
+        : `${side.sell} check`;
   $("decision-title").textContent = marker ? title : "No point selected";
   $("decision-action").textContent = actionText;
   $("decision-action").className = `pill ${actionTone}`;
@@ -2098,6 +2112,7 @@ function renderDecisionPanel(event, marker) {
   const markerRoi = action === "BUY" ? 0 : (marker.roi !== undefined ? marker.roi : stats.roi);
   const rows = [
     ["Action", action === "BUY" ? "Buy" : action === "SETTLEMENT" ? "Result" : "Sell"],
+    ["Side", side.display],
     ["Start balance", fmtUsd(pos.bankroll, 0)],
     ["Position", replayTradeAmount(stats)],
     ["Contracts", pos.contracts === null ? "--" : fmtPrice(pos.contracts, 2)],
@@ -2148,9 +2163,10 @@ function renderReplay(data) {
   if (!detail) {
     const stats = event.stats || {};
     const pos = replayPosition(stats);
+    const side = replaySide(event);
     $("replay-title").textContent = `${event.title || event.slug || "Backtest event"} x ${strategyLabel(event.bucket || replay.strategy)}`;
     $("replay-event-strip").innerHTML = [
-      ["Contract", event.outcome || "--"],
+      ["Order", side.order],
       ["Start", fmtUsd(pos.bankroll, 0)],
       ["Position", replayTradeAmount(stats)],
       ["Event PnL", `${fmtSignedUsd(pos.pnlUsd)} (${fmtPct(stats.roi)})`]
@@ -2168,12 +2184,13 @@ function renderReplay(data) {
   const fullEvent = { ...event, ...detail };
   const stats = fullEvent.stats || {};
   const finalPos = replayPosition(stats);
+  const side = replaySide(fullEvent);
   const markers = fullEvent.markers || [];
   const markerIndex = selectedReplayMarkerIndex(fullEvent);
   const selectedMarker = markers[markerIndex];
   $("replay-title").textContent = `${fullEvent.title || fullEvent.slug || "Backtest event"} x ${strategyLabel(fullEvent.bucket || replay.strategy)}`;
   $("replay-event-strip").innerHTML = [
-    ["Contract", fullEvent.outcome || "--"],
+    ["Order", side.order],
     ["Result", stats.won ? "Won" : "Lost"],
     ["Start", fmtUsd(finalPos.bankroll, 0)],
     ["Position", replayTradeAmount(stats)],

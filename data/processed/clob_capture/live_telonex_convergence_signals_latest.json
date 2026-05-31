@@ -1,6 +1,6 @@
 {
   "appended_signals": 0,
-  "candidate_tokens": 464,
+  "candidate_tokens": 212,
   "dry_run": true,
   "ensemble": {
     "blend_recent_weight": 0.0,
@@ -21,9 +21,9 @@
     },
     "recent_window_days": 21.0
   },
-  "feature_rows": 2320,
+  "feature_rows": 1060,
   "feature_set": "base_odds",
-  "generated_at": "2026-05-30T20:09:38.087067+00:00",
+  "generated_at": "2026-05-30T17:35:22.356244+00:00",
   "horizons": [
     30,
     60,
@@ -32,10 +32,10 @@
     900
   ],
   "live_odds": {
-    "coverage": 0.021551724137931036,
+    "coverage": 0.04716981132075472,
     "enabled": true,
     "fair_rows": 336,
-    "feature_rows": 2320,
+    "feature_rows": 1060,
     "market_match_diagnostics": {
       "markets": 6,
       "no_odds_event_match": 0,

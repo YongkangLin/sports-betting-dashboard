@@ -1,34 +1,33 @@
 # Live Execution Collector Health
 
-- Generated: 2026-05-31T01:46:41.774587+00:00
-- Loop status: running
+- Generated: 2026-05-30T19:13:41.948307+00:00
+- Loop status: healthy
 - Started: 2026-05-29T22:56:51.160360+00:00
-- Loop count: 556
+- Loop count: 479
 - Capital enabled: false
-- Alerts: 2
+- Alerts: 0
 
 ## Alerts
 
-- telonex_live_score failed (66 consecutive)
-- paper_trade failed (1 consecutive)
+- none
 
 ## Task State
 
 ```text
-http_capture: ok=True last_success=2026-05-31T01:45:45.704727+00:00 failures=0
-ws_capture: ok=True last_success=2026-05-31T01:46:19.873739+00:00 failures=0
-telonex_live_score: ok=False last_success=2026-05-30T20:09:38.550837+00:00 failures=66
-paper_trade: ok=False last_success=2026-05-31T01:41:32.021482+00:00 failures=1
-post_trade_http_capture: ok=True last_success=2026-05-31T01:41:39.801348+00:00 failures=0
-live_execution_quality: ok=True last_success=2026-05-31T01:41:49.058669+00:00 failures=0
-user_lifecycle: ok=True last_success=2026-05-31T01:41:58.701453+00:00 failures=0
-execution_training: ok=True last_success=2026-05-31T01:43:03.641236+00:00 failures=0
-queue_training: ok=True last_success=2026-05-31T01:43:18.593142+00:00 failures=0
-queue_fill_model: ok=True last_success=2026-05-31T01:28:23.231863+00:00 failures=0
-model_monitor: ok=True last_success=2026-05-31T01:28:24.199057+00:00 failures=0
-game_state: ok=True last_success=2026-05-31T01:28:32.975687+00:00 failures=0
-kalshi_candidates: ok=True last_success=2026-05-31T01:28:43.434857+00:00 failures=0
-kalshi_verified: ok=True last_success=2026-05-31T01:28:43.942716+00:00 failures=0
-secret_hygiene: ok=True last_success=2026-05-31T01:28:48.810037+00:00 failures=0
-dashboard_status: ok=True last_success=2026-05-31T01:29:11.639921+00:00 failures=0
+http_capture: ok=True last_success=2026-05-30T19:09:49.516763+00:00 failures=0
+ws_capture: ok=True last_success=2026-05-30T19:10:22.479038+00:00 failures=0
+telonex_live_score: ok=True last_success=2026-05-30T19:10:56.460726+00:00 failures=0
+paper_trade: ok=True last_success=2026-05-30T19:11:38.346435+00:00 failures=0
+post_trade_http_capture: ok=True last_success=2026-05-30T19:11:47.630177+00:00 failures=0
+live_execution_quality: ok=True last_success=2026-05-30T19:11:53.769970+00:00 failures=0
+user_lifecycle: ok=True last_success=2026-05-30T19:11:54.258717+00:00 failures=0
+execution_training: ok=True last_success=2026-05-30T19:12:45.759472+00:00 failures=0
+queue_training: ok=True last_success=2026-05-30T19:12:54.601346+00:00 failures=0
+queue_fill_model: ok=True last_success=2026-05-30T19:12:56.129566+00:00 failures=0
+model_monitor: ok=True last_success=2026-05-30T19:12:59.545099+00:00 failures=0
+game_state: ok=True last_success=2026-05-30T19:13:08.004926+00:00 failures=0
+kalshi_candidates: ok=True last_success=2026-05-30T19:13:19.403395+00:00 failures=0
+kalshi_verified: ok=True last_success=2026-05-30T19:13:20.506856+00:00 failures=0
+secret_hygiene: ok=True last_success=2026-05-30T19:13:23.797487+00:00 failures=0
+dashboard_status: ok=True last_success=2026-05-30T19:13:41.947452+00:00 failures=0
 ```

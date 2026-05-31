@@ -1,32 +1,32 @@
 # Live Execution Quality
 
-- Generated: 2026-05-31T01:41:48.176664+00:00
+- Generated: 2026-05-30T19:11:52.961910+00:00
 - Quality gate: False
-- Gate reasons: need >=500 alpha paper fills with 3s post-fill books within 5s lag, 3s alpha average LEV is not positive, 3s alpha favorable post-fill move rate is not >52%, wallet-level whale detector unavailable from current trade feed, favorite_longshot_bias has only 13 timely 3s LEV rows after 692 fills
-- Paper fills analyzed: 921
-- Alpha/probe fills analyzed: 692 / 229
-- Paper fills with model version: 281
+- Gate reasons: need >=500 alpha paper fills with 3s post-fill books within 5s lag, 3s alpha average LEV is not positive, 3s alpha favorable post-fill move rate is not >52%, wallet-level whale detector unavailable from current trade feed, favorite_longshot_bias has only 0 timely 3s LEV rows after 653 fills
+- Paper fills analyzed: 674
+- Alpha/probe fills analyzed: 653 / 21
+- Paper fills with model version: 34
 - Strategy health gate: False
 - Quarantined strategies: none
-- LEV drift alerts: 0 / max score 0.007296857142857149
+- LEV drift alerts: 0 / max score 0.0
 
 ## Alpha LEV By Horizon
 
 | Horizon | Rows | Avg LEV/share | Median | P05 | Favorable | Avg lag | P95 lag | Max lag |
 |---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| 3s | 13 | -0.015682615384615375 | -0.0144279999999999 | -0.023609000000000015 | 0.00% | 1.1217640000000002 | 1.121764 | 1.121764 |
+| 3s | 0 | None | None | None | n/a | None | None | None |
 | 30s | 3 | -0.01461700000000001 | -0.014617000000000008 | -0.014617000000000008 | 0.00% | 3.2043613333333334 | 4.7737419 | 4.908083 |
 | 120s | 59 | -0.02346764338521336 | -0.012457000000000008 | -0.15531299999999998 | 38.98% | 0.7315217288135591 | 3.3586316999999988 | 3.637549 |
-| 300s | 23 | -0.009517874957788098 | -0.01382500000000001 | -0.05161700000000004 | 26.09% | 0.4988534347826088 | 3.150141799999998 | 3.286158 |
+| 300s | 10 | -0.002479412402912638 | 0.011317500000000013 | -0.15399980000000002 | 60.00% | 1.0748398 | 3.286158 | 3.286158 |
 
 ## Probe LEV By Horizon
 
 | Horizon | Rows | Avg LEV/share | Favorable | Avg lag |
 |---:|---:|---:|---:|---:|
-| 3s | 227 | -0.013235389932175788 | 1.76% | 0.7057899823788545 |
+| 3s | 19 | 0.03229600000000001 | 21.05% | 0.6164597894736844 |
 | 30s | 0 | None | n/a | None |
 | 120s | 0 | None | n/a | None |
-| 300s | 14 | 0.016119714285714265 | 21.43% | 2.1311819999999995 |
+| 300s | 2 | 0.21711500000000003 | 100.00% | 4.519089 |
 
 ## Price Hold/Revert
 
@@ -39,21 +39,21 @@
 | Strategy | Model | Side | Fills | 3s rows | 3s avg LEV | 3s favorable | 120s rows | 120s avg LEV | 120s favorable |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|
 | favorite_longshot_bias | None | buy | 640 | 0 | None | n/a | 59 | -0.02346764338521336 | 38.98% |
-| data_collection_probe | data-collection-probe-v1 | buy | 229 | 227 | -0.013235389932175788 | 1.76% | 0 | None | n/a |
-| favorite_longshot_bias | favorite_longshot_bias:rules-v1 | buy | 52 | 13 | -0.015682615384615375 | 0.00% | 0 | None | n/a |
+| data_collection_probe | data-collection-probe-v1 | buy | 21 | 19 | 0.03229600000000001 | 21.05% | 0 | None | n/a |
+| favorite_longshot_bias | favorite_longshot_bias:rules-v1 | buy | 13 | 0 | None | n/a | 0 | None | n/a |
 
 ## Strategy Health
 
 | Strategy | Fills | 3s rows | 3s avg LEV | 3s favorable | Quarantined |
 |---|---:|---:|---:|---:|---:|
-| favorite_longshot_bias | 692 | 13 | -0.015682615384615375 | 0.00% | False |
+| favorite_longshot_bias | 653 | 0 | None | n/a | False |
 
 ## LEV Drift
 
-- Rows: 13
+- Rows: 0
 - Alerts: 0
-- Latest mean / latest 50 mean: -0.015682615384615375 / -0.015682615384615375
-- Max score / latest score: 0.007296857142857149 / 0.004593543020867838
+- Latest mean / latest 50 mean: None / None
+- Max score / latest score: 0.0 / 0.0
 
 ## Large Trade Flow
 
