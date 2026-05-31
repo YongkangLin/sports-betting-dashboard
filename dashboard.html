@@ -1304,7 +1304,8 @@ const state = {
   selectedReplayId: null,
   selectedReplayMarket: "__all__",
   selectedReplayStrategy: "__all__",
-  selectedReplayDataSource: "polymarket",
+  selectedReplayDataSource: "both",
+  preferredReplayDataSource: "both",
   selectedEvidenceStrategy: "Favorite-longshot fade",
   selectedReplayMarkerById: {},
   replayTab: "backtest",
@@ -3051,8 +3052,13 @@ function renderReplay(data) {
   const dataSourceSelect = $("replay-data-source-select");
   if (dataSourceSelect) {
     const options = replayDataSourceOptions(fullEvent);
-    if (!options.some(option => option.value === state.selectedReplayDataSource && option.enabled)) {
-      state.selectedReplayDataSource = "polymarket";
+    const enabledValues = options.filter(option => option.enabled).map(option => option.value);
+    if (!enabledValues.includes(state.selectedReplayDataSource)) {
+      state.selectedReplayDataSource = enabledValues.includes(state.preferredReplayDataSource)
+        ? state.preferredReplayDataSource
+        : enabledValues.includes("both")
+          ? "both"
+          : "polymarket";
     }
     dataSourceSelect.disabled = false;
     dataSourceSelect.innerHTML = options.map(option => `
@@ -3237,6 +3243,7 @@ document.addEventListener("change", event => {
   }
   if (event.target && event.target.id === "replay-data-source-select") {
     state.selectedReplayDataSource = event.target.value || "polymarket";
+    state.preferredReplayDataSource = state.selectedReplayDataSource;
     renderReplay(deriveDashboard());
     return;
   }
