@@ -15,7 +15,8 @@
     "tokens": 429
   },
   "gate_reasons": [
-    "Odds API point-in-time features have insufficient test coverage"
+    "Odds API point-in-time features have insufficient test coverage",
+    "sportsbook native 5-minute density gate failed: complete 5m replay cache 155 / 276 = 56.16% < 95%"
   ],
   "gates": {
     "complete_side_market_data_gate": true,
@@ -34,11 +35,13 @@
     "overall_gate": false,
     "quality_gate": true,
     "reasons": [
-      "Odds API point-in-time features have insufficient test coverage"
+      "Odds API point-in-time features have insufficient test coverage",
+      "sportsbook native 5-minute density gate failed: complete 5m replay cache 155 / 276 = 56.16% < 95%"
     ],
+    "sportsbook_native_5m_density_gate": false,
     "trade_confirmed_fill_holdout_gate": true
   },
-  "generated_at": "2026-05-31T10:37:50.307823+00:00",
+  "generated_at": "2026-05-31T10:43:56.914015+00:00",
   "latest_model_monitor": {
     "adverse_selection": {
       "available": false,
@@ -1047,6 +1050,33 @@
       "trade_feature_rate": 0.6680838756326826,
       "trade_feature_rows": 230990
     }
+  },
+  "sportsbook_gap_audit": {
+    "available": true,
+    "classification_counts": {
+      "has_sportsbook_overlay": 276,
+      "internal_quote_gap_missing_5m_api_cache": 1,
+      "no_odds_event_match": 1,
+      "source_quote_gap_cache_complete": 3,
+      "sportsbook_end_gap_missing_5m_api_cache": 1,
+      "sportsbook_event_not_listed_until_after_clob_start": 8,
+      "sportsbook_last_quote_not_settlement": 3,
+      "sportsbook_starts_after_clob": 2
+    },
+    "complete_5m_event_rate": 0.5615942028985508,
+    "events_with_sportsbook_match": 276,
+    "gate_15m": true,
+    "gate_5m": false,
+    "matched_events_with_complete_15m_cache": 276,
+    "matched_events_with_complete_5m_cache": 155,
+    "min_complete_5m_event_rate": 0.95,
+    "path": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/reports/replay_sportsbook_gap_audit_latest.json",
+    "raw_5m_snapshot_cache_rate": 0.6703485993583532,
+    "reasons": [
+      "complete 5m replay cache 155 / 276 = 56.16% < 95%"
+    ],
+    "unique_cache_5m_expected_snapshots": 46443,
+    "unique_cache_5m_missing_snapshots": 15310
   },
   "strategy": {
     "entry_policy": "Post/quote passively near the current best bid only when the calibrated convergence score lower bound clears validation-selected threshold and liquidity caps.",

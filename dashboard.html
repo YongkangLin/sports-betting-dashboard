@@ -964,6 +964,7 @@ const ARTIFACTS = {
   favoriteLongshotExecutable: { label: "Favorite-longshot executable", path: "data/processed/execution_training/favorite_longshot_executable_backtest_latest.json" },
   favoriteLongshotRuleValidation: { label: "Favorite-longshot rule validation", path: "data/processed/execution_training/favorite_longshot_rule_validation_latest.json" },
   favoriteLongshotEventReplays: { label: "Favorite-longshot event replays", path: "data/processed/execution_training/favorite_longshot_event_replays_latest.json" },
+  replaySportsbookGapAudit: { label: "Replay sportsbook gap audit", path: "reports/replay_sportsbook_gap_audit_latest.json" },
   liveSignals: { label: "Live Telonex signals", path: "data/processed/clob_capture/live_telonex_convergence_signals_latest.json" },
   strategyBuckets: { label: "Strategy bucket audit", path: "data/processed/execution_training/telonex_strategy_buckets_latest.json" },
   playByPlaySourcePlan: { label: "Play-by-play source plan", path: "data/processed/execution_training/play_by_play_source_plan_latest.json" },
@@ -1538,6 +1539,7 @@ function deriveDashboard() {
   const favoriteExecutable = state.loaded.favoriteLongshotExecutable;
   const favoriteRuleValidation = state.loaded.favoriteLongshotRuleValidation;
   const favoriteLongshotEventReplays = state.loaded.favoriteLongshotEventReplays;
+  const replaySportsbookGapAudit = state.loaded.replaySportsbookGapAudit;
   const strategyBuckets = state.loaded.strategyBuckets;
   const playByPlaySourcePlan = state.loaded.playByPlaySourcePlan;
   const microstructureBuckets = state.loaded.microstructureBuckets;
@@ -1799,6 +1801,25 @@ function deriveDashboard() {
 
   if (favoriteLongshotEventReplays) {
     data.favoriteLongshotEventReplays = favoriteLongshotEventReplays;
+    const auditRows = replaySportsbookGapAudit?.events || [];
+    if (auditRows.length) {
+      const auditByReplayId = new Map(auditRows.map(row => [row.replay_id, row]));
+      data.favoriteLongshotEventReplays = {
+        ...favoriteLongshotEventReplays,
+        sportsbookGapAudit: {
+          totalEvents: replaySportsbookGapAudit.total_events,
+          matchedEvents: replaySportsbookGapAudit.events_with_sportsbook_match,
+          complete15mEvents: replaySportsbookGapAudit.matched_events_with_complete_15m_cache,
+          complete5mEvents: replaySportsbookGapAudit.matched_events_with_complete_5m_cache,
+          missing5mSnapshots: replaySportsbookGapAudit.unique_cache_5m_missing_snapshots,
+          expected5mSnapshots: replaySportsbookGapAudit.unique_cache_5m_expected_snapshots,
+        },
+        events: (favoriteLongshotEventReplays.events || []).map(event => ({
+          ...event,
+          sportsbook_gap_audit: auditByReplayId.get(event.replay_id) || null,
+        })),
+      };
+    }
   }
 
   applyStrategyBuckets(strategyBuckets);
@@ -2323,6 +2344,31 @@ function replaySeriesCoverage(polyPoints, bookPoints) {
   };
 }
 
+function replaySportsbookQuality(event) {
+  const audit = event?.sportsbook_gap_audit || {};
+  const classes = audit.classifications || [];
+  if (!audit || !Object.keys(audit).length) return "";
+  if (!audit.sportsbook_match) return "no sportsbook match";
+  const full5 = audit.full_window_cache_5m_audit || {};
+  const expected5 = Number(full5.expected_snapshots || 0);
+  const cached5 = Number(full5.cached_cache_snapshots || 0);
+  const missing5 = Number(full5.missing_cache_snapshots || 0);
+  if (expected5 > 0 && missing5 > 0) {
+    return `5m cache partial ${fmtInt(cached5)}/${fmtInt(expected5)}`;
+  }
+  if (classes.includes("sportsbook_event_not_listed_until_after_clob_start")) {
+    return "5m cache complete; sportsbook listed late";
+  }
+  if (classes.includes("sportsbook_last_quote_not_settlement")) {
+    return "5m cache complete; sportsbook stops before settlement";
+  }
+  if (classes.includes("source_quote_gap_cache_complete")) {
+    return "5m cache complete; source quote gap";
+  }
+  if (expected5 > 0 && missing5 === 0) return "5m cache complete";
+  return "15m cache complete";
+}
+
 function gapLabel(seconds, earlyText, lateText) {
   if (seconds === null || !Number.isFinite(seconds)) return "";
   if (Math.abs(seconds) < 60) return "aligned";
@@ -2676,6 +2722,7 @@ function drawReplayChart(event) {
   }
   const clobPointCount = event.series_point_count ?? polyPoints.length;
   const sportsbookPointCount = event.sportsbook_series_point_count ?? bookPoints.length;
+  const sportsbookQuality = replaySportsbookQuality(event);
   if (showPolymarket && showSportsbooks) {
     const coverage = replaySeriesCoverage(polyPoints, bookPoints);
     const startGap = gapLabel(coverage.startGapSec, "early", "late");
@@ -2685,9 +2732,11 @@ function drawReplayChart(event) {
     if (endGap && endGap !== "aligned") gapBits.push(`end ${endGap}`);
     if (coverage.maxGapSec && coverage.maxGapSec > 30 * 60) gapBits.push(`max gap ${durationLabel(coverage.maxGapSec)}`);
     const gapText = gapBits.length ? `; ${gapBits.join(", ")}` : "";
-    setChartSourceNote(`${fmtInt(clobPointCount)} CLOB minute pts; ${fmtInt(sportsbookPointCount)} book snapshots; book span ${fmtPct(coverage.coverage)}${gapText}. Sportsbooks show last quoted fair %, not settlement.`);
+    const qualityText = sportsbookQuality ? ` ${sportsbookQuality}.` : "";
+    setChartSourceNote(`${fmtInt(clobPointCount)} CLOB minute pts; ${fmtInt(sportsbookPointCount)} book snapshots; book span ${fmtPct(coverage.coverage)}${gapText}.${qualityText} Sportsbooks show last quoted fair %, not settlement.`);
   } else if (showSportsbooks) {
-    setChartSourceNote(`${fmtInt(sportsbookPointCount)} sportsbook snapshots. Sportsbooks show last quoted fair %, not settlement.`);
+    const qualityText = sportsbookQuality ? ` ${sportsbookQuality}.` : "";
+    setChartSourceNote(`${fmtInt(sportsbookPointCount)} sportsbook snapshots.${qualityText} Sportsbooks show last quoted fair %, not settlement.`);
   } else {
     setChartSourceNote(`${fmtInt(clobPointCount)} CLOB minute pts`);
   }
@@ -3284,10 +3333,16 @@ function renderReplay(data) {
     dataSourceSelect.value = state.selectedReplayDataSource;
   }
   $("replay-title").textContent = replayExperimentLabel(fullEvent);
+  const dataLabel = state.selectedReplayDataSource === "sportsbooks"
+    ? "Sportsbook fair %"
+    : state.selectedReplayDataSource === "both"
+      ? "CLOB + sportsbook"
+      : "Polymarket CLOB";
+  const qualityLabel = replaySportsbookQuality(fullEvent);
   $("replay-event-strip").innerHTML = [
     ["Strategy", strategyLabel(fullEvent.strategy_label || fullEvent.strategy || fullEvent.bucket)],
     ["Market", marketLabel(fullEvent)],
-    ["Data", state.selectedReplayDataSource === "sportsbooks" ? "Sportsbook fair %" : state.selectedReplayDataSource === "both" ? "CLOB + sportsbook" : "Polymarket CLOB"],
+    ["Data", qualityLabel ? `${dataLabel}; ${qualityLabel}` : dataLabel],
     ["Order", side.order],
     ["Result", stats.won ? "Won" : "Lost"],
     ["Position", replayTradeAmount(stats)],
