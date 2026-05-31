@@ -1,11 +1,11 @@
 # Replay Sportsbook Source Window Audit
 
-- Generated: 2026-05-31T13:49:43.345078+00:00
+- Generated: 2026-05-31T14:05:19.880942+00:00
 - Replay events audited: 277
-- Events with visible sportsbook gap windows: 121
-- Gap windows audited: 8,098
+- Events with visible sportsbook gap windows: 120
+- Gap windows audited: 8,063
 - Materialization bug windows: 0
-- Missing raw-cache windows: 8,082
+- Missing raw-cache windows: 8,047
 
 ## Verdict
 
@@ -15,7 +15,7 @@
 
 | Verdict | Windows |
 |---|---:|
-| missing_raw_cache | 8,082 |
+| missing_raw_cache | 8,047 |
 | source_event_not_listed_before_first_seen | 11 |
 | mixed_source_availability | 4 |
 | source_stale_payload_no_new_quote | 1 |
@@ -24,9 +24,9 @@
 
 | Raw source status | 5m snapshots |
 |---|---:|
-| missing_cache | 17,026 |
+| missing_cache | 16,956 |
 | event_not_listed_before_first_seen | 11,462 |
-| stale_payload_at_or_before_gap_start | 8,100 |
+| stale_payload_at_or_before_gap_start | 8,065 |
 | requested_point_absent | 502 |
 | no_odds_event_match | 261 |
 | event_not_listed | 6 |
@@ -126,8 +126,8 @@
 
 | Event | Sport | Windows | Verdicts | Statuses |
 |---|---|---:|---|---|
-| 76ers vs Nuggets | basketball_nba | 1 | {'source_event_not_listed_before_first_seen': 1} | {'event_not_listed_before_first_seen': 1568} |
 | Oilers vs Ducks total 4.5 | icehockey_nhl | 1 | {'mixed_source_availability': 1} | {'stale_payload_at_or_before_gap_start': 1, 'requested_point_absent': 19} |
+| 76ers vs Nuggets | basketball_nba | 1 | {'source_event_not_listed_before_first_seen': 1} | {'event_not_listed_before_first_seen': 1568} |
 
 ## Largest Gap Windows
 

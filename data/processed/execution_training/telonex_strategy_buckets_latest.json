@@ -28,7 +28,7 @@
   "gate_reasons": [
     "no predeclared executable taker bucket has positive test CI lower bound"
   ],
-  "generated_at": "2026-05-31T13:43:37.149055+00:00",
+  "generated_at": "2026-05-31T14:06:19.751144+00:00",
   "horizon_spread_buckets": [
     {
       "avg_line_lag_gap_5m": 0.0007974632949128942,

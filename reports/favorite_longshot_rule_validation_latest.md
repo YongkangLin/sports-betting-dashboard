@@ -1,6 +1,6 @@
 # Favorite-Longshot Rule Validation
 
-- Generated: 2026-05-31T13:41:41.768357+00:00
+- Generated: 2026-05-31T14:05:33.411212+00:00
 - Verdict: HOLD: favorite-longshot rule not yet proven out of sample
 - Overall gate: False
 - Gate reasons: temporal selected rule failed, market-disjoint selected rule failed

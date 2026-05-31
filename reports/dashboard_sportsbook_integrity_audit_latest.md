@@ -1,6 +1,6 @@
 # Dashboard Sportsbook Integrity Audit
 
-- Generated: 2026-05-31T13:51:31.226109+00:00
+- Generated: 2026-05-31T14:05:33.304454+00:00
 - Replay events audited: 277
 - Polymarket one-minute CLOB complete: 277 / 277
 - Sportsbook event matches: 276 / 277
@@ -9,14 +9,14 @@
 - Complete on both Polymarket CLOB and sportsbook side math: 276 / 277
 - Sportsbook timestamps inside the plotted CLOB replay window: 276 / 276
 - Raw 15-minute Odds cache complete: 276 / 276
-- Native 5-minute Odds cache complete: 166 / 276
-- Events with visible sportsbook gaps over 10 minutes: 121
-- Visible gap windows audited: 8,098
-- Visible gap windows caused by missing raw 5-minute cache: 8,082
+- Native 5-minute Odds cache complete: 167 / 276
+- Events with visible sportsbook gaps over 10 minutes: 120
+- Visible gap windows audited: 8,063
+- Visible gap windows caused by missing raw 5-minute cache: 8,047
 - Raw complete-line materialization bugs: 0
-- Unique missing native 5-minute snapshots: 14,296
-- Estimated credits to finish all missing native 5-minute snapshots: 1,286,640
-- Paid Odds API credits remaining locally: 6606
+- Unique missing native 5-minute snapshots: 14,224
+- Estimated credits to finish all missing native 5-minute snapshots: 1,280,160
+- Paid Odds API credits remaining locally: 126
 - By-sport missing snapshot counts below are per-event sums; unique cache snapshots are lower because multiple replay events can share the same sport/timestamp API response.
 
 ## Verdict
@@ -30,8 +30,8 @@
 
 | Category | Events | Meaning |
 |---|---:|---|
-| complete_or_no_large_gap | 156 | No visible gap beyond normal quote cadence. |
-| missing_native_5m_cache | 109 | Backfillable 5-minute Odds API snapshots are missing. |
+| complete_or_no_large_gap | 157 | No visible gap beyond normal quote cadence. |
+| missing_native_5m_cache | 108 | Backfillable 5-minute Odds API snapshots are missing. |
 | source_event_not_listed_yet | 8 | The source did not list the event until after the CLOB opened. |
 | source_market_or_point_absent | 2 | Raw source exists, but the requested market/point is absent. |
 | no_odds_event_match | 1 | No Odds API event match. |
@@ -45,7 +45,7 @@
 | basketball_nba | 89 | 89 | 89 | 88 | 1 | 0 |
 | basketball_wnba | 2 | 2 | 2 | 2 | 0 | 0 |
 | icehockey_nhl | 2 | 2 | 2 | 2 | 0 | 0 |
-| soccer | 175 | 174 | 174 | 65 | 18,740 | 0 |
+| soccer | 175 | 174 | 174 | 66 | 18,668 | 0 |
 
 ## Checked Examples
 

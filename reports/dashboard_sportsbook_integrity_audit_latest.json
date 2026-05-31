@@ -33,25 +33,25 @@
       "overlay": 2
     },
     "soccer": {
-      "complete_5m": 65,
+      "complete_5m": 66,
       "events": 175,
       "matched": 174,
       "materialization_bugs": 0,
-      "missing_5m_snapshots": 18740,
+      "missing_5m_snapshots": 18668,
       "overlay": 174
     }
   },
   "category_counts": {
-    "complete_or_no_large_gap": 156,
-    "missing_native_5m_cache": 109,
+    "complete_or_no_large_gap": 157,
+    "missing_native_5m_cache": 108,
     "no_odds_event_match": 1,
     "source_event_not_listed_yet": 8,
     "source_market_or_point_absent": 2,
     "source_stale_or_no_new_quote": 1
   },
   "category_rates": {
-    "complete_or_no_large_gap": "56.3%",
-    "missing_native_5m_cache": "39.4%",
+    "complete_or_no_large_gap": "56.7%",
+    "missing_native_5m_cache": "39.0%",
     "no_odds_event_match": "0.4%",
     "source_event_not_listed_yet": "2.9%",
     "source_market_or_point_absent": "0.7%",
@@ -2728,7 +2728,7 @@
         "away_team": "Marseille",
         "commence_time": "2026-02-08T19:45:00+00:00",
         "event_id": "3c39464be39e78e0f08f2440fcc0d5ca",
-        "first_seen": "2026-02-08T10:10:37+00:00",
+        "first_seen": "2026-01-30T19:05:37+00:00",
         "home_team": "Paris Saint Germain",
         "market": "h2h",
         "match_score": 1.0,
@@ -8180,22 +8180,22 @@
       "visible_gap_windows": 69
     },
     {
-      "category": "missing_native_5m_cache",
+      "category": "complete_or_no_large_gap",
       "classifications": [
         "has_sportsbook_overlay"
       ],
       "clob_missing_minutes": 0,
       "clob_points": 1306,
       "complete_15m_cache": true,
-      "complete_5m_cache": false,
+      "complete_5m_cache": true,
       "expected_5m_snapshots": 262,
       "last_quote_to_event_end_gap_sec": -6937.0,
       "last_quote_to_final_gap_sec": 264.0040000000008,
       "last_sportsbook_selected_fair": 0.9915,
       "materialization_bug_windows": 0,
-      "max_internal_gap_sec": 901.0,
-      "missing_5m_snapshots": 72,
-      "missing_cache_windows": 35,
+      "max_internal_gap_sec": 302.0,
+      "missing_5m_snapshots": 0,
+      "missing_cache_windows": 0,
       "replay_id": "0x941c9220435c4e6587dfbe8f6caedf698c213e8d559963c0af518584de1d0680:18752213666490944412493728764450695762139549177794736007482217974262890671323",
       "sport": "soccer",
       "sportsbook_match": true,
@@ -8203,7 +8203,7 @@
         "away_team": "Le Havre",
         "commence_time": "2026-01-30T19:45:00+00:00",
         "event_id": "3969209a757cb0e25acff91f46ad9ff6",
-        "first_seen": "2026-01-25T15:25:37+00:00",
+        "first_seen": "2026-01-30T19:05:37+00:00",
         "home_team": "RC Lens",
         "market": "h2h",
         "match_score": 1.0,
@@ -8211,16 +8211,13 @@
         "sport": "soccer_france_ligue_one",
         "time_gap_hours": 0.0
       },
-      "sportsbook_points": 189,
+      "sportsbook_points": 261,
       "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
-      "status_counts": {
-        "missing_cache": 70,
-        "stale_payload_at_or_before_gap_start": 35
-      },
+      "status_counts": {},
       "title": "RC Lens vs Le Havre",
-      "verdict": "The 15-minute layer is complete, but native 5-minute Odds API snapshots are still missing.",
-      "visible_gap_windows": 35
+      "verdict": "No material sportsbook gap was found beyond normal snapshot cadence.",
+      "visible_gap_windows": 0
     },
     {
       "category": "missing_native_5m_cache",
@@ -11506,7 +11503,7 @@
       "visible_gap_windows": 0
     }
   ],
-  "generated_at": "2026-05-31T13:51:31.226109+00:00",
+  "generated_at": "2026-05-31T14:05:33.304454+00:00",
   "inputs": {
     "gap_audit": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/reports/replay_sportsbook_gap_audit_latest.json",
     "source_window_audit": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/reports/replay_sportsbook_source_window_audit_latest.json",
@@ -11519,24 +11516,24 @@
   "quota": {
     "estimated_credit_shortfall": 1280034,
     "estimated_credits_per_snapshot": 90,
-    "estimated_credits_to_finish_5m": 1286640,
-    "paid_remaining": 6606
+    "estimated_credits_to_finish_5m": 1280160,
+    "paid_remaining": 126
   },
   "totals": {
     "clob_complete_events": 277,
     "clob_two_sided_events": 277,
     "complete_15m_cache_events": 276,
-    "complete_5m_cache_events": 166,
+    "complete_5m_cache_events": 167,
     "complete_both_venues_events": 276,
     "events": 277,
     "materialization_bug_windows": 0,
-    "missing_cache_windows": 8082,
-    "source_gap_windows": 8098,
+    "missing_cache_windows": 8047,
+    "source_gap_windows": 8063,
     "sportsbook_complete_side_events": 276,
     "sportsbook_matched_events": 276,
     "sportsbook_overlay_events": 276,
     "sportsbook_points_inside_clob_window_events": 276,
-    "unique_missing_5m_snapshots": 14296,
-    "visible_gap_events": 121
+    "unique_missing_5m_snapshots": 14224,
+    "visible_gap_events": 120
   }
 }

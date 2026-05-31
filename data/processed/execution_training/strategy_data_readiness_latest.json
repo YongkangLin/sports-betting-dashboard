@@ -15,7 +15,7 @@
     "tokens": 429
   },
   "gate_reasons": [
-    "sportsbook native 5-minute density gate failed: complete 5m replay cache 166 / 276 = 60.14% < 95%"
+    "sportsbook native 5-minute density gate failed: complete 5m replay cache 167 / 276 = 60.51% < 95%"
   ],
   "gates": {
     "complete_side_market_data_gate": true,
@@ -47,12 +47,12 @@
     "overall_gate": false,
     "quality_gate": true,
     "reasons": [
-      "sportsbook native 5-minute density gate failed: complete 5m replay cache 166 / 276 = 60.14% < 95%"
+      "sportsbook native 5-minute density gate failed: complete 5m replay cache 167 / 276 = 60.51% < 95%"
     ],
     "sportsbook_native_5m_density_gate": false,
     "trade_confirmed_fill_holdout_gate": true
   },
-  "generated_at": "2026-05-31T13:42:18.112831+00:00",
+  "generated_at": "2026-05-31T14:05:34.001515+00:00",
   "latest_model_monitor": {
     "adverse_selection": {
       "available": false,
@@ -414,7 +414,7 @@
     "complete_both_venues_rate": 0.9963898916967509,
     "events": 277,
     "gate": true,
-    "generated_at": "2026-05-31T13:41:30.595711+00:00",
+    "generated_at": "2026-05-31T14:04:52.883970+00:00",
     "min_complete_both_venues_rate": 0.95,
     "missing_examples": [
       {
@@ -430,7 +430,7 @@
     "path": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/reports/two_sided_market_data_completeness_latest.json",
     "reasons": [],
     "sportsbook_complete_side_events": 276,
-    "sportsbook_complete_side_points": 36310,
+    "sportsbook_complete_side_points": 36382,
     "sportsbook_missing_or_incomplete_events": 1
   },
   "odds_features": {
@@ -1432,7 +1432,7 @@
         "probabilities_in_bounds": true
       }
     },
-    "generated_at": "2026-05-31T12:54:52.865899+00:00",
+    "generated_at": "2026-05-31T13:42:55.571889+00:00",
     "labels": {
       "markets": 216,
       "rows": 2888585,
@@ -1608,23 +1608,23 @@
       "sportsbook_last_quote_not_settlement": 3,
       "sportsbook_starts_after_clob": 2
     },
-    "complete_5m_event_rate": 0.6014492753623188,
+    "complete_5m_event_rate": 0.605072463768116,
     "events_with_sportsbook_match": 276,
     "gate_15m": true,
     "gate_5m": false,
     "matched_events_with_complete_15m_cache": 276,
-    "matched_events_with_complete_5m_cache": 166,
+    "matched_events_with_complete_5m_cache": 167,
     "min_complete_5m_event_rate": 0.95,
     "path": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/reports/replay_sportsbook_gap_audit_latest.json",
-    "raw_5m_snapshot_cache_rate": 0.6921818142669509,
+    "raw_5m_snapshot_cache_rate": 0.6937321017160821,
     "reasons": [
-      "complete 5m replay cache 166 / 276 = 60.14% < 95%"
+      "complete 5m replay cache 167 / 276 = 60.51% < 95%"
     ],
     "unique_cache_5m_expected_snapshots": 46443,
-    "unique_cache_5m_missing_snapshots": 14296,
-    "warehouse_extra_quote_rows_inside_replay_windows": 339264,
-    "warehouse_extra_snapshot_events": 11,
-    "warehouse_extra_snapshots_inside_replay_windows": 1307,
+    "unique_cache_5m_missing_snapshots": 14224,
+    "warehouse_extra_quote_rows_inside_replay_windows": 349158,
+    "warehouse_extra_snapshot_events": 12,
+    "warehouse_extra_snapshots_inside_replay_windows": 1379,
     "warehouse_partition_window_checked_events": 276
   },
   "strategy": {

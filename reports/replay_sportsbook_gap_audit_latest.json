@@ -457,7 +457,7 @@
       "start_gap_sec": 38.0,
       "title": "Angers vs Paris Saint Germain",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 16,
+        "all_partition_files": 18,
         "all_quote_rows": 11463,
         "all_snapshot_count": 81,
         "checked": true,
@@ -1711,7 +1711,7 @@
       "start_gap_sec": 41.0,
       "title": "Le Havre vs Paris Saint Germain",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 16,
+        "all_partition_files": 18,
         "all_quote_rows": 13683,
         "all_snapshot_count": 95,
         "checked": true,
@@ -1939,7 +1939,7 @@
       "start_gap_sec": 50.0,
       "title": "Metz vs Paris Saint Germain",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 16,
+        "all_partition_files": 18,
         "all_quote_rows": 34215,
         "all_snapshot_count": 240,
         "checked": true,
@@ -2617,7 +2617,7 @@
       "start_gap_sec": 637.0,
       "title": "Paris Saint Germain vs Lyon",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 16,
+        "all_partition_files": 18,
         "all_quote_rows": 13191,
         "all_snapshot_count": 92,
         "checked": true,
@@ -7381,13 +7381,13 @@
       "sportsbook_expected_15m_points": 85,
       "sportsbook_expected_5m_points": 254,
       "sportsbook_first_offset_sec": 38.0,
-      "sportsbook_first_seen_offset_sec": 36637.0,
+      "sportsbook_first_seen_offset_sec": -708863.0,
       "sportsbook_last_offset_sec": 75938.0,
       "sportsbook_match": {
         "away_team": "Marseille",
         "commence_time": "2026-02-08T19:45:00+00:00",
         "event_id": "3c39464be39e78e0f08f2440fcc0d5ca",
-        "first_seen": "2026-02-08T10:10:37+00:00",
+        "first_seen": "2026-01-30T19:05:37+00:00",
         "home_team": "Paris Saint Germain",
         "market": "h2h",
         "match_score": 1.0,
@@ -7409,7 +7409,7 @@
       "start_gap_sec": 38.0,
       "title": "Paris Saint Germain vs Marseille",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 16,
+        "all_partition_files": 18,
         "all_quote_rows": 13065,
         "all_snapshot_count": 91,
         "checked": true,
@@ -7523,7 +7523,7 @@
       "start_gap_sec": 278.0,
       "title": "Paris Saint Germain vs Rennes",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 16,
+        "all_partition_files": 18,
         "all_quote_rows": 37482,
         "all_snapshot_count": 258,
         "checked": true,
@@ -7751,7 +7751,7 @@
       "start_gap_sec": 38.0,
       "title": "RC Lens vs Nantes",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 16,
+        "all_partition_files": 18,
         "all_quote_rows": 12810,
         "all_snapshot_count": 88,
         "checked": true,
@@ -7865,7 +7865,7 @@
       "start_gap_sec": 47.0,
       "title": "RC Lens vs Toulouse",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 16,
+        "all_partition_files": 18,
         "all_quote_rows": 12789,
         "all_snapshot_count": 89,
         "checked": true,
@@ -9461,7 +9461,7 @@
       "start_gap_sec": 37.0,
       "title": "AS Monaco vs Nantes",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 16,
+        "all_partition_files": 18,
         "all_quote_rows": 13371,
         "all_snapshot_count": 94,
         "checked": true,
@@ -11971,7 +11971,7 @@
       "start_gap_sec": 38.0,
       "title": "Lille vs Nantes",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 16,
+        "all_partition_files": 18,
         "all_quote_rows": 43047,
         "all_snapshot_count": 218,
         "checked": true,
@@ -12085,7 +12085,7 @@
       "start_gap_sec": 53.0,
       "title": "Lille vs Nice",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 16,
+        "all_partition_files": 18,
         "all_quote_rows": 12831,
         "all_snapshot_count": 89,
         "checked": true,
@@ -13796,7 +13796,7 @@
       "start_gap_sec": 218.0,
       "title": "RC Lens vs Nice",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 16,
+        "all_partition_files": 18,
         "all_quote_rows": 30756,
         "all_snapshot_count": 215,
         "checked": true,
@@ -15165,7 +15165,7 @@
       "start_gap_sec": 41.0,
       "title": "AS Monaco vs Angers",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 16,
+        "all_partition_files": 18,
         "all_quote_rows": 12171,
         "all_snapshot_count": 85,
         "checked": true,
@@ -17331,7 +17331,7 @@
       "start_gap_sec": 44.0,
       "title": "Marseille vs Auxerre",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 16,
+        "all_partition_files": 18,
         "all_quote_rows": 13443,
         "all_snapshot_count": 92,
         "checked": true,
@@ -18015,7 +18015,7 @@
       "start_gap_sec": 98.0,
       "title": "RC Lens vs Auxerre",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 16,
+        "all_partition_files": 18,
         "all_quote_rows": 25821,
         "all_snapshot_count": 179,
         "checked": true,
@@ -21208,7 +21208,7 @@
       "start_gap_sec": 97.0,
       "title": "Lyon vs Nantes",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 16,
+        "all_partition_files": 18,
         "all_quote_rows": 37032,
         "all_snapshot_count": 255,
         "checked": true,
@@ -21664,7 +21664,7 @@
       "start_gap_sec": 38.0,
       "title": "Metz vs AS Monaco",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 16,
+        "all_partition_files": 18,
         "all_quote_rows": 12147,
         "all_snapshot_count": 84,
         "checked": true,
@@ -22120,7 +22120,7 @@
       "start_gap_sec": 38.0,
       "title": "Paris Saint Germain vs Lorient",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 16,
+        "all_partition_files": 18,
         "all_quote_rows": 10677,
         "all_snapshot_count": 74,
         "checked": true,
@@ -22389,9 +22389,9 @@
         "missing_cache_snapshots": 0
       },
       "full_window_cache_5m_audit": {
-        "cached_cache_snapshots": 190,
+        "cached_cache_snapshots": 262,
         "expected_snapshots": 262,
-        "missing_cache_snapshots": 72
+        "missing_cache_snapshots": 0
       },
       "last_quote_to_event_end_gap_sec": -6937.0,
       "last_quote_to_final_gap_sec": 264.0040000000008,
@@ -22399,17 +22399,17 @@
       "last_sportsbook_selected_fair": 0.9915,
       "max_internal_gap_cache_5m_audit": {
         "cached_cache_snapshots": 1,
-        "expected_snapshots": 3,
-        "missing_cache_snapshots": 2
-      },
-      "max_internal_gap_cache_audit": {
-        "cached_cache_snapshots": 1,
         "expected_snapshots": 1,
         "missing_cache_snapshots": 0
       },
-      "max_internal_gap_end_sec": 49238.0,
-      "max_internal_gap_sec": 901.0,
-      "max_internal_gap_start_sec": 48337.0,
+      "max_internal_gap_cache_audit": {
+        "cached_cache_snapshots": 0,
+        "expected_snapshots": 0,
+        "missing_cache_snapshots": 0
+      },
+      "max_internal_gap_end_sec": 10239.0,
+      "max_internal_gap_sec": 302.0,
+      "max_internal_gap_start_sec": 9937.0,
       "median_internal_gap_sec": 300.0,
       "needs_action": false,
       "other_outcome": "Yes",
@@ -22430,17 +22430,17 @@
         "Bovada"
       ],
       "sportsbook_estimated_missing_15m_points": 0,
-      "sportsbook_estimated_missing_5m_points": 72,
+      "sportsbook_estimated_missing_5m_points": 0,
       "sportsbook_expected_15m_points": 88,
       "sportsbook_expected_5m_points": 261,
       "sportsbook_first_offset_sec": 37.0,
-      "sportsbook_first_seen_offset_sec": -376463.0,
+      "sportsbook_first_seen_offset_sec": 68737.0,
       "sportsbook_last_offset_sec": 78037.0,
       "sportsbook_match": {
         "away_team": "Le Havre",
         "commence_time": "2026-01-30T19:45:00+00:00",
         "event_id": "3969209a757cb0e25acff91f46ad9ff6",
-        "first_seen": "2026-01-25T15:25:37+00:00",
+        "first_seen": "2026-01-30T19:05:37+00:00",
         "home_team": "RC Lens",
         "market": "h2h",
         "match_score": 1.0,
@@ -22448,7 +22448,7 @@
         "sport": "soccer_france_ligue_one",
         "time_gap_hours": 0.0
       },
-      "sportsbook_points": 189,
+      "sportsbook_points": 261,
       "start_gap_cache_5m_audit": {
         "cached_cache_snapshots": 1,
         "expected_snapshots": 1,
@@ -22462,12 +22462,12 @@
       "start_gap_sec": 37.0,
       "title": "RC Lens vs Le Havre",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 16,
-        "all_quote_rows": 27468,
-        "all_snapshot_count": 189,
+        "all_partition_files": 18,
+        "all_quote_rows": 37362,
+        "all_snapshot_count": 261,
         "checked": true,
-        "extra_quote_rows_inside_replay_window": 57,
-        "extra_snapshots_inside_replay_window": 0,
+        "extra_quote_rows_inside_replay_window": 9951,
+        "extra_snapshots_inside_replay_window": 72,
         "replay_partition_files": 5,
         "replay_quote_rows": 27411,
         "replay_snapshot_count": 189
@@ -22804,7 +22804,7 @@
       "start_gap_sec": 37.0,
       "title": "Rennes vs Nantes",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 16,
+        "all_partition_files": 18,
         "all_quote_rows": 10893,
         "all_snapshot_count": 75,
         "checked": true,
@@ -25427,7 +25427,7 @@
       "start_gap_sec": 217.0,
       "title": "Lille vs Le Havre",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 16,
+        "all_partition_files": 18,
         "all_quote_rows": 9396,
         "all_snapshot_count": 65,
         "checked": true,
@@ -26111,7 +26111,7 @@
       "start_gap_sec": 42.0,
       "title": "Nice vs Paris Saint Germain",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 16,
+        "all_partition_files": 18,
         "all_quote_rows": 13257,
         "all_snapshot_count": 91,
         "checked": true,
@@ -30643,7 +30643,7 @@
       "start_gap_sec": 37.0,
       "title": "Lille vs Auxerre",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 16,
+        "all_partition_files": 18,
         "all_quote_rows": 12873,
         "all_snapshot_count": 90,
         "checked": true,
@@ -31570,9 +31570,9 @@
   "events_needing_action": 1,
   "events_with_sportsbook_match": 276,
   "events_with_sportsbook_points": 276,
-  "generated_at": "2026-05-31T13:49:32.099122+00:00",
+  "generated_at": "2026-05-31T14:05:08.682996+00:00",
   "matched_events_with_complete_15m_cache": 276,
-  "matched_events_with_complete_5m_cache": 166,
+  "matched_events_with_complete_5m_cache": 167,
   "outputs": {
     "json": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/reports/replay_sportsbook_gap_audit_latest.json",
     "report": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/reports/replay_sportsbook_gap_audit_latest.md"
@@ -31581,11 +31581,11 @@
   "unique_cache_15m_cached_snapshots": 16192,
   "unique_cache_15m_expected_snapshots": 16192,
   "unique_cache_15m_missing_snapshots": 0,
-  "unique_cache_5m_cached_snapshots": 32147,
+  "unique_cache_5m_cached_snapshots": 32219,
   "unique_cache_5m_expected_snapshots": 46443,
-  "unique_cache_5m_missing_snapshots": 14296,
-  "warehouse_extra_quote_rows_inside_replay_windows": 339264,
-  "warehouse_extra_snapshot_events": 11,
-  "warehouse_extra_snapshots_inside_replay_windows": 1307,
+  "unique_cache_5m_missing_snapshots": 14224,
+  "warehouse_extra_quote_rows_inside_replay_windows": 349158,
+  "warehouse_extra_snapshot_events": 12,
+  "warehouse_extra_snapshots_inside_replay_windows": 1379,
   "warehouse_partition_window_checked_events": 276
 }
