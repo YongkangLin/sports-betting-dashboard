@@ -76,6 +76,7 @@
       "max_internal_gap_sec": 307.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xc4cb9b8dea7d2b7fc7be65da5668f4f178b78e8bf4c8b6283b6407736e4c67c7:34327481997639022172875618434237183296228497020847891588188641734820895853462",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -116,6 +117,7 @@
       "max_internal_gap_sec": 901.0,
       "missing_5m_snapshots": 159,
       "missing_cache_windows": 78,
+      "replay_id": "0x51679c1f0bf119fac060cd9b72f5e559c99f3ba79151a50968a0597c3f4d292c:75711692841652610129507234306488014613795767814088813116038742587497743823268",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -157,6 +159,7 @@
       "max_internal_gap_sec": 908.0,
       "missing_5m_snapshots": 166,
       "missing_cache_windows": 82,
+      "replay_id": "0x5f706cc368eeebc1cc82efe031151cae213b72d5f75da2df61dc8d977b923fb5:104939221214425252113344971988636299417891640956131306807463441451017413573687",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -198,6 +201,7 @@
       "max_internal_gap_sec": 901.0,
       "missing_5m_snapshots": 145,
       "missing_cache_windows": 71,
+      "replay_id": "0x010899a80e03d5c913b7039481aaf4a4ed3fd0c567ba3defcdb7d2eaf9d98708:9150441188763174234333352115317182902603211384593963346965452264650269093149",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -239,6 +243,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xf11bfaa30d9da174b2d93d1958ada157da7617db9b68f67f713357bb6ac877ee:99448641510095565995973490595503655292528905797956075772337224680928826828804",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -277,6 +282,7 @@
       "max_internal_gap_sec": 305.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x606c8a718031f21ceae03a4830d04a46c1b22ee2148cf2d5b53b8fd5ccbc357d:2437165807043685908486614713482187152692670309932154388059078034641382181912",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -315,6 +321,7 @@
       "max_internal_gap_sec": 902.0,
       "missing_5m_snapshots": 154,
       "missing_cache_windows": 74,
+      "replay_id": "0xfc07cc52ba8f3b7781a66d352735cfb60829c18a064379bd8e3cbae5784d09eb:69851804208322831349472567019971238984384286337476822147059398123227174053183",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -356,6 +363,7 @@
       "max_internal_gap_sec": 307.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xdaa4c05704bd2a091d3f68da5de24f4525e766a862084d33599c4a7a9cabff9d:70025976021338934332587913867283699339494337786797164816747046705513930977670",
       "sport": "americanfootball_nfl",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -394,6 +402,7 @@
       "max_internal_gap_sec": 306.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xe42c1b9c4a099b9c44f0a414210cced2e8a505b08d999c9a3ccbe2a4f8c5e34b:46760401027593982194128381193964014866650565058033474933527346539890122852049",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -432,6 +441,7 @@
       "max_internal_gap_sec": 902.0,
       "missing_5m_snapshots": 169,
       "missing_cache_windows": 83,
+      "replay_id": "0xb8d3e2137e0855792cc00ae02afc4833e7a4e41b2b56f8842c2b077571ba9cba:55241501184767924896819948620652334850061540141109785219640213712321877826867",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -473,6 +483,7 @@
       "max_internal_gap_sec": 306.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xd46286e322e19429c5bc401857f923f877f028ef383c17ff812e8c3bcd8852ce:43411863111852920841212072441835411800144488644432658921358056393893615618760",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -511,6 +522,7 @@
       "max_internal_gap_sec": 315.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x061e56e7ae378d99abf5b6b6850a7de496739961870688daef3e56cddbaad199:13333586025477407629143140522624669783780128413706208603647585175859912459329",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -549,6 +561,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xf266723c4c356ec10a32e558f25b7679733b924859da42769af659f8ec8becee:26158675413478011352722514897743538470030107897587866193712384702276916797475",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -587,6 +600,7 @@
       "max_internal_gap_sec": 902.0,
       "missing_5m_snapshots": 145,
       "missing_cache_windows": 72,
+      "replay_id": "0xd218b74a3bcafde95d3ad5d4b7127002d0d240e265d06cad4d3f66421ae35e43:94637087711131884091787687241971742953007778805376399048321739835616650099934",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -628,6 +642,7 @@
       "max_internal_gap_sec": 902.0,
       "missing_5m_snapshots": 169,
       "missing_cache_windows": 82,
+      "replay_id": "0xe9004da161407db39127ad6b552128b39acba805333a10eb6e8a316eac6ab389:59129686418852030248179786965124281907601199177585992884829971586436458072414",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -669,6 +684,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x06907ebf9585d0c335ef4b9d4de0aad009bb390058bbcdca65aaece2a75c5043:65734475284371300379226014959445651583673515531060998389646232532669114872091",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -707,6 +723,7 @@
       "max_internal_gap_sec": 308.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x662eb094ed441412db7c9b05edae8026ceb86455037d58362eff75768b367d4d:4542664444514526043539896465759808329479478378625604916402349637731243606581",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -745,6 +762,7 @@
       "max_internal_gap_sec": 902.0,
       "missing_5m_snapshots": 167,
       "missing_cache_windows": 82,
+      "replay_id": "0x532181e10a25e7856634d07fcb25f7b983eed03de11c2738961428c1227d4aab:65358698872882515242244716918655271487617234610925482808956000535665154050191",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -787,6 +805,7 @@
       "max_internal_gap_sec": 301.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xb52fd47e9ea943182a97d86df3033e87dfe29db68fa6eacfb4c58c40c2ed0b59:21565604085347972390756056512370450731331799498790892188046014908079807499626",
       "sport": "icehockey_nhl",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -828,6 +847,7 @@
       "max_internal_gap_sec": 301.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xea2e6279b3f97b87a29f3b6656a9126b3319ac84025eaba3033ad5c04acd4c48:48971411387306840190755047670936951101329562209126909742244746967728740555482",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -866,6 +886,7 @@
       "max_internal_gap_sec": 314.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xbd95cfa24470ae9e22576390c073029e7da8684e327a037b6926284db8150b5c:51004898517464583630405931011412806188473597217986206346144095482708540867835",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -904,6 +925,7 @@
       "max_internal_gap_sec": 317.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xcbd43f0fe2d692e71225b909258a468a98e3465e544426032fe1318ae1c15b3e:66359440750625958074414692868979593306159627073640418135738083407573073203063",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -942,6 +964,7 @@
       "max_internal_gap_sec": 901.0,
       "missing_5m_snapshots": 157,
       "missing_cache_windows": 77,
+      "replay_id": "0x30f989c1e62ad47a336f5e121f462faee21d8f12815262d8a761a15b13ca6fc9:2623752988751944778129153604495590580134349838040517472638873227152681978411",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -984,6 +1007,7 @@
       "max_internal_gap_sec": 901.0,
       "missing_5m_snapshots": 117,
       "missing_cache_windows": 57,
+      "replay_id": "0xa89c84f8c6e7cbad4a5f18e1844663ac60bc6bb2b645ce096973c35927bcc5d2:361878551603982785058851656660969604074874855065324772119729099342446222966",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -1025,6 +1049,7 @@
       "max_internal_gap_sec": 902.0,
       "missing_5m_snapshots": 155,
       "missing_cache_windows": 76,
+      "replay_id": "0xb8b02833bb20ea582f32e5446a46a3627be18456a8935b7033f3c2f902d425e6:3370246803619583163022415661938091670646919448852016466341784708275219214235",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -1066,6 +1091,7 @@
       "max_internal_gap_sec": 902.0,
       "missing_5m_snapshots": 171,
       "missing_cache_windows": 84,
+      "replay_id": "0xe004108fd3d6e24ef9985aa29fb20ae768e4e09fad0d4d91fe1554fdb8cd6f2b:88694828707299218999667874701150144441257011712100202529746605185131683341903",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -1108,6 +1134,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xc4eea371cd2a7677f60501f4f39d977e77ba28ceeea94fa4541db97940a87ab9:94128496026797918984844864568223307829485952150454162992788300657069085242634",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -1148,6 +1175,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x3e6d9a54f337cbb2dbed4ad7f9ff790f2757d9ff5aabc9c7ca61204563a7f636:31204662143229868004008571362677413823336309747358258692486029715789008491304",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -1186,6 +1214,7 @@
       "max_internal_gap_sec": 301.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x617c22d50475a34e4e58a7d71fb3629d3d11e4f2266c89efef05f6424659d300:51815935344694713374414795068745196317900747553885102318175698526976397435107",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -1224,6 +1253,7 @@
       "max_internal_gap_sec": 301.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x668a55220c1933d4cf101836d74f00e1d68d476b6403e51d98a1bbca1fd1f742:52819876881248795118617656816901163626711786674742467904827548254147267409745",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -1263,6 +1293,7 @@
       "max_internal_gap_sec": 312.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xcd2713f03fedb14b6f44bd2237b655cf1dda883c676fdcc57728a5633fe72ee8:78885171094251653039628830859285719261921677710582346820920400761185006382497",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -1303,6 +1334,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x276a7cd4db55de317d9e7213e184220d42c8e25e0f6f5fe689f3b981e6c8ab72:63818066357287219268872211169267737470209848049119255474330237159050680355138",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -1341,6 +1373,7 @@
       "max_internal_gap_sec": 901.0,
       "missing_5m_snapshots": 169,
       "missing_cache_windows": 84,
+      "replay_id": "0x849b250ea5446965f82a2f8306b54ddcd858f73d9677e21f319785fa832dcf92:24839612868932601276158432352236227949559212908376855383791889590148810809803",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -1382,6 +1415,7 @@
       "max_internal_gap_sec": 902.0,
       "missing_5m_snapshots": 169,
       "missing_cache_windows": 83,
+      "replay_id": "0xeadf6da46cc2874d8790c7ffbcf9be8b0b4892e8ee2f34976e8b20e9c4a52b4d:109189517644700297723258463293091194172331531806232370335202834888823329128134",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -1423,6 +1457,7 @@
       "max_internal_gap_sec": 901.0,
       "missing_5m_snapshots": 151,
       "missing_cache_windows": 75,
+      "replay_id": "0xd9b2390afd8a78258cc6cd8ce931fe4fe90c77c3df2834e04dd4d8dd994f73b5:78872993221767917982108995604621456694526897574300252505474345945076467510366",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -1464,6 +1499,7 @@
       "max_internal_gap_sec": 901.0,
       "missing_5m_snapshots": 129,
       "missing_cache_windows": 63,
+      "replay_id": "0x8ed1598d84816de405c72b84bd608f2582c05aff4bdaa4145c5f0f8fa1145ba8:67171572613388796527611320939836270892268314869828910262339282000797052718443",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -1505,6 +1541,7 @@
       "max_internal_gap_sec": 313.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x45b10a3c48265df35ce57f6247b0b332680d96c6c6b08d2ff6ff5fac5359f0f8:82973518216987257226488243995159177877902396222443963328149877700205412282900",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -1543,6 +1580,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xe2f6a180957cd6e89000f2e3f680a8e48944c38007c3bdc26fce7bb10507826b:75335416849037955639507009432465568224943969618054652234756985452209828478054",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -1581,6 +1619,7 @@
       "max_internal_gap_sec": 301.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x357f2a03ad261a94dc86c40f7b7a37b0a35fdaf3f3447896fe943e38741a4369:93496023052226891953796644913170021884664290432932213824250147680258988917113",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -1619,6 +1658,7 @@
       "max_internal_gap_sec": 902.0,
       "missing_5m_snapshots": 167,
       "missing_cache_windows": 82,
+      "replay_id": "0x9bbc33f005c5abaf1df5454ebb19643d4378abe7f26c4d626692c675e4d3b458:34640448434059089947175068052763999988711584343621849391072789088007664800684",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -1660,6 +1700,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x71da3a7b8b414425bb8f94efc159ff9f8f5e26ba7d7b4837311a3b51b574a174:102120326454521018202650925426821008712559440288255804605971886769561427665995",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -1698,6 +1739,7 @@
       "max_internal_gap_sec": 301.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xffc65fa9270aecaabb2198b99f2f86184a75ef6ce62092dd77dfc45b67c3a06d:76015859559805301493987340568431847537646316653421927845092478832270238045304",
       "sport": "basketball_wnba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -1736,6 +1778,7 @@
       "max_internal_gap_sec": 318.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xc70ad48c0136546795ecd843c8025d9c6915f8b257d986a2cfb50b1c5ce8ed7a:33313879656640918753516251607868173305026525091935016229309166996502099557333",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -1774,6 +1817,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xb7b4330efe9d291028a0a8c44fcaead972b22a277007f1a789f4daa6e32bde4c:84130032454746516849499959810443561468973850899561650201201993728347005342171",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -1812,6 +1856,7 @@
       "max_internal_gap_sec": 902.0,
       "missing_5m_snapshots": 130,
       "missing_cache_windows": 63,
+      "replay_id": "0xca81f49d63be3bdfc37a5e91cb54f5f0e47bcb53f42b37064c3a4bf7bd886b25:63010089918490636817487386152470733914486349676431891241161686274703554612218",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -1853,6 +1898,7 @@
       "max_internal_gap_sec": 901.0,
       "missing_5m_snapshots": 144,
       "missing_cache_windows": 70,
+      "replay_id": "0xef5139df430ae065a7ba322da64ff35aba3159e28f43eebf68224f906f18e435:31851225585941361573959892466024990801171566804035343638113620238313981489112",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -1894,6 +1940,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x3c79a37af2fc03f57226323473d6c14f242744cf3d47ddc7ca04616b162c18c2:99755386964190968134188123127214877488579543838059411846643187611890608169708",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -1932,6 +1979,7 @@
       "max_internal_gap_sec": 301.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xd5213fb46cf57eae0f41e43cd847af401a30136949c29e3f30fa917b7c7f0437:11222820284058504858078385299859637111970763662402638906806823986603093054393",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -1971,6 +2019,7 @@
       "max_internal_gap_sec": 312.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x51500fb742a032612fed9869c564f21ac73bd194656863fbb23dcf042090e3ee:82419357931161437031933253002577287902716337319791040196498505578530909917278",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -2011,6 +2060,7 @@
       "max_internal_gap_sec": 311.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xb89f20dacb4ba25df6b6c354e91e4871c8c2bff291ed09fa6df7727e07225f93:74917767135057330528899387201053739814622406326754468722038092305435259441138",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -2049,6 +2099,7 @@
       "max_internal_gap_sec": 315.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xe8742f4eafe1abe2dce80f4c2620f7427727c21522a1ab13de9120ac2bcc12ed:58638209983265647760377795349551223843631580325671773003666104810587904993919",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -2087,6 +2138,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xa6283fe67b6a30e8a09db3cc6c8f05cef7fa249fd1c66bb3d1f330e5acc20988:12713112280176864111269803563682487433963269494489610304913861622220070555805",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -2125,6 +2177,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xde3b0c7884925ac8dd61f5616efeb126edd0ac8ca07531119b06e6e54c0d2c21:27159561215828735435311841961648975369949820916534365243261924382970092326742",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -2163,6 +2216,7 @@
       "max_internal_gap_sec": 901.0,
       "missing_5m_snapshots": 165,
       "missing_cache_windows": 81,
+      "replay_id": "0x06ffb10dcee8f44aa56d8e7241e9d3b8ea0b141457243f0c9d01e23f767725f7:12224792873981119687617688737754405949063850494167442331257680735790603066864",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -2204,6 +2258,7 @@
       "max_internal_gap_sec": 304.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x3696fbc94b14ad78dc0636fcf7986d83462afb3afc1a4979e2e8491d42413e03:78446862040114388235607483398669276691572624806023030056495038788182145375409",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -2242,6 +2297,7 @@
       "max_internal_gap_sec": 309.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x1ac523451f452cb457566eb1b638ef483a1f0718988c2584872cc2fcbf67454b:67106257633776172722455976831632802826054456860297508697235491712687224328318",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -2280,6 +2336,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x31175176eb136487f4d49e168fd959b2c160d0c40a9f83ff619d6895166e0baf:77326034041670981937209199976809245202514411965237675767834665667960572298775",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -2318,6 +2375,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xb27623a57c46b6954c1552672b4ce77b8ab35907f0d81e4d2b91bcf85305758f:3032383439430866331836771435765893241507974748522117340587014253478980679763",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -2356,6 +2414,7 @@
       "max_internal_gap_sec": 901.0,
       "missing_5m_snapshots": 122,
       "missing_cache_windows": 60,
+      "replay_id": "0xee7ae8163aafba900aba5cd85eeef689584a2bbcd57367509f49fe823091532f:114454393686345953983357203590544782761466239580714035103761847058953139413929",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -2397,6 +2456,7 @@
       "max_internal_gap_sec": 323.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x79c2139370c0d718bc65b47a5476a3a180efe0f3d65e5cfe557951fd2dd02452:51474910380311307051718353631749097932997176556256795455732989165873762766633",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -2435,6 +2495,7 @@
       "max_internal_gap_sec": 304.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xe9da83dfeb240a42a3a2be2219f56f29f38455f2326ac1372138129780042f63:33213989218709085588017339377292463450350275017667168891831423599094926538448",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -2473,6 +2534,7 @@
       "max_internal_gap_sec": 902.0,
       "missing_5m_snapshots": 167,
       "missing_cache_windows": 82,
+      "replay_id": "0x0e0874878640d8a11a19559cbfeef9d40b7e91edd1066d884b43ec74eff945b9:38561811833721015226672273183878344131295112583231340750759000689861115443116",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -2515,6 +2577,7 @@
       "max_internal_gap_sec": 307.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xb332ab0f289b2b6628569a20d13b1de4ba8e18e8d02b0a442079e7f9c2fa2a6b:48913018712744652147761122907336875899748540751417363008067660746220309136543",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -2555,6 +2618,7 @@
       "max_internal_gap_sec": 301.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x3f1d84c29c24c482d1e5791c537549fa33e0b71882a97d545d11410897bce77e:15251448165622229053848218513431828722472394663948724554720804807319730240196",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -2593,6 +2657,7 @@
       "max_internal_gap_sec": 901.0,
       "missing_5m_snapshots": 163,
       "missing_cache_windows": 80,
+      "replay_id": "0x7e52a1960c34c7980057a768d7114ab9f234c786baf1c9c13577f61a24f9295e:38662157658203630020157993876388241260220948143041607334585314652295188448649",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -2634,6 +2699,7 @@
       "max_internal_gap_sec": 315.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x9051a71d17790cc56ef59f5806220151e7af77aaa90740c4796e5faabecc6ca7:38093370364353384797448037026666696532695114398922993614008027994132902780193",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -2672,6 +2738,7 @@
       "max_internal_gap_sec": 315.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x608d03f8f77679960037925428fef78c55c4d1619a0a16ba4b57355bc4143f2d:100835650782701150772203114631576731785297101454532655143640487913910343066879",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -2710,6 +2777,7 @@
       "max_internal_gap_sec": 1079.0,
       "missing_5m_snapshots": 159,
       "missing_cache_windows": 78,
+      "replay_id": "0xecdcfa1d67297a9a8cbf981691912f8bd8d1dc92275d921906ef7cc25665e06e:68044486057546814490847461070745679514555327209149542917518274785140923545169",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -2751,6 +2819,7 @@
       "max_internal_gap_sec": 902.0,
       "missing_5m_snapshots": 159,
       "missing_cache_windows": 78,
+      "replay_id": "0x0ec8a5272a8282c9339156748d160864ff6f696b3d8ce8829109a7a51610afdb:86565565776116274627870159255608454532481608467379903343405917730790402103701",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -2792,6 +2861,7 @@
       "max_internal_gap_sec": 902.0,
       "missing_5m_snapshots": 158,
       "missing_cache_windows": 78,
+      "replay_id": "0x669c7d42960966b58e2ee97fc986656a51813b3d643d6b4c168dad4246b5692e:29252785398141284921688941351082671299354539383674500086309966474665172951745",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -2833,6 +2903,7 @@
       "max_internal_gap_sec": 901.0,
       "missing_5m_snapshots": 166,
       "missing_cache_windows": 82,
+      "replay_id": "0x449f7eb5b66e21b647c9340577aa200121639184e69531a0e866acd681bce6df:107290701147602008721357159853599586603447023321640106754074325619978373251710",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -2874,6 +2945,7 @@
       "max_internal_gap_sec": 902.0,
       "missing_5m_snapshots": 165,
       "missing_cache_windows": 83,
+      "replay_id": "0x81139b9ee28c0bc4b74fb53f02974fab9037b84369c4d5c7072fc18744f7e7f1:88471432568798903101849352345577628698055784202497801479799725933272648269750",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -2915,6 +2987,7 @@
       "max_internal_gap_sec": 307.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x74d786eb72f4de44cb39da160a401bcd1a7c390ae03963c1dc13565cc337b9f5:71303468412733771123982749288112919392250086664763383795369770107140847295010",
       "sport": "americanfootball_nfl",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -2953,6 +3026,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x9a9b3f1e3370d6492656b1c902f903b19ceeaf65d5b1ff206f46fce44395cdbb:31046172772686874506961854177054415256879725473695160667950027938128527162528",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -2991,6 +3065,7 @@
       "max_internal_gap_sec": 902.0,
       "missing_5m_snapshots": 114,
       "missing_cache_windows": 56,
+      "replay_id": "0x69fc8e7dd94e34e455f6595a6ee83563397882283c55289a043ebf988bc7995b:90173573479917288248078418211935826531870527901541780795843312088520529318534",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -3032,6 +3107,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x69f75f5938a43ef01cc7ac4cb16859e56bd6ca05fdd9ef75167f56a9430fd6c0:57361230963063159845601944662073922903341856479817613578117484970603791640189",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -3070,6 +3146,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xc8fac6008bd93871d0e948f30f3cc172f9fb2786fe3beac0937af2073ba76bf5:72903927542591969916182067651677213419016181973769666759309696706172542176179",
       "sport": "americanfootball_nfl",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -3108,6 +3185,7 @@
       "max_internal_gap_sec": 902.0,
       "missing_5m_snapshots": 111,
       "missing_cache_windows": 55,
+      "replay_id": "0x6e929807b38ac36c171c3adb1c30fdc502a18bbb3e91fd10234c2269dfb5525f:51395263317368774167438141555818029529243784137917754910303825074158168129836",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -3149,6 +3227,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xc41ada612461b7090d8b19086cc4c2060e16f7eaeb985aeee089f4fe2c12de7a:21341380303690007692832055295311560631168332650882032609807142350179251549791",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -3187,6 +3266,7 @@
       "max_internal_gap_sec": 901.0,
       "missing_5m_snapshots": 125,
       "missing_cache_windows": 62,
+      "replay_id": "0x8db4655819d294ceecc497a51785cdc3accc8833e939cbf0e9305fa965d70ded:66967810607990247318192710534104985061206993743813581884888498486931621458119",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -3228,6 +3308,7 @@
       "max_internal_gap_sec": 314.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x77bc9c2360be35cf5fb4274ae5ffb4cb898e61c06490dc0f8607af5f2162add2:27694179934937641520955737212054310714870724646623004701091407471495415843173",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -3266,6 +3347,7 @@
       "max_internal_gap_sec": 305.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xd36025044a83e4fafe85f1f27d448d4fc7b23dcac043747aa37672ff6d37b037:105737122053129268312786227983461704932030885714886129345609586423955923744953",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -3304,6 +3386,7 @@
       "max_internal_gap_sec": 902.0,
       "missing_5m_snapshots": 170,
       "missing_cache_windows": 84,
+      "replay_id": "0x57a87d9b4d5468a037406bd5587920ccac33415621791971547cd8a24aa33f96:83175691155067831279733150036954930242409746836765824563144679438909026052953",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -3345,6 +3428,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x52228ac6a99a18d5e2f9d5e843ae6d220c6c0d81731312c68f266115ada12115:22194708992863588444127332661522698680213434254406180714261574486954966745703",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -3383,6 +3467,7 @@
       "max_internal_gap_sec": 901.0,
       "missing_5m_snapshots": 116,
       "missing_cache_windows": 56,
+      "replay_id": "0xcadbd40da0f70359f93800926a5434f6caa9a7864a444c844852c8b6f0bc985c:40770145183179160071978969542944323501974332144013711079513666066003339118519",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -3424,6 +3509,7 @@
       "max_internal_gap_sec": 307.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xc1c6393c139c493f4edb49177a2d317b90fd8973da2eb3675ca98b4fb2ae4a75:57676843395754173642144639081257237418381874168167490957815986002289296005561",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -3462,6 +3548,7 @@
       "max_internal_gap_sec": 314.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x3d674639f2c0e5f70318b28b0e7499ae197cb64965f743c77467c82c7b1b8824:27790268472281755636497785741585604899060653630604163607739166055863615936206",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -3500,6 +3587,7 @@
       "max_internal_gap_sec": 309.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x81e840a2392084e478f9d2797f107954c0e2b6c1cec74bb62c19574639a2fc7b:16952627702855334069311411492443408512797070592054366874092914238156740099153",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -3538,6 +3626,7 @@
       "max_internal_gap_sec": 313.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x59fb4eca51336d22cd972760fbb01ef94c6c07fc6cf7a036e1c1a2f278787236:81144337495721773734453868209425407316268535356189679687046666537551769953421",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -3576,6 +3665,7 @@
       "max_internal_gap_sec": 301.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x1907e7bd495e0a1eca9049b18ffd652b1961113713d141374d6ac5bb1ca66922:10116089711001117841135224750826069324066461435046964233291014901378997900491",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -3614,6 +3704,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x7b50c3996f3fd42ab59d01e275459b9450a33cd94ca43d8209cb3bbf6110b2c1:112214310437110360285830935822417897711842499528635314595889207340688225613679",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -3652,6 +3743,7 @@
       "max_internal_gap_sec": 307.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xb54b0241f4f33e6734a29df5d59e0b4fbb7b96cf92d2c7151622cdb294c94516:14601167560606426917718331855347642051223131748556197437271063122555636628254",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -3690,6 +3782,7 @@
       "max_internal_gap_sec": 303.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x67c4c5a244f46cd6fde9202e22f64107f084c651ab1a496f56c35fa4d6cf2b70:59640342560314799825633048436341234100511766867706150259476160351049559320358",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -3728,6 +3821,7 @@
       "max_internal_gap_sec": 373.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xcedce128d678752499581e3be70a6dbb3465c57292fa7c2ff827c4c80cad4a20:43782462246801740246852303004000538182567097701672602387800287120072818717076",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -3767,6 +3861,7 @@
       "max_internal_gap_sec": 4199.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xdd8b0ff5b074d99ee7d9780308a640a2e950e35183e209f90a8d1000e1705129:65285458586374907603044367677174937582183401729901381455037166886598398317820",
       "sport": "icehockey_nhl",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -3808,6 +3903,7 @@
       "max_internal_gap_sec": 307.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xf4fb1b0345e2743681340f6b21ba8ece0d2d3953abd1401cb230649afbfa2be2:110157817286757632836518375820056785109706574557998604355597505950651068148364",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -3846,6 +3942,7 @@
       "max_internal_gap_sec": 314.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xf23cd97feb245149b641620e6741806eb7778fce771664e7da3d40d312514c5e:56231565699390761774333691615181822894845417926396990816368282363866436225222",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -3884,6 +3981,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x47ee57215a38311986058e54bef61324abce104a493ab5e609d7bdec37b75200:22504401744341519843952857608460268321875749698990801548986201910438139135763",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -3922,6 +4020,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x639b4f77f8b53506822f2ab970b6396b9bf3dce9c2c90a9e8fbb28f4fd409f4d:88486030325686064829398409322998300238625844528156126252690290738115633027007",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -3960,6 +4059,7 @@
       "max_internal_gap_sec": 301.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xe76563088e0db6ef9ee73a9df65ff6e67e30c1b4ce810be6cd0149d2192ba59b:71935501591024185768131070743352276968409285393838153503567151206850187189950",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -3998,6 +4098,7 @@
       "max_internal_gap_sec": 301.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xf42921f761a9553b33c3bcfebc42f48218b9147cf33d137f8daf28da996d5642:72061868768744363794309804812683635190849437054114408108529113134643926789227",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -4036,6 +4137,7 @@
       "max_internal_gap_sec": 301.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x4300a603ffbd0e76f5be7cdb2a927ace7b43962b35212567045671cf575cceaa:32633177615617395626060998190995423357453112034519599924720345282685551494491",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -4075,6 +4177,7 @@
       "max_internal_gap_sec": 320.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xe06acc48c72d4739af5f5b0b6bbab59075402dfa971e0b83f6495a93ed9e9d5a:60942987927580559250136707134245877270335315132930070284238331153767453097188",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -4115,6 +4218,7 @@
       "max_internal_gap_sec": 301.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x5b3df7ff717ab31561855d0b4d4645a579cc2abdd4995cdab06891e8302b0190:10846792846827188436470068800134484940757973617081044286208758966152720519607",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -4153,6 +4257,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x7cf1580ce30e06ae7a356755cfebea5227f2e14998a17226e79384d1c4b675d6:109133200482558420550867412576751784917983252203125783101562328867160173973964",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -4191,6 +4296,7 @@
       "max_internal_gap_sec": 901.0,
       "missing_5m_snapshots": 163,
       "missing_cache_windows": 80,
+      "replay_id": "0x935181c53e9ce0cc14f9dfc41dd0663abd92c7037061c6cc6c5c0ef6d1e86a78:108689882342287580352869981578656358130326241006272661835032241654392159154617",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -4232,6 +4338,7 @@
       "max_internal_gap_sec": 305.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x214768f468e1c20a44d0d64f704538db8d6455ca7c70de2d3e4d274d782e0132:41511463028297773382622708392576678618325007295031377378512845670478212059172",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -4270,6 +4377,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x2d3013f8afa06edacbbe2aec2b0468e38b1614465bc763679709e822e7d0d306:69484047683242857750618105216255102411634451907221545410038986478509923203667",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -4308,6 +4416,7 @@
       "max_internal_gap_sec": 303.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xccb69805e72db787fac2e14fd0bf66f410b4db64ddba86757755938c769c74f8:95826787217695405958797902854696728628070227517490651760778344161609486384216",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -4346,6 +4455,7 @@
       "max_internal_gap_sec": 902.0,
       "missing_5m_snapshots": 134,
       "missing_cache_windows": 64,
+      "replay_id": "0xf479d74b9691b9f8edd5beb3d009aecc657b82d112788e3c524f929a5f36defb:45061893392822915580407204540992389047895786401178831043993277723935185721541",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -4387,6 +4497,7 @@
       "max_internal_gap_sec": 303.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x9793604a70e26a469b393db6beffa4b88352843e6830213841c44ed1c3a0d892:108587403337954925655045633672486253247280201154679136866916080093961931094489",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -4425,6 +4536,7 @@
       "max_internal_gap_sec": 902.0,
       "missing_5m_snapshots": 113,
       "missing_cache_windows": 55,
+      "replay_id": "0x5d457b59794a43124e76283b9eedfaeb8a3ce2f4b3654b68a6d1c44b6c563b75:100570949666966549782722888365100702851876960681156356119196581914581006855871",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -4466,6 +4578,7 @@
       "max_internal_gap_sec": 901.0,
       "missing_5m_snapshots": 44,
       "missing_cache_windows": 22,
+      "replay_id": "0xf2f189de5e56b66cfd29c3a984fa3dde483ea71529ce395c158682ab4750a867:34428653976380446416387126993346041256994726550176489117036048180779020748454",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -4507,6 +4620,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x9a53155b972f235e6f2fa2984c88538873ef3191a95fe2e7030011b78313c129:4520630351429473496148699082989098921791955862136924530526506540102463182336",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -4546,6 +4660,7 @@
       "max_internal_gap_sec": 325.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x531f2d29090b410cd7f820318b5c4c7d793ac80b7655f5a0a4065d9e77302cc1:82561434437899580408296582751163313418762372443777666758510383680459008208196",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -4586,6 +4701,7 @@
       "max_internal_gap_sec": 314.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x8797607ccb187af3b4370f7bba8071c1ece84c16f3494263dd00acca8a42c76e:114319575128507204720063680817889948885856132334750466547544484091505403307696",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -4624,6 +4740,7 @@
       "max_internal_gap_sec": 902.0,
       "missing_5m_snapshots": 146,
       "missing_cache_windows": 71,
+      "replay_id": "0xfdf32712fdb1513493b6837771c0272c5f2242ecc27cf27da1a50ab9df38b6f2:26074425819807271992695902175107483832253412644190390473452785411822848033299",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -4665,6 +4782,7 @@
       "max_internal_gap_sec": 303.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x6081e2dab0a2062c95eb5dba211a7f2a8b73a277a892ddf1a8b77fd2bee65393:60830986289731005500841617813509391953715115775515257732941537550299215936261",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -4703,6 +4821,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xec2fcfb4184649dc0ad551bf5b84d702f7f5d2f30783acab252317102645ff1a:41591898652006689509292141857321423914210683149231671613529104889921599704216",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -4741,6 +4860,7 @@
       "max_internal_gap_sec": 301.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xf6a808c701b3432667fc8f21b3fe05259264cb45276aa7fcd2a7d486bfaa3601:88289804616935923809321119252865056808373694473082600665834909738008415308474",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -4779,6 +4899,7 @@
       "max_internal_gap_sec": 303.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x5d8db9157a2c64629434e8037d8fd821a10b078dbe2a81f6dee05de791b9a927:18291470611336392702277907458192295163879182566208878558436922689521548220214",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -4817,6 +4938,7 @@
       "max_internal_gap_sec": 908.0,
       "missing_5m_snapshots": 145,
       "missing_cache_windows": 72,
+      "replay_id": "0x07d52e1a3e55ec1b86737b9f6c0d93d0711b9aef7da3edbacd48b99b5783f110:78582122485466896369358749972194012414182225025363663572223626411737694764998",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -4858,6 +4980,7 @@
       "max_internal_gap_sec": 901.0,
       "missing_5m_snapshots": 130,
       "missing_cache_windows": 63,
+      "replay_id": "0x7892e13841faeb873c21e4e3a8a06366b558ac48775b5dafa60c415f36236698:34132199226173169034112770893133395366114800787420719152153707035564851366091",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -4899,6 +5022,7 @@
       "max_internal_gap_sec": 901.0,
       "missing_5m_snapshots": 118,
       "missing_cache_windows": 57,
+      "replay_id": "0xfd8a0b3d5fad1ef68bdcf0c7bd73112ecb9132423267c88a594fb91b12a83fdc:92277809353791753415764031182271696091147759665466858574226453064296582547200",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -4940,6 +5064,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x5dc02dc097df2ac044134ff45d6e0d690e67344ce1f69ca1073b9785c7f64e6c:40006445388185338955358702887295798674861557428409114926293823097294095633717",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -4978,6 +5103,7 @@
       "max_internal_gap_sec": 301.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x43e951e32b4c0cbf564c511f1750d2ab9c41c4769ed56af17eba8faa770cdc71:70802223511369011396887528564354505837319693459606259746422244331440892333144",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -5016,6 +5142,7 @@
       "max_internal_gap_sec": 902.0,
       "missing_5m_snapshots": 126,
       "missing_cache_windows": 62,
+      "replay_id": "0x45048bda58bdb541afa1c878d4cd20bb43cbf991a6f8dd1431b79e94eb4add0f:111381303052052465956732939894251409762115643506585762247075789778073414959056",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -5057,6 +5184,7 @@
       "max_internal_gap_sec": 901.0,
       "missing_5m_snapshots": 114,
       "missing_cache_windows": 55,
+      "replay_id": "0xace4f3ef430eb4844ddc4bde7a3ba662cac1cb369441bce675c8e37a5dda2146:47738795636078082056638111654719657640509753571619116361238562328441373923771",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -5099,6 +5227,7 @@
       "max_internal_gap_sec": 300.0,
       "missing_5m_snapshots": 1479,
       "missing_cache_windows": 1,
+      "replay_id": "0xba4311efd8ae9557ee9fee7789bf394db52a2358b4695afc86f67e8c65f12c10:97674861007299237757567034257999103517981748843609780716452439393647261600221",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -5142,6 +5271,7 @@
       "max_internal_gap_sec": 300.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x94a76bff1f221305aa7abc8a224a1f0b85c7914854218f49decdba046a5b033f:16935792891270684710095838267775428846254074617591748121256596013856872193107",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -5180,6 +5310,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x358e85188c9a7f86675242d16256d86ef12801ae44b2a2e914a0c9a2743740da:49797003103003486440893863921013334308949611912350988285734183004413855401131",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -5218,6 +5349,7 @@
       "max_internal_gap_sec": 902.0,
       "missing_5m_snapshots": 167,
       "missing_cache_windows": 82,
+      "replay_id": "0xb462cc14a81263d95306f9d2a47b416b73057a0817491f4177e97f41dd8c217e:9515450768681660614346952354857671226532878322513463473882606833599037425825",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -5259,6 +5391,7 @@
       "max_internal_gap_sec": 902.0,
       "missing_5m_snapshots": 152,
       "missing_cache_windows": 74,
+      "replay_id": "0x25a12db9fc5c76a7c56f5bea3dc8e37cc8da72b413b9342a66ee8742fac53139:59296274919036470604869646290714250894749942421790163106709788428942980977562",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -5300,6 +5433,7 @@
       "max_internal_gap_sec": 312.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xa744aec5a9ee2e01de1d9fd6ae1e3ff875e6168b4bfd7ec12abf7c080d9f5999:87755677228331184906572013473559016890666382431538543295475692415745005667654",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -5338,6 +5472,7 @@
       "max_internal_gap_sec": 902.0,
       "missing_5m_snapshots": 149,
       "missing_cache_windows": 73,
+      "replay_id": "0x92a3f4c977104204bcf2305ba637bd27f477ce4b411b91615cd38396757fbcf0:21577357760177622618944820871649316040949951980845740612687341332984338005492",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -5379,6 +5514,7 @@
       "max_internal_gap_sec": 902.0,
       "missing_5m_snapshots": 170,
       "missing_cache_windows": 83,
+      "replay_id": "0xc39e46c7f2f906be3ebb4d9aec7e8553643c7df11e6392aec8e64d2e7fc5eae7:27827446425579430381793869440253264999342828161646601962923970508837162892843",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -5420,6 +5556,7 @@
       "max_internal_gap_sec": 901.0,
       "missing_5m_snapshots": 121,
       "missing_cache_windows": 60,
+      "replay_id": "0x6a208f63a63cc7ecdd4e0c9b99877c6684cec12e53e7f3620f75482ef281a632:80533368449052090376273470321793608179462065170445544258540443094288020608184",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -5461,6 +5598,7 @@
       "max_internal_gap_sec": 903.0,
       "missing_5m_snapshots": 149,
       "missing_cache_windows": 73,
+      "replay_id": "0x4faede757e811e5e0fc1a79467377034de373e393a7ed3feac97b34a05fb1e6f:90944776991547817243720927408264771579037877735343388636065709768357768164698",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -5502,6 +5640,7 @@
       "max_internal_gap_sec": 901.0,
       "missing_5m_snapshots": 139,
       "missing_cache_windows": 68,
+      "replay_id": "0xd3d9dcc8991c9b7858c1ddbea1ca96027f6b3136ab292ffb97bfa5cace706ac2:81810051216624213280519368947142884917622162056571256785465324953145001055361",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -5543,6 +5682,7 @@
       "max_internal_gap_sec": 300.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xee2e560994bf5456ce23949b1baeef93534f0483e78e9e6e847b6dc154c1fca5:63909746413243929587927034115642087628158345101443794907264514578995822316301",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -5581,6 +5721,7 @@
       "max_internal_gap_sec": 901.0,
       "missing_5m_snapshots": 101,
       "missing_cache_windows": 50,
+      "replay_id": "0xe087c3f215c14dca2aace1fa8a342add6e9240f2ca813b9ffbb4f3a6a8743aec:101399881949356708458583519838887827624687363490072822848501851666590935907292",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -5622,6 +5763,7 @@
       "max_internal_gap_sec": 301.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x3b718cda594c8e56e255249af466085983e5d942ba39eacce6215fc5fb826c17:109157726685996608357747636546088916543328360428612757697445266866688667017699",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -5660,6 +5802,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x18f13bce331ffbdf4e05984072fb5ab4f29b8d45b24faae0345d67b6b465db41:110064238102879559545702556594773228788784482188336080458087023340668542509395",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -5698,6 +5841,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x4d0da23a18881ffc369a8f2d2dc3cf500948ed76c5041cecb05e13a002e3eb06:1204769089923326144667456546962721970174687641907091544080070034752460712685",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -5736,6 +5880,7 @@
       "max_internal_gap_sec": 902.0,
       "missing_5m_snapshots": 167,
       "missing_cache_windows": 82,
+      "replay_id": "0x6fec4145b044eff6ddc397bebe2b63489b41427fbff5ec573363158445640d6a:41248805835673275829669135489903292906078134049810723801777816627235791170183",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -5777,6 +5922,7 @@
       "max_internal_gap_sec": 303.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x92299e316996773f93a97e601499297d9d2e20fa841499f1cf32977b1a834a65:28512656905308345634871175641858767961132956073778208060881525456672410418239",
       "sport": "americanfootball_nfl",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -5815,6 +5961,7 @@
       "max_internal_gap_sec": 901.0,
       "missing_5m_snapshots": 157,
       "missing_cache_windows": 76,
+      "replay_id": "0xf5136144933e5d6f00dbb864adb6c7b5c9ad1aa356634fa21e6c0f2fb619df91:105866561037458873788639395763324834920922468772632063422443148832879995300911",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -5856,6 +6003,7 @@
       "max_internal_gap_sec": 902.0,
       "missing_5m_snapshots": 159,
       "missing_cache_windows": 79,
+      "replay_id": "0x52277d4a6a0747ea9ac16bd8e4a71db89861b7171159e3680c19a4180d4e8ab7:4912621980250167691103122571043968497758449380137737697566477580125226330915",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -5897,6 +6045,7 @@
       "max_internal_gap_sec": 307.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xda70dd65c011a7c537794bc16167ff64688f3ba79664a1933ba85f84356cb28e:82173566857140651163348758014102975895137112245177929889087447889051912781404",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -5935,6 +6084,7 @@
       "max_internal_gap_sec": 904.0,
       "missing_5m_snapshots": 166,
       "missing_cache_windows": 81,
+      "replay_id": "0x53a4f55f8e86a354e7d9e38d05832b9a8b836bd71b2e1e5270e5ca71d721f585:36723394084180375748034151948490942209056969026334607563710651908733529104379",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -5976,6 +6126,7 @@
       "max_internal_gap_sec": 902.0,
       "missing_5m_snapshots": 169,
       "missing_cache_windows": 83,
+      "replay_id": "0x9d45883f39faed7ac68c9116451e1bc1b1d914c9c6f1c0f696f830831e3c6a19:82086050032704853155671818829141351345132319184652525856628590600086962835412",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -6017,6 +6168,7 @@
       "max_internal_gap_sec": 902.0,
       "missing_5m_snapshots": 167,
       "missing_cache_windows": 83,
+      "replay_id": "0x10231ef1395e732c2c24de034febeaa190bd6cf2b12b9989d564bd78f7bcb54f:78388719225582309221336995928999290391074167117970114948076047431419943015397",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -6058,6 +6210,7 @@
       "max_internal_gap_sec": 301.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x57b79c1fb4df735fbf8e3ac45a2f8c87f58bb005a74b8af6757ff1f590be0fba:25562092238203129640548336232932188857494873976665213366506818923451453402639",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -6096,6 +6249,7 @@
       "max_internal_gap_sec": 314.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x37bfcdc1a6969f3e21309d21112fba0fad17114e0c70f5449b924186c7e3bcd3:13503031997046209741070445366004722817478076990094986983772037122637621758790",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -6134,6 +6288,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x01dfa1168bc1321e752534c672809d69fa3cff945be96bbb63cdaf3d71060dd5:77865891427010230979055606329561567251584856153465899463276756624426262394498",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -6172,6 +6327,7 @@
       "max_internal_gap_sec": 312.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x3029a3ab02079bf66c2bf8793e7a90526e9f0be0667197b1b4f3622c329cb59b:58178230054436680669497255889553087090163979193920674783041000175962812023395",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -6210,6 +6366,7 @@
       "max_internal_gap_sec": 902.0,
       "missing_5m_snapshots": 154,
       "missing_cache_windows": 75,
+      "replay_id": "0x49a376a871f7450b68ffc1d51d9e13da7db603381fe938c0b7a4b3f4e50b084b:114034929780337046614492576945672675110383663570069883590999875705550267577642",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -6251,6 +6408,7 @@
       "max_internal_gap_sec": 323.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xdfbb287d0c66f1f3f7fabae502483fd146f10c98889eff817c6ec0ce2d36057c:48532534338187794653181972660222692741996544267323357322545142537882562549764",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -6289,6 +6447,7 @@
       "max_internal_gap_sec": 303.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xdd3b4e4caebb1e2db713d4d78c04b2531e1997d410dd6336463bb2e6328b9c62:113494951565113708623527451359056730984243476958240143705876758962347437461320",
       "sport": "americanfootball_nfl",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -6327,6 +6486,7 @@
       "max_internal_gap_sec": 904.0,
       "missing_5m_snapshots": 114,
       "missing_cache_windows": 55,
+      "replay_id": "0x323e4fc02564614fdfed2ae87b5d3fb2775df27346e855aa6b1145729b2f627d:111767890564089743131046635565871535741020384521142004373008784095684248997230",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -6369,6 +6529,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 1,
       "missing_cache_windows": 0,
+      "replay_id": "0x482c2bfdabe8f0c5e09a392af916ef2f2ad7e36dd464a6f6cfc8712f28957d82:32824586942886977118705545511095691538640461803676032246448220550592225994189",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -6409,6 +6570,7 @@
       "max_internal_gap_sec": 1500.0,
       "missing_5m_snapshots": 140,
       "missing_cache_windows": 68,
+      "replay_id": "0xc159eacdd3d003f3ea8f1bbb9e896a2edf808058d283f847376a901c7b9e83a6:91338041028586527921342568839567427473836719010221322658662118738693427069355",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -6451,6 +6613,7 @@
       "max_internal_gap_sec": 902.0,
       "missing_5m_snapshots": 137,
       "missing_cache_windows": 67,
+      "replay_id": "0x8d54c3908d978378fc85c368ee127183ef10ec7e84026398d87d6d09731fc01c:68038847870532285813462719203853923621482707674685447721699884244525467724700",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -6492,6 +6655,7 @@
       "max_internal_gap_sec": 902.0,
       "missing_5m_snapshots": 163,
       "missing_cache_windows": 78,
+      "replay_id": "0x056fc1726615a217d6ee2d01035b50c790c68fdebd161e3192bb4b106f97bc0b:80534241928023236633899890883662476120880343721563368706611338769844534209022",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -6533,6 +6697,7 @@
       "max_internal_gap_sec": 303.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x72f3c89aee1abc48cb220a951325afc84b97c96dc25b583a1061a17ba0230fa2:69797126481166711223247897836208040020836372877196479370974467824925882958060",
       "sport": "americanfootball_nfl",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -6571,6 +6736,7 @@
       "max_internal_gap_sec": 903.0,
       "missing_5m_snapshots": 166,
       "missing_cache_windows": 81,
+      "replay_id": "0x06336e7513d7c778e6820473410f0a8f20663e00f4982072986c4f4b39457a0f:7702848285894012157455435160807734502480054077808522957347361831118537621707",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -6612,6 +6778,7 @@
       "max_internal_gap_sec": 323.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x6eebe7a3bbffc504acf8390ec501f05f1ad834f9f6a21f7f51e7753521d7dedf:110614286495777363736566721606869509977687491063485234095058292700291912616514",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -6650,6 +6817,7 @@
       "max_internal_gap_sec": 902.0,
       "missing_5m_snapshots": 146,
       "missing_cache_windows": 71,
+      "replay_id": "0xa464d4c4a283c8f33c3669e00d745eb32e0d0c218329af79da2b29cf34d7c2fd:19065789320079562316709152147690827488132348980993600857311678316896237010461",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -6691,6 +6859,7 @@
       "max_internal_gap_sec": 908.0,
       "missing_5m_snapshots": 129,
       "missing_cache_windows": 64,
+      "replay_id": "0x35e8dd5f63b74dc14369e8b1b5e09b552559198f0db94bfe83a2b941d552e991:85809356357525662040681500772396621785549772721100975709986011551665251369224",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -6732,6 +6901,7 @@
       "max_internal_gap_sec": 901.0,
       "missing_5m_snapshots": 120,
       "missing_cache_windows": 58,
+      "replay_id": "0xbe28070edc8b91d144f7a7af4d46595a997bd805c80a3383592713dabcf15787:31696759279105642009694269442512106930726970870646308923467684775404047898290",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -6773,6 +6943,7 @@
       "max_internal_gap_sec": 303.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x2a5dccfc9130f9bfc37cb2b847e8382bd9ddde320e76158e1724945b50ec425e:92213116008739741430304732570214053214428654562875392719198018220056194369741",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -6811,6 +6982,7 @@
       "max_internal_gap_sec": 902.0,
       "missing_5m_snapshots": 131,
       "missing_cache_windows": 64,
+      "replay_id": "0xfd165b268d4f379e4e68efa8480cd787706e8c3fb7f8730cb56b2eb6f088b515:52302169623437945979449051859525887530345417917094989963427556889589829592453",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -6852,6 +7024,7 @@
       "max_internal_gap_sec": 901.0,
       "missing_5m_snapshots": 165,
       "missing_cache_windows": 81,
+      "replay_id": "0x6fbba52b0d8dff63254bd130ed9b1d6029832357ff2521df0fba177e19df6d9a:21274065394068026566508449754392881171517229368507698614896613348032083236732",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -6893,6 +7066,7 @@
       "max_internal_gap_sec": 902.0,
       "missing_5m_snapshots": 131,
       "missing_cache_windows": 64,
+      "replay_id": "0x30f77e76e670ce06122a93641aa34608cc75dd41921e5d835d92d61703046d52:7344210138384200744734170788305277633079517209243778457229270992791635747115",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -6934,6 +7108,7 @@
       "max_internal_gap_sec": 307.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xa71983d3fd60496758d0da08c790b8720bf3eb4d5612b6f2df5d7f2ebb7a32f8:2874814773671486311767225704003144047408838304113450254771693479746876828193",
       "sport": "americanfootball_nfl",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -6972,6 +7147,7 @@
       "max_internal_gap_sec": 901.0,
       "missing_5m_snapshots": 165,
       "missing_cache_windows": 82,
+      "replay_id": "0x12cea93f57c60dab3297f3b828668a35550049cc5ff2f5b34d0d0cc325b3fe12:114326685010724866616647556828556796652927588286919799126678618689669202827820",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -7013,6 +7189,7 @@
       "max_internal_gap_sec": 902.0,
       "missing_5m_snapshots": 169,
       "missing_cache_windows": 83,
+      "replay_id": "0xdd27c7ca212b30c76d1dba8dc93d62c2c6ab9b3169f488645f542157fe4061dd:74705750723242367666756734307401219122643832114896287279485440480055060912252",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -7054,6 +7231,7 @@
       "max_internal_gap_sec": 901.0,
       "missing_5m_snapshots": 135,
       "missing_cache_windows": 66,
+      "replay_id": "0xafd3387798169ef9a30b9cf54a14cfe27549dc9dbe9548975f0908a61331b0e6:35576816639391316779725871928582109393119805838405345043438002418552821430871",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -7095,6 +7273,7 @@
       "max_internal_gap_sec": 301.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x3d902714b7e37063d33f58ec5f5f447444e3046462921ff8aaef1ecb12acf7e8:82272625091001534301809565072492960391627176273512335873388384023198816179947",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -7133,6 +7312,7 @@
       "max_internal_gap_sec": 301.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x93ddb872fbce74cb2b1c7f8331105b484517d86859313273b341d4e35badfd72:9894244971023311713440286957930514952631527432917666403140562853641338175910",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -7171,6 +7351,7 @@
       "max_internal_gap_sec": 901.0,
       "missing_5m_snapshots": 165,
       "missing_cache_windows": 81,
+      "replay_id": "0x6979b15ab68bee2c246550937af46729998fa021db0bd43123b357c66d52e790:69785910467478626385722890862919706783124308235114799316325566386024941602499",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -7212,6 +7393,7 @@
       "max_internal_gap_sec": 305.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x730392a1089bbea90f01c5750c1b42afa2af13c48c5ca0d1a1e8ac1fffd1e173:1454339455028442975100680793985780694109187249415410784098581716845915785317",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -7250,6 +7432,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x634878881a85b9d922dad538381b0c6b1047f062a9d73105e5564ed509bc3040:61586180606713304586533685490962612335002303109839056294265618974524351317420",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -7288,6 +7471,7 @@
       "max_internal_gap_sec": 904.0,
       "missing_5m_snapshots": 144,
       "missing_cache_windows": 70,
+      "replay_id": "0x3a45c71851194eb70f535ab0c46fde8edb8f9fc027e454513ff9d6b12efb2b35:54685025561810610384116467131255844855023653320432202231358443040971031129744",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -7329,6 +7513,7 @@
       "max_internal_gap_sec": 314.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x1404e0b58e79b8c05e2d991c977a2222a0243464241f87be93cf610c640637b8:19539654050993689663878961222358315325918577723465387615140877242803786718390",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -7367,6 +7552,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x55cfda764d282f3bc99635c4bde84be41c050f990abe84018b17890ecd83c912:105400737074298544380257761581725075847995092793627304093815681160156944163463",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -7405,6 +7591,7 @@
       "max_internal_gap_sec": 900.0,
       "missing_5m_snapshots": 102,
       "missing_cache_windows": 49,
+      "replay_id": "0xe3f752cf7b411e08fd35064a987fe20419e51626c5b7a0e0f84fd2aef91de86e:63978165242440008192039684662629301996314429308686709148687921153029066868627",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -7446,6 +7633,7 @@
       "max_internal_gap_sec": 901.0,
       "missing_5m_snapshots": 161,
       "missing_cache_windows": 79,
+      "replay_id": "0x84d733d0f6e1d4f1d8a949a0a3dc3a91a09b3c82747ffaf01045ab3f90b9aaef:8302812177152257408800370849870672009179301913777094192880669182378141899400",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -7487,6 +7675,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x6de01b11b5615a39c6e7b1362c3ae2b709e931628754fb3e5eb0f06f5e1d2d52:35795280953187431187403483102994967876159808816054158518597323600313185128809",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -7525,6 +7714,7 @@
       "max_internal_gap_sec": 901.0,
       "missing_5m_snapshots": 143,
       "missing_cache_windows": 70,
+      "replay_id": "0xa537bca6f15e00ff6ff7149778c5f613c03b66f795a257b192ec9b17fda5d2c9:44368575368099706231885914584065481541207353017601675626784476337722599240577",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -7566,6 +7756,7 @@
       "max_internal_gap_sec": 314.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xccd465f1b4e98bf31e2592e995767b5c025124f3393aaf0c75e3fa849e338cdd:114886234035166827001780431239871905530138142371505061770430593575236778517305",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -7604,6 +7795,7 @@
       "max_internal_gap_sec": 1800.0,
       "missing_5m_snapshots": 165,
       "missing_cache_windows": 80,
+      "replay_id": "0x6172556845e0ef8e6246501f42ba679f080b56bf3c6085dd7f9019ffb17128ab:74804493134507101532820520198149101732694779557859826267677023643719980270864",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -7646,6 +7838,7 @@
       "max_internal_gap_sec": 901.0,
       "missing_5m_snapshots": 167,
       "missing_cache_windows": 82,
+      "replay_id": "0x7471fd926c7375f7e59f6dac20ab466fedf9b8e453850ec6125e49c2a3b21ae1:87366597691827837387384561751024838621028353658197043113119184852507603928719",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -7687,6 +7880,7 @@
       "max_internal_gap_sec": 901.0,
       "missing_5m_snapshots": 129,
       "missing_cache_windows": 63,
+      "replay_id": "0x2021e05a7c8b1a8c2d012a9987b1158a86a040476610bc8862468f300820cac9:25727610162427974911307395275875709787671164016540365957983498051670003381444",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -7728,6 +7922,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xa604f00e480c14d84558fdd0cde53d074b7088ad3906f3293de47bac4e84ca03:7754656670154736480064492233657899519262003866108928015722717350137458323600",
       "sport": "americanfootball_nfl",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -7766,6 +7961,7 @@
       "max_internal_gap_sec": 902.0,
       "missing_5m_snapshots": 141,
       "missing_cache_windows": 69,
+      "replay_id": "0xa71a49ec2886699cc08eb1a574656f7cac7bdb620be9bacc0249d089bb3f7156:23869067364797465445995323646242442877697765214308748169134641851487079696974",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -7807,6 +8003,7 @@
       "max_internal_gap_sec": 901.0,
       "missing_5m_snapshots": 72,
       "missing_cache_windows": 35,
+      "replay_id": "0x941c9220435c4e6587dfbe8f6caedf698c213e8d559963c0af518584de1d0680:18752213666490944412493728764450695762139549177794736007482217974262890671323",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -7848,6 +8045,7 @@
       "max_internal_gap_sec": 901.0,
       "missing_5m_snapshots": 166,
       "missing_cache_windows": 81,
+      "replay_id": "0xbdd20a111aebed446c4323b334ed25bb95698f1f28b5a7c03c5e611dd77e0eea:9266078115911965363337011239046231304834525739643192931768999478855585344570",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -7889,6 +8087,7 @@
       "max_internal_gap_sec": 901.0,
       "missing_5m_snapshots": 169,
       "missing_cache_windows": 84,
+      "replay_id": "0x9d6d1cab4d79b75a13d0068213cfba148289f8bacb927b70819c73ff44df5050:66006339013050340131574594725805207716553284174399615525666429759946726084552",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -7930,6 +8129,7 @@
       "max_internal_gap_sec": 902.0,
       "missing_5m_snapshots": 132,
       "missing_cache_windows": 64,
+      "replay_id": "0xe6474ebbc8383d4f7a31ba432a5ff16fbee22ca51370813ac281b81f9be49a5e:61568243098932490013094513397265010519813652345404779100155196609421073021963",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -7971,6 +8171,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x359e176adadd76141620686e43aeeeb03e97b7c3ecfd7b81d0c4bda9a36e254f:106121111293631873456338358008770105983486719820128302114836404194205814787775",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -8009,6 +8210,7 @@
       "max_internal_gap_sec": 313.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x4e14d06c25486fb52ae7754b3b99312ab8c6b21c27e2cde2ba0b701f75c56fce:96039886055395251437236648216895106195605601987424183936809715369454745930553",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -8047,6 +8249,7 @@
       "max_internal_gap_sec": 304.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x6bd2e0c828383005cb292b54bd7daab5f052a30dd00dc759755e586710a7276a:67463142977281177721357751899371044874858301212770603458598825494050450051154",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -8085,6 +8288,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x46cd3fec7f0d679b777af96953af00d933befcedd1103cc6dff9209a43166a97:108081638117508202678834121913655882085511587015317628490961603781648396131443",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -8123,6 +8327,7 @@
       "max_internal_gap_sec": 314.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xde93fe05c66ac1c558feabd2679106cf9d4f023d5b48879a1935386b5aaebf68:66931626958926781533842735173486781451740310165863421019958725879786047419397",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -8161,6 +8366,7 @@
       "max_internal_gap_sec": 301.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xf1b682404d9a324e94c9d3cccf4869e12331553fd638835f5c1656115dbb670e:79051033263870895767171861378212982129989578863305849324042209502462031663851",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -8199,6 +8405,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x06d5c33f016589a8fbe189e86a8c612f84b3e3ac388067da22867f6c11e1c879:13488909070204667038878060457227786603146838161240743473081620809807510242251",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -8237,6 +8444,7 @@
       "max_internal_gap_sec": 312.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x8a81da2072e4b4a3b3c347b65ef8f2ce4228701504b1ffafb07c55c5c9260091:13827683246783386028475528773935560879536349879866055746634980356469922694091",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -8275,6 +8483,7 @@
       "max_internal_gap_sec": 301.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xe90012781d47ae08918981642fb6cc1efeb2b8eb0c8f6c29cd709f5cbbbb75eb:17081730653764668792404847705846422041832605289085131699788672676067829784927",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -8313,6 +8522,7 @@
       "max_internal_gap_sec": 305.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x13c7f32e8e94f9238ed45a05b68d7925d80883e6c4fb0c0e7951e7df6dba4dfa:70085594528268803336372279209193677941407218536545967148587032031773184110332",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -8351,6 +8561,7 @@
       "max_internal_gap_sec": 314.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xfc80a1f0a8bc89333fa9bcf8772a6a572fae8d9f5bfbaa1f6bcaa995d6e5d7dc:112620683375047284760614327725608247044222298681128230310599192313864264350273",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -8389,6 +8600,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x5ad7b9bd4426d3e4a9986a5682d4880daf0c2a7d964b515e41b4d6556c525606:106334811718216590151646795216219534569412510572846105743156491525269540937330",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -8427,6 +8639,7 @@
       "max_internal_gap_sec": 901.0,
       "missing_5m_snapshots": 141,
       "missing_cache_windows": 69,
+      "replay_id": "0x3a8c6f547af6e980a112b19a7fa4be1513c265193819a1a7e1c08ebd3e340be0:94652112884064014859848182424759576053152225073378112780363144350836415060977",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -8468,6 +8681,7 @@
       "max_internal_gap_sec": 901.0,
       "missing_5m_snapshots": 162,
       "missing_cache_windows": 79,
+      "replay_id": "0x09086e7fa2ac4a2da3026a4f3dcafdffee9bbf04df9307d3a3f91413824b33d3:102005718778800173650383795616392207335830018469954126842662743924302252132107",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -8509,6 +8723,7 @@
       "max_internal_gap_sec": 901.0,
       "missing_5m_snapshots": 164,
       "missing_cache_windows": 81,
+      "replay_id": "0xd362173b7c07e492d7ceccedecb501f86376c168af9577eb26ecc7f2ec5c3799:42283322387238330556777579724294267077117200094181437033796556229062381270539",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -8550,6 +8765,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x1eac29709f09b7e4b70bba4f0e4ed1342824362087c2498b50bf9842a2e743af:33081648899742704018605438553881630932271769134607870621147376705157556879391",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -8588,6 +8804,7 @@
       "max_internal_gap_sec": 303.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x454d1c13f2275e83266b29bcb79edc1562f7019de7918042725e0f4102aa4568:7943097321784536492572908321830076004832022194070505474950203445946157794559",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -8626,6 +8843,7 @@
       "max_internal_gap_sec": 308.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x395e81a8c24f14492fb50eea241c13804a33838c3ee97f22d26daa15f37fc4fa:29258323914076543537617291156331270275934359698905482359070907444778283451076",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -8664,6 +8882,7 @@
       "max_internal_gap_sec": 303.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xfb01330f64761f0addbeb44d5c6aa05a55a3bf9f94a36d613777f1be099e6d25:61263399711589297413650214322303938482300195050842893323822844606936675005127",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -8702,6 +8921,7 @@
       "max_internal_gap_sec": 321.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xf6f798922457763c71575aa9c853d0c16ed87fe76f941fbef3614d4f7bfa24e3:63064025373294160623876527573813377016639757026090642489604285078366136079539",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -8740,6 +8960,7 @@
       "max_internal_gap_sec": 301.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x567a149564bee9b67469706114929d5caa7ca8c8f011d1c0e3d956025f9b19a9:74235728302738381260537205985317496022751283615587153694581346730211389789849",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -8779,6 +9000,7 @@
       "max_internal_gap_sec": 4501.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x1021ca9648ea4587d354efa236c771cd13674592479d2a9ec8a29e34f1cdb0a8:14981407487365249172274760718803575918026367142553063138672053458442029642679",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -8819,6 +9041,7 @@
       "max_internal_gap_sec": 902.0,
       "missing_5m_snapshots": 114,
       "missing_cache_windows": 55,
+      "replay_id": "0xb4717789b39cd035a10451f85d94399ab24ee3e0a04b0b2a18c699decfd79c48:451059603364949728172040586695792000579323721806205844254937228807595590708",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -8860,6 +9083,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xa80d6e356468e541f98391f69c71cdf5c50bb97f6c5d6de23f37133925fc28c4:62487950063899448637514144288381299231003550063865630471458109567579939449204",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -8898,6 +9122,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xac1c19d6ae7bcedebc0ea43d40fc8bce95d6bde1ab485be020d23b69a4693eee:93495041651597725301588187864104328727575945649169529154806470682935407269805",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -8936,6 +9161,7 @@
       "max_internal_gap_sec": 308.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xf45cf93cc0ec050c93f229ac92af11d91c77ffdd9937a21fb1df0e126e3268b2:41775846727304593907023429600341343999299450390119678931259263125989430195849",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -8974,6 +9200,7 @@
       "max_internal_gap_sec": 900.0,
       "missing_5m_snapshots": 2,
       "missing_cache_windows": 1,
+      "replay_id": "0x7ca531df82474748cc951f164c7b719639da9b8ca718565478bc8b264b04faf8:31089099404496928062633778568408586318000062519550609688670434633173769152934",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -9015,6 +9242,7 @@
       "max_internal_gap_sec": 300.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x11f9df634526f476d5437fc45ba1fa428773c16d61431e4caa6191409b1883fc:41281353374659336429442335882359408330666971646082141797983101057857090108671",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -9053,6 +9281,7 @@
       "max_internal_gap_sec": 902.0,
       "missing_5m_snapshots": 167,
       "missing_cache_windows": 83,
+      "replay_id": "0xe5d8cf4ba710cb1d75f73c64b4d5e6125739b7c284cd52d1146f8831ba331d20:71191001231617080818097938659360603909465797245800707516501485965087652789962",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -9094,6 +9323,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x0e4ccd69c581deb1aad6f587083a4800d458d6a12f3d202418a53e0c40b18c5a:75714820514299956144730226470743159854969491198234978874353280785563065927948",
       "sport": "americanfootball_nfl",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -9132,6 +9362,7 @@
       "max_internal_gap_sec": 902.0,
       "missing_5m_snapshots": 169,
       "missing_cache_windows": 83,
+      "replay_id": "0xf1605e7fb8c54710f0dec82bef637fb1572044def80236ee3b77ecffc7159d84:30454210381961548116156713729191519997179984213449407253269595590157032924983",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -9173,6 +9404,7 @@
       "max_internal_gap_sec": 301.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xbc56539743f7b96c1c95f21649bd27882ce88ee52c5b608a5b56b2ee871c3188:91808076003480971587770498332396660308637041977142339210795036096368587232161",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -9211,6 +9443,7 @@
       "max_internal_gap_sec": 902.0,
       "missing_5m_snapshots": 111,
       "missing_cache_windows": 54,
+      "replay_id": "0x4fa90f44a219512386f6e008bbc95c0bef1afd249db8bc8e5ddb0ff7622da94e:103517367422009378739997609506591872678933923936429725227088127064446715414143",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -9252,6 +9485,7 @@
       "max_internal_gap_sec": 325.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x2b3fc437914197566152ee927c753bcf3acef00bf94bd82fa463ba82d696318d:72195691380658830952182065152424611419555709403965876055864030197197016943033",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -9290,6 +9524,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x65e3eddf80d0045336ca323185139203521c4a0054fd293c4ec1a79305fe50dc:46138961545505147482821590629476359842575114564260411059312812366289711904750",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -9328,6 +9563,7 @@
       "max_internal_gap_sec": 309.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x92db547aebdb032652730249660d0bf2bbc37aeb98da0458ccbc2ec89e1915cf:106286076177703228706762189917643799044474462802055881799058108140478246093698",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -9366,6 +9602,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x5bee91f1e5415731650f1aab88dd009a2b093ee479b7caeb9e6d2c309f459e3f:37919110606727112168345091673837776859904305635783301359733360467612222516462",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -9404,6 +9641,7 @@
       "max_internal_gap_sec": 301.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x19cf416030d713d69a514999508dd31df04e4112db5dd2eec4018aa2eb915113:43883938108529520025365989639309859793660071996746465202882184128909072621838",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -9442,6 +9680,7 @@
       "max_internal_gap_sec": 902.0,
       "missing_5m_snapshots": 164,
       "missing_cache_windows": 81,
+      "replay_id": "0x9712bd9d9ee68563241372a5656b03f9adf885f35252d7bdef13f7c1bb8147b2:74762898361646197597634003693126573837975415910866096859583653354033539811365",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -9483,6 +9722,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xc72cb4385cdfec062d0f64c7b37546a7efad1b47dd9344075775c4fd9bded944:1421592761821212311389600912962457612848636675876077694454441235092479677134",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -9521,6 +9761,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x1dbfa21016a7ab2ddff508ca194550e9b8c0833e90c42b76dcdc1df9a8068645:26078555151350262745698746067106974823744287706075117036644794122116800340380",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -9559,6 +9800,7 @@
       "max_internal_gap_sec": 307.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xf84ca6f84dc20091c346d03a88f8644ee557e41c6b995e7809ec9a8d5d0968bf:78887580442619691321808019311514174730774054977588456230020613247014939017059",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -9597,6 +9839,7 @@
       "max_internal_gap_sec": 901.0,
       "missing_5m_snapshots": 168,
       "missing_cache_windows": 83,
+      "replay_id": "0xb5fe1aba7116bc7267611f069d429ca80d43af851e31a833bb06b03cdf369971:84937735731124939955404082846625833022901985086190084853797303979440298951789",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -9638,6 +9881,7 @@
       "max_internal_gap_sec": 310.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xcd98dd4fa5a64f8a8dde471b1e4d5115e143b596a3384311ca7eb703dbca4dee:28875726395491071821257610425398846601040757053470988426890413327008678803977",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -9676,6 +9920,7 @@
       "max_internal_gap_sec": null,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x33f9cd82bf6a6d13bbdf27e5520ad946747bd88ac85736d2d6647f9232c4b801:100529029317931520583451503540726771787384154285324381098876713680369289925021",
       "sport": "soccer",
       "sportsbook_match": false,
       "sportsbook_match_detail": null,
@@ -9705,6 +9950,7 @@
       "max_internal_gap_sec": 362.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x9259cfbeb7ac18ea27b792052ec228e8880e03c6e450f688684a84c4f749b75d:29950489035650776944637857495608923659285559520543605944359984119443817993935",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -9747,6 +9993,7 @@
       "max_internal_gap_sec": 225899.0,
       "missing_5m_snapshots": 1471,
       "missing_cache_windows": 346,
+      "replay_id": "0x96ec0ca33996ad78be435504017168d0622be7849f2b268ece57324ad9a80603:34593774166537302860733618542535052278657931159652676594714182762261412301433",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -9790,6 +10037,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x34088a9e3a98d1200fca75c49af531b85484ff8d0d0a586e2c7e4161858378a3:82954784442072609953428710242469501126255757088139218520279178447213556424958",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -9828,6 +10076,7 @@
       "max_internal_gap_sec": 901.0,
       "missing_5m_snapshots": 160,
       "missing_cache_windows": 78,
+      "replay_id": "0x6dc0544ac9375a23b27116e369b904a810e64e1f6ecec992fda23745c5fd7f4e:68445818135247022618344366136029642228644918717100876033158515010288333843765",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -9869,6 +10118,7 @@
       "max_internal_gap_sec": 902.0,
       "missing_5m_snapshots": 168,
       "missing_cache_windows": 82,
+      "replay_id": "0x1b47c0d0391aa4700d3faa77850452df03cf7ce05bb9473c3c6fd5ec12d85fd7:824332689126692821389328144064403582104628788235207047799512053661413460048",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -9910,6 +10160,7 @@
       "max_internal_gap_sec": 306.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xed2af52148a1799dc3ed68be87accbce75195c7847a8ad24a7ea218c919335b3:58125296662225728205663859397645512224623570370462404735695855674416495228515",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -9948,6 +10199,7 @@
       "max_internal_gap_sec": 901.0,
       "missing_5m_snapshots": 118,
       "missing_cache_windows": 58,
+      "replay_id": "0x6e47a698a6857a89d951d608b8919574bc5ee2d39de86c2d8c56f39476170a6b:88289031295580940713705469023519089151351565098988668149750675071904520306937",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -9989,6 +10241,7 @@
       "max_internal_gap_sec": 901.0,
       "missing_5m_snapshots": 119,
       "missing_cache_windows": 58,
+      "replay_id": "0x53d5e38142fa3def4cd7a27f4bb16000edba33bb7297f6bfdb253c7d129e03be:105017264601877932278014502941118546480288658463083575976321214725655846010903",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -10030,6 +10283,7 @@
       "max_internal_gap_sec": 326.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x2481bc5f44e39d6700a718d940a294c340026a25a67312c00dc1f6e9e78656ad:516502427286216416381008718900418669734014928920377156138463621039788388727",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -10068,6 +10322,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x61147665200dd8cc5ba277b939acddf7d0c40767bdd4616fcf0e738811ead6d0:3917510525295053541558602479087105582711974696143491263002415785868030467569",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -10107,6 +10362,7 @@
       "max_internal_gap_sec": 902.0,
       "missing_5m_snapshots": 160,
       "missing_cache_windows": 76,
+      "replay_id": "0x69e3fd8d145df6a5e6a089f006fc1ec589bdff214433f29c6f854ecb1384a6ff:12341073969015053115865685024931223039930485826146009284908868878277779586881",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -10149,6 +10405,7 @@
       "max_internal_gap_sec": 901.0,
       "missing_5m_snapshots": 150,
       "missing_cache_windows": 73,
+      "replay_id": "0xd99c688f13f8e15afbb464440b53253c7c2a16388fc52ff508e96128e8c6349a:68020496798484410186540877489611369763603172052808518001487004114569089450229",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -10190,6 +10447,7 @@
       "max_internal_gap_sec": 301.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xab036b76276bbc2b34cd5caab4c7aad50d378e54d97d4cdd00d08ade2e971b0e:30088970506483702712399769574214080528564852379323156271408772952380920837487",
       "sport": "basketball_wnba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -10228,6 +10486,7 @@
       "max_internal_gap_sec": 901.0,
       "missing_5m_snapshots": 169,
       "missing_cache_windows": 84,
+      "replay_id": "0xd6b9e6cb15cd572459d1c4ee2a4345f6791474d46ee2e0264d020795a190f5f9:91781665763766906162319212590998650317496076308244611476329887975848436810864",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -10269,6 +10528,7 @@
       "max_internal_gap_sec": 318.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xfd0b5558aa7761134fe4196525efd8a2c56d8542fa47af18e8ee0b33eb3fa60d:26271406601543957410174205343641358844288723947186357536890811464719774594319",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -10307,6 +10567,7 @@
       "max_internal_gap_sec": 320.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x3a21d3737728d0d665c9d6a7eb5ec22e7f256c4699fbe52f0c1a3d9ff61e5d2d:54859709564317471218487058730064432893703447738642867537753127429975981792247",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -10345,6 +10606,7 @@
       "max_internal_gap_sec": 902.0,
       "missing_5m_snapshots": 151,
       "missing_cache_windows": 74,
+      "replay_id": "0x0bbcc7c47d2e178fbf17ba51639c25870a3a6b3afc9a2ccd8071fd153b1465b3:95071211350513041332044167060337545734727964552133358200799480705763127408526",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -10386,6 +10648,7 @@
       "max_internal_gap_sec": 301.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xf9c889dd150efc4f6b0223a3054ccec927e79cc067891b0f42d10cfb989ccb3b:99914311010464361045434382397199437208058854859408377923228320145316121637127",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -10424,6 +10687,7 @@
       "max_internal_gap_sec": 902.0,
       "missing_5m_snapshots": 126,
       "missing_cache_windows": 62,
+      "replay_id": "0xac814e102f57b11603d4ca9238a22783b73157193f8c28422d85ac0484cccd3d:103885163217618627965316282144956748631220000619433976033392634912262307524384",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -10465,6 +10729,7 @@
       "max_internal_gap_sec": 902.0,
       "missing_5m_snapshots": 168,
       "missing_cache_windows": 82,
+      "replay_id": "0xdf94c6221d17b6a17c41ae5dbba5411b891819ce9929174944f668bcef36eb3b:50572140495413551770212760517129822882567058165072486907263389404476408306234",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -10506,6 +10771,7 @@
       "max_internal_gap_sec": 310.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xf6b309022fb4deb23f7ecbdde5753d6609b6686d0db46138564cd4f543178928:35146776440450154108529867116387256995305233457749763362409796868176389651206",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -10544,6 +10810,7 @@
       "max_internal_gap_sec": 902.0,
       "missing_5m_snapshots": 170,
       "missing_cache_windows": 84,
+      "replay_id": "0x70262183d23e4ff5e34e9a077572387d9159a652c98c4a8bfa7d61ef038775aa:102552691472919885225787090377728622809474772209469466870324368526894771003023",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -10585,6 +10852,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x671b141d1a220a996d5c7074e155edb1b3c82d61ecdee605ebe5fbe7e540d89a:70881730869171561846806821088044778599375886698493739257403083051937984502040",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -10623,6 +10891,7 @@
       "max_internal_gap_sec": 901.0,
       "missing_5m_snapshots": 161,
       "missing_cache_windows": 79,
+      "replay_id": "0x902f40d1371bf28450fe0c83dfd0bb352069da00eeabf28122b28d634dea22c7:70844941802110221769550275661060672508529125817789241211620460655600189121568",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -10664,6 +10933,7 @@
       "max_internal_gap_sec": 901.0,
       "missing_5m_snapshots": 137,
       "missing_cache_windows": 67,
+      "replay_id": "0x3c91b7265c4b4627dbb767ac837e2c55879935ef2bb6108517f301b724886634:97577707677959841533165544802842030436524302755080358615616449619138684894123",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -10705,6 +10975,7 @@
       "max_internal_gap_sec": 901.0,
       "missing_5m_snapshots": 137,
       "missing_cache_windows": 67,
+      "replay_id": "0x4073382645f30f07aa791b39ffca07a82379771206d3371b5a3fccc5ed20f410:49378709001523951846245697242728986074477182847925969574026730680598422797691",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -10746,6 +11017,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x3d857ac4405fd659ecab2035addaca5ae82389f915de8238f69657bf285b99bb:86390850168506290098845752703048424446013236195602054012737317399661275675531",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -10784,6 +11056,7 @@
       "max_internal_gap_sec": 305.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x7d6a131994e3875cc09a053022ae51ac13598ef28eaac98993978c2a70661fb4:58866078270199631106198561780941983004091144941341628500596530322446633847015",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -10822,6 +11095,7 @@
       "max_internal_gap_sec": 309.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xe5c7a0adf3c1359a8fc8bc60a2993dc4ae50fafc917030a964ed74d1f4555404:74477902858139791081331660389282504863850696768945686254787931791569660811129",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -10860,6 +11134,7 @@
       "max_internal_gap_sec": 301.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xca2e341f7d7e6fec7e4e4e1d5f4beadfb1486149b8b5fcdd58f6f3c4ce199f0c:44478700056606061521305816221047127198811546352251312489913153761956827561670",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -10898,6 +11173,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0x719275baae4874924e984476ef7663cd8cde815acb71e8244010e7a734cfafe4:93475883497195611163608519807303280046937471737516184047477183242687406590612",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -10936,6 +11212,7 @@
       "max_internal_gap_sec": 302.0,
       "missing_5m_snapshots": 0,
       "missing_cache_windows": 0,
+      "replay_id": "0xd277196552fc532d3aa80aad1e84e293b57f8bc24499d86ff703cc14ab71713c:110305381223890885784301123756740765727714315684391656978762837578545088708094",
       "sport": "basketball_nba",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
@@ -10958,7 +11235,7 @@
       "visible_gap_windows": 0
     }
   ],
-  "generated_at": "2026-05-31T13:10:10.925798+00:00",
+  "generated_at": "2026-05-31T13:22:45.424761+00:00",
   "inputs": {
     "gap_audit": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/reports/replay_sportsbook_gap_audit_latest.json",
     "source_window_audit": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/reports/replay_sportsbook_source_window_audit_latest.json"
