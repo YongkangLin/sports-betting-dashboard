@@ -1,11 +1,11 @@
 # Telonex Temporal Validation
 
-- Generated: 2026-05-30T21:59:34.831703+00:00
+- Generated: 2026-05-31T13:00:56.483435+00:00
 - Feature set: `base_odds`
 - Target/PnL/Stake: `maker_trade_fill_positive` / `maker_trade_fill_pnl_per_share` / `entry_bid`
-- Odds API features: True / coverage 55.11% / matched markets 55
+- Odds API features: True / coverage 53.92% / matched markets 55
 - Labels: 1,984,815 / markets 109 / tokens 217
-- Feature guardrails: 82 selected / all-null 0 / high-missing 0
+- Feature guardrails: 83 selected / all-null 0 / high-missing 0
 - Time range: 2026-04-01 00:05:00+00:00 to 2026-05-29 23:59:00+00:00
 - Time filter: start_after=None / end_before=None / dropped_rows=0
 - Folds requested/run: 1 / 1

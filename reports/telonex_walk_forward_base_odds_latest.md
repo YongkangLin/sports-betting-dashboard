@@ -1,11 +1,11 @@
 # Telonex Market-Disjoint Validation
 
-- Generated: 2026-05-30T21:58:06.655746+00:00
+- Generated: 2026-05-31T13:00:22.648948+00:00
 - Feature set: `base_odds`
 - Target/PnL/Stake: `maker_trade_fill_positive` / `maker_trade_fill_pnl_per_share` / `entry_bid`
-- Odds API features: True / coverage 55.11% / matched markets 55
+- Odds API features: True / coverage 53.92% / matched markets 55
 - Labels: 1,984,815 / markets 109 / tokens 217
-- Feature guardrails: 82 selected / all-null 0 / high-missing 0
+- Feature guardrails: 83 selected / all-null 0 / high-missing 0
 - Folds requested/run: 2 / 2
 - Fold market windows: train 60, calibration 12, validation 12, test 12
 - Market ordering key: end
