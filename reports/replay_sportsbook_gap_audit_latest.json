@@ -229,7 +229,7 @@
       "start_gap_sec": 38.0,
       "title": "ATA vs GEN",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 41,
+        "all_partition_files": 42,
         "all_quote_rows": 12708,
         "all_snapshot_count": 89,
         "checked": true,
@@ -343,7 +343,7 @@
       "start_gap_sec": 50.0,
       "title": "ATA vs TOR",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 41,
+        "all_partition_files": 42,
         "all_quote_rows": 13623,
         "all_snapshot_count": 94,
         "checked": true,
@@ -657,13 +657,13 @@
       "sportsbook_expected_15m_points": 63,
       "sportsbook_expected_5m_points": 186,
       "sportsbook_first_offset_sec": 37.0,
-      "sportsbook_first_seen_offset_sec": -534258.0,
+      "sportsbook_first_seen_offset_sec": -595461.0,
       "sportsbook_last_offset_sec": 55537.0,
       "sportsbook_match": {
         "away_team": "Torino",
         "commence_time": "2026-01-24T14:00:00+00:00",
         "event_id": "04d137c94e7951ff930547e76f54cff9",
-        "first_seen": "2026-01-17T19:35:42+00:00",
+        "first_seen": "2026-01-17T02:35:39+00:00",
         "home_team": "Como",
         "market": "h2h",
         "match_score": 0.95,
@@ -685,7 +685,7 @@
       "start_gap_sec": 37.0,
       "title": "COM vs TOR",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 41,
+        "all_partition_files": 42,
         "all_quote_rows": 35493,
         "all_snapshot_count": 186,
         "checked": true,
@@ -799,7 +799,7 @@
       "start_gap_sec": 37.0,
       "title": "CRE vs COM",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 41,
+        "all_partition_files": 42,
         "all_quote_rows": 13605,
         "all_snapshot_count": 93,
         "checked": true,
@@ -1597,7 +1597,7 @@
       "start_gap_sec": 45.0,
       "title": "LAZ vs CRE",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 41,
+        "all_partition_files": 42,
         "all_quote_rows": 11751,
         "all_snapshot_count": 82,
         "checked": true,
@@ -2845,7 +2845,7 @@
       "start_gap_sec": 37.0,
       "title": "ROM vs FIO",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 41,
+        "all_partition_files": 42,
         "all_quote_rows": 12531,
         "all_snapshot_count": 86,
         "checked": true,
@@ -4557,7 +4557,7 @@
       "start_gap_sec": 47.0,
       "title": "CAG vs MIL",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 41,
+        "all_partition_files": 42,
         "all_quote_rows": 13377,
         "all_snapshot_count": 93,
         "checked": true,
@@ -4671,7 +4671,7 @@
       "start_gap_sec": 43.0,
       "title": "CRE vs Napoli",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 41,
+        "all_partition_files": 42,
         "all_quote_rows": 36372,
         "all_snapshot_count": 189,
         "checked": true,
@@ -5241,7 +5241,7 @@
       "start_gap_sec": 42.0,
       "title": "GEN vs Inter Milan",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 41,
+        "all_partition_files": 42,
         "all_quote_rows": 11811,
         "all_snapshot_count": 83,
         "checked": true,
@@ -7066,7 +7066,7 @@
       "start_gap_sec": 37.0,
       "title": "PIS vs MIL",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 41,
+        "all_partition_files": 42,
         "all_quote_rows": 13482,
         "all_snapshot_count": 93,
         "checked": true,
@@ -7979,7 +7979,7 @@
       "start_gap_sec": 38.0,
       "title": "ROM vs GEN",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 41,
+        "all_partition_files": 42,
         "all_quote_rows": 12798,
         "all_snapshot_count": 88,
         "checked": true,
@@ -12541,7 +12541,7 @@
       "start_gap_sec": 37.0,
       "title": "Napoli vs UDI",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 41,
+        "all_partition_files": 42,
         "all_quote_rows": 11994,
         "all_snapshot_count": 81,
         "checked": true,
@@ -12769,7 +12769,7 @@
       "start_gap_sec": 45.0,
       "title": "PAR vs Napoli",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 41,
+        "all_partition_files": 42,
         "all_quote_rows": 9396,
         "all_snapshot_count": 66,
         "checked": true,
@@ -12810,9 +12810,9 @@
         "missing_cache_snapshots": 0
       },
       "full_window_cache_5m_audit": {
-        "cached_cache_snapshots": 173,
+        "cached_cache_snapshots": 217,
         "expected_snapshots": 217,
-        "missing_cache_snapshots": 44
+        "missing_cache_snapshots": 0
       },
       "last_quote_to_event_end_gap_sec": -6937.0,
       "last_quote_to_final_gap_sec": 272.0060000000012,
@@ -12820,17 +12820,17 @@
       "last_sportsbook_selected_fair": 0.714,
       "max_internal_gap_cache_5m_audit": {
         "cached_cache_snapshots": 1,
-        "expected_snapshots": 3,
-        "missing_cache_snapshots": 2
-      },
-      "max_internal_gap_cache_audit": {
-        "cached_cache_snapshots": 1,
         "expected_snapshots": 1,
         "missing_cache_snapshots": 0
       },
-      "max_internal_gap_end_sec": 45638.0,
-      "max_internal_gap_sec": 901.0,
-      "max_internal_gap_start_sec": 44737.0,
+      "max_internal_gap_cache_audit": {
+        "cached_cache_snapshots": 0,
+        "expected_snapshots": 0,
+        "missing_cache_snapshots": 0
+      },
+      "max_internal_gap_end_sec": 1539.0,
+      "max_internal_gap_sec": 302.0,
+      "max_internal_gap_start_sec": 1237.0,
       "median_internal_gap_sec": 300.0,
       "needs_action": false,
       "other_outcome": "Yes",
@@ -12851,17 +12851,17 @@
         "Bovada"
       ],
       "sportsbook_estimated_missing_15m_points": 0,
-      "sportsbook_estimated_missing_5m_points": 44,
+      "sportsbook_estimated_missing_5m_points": 0,
       "sportsbook_expected_15m_points": 73,
       "sportsbook_expected_5m_points": 216,
       "sportsbook_first_offset_sec": 38.0,
-      "sportsbook_first_seen_offset_sec": 43237.0,
+      "sportsbook_first_seen_offset_sec": 45037.0,
       "sportsbook_last_offset_sec": 64537.0,
       "sportsbook_match": {
         "away_team": "AS Roma",
         "commence_time": "2026-05-10T16:00:00+00:00",
         "event_id": "f47ad49910710e3636f51b0b0898306d",
-        "first_seen": "2026-05-10T12:00:37+00:00",
+        "first_seen": "2026-05-10T12:30:37+00:00",
         "home_team": "Parma",
         "market": "h2h",
         "match_score": 0.95,
@@ -12869,7 +12869,7 @@
         "sport": "soccer_italy_serie_a",
         "time_gap_hours": 0.0
       },
-      "sportsbook_points": 172,
+      "sportsbook_points": 216,
       "start_gap_cache_5m_audit": {
         "cached_cache_snapshots": 1,
         "expected_snapshots": 1,
@@ -12883,12 +12883,12 @@
       "start_gap_sec": 38.0,
       "title": "PAR vs ROM",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 41,
-        "all_quote_rows": 33798,
-        "all_snapshot_count": 172,
+        "all_partition_files": 42,
+        "all_quote_rows": 39690,
+        "all_snapshot_count": 216,
         "checked": true,
-        "extra_quote_rows_inside_replay_window": 22380,
-        "extra_snapshots_inside_replay_window": 93,
+        "extra_quote_rows_inside_replay_window": 28272,
+        "extra_snapshots_inside_replay_window": 137,
         "replay_partition_files": 7,
         "replay_quote_rows": 11418,
         "replay_snapshot_count": 79
@@ -13910,7 +13910,7 @@
       "start_gap_sec": 50.0,
       "title": "ROM vs SAS",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 41,
+        "all_partition_files": 42,
         "all_quote_rows": 11694,
         "all_snapshot_count": 81,
         "checked": true,
@@ -14594,7 +14594,7 @@
       "start_gap_sec": 46.0,
       "title": "VER vs MIL",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 41,
+        "all_partition_files": 42,
         "all_quote_rows": 9408,
         "all_snapshot_count": 65,
         "checked": true,
@@ -16077,7 +16077,7 @@
       "start_gap_sec": 38.0,
       "title": "CRE vs MIL",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 41,
+        "all_partition_files": 42,
         "all_quote_rows": 8514,
         "all_snapshot_count": 59,
         "checked": true,
@@ -16761,7 +16761,7 @@
       "start_gap_sec": 46.0,
       "title": "Juventus vs BOL",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 41,
+        "all_partition_files": 42,
         "all_quote_rows": 12876,
         "all_snapshot_count": 89,
         "checked": true,
@@ -16875,7 +16875,7 @@
       "start_gap_sec": 38.0,
       "title": "LEC vs Juventus",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 41,
+        "all_partition_files": 42,
         "all_quote_rows": 13062,
         "all_snapshot_count": 89,
         "checked": true,
@@ -18472,7 +18472,7 @@
       "start_gap_sec": 38.0,
       "title": "SAS vs Inter Milan",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 41,
+        "all_partition_files": 42,
         "all_quote_rows": 11322,
         "all_snapshot_count": 78,
         "checked": true,
@@ -18586,7 +18586,7 @@
       "start_gap_sec": 37.0,
       "title": "TOR vs Inter Milan",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 41,
+        "all_partition_files": 42,
         "all_quote_rows": 11406,
         "all_snapshot_count": 78,
         "checked": true,
@@ -18700,7 +18700,7 @@
       "start_gap_sec": 37.0,
       "title": "TOR vs Juventus",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 41,
+        "all_partition_files": 42,
         "all_quote_rows": 14451,
         "all_snapshot_count": 99,
         "checked": true,
@@ -19014,13 +19014,13 @@
       "sportsbook_expected_15m_points": 50,
       "sportsbook_expected_5m_points": 148,
       "sportsbook_first_offset_sec": 218.0,
-      "sportsbook_first_seen_offset_sec": 41618.0,
+      "sportsbook_first_seen_offset_sec": -3381.0,
       "sportsbook_last_offset_sec": 44318.0,
       "sportsbook_match": {
         "away_team": "Inter Milan",
         "commence_time": "2026-01-17T14:00:00+00:00",
         "event_id": "98e958a4d4d6c144732a0a32d2ab77de",
-        "first_seen": "2026-01-17T15:05:38+00:00",
+        "first_seen": "2026-01-17T02:35:39+00:00",
         "home_team": "Udinese",
         "market": "h2h",
         "match_score": 0.975,
@@ -19042,7 +19042,7 @@
       "start_gap_sec": 218.0,
       "title": "UDI vs Inter Milan",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 41,
+        "all_partition_files": 42,
         "all_quote_rows": 29478,
         "all_snapshot_count": 148,
         "checked": true,
@@ -19156,7 +19156,7 @@
       "start_gap_sec": 41.0,
       "title": "VER vs Napoli",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 41,
+        "all_partition_files": 42,
         "all_quote_rows": 11526,
         "all_snapshot_count": 81,
         "checked": true,
@@ -19356,13 +19356,13 @@
       "sportsbook_expected_15m_points": 64,
       "sportsbook_expected_5m_points": 189,
       "sportsbook_first_offset_sec": 37.0,
-      "sportsbook_first_seen_offset_sec": -620658.0,
+      "sportsbook_first_seen_offset_sec": -681861.0,
       "sportsbook_last_offset_sec": 56437.0,
       "sportsbook_match": {
         "away_team": "Parma",
         "commence_time": "2026-01-25T14:00:00+00:00",
         "event_id": "9668e5b753c1b8c8cdb5c5263f87b372",
-        "first_seen": "2026-01-17T19:35:42+00:00",
+        "first_seen": "2026-01-17T02:35:39+00:00",
         "home_team": "Atalanta BC",
         "market": "h2h",
         "match_score": 0.95,
@@ -19384,7 +19384,7 @@
       "start_gap_sec": 37.0,
       "title": "ATA vs PAR",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 41,
+        "all_partition_files": 42,
         "all_quote_rows": 9654,
         "all_snapshot_count": 69,
         "checked": true,
@@ -20638,7 +20638,7 @@
       "start_gap_sec": 44.0,
       "title": "Inter Milan vs BOL",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 41,
+        "all_partition_files": 42,
         "all_quote_rows": 12897,
         "all_snapshot_count": 92,
         "checked": true,
@@ -20980,7 +20980,7 @@
       "start_gap_sec": 40.0,
       "title": "LEC vs Inter Milan",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 41,
+        "all_partition_files": 42,
         "all_quote_rows": 11829,
         "all_snapshot_count": 81,
         "checked": true,
@@ -21322,7 +21322,7 @@
       "start_gap_sec": 42.0,
       "title": "MIL vs SAS",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 41,
+        "all_partition_files": 42,
         "all_quote_rows": 8508,
         "all_snapshot_count": 60,
         "checked": true,
@@ -21892,7 +21892,7 @@
       "start_gap_sec": 37.0,
       "title": "PAR vs Juventus",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 41,
+        "all_partition_files": 42,
         "all_quote_rows": 12953,
         "all_snapshot_count": 90,
         "checked": true,
@@ -22006,7 +22006,7 @@
       "start_gap_sec": 42.0,
       "title": "PIS vs Juventus",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 41,
+        "all_partition_files": 42,
         "all_quote_rows": 13275,
         "all_snapshot_count": 93,
         "checked": true,
@@ -22576,7 +22576,7 @@
       "start_gap_sec": 37.0,
       "title": "ROM vs CAG",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 41,
+        "all_partition_files": 42,
         "all_quote_rows": 13197,
         "all_snapshot_count": 92,
         "checked": true,
@@ -23574,13 +23574,13 @@
       "sportsbook_expected_15m_points": 50,
       "sportsbook_expected_5m_points": 149,
       "sportsbook_first_offset_sec": 38.0,
-      "sportsbook_first_seen_offset_sec": 43237.0,
+      "sportsbook_first_seen_offset_sec": 45037.0,
       "sportsbook_last_offset_sec": 44437.0,
       "sportsbook_match": {
         "away_team": "Como",
         "commence_time": "2026-05-10T10:31:00+00:00",
         "event_id": "a785b31d8df18dde6921626b09f76415",
-        "first_seen": "2026-05-10T12:00:37+00:00",
+        "first_seen": "2026-05-10T12:30:37+00:00",
         "home_team": "Hellas Verona",
         "market": "h2h",
         "match_score": 0.95,
@@ -23602,7 +23602,7 @@
       "start_gap_sec": 38.0,
       "title": "VER vs COM",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 41,
+        "all_partition_files": 42,
         "all_quote_rows": 28950,
         "all_snapshot_count": 149,
         "checked": true,
@@ -25791,7 +25791,7 @@
       "clob_max_gap_sec": 60.0,
       "clob_median_gap_sec": 60.0,
       "clob_points": 1006,
-      "commence_offset_sec": 53760.0,
+      "commence_offset_sec": 53640.0,
       "end_gap_cache_5m_audit": {
         "cached_cache_snapshots": 0,
         "expected_snapshots": 0,
@@ -25810,9 +25810,9 @@
         "missing_cache_snapshots": 0
       },
       "full_window_cache_5m_audit": {
-        "cached_cache_snapshots": 199,
+        "cached_cache_snapshots": 201,
         "expected_snapshots": 201,
-        "missing_cache_snapshots": 2
+        "missing_cache_snapshots": 0
       },
       "last_quote_to_event_end_gap_sec": -6648.0,
       "last_quote_to_final_gap_sec": 45.004000000000815,
@@ -25820,17 +25820,17 @@
       "last_sportsbook_selected_fair": 0.9933,
       "max_internal_gap_cache_5m_audit": {
         "cached_cache_snapshots": 1,
-        "expected_snapshots": 3,
-        "missing_cache_snapshots": 2
+        "expected_snapshots": 1,
+        "missing_cache_snapshots": 0
       },
       "max_internal_gap_cache_audit": {
         "cached_cache_snapshots": 1,
         "expected_snapshots": 1,
         "missing_cache_snapshots": 0
       },
-      "max_internal_gap_end_sec": 2078.0,
-      "max_internal_gap_sec": 900.0,
-      "max_internal_gap_start_sec": 1178.0,
+      "max_internal_gap_end_sec": 46503.0,
+      "max_internal_gap_sec": 323.0,
+      "max_internal_gap_start_sec": 46180.0,
       "median_internal_gap_sec": 300.0,
       "needs_action": false,
       "other_outcome": "Yes",
@@ -25851,25 +25851,25 @@
         "Bovada"
       ],
       "sportsbook_estimated_missing_15m_points": 0,
-      "sportsbook_estimated_missing_5m_points": 2,
+      "sportsbook_estimated_missing_5m_points": 0,
       "sportsbook_expected_15m_points": 68,
       "sportsbook_expected_5m_points": 201,
       "sportsbook_first_offset_sec": 279.0,
-      "sportsbook_first_seen_offset_sec": 58781.0,
+      "sportsbook_first_seen_offset_sec": 1779.0,
       "sportsbook_last_offset_sec": 60288.0,
       "sportsbook_match": {
         "away_team": "Sassuolo",
-        "commence_time": "2026-01-17T17:02:00+00:00",
+        "commence_time": "2026-01-17T17:00:00+00:00",
         "event_id": "2e402618e8f128fd17ac85c1075dc642",
-        "first_seen": "2026-01-17T18:25:41+00:00",
+        "first_seen": "2026-01-17T02:35:39+00:00",
         "home_team": "Napoli",
         "market": "h2h",
         "match_score": 0.975,
         "point": null,
         "sport": "soccer_italy_serie_a",
-        "time_gap_hours": 0.0333
+        "time_gap_hours": 0.0
       },
-      "sportsbook_points": 199,
+      "sportsbook_points": 201,
       "start_gap_cache_5m_audit": {
         "cached_cache_snapshots": 1,
         "expected_snapshots": 1,
@@ -25883,12 +25883,12 @@
       "start_gap_sec": 279.0,
       "title": "Napoli vs SAS",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 41,
-        "all_quote_rows": 40311,
-        "all_snapshot_count": 199,
+        "all_partition_files": 42,
+        "all_quote_rows": 40608,
+        "all_snapshot_count": 201,
         "checked": true,
-        "extra_quote_rows_inside_replay_window": 27702,
-        "extra_snapshots_inside_replay_window": 112,
+        "extra_quote_rows_inside_replay_window": 27999,
+        "extra_snapshots_inside_replay_window": 114,
         "replay_partition_files": 7,
         "replay_quote_rows": 12609,
         "replay_snapshot_count": 87
@@ -28334,13 +28334,13 @@
       "sportsbook_expected_15m_points": 84,
       "sportsbook_expected_5m_points": 249,
       "sportsbook_first_offset_sec": 37.0,
-      "sportsbook_first_seen_offset_sec": -43163.0,
+      "sportsbook_first_seen_offset_sec": -41363.0,
       "sportsbook_last_offset_sec": 74437.0,
       "sportsbook_match": {
         "away_team": "Bologna",
         "commence_time": "2026-05-11T18:45:00+00:00",
         "event_id": "2b609cc965cb3908e27a634aabc7846b",
-        "first_seen": "2026-05-10T12:00:37+00:00",
+        "first_seen": "2026-05-10T12:30:37+00:00",
         "home_team": "Napoli",
         "market": "h2h",
         "match_score": 0.975,
@@ -28362,7 +28362,7 @@
       "start_gap_sec": 37.0,
       "title": "Napoli vs BOL",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 41,
+        "all_partition_files": 42,
         "all_quote_rows": 13053,
         "all_snapshot_count": 89,
         "checked": true,
@@ -28904,13 +28904,13 @@
       "sportsbook_expected_15m_points": 76,
       "sportsbook_expected_5m_points": 226,
       "sportsbook_first_offset_sec": 158.0,
-      "sportsbook_first_seen_offset_sec": 60162.0,
+      "sportsbook_first_seen_offset_sec": -1041.0,
       "sportsbook_last_offset_sec": 67662.0,
       "sportsbook_match": {
         "away_team": "Juventus",
         "commence_time": "2026-01-17T19:45:00+00:00",
         "event_id": "7cccb3c5504678aa2bbd5490aab3881f",
-        "first_seen": "2026-01-17T19:35:42+00:00",
+        "first_seen": "2026-01-17T02:35:39+00:00",
         "home_team": "Cagliari",
         "market": "h2h",
         "match_score": 0.975,
@@ -28932,7 +28932,7 @@
       "start_gap_sec": 158.0,
       "title": "CAG vs Juventus",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 41,
+        "all_partition_files": 42,
         "all_quote_rows": 45801,
         "all_snapshot_count": 226,
         "checked": true,
@@ -30187,7 +30187,7 @@
       "start_gap_sec": 37.0,
       "title": "BOL vs CRE",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 41,
+        "all_partition_files": 42,
         "all_quote_rows": 13503,
         "all_snapshot_count": 93,
         "checked": true,
@@ -30757,7 +30757,7 @@
       "start_gap_sec": 50.0,
       "title": "MIL vs UDI",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 41,
+        "all_partition_files": 42,
         "all_quote_rows": 10881,
         "all_snapshot_count": 77,
         "checked": true,
@@ -30871,7 +30871,7 @@
       "start_gap_sec": 53.0,
       "title": "Napoli vs LAZ",
       "warehouse_partition_window_audit": {
-        "all_partition_files": 41,
+        "all_partition_files": 42,
         "all_quote_rows": 11220,
         "all_snapshot_count": 78,
         "checked": true,
@@ -31570,9 +31570,9 @@
   "events_needing_action": 1,
   "events_with_sportsbook_match": 276,
   "events_with_sportsbook_points": 276,
-  "generated_at": "2026-05-31T13:06:27.755242+00:00",
+  "generated_at": "2026-05-31T13:49:32.099122+00:00",
   "matched_events_with_complete_15m_cache": 276,
-  "matched_events_with_complete_5m_cache": 164,
+  "matched_events_with_complete_5m_cache": 166,
   "outputs": {
     "json": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/reports/replay_sportsbook_gap_audit_latest.json",
     "report": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/reports/replay_sportsbook_gap_audit_latest.md"
@@ -31581,11 +31581,11 @@
   "unique_cache_15m_cached_snapshots": 16192,
   "unique_cache_15m_expected_snapshots": 16192,
   "unique_cache_15m_missing_snapshots": 0,
-  "unique_cache_5m_cached_snapshots": 32101,
+  "unique_cache_5m_cached_snapshots": 32147,
   "unique_cache_5m_expected_snapshots": 46443,
-  "unique_cache_5m_missing_snapshots": 14342,
-  "warehouse_extra_quote_rows_inside_replay_windows": 333075,
+  "unique_cache_5m_missing_snapshots": 14296,
+  "warehouse_extra_quote_rows_inside_replay_windows": 339264,
   "warehouse_extra_snapshot_events": 11,
-  "warehouse_extra_snapshots_inside_replay_windows": 1261,
+  "warehouse_extra_snapshots_inside_replay_windows": 1307,
   "warehouse_partition_window_checked_events": 276
 }

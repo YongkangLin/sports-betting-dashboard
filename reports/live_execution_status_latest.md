@@ -1,9 +1,9 @@
 # Live Execution Status
 
-- Generated: 2026-05-31T13:23:27.939950+00:00
+- Generated: 2026-05-31T13:43:38.584444+00:00
 - Capital enabled: False
 - Live capital gate: False
-- Gate reasons: queue/fill model not validated on authenticated fills, need authenticated Polymarket fill/order lifecycle rows, Telonex convergence research gate failed, execution-adjusted backtest replay failed: no selected historical replay trades, no predeclared executable taker strategy bucket cleared validation, Telonex microstructure bucket audit failed, Telonex model monitor hold, live paper-fill LEV/price-hold quality gate failed, Telonex market-disjoint validation gate failed, Telonex temporal validation gate failed, favorite-longshot executable Telonex backtest gate failed, favorite-longshot out-of-sample rule validation failed, strategy/data readiness gate failed: sportsbook native 5-minute density gate failed: complete 5m replay cache 164 / 276 = 59.42% < 95%
+- Gate reasons: queue/fill model not validated on authenticated fills, need authenticated Polymarket fill/order lifecycle rows, Telonex convergence research gate failed, execution-adjusted backtest replay failed: no selected historical replay trades, no predeclared executable taker strategy bucket cleared validation, Telonex microstructure bucket audit failed, Telonex model monitor hold, live paper-fill LEV/price-hold quality gate failed, Telonex market-disjoint validation gate failed, Telonex temporal validation gate failed, favorite-longshot executable Telonex backtest gate failed, favorite-longshot out-of-sample rule validation failed, strategy/data readiness gate failed: sportsbook native 5-minute density gate failed: complete 5m replay cache 166 / 276 = 60.14% < 95%
 - Gate warnings: cross-venue Kalshi comparison unavailable: no verified equivalent markets, predeclared non-ML Telonex strategy buckets failed, live game-state feed too thin for event-regime/scoreline/garbage-time features, trade-flow feature family has no confirmed economic permutation impact yet, Odds feature family has no confirmed economic permutation impact in latest audit, Odds API fusion not yet proven on held-out Telonex test, live strategy LEV evidence incomplete, favorite-longshot bucket has raw edge but not robust event-cluster CI yet
 - Collector: healthy loop 479
 - Latest executable books: 0

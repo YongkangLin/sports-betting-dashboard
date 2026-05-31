@@ -33,25 +33,25 @@
       "overlay": 2
     },
     "soccer": {
-      "complete_5m": 63,
+      "complete_5m": 65,
       "events": 175,
       "matched": 174,
       "materialization_bugs": 0,
-      "missing_5m_snapshots": 18786,
+      "missing_5m_snapshots": 18740,
       "overlay": 174
     }
   },
   "category_counts": {
-    "complete_or_no_large_gap": 154,
-    "missing_native_5m_cache": 111,
+    "complete_or_no_large_gap": 156,
+    "missing_native_5m_cache": 109,
     "no_odds_event_match": 1,
     "source_event_not_listed_yet": 8,
     "source_market_or_point_absent": 2,
     "source_stale_or_no_new_quote": 1
   },
   "category_rates": {
-    "complete_or_no_large_gap": "55.6%",
-    "missing_native_5m_cache": "40.1%",
+    "complete_or_no_large_gap": "56.3%",
+    "missing_native_5m_cache": "39.4%",
     "no_odds_event_match": "0.4%",
     "source_event_not_listed_yet": "2.9%",
     "source_market_or_point_absent": "0.7%",
@@ -92,6 +92,7 @@
         "time_gap_hours": 0.8333
       },
       "sportsbook_points": 327,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 470197.0,
       "status_counts": {
         "event_not_listed_before_first_seen": 1568
@@ -133,6 +134,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 89,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 38.0,
       "status_counts": {
         "missing_cache": 156,
@@ -175,6 +177,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 94,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 50.0,
       "status_counts": {
         "missing_cache": 163,
@@ -217,6 +220,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 81,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 38.0,
       "status_counts": {
         "missing_cache": 142,
@@ -259,6 +263,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 281,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {},
       "title": "Athletico Paranaense vs Vit\u00f3ria",
@@ -289,7 +294,7 @@
         "away_team": "Torino",
         "commence_time": "2026-01-24T14:00:00+00:00",
         "event_id": "04d137c94e7951ff930547e76f54cff9",
-        "first_seen": "2026-01-17T19:35:42+00:00",
+        "first_seen": "2026-01-17T02:35:39+00:00",
         "home_team": "Como",
         "market": "h2h",
         "match_score": 0.95,
@@ -298,6 +303,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 186,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {},
       "title": "COM vs TOR",
@@ -337,6 +343,7 @@
         "time_gap_hours": 5.75
       },
       "sportsbook_points": 93,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {
         "missing_cache": 148,
@@ -379,6 +386,7 @@
         "time_gap_hours": 16.4167
       },
       "sportsbook_points": 288,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 44.0,
       "status_counts": {},
       "title": "Cardinals vs Rams",
@@ -418,6 +426,7 @@
         "time_gap_hours": 0.2167
       },
       "sportsbook_points": 288,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 44.0,
       "status_counts": {},
       "title": "Cavaliers vs Mavericks",
@@ -457,6 +466,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 93,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {
         "missing_cache": 166,
@@ -499,6 +509,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 254,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {},
       "title": "Everton vs Burnley",
@@ -538,6 +549,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 288,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 45.0,
       "status_counts": {},
       "title": "Hornets vs Knicks",
@@ -577,6 +589,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 54,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {},
       "title": "Kings vs Lakers",
@@ -616,6 +629,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 82,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 45.0,
       "status_counts": {
         "missing_cache": 143,
@@ -658,6 +672,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 95,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 41.0,
       "status_counts": {
         "missing_cache": 164,
@@ -700,6 +715,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 190,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 38.0,
       "status_counts": {},
       "title": "Manchester United vs Crystal Palace",
@@ -739,6 +755,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 240,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 50.0,
       "status_counts": {},
       "title": "Metz vs Paris Saint Germain",
@@ -778,6 +795,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 91,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 38.0,
       "status_counts": {
         "missing_cache": 164,
@@ -821,6 +839,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 21,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 38.0,
       "status_counts": {
         "requested_point_absent": 19,
@@ -863,6 +882,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 46,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {},
       "title": "Pacers vs Warriors",
@@ -902,6 +922,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 282,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 46.0,
       "status_counts": {},
       "title": "Palmeiras vs Athletico Paranaense",
@@ -941,6 +962,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 28,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 53.0,
       "status_counts": {},
       "title": "Palmeiras vs Gr\u00eamio",
@@ -980,6 +1002,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 92,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 637.0,
       "status_counts": {
         "event_not_listed_before_first_seen": 3,
@@ -1023,6 +1046,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 68,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 50.0,
       "status_counts": {
         "missing_cache": 114,
@@ -1065,6 +1089,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 86,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {
         "missing_cache": 152,
@@ -1107,6 +1132,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 93,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 39.0,
       "status_counts": {
         "missing_cache": 168,
@@ -1150,6 +1176,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 332,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 464557.0,
       "status_counts": {
         "event_not_listed_before_first_seen": 1549
@@ -1191,6 +1218,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 48,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 44.0,
       "status_counts": {},
       "title": "Warriors vs Thunder",
@@ -1230,6 +1258,7 @@
         "time_gap_hours": 0.1833
       },
       "sportsbook_points": 41,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 38.0,
       "status_counts": {},
       "title": "Wizards vs Bulls",
@@ -1269,6 +1298,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 28,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 43.0,
       "status_counts": {},
       "title": "Wizards vs Hawks",
@@ -1309,6 +1339,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 290,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 470977.0,
       "status_counts": {
         "event_not_listed_before_first_seen": 1570
@@ -1350,6 +1381,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 273,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 43.0,
       "status_counts": {},
       "title": "76ers vs Thunder",
@@ -1389,6 +1421,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 94,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {
         "missing_cache": 167,
@@ -1431,6 +1464,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 95,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {
         "missing_cache": 166,
@@ -1473,6 +1507,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 85,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 49.0,
       "status_counts": {
         "missing_cache": 149,
@@ -1515,6 +1550,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 72,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 46.0,
       "status_counts": {
         "missing_cache": 126,
@@ -1557,6 +1593,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 233,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 44.0,
       "status_counts": {},
       "title": "Bournemouth vs Arsenal",
@@ -1596,6 +1633,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 189,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 38.0,
       "status_counts": {},
       "title": "Brighton and Hove Albion vs Wolverhampton Wanderers",
@@ -1635,6 +1673,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 28,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 38.0,
       "status_counts": {},
       "title": "Bulls vs Celtics",
@@ -1674,6 +1713,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 93,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 47.0,
       "status_counts": {
         "missing_cache": 164,
@@ -1716,6 +1756,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 189,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 43.0,
       "status_counts": {},
       "title": "CRE vs Napoli",
@@ -1755,6 +1796,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 43,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {},
       "title": "Connecticut Sun vs Golden State Valkyries",
@@ -1794,6 +1836,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 288,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 51.0,
       "status_counts": {},
       "title": "Cruzeiro vs Vit\u00f3ria",
@@ -1833,6 +1876,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 252,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {},
       "title": "Everton vs Manchester City",
@@ -1872,6 +1916,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 74,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 53.0,
       "status_counts": {
         "missing_cache": 126,
@@ -1914,6 +1959,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 83,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 42.0,
       "status_counts": {
         "missing_cache": 140,
@@ -1956,6 +2002,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 42,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 50.0,
       "status_counts": {},
       "title": "Grizzlies vs Timberwolves",
@@ -1995,6 +2042,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 49,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 40.0,
       "status_counts": {},
       "title": "Jazz vs Nuggets",
@@ -2035,6 +2083,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 282,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 1599.0,
       "status_counts": {
         "event_not_listed_before_first_seen": 6
@@ -2076,6 +2125,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 51,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 44.0,
       "status_counts": {},
       "title": "Kings vs Suns",
@@ -2115,6 +2165,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 61,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 50.0,
       "status_counts": {},
       "title": "Kings vs Warriors",
@@ -2154,6 +2205,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 199,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {},
       "title": "LEE vs Arsenal",
@@ -2193,6 +2245,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 287,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {},
       "title": "Lanus vs LDU Quito",
@@ -2232,6 +2285,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 92,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 45.0,
       "status_counts": {
         "missing_cache": 162,
@@ -2274,6 +2328,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 233,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 41.0,
       "status_counts": {},
       "title": "Liverpool vs LEE",
@@ -2313,6 +2368,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 263,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 47.0,
       "status_counts": {},
       "title": "Manchester United vs West Ham United",
@@ -2352,6 +2408,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 37,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 40.0,
       "status_counts": {},
       "title": "Mavericks vs Timberwolves",
@@ -2391,6 +2448,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 288,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 38.0,
       "status_counts": {},
       "title": "Mirassol vs Club Always Ready",
@@ -2430,6 +2488,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 69,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {
         "missing_cache": 119,
@@ -2472,6 +2531,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 190,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 218.0,
       "status_counts": {},
       "title": "Nottingham Forest vs Arsenal",
@@ -2511,6 +2571,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 35,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 44.0,
       "status_counts": {},
       "title": "Nuggets vs Cavaliers",
@@ -2550,6 +2611,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 93,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {
         "missing_cache": 164,
@@ -2593,6 +2655,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 311,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 466297.0,
       "status_counts": {
         "event_not_listed_before_first_seen": 1555
@@ -2634,6 +2697,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 41,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 46.0,
       "status_counts": {},
       "title": "Pacers vs Rockets",
@@ -2673,6 +2737,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 91,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 38.0,
       "status_counts": {
         "missing_cache": 160,
@@ -2715,6 +2780,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 258,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 278.0,
       "status_counts": {},
       "title": "Paris Saint Germain vs Rennes",
@@ -2754,6 +2820,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 288,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 45.0,
       "status_counts": {},
       "title": "Pistons vs Pacers",
@@ -2793,6 +2860,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 88,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 38.0,
       "status_counts": {
         "missing_cache": 156,
@@ -2835,6 +2903,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 89,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 47.0,
       "status_counts": {
         "missing_cache": 156,
@@ -2877,6 +2946,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 88,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 38.0,
       "status_counts": {
         "missing_cache": 155,
@@ -2919,6 +2989,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 92,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 47.0,
       "status_counts": {
         "missing_cache": 163,
@@ -2961,6 +3032,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 91,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {
         "missing_cache": 164,
@@ -3003,6 +3075,7 @@
         "time_gap_hours": 13.0
       },
       "sportsbook_points": 244,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 44.0,
       "status_counts": {},
       "title": "Titans vs Jaguars",
@@ -3042,6 +3115,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 221,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 42.0,
       "status_counts": {},
       "title": "Tottenham Hotspur vs Arsenal",
@@ -3081,6 +3155,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 65,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 43.0,
       "status_counts": {
         "missing_cache": 111,
@@ -3123,6 +3198,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 185,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 38.0,
       "status_counts": {},
       "title": "VfB Stuttgart vs VfL Wolfsburg",
@@ -3162,6 +3238,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 282,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 38.0,
       "status_counts": {},
       "title": "Vikings vs Seahawks",
@@ -3201,6 +3278,7 @@
         "time_gap_hours": 0.0167
       },
       "sportsbook_points": 62,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 218.0,
       "status_counts": {
         "missing_cache": 109,
@@ -3243,6 +3321,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 56,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 38.0,
       "status_counts": {},
       "title": "Warriors vs Nuggets",
@@ -3282,6 +3361,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 71,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {
         "missing_cache": 123,
@@ -3324,6 +3404,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 230,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 46.0,
       "status_counts": {},
       "title": "76ers vs Celtics",
@@ -3363,6 +3444,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 288,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 44.0,
       "status_counts": {},
       "title": "76ers vs Pistons",
@@ -3402,6 +3484,7 @@
         "time_gap_hours": 0.3333
       },
       "sportsbook_points": 94,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {
         "missing_cache": 167,
@@ -3444,6 +3527,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 262,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 46.0,
       "status_counts": {},
       "title": "Arsenal vs AST",
@@ -3483,6 +3567,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 66,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 65.0,
       "status_counts": {
         "missing_cache": 112,
@@ -3525,6 +3610,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 203,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 45.0,
       "status_counts": {},
       "title": "Bournemouth vs Burnley",
@@ -3564,6 +3650,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 279,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 46.0,
       "status_counts": {},
       "title": "Bragantino vs Remo",
@@ -3603,6 +3690,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 200,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 278.0,
       "status_counts": {},
       "title": "Brentford vs Burnley",
@@ -3642,6 +3730,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 196,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 44.0,
       "status_counts": {},
       "title": "Brighton and Hove Albion vs Burnley",
@@ -3681,6 +3770,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 49,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 43.0,
       "status_counts": {},
       "title": "Bucks vs Trail Blazers",
@@ -3720,6 +3810,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 57,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 41.0,
       "status_counts": {},
       "title": "Bulls vs Clippers",
@@ -3759,6 +3850,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 263,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 45.0,
       "status_counts": {},
       "title": "Clippers vs Bucks",
@@ -3798,6 +3890,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 34,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 49.0,
       "status_counts": {},
       "title": "Clippers vs Kings",
@@ -3837,6 +3930,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 287,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 48.0,
       "status_counts": {},
       "title": "Deportivo La Guaira vs Fluminense",
@@ -3877,6 +3971,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 22,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 47.0,
       "status_counts": {
         "requested_point_absent": 21,
@@ -3919,6 +4014,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 264,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 45.0,
       "status_counts": {},
       "title": "Everton vs Arsenal",
@@ -3958,6 +4054,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 288,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 46.0,
       "status_counts": {},
       "title": "Flamengo-RJ vs BAH",
@@ -3997,6 +4094,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 50,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 44.0,
       "status_counts": {},
       "title": "Hornets vs Kings",
@@ -4036,6 +4134,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 58,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {},
       "title": "Jazz vs Rockets",
@@ -4075,6 +4174,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 61,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 38.0,
       "status_counts": {},
       "title": "Jazz vs Warriors",
@@ -4114,6 +4214,7 @@
         "time_gap_hours": 0.1833
       },
       "sportsbook_points": 34,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {},
       "title": "Kings vs Knicks",
@@ -4153,6 +4254,7 @@
         "time_gap_hours": 0.2
       },
       "sportsbook_points": 34,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 40.0,
       "status_counts": {},
       "title": "Kings vs Rockets",
@@ -4193,6 +4295,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 287,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 476857.0,
       "status_counts": {
         "event_not_listed_before_first_seen": 1590
@@ -4234,6 +4337,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 33,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 38.0,
       "status_counts": {},
       "title": "Knicks vs Nets",
@@ -4273,6 +4377,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 218,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 38.0,
       "status_counts": {},
       "title": "Lille vs Nantes",
@@ -4312,6 +4417,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 89,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 53.0,
       "status_counts": {
         "missing_cache": 160,
@@ -4354,6 +4460,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 203,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {},
       "title": "Manchester City vs Wolverhampton Wanderers",
@@ -4393,6 +4500,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 283,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 38.0,
       "status_counts": {},
       "title": "Mirassol vs Chapecoense",
@@ -4432,6 +4540,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 285,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {},
       "title": "Mirassol vs LDU Quito",
@@ -4471,6 +4580,7 @@
         "time_gap_hours": 3.0
       },
       "sportsbook_points": 81,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {
         "missing_cache": 128,
@@ -4513,6 +4623,7 @@
         "time_gap_hours": 0.2
       },
       "sportsbook_points": 33,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 48.0,
       "status_counts": {},
       "title": "Nets vs Heat",
@@ -4552,6 +4663,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 66,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 45.0,
       "status_counts": {
         "missing_cache": 110,
@@ -4562,22 +4674,22 @@
       "visible_gap_windows": 55
     },
     {
-      "category": "missing_native_5m_cache",
+      "category": "complete_or_no_large_gap",
       "classifications": [
         "has_sportsbook_overlay"
       ],
       "clob_missing_minutes": 0,
       "clob_points": 1081,
       "complete_15m_cache": true,
-      "complete_5m_cache": false,
+      "complete_5m_cache": true,
       "expected_5m_snapshots": 217,
       "last_quote_to_event_end_gap_sec": -6937.0,
       "last_quote_to_final_gap_sec": 272.0060000000012,
       "last_sportsbook_selected_fair": 0.714,
       "materialization_bug_windows": 0,
-      "max_internal_gap_sec": 901.0,
-      "missing_5m_snapshots": 44,
-      "missing_cache_windows": 22,
+      "max_internal_gap_sec": 302.0,
+      "missing_5m_snapshots": 0,
+      "missing_cache_windows": 0,
       "replay_id": "0xf2f189de5e56b66cfd29c3a984fa3dde483ea71529ce395c158682ab4750a867:34428653976380446416387126993346041256994726550176489117036048180779020748454",
       "sport": "soccer",
       "sportsbook_match": true,
@@ -4585,7 +4697,7 @@
         "away_team": "AS Roma",
         "commence_time": "2026-05-10T16:00:00+00:00",
         "event_id": "f47ad49910710e3636f51b0b0898306d",
-        "first_seen": "2026-05-10T12:00:37+00:00",
+        "first_seen": "2026-05-10T12:30:37+00:00",
         "home_team": "Parma",
         "market": "h2h",
         "match_score": 0.95,
@@ -4593,15 +4705,13 @@
         "sport": "soccer_italy_serie_a",
         "time_gap_hours": 0.0
       },
-      "sportsbook_points": 172,
+      "sportsbook_points": 216,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 38.0,
-      "status_counts": {
-        "missing_cache": 44,
-        "stale_payload_at_or_before_gap_start": 22
-      },
+      "status_counts": {},
       "title": "PAR vs ROM",
-      "verdict": "The 15-minute layer is complete, but native 5-minute Odds API snapshots are still missing.",
-      "visible_gap_windows": 22
+      "verdict": "No material sportsbook gap was found beyond normal snapshot cadence.",
+      "visible_gap_windows": 0
     },
     {
       "category": "complete_or_no_large_gap",
@@ -4636,6 +4746,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 66,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 42.0,
       "status_counts": {},
       "title": "Pacers vs Clippers",
@@ -4676,6 +4787,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 283,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 1538.0,
       "status_counts": {
         "event_not_listed_before_first_seen": 6
@@ -4717,6 +4829,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 27,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 45.0,
       "status_counts": {},
       "title": "Pacers vs Pistons",
@@ -4756,6 +4869,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 83,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 53.0,
       "status_counts": {
         "missing_cache": 142,
@@ -4798,6 +4912,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 283,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 38.0,
       "status_counts": {},
       "title": "Palmeiras vs Santos",
@@ -4837,6 +4952,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 271,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 39.0,
       "status_counts": {},
       "title": "Pelicans vs Thunder",
@@ -4876,6 +4992,7 @@
         "time_gap_hours": 0.2167
       },
       "sportsbook_points": 41,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {},
       "title": "Pelicans vs Thunder",
@@ -4915,6 +5032,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 215,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 218.0,
       "status_counts": {},
       "title": "RC Lens vs Nice",
@@ -4954,6 +5072,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 81,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 50.0,
       "status_counts": {
         "missing_cache": 143,
@@ -4996,6 +5115,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 73,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 44.0,
       "status_counts": {
         "missing_cache": 126,
@@ -5038,6 +5158,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 68,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 65.0,
       "status_counts": {
         "missing_cache": 114,
@@ -5080,6 +5201,7 @@
         "time_gap_hours": 1.1667
       },
       "sportsbook_points": 41,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 45.0,
       "status_counts": {},
       "title": "Spurs vs Kings",
@@ -5119,6 +5241,7 @@
         "time_gap_hours": 1.0
       },
       "sportsbook_points": 42,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 38.0,
       "status_counts": {},
       "title": "Suns vs Nuggets",
@@ -5158,6 +5281,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 72,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 41.0,
       "status_counts": {
         "missing_cache": 123,
@@ -5200,6 +5324,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 65,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 46.0,
       "status_counts": {
         "missing_cache": 110,
@@ -5243,6 +5368,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 2,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 670836.0,
       "status_counts": {
         "event_not_listed_before_first_seen": 1800,
@@ -5287,6 +5413,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 38,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 39.0,
       "status_counts": {},
       "title": "Wizards vs Suns",
@@ -5326,6 +5453,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 54,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 42.0,
       "status_counts": {},
       "title": "Wizards vs Warriors",
@@ -5365,6 +5493,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 92,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 44.0,
       "status_counts": {
         "missing_cache": 164,
@@ -5407,6 +5536,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 85,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 41.0,
       "status_counts": {
         "missing_cache": 148,
@@ -5449,6 +5579,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 191,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 45.0,
       "status_counts": {},
       "title": "Athletico Paranaense vs Chapecoense",
@@ -5488,6 +5619,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 84,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {
         "missing_cache": 146,
@@ -5530,6 +5662,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 93,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 43.0,
       "status_counts": {
         "missing_cache": 166,
@@ -5572,6 +5705,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 68,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {
         "missing_cache": 119,
@@ -5614,6 +5748,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 83,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 38.0,
       "status_counts": {
         "missing_cache": 146,
@@ -5656,6 +5791,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 78,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 38.0,
       "status_counts": {
         "missing_cache": 136,
@@ -5698,6 +5834,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 49,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 39.0,
       "status_counts": {},
       "title": "Bucks vs Clippers",
@@ -5737,6 +5874,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 59,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 38.0,
       "status_counts": {
         "missing_cache": 99,
@@ -5779,6 +5917,7 @@
         "time_gap_hours": 0.2
       },
       "sportsbook_points": 24,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 45.0,
       "status_counts": {},
       "title": "Cavaliers vs Wizards",
@@ -5818,6 +5957,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 276,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 38.0,
       "status_counts": {},
       "title": "FLU vs Vit\u00f3ria",
@@ -5857,6 +5997,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 29,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {},
       "title": "Flamengo-RJ vs Estudiantes La Plata",
@@ -5896,6 +6037,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 96,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {
         "missing_cache": 164,
@@ -5938,6 +6080,7 @@
         "time_gap_hours": 5.0
       },
       "sportsbook_points": 246,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 42.0,
       "status_counts": {},
       "title": "Jets vs Jaguars",
@@ -5977,6 +6120,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 89,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 46.0,
       "status_counts": {
         "missing_cache": 152,
@@ -6019,6 +6163,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 89,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 38.0,
       "status_counts": {
         "missing_cache": 157,
@@ -6061,6 +6206,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 201,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 41.0,
       "status_counts": {},
       "title": "Liverpool vs West Ham United",
@@ -6100,6 +6246,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 93,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 40.0,
       "status_counts": {
         "missing_cache": 162,
@@ -6142,6 +6289,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 94,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {
         "missing_cache": 166,
@@ -6184,6 +6332,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 92,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 44.0,
       "status_counts": {
         "missing_cache": 165,
@@ -6226,6 +6375,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 36,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {},
       "title": "Mavericks vs Timberwolves",
@@ -6265,6 +6415,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 177,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 46.0,
       "status_counts": {},
       "title": "Nottingham Forest vs Burnley",
@@ -6304,6 +6455,7 @@
         "time_gap_hours": 0.1769
       },
       "sportsbook_points": 41,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 46.0,
       "status_counts": {},
       "title": "Nuggets vs Pelicans",
@@ -6343,6 +6495,7 @@
         "time_gap_hours": 0.1833
       },
       "sportsbook_points": 288,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 44.0,
       "status_counts": {},
       "title": "Pistons vs Nets",
@@ -6382,6 +6535,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 85,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 38.0,
       "status_counts": {
         "missing_cache": 150,
@@ -6424,6 +6578,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 179,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 98.0,
       "status_counts": {},
       "title": "RC Lens vs Auxerre",
@@ -6463,6 +6618,7 @@
         "time_gap_hours": 5.0
       },
       "sportsbook_points": 241,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 42.0,
       "status_counts": {},
       "title": "Raiders vs Eagles",
@@ -6502,6 +6658,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 66,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 40.0,
       "status_counts": {
         "missing_cache": 110,
@@ -6545,6 +6702,7 @@
         "time_gap_hours": 0.2
       },
       "sportsbook_points": 320,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 461737.0,
       "status_counts": {
         "event_not_listed_before_first_seen": 1540
@@ -6586,6 +6744,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 78,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 38.0,
       "status_counts": {
         "event_not_listed": 1,
@@ -6629,6 +6788,7 @@
         "time_gap_hours": 0.0167
       },
       "sportsbook_points": 78,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {
         "missing_cache": 134,
@@ -6671,6 +6831,7 @@
         "time_gap_hours": 5.75
       },
       "sportsbook_points": 99,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {
         "missing_cache": 156,
@@ -6713,6 +6874,7 @@
         "time_gap_hours": 5.0
       },
       "sportsbook_points": 288,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 42.0,
       "status_counts": {},
       "title": "Titans vs 49ers",
@@ -6752,6 +6914,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 93,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 38.0,
       "status_counts": {
         "missing_cache": 162,
@@ -6785,7 +6948,7 @@
         "away_team": "Inter Milan",
         "commence_time": "2026-01-17T14:00:00+00:00",
         "event_id": "98e958a4d4d6c144732a0a32d2ab77de",
-        "first_seen": "2026-01-17T15:05:38+00:00",
+        "first_seen": "2026-01-17T02:35:39+00:00",
         "home_team": "Udinese",
         "market": "h2h",
         "match_score": 0.975,
@@ -6794,6 +6957,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 148,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 218.0,
       "status_counts": {},
       "title": "UDI vs Inter Milan",
@@ -6833,6 +6997,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 81,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 41.0,
       "status_counts": {
         "missing_cache": 142,
@@ -6875,6 +7040,7 @@
         "time_gap_hours": 0.0167
       },
       "sportsbook_points": 73,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 50.0,
       "status_counts": {
         "missing_cache": 127,
@@ -6908,7 +7074,7 @@
         "away_team": "Parma",
         "commence_time": "2026-01-25T14:00:00+00:00",
         "event_id": "9668e5b753c1b8c8cdb5c5263f87b372",
-        "first_seen": "2026-01-17T19:35:42+00:00",
+        "first_seen": "2026-01-17T02:35:39+00:00",
         "home_team": "Atalanta BC",
         "market": "h2h",
         "match_score": 0.95,
@@ -6917,6 +7083,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 69,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {
         "missing_cache": 116,
@@ -6959,6 +7126,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 216,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 38.0,
       "status_counts": {},
       "title": "Arsenal vs Fulham",
@@ -6998,6 +7166,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 73,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 41.0,
       "status_counts": {
         "missing_cache": 128,
@@ -7040,6 +7209,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 93,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 45.0,
       "status_counts": {
         "missing_cache": 162,
@@ -7082,6 +7252,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 75,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {
         "missing_cache": 128,
@@ -7124,6 +7295,7 @@
         "time_gap_hours": 16.0833
       },
       "sportsbook_points": 288,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 44.0,
       "status_counts": {},
       "title": "Chargers vs Broncos",
@@ -7163,6 +7335,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 91,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 43.0,
       "status_counts": {
         "missing_cache": 163,
@@ -7205,6 +7378,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 93,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {
         "missing_cache": 166,
@@ -7247,6 +7421,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 80,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 50.0,
       "status_counts": {
         "missing_cache": 132,
@@ -7289,6 +7464,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 59,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 40.0,
       "status_counts": {},
       "title": "Grizzlies vs Thunder",
@@ -7328,6 +7504,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 41,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 46.0,
       "status_counts": {},
       "title": "Hawks vs Thunder",
@@ -7367,6 +7544,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 92,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 44.0,
       "status_counts": {
         "missing_cache": 162,
@@ -7409,6 +7587,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 46,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 64.0,
       "status_counts": {},
       "title": "Jazz vs Thunder",
@@ -7448,6 +7627,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 40,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 44.0,
       "status_counts": {},
       "title": "Knicks vs Jazz",
@@ -7487,6 +7667,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 81,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 40.0,
       "status_counts": {
         "missing_cache": 140,
@@ -7529,6 +7710,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 266,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 43.0,
       "status_counts": {},
       "title": "Liverpool vs Sunderland",
@@ -7568,6 +7750,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 255,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 97.0,
       "status_counts": {},
       "title": "Lyon vs Nantes",
@@ -7607,6 +7790,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 60,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 42.0,
       "status_counts": {
         "missing_cache": 98,
@@ -7649,6 +7833,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 89,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {
         "missing_cache": 158,
@@ -7691,6 +7876,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 219,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 38.0,
       "status_counts": {},
       "title": "Manchester City vs Brentford",
@@ -7730,6 +7916,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 84,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 38.0,
       "status_counts": {
         "missing_cache": 140,
@@ -7772,6 +7959,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 288,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 50.0,
       "status_counts": {},
       "title": "Nets vs Pistons",
@@ -7811,6 +7999,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 90,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {
         "event_not_listed": 1,
@@ -7854,6 +8043,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 93,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 42.0,
       "status_counts": {
         "missing_cache": 164,
@@ -7896,6 +8086,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 74,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 38.0,
       "status_counts": {
         "missing_cache": 126,
@@ -7938,6 +8129,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 239,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 43.0,
       "status_counts": {},
       "title": "Patriots vs Jets",
@@ -7977,6 +8169,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 80,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {
         "missing_cache": 138,
@@ -8019,6 +8212,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 189,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {
         "missing_cache": 70,
@@ -8061,6 +8255,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 92,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {
         "missing_cache": 162,
@@ -8103,6 +8298,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 94,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {
         "missing_cache": 167,
@@ -8145,6 +8341,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 75,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {
         "missing_cache": 128,
@@ -8187,6 +8384,7 @@
         "time_gap_hours": 0.1833
       },
       "sportsbook_points": 27,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 42.0,
       "status_counts": {},
       "title": "Rockets vs Grizzlies",
@@ -8226,6 +8424,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 52,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 58.0,
       "status_counts": {},
       "title": "Spurs vs Warriors",
@@ -8265,6 +8464,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 264,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 41.0,
       "status_counts": {},
       "title": "Sunderland vs Manchester City",
@@ -8304,6 +8504,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 60,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 43.0,
       "status_counts": {},
       "title": "Suns vs Thunder",
@@ -8343,6 +8544,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 260,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 46.0,
       "status_counts": {},
       "title": "Suns vs Thunder",
@@ -8382,6 +8584,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 39,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 41.0,
       "status_counts": {},
       "title": "Trail Blazers vs Thunder",
@@ -8412,7 +8615,7 @@
         "away_team": "Como",
         "commence_time": "2026-05-10T10:31:00+00:00",
         "event_id": "a785b31d8df18dde6921626b09f76415",
-        "first_seen": "2026-05-10T12:00:37+00:00",
+        "first_seen": "2026-05-10T12:30:37+00:00",
         "home_team": "Hellas Verona",
         "market": "h2h",
         "match_score": 0.95,
@@ -8421,6 +8624,7 @@
         "time_gap_hours": 0.0167
       },
       "sportsbook_points": 149,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 38.0,
       "status_counts": {},
       "title": "VER vs COM",
@@ -8460,6 +8664,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 201,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 45.0,
       "status_counts": {},
       "title": "VfB Stuttgart vs Hamburger SV",
@@ -8499,6 +8704,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 27,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 158.0,
       "status_counts": {},
       "title": "Wizards vs Raptors",
@@ -8538,6 +8744,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 37,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 48.0,
       "status_counts": {},
       "title": "Wizards vs Spurs",
@@ -8577,6 +8784,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 256,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 43.0,
       "status_counts": {},
       "title": "Arsenal vs Brentford",
@@ -8616,6 +8824,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 203,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 42.0,
       "status_counts": {},
       "title": "Arsenal vs Brighton and Hove Albion",
@@ -8655,6 +8864,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 80,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 50.0,
       "status_counts": {
         "missing_cache": 138,
@@ -8697,6 +8907,7 @@
         "time_gap_hours": 2.25
       },
       "sportsbook_points": 90,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {
         "missing_cache": 158,
@@ -8739,6 +8950,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 90,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 56.0,
       "status_counts": {
         "missing_cache": 161,
@@ -8781,6 +8993,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 288,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 40.0,
       "status_counts": {},
       "title": "Flamengo-RJ vs Internacional",
@@ -8820,6 +9033,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 27,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 47.0,
       "status_counts": {},
       "title": "Grizzlies vs Rockets",
@@ -8859,6 +9073,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 29,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 53.0,
       "status_counts": {},
       "title": "Jazz vs Knicks",
@@ -8898,6 +9113,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 30,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 47.0,
       "status_counts": {},
       "title": "Jazz vs Lakers",
@@ -8937,6 +9153,7 @@
         "time_gap_hours": 0.1833
       },
       "sportsbook_points": 53,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 52.0,
       "status_counts": {},
       "title": "Kings vs Warriors",
@@ -8976,6 +9193,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 286,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {},
       "title": "LDU Quito vs Club Always Ready",
@@ -9016,6 +9234,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 234,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 39.0,
       "status_counts": {
         "stale_payload_at_or_before_gap_start": 15
@@ -9057,6 +9276,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 65,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 217.0,
       "status_counts": {
         "missing_cache": 110,
@@ -9099,6 +9319,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 254,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 38.0,
       "status_counts": {},
       "title": "Manchester City vs Fulham",
@@ -9138,6 +9359,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 266,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 46.0,
       "status_counts": {},
       "title": "Manchester United vs Wolverhampton Wanderers",
@@ -9177,6 +9399,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 54,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 53.0,
       "status_counts": {},
       "title": "Mavericks vs Thunder",
@@ -9184,46 +9407,44 @@
       "visible_gap_windows": 0
     },
     {
-      "category": "missing_native_5m_cache",
+      "category": "complete_or_no_large_gap",
       "classifications": [
         "has_sportsbook_overlay"
       ],
       "clob_missing_minutes": 0,
       "clob_points": 1006,
       "complete_15m_cache": true,
-      "complete_5m_cache": false,
+      "complete_5m_cache": true,
       "expected_5m_snapshots": 201,
       "last_quote_to_event_end_gap_sec": -6648.0,
       "last_quote_to_final_gap_sec": 45.004000000000815,
       "last_sportsbook_selected_fair": 0.9933,
       "materialization_bug_windows": 0,
-      "max_internal_gap_sec": 900.0,
-      "missing_5m_snapshots": 2,
-      "missing_cache_windows": 1,
+      "max_internal_gap_sec": 323.0,
+      "missing_5m_snapshots": 0,
+      "missing_cache_windows": 0,
       "replay_id": "0x7ca531df82474748cc951f164c7b719639da9b8ca718565478bc8b264b04faf8:31089099404496928062633778568408586318000062519550609688670434633173769152934",
       "sport": "soccer",
       "sportsbook_match": true,
       "sportsbook_match_detail": {
         "away_team": "Sassuolo",
-        "commence_time": "2026-01-17T17:02:00+00:00",
+        "commence_time": "2026-01-17T17:00:00+00:00",
         "event_id": "2e402618e8f128fd17ac85c1075dc642",
-        "first_seen": "2026-01-17T18:25:41+00:00",
+        "first_seen": "2026-01-17T02:35:39+00:00",
         "home_team": "Napoli",
         "market": "h2h",
         "match_score": 0.975,
         "point": null,
         "sport": "soccer_italy_serie_a",
-        "time_gap_hours": 0.0333
+        "time_gap_hours": 0.0
       },
-      "sportsbook_points": 199,
+      "sportsbook_points": 201,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 279.0,
-      "status_counts": {
-        "missing_cache": 2,
-        "stale_payload_at_or_before_gap_start": 1
-      },
+      "status_counts": {},
       "title": "Napoli vs SAS",
-      "verdict": "The 15-minute layer is complete, but native 5-minute Odds API snapshots are still missing.",
-      "visible_gap_windows": 1
+      "verdict": "No material sportsbook gap was found beyond normal snapshot cadence.",
+      "visible_gap_windows": 0
     },
     {
       "category": "complete_or_no_large_gap",
@@ -9258,6 +9479,7 @@
         "time_gap_hours": 0.2
       },
       "sportsbook_points": 53,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 39.0,
       "status_counts": {},
       "title": "Nets vs Trail Blazers",
@@ -9297,6 +9519,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 91,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 42.0,
       "status_counts": {
         "missing_cache": 165,
@@ -9339,6 +9562,7 @@
         "time_gap_hours": 5.0
       },
       "sportsbook_points": 288,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 48.0,
       "status_counts": {},
       "title": "Raiders vs Texans",
@@ -9378,6 +9602,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 93,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 38.0,
       "status_counts": {
         "missing_cache": 166,
@@ -9420,6 +9645,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 25,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 38.0,
       "status_counts": {},
       "title": "Suns vs Thunder",
@@ -9459,6 +9685,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 65,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 49.0,
       "status_counts": {
         "missing_cache": 108,
@@ -9501,6 +9728,7 @@
         "time_gap_hours": 1.8333
       },
       "sportsbook_points": 288,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 53.0,
       "status_counts": {},
       "title": "Bulls vs Knicks",
@@ -9540,6 +9768,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 52,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 41.0,
       "status_counts": {},
       "title": "Jazz vs Trail Blazers",
@@ -9579,6 +9808,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 34,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 47.0,
       "status_counts": {},
       "title": "Kings vs Rockets",
@@ -9618,6 +9848,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 42,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 40.0,
       "status_counts": {},
       "title": "Nets vs Thunder",
@@ -9657,6 +9888,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 56,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {},
       "title": "Pelicans vs Lakers",
@@ -9696,6 +9928,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 92,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 62.0,
       "status_counts": {
         "missing_cache": 161,
@@ -9738,6 +9971,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 288,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {},
       "title": "Thunder vs 76ers",
@@ -9777,6 +10011,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 38,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {},
       "title": "Thunder vs Mavericks",
@@ -9816,6 +10051,7 @@
         "time_gap_hours": 0.2
       },
       "sportsbook_points": 288,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 45.0,
       "status_counts": {},
       "title": "Wizards vs Trail Blazers",
@@ -9855,6 +10091,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 95,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 43.0,
       "status_counts": {
         "missing_cache": 165,
@@ -9897,6 +10134,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 49,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 53.0,
       "status_counts": {},
       "title": "Wizards vs Lakers",
@@ -9925,6 +10163,7 @@
       "sportsbook_match": false,
       "sportsbook_match_detail": null,
       "sportsbook_points": 0,
+      "sportsbook_within_clob_window": null,
       "start_gap_sec": null,
       "status_counts": {
         "no_odds_event_match": 261
@@ -9966,6 +10205,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 257,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 42.0,
       "status_counts": {},
       "title": "Spurs vs Bucks",
@@ -10009,6 +10249,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 346,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 82297.0,
       "status_counts": {
         "event_not_listed_before_first_seen": 275,
@@ -10053,6 +10294,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 41,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 43.0,
       "status_counts": {},
       "title": "Jazz vs Spurs",
@@ -10083,7 +10325,7 @@
         "away_team": "Bologna",
         "commence_time": "2026-05-11T18:45:00+00:00",
         "event_id": "2b609cc965cb3908e27a634aabc7846b",
-        "first_seen": "2026-05-10T12:00:37+00:00",
+        "first_seen": "2026-05-10T12:30:37+00:00",
         "home_team": "Napoli",
         "market": "h2h",
         "match_score": 0.975,
@@ -10092,6 +10334,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 89,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {
         "missing_cache": 156,
@@ -10134,6 +10377,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 95,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 62.0,
       "status_counts": {
         "missing_cache": 163,
@@ -10176,6 +10420,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 266,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {},
       "title": "Wolverhampton Wanderers vs Liverpool",
@@ -10215,6 +10460,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 68,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 38.0,
       "status_counts": {
         "missing_cache": 115,
@@ -10257,6 +10503,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 68,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 38.0,
       "status_counts": {
         "missing_cache": 116,
@@ -10290,7 +10537,7 @@
         "away_team": "Juventus",
         "commence_time": "2026-01-17T19:45:00+00:00",
         "event_id": "7cccb3c5504678aa2bbd5490aab3881f",
-        "first_seen": "2026-01-17T19:35:42+00:00",
+        "first_seen": "2026-01-17T02:35:39+00:00",
         "home_team": "Cagliari",
         "market": "h2h",
         "match_score": 0.975,
@@ -10299,6 +10546,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 226,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 158.0,
       "status_counts": {},
       "title": "CAG vs Juventus",
@@ -10338,6 +10586,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 259,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 38.0,
       "status_counts": {},
       "title": "Crystal Palace vs Burnley",
@@ -10378,6 +10627,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 84,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {
         "event_not_listed": 4,
@@ -10421,6 +10671,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 84,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 38.0,
       "status_counts": {
         "missing_cache": 146,
@@ -10463,6 +10714,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 50,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {},
       "title": "New York Liberty vs Portland Fire",
@@ -10502,6 +10754,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 94,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 43.0,
       "status_counts": {
         "missing_cache": 167,
@@ -10544,6 +10797,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 161,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 50.0,
       "status_counts": {},
       "title": "Arsenal vs Bournemouth",
@@ -10583,6 +10837,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 186,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 53.0,
       "status_counts": {},
       "title": "Bayer Leverkusen vs Augsburg",
@@ -10622,6 +10877,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 84,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 62.0,
       "status_counts": {
         "missing_cache": 148,
@@ -10664,6 +10920,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 53,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {},
       "title": "Bulls vs Nuggets",
@@ -10703,6 +10960,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 71,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 41.0,
       "status_counts": {
         "missing_cache": 123,
@@ -10745,6 +11003,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 93,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {
         "missing_cache": 164,
@@ -10787,6 +11046,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 288,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 49.0,
       "status_counts": {},
       "title": "Cruzeiro vs Universidad Cat\u00f3lica (CHI)",
@@ -10826,6 +11086,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 94,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {
         "missing_cache": 167,
@@ -10868,6 +11129,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 61,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {},
       "title": "Kings vs Clippers",
@@ -10907,6 +11169,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 90,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {
         "missing_cache": 158,
@@ -10949,6 +11212,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 77,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 50.0,
       "status_counts": {
         "missing_cache": 134,
@@ -10991,6 +11255,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 78,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 53.0,
       "status_counts": {
         "missing_cache": 134,
@@ -11033,6 +11298,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 31,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 158.0,
       "status_counts": {},
       "title": "Nets vs Celtics",
@@ -11072,6 +11338,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 43,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {},
       "title": "Pacers vs Thunder",
@@ -11111,6 +11378,7 @@
         "time_gap_hours": 0.1667
       },
       "sportsbook_points": 39,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 61.0,
       "status_counts": {},
       "title": "Hornets vs Thunder",
@@ -11150,6 +11418,7 @@
         "time_gap_hours": 0.2167
       },
       "sportsbook_points": 29,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 40.0,
       "status_counts": {},
       "title": "Wizards vs Pistons",
@@ -11189,6 +11458,7 @@
         "time_gap_hours": 0.0
       },
       "sportsbook_points": 205,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {},
       "title": "Manchester City vs AST",
@@ -11228,6 +11498,7 @@
         "time_gap_hours": 0.1833
       },
       "sportsbook_points": 263,
+      "sportsbook_within_clob_window": true,
       "start_gap_sec": 37.0,
       "status_counts": {},
       "title": "Mavericks vs Cavaliers",
@@ -11235,10 +11506,11 @@
       "visible_gap_windows": 0
     }
   ],
-  "generated_at": "2026-05-31T13:22:45.424761+00:00",
+  "generated_at": "2026-05-31T13:51:31.226109+00:00",
   "inputs": {
     "gap_audit": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/reports/replay_sportsbook_gap_audit_latest.json",
-    "source_window_audit": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/reports/replay_sportsbook_source_window_audit_latest.json"
+    "source_window_audit": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/reports/replay_sportsbook_source_window_audit_latest.json",
+    "two_sided_completeness": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/reports/two_sided_market_data_completeness_latest.json"
   },
   "outputs": {
     "json": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/reports/dashboard_sportsbook_integrity_audit_latest.json",
@@ -11247,19 +11519,24 @@
   "quota": {
     "estimated_credit_shortfall": 1280034,
     "estimated_credits_per_snapshot": 90,
-    "estimated_credits_to_finish_5m": 1290780,
-    "paid_remaining": 10746
+    "estimated_credits_to_finish_5m": 1286640,
+    "paid_remaining": 6606
   },
   "totals": {
     "clob_complete_events": 277,
+    "clob_two_sided_events": 277,
     "complete_15m_cache_events": 276,
-    "complete_5m_cache_events": 164,
+    "complete_5m_cache_events": 166,
+    "complete_both_venues_events": 276,
     "events": 277,
     "materialization_bug_windows": 0,
-    "missing_cache_windows": 8105,
-    "source_gap_windows": 8121,
+    "missing_cache_windows": 8082,
+    "source_gap_windows": 8098,
+    "sportsbook_complete_side_events": 276,
     "sportsbook_matched_events": 276,
     "sportsbook_overlay_events": 276,
-    "unique_missing_5m_snapshots": 14342
+    "sportsbook_points_inside_clob_window_events": 276,
+    "unique_missing_5m_snapshots": 14296,
+    "visible_gap_events": 121
   }
 }

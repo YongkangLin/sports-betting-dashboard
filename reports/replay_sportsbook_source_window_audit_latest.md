@@ -1,11 +1,11 @@
 # Replay Sportsbook Source Window Audit
 
-- Generated: 2026-05-31T13:06:39.099923+00:00
+- Generated: 2026-05-31T13:49:43.345078+00:00
 - Replay events audited: 277
-- Events with visible sportsbook gap windows: 123
-- Gap windows audited: 8,121
+- Events with visible sportsbook gap windows: 121
+- Gap windows audited: 8,098
 - Materialization bug windows: 0
-- Missing raw-cache windows: 8,105
+- Missing raw-cache windows: 8,082
 
 ## Verdict
 
@@ -15,7 +15,7 @@
 
 | Verdict | Windows |
 |---|---:|
-| missing_raw_cache | 8,105 |
+| missing_raw_cache | 8,082 |
 | source_event_not_listed_before_first_seen | 11 |
 | mixed_source_availability | 4 |
 | source_stale_payload_no_new_quote | 1 |
@@ -24,9 +24,9 @@
 
 | Raw source status | 5m snapshots |
 |---|---:|
-| missing_cache | 17,072 |
+| missing_cache | 17,026 |
 | event_not_listed_before_first_seen | 11,462 |
-| stale_payload_at_or_before_gap_start | 8,123 |
+| stale_payload_at_or_before_gap_start | 8,100 |
 | requested_point_absent | 502 |
 | no_odds_event_match | 261 |
 | event_not_listed | 6 |
@@ -77,7 +77,6 @@
 | Lille vs Nice | soccer | 80 | {'stale_payload_at_or_before_gap_start': 80, 'missing_cache': 160} |
 | Napoli vs UDI | soccer | 64 | {'stale_payload_at_or_before_gap_start': 64, 'missing_cache': 128} |
 | PAR vs Napoli | soccer | 55 | {'stale_payload_at_or_before_gap_start': 55, 'missing_cache': 110} |
-| PAR vs ROM | soccer | 22 | {'stale_payload_at_or_before_gap_start': 22, 'missing_cache': 44} |
 | Palermo vs Avellino | soccer | 71 | {'stale_payload_at_or_before_gap_start': 71, 'missing_cache': 142} |
 | ROM vs SAS | soccer | 72 | {'stale_payload_at_or_before_gap_start': 72, 'missing_cache': 143} |
 | Real Madrid vs Real Betis | soccer | 63 | {'stale_payload_at_or_before_gap_start': 63, 'missing_cache': 126} |
@@ -121,6 +120,7 @@
 | Metz vs AS Monaco | soccer | 70 | {'stale_payload_at_or_before_gap_start': 70, 'missing_cache': 140} |
 | PAR vs Juventus | soccer | 80 | {'stale_payload_at_or_before_gap_start': 80, 'missing_cache': 162, 'event_not_listed': 1} |
 | PIS vs Juventus | soccer | 82 | {'stale_payload_at_or_before_gap_start': 82, 'missing_cache': 164} |
+| Paris Saint Germain vs Lorient | soccer | 63 | {'stale_payload_at_or_before_gap_start': 63, 'missing_cache': 126} |
 
 ## Cited Examples
 

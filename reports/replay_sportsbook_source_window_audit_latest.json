@@ -7122,7 +7122,7 @@
         "away_team": "Torino",
         "commence_time": "2026-01-24T14:00:00+00:00",
         "event_id": "04d137c94e7951ff930547e76f54cff9",
-        "first_seen": "2026-01-17T19:35:42+00:00",
+        "first_seen": "2026-01-17T02:35:39+00:00",
         "home_team": "Como",
         "market": "h2h",
         "match_score": 0.95,
@@ -83218,7 +83218,7 @@
     {
       "clob_points": 1081,
       "materialization_bug_windows": 0,
-      "missing_cache_windows": 22,
+      "missing_cache_windows": 0,
       "other_outcome": "Yes",
       "outcome": "No",
       "replay_id": "0xf2f189de5e56b66cfd29c3a984fa3dde483ea71529ce395c158682ab4750a867:34428653976380446416387126993346041256994726550176489117036048180779020748454",
@@ -83228,7 +83228,7 @@
         "away_team": "AS Roma",
         "commence_time": "2026-05-10T16:00:00+00:00",
         "event_id": "f47ad49910710e3636f51b0b0898306d",
-        "first_seen": "2026-05-10T12:00:37+00:00",
+        "first_seen": "2026-05-10T12:30:37+00:00",
         "home_team": "Parma",
         "market": "h2h",
         "match_score": 0.95,
@@ -83236,678 +83236,12 @@
         "sport": "soccer_italy_serie_a",
         "time_gap_hours": 0.0
       },
-      "sportsbook_points": 172,
-      "status_counts": {
-        "missing_cache": 44,
-        "stale_payload_at_or_before_gap_start": 22
-      },
+      "sportsbook_points": 216,
+      "status_counts": {},
       "title": "PAR vs ROM",
-      "verdict_counts": {
-        "missing_raw_cache": 22
-      },
-      "window_count": 22,
-      "windows": [
-        {
-          "duration_sec": 901.0,
-          "end_offset_sec": 45638.0,
-          "end_ts": "2026-05-10T12:40:38+00:00",
-          "expected_5m_snapshots": 3,
-          "materialization_bug": false,
-          "samples": [
-            {
-              "payload_timestamp": "2026-05-10T12:25:37+00:00",
-              "status": "stale_payload_at_or_before_gap_start",
-              "timestamp": "2026-05-10T12:30:00+00:00"
-            },
-            {
-              "status": "missing_cache",
-              "timestamp": "2026-05-10T12:35:00+00:00"
-            },
-            {
-              "status": "missing_cache",
-              "timestamp": "2026-05-10T12:40:00+00:00"
-            }
-          ],
-          "start_offset_sec": 44737.0,
-          "start_ts": "2026-05-10T12:25:37+00:00",
-          "status_counts": {
-            "missing_cache": 2,
-            "stale_payload_at_or_before_gap_start": 1
-          },
-          "verdict": "missing_raw_cache",
-          "window_type": "internal_gap_between_sportsbook_quotes"
-        },
-        {
-          "duration_sec": 899.0,
-          "end_offset_sec": 46537.0,
-          "end_ts": "2026-05-10T12:55:37+00:00",
-          "expected_5m_snapshots": 3,
-          "materialization_bug": false,
-          "samples": [
-            {
-              "payload_timestamp": "2026-05-10T12:40:38+00:00",
-              "status": "stale_payload_at_or_before_gap_start",
-              "timestamp": "2026-05-10T12:45:00+00:00"
-            },
-            {
-              "status": "missing_cache",
-              "timestamp": "2026-05-10T12:50:00+00:00"
-            },
-            {
-              "status": "missing_cache",
-              "timestamp": "2026-05-10T12:55:00+00:00"
-            }
-          ],
-          "start_offset_sec": 45638.0,
-          "start_ts": "2026-05-10T12:40:38+00:00",
-          "status_counts": {
-            "missing_cache": 2,
-            "stale_payload_at_or_before_gap_start": 1
-          },
-          "verdict": "missing_raw_cache",
-          "window_type": "internal_gap_between_sportsbook_quotes"
-        },
-        {
-          "duration_sec": 900.0,
-          "end_offset_sec": 47437.0,
-          "end_ts": "2026-05-10T13:10:37+00:00",
-          "expected_5m_snapshots": 3,
-          "materialization_bug": false,
-          "samples": [
-            {
-              "payload_timestamp": "2026-05-10T12:55:37+00:00",
-              "status": "stale_payload_at_or_before_gap_start",
-              "timestamp": "2026-05-10T13:00:00+00:00"
-            },
-            {
-              "status": "missing_cache",
-              "timestamp": "2026-05-10T13:05:00+00:00"
-            },
-            {
-              "status": "missing_cache",
-              "timestamp": "2026-05-10T13:10:00+00:00"
-            }
-          ],
-          "start_offset_sec": 46537.0,
-          "start_ts": "2026-05-10T12:55:37+00:00",
-          "status_counts": {
-            "missing_cache": 2,
-            "stale_payload_at_or_before_gap_start": 1
-          },
-          "verdict": "missing_raw_cache",
-          "window_type": "internal_gap_between_sportsbook_quotes"
-        },
-        {
-          "duration_sec": 901.0,
-          "end_offset_sec": 48338.0,
-          "end_ts": "2026-05-10T13:25:38+00:00",
-          "expected_5m_snapshots": 3,
-          "materialization_bug": false,
-          "samples": [
-            {
-              "payload_timestamp": "2026-05-10T13:10:37+00:00",
-              "status": "stale_payload_at_or_before_gap_start",
-              "timestamp": "2026-05-10T13:15:00+00:00"
-            },
-            {
-              "status": "missing_cache",
-              "timestamp": "2026-05-10T13:20:00+00:00"
-            },
-            {
-              "status": "missing_cache",
-              "timestamp": "2026-05-10T13:25:00+00:00"
-            }
-          ],
-          "start_offset_sec": 47437.0,
-          "start_ts": "2026-05-10T13:10:37+00:00",
-          "status_counts": {
-            "missing_cache": 2,
-            "stale_payload_at_or_before_gap_start": 1
-          },
-          "verdict": "missing_raw_cache",
-          "window_type": "internal_gap_between_sportsbook_quotes"
-        },
-        {
-          "duration_sec": 900.0,
-          "end_offset_sec": 49238.0,
-          "end_ts": "2026-05-10T13:40:38+00:00",
-          "expected_5m_snapshots": 3,
-          "materialization_bug": false,
-          "samples": [
-            {
-              "payload_timestamp": "2026-05-10T13:25:38+00:00",
-              "status": "stale_payload_at_or_before_gap_start",
-              "timestamp": "2026-05-10T13:30:00+00:00"
-            },
-            {
-              "status": "missing_cache",
-              "timestamp": "2026-05-10T13:35:00+00:00"
-            },
-            {
-              "status": "missing_cache",
-              "timestamp": "2026-05-10T13:40:00+00:00"
-            }
-          ],
-          "start_offset_sec": 48338.0,
-          "start_ts": "2026-05-10T13:25:38+00:00",
-          "status_counts": {
-            "missing_cache": 2,
-            "stale_payload_at_or_before_gap_start": 1
-          },
-          "verdict": "missing_raw_cache",
-          "window_type": "internal_gap_between_sportsbook_quotes"
-        },
-        {
-          "duration_sec": 899.0,
-          "end_offset_sec": 50137.0,
-          "end_ts": "2026-05-10T13:55:37+00:00",
-          "expected_5m_snapshots": 3,
-          "materialization_bug": false,
-          "samples": [
-            {
-              "payload_timestamp": "2026-05-10T13:40:38+00:00",
-              "status": "stale_payload_at_or_before_gap_start",
-              "timestamp": "2026-05-10T13:45:00+00:00"
-            },
-            {
-              "status": "missing_cache",
-              "timestamp": "2026-05-10T13:50:00+00:00"
-            },
-            {
-              "status": "missing_cache",
-              "timestamp": "2026-05-10T13:55:00+00:00"
-            }
-          ],
-          "start_offset_sec": 49238.0,
-          "start_ts": "2026-05-10T13:40:38+00:00",
-          "status_counts": {
-            "missing_cache": 2,
-            "stale_payload_at_or_before_gap_start": 1
-          },
-          "verdict": "missing_raw_cache",
-          "window_type": "internal_gap_between_sportsbook_quotes"
-        },
-        {
-          "duration_sec": 900.0,
-          "end_offset_sec": 51037.0,
-          "end_ts": "2026-05-10T14:10:37+00:00",
-          "expected_5m_snapshots": 3,
-          "materialization_bug": false,
-          "samples": [
-            {
-              "payload_timestamp": "2026-05-10T13:55:37+00:00",
-              "status": "stale_payload_at_or_before_gap_start",
-              "timestamp": "2026-05-10T14:00:00+00:00"
-            },
-            {
-              "status": "missing_cache",
-              "timestamp": "2026-05-10T14:05:00+00:00"
-            },
-            {
-              "status": "missing_cache",
-              "timestamp": "2026-05-10T14:10:00+00:00"
-            }
-          ],
-          "start_offset_sec": 50137.0,
-          "start_ts": "2026-05-10T13:55:37+00:00",
-          "status_counts": {
-            "missing_cache": 2,
-            "stale_payload_at_or_before_gap_start": 1
-          },
-          "verdict": "missing_raw_cache",
-          "window_type": "internal_gap_between_sportsbook_quotes"
-        },
-        {
-          "duration_sec": 900.0,
-          "end_offset_sec": 51937.0,
-          "end_ts": "2026-05-10T14:25:37+00:00",
-          "expected_5m_snapshots": 3,
-          "materialization_bug": false,
-          "samples": [
-            {
-              "payload_timestamp": "2026-05-10T14:10:37+00:00",
-              "status": "stale_payload_at_or_before_gap_start",
-              "timestamp": "2026-05-10T14:15:00+00:00"
-            },
-            {
-              "status": "missing_cache",
-              "timestamp": "2026-05-10T14:20:00+00:00"
-            },
-            {
-              "status": "missing_cache",
-              "timestamp": "2026-05-10T14:25:00+00:00"
-            }
-          ],
-          "start_offset_sec": 51037.0,
-          "start_ts": "2026-05-10T14:10:37+00:00",
-          "status_counts": {
-            "missing_cache": 2,
-            "stale_payload_at_or_before_gap_start": 1
-          },
-          "verdict": "missing_raw_cache",
-          "window_type": "internal_gap_between_sportsbook_quotes"
-        },
-        {
-          "duration_sec": 900.0,
-          "end_offset_sec": 52837.0,
-          "end_ts": "2026-05-10T14:40:37+00:00",
-          "expected_5m_snapshots": 3,
-          "materialization_bug": false,
-          "samples": [
-            {
-              "payload_timestamp": "2026-05-10T14:25:37+00:00",
-              "status": "stale_payload_at_or_before_gap_start",
-              "timestamp": "2026-05-10T14:30:00+00:00"
-            },
-            {
-              "status": "missing_cache",
-              "timestamp": "2026-05-10T14:35:00+00:00"
-            },
-            {
-              "status": "missing_cache",
-              "timestamp": "2026-05-10T14:40:00+00:00"
-            }
-          ],
-          "start_offset_sec": 51937.0,
-          "start_ts": "2026-05-10T14:25:37+00:00",
-          "status_counts": {
-            "missing_cache": 2,
-            "stale_payload_at_or_before_gap_start": 1
-          },
-          "verdict": "missing_raw_cache",
-          "window_type": "internal_gap_between_sportsbook_quotes"
-        },
-        {
-          "duration_sec": 900.0,
-          "end_offset_sec": 53737.0,
-          "end_ts": "2026-05-10T14:55:37+00:00",
-          "expected_5m_snapshots": 3,
-          "materialization_bug": false,
-          "samples": [
-            {
-              "payload_timestamp": "2026-05-10T14:40:37+00:00",
-              "status": "stale_payload_at_or_before_gap_start",
-              "timestamp": "2026-05-10T14:45:00+00:00"
-            },
-            {
-              "status": "missing_cache",
-              "timestamp": "2026-05-10T14:50:00+00:00"
-            },
-            {
-              "status": "missing_cache",
-              "timestamp": "2026-05-10T14:55:00+00:00"
-            }
-          ],
-          "start_offset_sec": 52837.0,
-          "start_ts": "2026-05-10T14:40:37+00:00",
-          "status_counts": {
-            "missing_cache": 2,
-            "stale_payload_at_or_before_gap_start": 1
-          },
-          "verdict": "missing_raw_cache",
-          "window_type": "internal_gap_between_sportsbook_quotes"
-        },
-        {
-          "duration_sec": 900.0,
-          "end_offset_sec": 54637.0,
-          "end_ts": "2026-05-10T15:10:37+00:00",
-          "expected_5m_snapshots": 3,
-          "materialization_bug": false,
-          "samples": [
-            {
-              "payload_timestamp": "2026-05-10T14:55:37+00:00",
-              "status": "stale_payload_at_or_before_gap_start",
-              "timestamp": "2026-05-10T15:00:00+00:00"
-            },
-            {
-              "status": "missing_cache",
-              "timestamp": "2026-05-10T15:05:00+00:00"
-            },
-            {
-              "status": "missing_cache",
-              "timestamp": "2026-05-10T15:10:00+00:00"
-            }
-          ],
-          "start_offset_sec": 53737.0,
-          "start_ts": "2026-05-10T14:55:37+00:00",
-          "status_counts": {
-            "missing_cache": 2,
-            "stale_payload_at_or_before_gap_start": 1
-          },
-          "verdict": "missing_raw_cache",
-          "window_type": "internal_gap_between_sportsbook_quotes"
-        },
-        {
-          "duration_sec": 900.0,
-          "end_offset_sec": 55537.0,
-          "end_ts": "2026-05-10T15:25:37+00:00",
-          "expected_5m_snapshots": 3,
-          "materialization_bug": false,
-          "samples": [
-            {
-              "payload_timestamp": "2026-05-10T15:10:37+00:00",
-              "status": "stale_payload_at_or_before_gap_start",
-              "timestamp": "2026-05-10T15:15:00+00:00"
-            },
-            {
-              "status": "missing_cache",
-              "timestamp": "2026-05-10T15:20:00+00:00"
-            },
-            {
-              "status": "missing_cache",
-              "timestamp": "2026-05-10T15:25:00+00:00"
-            }
-          ],
-          "start_offset_sec": 54637.0,
-          "start_ts": "2026-05-10T15:10:37+00:00",
-          "status_counts": {
-            "missing_cache": 2,
-            "stale_payload_at_or_before_gap_start": 1
-          },
-          "verdict": "missing_raw_cache",
-          "window_type": "internal_gap_between_sportsbook_quotes"
-        },
-        {
-          "duration_sec": 900.0,
-          "end_offset_sec": 56437.0,
-          "end_ts": "2026-05-10T15:40:37+00:00",
-          "expected_5m_snapshots": 3,
-          "materialization_bug": false,
-          "samples": [
-            {
-              "payload_timestamp": "2026-05-10T15:25:37+00:00",
-              "status": "stale_payload_at_or_before_gap_start",
-              "timestamp": "2026-05-10T15:30:00+00:00"
-            },
-            {
-              "status": "missing_cache",
-              "timestamp": "2026-05-10T15:35:00+00:00"
-            },
-            {
-              "status": "missing_cache",
-              "timestamp": "2026-05-10T15:40:00+00:00"
-            }
-          ],
-          "start_offset_sec": 55537.0,
-          "start_ts": "2026-05-10T15:25:37+00:00",
-          "status_counts": {
-            "missing_cache": 2,
-            "stale_payload_at_or_before_gap_start": 1
-          },
-          "verdict": "missing_raw_cache",
-          "window_type": "internal_gap_between_sportsbook_quotes"
-        },
-        {
-          "duration_sec": 901.0,
-          "end_offset_sec": 57338.0,
-          "end_ts": "2026-05-10T15:55:38+00:00",
-          "expected_5m_snapshots": 3,
-          "materialization_bug": false,
-          "samples": [
-            {
-              "payload_timestamp": "2026-05-10T15:40:37+00:00",
-              "status": "stale_payload_at_or_before_gap_start",
-              "timestamp": "2026-05-10T15:45:00+00:00"
-            },
-            {
-              "status": "missing_cache",
-              "timestamp": "2026-05-10T15:50:00+00:00"
-            },
-            {
-              "status": "missing_cache",
-              "timestamp": "2026-05-10T15:55:00+00:00"
-            }
-          ],
-          "start_offset_sec": 56437.0,
-          "start_ts": "2026-05-10T15:40:37+00:00",
-          "status_counts": {
-            "missing_cache": 2,
-            "stale_payload_at_or_before_gap_start": 1
-          },
-          "verdict": "missing_raw_cache",
-          "window_type": "internal_gap_between_sportsbook_quotes"
-        },
-        {
-          "duration_sec": 899.0,
-          "end_offset_sec": 58237.0,
-          "end_ts": "2026-05-10T16:10:37+00:00",
-          "expected_5m_snapshots": 3,
-          "materialization_bug": false,
-          "samples": [
-            {
-              "payload_timestamp": "2026-05-10T15:55:38+00:00",
-              "status": "stale_payload_at_or_before_gap_start",
-              "timestamp": "2026-05-10T16:00:00+00:00"
-            },
-            {
-              "status": "missing_cache",
-              "timestamp": "2026-05-10T16:05:00+00:00"
-            },
-            {
-              "status": "missing_cache",
-              "timestamp": "2026-05-10T16:10:00+00:00"
-            }
-          ],
-          "start_offset_sec": 57338.0,
-          "start_ts": "2026-05-10T15:55:38+00:00",
-          "status_counts": {
-            "missing_cache": 2,
-            "stale_payload_at_or_before_gap_start": 1
-          },
-          "verdict": "missing_raw_cache",
-          "window_type": "internal_gap_between_sportsbook_quotes"
-        },
-        {
-          "duration_sec": 900.0,
-          "end_offset_sec": 59137.0,
-          "end_ts": "2026-05-10T16:25:37+00:00",
-          "expected_5m_snapshots": 3,
-          "materialization_bug": false,
-          "samples": [
-            {
-              "payload_timestamp": "2026-05-10T16:10:37+00:00",
-              "status": "stale_payload_at_or_before_gap_start",
-              "timestamp": "2026-05-10T16:15:00+00:00"
-            },
-            {
-              "status": "missing_cache",
-              "timestamp": "2026-05-10T16:20:00+00:00"
-            },
-            {
-              "status": "missing_cache",
-              "timestamp": "2026-05-10T16:25:00+00:00"
-            }
-          ],
-          "start_offset_sec": 58237.0,
-          "start_ts": "2026-05-10T16:10:37+00:00",
-          "status_counts": {
-            "missing_cache": 2,
-            "stale_payload_at_or_before_gap_start": 1
-          },
-          "verdict": "missing_raw_cache",
-          "window_type": "internal_gap_between_sportsbook_quotes"
-        },
-        {
-          "duration_sec": 900.0,
-          "end_offset_sec": 60037.0,
-          "end_ts": "2026-05-10T16:40:37+00:00",
-          "expected_5m_snapshots": 3,
-          "materialization_bug": false,
-          "samples": [
-            {
-              "payload_timestamp": "2026-05-10T16:25:37+00:00",
-              "status": "stale_payload_at_or_before_gap_start",
-              "timestamp": "2026-05-10T16:30:00+00:00"
-            },
-            {
-              "status": "missing_cache",
-              "timestamp": "2026-05-10T16:35:00+00:00"
-            },
-            {
-              "status": "missing_cache",
-              "timestamp": "2026-05-10T16:40:00+00:00"
-            }
-          ],
-          "start_offset_sec": 59137.0,
-          "start_ts": "2026-05-10T16:25:37+00:00",
-          "status_counts": {
-            "missing_cache": 2,
-            "stale_payload_at_or_before_gap_start": 1
-          },
-          "verdict": "missing_raw_cache",
-          "window_type": "internal_gap_between_sportsbook_quotes"
-        },
-        {
-          "duration_sec": 900.0,
-          "end_offset_sec": 60937.0,
-          "end_ts": "2026-05-10T16:55:37+00:00",
-          "expected_5m_snapshots": 3,
-          "materialization_bug": false,
-          "samples": [
-            {
-              "payload_timestamp": "2026-05-10T16:40:37+00:00",
-              "status": "stale_payload_at_or_before_gap_start",
-              "timestamp": "2026-05-10T16:45:00+00:00"
-            },
-            {
-              "status": "missing_cache",
-              "timestamp": "2026-05-10T16:50:00+00:00"
-            },
-            {
-              "status": "missing_cache",
-              "timestamp": "2026-05-10T16:55:00+00:00"
-            }
-          ],
-          "start_offset_sec": 60037.0,
-          "start_ts": "2026-05-10T16:40:37+00:00",
-          "status_counts": {
-            "missing_cache": 2,
-            "stale_payload_at_or_before_gap_start": 1
-          },
-          "verdict": "missing_raw_cache",
-          "window_type": "internal_gap_between_sportsbook_quotes"
-        },
-        {
-          "duration_sec": 900.0,
-          "end_offset_sec": 61837.0,
-          "end_ts": "2026-05-10T17:10:37+00:00",
-          "expected_5m_snapshots": 3,
-          "materialization_bug": false,
-          "samples": [
-            {
-              "payload_timestamp": "2026-05-10T16:55:37+00:00",
-              "status": "stale_payload_at_or_before_gap_start",
-              "timestamp": "2026-05-10T17:00:00+00:00"
-            },
-            {
-              "status": "missing_cache",
-              "timestamp": "2026-05-10T17:05:00+00:00"
-            },
-            {
-              "status": "missing_cache",
-              "timestamp": "2026-05-10T17:10:00+00:00"
-            }
-          ],
-          "start_offset_sec": 60937.0,
-          "start_ts": "2026-05-10T16:55:37+00:00",
-          "status_counts": {
-            "missing_cache": 2,
-            "stale_payload_at_or_before_gap_start": 1
-          },
-          "verdict": "missing_raw_cache",
-          "window_type": "internal_gap_between_sportsbook_quotes"
-        },
-        {
-          "duration_sec": 900.0,
-          "end_offset_sec": 62737.0,
-          "end_ts": "2026-05-10T17:25:37+00:00",
-          "expected_5m_snapshots": 3,
-          "materialization_bug": false,
-          "samples": [
-            {
-              "payload_timestamp": "2026-05-10T17:10:37+00:00",
-              "status": "stale_payload_at_or_before_gap_start",
-              "timestamp": "2026-05-10T17:15:00+00:00"
-            },
-            {
-              "status": "missing_cache",
-              "timestamp": "2026-05-10T17:20:00+00:00"
-            },
-            {
-              "status": "missing_cache",
-              "timestamp": "2026-05-10T17:25:00+00:00"
-            }
-          ],
-          "start_offset_sec": 61837.0,
-          "start_ts": "2026-05-10T17:10:37+00:00",
-          "status_counts": {
-            "missing_cache": 2,
-            "stale_payload_at_or_before_gap_start": 1
-          },
-          "verdict": "missing_raw_cache",
-          "window_type": "internal_gap_between_sportsbook_quotes"
-        },
-        {
-          "duration_sec": 900.0,
-          "end_offset_sec": 63637.0,
-          "end_ts": "2026-05-10T17:40:37+00:00",
-          "expected_5m_snapshots": 3,
-          "materialization_bug": false,
-          "samples": [
-            {
-              "payload_timestamp": "2026-05-10T17:25:37+00:00",
-              "status": "stale_payload_at_or_before_gap_start",
-              "timestamp": "2026-05-10T17:30:00+00:00"
-            },
-            {
-              "status": "missing_cache",
-              "timestamp": "2026-05-10T17:35:00+00:00"
-            },
-            {
-              "status": "missing_cache",
-              "timestamp": "2026-05-10T17:40:00+00:00"
-            }
-          ],
-          "start_offset_sec": 62737.0,
-          "start_ts": "2026-05-10T17:25:37+00:00",
-          "status_counts": {
-            "missing_cache": 2,
-            "stale_payload_at_or_before_gap_start": 1
-          },
-          "verdict": "missing_raw_cache",
-          "window_type": "internal_gap_between_sportsbook_quotes"
-        },
-        {
-          "duration_sec": 900.0,
-          "end_offset_sec": 64537.0,
-          "end_ts": "2026-05-10T17:55:37+00:00",
-          "expected_5m_snapshots": 3,
-          "materialization_bug": false,
-          "samples": [
-            {
-              "payload_timestamp": "2026-05-10T17:40:37+00:00",
-              "status": "stale_payload_at_or_before_gap_start",
-              "timestamp": "2026-05-10T17:45:00+00:00"
-            },
-            {
-              "status": "missing_cache",
-              "timestamp": "2026-05-10T17:50:00+00:00"
-            },
-            {
-              "status": "missing_cache",
-              "timestamp": "2026-05-10T17:55:00+00:00"
-            }
-          ],
-          "start_offset_sec": 63637.0,
-          "start_ts": "2026-05-10T17:40:37+00:00",
-          "status_counts": {
-            "missing_cache": 2,
-            "stale_payload_at_or_before_gap_start": 1
-          },
-          "verdict": "missing_raw_cache",
-          "window_type": "internal_gap_between_sportsbook_quotes"
-        }
-      ]
+      "verdict_counts": {},
+      "window_count": 0,
+      "windows": []
     },
     {
       "clob_points": 329,
@@ -141206,7 +140540,7 @@
         "away_team": "Inter Milan",
         "commence_time": "2026-01-17T14:00:00+00:00",
         "event_id": "98e958a4d4d6c144732a0a32d2ab77de",
-        "first_seen": "2026-01-17T15:05:38+00:00",
+        "first_seen": "2026-01-17T02:35:39+00:00",
         "home_team": "Udinese",
         "market": "h2h",
         "match_score": 0.975,
@@ -145348,7 +144682,7 @@
         "away_team": "Parma",
         "commence_time": "2026-01-25T14:00:00+00:00",
         "event_id": "9668e5b753c1b8c8cdb5c5263f87b372",
-        "first_seen": "2026-01-17T19:35:42+00:00",
+        "first_seen": "2026-01-17T02:35:39+00:00",
         "home_team": "Atalanta BC",
         "market": "h2h",
         "match_score": 0.95,
@@ -188656,7 +187990,7 @@
         "away_team": "Como",
         "commence_time": "2026-05-10T10:31:00+00:00",
         "event_id": "a785b31d8df18dde6921626b09f76415",
-        "first_seen": "2026-05-10T12:00:37+00:00",
+        "first_seen": "2026-05-10T12:30:37+00:00",
         "home_team": "Hellas Verona",
         "market": "h2h",
         "match_score": 0.95,
@@ -197807,7 +197141,7 @@
     {
       "clob_points": 1006,
       "materialization_bug_windows": 0,
-      "missing_cache_windows": 1,
+      "missing_cache_windows": 0,
       "other_outcome": "Yes",
       "outcome": "No",
       "replay_id": "0x7ca531df82474748cc951f164c7b719639da9b8ca718565478bc8b264b04faf8:31089099404496928062633778568408586318000062519550609688670434633173769152934",
@@ -197815,58 +197149,22 @@
       "sport_family": "soccer",
       "sportsbook_match": {
         "away_team": "Sassuolo",
-        "commence_time": "2026-01-17T17:02:00+00:00",
+        "commence_time": "2026-01-17T17:00:00+00:00",
         "event_id": "2e402618e8f128fd17ac85c1075dc642",
-        "first_seen": "2026-01-17T18:25:41+00:00",
+        "first_seen": "2026-01-17T02:35:39+00:00",
         "home_team": "Napoli",
         "market": "h2h",
         "match_score": 0.975,
         "point": null,
         "sport": "soccer_italy_serie_a",
-        "time_gap_hours": 0.0333
+        "time_gap_hours": 0.0
       },
-      "sportsbook_points": 199,
-      "status_counts": {
-        "missing_cache": 2,
-        "stale_payload_at_or_before_gap_start": 1
-      },
+      "sportsbook_points": 201,
+      "status_counts": {},
       "title": "Napoli vs SAS",
-      "verdict_counts": {
-        "missing_raw_cache": 1
-      },
-      "window_count": 1,
-      "windows": [
-        {
-          "duration_sec": 900.0,
-          "end_offset_sec": 2078.0,
-          "end_ts": "2026-01-17T02:40:38+00:00",
-          "expected_5m_snapshots": 3,
-          "materialization_bug": false,
-          "samples": [
-            {
-              "payload_timestamp": "2026-01-17T02:25:38+00:00",
-              "status": "stale_payload_at_or_before_gap_start",
-              "timestamp": "2026-01-17T02:30:00+00:00"
-            },
-            {
-              "status": "missing_cache",
-              "timestamp": "2026-01-17T02:35:00+00:00"
-            },
-            {
-              "status": "missing_cache",
-              "timestamp": "2026-01-17T02:40:00+00:00"
-            }
-          ],
-          "start_offset_sec": 1178.0,
-          "start_ts": "2026-01-17T02:25:38+00:00",
-          "status_counts": {
-            "missing_cache": 2,
-            "stale_payload_at_or_before_gap_start": 1
-          },
-          "verdict": "missing_raw_cache",
-          "window_type": "internal_gap_between_sportsbook_quotes"
-        }
-      ]
+      "verdict_counts": {},
+      "window_count": 0,
+      "windows": []
     },
     {
       "clob_points": 266,
@@ -220594,7 +219892,7 @@
         "away_team": "Bologna",
         "commence_time": "2026-05-11T18:45:00+00:00",
         "event_id": "2b609cc965cb3908e27a634aabc7846b",
-        "first_seen": "2026-05-10T12:00:37+00:00",
+        "first_seen": "2026-05-10T12:30:37+00:00",
         "home_team": "Napoli",
         "market": "h2h",
         "match_score": 0.975,
@@ -229030,7 +228328,7 @@
         "away_team": "Juventus",
         "commence_time": "2026-01-17T19:45:00+00:00",
         "event_id": "7cccb3c5504678aa2bbd5490aab3881f",
-        "first_seen": "2026-01-17T19:35:42+00:00",
+        "first_seen": "2026-01-17T02:35:39+00:00",
         "home_team": "Cagliari",
         "market": "h2h",
         "match_score": 0.975,
@@ -252200,10 +251498,10 @@
       "windows": []
     }
   ],
-  "events_with_gap_windows": 123,
-  "generated_at": "2026-05-31T13:06:39.099923+00:00",
+  "events_with_gap_windows": 121,
+  "generated_at": "2026-05-31T13:49:43.345078+00:00",
   "materialization_bug_windows": 0,
-  "missing_cache_windows": 8105,
+  "missing_cache_windows": 8082,
   "outputs": {
     "json": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/reports/replay_sportsbook_source_window_audit_latest.json",
     "report": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/reports/replay_sportsbook_source_window_audit_latest.md"
@@ -252211,15 +251509,15 @@
   "source_status_counts": {
     "event_not_listed": 6,
     "event_not_listed_before_first_seen": 11462,
-    "missing_cache": 17072,
+    "missing_cache": 17026,
     "no_odds_event_match": 261,
     "requested_point_absent": 502,
-    "stale_payload_at_or_before_gap_start": 8123
+    "stale_payload_at_or_before_gap_start": 8100
   },
   "total_events": 277,
-  "total_windows": 8121,
+  "total_windows": 8098,
   "window_verdict_counts": {
-    "missing_raw_cache": 8105,
+    "missing_raw_cache": 8082,
     "mixed_source_availability": 4,
     "source_event_not_listed_before_first_seen": 11,
     "source_stale_payload_no_new_quote": 1

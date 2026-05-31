@@ -1,6 +1,6 @@
 # Replay Sportsbook Gap Audit
 
-- Generated: 2026-05-31T13:06:27.755242+00:00
+- Generated: 2026-05-31T13:49:32.099122+00:00
 - Replay events audited: 277
 - Events with sportsbook overlay points: 276
 - Events with matched Odds API event but no usable sportsbook line: 0
@@ -22,12 +22,12 @@
 | CLOB one-minute replay events with no missing minutes | 277 / 277 |
 | Odds matched events with complete 15m raw cache | 276 / 276 |
 | Unique 15m raw cache snapshots cached / expected / missing | 16,192 / 16,192 / 0 |
-| Odds matched events with complete 5m raw cache | 164 / 276 |
-| Odds matched events with any missing 5m cache | 112 |
-| Unique 5m raw cache snapshots cached / expected / missing | 32,101 / 46,443 / 14,342 |
+| Odds matched events with complete 5m raw cache | 166 / 276 |
+| Odds matched events with any missing 5m cache | 110 |
+| Unique 5m raw cache snapshots cached / expected / missing | 32,147 / 46,443 / 14,296 |
 | Warehouse all-partition replay-window checks | 276 / 276 |
 | Events with extra non-replay sportsbook timestamps inside replay window | 11 |
-| Extra non-replay sportsbook timestamps inside replay windows | 1,261 |
+| Extra non-replay sportsbook timestamps inside replay windows | 1,307 |
 
 ## Cache Coverage By Sport
 
@@ -37,7 +37,7 @@
 | basketball_nba | 89 | 89 | 89 | 88 | 1 | 0 |
 | basketball_wnba | 2 | 2 | 2 | 2 | 0 | 0 |
 | icehockey_nhl | 2 | 2 | 2 | 2 | 0 | 0 |
-| soccer | 175 | 174 | 174 | 63 | 111 | 1 |
+| soccer | 175 | 174 | 174 | 65 | 109 | 1 |
 
 ## Classification Counts
 
@@ -100,7 +100,6 @@ These are collection/credit gaps at native Odds API granularity. The 15-minute c
 | Lille vs Nice | soccer | 163 / 253 | 89 | has_sportsbook_overlay |
 | Napoli vs UDI | soccer | 134 / 216 | 81 | has_sportsbook_overlay |
 | PAR vs Napoli | soccer | 113 / 179 | 66 | has_sportsbook_overlay |
-| PAR vs ROM | soccer | 44 / 217 | 172 | has_sportsbook_overlay |
 | Palermo vs Avellino | soccer | 146 / 229 | 83 | has_sportsbook_overlay |
 | ROM vs SAS | soccer | 145 / 226 | 81 | has_sportsbook_overlay |
 | Real Madrid vs Real Betis | soccer | 130 / 204 | 73 | has_sportsbook_overlay |
@@ -124,6 +123,7 @@ These are collection/credit gaps at native Odds API granularity. The 15-minute c
 | Marseille vs Auxerre | soccer | 167 / 259 | 92 | has_sportsbook_overlay |
 | RB Leipzig vs Union Berlin | soccer | 154 / 240 | 85 | has_sportsbook_overlay |
 | Real Sociedad vs Oviedo | soccer | 114 / 180 | 66 | has_sportsbook_overlay |
+| Rockets vs Wizards | basketball_nba | 1 / 1,859 | 320 | has_sportsbook_overlay, sportsbook_event_not_listed_until_after_clob_start |
 
 ## Warehouse Partition Cross-Check
 
@@ -135,11 +135,11 @@ These events have additional sportsbook timestamps in older/non-replay warehouse
 | CRE vs Napoli | soccer | 69 | 189 | 120 | 26,706 |
 | VfB Stuttgart vs VfL Wolfsburg | soccer | 68 | 185 | 117 | 27,105 |
 | Lille vs Nantes | soccer | 79 | 218 | 139 | 31,623 |
-| PAR vs ROM | soccer | 79 | 172 | 93 | 22,380 |
+| PAR vs ROM | soccer | 79 | 216 | 137 | 28,272 |
 | UDI vs Inter Milan | soccer | 60 | 148 | 88 | 20,886 |
 | VER vs COM | soccer | 56 | 149 | 93 | 21,108 |
 | VfB Stuttgart vs Hamburger SV | soccer | 72 | 201 | 129 | 28,617 |
-| Napoli vs SAS | soccer | 87 | 199 | 112 | 27,702 |
+| Napoli vs SAS | soccer | 87 | 201 | 114 | 27,999 |
 | CAG vs Juventus | soccer | 93 | 226 | 133 | 32,343 |
 | Bayer Leverkusen vs Augsburg | soccer | 68 | 186 | 118 | 26,682 |
 
@@ -158,7 +158,7 @@ These events have additional sportsbook timestamps in older/non-replay warehouse
 | Jazz vs Spurs | basketball_nba | 26.6m | 36.6m | 282 | has_sportsbook_overlay, sportsbook_starts_after_clob |
 | Pacers vs Hornets | basketball_nba | 25.6m | 25.6m | 283 | has_sportsbook_overlay, sportsbook_starts_after_clob |
 | Paris Saint Germain vs Lyon | soccer | 10.6m | 13.2h | 92 | has_sportsbook_overlay |
-| Napoli vs SAS | soccer | 4.7m | 16.3h | 199 | has_sportsbook_overlay |
+| Napoli vs SAS | soccer | 4.7m | 29.6m | 201 | has_sportsbook_overlay |
 
 ## Largest Internal Quote Gaps
 
@@ -181,5 +181,5 @@ These events have additional sportsbook timestamps in older/non-replay warehouse
 
 | Event | Sportsbook match | Points | Start gap | Last quote to final | Last selected fair | Notes |
 |---|---|---:|---:|---:|---:|---|
-| 76ers vs Nuggets | Denver Nuggets vs Philadelphia 76ers 2026-03-18T01:10:00+00:00 | 327 | 5.4d | 5.1m | 95.6% | has_sportsbook_overlay, sportsbook_event_not_listed_until_after_clob_start |
 | Oilers vs Ducks total 4.5 | Anaheim Ducks vs Edmonton Oilers 2026-04-25T02:10:00+00:00 | 21 | 38s | 1.7h | 84.6% | has_sportsbook_overlay, sportsbook_last_quote_not_settlement |
+| 76ers vs Nuggets | Denver Nuggets vs Philadelphia 76ers 2026-03-18T01:10:00+00:00 | 327 | 5.4d | 5.1m | 95.6% | has_sportsbook_overlay, sportsbook_event_not_listed_until_after_clob_start |

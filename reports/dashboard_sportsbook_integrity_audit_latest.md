@@ -1,29 +1,37 @@
 # Dashboard Sportsbook Integrity Audit
 
-- Generated: 2026-05-31T13:22:45.424761+00:00
+- Generated: 2026-05-31T13:51:31.226109+00:00
 - Replay events audited: 277
 - Polymarket one-minute CLOB complete: 277 / 277
 - Sportsbook event matches: 276 / 277
 - Sportsbook overlays with complete side math: 276 / 277
+- Polymarket actual two-sided CLOB events: 277 / 277
+- Complete on both Polymarket CLOB and sportsbook side math: 276 / 277
+- Sportsbook timestamps inside the plotted CLOB replay window: 276 / 276
 - Raw 15-minute Odds cache complete: 276 / 276
-- Native 5-minute Odds cache complete: 164 / 276
+- Native 5-minute Odds cache complete: 166 / 276
+- Events with visible sportsbook gaps over 10 minutes: 121
+- Visible gap windows audited: 8,098
+- Visible gap windows caused by missing raw 5-minute cache: 8,082
 - Raw complete-line materialization bugs: 0
-- Unique missing native 5-minute snapshots: 14,342
-- Estimated credits to finish all missing native 5-minute snapshots: 1,290,780
-- Paid Odds API credits remaining locally: 10746
+- Unique missing native 5-minute snapshots: 14,296
+- Estimated credits to finish all missing native 5-minute snapshots: 1,286,640
+- Paid Odds API credits remaining locally: 6606
 - By-sport missing snapshot counts below are per-event sums; unique cache snapshots are lower because multiple replay events can share the same sport/timestamp API response.
 
 ## Verdict
 
 - No replay materialization bug was found. Some visible sportsbook gaps are real missing native 5-minute cache and can only be reduced by more Odds API backfill.
+- The random-looking sportsbook breaks are not all the same thing: most current long gap windows are missing raw 5-minute cache, while a smaller set are legitimate source behavior such as Odds API listing the event late or no longer offering the exact total/spread point.
 - Sportsbook lines are quote series, not settlement series. They should not be forced to end at 0/100 when books stop offering a line or change a total/spread point.
+- Timestamp alignment passes at the replay boundary: sportsbook points that are plotted are inside the same UTC window as the Polymarket CLOB series.
 
 ## Event Categories
 
 | Category | Events | Meaning |
 |---|---:|---|
-| complete_or_no_large_gap | 154 | No visible gap beyond normal quote cadence. |
-| missing_native_5m_cache | 111 | Backfillable 5-minute Odds API snapshots are missing. |
+| complete_or_no_large_gap | 156 | No visible gap beyond normal quote cadence. |
+| missing_native_5m_cache | 109 | Backfillable 5-minute Odds API snapshots are missing. |
 | source_event_not_listed_yet | 8 | The source did not list the event until after the CLOB opened. |
 | source_market_or_point_absent | 2 | Raw source exists, but the requested market/point is absent. |
 | no_odds_event_match | 1 | No Odds API event match. |
@@ -37,7 +45,7 @@
 | basketball_nba | 89 | 89 | 89 | 88 | 1 | 0 |
 | basketball_wnba | 2 | 2 | 2 | 2 | 0 | 0 |
 | icehockey_nhl | 2 | 2 | 2 | 2 | 0 | 0 |
-| soccer | 175 | 174 | 174 | 63 | 18,786 | 0 |
+| soccer | 175 | 174 | 174 | 65 | 18,740 | 0 |
 
 ## Checked Examples
 

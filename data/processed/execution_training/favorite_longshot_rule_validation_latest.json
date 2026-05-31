@@ -5,7 +5,7 @@
     "temporal selected rule failed",
     "market-disjoint selected rule failed"
   ],
-  "generated_at": "2026-05-31T12:41:14.132616+00:00",
+  "generated_at": "2026-05-31T13:41:41.768357+00:00",
   "input": {
     "bets_path": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/data/processed/execution_training/favorite_longshot_executable_bets_latest.parquet",
     "entry_ts_max": "2026-05-26 00:00:04.542000+00:00",

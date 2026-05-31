@@ -1,18 +1,52 @@
 {
-  "candidate_events": 19,
+  "candidate_events": 112,
   "config": {
+    "categories": [
+      "missing_native_5m_cache"
+    ],
+    "credit_reserve": 5000,
+    "credits_per_snapshot": 90,
+    "dashboard_integrity_audit": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/reports/dashboard_sportsbook_integrity_audit_latest.json",
     "gap_audit": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/reports/replay_sportsbook_gap_audit_latest.json",
-    "max_missing_snapshots": 100,
+    "max_credits": 5746,
+    "max_missing_snapshots": 63,
+    "mode": "all-gaps",
+    "sports": [],
     "validation": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/data/processed/execution_training/favorite_longshot_rule_validation_latest.json"
   },
-  "estimated_credits_at_90_per_snapshot": 0,
-  "events": [],
-  "generated_at": "2026-05-31T12:41:14.067965+00:00",
+  "estimated_credits": 4140,
+  "estimated_credits_at_90_per_snapshot": 4140,
+  "events": [
+    {
+      "category": "missing_native_5m_cache",
+      "expected_5m_snapshots": 201,
+      "missing_5m_snapshots": 2,
+      "replay_id": "0x7ca531df82474748cc951f164c7b719639da9b8ca718565478bc8b264b04faf8:31089099404496928062633778568408586318000062519550609688670434633173769152934",
+      "row_roi": null,
+      "sport_family": "soccer",
+      "title": "Napoli vs SAS"
+    },
+    {
+      "category": "missing_native_5m_cache",
+      "expected_5m_snapshots": 217,
+      "missing_5m_snapshots": 44,
+      "replay_id": "0xf2f189de5e56b66cfd29c3a984fa3dde483ea71529ce395c158682ab4750a867:34428653976380446416387126993346041256994726550176489117036048180779020748454",
+      "row_roi": null,
+      "sport_family": "soccer",
+      "title": "PAR vs ROM"
+    }
+  ],
+  "generated_at": "2026-05-31T13:31:55.193709+00:00",
   "outputs": {
     "json": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/reports/selected_validation_gap_backfill_plan_latest.json",
     "manifest": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/data/processed/execution_training/selected_validation_gap_backfill_manifest_latest.json",
     "report": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/reports/selected_validation_gap_backfill_plan_latest.md"
   },
-  "planned_missing_5m_snapshots": 0,
-  "selected_events": 0
+  "planned_missing_5m_snapshots": 46,
+  "quota": {
+    "credit_reserve": 5000,
+    "paid_remaining": 10746,
+    "spendable_credits": 5746
+  },
+  "selected_events": 2
 }

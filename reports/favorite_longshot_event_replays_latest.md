@@ -1,6 +1,6 @@
 # Favorite-Longshot Event Replays
 
-- Generated: 2026-05-31T12:40:30.463272+00:00
+- Generated: 2026-05-31T13:41:30.595711+00:00
 - Events with replay series: 277 / 277
 - Series cadence: 1min
 - Total minute points: 329,406
@@ -8,7 +8,7 @@
 - Sportsbook complete-side overlay coverage: 276 / 277 (99.6%)
 - Complete on both venues: 276 / 277
 - Odds API event matches: 276 / 277
-- Total sportsbook points: 36,264
+- Total sportsbook points: 36,310
 - Event detail files: 277
 - Output: `/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/data/processed/execution_training/favorite_longshot_event_replays_latest.json`
 
