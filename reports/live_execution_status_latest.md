@@ -1,9 +1,9 @@
 # Live Execution Status
 
-- Generated: 2026-05-31T04:54:20.560661+00:00
+- Generated: 2026-05-31T05:24:40.099518+00:00
 - Capital enabled: False
 - Live capital gate: False
-- Gate reasons: queue/fill model not validated on authenticated fills, need authenticated Polymarket fill/order lifecycle rows, Telonex convergence research gate failed, execution-adjusted backtest replay failed: no selected historical replay trades, no predeclared executable taker strategy bucket cleared validation, Telonex microstructure bucket audit failed, Telonex model monitor hold, live paper-fill LEV/price-hold quality gate failed, Telonex market-disjoint validation gate failed, Telonex temporal validation gate failed, favorite-longshot executable Telonex backtest gate failed, favorite-longshot out-of-sample rule validation failed
+- Gate reasons: queue/fill model not validated on authenticated fills, need authenticated Polymarket fill/order lifecycle rows, Telonex convergence research gate failed, execution-adjusted backtest replay failed: no selected historical replay trades, no predeclared executable taker strategy bucket cleared validation, Telonex microstructure bucket audit failed, Telonex model monitor hold, live paper-fill LEV/price-hold quality gate failed, Telonex market-disjoint validation gate failed, Telonex temporal validation gate failed, favorite-longshot executable Telonex backtest gate failed, favorite-longshot out-of-sample rule validation failed, strategy/data readiness gate failed: Odds API point-in-time features have insufficient test coverage
 - Gate warnings: cross-venue Kalshi comparison unavailable: no verified equivalent markets, predeclared non-ML Telonex strategy buckets failed, live game-state feed too thin for event-regime/scoreline/garbage-time features, trade-flow feature family has no confirmed economic permutation impact yet, Odds feature family has no confirmed economic permutation impact in latest audit, Odds API fusion not yet proven on held-out Telonex test, live strategy LEV evidence incomplete, favorite-longshot bucket has raw edge but not robust event-cluster CI yet
 - Collector: healthy loop 479
 - Latest executable books: 0
@@ -33,6 +33,7 @@
 - Telonex convergence version/feature set/selection/test ROI/trades/gate: 20260530T215450Z-3e90e2b5d8da / base_odds / convergence_prob_lower / None / 0 / False
 - Telonex label coverage gate/reasons: True / none
 - Strategy/data readiness gate: False / HOLD: strategy is defined, but dataset is not complete enough to prove the bot
+- Complete-side market data gate/CLOB both-side/complete both venues/missing sportsbook overlays: True / 277 / 264 / 13
 - Telonex odds feature held-out coverage/markets/gate: 0.2977453997362306 / 5 / True
 - Telonex monitor: HOLD: latest research gate failed; latest external validation gate failed; latest test ROI is not positive; latest test CI lower bound is not positive / external gate False / correlated p05 None
 - Telonex market-disjoint validation: False / ROI None / trades 0 / folds 2
