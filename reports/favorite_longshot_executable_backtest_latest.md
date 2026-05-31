@@ -1,14 +1,14 @@
 # Favorite-Longshot Executable Backtest
 
-- Generated: 2026-05-31T03:22:09.952153+00:00
+- Generated: 2026-05-31T03:42:02.851223+00:00
 - Verdict: HOLD: favorite-longshot executable bucket not yet proven
 - Executable gate: False
 - Gate reasons: clear-settlement cluster bootstrap CI lower bound is not positive
 - Plan source: downloaded_manifest
-- Target assets with downloaded books: 1,298 / 1,298
-- Book rows scanned: 95,516,643
-- Candidate entry tokens: 375
-- Selected entries: 375
+- Target assets with downloaded books: 1,436 / 1,470
+- Book rows scanned: 95,653,221
+- Candidate entry tokens: 381
+- Selected entries: 381
 - Clear settlement entries: 277
 - Output bets: `/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/data/processed/execution_training/favorite_longshot_executable_bets_latest.parquet`
 
@@ -45,10 +45,10 @@
 
 | Horizon | Bucket | Bets | Markets | ROI | 95% CI | Avg ask | Avg spread |
 |---:|---|---:|---:|---:|---|---:|---:|
-| 300 | downloaded_manifest_high_prob_token | 352 | 346 | -2.32% | -2.89% to -1.91% | 87.48% | 1.47% |
-| 900 | downloaded_manifest_high_prob_token | 354 | 351 | -2.57% | -3.32% to -1.89% | 87.48% | 1.48% |
-| 3600 | downloaded_manifest_high_prob_token | 333 | 333 | -2.03% | -2.61% to -1.45% | 87.62% | 1.38% |
-| 21600 | downloaded_manifest_high_prob_token | 237 | 237 | -1.83% | -1.99% to -1.67% | 87.73% | 1.27% |
+| 300 | downloaded_manifest_high_prob_token | 354 | 348 | -2.34% | -2.87% to -1.90% | 87.50% | 1.49% |
+| 900 | downloaded_manifest_high_prob_token | 356 | 353 | -2.58% | -3.26% to -1.99% | 87.48% | 1.50% |
+| 3600 | downloaded_manifest_high_prob_token | 335 | 335 | -2.05% | -2.62% to -1.53% | 87.64% | 1.40% |
+| 21600 | downloaded_manifest_high_prob_token | 239 | 239 | -1.85% | -2.00% to -1.70% | 87.75% | 1.29% |
 | 86400 | downloaded_manifest_high_prob_token | 17 | 17 | -4.78% | -7.37% to -2.77% | 88.82% | 3.29% |
 
 ## Interpretation

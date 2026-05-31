@@ -1,34 +1,34 @@
 # Live Execution Status
 
-- Generated: 2026-05-31T00:50:44.425145+00:00
+- Generated: 2026-05-31T03:44:07.588875+00:00
 - Capital enabled: False
 - Live capital gate: False
-- Gate reasons: queue/fill model not validated on authenticated fills, need authenticated Polymarket fill/order lifecycle rows, collector not healthy, Telonex convergence research gate failed, execution-adjusted backtest replay failed: no selected historical replay trades, no predeclared executable taker strategy bucket cleared validation, Telonex microstructure bucket audit failed, Telonex model monitor hold, live paper-fill LEV/price-hold quality gate failed, Telonex market-disjoint validation gate failed, Telonex temporal validation gate failed, favorite-longshot executable Telonex backtest gate failed, favorite-longshot out-of-sample rule validation failed
+- Gate reasons: queue/fill model not validated on authenticated fills, need authenticated Polymarket fill/order lifecycle rows, Telonex convergence research gate failed, execution-adjusted backtest replay failed: no selected historical replay trades, no predeclared executable taker strategy bucket cleared validation, Telonex microstructure bucket audit failed, Telonex model monitor hold, live paper-fill LEV/price-hold quality gate failed, Telonex market-disjoint validation gate failed, Telonex temporal validation gate failed, favorite-longshot executable Telonex backtest gate failed, favorite-longshot out-of-sample rule validation failed
 - Gate warnings: cross-venue Kalshi comparison unavailable: no verified equivalent markets, predeclared non-ML Telonex strategy buckets failed, live game-state feed too thin for event-regime/scoreline/garbage-time features, trade-flow feature family has no confirmed economic permutation impact yet, Odds feature family has no confirmed economic permutation impact in latest audit, Odds API fusion not yet proven on held-out Telonex test, live strategy LEV evidence incomplete, favorite-longshot bucket has raw edge but not robust event-cluster CI yet
-- Collector: degraded loop 542
-- Latest executable books: 488
-- WebSocket events: 150973 {'price_change': 137092, 'best_bid_ask': 7779, 'book': 3439, 'new_market': 1344, 'last_trade_price': 1314, 'tick_size_change': 4, 'market_resolved': 1}
-- Paper orders/fills: 3138 / 895
-- Live paper-fill LEV gate/alpha 3s rows/probe 3s rows/avg/favorable/max lag: False / 13 / 201 / -0.015682615384615375 / 0.0 / 5.0
+- Collector: healthy loop 479
+- Latest executable books: 0
+- WebSocket events: 0 {}
+- Paper orders/fills: 0 / 0
+- Live paper-fill LEV gate/alpha 3s rows/probe 3s rows/avg/favorable/max lag: False / 0 / 19 / None / None / 5.0
 - Live strategy health/quarantine: False / []
-- Live LEV drift alerts/max/latest50: 0 / 0.007296857142857149 / -0.015682615384615375
+- Live LEV drift alerts/max/latest50: 0 / 0.0 / None
 - Large trade flow trades/wallet identity: 59 / False
-- Lifecycle rows: 7171 {'created': 3138, 'resting': 1971, 'rejected': 1167, 'filled': 895}
-- Lifecycle source rows: {'paper': 7171}
+- Lifecycle rows: 0 {}
+- Lifecycle source rows: {}
 - Authenticated lifecycle/fill rows: 0 / 0
-- Execution rows: 285
+- Execution rows: 191
 - Telonex markets/assets: 389219 / 778438
 - Telonex quote/depth/trade rows: 7183240 / 105207074 / 249997
 - Telonex Odds API features rows/coverage: 1414160 / 0.48956842190899696
 - Historical CLOB quote/depth rows: 7183240 / 105207074
-- Queue rows: 2231
-- Queue fill model gate/auth/test AUC/Brier: True / False / 0.9565217391304348 / 0.022775815936313136
+- Queue rows: 1125
+- Queue fill model gate/auth/test AUC/Brier: True / False / 0.898747537292429 / 0.08262604307761175
 - Telonex execution labels/markets/tokens: 2888585 / 216 / 429
 - Event/market inventory total events/markets; active events/markets: 108 / 216; 89 / 109
 - Strategy signal diagnostics raw maker gate/heldout gate/SHAP identity risk: False / True / True
 - Favorite-longshot bucket raw/robust/primary: True / False / favorite_85_95_buy_yes
 - Favorite-longshot Telonex target plan contracts/markets/assets: 463 / 424 / 848
-- Favorite-longshot executable gate/entries/settled/ROI: False / 317 / 275 / 0.013536361749813234
+- Favorite-longshot executable gate/entries/settled/ROI: False / 381 / 277 / 0.014197182286302774
 - Favorite-longshot rule validation gate/temporal/test ROI/market-disjoint/test ROI: False / nba_only / 0.13488292220113854 / entry_15m_to_24h / 0.019910493579454253
 - Telonex convergence version/feature set/selection/test ROI/trades/gate: 20260530T215450Z-3e90e2b5d8da / base_odds / convergence_prob_lower / None / 0 / False
 - Telonex label coverage gate/reasons: True / none
@@ -44,10 +44,10 @@
 - Telonex strategy positive test buckets total/taker/maker: 0 / 0 / 0
 - Telonex microstructure gate/strict arbs/near arbs/price-shock rule: False / 0 / 160845 / None
 - Execution-adjusted replay gate/raw ROI/fill-adjusted ROI/avg fill: False / None / None / None
-- Live Telonex model signals/features/tokens/max margin: 0 / 2320 / 464 / -0.21405958374405956
-- Live Odds scoring coverage/matched tokens: 0.021551724137931036 / 10
-- Game-state rows/matches: 27 / 19
-- Game-state regimes/garbage proxy: {'pre': 19} / 0
+- Live Telonex model signals/features/tokens/max margin: 0 / 1060 / 212 / -0.21405958374405956
+- Live Odds scoring coverage/matched tokens: 0.04716981132075472 / 10
+- Game-state rows/matches: 36 / 16
+- Game-state regimes/garbage proxy: {'one_score': 2, 'pre': 14} / 0
 - Secret findings: 0 critical 0
 - Kalshi verified mappings: 0
 - Polymarket user channel configured: True

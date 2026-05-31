@@ -247,30 +247,32 @@
     display: grid;
     grid-template-columns: repeat(3, minmax(150px, 1fr));
     gap: 12px;
-    margin-bottom: 16px;
   }
 
   .strategy-list {
     display: grid;
-    gap: 0;
+    gap: 12px;
+  }
+
+  .strategy-grid-head {
+    display: grid;
+    grid-template-columns: minmax(260px, 1.4fr) repeat(3, minmax(150px, 0.8fr));
+    gap: 12px;
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
   }
 
   .strategy-row {
     display: grid;
-    grid-template-columns: minmax(180px, 0.7fr) minmax(0, 1.4fr) minmax(150px, 0.5fr);
+    grid-template-columns: minmax(260px, 1.4fr) repeat(3, minmax(150px, 0.8fr));
     gap: 12px;
-    align-items: start;
-    padding: 12px 0;
-    border-top: 1px solid var(--soft-line);
-  }
-
-  .strategy-row:first-child {
-    border-top: 0;
-    padding-top: 0;
-  }
-
-  .strategy-row:last-child {
-    padding-bottom: 0;
+    padding: 14px;
+    border: 1px solid var(--soft-line);
+    border-radius: 8px;
+    background: #fff;
   }
 
   .strategy-row strong {
@@ -278,7 +280,15 @@
     line-height: 1.2;
   }
 
+  .strategy-row-head {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
   .strategy-copy {
+    margin-top: 10px;
     color: var(--muted);
   }
 
@@ -772,6 +782,10 @@
       grid-template-columns: 1fr;
     }
 
+    .strategy-grid-head {
+      display: none;
+    }
+
     .strategy-metrics {
       grid-template-columns: 1fr;
     }
@@ -932,7 +946,7 @@ const SNAPSHOT = {
     telonexTradeRows: 168681,
     liveSignalsSelected: 0,
     liveSignalRows: 2320,
-    liveSignalCandidates: 464,
+    liveSignalCandidates: 212,
     liveSignalMaxLower: 0.21213000810109747,
     liveSignalThreshold: 0.42618959184515703
   },
@@ -948,14 +962,14 @@ const SNAPSHOT = {
   },
   favoriteLongshotExecutable: {
     gate: false,
-    selectedEntries: 290,
-    settledEntries: 259,
-    settledMarkets: 259,
-    roi: 0.015277109974424549,
-    ciLo: -0.03373709390492994,
-    winRate: 0.8918918918918919,
-    bookAssets: 648,
-    targetAssets: 848
+    selectedEntries: 381,
+    settledEntries: 277,
+    settledMarkets: 277,
+    roi: 0.014197182286302774,
+    ciLo: -0.03093175503677469,
+    winRate: 0.8916967509025271,
+    bookAssets: 1436,
+    targetAssets: 1470
   },
   favoriteLongshotRuleValidation: {
     gate: false,
@@ -970,9 +984,9 @@ const SNAPSHOT = {
   },
   favoriteLongshotEventReplays: {
     summary: {
-      settled_events: 0,
-      events_with_series: 0,
-      total_series_points: 0
+      settled_events: 277,
+      events_with_series: 277,
+      total_series_points: 329406
     },
     events: []
   },
@@ -1199,6 +1213,61 @@ const state = {
 const $ = id => document.getElementById(id);
 const REPLAY_BANKROLL_USD = 1000;
 const REPLAY_POSITION_FRACTION = 0.05;
+const STRATEGY_OPTIONS = [
+  "Favorite-longshot fade",
+  "Fill-aware convergence ML",
+  "YES + NO hedge/arb",
+  "Post-event price shock"
+];
+const TEAM_ABBREVIATIONS = {
+  ari: "Cardinals",
+  atl: "Hawks",
+  bal: "Ravens",
+  bkn: "Nets",
+  bos: "Celtics",
+  buf: "Bills",
+  car: "Panthers",
+  cha: "Hornets",
+  chi: "Bulls",
+  cin: "Bengals",
+  cle: "Cavaliers",
+  dal: "Mavericks",
+  den: "Nuggets",
+  det: "Pistons",
+  edm: "Oilers",
+  gb: "Packers",
+  gsw: "Warriors",
+  hou: "Rockets",
+  ind: "Pacers",
+  jax: "Jaguars",
+  kc: "Chiefs",
+  la: "Rams",
+  lac: "Chargers",
+  lal: "Lakers",
+  lv: "Raiders",
+  mem: "Grizzlies",
+  mia: "Heat",
+  mil: "Bucks",
+  min: "Timberwolves",
+  ne: "Patriots",
+  no: "Saints",
+  nop: "Pelicans",
+  nyg: "Giants",
+  nyj: "Jets",
+  nyk: "Knicks",
+  okc: "Thunder",
+  orl: "Magic",
+  phi: "76ers",
+  phx: "Suns",
+  pit: "Steelers",
+  por: "Trail Blazers",
+  sac: "Kings",
+  sea: "Seahawks",
+  sf: "49ers",
+  tor: "Raptors",
+  ten: "Titans",
+  was: "Wizards"
+};
 
 function esc(value) {
   return String(value ?? "--")
@@ -1568,51 +1637,75 @@ function renderStrategyOverview(data) {
   const f = data.favoriteLongshotExecutable;
   const m = data.latestModel;
   const mb = data.microstructureBuckets;
-  const metrics = strategyEvidenceMetrics(data);
+  const favoriteMetrics = strategyEvidenceMetrics(data);
+  const pendingMetrics = [
+    ["Backtest ROI", "not validated", "0 settled events", "No execution-adjusted backtest has cleared for this strategy yet."],
+    ["Replay sample", "0 events", "0 one-minute points", "No replayable historical event set has passed the data gate yet."],
+    ["Live picks", "0", "monitor only", "Current signals do not clear live execution thresholds."]
+  ];
   const rows = [
     {
       name: "Favorite-longshot fade",
       copy: `Buy the boring high-probability side when the crowd overpays for lottery-like longshots. Current replay sample: ${fmtInt(f.settledEntries)} settled events, ROI ${fmtPct(f.roi)}, confidence-low ${fmtPct(f.ciLo)}.`,
       status: f.gate ? "Research pass" : "Candidate, not proven",
-      tone: f.gate ? "good" : "warn"
+      tone: f.gate ? "good" : "warn",
+      metrics: favoriteMetrics
     },
     {
       name: "Fill-aware convergence ML",
       copy: `Predict whether a CLOB entry can actually fill and later exit profitably. Current run ${m.runId} abstains because the realistic fill-profit target does not clear the threshold.`,
       status: m.researchGate ? "Research pass" : "Hold",
-      tone: m.researchGate ? "warn" : "bad"
+      tone: m.researchGate ? "warn" : "bad",
+      metrics: [
+        ["Backtest ROI", fmtPct(m.testRoi), `${fmtInt(m.testTrades)} test trades`, "Market-disjoint and temporal validation remain below the capital gate."],
+        ["Replay sample", "0 events", "not replay-ready", "The convergence model needs reliable historical fills/LEV replays before dashboard playback is meaningful."],
+        ["Live picks", "0", "abstained", "Current run does not select live trades after execution filters."]
+      ]
     },
     {
       name: "YES + NO hedge/arb",
       copy: `Look for binary markets where buying both sides or hedging after a move is underpriced. Strict net arbs found: ${fmtInt(mb.strictNetArbRows)}; near-arb rows are research-only until executable proof improves.`,
       status: mb.yesNoGate ? "Candidate" : "Monitor",
-      tone: mb.yesNoGate ? "warn" : "info"
+      tone: mb.yesNoGate ? "warn" : "info",
+      metrics: [
+        ["Backtest ROI", "not validated", `${fmtInt(mb.strictNetArbRows)} strict arbs`, "Strict executable arb evidence is not large enough to claim profitability."],
+        ["Replay sample", "0 events", "research only", "Needs paired YES/NO order books with executable sizing before replaying trades."],
+        ["Live picks", "0", "monitor only", "No live hedge/arb signal is cleared for capital."]
+      ]
     },
     {
       name: "Post-event price shock",
       copy: `Test whether prices overreact after sudden market moves and then revert. Current selected rule is ${mb.selectedRule || "none"} with insufficient validation/test support.`,
       status: mb.priceShockGate ? "Candidate" : "Not ready",
-      tone: mb.priceShockGate ? "warn" : "bad"
+      tone: mb.priceShockGate ? "warn" : "bad",
+      metrics: pendingMetrics
     }
   ];
   $("strategy-overview").innerHTML = `
-    <h3>Strategies Calculated</h3>
-    <div class="strategy-metrics">
-      ${metrics.map(([label, value, note, help]) => `
-        <div class="metric">
-          <div class="metric-label">${esc(label)}</div>
-          <div class="metric-value">${esc(value)}</div>
-          <div class="metric-note">${esc(note)}</div>
-          <div class="metric-help">${esc(help)}</div>
-        </div>
-      `).join("")}
+    <div class="strategy-grid-head">
+      <span>Strategy</span>
+      <span>Backtest ROI</span>
+      <span>Replay sample</span>
+      <span>Live picks</span>
     </div>
     <div class="strategy-list">
       ${rows.map(row => `
         <div class="strategy-row">
-          <strong>${esc(row.name)}</strong>
-          <div class="strategy-copy">${esc(row.copy)}</div>
-          <span class="pill ${esc(row.tone)}">${esc(row.status)}</span>
+          <div>
+            <div class="strategy-row-head">
+              <strong>${esc(row.name)}</strong>
+              <span class="pill ${esc(row.tone)}">${esc(row.status)}</span>
+            </div>
+            <div class="strategy-copy">${esc(row.copy)}</div>
+          </div>
+          ${row.metrics.map(([label, value, note, help]) => `
+            <div class="metric">
+              <div class="metric-label">${esc(label)}</div>
+              <div class="metric-value">${esc(value)}</div>
+              <div class="metric-note">${esc(note)}</div>
+              <div class="metric-help">${esc(help)}</div>
+            </div>
+          `).join("")}
         </div>
       `).join("")}
     </div>
@@ -1687,6 +1780,7 @@ function marketLabel(event) {
     basketball_nba: "NBA",
     basketball_wnba: "WNBA",
     icehockey_nhl: "NHL",
+    americanfootball_nfl: "NFL",
     soccer: "Soccer"
   };
   if (labels[key]) return labels[key];
@@ -1697,7 +1791,75 @@ function marketLabel(event) {
 }
 
 function replayExperimentLabel(event) {
-  return event?.title || event?.question || event?.slug || event?.replay_id || "Event";
+  return cleanReplayEventName(event);
+}
+
+function formatSlugToken(token, event) {
+  const key = String(token || "").toLowerCase();
+  const sport = String(event?.sport_family || event?.market_label || "").toLowerCase();
+  if (sport.includes("basketball") || sport === "nba") {
+    return TEAM_ABBREVIATIONS[key] || key.toUpperCase();
+  }
+  if (sport.includes("football") || sport === "nfl") {
+    const nfl = {
+      atl: "Falcons",
+      car: "Panthers",
+      chi: "Bears",
+      cle: "Browns",
+      dal: "Cowboys",
+      den: "Broncos",
+      det: "Lions",
+      hou: "Texans",
+      ind: "Colts",
+      la: "Rams",
+      min: "Vikings",
+      no: "Saints",
+      phi: "Eagles",
+      pit: "Steelers",
+      sea: "Seahawks",
+      was: "Commanders"
+    };
+    return nfl[key] || TEAM_ABBREVIATIONS[key] || key.toUpperCase();
+  }
+  if (sport.includes("hockey") || sport === "nhl") {
+    const nhl = {
+      ana: "Ducks",
+      bos: "Bruins",
+      car: "Hurricanes",
+      chi: "Blackhawks",
+      col: "Avalanche",
+      dal: "Stars",
+      edm: "Oilers",
+      fla: "Panthers",
+      la: "Kings",
+      min: "Wild",
+      nj: "Devils",
+      nyr: "Rangers",
+      tor: "Maple Leafs",
+      was: "Capitals"
+    };
+    return nhl[key] || key.toUpperCase();
+  }
+  return key.toUpperCase();
+}
+
+function cleanReplayEventName(event) {
+  const raw = String(event?.title || event?.question || event?.slug || event?.replay_id || "Event").trim();
+  if (!raw) return "Event";
+  if (/\s/.test(raw) && !/^[a-z0-9-]+$/i.test(raw)) return raw;
+  const match = raw.match(/^([a-z0-9]+)-([a-z0-9]+)-([a-z0-9]+)-(\d{4})-(\d{2})-(\d{2})(?:-(.+))?$/i);
+  if (!match) return raw.replaceAll("-", " ");
+  const left = formatSlugToken(match[2], event);
+  const right = formatSlugToken(match[3], event);
+  const suffix = String(match[7] || "");
+  const market = suffix.startsWith("total-")
+    ? ` total ${suffix.slice(6).replace("pt", ".")}`
+    : suffix.startsWith("spread-")
+      ? ` spread ${suffix.slice(7).replace("pt", ".")}`
+      : suffix.startsWith("exact-score-")
+        ? ` exact score ${suffix.slice(12).replaceAll("-", "-")}`
+        : "";
+  return `${left} vs ${right}${market}`;
 }
 
 function replayStrategyValue(event) {
@@ -1737,6 +1899,25 @@ function renderReplayFilterOptions(select, rows, selectedValue, allLabel) {
   select.innerHTML = [
     `<option value="__all__">${esc(allLabel)}</option>`,
     ...rows.map(([value, count]) => `<option value="${esc(value)}">${esc(value)} (${fmtInt(count)})</option>`)
+  ].join("");
+  select.value = active;
+  return active;
+}
+
+function renderReplayStrategyOptions(select, events, selectedValue) {
+  const counts = new Map();
+  events.forEach(item => {
+    const value = replayStrategyValue(item);
+    counts.set(value, (counts.get(value) || 0) + 1);
+  });
+  const active = selectedValue !== "__all__" && STRATEGY_OPTIONS.includes(selectedValue)
+    ? selectedValue
+    : "__all__";
+  select.innerHTML = [
+    `<option value="__all__">All strategies</option>`,
+    ...STRATEGY_OPTIONS.map(name => `
+      <option value="${esc(name)}">${esc(name)} (${fmtInt(counts.get(name) || 0)})</option>
+    `)
   ].join("");
   select.value = active;
   return active;
@@ -2505,11 +2686,10 @@ function renderReplay(data) {
     "All markets"
   );
   const marketFiltered = events.filter(item => replayFilterMatch(replayMarketValue(item), state.selectedReplayMarket));
-  state.selectedReplayStrategy = renderReplayFilterOptions(
+  state.selectedReplayStrategy = renderReplayStrategyOptions(
     strategySelect,
-    replayOptionCounts(marketFiltered, replayStrategyValue),
-    state.selectedReplayStrategy,
-    "All strategies"
+    marketFiltered,
+    state.selectedReplayStrategy
   );
   const filteredEvents = replayEventsForFilters(events);
   $("replay-count-pill").textContent = filteredEvents.length
@@ -2550,7 +2730,7 @@ function renderReplay(data) {
     const stats = event.stats || {};
     const pos = replayPosition(stats);
     const side = replaySide(event);
-    $("replay-title").textContent = event.title || event.slug || "Backtest event";
+    $("replay-title").textContent = replayExperimentLabel(event);
     $("replay-event-strip").innerHTML = [
       ["Strategy", strategyLabel(event.strategy_label || event.strategy || event.bucket)],
       ["Market", marketLabel(event)],
@@ -2576,7 +2756,7 @@ function renderReplay(data) {
   const markers = fullEvent.markers || [];
   const markerIndex = selectedReplayMarkerIndex(fullEvent);
   const selectedMarker = markers[markerIndex];
-  $("replay-title").textContent = fullEvent.title || fullEvent.slug || "Backtest event";
+  $("replay-title").textContent = replayExperimentLabel(fullEvent);
   $("replay-event-strip").innerHTML = [
     ["Strategy", strategyLabel(fullEvent.strategy_label || fullEvent.strategy || fullEvent.bucket)],
     ["Market", marketLabel(fullEvent)],

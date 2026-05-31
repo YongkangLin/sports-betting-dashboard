@@ -1,87 +1,74 @@
 # Telonex CLOB Download
 
-- Generated: 2026-05-31T00:29:40.734066+00:00
+- Generated: 2026-05-31T03:38:41.388252+00:00
 - Dry run: False
-- Asset plan: `/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/execution_training/favorite_longshot_telonex_target_assets_latest.parquet`
+- Asset plan: none
 - Channels: book_snapshot_5
-- Dates: asset-plan to asset-plan
+- Dates: 2026-04-01 to 2026-05-29
 - Day order: event-first
 - Max files per asset: 1
-- Selected assets: 848
-- Attempted downloads: 212
-- Completed downloads: 198
-- Skipped existing: 648
-- Failed downloads: 14
-- Rows downloaded this run: 24,408,110
-- Bytes downloaded this run: 550,219,486
-- Manifest: `/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/clob_capture/telonex_download_manifest.json`
+- Selected assets: 300
+- Attempted downloads: 164
+- Completed downloads: 0
+- Skipped existing: 172
+- Failed downloads: 164
+- Rows downloaded this run: 0
+- Bytes downloaded this run: 0
+- Manifest: `/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/data/processed/clob_capture/telonex_download_manifest.json`
 
 ## Completed
 
-- `book_snapshot_5` `2026-05-21` `soccer` `lib-fla-est-2026-05-20-est` `No` rows=58,760
-- `book_snapshot_5` `2026-05-21` `soccer` `lib-fla-est-2026-05-20-est` `Yes` rows=58,760
-- `book_snapshot_5` `2026-05-23` `soccer` `lal-mal-ovi-2026-05-23-ovi` `No` rows=53,522
-- `book_snapshot_5` `2026-05-23` `soccer` `lal-mal-ovi-2026-05-23-ovi` `Yes` rows=53,522
-- `book_snapshot_5` `2026-05-24` `soccer` `epl-mac-ast-2026-05-24-ast` `No` rows=127,686
-- `book_snapshot_5` `2026-05-24` `soccer` `epl-mac-ast-2026-05-24-ast` `Yes` rows=127,686
-- `book_snapshot_5` `2026-05-24` `soccer` `sea-cre-com-2026-05-24-cre` `No` rows=63,809
-- `book_snapshot_5` `2026-05-24` `soccer` `sea-cre-com-2026-05-24-cre` `Yes` rows=63,809
-- `book_snapshot_5` `2026-05-24` `soccer` `sea-nap-udi-2026-05-24-udi` `No` rows=53,189
-- `book_snapshot_5` `2026-05-24` `soccer` `sea-nap-udi-2026-05-24-udi` `Yes` rows=53,189
-- `book_snapshot_5` `2026-05-24` `soccer` `sea-tor-juv-2026-05-24-tor` `No` rows=95,179
-- `book_snapshot_5` `2026-05-24` `soccer` `sea-tor-juv-2026-05-24-tor` `Yes` rows=95,179
-- `book_snapshot_5` `2026-05-26` `soccer` `lib-lqu-alw-2026-05-26-alw` `No` rows=71,418
-- `book_snapshot_5` `2026-05-26` `soccer` `lib-lqu-alw-2026-05-26-alw` `Yes` rows=71,418
-- `book_snapshot_5` `2026-02-21` `basketball_nba` `nba-cle-cha-2026-02-20` `Cavaliers` rows=152,845
-- `book_snapshot_5` `2026-02-21` `basketball_nba` `nba-cle-cha-2026-02-20` `Hornets` rows=152,845
-- `book_snapshot_5` `2025-12-27` `soccer` `epl-ars-bri-2025-12-27-bri` `No` rows=15,468
-- `book_snapshot_5` `2025-12-27` `soccer` `epl-ars-bri-2025-12-27-bri` `Yes` rows=15,468
-- `book_snapshot_5` `2026-01-07` `soccer` `epl-mac-bri-2026-01-07-bri` `No` rows=20,320
-- `book_snapshot_5` `2026-01-07` `soccer` `epl-mac-bri-2026-01-07-bri` `Yes` rows=20,320
-- `book_snapshot_5` `2025-12-04` `soccer` `epl-mun-wes-2025-12-04-wes` `No` rows=37,301
-- `book_snapshot_5` `2025-12-04` `soccer` `epl-mun-wes-2025-12-04-wes` `Yes` rows=37,301
-- `book_snapshot_5` `2026-04-15` `soccer` `lib-cru-cat1-2026-04-15-cat1` `No` rows=29,559
-- `book_snapshot_5` `2026-04-15` `soccer` `lib-cru-cat1-2026-04-15-cat1` `Yes` rows=29,559
-- `book_snapshot_5` `2026-03-07` `basketball_nba` `nba-mia-cha-2026-03-06` `Heat` rows=295,187
-- `book_snapshot_5` `2026-03-07` `basketball_nba` `nba-mia-cha-2026-03-06` `Hornets` rows=295,187
-- `book_snapshot_5` `2026-03-08` `basketball_nba` `nba-det-mia-2026-03-08` `Heat` rows=164,478
-- `book_snapshot_5` `2026-03-08` `basketball_nba` `nba-det-mia-2026-03-08` `Pistons` rows=164,478
-- `book_snapshot_5` `2025-12-14` `soccer` `sea-gen-int-2025-12-14-int` `No` rows=24,438
-- `book_snapshot_5` `2025-12-14` `soccer` `sea-gen-int-2025-12-14-int` `Yes` rows=24,438
-- `book_snapshot_5` `2025-12-29` `soccer` `sea-rom-gen-2025-12-29-rom` `No` rows=26,025
-- `book_snapshot_5` `2025-12-29` `soccer` `sea-rom-gen-2025-12-29-rom` `Yes` rows=26,025
-- `book_snapshot_5` `2026-01-08` `soccer` `sea-mil-gen-2026-01-08-mil` `No` rows=61,000
-- `book_snapshot_5` `2026-01-08` `soccer` `sea-mil-gen-2026-01-08-mil` `Yes` rows=61,000
-- `book_snapshot_5` `2026-05-02` `soccer` `sea-ata-gen-2026-05-02-ata` `No` rows=90,414
-- `book_snapshot_5` `2026-05-02` `soccer` `sea-ata-gen-2026-05-02-ata` `Yes` rows=90,414
-- `book_snapshot_5` `2025-11-23` `basketball_nba` `nba-lac-cle-2025-11-23` `Cavaliers` rows=32,205
-- `book_snapshot_5` `2025-11-23` `basketball_nba` `nba-lac-cle-2025-11-23` `Clippers` rows=32,205
-- `book_snapshot_5` `2026-04-08` `basketball_nba` `nba-min-orl-2026-04-08` `Magic` rows=208,502
-- `book_snapshot_5` `2026-04-08` `basketball_nba` `nba-min-orl-2026-04-08` `Timberwolves` rows=208,502
-- `book_snapshot_5` `2026-01-04` `soccer` `lal-rea-bet-2026-01-04-rea` `No` rows=32,009
-- `book_snapshot_5` `2026-01-04` `soccer` `lal-rea-bet-2026-01-04-rea` `Yes` rows=32,009
-- `book_snapshot_5` `2026-01-10` `soccer` `sea-ata-tor-2026-01-10-ata` `No` rows=33,359
-- `book_snapshot_5` `2026-01-10` `soccer` `sea-ata-tor-2026-01-10-ata` `Yes` rows=33,359
-- `book_snapshot_5` `2026-01-21` `soccer` `ucl-new-psv-2026-01-21-psv` `No` rows=37,603
-- `book_snapshot_5` `2026-01-21` `soccer` `ucl-new-psv-2026-01-21-psv` `Yes` rows=37,603
-- `book_snapshot_5` `2026-01-24` `soccer` `sea-com-tor-2026-01-24-com` `No` rows=24,289
-- `book_snapshot_5` `2026-01-24` `soccer` `sea-com-tor-2026-01-24-com` `Yes` rows=24,289
-- `book_snapshot_5` `2026-02-14` `soccer` `lal-rea-rso-2026-02-14-rea` `No` rows=71,641
-- `book_snapshot_5` `2026-02-14` `soccer` `lal-rea-rso-2026-02-14-rea` `Yes` rows=71,641
+- none
 
 ## Errors
 
-- `book_snapshot_5` `2025-11-24` `nfl-sea-ten-2025-11-23` `Seahawks`: download failed: HTTP 404 book_snapshot_5 2025-11-24 {"detail":"File not found: polymarket/book_snapshot_5/2025-11-24 with asset_id=31977479552906200289981121014485959583357979010737288828222352121003666807684"}
-- `book_snapshot_5` `2025-11-24` `nfl-sea-ten-2025-11-23` `Titans`: download failed: HTTP 404 book_snapshot_5 2025-11-24 {"detail":"File not found: polymarket/book_snapshot_5/2025-11-24 with asset_id=96615784319063841053718831295715475605746995993881418881470118949587651673551"}
-- `book_snapshot_5` `2026-05-21` `wta-salkova-bandecc-2026-05-20` `Dominika Salkova`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=82515896969383806660643467141971790934001953802712072178490206576030588257394"}
-- `book_snapshot_5` `2026-05-21` `wta-salkova-bandecc-2026-05-20` `Susan Bandecchi`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=42487482381786936359745697784353003078322668615619270250503980474228547203181"}
-- `book_snapshot_5` `2026-05-20` `atp-lajal-safiull-2026-05-19` `Mark Lajal`: download failed: HTTP 404 book_snapshot_5 2026-05-20 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-20 with asset_id=8238113806101929149865582290080883620512828949417777975784755339018413001987"}
-- `book_snapshot_5` `2026-05-20` `atp-lajal-safiull-2026-05-19` `Roman Safiullin`: download failed: HTTP 404 book_snapshot_5 2026-05-20 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-20 with asset_id=8891549710710939038227965845222263232912233988172354713884455417144824752116"}
-- `book_snapshot_5` `2026-05-23` `wta-bandecc-hruncak-2026-05-22` `Susan Bandecchi`: download failed: HTTP 404 book_snapshot_5 2026-05-23 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-23 with asset_id=108111141535434177914406516681224523738973547753456079205528049558584178727829"}
-- `book_snapshot_5` `2026-05-23` `wta-bandecc-hruncak-2026-05-22` `Viktoria Hruncakova`: download failed: HTTP 404 book_snapshot_5 2026-05-23 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-23 with asset_id=70967376029802434970056628998456738617709624055730014513302383541060137978275"}
-- `book_snapshot_5` `2025-11-24` `nfl-min-gb-2025-11-23` `Packers`: download failed: HTTP 404 book_snapshot_5 2025-11-24 {"detail":"File not found: polymarket/book_snapshot_5/2025-11-24 with asset_id=82049670978099075657898168346470502383785810643587032243119895231714257528361"}
-- `book_snapshot_5` `2025-11-24` `nfl-min-gb-2025-11-23` `Vikings`: download failed: HTTP 404 book_snapshot_5 2025-11-24 {"detail":"File not found: polymarket/book_snapshot_5/2025-11-24 with asset_id=75893363900931548551760380058421141261473949474684113746695486667464345019223"}
-- `book_snapshot_5` `2026-05-19` `atp-fokina-moutet-2026-05-18` `Alejandro Davidovich Fokina`: download failed: HTTP 404 book_snapshot_5 2026-05-19 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-19 with asset_id=34660315049280399217722389376258868186148388502323901670680394711473424803145"}
-- `book_snapshot_5` `2026-05-19` `atp-fokina-moutet-2026-05-18` `Corentin Moutet`: download failed: HTTP 404 book_snapshot_5 2026-05-19 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-19 with asset_id=71775547852216278160167411606069154334498687805552251312577957652315434832698"}
-- `book_snapshot_5` `2026-05-20` `wta-zavatsk-zhao-2026-05-19` `Carol Zhao`: download failed: HTTP 404 book_snapshot_5 2026-05-20 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-20 with asset_id=112197515831131116708221658845772274876315962737530826623587548811423573976041"}
-- `book_snapshot_5` `2026-05-20` `wta-zavatsk-zhao-2026-05-19` `Katarina Zavatska`: download failed: HTTP 404 book_snapshot_5 2026-05-20 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-20 with asset_id=1124739737351025123772642293776308180168528250730838542594993738281910715888"}
+- `book_snapshot_5` `2026-05-21` `sud-car1-bot-2026-05-27-exact-score-0-0` `Yes`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=56583429571156797485345905508330463315699734511972912382847098234158683191020"}
+- `book_snapshot_5` `2026-05-21` `sud-car1-bot-2026-05-27-exact-score-0-0` `No`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=79095952209605042481392168626343425044940632636295791314892303933254495593740"}
+- `book_snapshot_5` `2026-05-21` `sud-car1-bot-2026-05-27-exact-score-0-1` `Yes`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=77174014856820528531998230686094412111837198897777158004445769753793364045616"}
+- `book_snapshot_5` `2026-05-21` `sud-car1-bot-2026-05-27-exact-score-0-1` `No`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=98075912149268505240452970070859324125228739393470220147901315430955553325515"}
+- `book_snapshot_5` `2026-05-21` `sud-car1-bot-2026-05-27-exact-score-0-2` `Yes`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=75780237997088015425204778979645825688306844364358627143721872229121258071456"}
+- `book_snapshot_5` `2026-05-21` `sud-car1-bot-2026-05-27-exact-score-0-2` `No`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=39396289244218402341071968882512080193117027917192653858806080053494289379598"}
+- `book_snapshot_5` `2026-05-21` `sud-car1-bot-2026-05-27-exact-score-0-3` `Yes`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=6016542227058503390798023742093681541750840439192889543994316417884637524672"}
+- `book_snapshot_5` `2026-05-21` `sud-car1-bot-2026-05-27-exact-score-0-3` `No`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=110270095890872277476188021555602940215535991065157664068701410590058172877217"}
+- `book_snapshot_5` `2026-05-21` `sud-car1-bot-2026-05-27-exact-score-1-0` `Yes`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=29985291571696321900877931442789410684169609617873197683556683830705901286894"}
+- `book_snapshot_5` `2026-05-21` `sud-car1-bot-2026-05-27-exact-score-1-0` `No`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=105479982528845152404420898417653629896233357940207654883721134098753841898355"}
+- `book_snapshot_5` `2026-05-21` `sud-car1-bot-2026-05-27-exact-score-1-1` `Yes`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=38219484439783326972441850467981604441930972395127736198233028215114957972629"}
+- `book_snapshot_5` `2026-05-21` `sud-car1-bot-2026-05-27-exact-score-1-1` `No`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=36656377596796839991898057189128192425392606727073640883023072157126502543964"}
+- `book_snapshot_5` `2026-05-21` `sud-car1-bot-2026-05-27-exact-score-1-2` `Yes`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=65658976474600360783522481353958227098784069927699108577061574827151512078111"}
+- `book_snapshot_5` `2026-05-21` `sud-car1-bot-2026-05-27-exact-score-1-2` `No`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=54352044259973635083709120378318027540635509704920439053639844283169381034376"}
+- `book_snapshot_5` `2026-05-21` `sud-car1-bot-2026-05-27-exact-score-1-3` `Yes`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=5557360994281171432774006779248795613678148855339277856135439529295975896620"}
+- `book_snapshot_5` `2026-05-21` `sud-car1-bot-2026-05-27-exact-score-1-3` `No`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=103839694178604452241807178324164695282506530036422103873430553107909550323331"}
+- `book_snapshot_5` `2026-05-21` `sud-car1-bot-2026-05-27-exact-score-2-0` `Yes`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=16031283681957374754445534872009624616282396952712885129415999859526779281194"}
+- `book_snapshot_5` `2026-05-21` `sud-car1-bot-2026-05-27-exact-score-2-0` `No`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=113262841570751467602924458257753189913293415191734541200984508888390553902351"}
+- `book_snapshot_5` `2026-05-21` `sud-car1-bot-2026-05-27-exact-score-2-1` `Yes`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=86171822755225195144676734815555093343395683347783047948164286880579110923019"}
+- `book_snapshot_5` `2026-05-21` `sud-car1-bot-2026-05-27-exact-score-2-1` `No`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=73176039805529092273934020199915667361506669733073060583186299461823738256476"}
+- `book_snapshot_5` `2026-05-21` `sud-car1-bot-2026-05-27-exact-score-2-2` `Yes`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=5107086231771784540470164599497372043077058325895221706891505611905284919331"}
+- `book_snapshot_5` `2026-05-21` `sud-car1-bot-2026-05-27-exact-score-2-2` `No`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=61967682450539398965717546781336766397434651176177808231813633227500493232521"}
+- `book_snapshot_5` `2026-05-21` `sud-car1-bot-2026-05-27-exact-score-2-3` `Yes`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=100710624509695553999286000521581522304422698528041602489871664616590008375466"}
+- `book_snapshot_5` `2026-05-21` `sud-car1-bot-2026-05-27-exact-score-2-3` `No`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=110641896834076458989827285194759244064329913587874774399631881645273613520865"}
+- `book_snapshot_5` `2026-05-21` `sud-car1-bot-2026-05-27-exact-score-3-0` `Yes`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=67715089297720461188994940605442997358265911614499795026705077583436430024906"}
+- `book_snapshot_5` `2026-05-21` `sud-car1-bot-2026-05-27-exact-score-3-0` `No`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=2951426153324272855618932414965775067982939564867642500642410089149454017543"}
+- `book_snapshot_5` `2026-05-21` `sud-car1-bot-2026-05-27-exact-score-3-1` `Yes`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=105269050549209680865661118043397748919929420877886254416877227725975382889462"}
+- `book_snapshot_5` `2026-05-21` `sud-car1-bot-2026-05-27-exact-score-3-1` `No`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=68614825013681890755604133785599736383959591934768359693562742559942156932286"}
+- `book_snapshot_5` `2026-05-21` `sud-car1-bot-2026-05-27-exact-score-3-2` `Yes`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=51271988625240242581331569162522397917729919085687890951032992700832747472394"}
+- `book_snapshot_5` `2026-05-21` `sud-car1-bot-2026-05-27-exact-score-3-2` `No`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=31627391336658354319790786149556111140621096464915064180889000913623010437191"}
+- `book_snapshot_5` `2026-05-21` `sud-car1-bot-2026-05-27-exact-score-3-3` `Yes`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=115170090010043945112989017669752482056257071834923266271291353008294665538340"}
+- `book_snapshot_5` `2026-05-21` `sud-car1-bot-2026-05-27-exact-score-3-3` `No`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=71019704315218317779578576342450025151440448372192249670219613909185115181800"}
+- `book_snapshot_5` `2026-05-21` `sud-car1-bot-2026-05-27-exact-score-any-other` `Yes`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=24147114480771883800036258092273380139501284524571151613627809408340732455884"}
+- `book_snapshot_5` `2026-05-21` `sud-car1-bot-2026-05-27-exact-score-any-other` `No`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=99558358087147524840553350453596207247583566598865908013168821637975109506329"}
+- `book_snapshot_5` `2026-05-21` `sud-rac-car1-2026-05-21-exact-score-0-0` `Yes`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=36506729030988819143937028245335934497390677269377239084322367121789562236866"}
+- `book_snapshot_5` `2026-05-21` `sud-rac-car1-2026-05-21-exact-score-0-0` `No`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=48400304950845689050958350939249357290333078560664866616340947668988588549108"}
+- `book_snapshot_5` `2026-05-21` `sud-rac-car1-2026-05-21-exact-score-0-1` `Yes`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=20691876446703466211983410464893533365551276639934216036415261861993121369787"}
+- `book_snapshot_5` `2026-05-21` `sud-rac-car1-2026-05-21-exact-score-0-1` `No`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=50732717613865210044652050667229376282501602577548258130864297183070711448806"}
+- `book_snapshot_5` `2026-05-21` `sud-rac-car1-2026-05-21-exact-score-0-2` `Yes`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=42937865026013198532475603433220877861988170940834898972752006067218412865661"}
+- `book_snapshot_5` `2026-05-21` `sud-rac-car1-2026-05-21-exact-score-0-2` `No`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=70970924382496823391355161606918051108620206767479961992418132872319921599046"}
+- `book_snapshot_5` `2026-05-21` `sud-rac-car1-2026-05-21-exact-score-1-1` `Yes`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=93078239309509077263782541260198165554220377427154637819511864097667019958998"}
+- `book_snapshot_5` `2026-05-21` `sud-rac-car1-2026-05-21-exact-score-1-1` `No`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=24096016123910245693438332495340140597497810434242066490151657437446502061084"}
+- `book_snapshot_5` `2026-05-21` `sud-rac-car1-2026-05-21-exact-score-1-2` `Yes`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=69715589954473277487778512968081783890266669684072770264278187602793075112726"}
+- `book_snapshot_5` `2026-05-21` `sud-rac-car1-2026-05-21-exact-score-1-2` `No`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=45984336384134929937862189308412713887110517141293015448107891240092079506604"}
+- `book_snapshot_5` `2026-05-21` `sud-rac-car1-2026-05-21-exact-score-1-3` `Yes`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=90728437781277260272120520323168865761266461949502428330104700585303329168228"}
+- `book_snapshot_5` `2026-05-21` `sud-rac-car1-2026-05-21-exact-score-1-3` `No`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=73962053098238336180766780664453487531604029077485184467059984308540817764438"}
+- `book_snapshot_5` `2026-05-21` `sud-rac-car1-2026-05-21-exact-score-2-0` `Yes`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=56153160286209976764743074204696854737897900082039874432336366960322973372825"}
+- `book_snapshot_5` `2026-05-21` `sud-rac-car1-2026-05-21-exact-score-2-0` `No`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=71161589635227961166862366323638475495394551461331914488191644809827472911735"}
+- `book_snapshot_5` `2026-05-21` `sud-rac-car1-2026-05-21-exact-score-2-1` `Yes`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=47342308755950055598779646230573779329461381147854513074675530725492411549554"}
+- `book_snapshot_5` `2026-05-21` `sud-rac-car1-2026-05-21-exact-score-2-1` `No`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=89130338382400568864584033819810828921891045448428557252413409529621098121087"}

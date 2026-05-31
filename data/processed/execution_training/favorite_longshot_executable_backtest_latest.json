@@ -1,92 +1,92 @@
 {
   "coverage": {
-    "assets_missing_books": 0,
-    "assets_with_books": 1298,
-    "assets_without_clear_settlement": 98,
-    "assets_without_entry": 923,
-    "book_rows_scanned": 95516643,
-    "candidate_tokens": 375,
+    "assets_missing_books": 34,
+    "assets_with_books": 1436,
+    "assets_without_clear_settlement": 104,
+    "assets_without_entry": 1055,
+    "book_rows_scanned": 95653221,
+    "candidate_tokens": 381,
     "clear_settlement_entries": 277,
-    "selected_entries": 375,
-    "target_assets": 1298
+    "selected_entries": 381,
+    "target_assets": 1470
   },
   "executable_gate": false,
   "gate_reasons": [
     "clear-settlement cluster bootstrap CI lower bound is not positive"
   ],
-  "generated_at": "2026-05-31T03:22:09.952153+00:00",
+  "generated_at": "2026-05-31T03:42:02.851223+00:00",
   "horizon_by_bucket": [
     {
-      "avg_entry_ask": 0.8747727272727271,
-      "avg_spread": 0.01468750000000001,
-      "bets": 352,
+      "avg_entry_ask": 0.8749717514124294,
+      "avg_spread": 0.014858757062146902,
+      "bets": 354,
       "bootstrap_ci": {
-        "ci_hi": -0.019098589618642733,
-        "ci_lo": -0.028853851873933536,
-        "clusters": 346
+        "ci_hi": -0.019029930667928262,
+        "ci_lo": -0.028656766476596256,
+        "clusters": 348
       },
       "bucket": "downloaded_manifest_high_prob_token",
       "horizon_sec": "300",
-      "markets": 346,
-      "pnl": -7.134113130000002,
-      "roi": -0.023168722817614975,
-      "stake": 307.91999999999996,
-      "tokens": 352,
-      "win_rate": 0.05113636363636364
+      "markets": 348,
+      "pnl": -7.235864130000002,
+      "roi": -0.023361090366113522,
+      "stake": 309.74,
+      "tokens": 354,
+      "win_rate": 0.05084745762711865
     },
     {
-      "avg_entry_ask": 0.8747740112994351,
-      "avg_spread": 0.014830508474576279,
-      "bets": 354,
+      "avg_entry_ask": 0.8748033707865168,
+      "avg_spread": 0.014971910112359559,
+      "bets": 356,
       "bootstrap_ci": {
-        "ci_hi": -0.018890642038359468,
-        "ci_lo": -0.03321332986003021,
-        "clusters": 351
+        "ci_hi": -0.019938556347950886,
+        "ci_lo": -0.03257190889364629,
+        "clusters": 353
       },
       "bucket": "downloaded_manifest_high_prob_token",
       "horizon_sec": "900",
-      "markets": 351,
-      "pnl": -7.944860000000003,
-      "roi": -0.025655891755739988,
-      "stake": 309.67,
-      "tokens": 354,
-      "win_rate": 0.062146892655367235
+      "markets": 353,
+      "pnl": -8.039248000000002,
+      "roi": -0.025813980669813448,
+      "stake": 311.43,
+      "tokens": 356,
+      "win_rate": 0.06179775280898876
     },
     {
-      "avg_entry_ask": 0.8761861861861863,
-      "avg_spread": 0.013843843843843852,
-      "bets": 333,
+      "avg_entry_ask": 0.8763880597014926,
+      "avg_spread": 0.014029850746268665,
+      "bets": 335,
       "bootstrap_ci": {
-        "ci_hi": -0.014496033573003626,
-        "ci_lo": -0.026101172635602236,
-        "clusters": 333
+        "ci_hi": -0.01530643901163136,
+        "ci_lo": -0.026223583460572433,
+        "clusters": 335
       },
       "bucket": "downloaded_manifest_high_prob_token",
       "horizon_sec": "3600",
-      "markets": 333,
-      "pnl": -5.909546620000002,
-      "roi": -0.020254126949309392,
-      "stake": 291.77000000000004,
-      "tokens": 333,
-      "win_rate": 0.08408408408408409
+      "markets": 335,
+      "pnl": -6.011297620000002,
+      "roi": -0.02047514431690453,
+      "stake": 293.59000000000003,
+      "tokens": 335,
+      "win_rate": 0.08358208955223881
     },
     {
-      "avg_entry_ask": 0.8773417721518988,
-      "avg_spread": 0.01270042194092828,
-      "bets": 237,
+      "avg_entry_ask": 0.8775313807531382,
+      "avg_spread": 0.01288702928870294,
+      "bets": 239,
       "bootstrap_ci": {
-        "ci_hi": -0.0167258086322659,
-        "ci_lo": -0.019877820018946793,
-        "clusters": 237
+        "ci_hi": -0.01698484062095831,
+        "ci_lo": -0.02004893465597112,
+        "clusters": 239
       },
       "bucket": "downloaded_manifest_high_prob_token",
       "horizon_sec": "21600",
-      "markets": 237,
-      "pnl": -3.8153540000000015,
-      "roi": -0.018349223296301648,
-      "stake": 207.93,
-      "tokens": 237,
-      "win_rate": 0.06329113924050633
+      "markets": 239,
+      "pnl": -3.8873900000000026,
+      "roi": -0.01853521193915988,
+      "stake": 209.73000000000002,
+      "tokens": 239,
+      "win_rate": 0.06276150627615062
     },
     {
       "avg_entry_ask": 0.8882352941176469,
