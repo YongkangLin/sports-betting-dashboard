@@ -2046,17 +2046,17 @@ function drawReplayChart(event) {
   };
   svg.innerHTML = `
     <rect x="0" y="0" width="${width}" height="${height}" fill="#fff" pointer-events="none" />
-    <rect data-chart-pan="xy" x="${pad.left}" y="${pad.top}" width="${plotW}" height="${plotH}" fill="transparent" pointer-events="all" cursor="move" />
-    <rect data-chart-pan="y" x="0" y="${pad.top}" width="${pad.left}" height="${plotH}" fill="transparent" pointer-events="all" cursor="ns-resize" />
-    <rect data-chart-pan="x" x="${pad.left}" y="${height - pad.bottom}" width="${plotW}" height="${pad.bottom}" fill="transparent" pointer-events="all" cursor="ew-resize" />
     ${grid}
     <line x1="${pad.left}" y1="${pad.top}" x2="${pad.left}" y2="${height - pad.bottom}" stroke="#d8dee8" />
     <line x1="${pad.left}" y1="${height - pad.bottom}" x2="${width - pad.right}" y2="${height - pad.bottom}" stroke="#d8dee8" />
     <polyline points="${replayPath(visiblePoints, "other", sx, sy)}" fill="none" stroke="#f59e0b" stroke-width="5" opacity="0.5" stroke-dasharray="7 5" />
     <polyline points="${replayPath(visiblePoints, "selected", sx, sy)}" fill="none" stroke="#1f77b4" stroke-width="2.8" />
     ${lineLabels}
+    <rect data-chart-pan="xy" x="${pad.left}" y="${pad.top}" width="${plotW}" height="${plotH}" fill="transparent" pointer-events="all" cursor="move" />
     ${markerSvg}
     ${xAxis}
+    <rect data-chart-pan="y-scale" x="0" y="${pad.top}" width="${pad.left}" height="${plotH}" fill="transparent" pointer-events="all" cursor="ns-resize" />
+    <rect data-chart-pan="x-scale" x="${pad.left}" y="${height - pad.bottom}" width="${plotW}" height="${pad.bottom}" fill="transparent" pointer-events="all" cursor="ew-resize" />
   `;
 }
 
@@ -2132,6 +2132,23 @@ function zoomReplayY(factor, anchorValue = null) {
   setReplayYRange(nextMin, nextMax);
 }
 
+function saveReplayXRange(replayId, range, fullMin, fullMax) {
+  const fullSpan = Math.max(1, fullMax - fullMin);
+  if (range.maxX - range.minX >= fullSpan * 0.995) {
+    delete state.replayZoomById[replayId];
+  } else {
+    state.replayZoomById[replayId] = range;
+  }
+}
+
+function saveReplayYRange(replayId, range) {
+  if (range.maxY - range.minY >= 0.995) {
+    delete state.replayYRangeById[replayId];
+  } else {
+    state.replayYRangeById[replayId] = range;
+  }
+}
+
 function handleReplayWheel(event) {
   if (!event.target.closest?.("#replay-chart")) return;
   event.preventDefault();
@@ -2152,8 +2169,8 @@ function handleReplayPointerDown(event) {
   const point = replaySvgPointFromPointer(event);
   const hitMode = event.target.closest?.("[data-chart-pan]")?.dataset?.chartPan;
   const mode = hitMode || (
-    point && point.x <= chart.pad.left + 8 ? "y"
-      : point && point.y >= chart.height - chart.pad.bottom - 8 ? "x"
+    point && point.x <= chart.pad.left + 14 ? "y-scale"
+      : point && point.y >= chart.height - chart.pad.bottom - 10 ? "x-scale"
         : "xy"
   );
   event.preventDefault();
@@ -2182,28 +2199,35 @@ function handleReplayPointerMove(event) {
   if (!drag || !chart?.replayId) return;
   const svg = $("replay-chart");
   const rect = svg.getBoundingClientRect();
-  if (drag.mode === "x" || drag.mode === "xy") {
-    const dxSvg = ((event.clientX - drag.clientX) / Math.max(1, rect.width)) * drag.width;
+  const dxSvg = ((event.clientX - drag.clientX) / Math.max(1, rect.width)) * drag.width;
+  const dySvg = ((event.clientY - drag.clientY) / Math.max(1, rect.height)) * drag.height;
+  if (drag.mode === "x-scale") {
+    const factor = Math.exp(dxSvg / 260);
+    const anchor = drag.minX + (drag.maxX - drag.minX) / 2;
+    const range = clampReplayRange(
+      anchor - (anchor - drag.minX) * factor,
+      anchor + (drag.maxX - anchor) * factor,
+      drag.fullMin,
+      drag.fullMax
+    );
+    saveReplayXRange(chart.replayId, range, drag.fullMin, drag.fullMax);
+  } else if (drag.mode === "y-scale") {
+    const factor = Math.exp(dySvg / 220);
+    const anchor = drag.minY + (drag.maxY - drag.minY) / 2;
+    const range = clampReplayYRange(
+      anchor - (anchor - drag.minY) * factor,
+      anchor + (drag.maxY - anchor) * factor
+    );
+    saveReplayYRange(chart.replayId, range);
+  } else if (drag.mode === "xy") {
     const span = drag.maxX - drag.minX;
     const delta = -(dxSvg / Math.max(1, drag.plotW)) * span;
     const range = clampReplayRange(drag.minX + delta, drag.maxX + delta, drag.fullMin, drag.fullMax);
-    const fullSpan = Math.max(1, drag.fullMax - drag.fullMin);
-    if (range.maxX - range.minX >= fullSpan * 0.995) {
-      delete state.replayZoomById[chart.replayId];
-    } else {
-      state.replayZoomById[chart.replayId] = range;
-    }
-  }
-  if (drag.mode === "y" || drag.mode === "xy") {
-    const dySvg = ((event.clientY - drag.clientY) / Math.max(1, rect.height)) * drag.height;
-    const span = drag.maxY - drag.minY;
-    const delta = (dySvg / Math.max(1, drag.plotH)) * span;
-    const range = clampReplayYRange(drag.minY + delta, drag.maxY + delta);
-    if (range.maxY - range.minY >= 0.995) {
-      delete state.replayYRangeById[chart.replayId];
-    } else {
-      state.replayYRangeById[chart.replayId] = range;
-    }
+    saveReplayXRange(chart.replayId, range, drag.fullMin, drag.fullMax);
+    const ySpan = drag.maxY - drag.minY;
+    const yDelta = (dySvg / Math.max(1, drag.plotH)) * ySpan;
+    const yRange = clampReplayYRange(drag.minY + yDelta, drag.maxY + yDelta);
+    saveReplayYRange(chart.replayId, yRange);
   }
   renderReplay(deriveDashboard());
 }
