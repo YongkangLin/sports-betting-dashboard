@@ -968,6 +968,7 @@ const ARTIFACTS = {
   dashboardSportsbookIntegrityAudit: { label: "Dashboard sportsbook integrity audit", path: "reports/dashboard_sportsbook_integrity_audit_latest.json" },
   liveSignals: { label: "Live Telonex signals", path: "data/processed/clob_capture/live_telonex_convergence_signals_latest.json" },
   strategyBuckets: { label: "Strategy bucket audit", path: "data/processed/execution_training/telonex_strategy_buckets_latest.json" },
+  takerStrategyValidation: { label: "Validation-selected taker strategies", path: "data/processed/execution_training/telonex_taker_strategy_validation_latest.json" },
   playByPlaySourcePlan: { label: "Play-by-play source plan", path: "data/processed/execution_training/play_by_play_source_plan_latest.json" },
   microstructureBuckets: { label: "Microstructure buckets", path: "data/processed/execution_training/telonex_microstructure_buckets_latest.json" }
 };
@@ -1151,6 +1152,12 @@ const SNAPSHOT = {
         avg_line_lag_gap_5m: 0.003189107812099976
       }
     ]
+  },
+  takerStrategyValidation: {
+    gate: false,
+    passingStrategies: [],
+    verdict: "No validation-selected taker strategy has passed.",
+    results: []
   },
   playByPlaySourcePlan: {
     featureStatus: "missing_feature_file",
@@ -1337,6 +1344,7 @@ const SNAPSHOT = {
     "data/processed/execution_training/favorite_longshot_event_replays_latest.json": 427000,
     "data/processed/clob_capture/live_telonex_convergence_signals_latest.json": 3995,
     "data/processed/execution_training/telonex_strategy_buckets_latest.json": 100352,
+    "data/processed/execution_training/telonex_taker_strategy_validation_latest.json": 60000,
     "data/processed/execution_training/play_by_play_source_plan_latest.json": 10000,
     "data/processed/execution_training/telonex_microstructure_buckets_latest.json": 100352
   }
@@ -1547,6 +1555,7 @@ function deriveDashboard() {
   const replaySportsbookGapAudit = state.loaded.replaySportsbookGapAudit;
   const dashboardSportsbookIntegrityAudit = state.loaded.dashboardSportsbookIntegrityAudit;
   const strategyBuckets = state.loaded.strategyBuckets;
+  const takerStrategyValidation = state.loaded.takerStrategyValidation;
   const playByPlaySourcePlan = state.loaded.playByPlaySourcePlan;
   const microstructureBuckets = state.loaded.microstructureBuckets;
 
@@ -1611,6 +1620,37 @@ function deriveDashboard() {
     data.strategyBuckets.strategySupport = Array.isArray(artifact.strategy_support)
       ? artifact.strategy_support
       : data.strategyBuckets.strategySupport;
+  }
+
+  function applyTakerStrategyValidation(artifact) {
+    if (!artifact) return;
+    const rawRows = Array.isArray(artifact.strategy_results)
+      ? artifact.strategy_results
+      : Array.isArray(artifact.strategies)
+        ? artifact.strategies
+        : [];
+    data.takerStrategyValidation.gate = Boolean(artifact.gate);
+    data.takerStrategyValidation.passingStrategies = artifact.passing_strategies || data.takerStrategyValidation.passingStrategies;
+    data.takerStrategyValidation.verdict = artifact.verdict || data.takerStrategyValidation.verdict;
+    data.takerStrategyValidation.results = rawRows.map(item => {
+      const validation = item.validation || {};
+      const test = item.test || {};
+      return {
+        strategy: item.strategy,
+        selected: Boolean(item.selected),
+        gate: Boolean(item.gate),
+        reason: item.reason || "",
+        selectedRule: item.selected_rule || null,
+        validationRoi: item.validation_roi ?? validation.roi ?? null,
+        validationCiLo: item.validation_ci_lo ?? validation.ci_lo ?? null,
+        validationRows: item.validation_rows ?? validation.rows ?? 0,
+        validationMarkets: item.validation_markets ?? validation.markets ?? 0,
+        testRoi: item.test_roi ?? test.roi ?? null,
+        testCiLo: item.test_ci_lo ?? test.ci_lo ?? null,
+        testRows: item.test_rows ?? test.rows ?? 0,
+        testMarkets: item.test_markets ?? test.markets ?? 0
+      };
+    });
   }
 
   function applyPlayByPlaySourcePlan(artifact) {
@@ -1689,6 +1729,7 @@ function deriveDashboard() {
     data.favoriteLongshotRuleValidation.temporalTestQualityBreakdown = favTemporal.selected_rule_test_quality_breakdown || data.favoriteLongshotRuleValidation.temporalTestQualityBreakdown;
     data.favoriteLongshotRuleValidation.marketTestQualityBreakdown = favMarket.selected_rule_test_quality_breakdown || data.favoriteLongshotRuleValidation.marketTestQualityBreakdown;
     applyStrategyBuckets(live.telonex_strategy_buckets);
+    applyTakerStrategyValidation(live.telonex_taker_strategy_validation);
     applyMicrostructure(live.telonex_microstructure_buckets);
 
     const liveModel = live.telonex_convergence || {};
@@ -1853,6 +1894,7 @@ function deriveDashboard() {
   }
 
   applyStrategyBuckets(strategyBuckets);
+  applyTakerStrategyValidation(takerStrategyValidation);
   applyPlayByPlaySourcePlan(playByPlaySourcePlan);
   applyMicrostructure(microstructureBuckets);
 
@@ -1918,6 +1960,37 @@ function unavailableStrategyMetrics(reason) {
   ];
 }
 
+function takerValidationRow(data, strategyKey) {
+  return (data.takerStrategyValidation?.results || []).find(row => row.strategy === strategyKey) || null;
+}
+
+function takerValidationStatus(row) {
+  if (!row) return "not run";
+  if (row.gate) return "validated";
+  if (row.selected) return "test failed";
+  return "no validation rule";
+}
+
+function takerValidationMetric(row) {
+  if (!row) {
+    return ["Strategy Backtest ROI", "not run", "no validation artifact", "No validation-selected rule has been tested."];
+  }
+  if (!row.selected) {
+    return [
+      "Strategy Backtest ROI",
+      "not selected",
+      `${takerValidationStatus(row)}`,
+      row.reason || "No validation rule cleared a positive cluster-bootstrap confidence bound."
+    ];
+  }
+  return [
+    "Strategy Backtest ROI",
+    fmtPct(row.testRoi),
+    `${fmtInt(row.testRows)} test rows / ${fmtInt(row.testMarkets)} markets`,
+    `Validation chose the rule first; frozen test CI lower bound is ${fmtPct(row.testCiLo)}. ${row.reason || ""}`
+  ];
+}
+
 function qualityTierLabel(tier) {
   const labels = {
     complete_5m: "complete 5m",
@@ -1960,6 +2033,9 @@ function renderStrategyOverview(data) {
   const sharpAudit = strategyAuditRow(data, "sharp_consensus_clob_mispricing");
   const sharpSupport = strategySupportRow(data, "sharp_consensus_clob_mispricing", "test");
   const lineLagSupport = strategySupportRow(data, "line_lag_clv_capture", "test");
+  const favoriteValidation = takerValidationRow(data, "favorite_longshot_fade_v2");
+  const sharpValidation = takerValidationRow(data, "sharp_consensus_clob_mispricing");
+  const lineLagValidation = takerValidationRow(data, "line_lag_clv_capture");
   const favQualitySplit = qualitySplitSentence(data.favoriteLongshotRuleValidation.marketTestQualityBreakdown);
   const featureBlocker = [
     sb.playByPlayCoverage > 0 ? null : "play-by-play 0%",
@@ -1970,10 +2046,10 @@ function renderStrategyOverview(data) {
     {
       name: "Favorite-longshot fade",
       copy: `Buy the high-probability side when longshot demand appears to overprice the other side. V2 now splits by probability band, sport, market type, liquidity, and Odds API gap instead of one broad bucket.`,
-      status: favoriteAudit && favoriteAudit.ci_lo > 0 ? "Research pass" : "Candidate, not proven",
-      tone: favoriteAudit && favoriteAudit.ci_lo > 0 ? "good" : "warn",
+      status: favoriteValidation?.gate ? "Validated" : "Candidate, not proven",
+      tone: favoriteValidation?.gate ? "good" : "warn",
       metrics: [
-        ["Strategy Backtest ROI", fmtPct(f.roi), `${fmtInt(f.settledEntries)} settled events`, `Favorite-longshot only. Resolution-hold replay is positive; short-horizon executable audit is ${fmtPct(favoriteAudit?.roi)} on ${strategyAuditSplit(favoriteAudit)}.`],
+        takerValidationMetric(favoriteValidation),
         ["Replay sample", `${fmtInt(replayEvents)} events`, `${fmtInt(replayPoints)} one-minute points`, `${fmtInt(replayClobTwoSidedEvents)} have actual CLOB both sides; ${fmtInt(replayBothCompleteEvents)} also have sportsbook overlays from ${fmtInt(replaySportsbookPoints)} fair-probability points; native 5m Odds is complete for ${fmtInt(replayNative5mEvents)} events with ${fmtInt(replayMissing5mSnapshots)} unique 5m snapshots still missing. Replay materialization bugs: ${fmtInt(replayMaterializationBugs)}. ${favQualitySplit ? `Selected-rule test quality split: ${favQualitySplit}.` : ""}`],
         ["Live picks", fmtInt(e.liveSignalsSelected), `${fmtInt(e.liveSignalCandidates)} candidates scanned`, "No current signal clears the live threshold."]
       ]
@@ -1981,10 +2057,10 @@ function renderStrategyOverview(data) {
     {
       name: "Sharp-consensus CLOB mispricing",
       copy: `Use multi-book no-vig Odds API fair probability as the baseline and only trade when Polymarket ask is meaningfully below that fair value. This is a strategy rule, not a generic winner picker.`,
-      status: sharpAudit && sharpAudit.ci_lo > 0 ? "Research pass" : "Not proven",
-      tone: sharpAudit && sharpAudit.ci_lo > 0 ? "good" : "bad",
+      status: sharpValidation?.gate ? "Validated" : "Not proven",
+      tone: sharpValidation?.gate ? "good" : "bad",
       metrics: [
-        ["Strategy Backtest ROI", fmtPct(sharpSupport?.roi ?? sharpAudit?.roi), strategySupportNote(sharpSupport || sharpAudit), `Sharp-consensus only. Test support is shown even when it fails the row/market gate, so sparse evidence does not get hidden.`],
+        takerValidationMetric(sharpValidation),
         ["Replay sample", "0 events", `${fmtInt(sb.strategyCandidateRows)} candidate rows`, "Needs replayable event paths once the rule has a positive held-out bucket."],
         ["Live picks", "0", `${fmtPct(sb.oddsTestCoverage)} test odds coverage`, "Odds coverage is still too thin for a capital gate."]
       ]
@@ -1992,9 +2068,13 @@ function renderStrategyOverview(data) {
     {
       name: "Line-lag / CLV capture",
       copy: `Detect when sportsbook fair value moves before the CLOB moves, then enter for convergence and track CLV/LEV. Current Telonex/Odds overlap did not produce a robust qualifying held-out row.`,
-      status: "Needs data",
-      tone: "warn",
-      metrics: unavailableStrategyMetrics(strategySupportNote(lineLagSupport))
+      status: lineLagValidation?.gate ? "Validated" : "Needs data",
+      tone: lineLagValidation?.gate ? "good" : "warn",
+      metrics: [
+        takerValidationMetric(lineLagValidation),
+        ["Replay sample", "0 events", "0 one-minute points", "No replayable historical event set has passed the data gate yet."],
+        ["Live picks", "0", "monitor only", "No live signal is cleared for capital."]
+      ]
     },
     {
       name: "Fill-aware convergence ML",

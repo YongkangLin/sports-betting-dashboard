@@ -3607,6 +3607,7 @@
     "Telonex convergence research gate failed",
     "execution-adjusted backtest replay failed: no selected historical replay trades",
     "no predeclared executable taker strategy bucket cleared validation",
+    "validation-selected taker strategy gate failed",
     "Telonex microstructure bucket audit failed",
     "Telonex model monitor hold",
     "live paper-fill LEV/price-hold quality gate failed",
@@ -3626,7 +3627,7 @@
     "live strategy LEV evidence incomplete",
     "favorite-longshot bucket has raw edge but not robust event-cluster CI yet"
   ],
-  "generated_at": "2026-05-31T18:57:19.481251+00:00",
+  "generated_at": "2026-05-31T19:15:26.730840+00:00",
   "historical_clob": {
     "depth_rows": 299087418,
     "quote_rows": 68259463,
@@ -9744,6 +9745,69 @@
     "rows": 5392062,
     "tokens": 2513,
     "verdict": "No predeclared test bucket cleared a positive cluster-bootstrap CI lower bound. Current Telonex data does not support live capital for maker/taker price-bucket strategies."
+  },
+  "telonex_taker_strategy_validation": {
+    "gate": false,
+    "gate_reasons": [
+      "favorite_longshot_fade_v2: no validation rule cleared positive cluster-bootstrap CI lower bound",
+      "sharp_consensus_clob_mispricing: no validation rule cleared positive cluster-bootstrap CI lower bound",
+      "line_lag_clv_capture: no validation rule cleared positive cluster-bootstrap CI lower bound"
+    ],
+    "generated_at": "2026-05-31T19:14:34.455691+00:00",
+    "markets": 1257,
+    "passing_strategies": [],
+    "report": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/reports/telonex_taker_strategy_validation_latest.md",
+    "rows": 5392062,
+    "selection_protocol": "validation selects rule; frozen selected rule is reported once on test",
+    "strategy_results": [
+      {
+        "gate": false,
+        "reason": "no validation rule cleared positive cluster-bootstrap CI lower bound",
+        "selected": false,
+        "selected_rule": null,
+        "strategy": "favorite_longshot_fade_v2",
+        "test_ci_lo": null,
+        "test_markets": 0,
+        "test_roi": null,
+        "test_rows": 0,
+        "validation_ci_lo": null,
+        "validation_markets": 0,
+        "validation_roi": null,
+        "validation_rows": 0
+      },
+      {
+        "gate": false,
+        "reason": "no validation rule cleared positive cluster-bootstrap CI lower bound",
+        "selected": false,
+        "selected_rule": null,
+        "strategy": "sharp_consensus_clob_mispricing",
+        "test_ci_lo": null,
+        "test_markets": 0,
+        "test_roi": null,
+        "test_rows": 0,
+        "validation_ci_lo": null,
+        "validation_markets": 0,
+        "validation_roi": null,
+        "validation_rows": 0
+      },
+      {
+        "gate": false,
+        "reason": "no validation rule cleared positive cluster-bootstrap CI lower bound",
+        "selected": false,
+        "selected_rule": null,
+        "strategy": "line_lag_clv_capture",
+        "test_ci_lo": null,
+        "test_markets": 0,
+        "test_roi": null,
+        "test_rows": 0,
+        "validation_ci_lo": null,
+        "validation_markets": 0,
+        "validation_roi": null,
+        "validation_rows": 0
+      }
+    ],
+    "tokens": 2513,
+    "verdict": "No validation-selected taker strategy passed the held-out test gate. Do not route capital from these rules; use this to prune/redirect strategy research."
   },
   "telonex_temporal_odds_validation": {
     "abstained_folds": 4,
