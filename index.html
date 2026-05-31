@@ -155,7 +155,7 @@
   }
 
   .metrics {
-    grid-template-columns: repeat(6, minmax(150px, 1fr));
+    grid-template-columns: repeat(4, minmax(150px, 1fr));
   }
 
   .two {
@@ -462,6 +462,34 @@
     font: inherit;
   }
 
+  .replay-tabs {
+    display: inline-flex;
+    gap: 4px;
+    margin-bottom: 14px;
+    padding: 4px;
+    border: 1px solid var(--soft-line);
+    border-radius: 8px;
+    background: #f9fafb;
+  }
+
+  .replay-tab {
+    min-height: 34px;
+    padding: 6px 12px;
+    border: 0;
+    border-radius: 6px;
+    background: transparent;
+    color: var(--muted);
+    font: inherit;
+    font-weight: 850;
+    cursor: pointer;
+  }
+
+  .replay-tab.active {
+    background: #fff;
+    color: var(--ink);
+    box-shadow: 0 1px 4px rgba(29, 36, 48, 0.08);
+  }
+
   .replay-layout {
     display: grid;
     grid-template-columns: minmax(0, 1.55fr) minmax(320px, 0.45fr);
@@ -717,12 +745,7 @@
 <div class="page">
   <header class="topbar">
     <div>
-      <p class="eyebrow">Research dashboard</p>
       <h1>Sports Trading Strategy Dashboard</h1>
-      <p class="subtitle">Strategy, performance, PnL, execution evidence, and replayable backtest events for the Polymarket sports trading system.</p>
-    </div>
-    <div class="status-stack">
-      <span class="pill bad" id="overall-pill">HOLD</span>
     </div>
   </header>
 
@@ -730,10 +753,8 @@
     <section class="band">
       <div class="section-head">
         <div>
-          <h2>Top Summary</h2>
-          <p>The only numbers that decide whether this is tradable right now.</p>
+          <h2>Summary</h2>
         </div>
-        <span class="pill bad" id="capital-pill">Capital off</span>
       </div>
       <div class="grid metrics" id="metric-grid"></div>
     </section>
@@ -745,6 +766,10 @@
           <p>Pick an event, then click a buy or sell point to see the trade details and rationale.</p>
         </div>
         <span class="pill warn" id="replay-count-pill">loading</span>
+      </div>
+      <div class="replay-tabs" role="tablist" aria-label="Replay type">
+        <button class="replay-tab active" type="button" data-replay-tab="backtest">Backtest</button>
+        <button class="replay-tab" type="button" data-replay-tab="paper">Paper Trade</button>
       </div>
       <div class="replay-controls">
         <label for="replay-select">Event</label>
@@ -1108,8 +1133,10 @@ const state = {
   runSummaries: [],
   selectedReplayId: null,
   selectedReplayMarkerById: {},
+  replayTab: "backtest",
   replayWindow: "full",
   replayZoomById: {},
+  replayYRangeById: {},
   replayChart: null,
   replayDrag: null,
   replayDetails: {},
@@ -1459,10 +1486,16 @@ function deriveDashboard() {
 }
 
 function renderVerdict(data) {
-  $("overall-pill").textContent = data.overall.liveCapitalGate ? "REVIEW" : "HOLD";
-  $("overall-pill").className = "pill " + (data.overall.liveCapitalGate ? "warn" : "bad");
-  $("capital-pill").textContent = data.overall.capitalEnabled ? "Capital enabled" : "Capital off";
-  $("capital-pill").className = "pill " + (data.overall.capitalEnabled ? "warn" : "bad");
+  const overall = $("overall-pill");
+  if (overall) {
+    overall.textContent = data.overall.liveCapitalGate ? "REVIEW" : "HOLD";
+    overall.className = "pill " + (data.overall.liveCapitalGate ? "warn" : "bad");
+  }
+  const capital = $("capital-pill");
+  if (capital) {
+    capital.textContent = data.overall.capitalEnabled ? "Capital enabled" : "Capital off";
+    capital.className = "pill " + (data.overall.capitalEnabled ? "warn" : "bad");
+  }
 }
 
 function renderPlainCards(data) {
@@ -1523,14 +1556,11 @@ function renderPlainCards(data) {
 function renderMetrics(data) {
   const e = data.execution;
   const f = data.favoriteLongshotExecutable;
-  const fv = data.favoriteLongshotRuleValidation;
   const metrics = [
-    ["Live capital", data.overall.capitalEnabled ? "ON" : "OFF", data.overall.capitalEnabled ? "review required" : "research only", "No real-money trading until validation and real fill proof clear."],
     ["Strategy", "Favorite-longshot", "buy high-probability side", "Current best bucket: fade longshot demand on Polymarket sports markets."],
-    ["Backtest ROI", fmtPct(f.roi), `${fmtInt(f.settledEntries)} settled entries`, "Positive average return, but this is not enough by itself."],
-    ["Confidence floor", fmtPct(f.ciLo), "must be above 0%", "Below zero means the apparent edge can still be noise."],
-    ["Validation", fv.gate ? "PASS" : "HOLD", `${fmtPct(fv.marketTestRoi)} market-disjoint ROI`, "This must pass before treating the strategy as real."],
-    ["Execution proof", `${fmtInt(e.authFills)} real fills`, `${fmtInt(e.liveSignalsSelected)} live picks now`, "Paper fills do not prove we can execute profitably."]
+    ["Backtest ROI", fmtPct(f.roi), `${fmtInt(f.settledEntries)} settled events`, "Average return from settled replayable events."],
+    ["Win rate", fmtPct(f.winRate), `${fmtInt(f.settledMarkets)} markets`, "How often the selected side resolved correctly."],
+    ["Live picks", fmtInt(e.liveSignalsSelected), `${fmtInt(e.liveSignalCandidates)} candidates scanned`, "Current signals clearing the live threshold."]
   ];
   $("metric-grid").innerHTML = metrics.map(([label, value, note, help]) => `
     <div class="metric">
@@ -1756,6 +1786,34 @@ function clampReplayRange(minX, maxX, fullMin, fullMax) {
   return { minX: nextMin, maxX: nextMax };
 }
 
+function clampReplayYRange(minY, maxY) {
+  const fullMin = 0;
+  const fullMax = 1;
+  const fullSpan = fullMax - fullMin;
+  const minSpan = 0.02;
+  let nextMin = Number.isFinite(minY) ? minY : fullMin;
+  let nextMax = Number.isFinite(maxY) ? maxY : fullMax;
+  if (nextMax - nextMin < minSpan) {
+    const mid = (nextMin + nextMax) / 2;
+    nextMin = mid - minSpan / 2;
+    nextMax = mid + minSpan / 2;
+  }
+  if (nextMax - nextMin >= fullSpan * 0.995) {
+    return { minY: fullMin, maxY: fullMax };
+  }
+  if (nextMin < fullMin) {
+    nextMax += fullMin - nextMin;
+    nextMin = fullMin;
+  }
+  if (nextMax > fullMax) {
+    nextMin -= nextMax - fullMax;
+    nextMax = fullMax;
+  }
+  nextMin = Math.max(fullMin, nextMin);
+  nextMax = Math.min(fullMax, nextMax);
+  return { minY: nextMin, maxY: nextMax };
+}
+
 function replayWindowStats(points, minX, maxX) {
   const values = [];
   points.forEach(point => {
@@ -1884,6 +1942,7 @@ function drawReplayChart(event) {
     .filter(marker => num(marker.offset_sec) !== null && num(marker.price) !== null);
   setWindowButtonState();
   if (!points.length) {
+    state.replayChart = null;
     svg.innerHTML = `<text x="24" y="42" fill="#627083">No price series available for this event.</text>`;
     if ($("chart-title")) $("chart-title").textContent = "Minute replay";
     return;
@@ -1920,6 +1979,12 @@ function drawReplayChart(event) {
     const mid = (maxY + minY) / 2;
     minY = Math.max(0, mid - 0.03);
     maxY = Math.min(1, mid + 0.03);
+  }
+  const savedY = state.replayYRangeById[event.replay_id];
+  if (savedY && Number.isFinite(savedY.minY) && Number.isFinite(savedY.maxY)) {
+    const clampedY = clampReplayYRange(savedY.minY, savedY.maxY);
+    minY = clampedY.minY;
+    maxY = clampedY.maxY;
   }
   const sx = value => pad.left + ((value - bounds.minX) / spanX) * plotW;
   const sy = value => pad.top + (1 - ((value - minY) / Math.max(0.0001, maxY - minY))) * plotH;
@@ -1973,11 +2038,17 @@ function drawReplayChart(event) {
     fullMax: bounds.fullMax,
     pad,
     plotW,
+    plotH,
+    minY,
+    maxY,
     width,
     height
   };
   svg.innerHTML = `
     <rect x="0" y="0" width="${width}" height="${height}" fill="#fff" pointer-events="none" />
+    <rect data-chart-pan="xy" x="${pad.left}" y="${pad.top}" width="${plotW}" height="${plotH}" fill="transparent" pointer-events="all" cursor="move" />
+    <rect data-chart-pan="y" x="0" y="${pad.top}" width="${pad.left}" height="${plotH}" fill="transparent" pointer-events="all" cursor="ns-resize" />
+    <rect data-chart-pan="x" x="${pad.left}" y="${height - pad.bottom}" width="${plotW}" height="${pad.bottom}" fill="transparent" pointer-events="all" cursor="ew-resize" />
     ${grid}
     <line x1="${pad.left}" y1="${pad.top}" x2="${pad.left}" y2="${height - pad.bottom}" stroke="#d8dee8" />
     <line x1="${pad.left}" y1="${height - pad.bottom}" x2="${width - pad.right}" y2="${height - pad.bottom}" stroke="#d8dee8" />
@@ -2002,14 +2073,43 @@ function setReplayZoomRange(minX, maxX) {
   renderReplay(deriveDashboard());
 }
 
-function replaySvgOffsetFromPointer(event) {
+function setReplayYRange(minY, maxY, shouldRender = true) {
+  const chart = state.replayChart;
+  if (!chart?.replayId) return;
+  const range = clampReplayYRange(minY, maxY);
+  if (range.maxY - range.minY >= 0.995) {
+    delete state.replayYRangeById[chart.replayId];
+  } else {
+    state.replayYRangeById[chart.replayId] = range;
+  }
+  if (shouldRender) renderReplay(deriveDashboard());
+}
+
+function replaySvgPointFromPointer(event) {
   const svg = $("replay-chart");
   const chart = state.replayChart;
   if (!svg || !chart) return null;
   const rect = svg.getBoundingClientRect();
   const x = ((event.clientX - rect.left) / Math.max(1, rect.width)) * chart.width;
+  const y = ((event.clientY - rect.top) / Math.max(1, rect.height)) * chart.height;
+  return { x, y };
+}
+
+function replaySvgOffsetFromPointer(event) {
+  const chart = state.replayChart;
+  const point = replaySvgPointFromPointer(event);
+  if (!point || !chart) return null;
+  const x = point.x;
   const clampedX = Math.max(chart.pad.left, Math.min(chart.pad.left + chart.plotW, x));
   return chart.minX + ((clampedX - chart.pad.left) / chart.plotW) * (chart.maxX - chart.minX);
+}
+
+function replaySvgValueFromPointer(event) {
+  const chart = state.replayChart;
+  const point = replaySvgPointFromPointer(event);
+  if (!point || !chart) return null;
+  const y = Math.max(chart.pad.top, Math.min(chart.pad.top + chart.plotH, point.y));
+  return chart.maxY - ((y - chart.pad.top) / chart.plotH) * (chart.maxY - chart.minY);
 }
 
 function zoomReplayChart(factor, anchorOffset = null) {
@@ -2022,25 +2122,56 @@ function zoomReplayChart(factor, anchorOffset = null) {
   setReplayZoomRange(nextMin, nextMax);
 }
 
+function zoomReplayY(factor, anchorValue = null) {
+  const chart = state.replayChart;
+  if (!chart?.replayId) return;
+  const span = Math.max(0.0001, chart.maxY - chart.minY);
+  const anchor = Number.isFinite(anchorValue) ? anchorValue : chart.minY + span / 2;
+  const nextMin = anchor - (anchor - chart.minY) * factor;
+  const nextMax = anchor + (chart.maxY - anchor) * factor;
+  setReplayYRange(nextMin, nextMax);
+}
+
 function handleReplayWheel(event) {
   if (!event.target.closest?.("#replay-chart")) return;
   event.preventDefault();
-  const anchor = replaySvgOffsetFromPointer(event);
-  zoomReplayChart(event.deltaY < 0 ? 0.72 : 1.38, anchor);
+  const chart = state.replayChart;
+  const point = replaySvgPointFromPointer(event);
+  const factor = event.deltaY < 0 ? 0.72 : 1.38;
+  if (chart && point && point.x <= chart.pad.left + 8) {
+    zoomReplayY(factor, replaySvgValueFromPointer(event));
+  } else {
+    zoomReplayChart(factor, replaySvgOffsetFromPointer(event));
+  }
 }
 
 function handleReplayPointerDown(event) {
   if (!event.target.closest?.("#replay-chart") || event.target.closest?.("[data-marker-index]")) return;
   const chart = state.replayChart;
   if (!chart?.replayId) return;
+  const point = replaySvgPointFromPointer(event);
+  const hitMode = event.target.closest?.("[data-chart-pan]")?.dataset?.chartPan;
+  const mode = hitMode || (
+    point && point.x <= chart.pad.left + 8 ? "y"
+      : point && point.y >= chart.height - chart.pad.bottom - 8 ? "x"
+        : "xy"
+  );
+  event.preventDefault();
+  event.currentTarget?.setPointerCapture?.(event.pointerId);
   $("replay-chart").classList.add("dragging");
   state.replayDrag = {
+    mode,
     clientX: event.clientX,
+    clientY: event.clientY,
     minX: chart.minX,
     maxX: chart.maxX,
     fullMin: chart.fullMin,
     fullMax: chart.fullMax,
+    minY: chart.minY,
+    maxY: chart.maxY,
     plotW: chart.plotW,
+    plotH: chart.plotH,
+    height: chart.height,
     width: chart.width
   };
 }
@@ -2051,17 +2182,37 @@ function handleReplayPointerMove(event) {
   if (!drag || !chart?.replayId) return;
   const svg = $("replay-chart");
   const rect = svg.getBoundingClientRect();
-  const dxSvg = ((event.clientX - drag.clientX) / Math.max(1, rect.width)) * drag.width;
-  const span = drag.maxX - drag.minX;
-  const delta = -(dxSvg / Math.max(1, drag.plotW)) * span;
-  const range = clampReplayRange(drag.minX + delta, drag.maxX + delta, drag.fullMin, drag.fullMax);
-  state.replayZoomById[chart.replayId] = range;
+  if (drag.mode === "x" || drag.mode === "xy") {
+    const dxSvg = ((event.clientX - drag.clientX) / Math.max(1, rect.width)) * drag.width;
+    const span = drag.maxX - drag.minX;
+    const delta = -(dxSvg / Math.max(1, drag.plotW)) * span;
+    const range = clampReplayRange(drag.minX + delta, drag.maxX + delta, drag.fullMin, drag.fullMax);
+    const fullSpan = Math.max(1, drag.fullMax - drag.fullMin);
+    if (range.maxX - range.minX >= fullSpan * 0.995) {
+      delete state.replayZoomById[chart.replayId];
+    } else {
+      state.replayZoomById[chart.replayId] = range;
+    }
+  }
+  if (drag.mode === "y" || drag.mode === "xy") {
+    const dySvg = ((event.clientY - drag.clientY) / Math.max(1, rect.height)) * drag.height;
+    const span = drag.maxY - drag.minY;
+    const delta = (dySvg / Math.max(1, drag.plotH)) * span;
+    const range = clampReplayYRange(drag.minY + delta, drag.maxY + delta);
+    if (range.maxY - range.minY >= 0.995) {
+      delete state.replayYRangeById[chart.replayId];
+    } else {
+      state.replayYRangeById[chart.replayId] = range;
+    }
+  }
   renderReplay(deriveDashboard());
 }
 
-function handleReplayPointerUp() {
+function handleReplayPointerUp(event) {
   state.replayDrag = null;
-  $("replay-chart")?.classList.remove("dragging");
+  const svg = $("replay-chart");
+  svg?.classList.remove("dragging");
+  if (event?.pointerId !== undefined) svg?.releasePointerCapture?.(event.pointerId);
 }
 
 async function loadReplayDetail(event) {
@@ -2129,9 +2280,30 @@ function renderDecisionPanel(event, marker) {
 function renderReplay(data) {
   const replay = data.favoriteLongshotEventReplays || {};
   const events = replay.events || [];
+  document.querySelectorAll("[data-replay-tab]").forEach(button => {
+    button.classList.toggle("active", button.dataset.replayTab === state.replayTab);
+  });
+  const select = $("replay-select");
+  if (state.replayTab === "paper") {
+    $("replay-count-pill").textContent = "no paper trades";
+    $("replay-count-pill").className = "pill warn";
+    select.disabled = true;
+    select.innerHTML = `<option>No paper trades yet</option>`;
+    $("replay-title").textContent = "Paper Trade";
+    $("replay-event-strip").innerHTML = "";
+    $("decision-title").textContent = "No paper trades yet";
+    $("decision-action").textContent = "--";
+    $("decision-action").className = "pill info";
+    $("replay-kv").innerHTML = "";
+    $("replay-rationale").textContent = "Paper trade replays will appear here after paper executions are logged with price series, entry, exit, size, and PnL.";
+    drawReplayChart({ series_points: [] });
+    if ($("chart-title")) $("chart-title").textContent = "Paper trade replay";
+    return;
+  }
+
+  select.disabled = false;
   $("replay-count-pill").textContent = events.length ? `${fmtInt(events.length)} events` : "no events";
   $("replay-count-pill").className = "pill " + (events.length ? "info" : "warn");
-  const select = $("replay-select");
   if (!events.length) {
     select.innerHTML = `<option>No replay data loaded</option>`;
     $("replay-title").textContent = "No event replay data loaded";
@@ -2335,11 +2507,23 @@ document.addEventListener("change", event => {
     state.selectedReplayId = event.target.value;
     state.replayWindow = "full";
     delete state.replayZoomById[state.selectedReplayId];
+    delete state.replayYRangeById[state.selectedReplayId];
     renderReplay(deriveDashboard());
   }
 });
 
 document.addEventListener("click", event => {
+  const tabButton = event.target.closest("[data-replay-tab]");
+  if (tabButton) {
+    state.replayTab = tabButton.dataset.replayTab || "backtest";
+    state.selectedReplayId = null;
+    state.replayWindow = "full";
+    state.replayZoomById = {};
+    state.replayYRangeById = {};
+    state.replayDrag = null;
+    renderReplay(deriveDashboard());
+    return;
+  }
   const zoomButton = event.target.closest("[data-replay-zoom]");
   if (zoomButton) {
     zoomReplayChart(zoomButton.dataset.replayZoom === "in" ? 0.55 : 1.8);
@@ -2348,7 +2532,10 @@ document.addEventListener("click", event => {
   const windowButton = event.target.closest("[data-replay-window]");
   if (windowButton) {
     state.replayWindow = windowButton.dataset.replayWindow || "full";
-    if (state.selectedReplayId) delete state.replayZoomById[state.selectedReplayId];
+    if (state.selectedReplayId) {
+      delete state.replayZoomById[state.selectedReplayId];
+      delete state.replayYRangeById[state.selectedReplayId];
+    }
     renderReplay(deriveDashboard());
     return;
   }
