@@ -38,7 +38,7 @@
     ],
     "trade_confirmed_fill_holdout_gate": true
   },
-  "generated_at": "2026-05-31T09:50:04.882467+00:00",
+  "generated_at": "2026-05-31T10:37:50.307823+00:00",
   "latest_model_monitor": {
     "adverse_selection": {
       "available": false,
@@ -396,7 +396,7 @@
     "complete_both_venues_rate": 0.9963898916967509,
     "events": 277,
     "gate": true,
-    "generated_at": "2026-05-31T09:21:23.088467+00:00",
+    "generated_at": "2026-05-31T10:35:22.508197+00:00",
     "min_complete_both_venues_rate": 0.95,
     "missing_examples": [
       {
@@ -412,7 +412,7 @@
     "path": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/reports/two_sided_market_data_completeness_latest.json",
     "reasons": [],
     "sportsbook_complete_side_events": 276,
-    "sportsbook_complete_side_points": 19211,
+    "sportsbook_complete_side_points": 34927,
     "sportsbook_missing_or_incomplete_events": 1
   },
   "odds_features": {

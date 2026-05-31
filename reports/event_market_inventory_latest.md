@@ -1,6 +1,6 @@
 # Event And Market Inventory
 
-- Generated: 2026-05-30T22:23:37.159539+00:00
+- Generated: 2026-05-31T10:37:53.473402+00:00
 - Row definition: One row is one token/outcome at one minute timestamp for one forecast horizon, not one game.
 - Total events/markets/tokens: 108 / 216 / 429
 - Active model events/markets/tokens: 89 / 109 / 217
@@ -10,7 +10,7 @@
 - Excluded censored rows inside train/val/test: 364,022
 - Time span: 2026-03-02 00:03:00+00:00 to 2026-05-29 23:59:00+00:00
 - Complete enough for profitable bot claim: False
-- Completeness reasons: active observed markets 109 < 200 research target; test Odds API coverage 32.54% < 50% target; Odds API point-in-time features have insufficient test coverage
+- Completeness reasons: active observed markets 109 < 200 research target; test Odds API coverage 32.44% < 50% target; Odds API point-in-time features have insufficient test coverage
 
 ## Active Market Types
 
@@ -52,15 +52,15 @@
 
 ## Odds Coverage
 
-- Odds rows/markets/tokens: 1,414,160 / 79 / 157
-- Overall Odds row coverage: 48.96%
+- Odds rows/markets/tokens: 1,390,146 / 79 / 157
+- Overall Odds row coverage: 48.13%
 
 | Split | Coverage | Matched markets | Matched rows |
 |---|---:|---:|---:|
-| test | 32.54% | 5 | 73,604 |
-| train | 52.69% | 44 | 936,300 |
+| test | 32.44% | 5 | 73,398 |
+| train | 51.40% | 44 | 913,326 |
 | unobserved | 42.49% | 24 | 229,330 |
-| val | 50.59% | 6 | 174,926 |
+| val | 50.35% | 6 | 174,092 |
 
 ## Largest Active Events
 

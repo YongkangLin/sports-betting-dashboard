@@ -1,6 +1,6 @@
 # Strategy And Data Readiness
 
-- Generated: 2026-05-31T09:50:04.882467+00:00
+- Generated: 2026-05-31T10:37:50.307823+00:00
 - Overall gate: False
 - Verdict: HOLD: strategy is defined, but dataset is not complete enough to prove the bot
 - Gate reasons: Odds API point-in-time features have insufficient test coverage

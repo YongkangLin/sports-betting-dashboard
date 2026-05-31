@@ -14,12 +14,12 @@
     "complete_for_profitable_bot_claim": false,
     "reasons": [
       "active observed markets 109 < 200 research target",
-      "test Odds API coverage 32.54% < 50% target",
+      "test Odds API coverage 32.44% < 50% target",
       "Odds API point-in-time features have insufficient test coverage"
     ],
     "strategy_readiness_gate": false
   },
-  "generated_at": "2026-05-30T22:23:37.159539+00:00",
+  "generated_at": "2026-05-31T10:37:53.473402+00:00",
   "market_breakdown": {
     "active_by_sport_type": [
       {
@@ -139,16 +139,16 @@
   "odds_api": {
     "coverage_by_split": {
       "test": {
-        "coverage": 0.3253589362755499,
+        "coverage": 0.3244483343942287,
         "matched_markets": 5,
-        "matched_rows": 73604,
+        "matched_rows": 73398,
         "matched_tokens": 10,
         "rows": 226224
       },
       "train": {
-        "coverage": 0.5269398935089536,
+        "coverage": 0.5140103654586763,
         "matched_markets": 44,
-        "matched_rows": 936300,
+        "matched_rows": 913326,
         "matched_tokens": 87,
         "rows": 1776863
       },
@@ -160,17 +160,17 @@
         "rows": 539748
       },
       "val": {
-        "coverage": 0.5059320318148951,
+        "coverage": 0.5035198843094721,
         "matched_markets": 6,
-        "matched_rows": 174926,
+        "matched_rows": 174092,
         "matched_tokens": 12,
         "rows": 345750
       }
     },
-    "feature_rows": 1414160,
+    "feature_rows": 1390146,
     "matched_markets": 79,
     "matched_tokens": 157,
-    "row_coverage": 0.48956842190899696
+    "row_coverage": 0.48125500894036355
   },
   "per_event_distribution_active": {
     "fill_positive_rows": {
@@ -545,7 +545,7 @@
     "events": 108,
     "label_rows": 2888585,
     "labels_sha256": "32537f0d3b561eb1f7a39bcb5ed6ad4834d6f854a4443683da29c657d09f223b",
-    "labels_source": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/execution_training/telonex_clob_execution_labels_partitioned",
+    "labels_source": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/data/processed/execution_training/telonex_clob_execution_labels_partitioned",
     "markets": 216,
     "sports": {
       "baseball_mlb": 1731351,
