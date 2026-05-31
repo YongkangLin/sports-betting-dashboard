@@ -1,6 +1,6 @@
 # Polymarket WebSocket Capture
 
-- Generated: 2026-05-31T00:25:03.039019+00:00
+- Generated: 2026-05-31T00:35:53.678101+00:00
 - Tokens subscribed: 12
 - Duration seconds: 30.0
 - Raw events: 0

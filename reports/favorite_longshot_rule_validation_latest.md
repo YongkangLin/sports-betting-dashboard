@@ -1,47 +1,47 @@
 # Favorite-Longshot Rule Validation
 
-- Generated: 2026-05-31T00:05:39.771511+00:00
+- Generated: 2026-05-31T00:38:24.513684+00:00
 - Verdict: HOLD: favorite-longshot rule not yet proven out of sample
 - Overall gate: False
 - Gate reasons: temporal selected rule failed, market-disjoint selected rule failed
-- Input rows: 259 settled / 259 markets
+- Input rows: 275 settled / 275 markets
 - Candidate rules: 15
 
 ## Selected Rules
 
 | Validation | Rule | Val bets | Val ROI | Val CI low | Test bets | Test ROI | Test CI low | Gate |
 |---|---|---:|---:|---:|---:|---:|---:|---|
-| temporal | nba_only | 38 | 7.79% | -1.55% | 7 | 13.10% | 11.50% | False |
-| market_disjoint | exclude_last_15m | 73 | 1.45% | -7.75% | 58 | 2.38% | -7.55% | False |
+| temporal | nba_only | 39 | 7.47% | -1.67% | 6 | 13.49% | 11.62% | False |
+| market_disjoint | entry_15m_to_24h | 76 | 0.39% | -7.23% | 57 | 1.99% | -6.16% | False |
 
 ## Candidate Test Summary
 
 | Validation | Rule | Test bets | Test ROI | Test CI low | Test win rate |
 |---|---|---:|---:|---:|---:|
-| temporal | all_settled | 65 | -1.80% | -10.58% | 86.15% |
-| temporal | exclude_last_15m | 65 | -1.80% | -10.58% | 86.15% |
-| temporal | entry_15m_to_24h | 65 | -1.80% | -10.58% | 86.15% |
-| temporal | exclude_last_1h | 63 | -2.22% | -11.56% | 85.71% |
-| temporal | entry_1h_to_24h | 63 | -2.22% | -11.56% | 85.71% |
-| temporal | spread_1c_or_better | 58 | -3.82% | -13.47% | 84.48% |
-| temporal | spread_1c_15m_to_24h | 58 | -3.82% | -13.47% | 84.48% |
-| temporal | ask_85_89 | 58 | -3.38% | -15.44% | 84.48% |
-| temporal | entry_12h_to_24h | 55 | -0.46% | -10.96% | 87.27% |
-| temporal | soccer_only | 54 | -2.91% | -13.60% | 85.19% |
-| temporal | longshot_no_token | 54 | -2.91% | -13.60% | 85.19% |
-| temporal | soccer_12h_to_24h | 51 | -1.65% | -11.84% | 86.27% |
-| market_disjoint | all_settled | 59 | 0.62% | -9.13% | 88.14% |
-| market_disjoint | exclude_last_15m | 58 | 2.38% | -7.55% | 89.66% |
-| market_disjoint | entry_15m_to_24h | 55 | 1.64% | -8.83% | 89.09% |
-| market_disjoint | exclude_last_1h | 54 | 3.66% | -5.14% | 90.74% |
-| market_disjoint | ask_85_89 | 53 | -0.52% | -11.54% | 86.79% |
-| market_disjoint | entry_1h_to_24h | 51 | 2.93% | -6.50% | 90.20% |
-| market_disjoint | spread_1c_or_better | 51 | -1.63% | -14.96% | 86.27% |
-| market_disjoint | spread_1c_15m_to_24h | 50 | 0.38% | -11.05% | 88.00% |
-| market_disjoint | entry_12h_to_24h | 44 | 3.85% | -7.97% | 90.91% |
-| market_disjoint | soccer_only | 37 | -1.14% | -13.86% | 86.49% |
-| market_disjoint | longshot_no_token | 37 | -1.14% | -13.86% | 86.49% |
-| market_disjoint | soccer_12h_to_24h | 35 | 1.33% | -11.59% | 88.57% |
+| temporal | all_settled | 69 | -2.64% | -12.64% | 85.51% |
+| temporal | exclude_last_15m | 69 | -2.64% | -12.64% | 85.51% |
+| temporal | entry_15m_to_24h | 69 | -2.64% | -12.64% | 85.51% |
+| temporal | exclude_last_1h | 66 | -3.30% | -15.43% | 84.85% |
+| temporal | entry_1h_to_24h | 66 | -3.30% | -15.43% | 84.85% |
+| temporal | spread_1c_or_better | 61 | -2.92% | -12.44% | 85.25% |
+| temporal | spread_1c_15m_to_24h | 61 | -2.92% | -12.44% | 85.25% |
+| temporal | ask_85_89 | 61 | -2.51% | -13.71% | 85.25% |
+| temporal | entry_12h_to_24h | 59 | -3.55% | -13.42% | 84.75% |
+| temporal | soccer_only | 59 | -3.57% | -13.34% | 84.75% |
+| temporal | longshot_no_token | 59 | -3.57% | -13.34% | 84.75% |
+| temporal | soccer_12h_to_24h | 55 | -4.88% | -16.36% | 83.64% |
+| market_disjoint | all_settled | 61 | 0.98% | -8.54% | 88.52% |
+| market_disjoint | exclude_last_15m | 60 | 2.69% | -6.62% | 90.00% |
+| market_disjoint | entry_15m_to_24h | 57 | 1.99% | -6.16% | 89.47% |
+| market_disjoint | exclude_last_1h | 56 | 3.95% | -4.33% | 91.07% |
+| market_disjoint | ask_85_89 | 54 | -0.28% | -12.97% | 87.04% |
+| market_disjoint | entry_1h_to_24h | 53 | 3.26% | -5.53% | 90.57% |
+| market_disjoint | spread_1c_or_better | 53 | -1.12% | -13.08% | 86.79% |
+| market_disjoint | spread_1c_15m_to_24h | 52 | 0.81% | -10.01% | 88.46% |
+| market_disjoint | entry_12h_to_24h | 46 | 4.18% | -6.14% | 91.30% |
+| market_disjoint | soccer_only | 39 | -0.48% | -15.08% | 87.18% |
+| market_disjoint | longshot_no_token | 39 | -0.48% | -15.08% | 87.18% |
+| market_disjoint | soccer_12h_to_24h | 37 | 1.89% | -10.56% | 89.19% |
 
 ## Interpretation
 

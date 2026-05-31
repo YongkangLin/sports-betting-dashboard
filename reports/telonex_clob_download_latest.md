@@ -1,70 +1,87 @@
 # Telonex CLOB Download
 
-- Generated: 2026-05-30T23:42:21.071520+00:00
+- Generated: 2026-05-31T00:29:40.734066+00:00
 - Dry run: False
 - Asset plan: `/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/execution_training/favorite_longshot_telonex_target_assets_latest.parquet`
 - Channels: book_snapshot_5
 - Dates: asset-plan to asset-plan
 - Day order: event-first
 - Max files per asset: 1
-- Selected assets: 700
-- Attempted downloads: 350
-- Completed downloads: 350
-- Skipped existing: 298
-- Failed downloads: 0
-- Rows downloaded this run: 18,030,618
-- Bytes downloaded this run: 422,530,898
+- Selected assets: 848
+- Attempted downloads: 212
+- Completed downloads: 198
+- Skipped existing: 648
+- Failed downloads: 14
+- Rows downloaded this run: 24,408,110
+- Bytes downloaded this run: 550,219,486
 - Manifest: `/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/clob_capture/telonex_download_manifest.json`
 
 ## Completed
 
-- `book_snapshot_5` `2025-11-30` `soccer` `fl1-lyo-nan-2025-11-30-nan` `No` rows=26,780
-- `book_snapshot_5` `2025-11-30` `soccer` `fl1-lyo-nan-2025-11-30-nan` `Yes` rows=26,780
-- `book_snapshot_5` `2025-11-30` `soccer` `lal-gir-rea-2025-11-30-gir` `No` rows=72,518
-- `book_snapshot_5` `2025-11-30` `soccer` `lal-gir-rea-2025-11-30-gir` `Yes` rows=72,518
-- `book_snapshot_5` `2025-12-01` `soccer` `sea-bol-cre-2025-12-01-cre` `No` rows=82,266
-- `book_snapshot_5` `2025-12-01` `soccer` `sea-bol-cre-2025-12-01-cre` `Yes` rows=82,266
-- `book_snapshot_5` `2025-12-03` `soccer` `epl-ars-bre-2025-12-03-bre` `No` rows=20,730
-- `book_snapshot_5` `2025-12-03` `soccer` `epl-ars-bre-2025-12-03-bre` `Yes` rows=20,730
-- `book_snapshot_5` `2025-12-03` `soccer` `epl-liv-sun-2025-12-03-sun` `No` rows=38,760
-- `book_snapshot_5` `2025-12-03` `soccer` `epl-liv-sun-2025-12-03-sun` `Yes` rows=38,760
-- `book_snapshot_5` `2025-11-29` `soccer` `itsb-ven-man-2025-11-29-man` `No` rows=7,373
-- `book_snapshot_5` `2025-11-29` `soccer` `itsb-ven-man-2025-11-29-man` `Yes` rows=7,373
-- `book_snapshot_5` `2025-12-06` `soccer` `lal-vil-get-2025-12-06-get` `No` rows=18,061
-- `book_snapshot_5` `2025-12-06` `soccer` `lal-vil-get-2025-12-06-get` `Yes` rows=18,061
-- `book_snapshot_5` `2025-12-06` `soccer` `fl1-psg-ren-2025-12-06-draw` `No` rows=19,487
-- `book_snapshot_5` `2025-12-06` `soccer` `fl1-psg-ren-2025-12-06-draw` `Yes` rows=19,487
-- `book_snapshot_5` `2025-12-07` `soccer` `lal-rea-cel-2025-12-07-draw` `No` rows=33,553
-- `book_snapshot_5` `2025-12-07` `soccer` `lal-rea-cel-2025-12-07-draw` `Yes` rows=33,553
-- `book_snapshot_5` `2025-12-09` `soccer` `ucl-bay-spo-2025-12-09-draw` `No` rows=35,550
-- `book_snapshot_5` `2025-12-09` `soccer` `ucl-bay-spo-2025-12-09-draw` `Yes` rows=35,550
-- `book_snapshot_5` `2025-12-09` `soccer` `ucl-tot-slp-2025-12-09-slp` `No` rows=18,278
-- `book_snapshot_5` `2025-12-09` `soccer` `ucl-tot-slp-2025-12-09-slp` `Yes` rows=18,278
-- `book_snapshot_5` `2025-12-10` `soccer` `ucl-bru-ars-2025-12-10-bru` `No` rows=25,686
-- `book_snapshot_5` `2025-12-10` `soccer` `ucl-bru-ars-2025-12-10-bru` `Yes` rows=25,686
-- `book_snapshot_5` `2025-12-10` `soccer` `ucl-bvb1-bog1-2025-12-10-bog1` `No` rows=30,632
-- `book_snapshot_5` `2025-12-10` `soccer` `ucl-bvb1-bog1-2025-12-10-bog1` `Yes` rows=30,632
-- `book_snapshot_5` `2025-12-13` `soccer` `fl1-met-psg-2025-12-13-draw` `No` rows=22,301
-- `book_snapshot_5` `2025-12-13` `soccer` `fl1-met-psg-2025-12-13-draw` `Yes` rows=22,301
-- `book_snapshot_5` `2025-12-14` `soccer` `fl1-rcl-ogc-2025-12-14-ogc` `No` rows=17,951
-- `book_snapshot_5` `2025-12-14` `soccer` `fl1-rcl-ogc-2025-12-14-ogc` `Yes` rows=17,951
-- `book_snapshot_5` `2025-12-14` `soccer` `sea-gen-int-2025-12-14-gen` `No` rows=16,907
-- `book_snapshot_5` `2025-12-14` `soccer` `sea-gen-int-2025-12-14-gen` `Yes` rows=16,907
-- `book_snapshot_5` `2025-12-14` `soccer` `sea-mil-sas-2025-12-14-sas` `No` rows=26,585
-- `book_snapshot_5` `2025-12-14` `soccer` `sea-mil-sas-2025-12-14-sas` `Yes` rows=26,585
-- `book_snapshot_5` `2025-12-20` `soccer` `epl-bou-bur-2025-12-20-bur` `No` rows=21,225
-- `book_snapshot_5` `2025-12-20` `soccer` `epl-bou-bur-2025-12-20-bur` `Yes` rows=21,225
-- `book_snapshot_5` `2025-12-20` `soccer` `epl-eve-ars-2025-12-20-eve` `No` rows=21,524
-- `book_snapshot_5` `2025-12-20` `soccer` `epl-eve-ars-2025-12-20-eve` `Yes` rows=21,524
-- `book_snapshot_5` `2025-12-20` `soccer` `sea-laz-cre-2025-12-20-cre` `No` rows=25,151
-- `book_snapshot_5` `2025-12-20` `soccer` `sea-laz-cre-2025-12-20-cre` `Yes` rows=25,151
-- `book_snapshot_5` `2025-12-27` `soccer` `sea-pis-juv-2025-12-27-pis` `No` rows=26,307
-- `book_snapshot_5` `2025-12-27` `soccer` `sea-pis-juv-2025-12-27-pis` `Yes` rows=26,307
-- `book_snapshot_5` `2025-12-28` `soccer` `sea-cre-nap-2025-12-28-cre` `No` rows=27,756
-- `book_snapshot_5` `2025-12-28` `soccer` `sea-cre-nap-2025-12-28-cre` `Yes` rows=27,756
-- `book_snapshot_5` `2025-12-29` `soccer` `sea-rom-gen-2025-12-29-gen` `No` rows=14,410
-- `book_snapshot_5` `2025-12-29` `soccer` `sea-rom-gen-2025-12-29-gen` `Yes` rows=14,410
-- `book_snapshot_5` `2025-12-30` `soccer` `epl-ars-ast-2025-12-30-ast` `No` rows=33,156
-- `book_snapshot_5` `2025-12-30` `soccer` `epl-ars-ast-2025-12-30-ast` `Yes` rows=33,156
-- `book_snapshot_5` `2025-12-30` `soccer` `epl-mun-wol-2025-12-30-wol` `No` rows=32,602
-- `book_snapshot_5` `2025-12-30` `soccer` `epl-mun-wol-2025-12-30-wol` `Yes` rows=32,602
+- `book_snapshot_5` `2026-05-21` `soccer` `lib-fla-est-2026-05-20-est` `No` rows=58,760
+- `book_snapshot_5` `2026-05-21` `soccer` `lib-fla-est-2026-05-20-est` `Yes` rows=58,760
+- `book_snapshot_5` `2026-05-23` `soccer` `lal-mal-ovi-2026-05-23-ovi` `No` rows=53,522
+- `book_snapshot_5` `2026-05-23` `soccer` `lal-mal-ovi-2026-05-23-ovi` `Yes` rows=53,522
+- `book_snapshot_5` `2026-05-24` `soccer` `epl-mac-ast-2026-05-24-ast` `No` rows=127,686
+- `book_snapshot_5` `2026-05-24` `soccer` `epl-mac-ast-2026-05-24-ast` `Yes` rows=127,686
+- `book_snapshot_5` `2026-05-24` `soccer` `sea-cre-com-2026-05-24-cre` `No` rows=63,809
+- `book_snapshot_5` `2026-05-24` `soccer` `sea-cre-com-2026-05-24-cre` `Yes` rows=63,809
+- `book_snapshot_5` `2026-05-24` `soccer` `sea-nap-udi-2026-05-24-udi` `No` rows=53,189
+- `book_snapshot_5` `2026-05-24` `soccer` `sea-nap-udi-2026-05-24-udi` `Yes` rows=53,189
+- `book_snapshot_5` `2026-05-24` `soccer` `sea-tor-juv-2026-05-24-tor` `No` rows=95,179
+- `book_snapshot_5` `2026-05-24` `soccer` `sea-tor-juv-2026-05-24-tor` `Yes` rows=95,179
+- `book_snapshot_5` `2026-05-26` `soccer` `lib-lqu-alw-2026-05-26-alw` `No` rows=71,418
+- `book_snapshot_5` `2026-05-26` `soccer` `lib-lqu-alw-2026-05-26-alw` `Yes` rows=71,418
+- `book_snapshot_5` `2026-02-21` `basketball_nba` `nba-cle-cha-2026-02-20` `Cavaliers` rows=152,845
+- `book_snapshot_5` `2026-02-21` `basketball_nba` `nba-cle-cha-2026-02-20` `Hornets` rows=152,845
+- `book_snapshot_5` `2025-12-27` `soccer` `epl-ars-bri-2025-12-27-bri` `No` rows=15,468
+- `book_snapshot_5` `2025-12-27` `soccer` `epl-ars-bri-2025-12-27-bri` `Yes` rows=15,468
+- `book_snapshot_5` `2026-01-07` `soccer` `epl-mac-bri-2026-01-07-bri` `No` rows=20,320
+- `book_snapshot_5` `2026-01-07` `soccer` `epl-mac-bri-2026-01-07-bri` `Yes` rows=20,320
+- `book_snapshot_5` `2025-12-04` `soccer` `epl-mun-wes-2025-12-04-wes` `No` rows=37,301
+- `book_snapshot_5` `2025-12-04` `soccer` `epl-mun-wes-2025-12-04-wes` `Yes` rows=37,301
+- `book_snapshot_5` `2026-04-15` `soccer` `lib-cru-cat1-2026-04-15-cat1` `No` rows=29,559
+- `book_snapshot_5` `2026-04-15` `soccer` `lib-cru-cat1-2026-04-15-cat1` `Yes` rows=29,559
+- `book_snapshot_5` `2026-03-07` `basketball_nba` `nba-mia-cha-2026-03-06` `Heat` rows=295,187
+- `book_snapshot_5` `2026-03-07` `basketball_nba` `nba-mia-cha-2026-03-06` `Hornets` rows=295,187
+- `book_snapshot_5` `2026-03-08` `basketball_nba` `nba-det-mia-2026-03-08` `Heat` rows=164,478
+- `book_snapshot_5` `2026-03-08` `basketball_nba` `nba-det-mia-2026-03-08` `Pistons` rows=164,478
+- `book_snapshot_5` `2025-12-14` `soccer` `sea-gen-int-2025-12-14-int` `No` rows=24,438
+- `book_snapshot_5` `2025-12-14` `soccer` `sea-gen-int-2025-12-14-int` `Yes` rows=24,438
+- `book_snapshot_5` `2025-12-29` `soccer` `sea-rom-gen-2025-12-29-rom` `No` rows=26,025
+- `book_snapshot_5` `2025-12-29` `soccer` `sea-rom-gen-2025-12-29-rom` `Yes` rows=26,025
+- `book_snapshot_5` `2026-01-08` `soccer` `sea-mil-gen-2026-01-08-mil` `No` rows=61,000
+- `book_snapshot_5` `2026-01-08` `soccer` `sea-mil-gen-2026-01-08-mil` `Yes` rows=61,000
+- `book_snapshot_5` `2026-05-02` `soccer` `sea-ata-gen-2026-05-02-ata` `No` rows=90,414
+- `book_snapshot_5` `2026-05-02` `soccer` `sea-ata-gen-2026-05-02-ata` `Yes` rows=90,414
+- `book_snapshot_5` `2025-11-23` `basketball_nba` `nba-lac-cle-2025-11-23` `Cavaliers` rows=32,205
+- `book_snapshot_5` `2025-11-23` `basketball_nba` `nba-lac-cle-2025-11-23` `Clippers` rows=32,205
+- `book_snapshot_5` `2026-04-08` `basketball_nba` `nba-min-orl-2026-04-08` `Magic` rows=208,502
+- `book_snapshot_5` `2026-04-08` `basketball_nba` `nba-min-orl-2026-04-08` `Timberwolves` rows=208,502
+- `book_snapshot_5` `2026-01-04` `soccer` `lal-rea-bet-2026-01-04-rea` `No` rows=32,009
+- `book_snapshot_5` `2026-01-04` `soccer` `lal-rea-bet-2026-01-04-rea` `Yes` rows=32,009
+- `book_snapshot_5` `2026-01-10` `soccer` `sea-ata-tor-2026-01-10-ata` `No` rows=33,359
+- `book_snapshot_5` `2026-01-10` `soccer` `sea-ata-tor-2026-01-10-ata` `Yes` rows=33,359
+- `book_snapshot_5` `2026-01-21` `soccer` `ucl-new-psv-2026-01-21-psv` `No` rows=37,603
+- `book_snapshot_5` `2026-01-21` `soccer` `ucl-new-psv-2026-01-21-psv` `Yes` rows=37,603
+- `book_snapshot_5` `2026-01-24` `soccer` `sea-com-tor-2026-01-24-com` `No` rows=24,289
+- `book_snapshot_5` `2026-01-24` `soccer` `sea-com-tor-2026-01-24-com` `Yes` rows=24,289
+- `book_snapshot_5` `2026-02-14` `soccer` `lal-rea-rso-2026-02-14-rea` `No` rows=71,641
+- `book_snapshot_5` `2026-02-14` `soccer` `lal-rea-rso-2026-02-14-rea` `Yes` rows=71,641
+
+## Errors
+
+- `book_snapshot_5` `2025-11-24` `nfl-sea-ten-2025-11-23` `Seahawks`: download failed: HTTP 404 book_snapshot_5 2025-11-24 {"detail":"File not found: polymarket/book_snapshot_5/2025-11-24 with asset_id=31977479552906200289981121014485959583357979010737288828222352121003666807684"}
+- `book_snapshot_5` `2025-11-24` `nfl-sea-ten-2025-11-23` `Titans`: download failed: HTTP 404 book_snapshot_5 2025-11-24 {"detail":"File not found: polymarket/book_snapshot_5/2025-11-24 with asset_id=96615784319063841053718831295715475605746995993881418881470118949587651673551"}
+- `book_snapshot_5` `2026-05-21` `wta-salkova-bandecc-2026-05-20` `Dominika Salkova`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=82515896969383806660643467141971790934001953802712072178490206576030588257394"}
+- `book_snapshot_5` `2026-05-21` `wta-salkova-bandecc-2026-05-20` `Susan Bandecchi`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=42487482381786936359745697784353003078322668615619270250503980474228547203181"}
+- `book_snapshot_5` `2026-05-20` `atp-lajal-safiull-2026-05-19` `Mark Lajal`: download failed: HTTP 404 book_snapshot_5 2026-05-20 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-20 with asset_id=8238113806101929149865582290080883620512828949417777975784755339018413001987"}
+- `book_snapshot_5` `2026-05-20` `atp-lajal-safiull-2026-05-19` `Roman Safiullin`: download failed: HTTP 404 book_snapshot_5 2026-05-20 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-20 with asset_id=8891549710710939038227965845222263232912233988172354713884455417144824752116"}
+- `book_snapshot_5` `2026-05-23` `wta-bandecc-hruncak-2026-05-22` `Susan Bandecchi`: download failed: HTTP 404 book_snapshot_5 2026-05-23 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-23 with asset_id=108111141535434177914406516681224523738973547753456079205528049558584178727829"}
+- `book_snapshot_5` `2026-05-23` `wta-bandecc-hruncak-2026-05-22` `Viktoria Hruncakova`: download failed: HTTP 404 book_snapshot_5 2026-05-23 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-23 with asset_id=70967376029802434970056628998456738617709624055730014513302383541060137978275"}
+- `book_snapshot_5` `2025-11-24` `nfl-min-gb-2025-11-23` `Packers`: download failed: HTTP 404 book_snapshot_5 2025-11-24 {"detail":"File not found: polymarket/book_snapshot_5/2025-11-24 with asset_id=82049670978099075657898168346470502383785810643587032243119895231714257528361"}
+- `book_snapshot_5` `2025-11-24` `nfl-min-gb-2025-11-23` `Vikings`: download failed: HTTP 404 book_snapshot_5 2025-11-24 {"detail":"File not found: polymarket/book_snapshot_5/2025-11-24 with asset_id=75893363900931548551760380058421141261473949474684113746695486667464345019223"}
+- `book_snapshot_5` `2026-05-19` `atp-fokina-moutet-2026-05-18` `Alejandro Davidovich Fokina`: download failed: HTTP 404 book_snapshot_5 2026-05-19 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-19 with asset_id=34660315049280399217722389376258868186148388502323901670680394711473424803145"}
+- `book_snapshot_5` `2026-05-19` `atp-fokina-moutet-2026-05-18` `Corentin Moutet`: download failed: HTTP 404 book_snapshot_5 2026-05-19 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-19 with asset_id=71775547852216278160167411606069154334498687805552251312577957652315434832698"}
+- `book_snapshot_5` `2026-05-20` `wta-zavatsk-zhao-2026-05-19` `Carol Zhao`: download failed: HTTP 404 book_snapshot_5 2026-05-20 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-20 with asset_id=112197515831131116708221658845772274876315962737530826623587548811423573976041"}
+- `book_snapshot_5` `2026-05-20` `wta-zavatsk-zhao-2026-05-19` `Katarina Zavatska`: download failed: HTTP 404 book_snapshot_5 2026-05-20 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-20 with asset_id=1124739737351025123772642293776308180168528250730838542594993738281910715888"}

@@ -1,24 +1,24 @@
 # Favorite-Longshot Executable Backtest
 
-- Generated: 2026-05-30T23:55:47.849358+00:00
+- Generated: 2026-05-31T00:37:59.931681+00:00
 - Verdict: HOLD: favorite-longshot executable bucket not yet proven
 - Executable gate: False
 - Gate reasons: clear-settlement cluster bootstrap CI lower bound is not positive
-- Target assets with downloaded books: 648 / 848
-- Book rows scanned: 41,899,516
-- Candidate entry tokens: 290
-- Selected entries: 290
-- Clear settlement entries: 259
+- Target assets with downloaded books: 846 / 848
+- Book rows scanned: 63,796,644
+- Candidate entry tokens: 317
+- Selected entries: 317
+- Clear settlement entries: 275
 - Output bets: `/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/execution_training/favorite_longshot_executable_bets_latest.parquet`
 
 ## Settlement Summary
 
 | Bucket | Bets | Markets | ROI | 95% CI | Win rate | Avg ask | Avg spread |
 |---|---:|---:|---:|---|---:|---:|---:|
-| favorite_85_95_buy_high_token | 4 | 4 | 9.92% | 9.62% to 10.51% | 100.00% | 90.75% | 1.00% |
-| high_prob_token_in_favorite_or_longshot_market | 92 | 92 | 2.62% | -5.11% to 8.95% | 90.22% | 87.63% | 1.23% |
-| longshot_10_15_buy_complement_token | 3 | 3 | 15.42% | 14.55% to 15.86% | 100.00% | 86.33% | 1.33% |
-| longshot_10_15_buy_no_token | 160 | 160 | 0.43% | -5.63% to 5.71% | 88.12% | 87.46% | 1.18% |
+| favorite_85_95_buy_high_token | 5 | 5 | 9.62% | 8.92% to 10.09% | 100.00% | 91.00% | 1.00% |
+| high_prob_token_in_favorite_or_longshot_market | 93 | 93 | 2.67% | -4.29% to 9.08% | 90.32% | 87.69% | 1.23% |
+| longshot_10_15_buy_complement_token | 4 | 4 | 15.86% | 14.88% to 16.86% | 100.00% | 86.00% | 1.25% |
+| longshot_10_15_buy_no_token | 173 | 173 | 0.07% | -5.79% to 5.24% | 87.86% | 87.51% | 1.19% |
 
 ## Settlement By Entry Phase
 
@@ -26,19 +26,19 @@
 |---|---:|---:|---:|---|---:|---:|
 | at_end | 3 | 3 | -25.32% | -100.00% to 13.28% | 66.67% | 89.00% |
 | 0_15m | 2 | 2 | -43.99% | -100.00% to 12.03% | 50.00% | 89.00% |
-| 15_60m | 33 | 33 | 3.05% | -10.24% to 13.18% | 90.91% | 87.94% |
-| 1_3h | 30 | 30 | 2.63% | -12.56% to 14.00% | 90.00% | 87.40% |
+| 15_60m | 35 | 35 | 3.73% | -6.39% to 13.82% | 91.43% | 87.86% |
+| 1_3h | 31 | 31 | 2.83% | -11.40% to 13.98% | 90.32% | 87.55% |
 | 3_6h | 3 | 3 | 14.12% | 12.03% to 15.86% | 100.00% | 87.33% |
-| 6_12h | 6 | 6 | -5.60% | -43.46% to 14.12% | 83.33% | 88.00% |
-| 12_24h | 176 | 176 | 1.59% | -3.59% to 6.70% | 89.20% | 87.52% |
+| 6_12h | 7 | 7 | -2.44% | -35.17% to 14.92% | 85.71% | 87.57% |
+| 12_24h | 188 | 188 | 1.07% | -4.26% to 5.95% | 88.83% | 87.60% |
 | 24h_plus | 6 | 6 | 15.86% | 14.77% to 16.97% | 100.00% | 86.00% |
 
 ## Settlement By Sport
 
 | Sport | Bets | Markets | ROI | 95% CI | Win rate | Avg ask |
 |---|---:|---:|---:|---|---:|---:|
-| soccer | 160 | 160 | 0.43% | -5.63% to 5.71% | 88.12% | 87.46% |
-| basketball_nba | 86 | 86 | 2.98% | -5.18% to 9.55% | 90.70% | 87.79% |
+| soccer | 173 | 173 | 0.07% | -5.79% to 5.24% | 87.86% | 87.51% |
+| basketball_nba | 89 | 89 | 3.25% | -3.45% to 9.61% | 91.01% | 87.87% |
 | americanfootball_nfl | 9 | 9 | 13.70% | 12.44% to 15.13% | 100.00% | 87.67% |
 | basketball_wnba | 2 | 2 | -42.41% | -100.00% to 15.86% | 50.00% | 86.50% |
 | icehockey_nhl | 2 | 2 | 15.86% | 14.55% to 17.20% | 100.00% | 86.00% |
@@ -47,22 +47,22 @@
 
 | Horizon | Bucket | Bets | Markets | ROI | 95% CI | Avg ask | Avg spread |
 |---:|---|---:|---:|---:|---|---:|---:|
-| 300 | favorite_85_95_buy_high_token | 7 | 7 | -1.52% | -1.73% to -1.18% | 90.71% | 1.00% |
-| 300 | high_prob_token_in_favorite_or_longshot_market | 104 | 104 | -2.12% | -2.25% to -2.00% | 87.76% | 1.16% |
-| 300 | longshot_10_15_buy_complement_token | 4 | 4 | 0.38% | -2.91% to 5.70% | 86.50% | 1.25% |
-| 300 | longshot_10_15_buy_no_token | 164 | 164 | -2.09% | -2.16% to -2.03% | 87.47% | 1.16% |
-| 900 | favorite_85_95_buy_high_token | 7 | 7 | -1.52% | -1.73% to -1.18% | 90.71% | 1.00% |
-| 900 | high_prob_token_in_favorite_or_longshot_market | 107 | 107 | -2.21% | -2.65% to -1.92% | 87.77% | 1.15% |
-| 900 | longshot_10_15_buy_complement_token | 3 | 3 | -2.00% | -2.03% to -1.95% | 86.33% | 1.33% |
-| 900 | longshot_10_15_buy_no_token | 166 | 166 | -2.07% | -2.14% to -2.00% | 87.45% | 1.17% |
-| 3600 | favorite_85_95_buy_high_token | 7 | 7 | -1.69% | -2.64% to -0.90% | 90.71% | 1.00% |
-| 3600 | high_prob_token_in_favorite_or_longshot_market | 105 | 105 | -2.06% | -3.08% to -1.20% | 87.78% | 1.16% |
-| 3600 | longshot_10_15_buy_complement_token | 3 | 3 | -2.00% | -2.03% to -1.95% | 86.33% | 1.33% |
-| 3600 | longshot_10_15_buy_no_token | 165 | 165 | -2.03% | -2.11% to -1.95% | 87.50% | 1.16% |
-| 21600 | favorite_85_95_buy_high_token | 4 | 4 | -0.84% | -1.38% to -0.51% | 90.75% | 1.00% |
-| 21600 | high_prob_token_in_favorite_or_longshot_market | 42 | 42 | -1.03% | -1.52% to -0.52% | 87.88% | 1.21% |
+| 300 | favorite_85_95_buy_high_token | 12 | 12 | -1.11% | -1.81% to 0.10% | 89.42% | 1.08% |
+| 300 | high_prob_token_in_favorite_or_longshot_market | 108 | 107 | -2.78% | -4.10% to -2.04% | 87.81% | 1.22% |
+| 300 | longshot_10_15_buy_complement_token | 8 | 8 | -1.44% | -3.98% to 2.16% | 85.88% | 2.25% |
+| 300 | longshot_10_15_buy_no_token | 177 | 177 | -2.09% | -2.17% to -2.03% | 87.51% | 1.17% |
+| 900 | favorite_85_95_buy_high_token | 12 | 12 | -0.73% | -1.81% to 1.25% | 89.42% | 1.08% |
+| 900 | high_prob_token_in_favorite_or_longshot_market | 110 | 110 | -2.58% | -3.43% to -1.96% | 87.81% | 1.18% |
+| 900 | longshot_10_15_buy_complement_token | 7 | 7 | -2.72% | -6.29% to 1.52% | 85.71% | 2.43% |
+| 900 | longshot_10_15_buy_no_token | 180 | 180 | -2.09% | -2.17% to -2.02% | 87.50% | 1.19% |
+| 3600 | favorite_85_95_buy_high_token | 11 | 11 | -1.75% | -2.27% to -1.30% | 89.82% | 1.00% |
+| 3600 | high_prob_token_in_favorite_or_longshot_market | 106 | 106 | -2.05% | -3.11% to -1.12% | 87.83% | 1.16% |
+| 3600 | longshot_10_15_buy_complement_token | 6 | 6 | -3.62% | -5.84% to -1.63% | 85.83% | 2.50% |
+| 3600 | longshot_10_15_buy_no_token | 179 | 179 | -2.08% | -2.17% to -1.98% | 87.55% | 1.18% |
+| 21600 | favorite_85_95_buy_high_token | 7 | 7 | -0.48% | -1.35% to 0.65% | 89.14% | 1.00% |
+| 21600 | high_prob_token_in_favorite_or_longshot_market | 44 | 44 | -1.09% | -1.57% to -0.55% | 88.02% | 1.25% |
 | 21600 | longshot_10_15_buy_complement_token | 1 | 1 | -2.03% | n/a to n/a | 86.00% | 2.00% |
-| 21600 | longshot_10_15_buy_no_token | 165 | 165 | -2.00% | -2.12% to -1.87% | 87.48% | 1.18% |
+| 21600 | longshot_10_15_buy_no_token | 178 | 178 | -1.99% | -2.12% to -1.87% | 87.53% | 1.19% |
 | 86400 | high_prob_token_in_favorite_or_longshot_market | 5 | 5 | -2.25% | -5.66% to 0.78% | 86.20% | 2.60% |
 
 ## Interpretation

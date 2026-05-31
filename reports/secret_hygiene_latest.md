@@ -1,6 +1,6 @@
 # Secret Hygiene
 
-- Generated: 2026-05-31T00:22:44.888188+00:00
+- Generated: 2026-05-31T00:33:43.095708+00:00
 - Findings: 0
 - Critical: 0
 - Rotation required for credentials pasted in chat: yes
