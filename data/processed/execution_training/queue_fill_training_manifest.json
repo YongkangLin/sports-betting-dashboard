@@ -1,13 +1,13 @@
 {
   "authenticated_user_channel_rows": 0,
-  "generated_at": "2026-05-30T23:54:59.681775+00:00",
+  "generated_at": "2026-05-31T00:05:46.972101+00:00",
   "label_horizon_sec": 60,
-  "live_paper_order_rows": 2095,
-  "live_rows": 2095,
+  "live_paper_order_rows": 2127,
+  "live_rows": 2127,
   "output": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/execution_training/queue_fill_training_latest.parquet",
   "report": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/queue_fill_training_latest.md",
-  "rows": 2095,
+  "rows": 2127,
   "sources": {
-    "live_paper_order": 2095
+    "live_paper_order": 2127
   }
 }

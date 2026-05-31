@@ -70,17 +70,17 @@
         "avg_lev_after_120s": null,
         "avg_lev_after_300s": 0.0764522,
         "avg_lev_after_30s": null,
-        "avg_lev_after_3s": -0.011966462727608644,
+        "avg_lev_after_3s": -0.012146780636688356,
         "favorable_rate_after_120s": null,
         "favorable_rate_after_300s": 0.4,
         "favorable_rate_after_30s": null,
-        "favorable_rate_after_3s": 0.022988505747126436,
-        "fills": 176,
+        "favorable_rate_after_3s": 0.022222222222222223,
+        "fills": 182,
         "model_version": "data-collection-probe-v1",
         "rows_after_120s": 0,
         "rows_after_300s": 5,
         "rows_after_30s": 0,
-        "rows_after_3s": 174,
+        "rows_after_3s": 180,
         "side": "buy",
         "strategy": "data_collection_probe"
       },
@@ -103,8 +103,8 @@
         "strategy": "favorite_longshot_bias"
       }
     ],
-    "fills": 868,
-    "fills_with_model_version": 228,
+    "fills": 874,
+    "fills_with_model_version": 234,
     "hold_revert": {
       "hold_rate_3s_to_120s": null,
       "revert_rate_3s_to_120s": null,
@@ -112,15 +112,15 @@
     },
     "overall_by_horizon": [
       {
-        "avg_lev_per_share": -0.01222480489092997,
-        "avg_snapshot_lag_sec": 0.7247182887700535,
-        "favorable_rate": 0.0213903743315508,
+        "avg_lev_per_share": -0.01238494567152282,
+        "avg_snapshot_lag_sec": 0.7184868911917097,
+        "favorable_rate": 0.02072538860103627,
         "horizon_sec": 3,
         "max_snapshot_lag_sec": 1.505688,
         "median_lev_per_share": -0.017451999999999954,
         "p05_lev_per_share": -0.01750000000000001,
         "p95_snapshot_lag_sec": 1.121764,
-        "rows": 187
+        "rows": 193
       },
       {
         "avg_lev_per_share": -0.01461700000000001,
@@ -158,15 +158,15 @@
     ],
     "probe_by_horizon": [
       {
-        "avg_lev_per_share": -0.011966462727608644,
-        "avg_snapshot_lag_sec": 0.6950539540229885,
-        "favorable_rate": 0.022988505747126436,
+        "avg_lev_per_share": -0.012146780636688356,
+        "avg_snapshot_lag_sec": 0.6893613222222222,
+        "favorable_rate": 0.022222222222222223,
         "horizon_sec": 3,
         "max_snapshot_lag_sec": 1.505688,
         "median_lev_per_share": -0.017451999999999954,
         "p05_lev_per_share": -0.01750000000000001,
         "p95_snapshot_lag_sec": 1.074554,
-        "rows": 174
+        "rows": 180
       },
       {
         "avg_lev_per_share": null,
@@ -202,11 +202,11 @@
         "rows": 5
       }
     ],
-    "probe_fills": 176
+    "probe_fills": 182
   },
-  "generated_at": "2026-05-30T23:59:05.063328+00:00",
+  "generated_at": "2026-05-31T00:09:40.546746+00:00",
   "inputs": {
-    "book_rows": 304268,
+    "book_rows": 304442,
     "horizons_sec": [
       3,
       30,
@@ -215,8 +215,8 @@
     ],
     "max_lag_sec": 5.0,
     "min_large_trade_usd": 250.0,
-    "paper_fills": 868,
-    "paper_orders": 2931,
+    "paper_fills": 874,
+    "paper_orders": 2977,
     "trade_rows": 1314
   },
   "large_trade_flow": {

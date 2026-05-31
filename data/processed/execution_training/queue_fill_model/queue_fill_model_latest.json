@@ -2,17 +2,17 @@
   "dataset": {
     "authenticated_user_channel_fills": 0,
     "authenticated_user_channel_rows": 0,
-    "fill_rate": 0.39236276849642004,
-    "input_sha256": "0f0583698572405445df0d9f2aaedc5756639cfd352d9904713ca62523031db7",
+    "fill_rate": 0.38881053126469206,
+    "input_sha256": "669fae390eb4f1263adaa83d6bbcfe0f7b7e3a4de6ad15dc0bd0360012863c42",
     "missing_features": {},
-    "rows": 2095,
+    "rows": 2127,
     "sources": {
-      "live_paper_order": 2095
+      "live_paper_order": 2127
     },
     "splits": {
-      "test": 419,
-      "train": 1257,
-      "val": 419
+      "test": 426,
+      "train": 1276,
+      "val": 425
     }
   },
   "gates": {
@@ -26,37 +26,37 @@
     ],
     "warnings": []
   },
-  "generated_at": "2026-05-30T23:55:25.508525+00:00",
+  "generated_at": "2026-05-31T00:05:54.140076+00:00",
   "metrics": {
     "test": {
-      "auc": 0.978377977661362,
-      "avg_prob": 0.3389824888913493,
-      "baseline_brier": 0.23107637801106168,
-      "brier": 0.016852704794177244,
-      "ece_10": 0.021399372683829722,
-      "fill_rate": 0.360381861575179,
-      "log_loss": 0.21593068516339398,
-      "rows": 419
+      "auc": 0.9755381604696673,
+      "avg_prob": 0.3217472193540153,
+      "baseline_brier": 0.22723746790844224,
+      "brier": 0.018774609620253714,
+      "ece_10": 0.020975785340820445,
+      "fill_rate": 0.3427230046948357,
+      "log_loss": 0.24131666185831885,
+      "rows": 426
     },
     "train": {
-      "auc": 0.999989300292637,
-      "avg_prob": 0.3977261100891295,
-      "baseline_brier": 0.23660152311732105,
-      "brier": 0.00982326012196866,
-      "ece_10": 0.013477900065263268,
-      "fill_rate": 0.38424821002386633,
-      "log_loss": 0.03346935020178541,
-      "rows": 1257
+      "auc": 0.9999301075825506,
+      "avg_prob": 0.3872186458222125,
+      "baseline_brier": 0.2372642760979157,
+      "brier": 0.0014832008721676112,
+      "ece_10": 7.13103990150921e-05,
+      "fill_rate": 0.3871473354231975,
+      "log_loss": 0.006402674219990327,
+      "rows": 1276
     },
     "val": {
-      "auc": 0.9909390255134936,
-      "avg_prob": 0.44868787828162293,
-      "baseline_brier": 0.2515194149042213,
-      "brier": 0.011592226389913739,
-      "ece_10": 5.513126492182799e-07,
-      "fill_rate": 0.4486873508353222,
-      "log_loss": 0.05461103664045265,
-      "rows": 419
+      "auc": 0.9939109333573001,
+      "avg_prob": 0.44000053647058823,
+      "baseline_brier": 0.24919340415286803,
+      "brier": 0.009143313200035056,
+      "ece_10": 5.647058822188143e-07,
+      "fill_rate": 0.44,
+      "log_loss": 0.04405816614159945,
+      "rows": 425
     }
   },
   "outputs": {
@@ -67,10 +67,10 @@
   },
   "reproducibility": {
     "input": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/execution_training/queue_fill_training_latest.parquet",
-    "input_sha256": "0f0583698572405445df0d9f2aaedc5756639cfd352d9904713ca62523031db7",
+    "input_sha256": "669fae390eb4f1263adaa83d6bbcfe0f7b7e3a4de6ad15dc0bd0360012863c42",
     "model": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/execution_training/queue_fill_model/queue_fill_model_latest.joblib",
-    "model_sha256": "554575e69a45f5bcff286d35f4ceb8b449dd86c15e5273f4552a6ce8cb6bec05",
-    "model_version": "queue-fill-554575e69a45",
+    "model_sha256": "ccdbbbd6af6dfff8f4e43a931de63abae7149a11f1e943ab566f0e836c0f6678",
+    "model_version": "queue-fill-ccdbbbd6af6d",
     "random_seed": 42
   }
 }

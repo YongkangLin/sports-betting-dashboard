@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-30T23:54:42.924495+00:00",
+  "generated_at": "2026-05-31T00:05:32.948243+00:00",
   "latest_path": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/execution_training/execution_training_latest.parquet",
   "report": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/execution_training_latest.md",
   "retention": {
@@ -8,6 +8,6 @@
     "enabled": true,
     "retained_runs": 24
   },
-  "rows": 276,
-  "run_path": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/execution_training/execution_training_20260530T235442Z.parquet"
+  "rows": 279,
+  "run_path": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/execution_training/execution_training_20260531T000532Z.parquet"
 }

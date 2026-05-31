@@ -1,0 +1,1849 @@
+{
+  "candidate_rules": 15,
+  "candidate_set_version": "favorite_longshot_rules:v1",
+  "gate_reasons": [
+    "temporal selected rule failed",
+    "market-disjoint selected rule failed"
+  ],
+  "generated_at": "2026-05-31T00:05:39.771511+00:00",
+  "input": {
+    "bets_path": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/execution_training/favorite_longshot_executable_bets_latest.parquet",
+    "entry_ts_max": "2026-05-26 00:00:00.162000+00:00",
+    "entry_ts_min": "2025-10-26 00:00:07.861000+00:00",
+    "markets": 259,
+    "settlement_rows": 259
+  },
+  "market_disjoint": {
+    "candidates": [
+      {
+        "all": {
+          "avg_entry_ask": 0.8755984555984556,
+          "avg_spread": 0.01193050193050194,
+          "bets": 259,
+          "ci_hi": 0.05523162057983465,
+          "ci_lo": -0.029829093475161144,
+          "markets": 259,
+          "pnl": 3.464542999999999,
+          "roi": 0.015277109974424549,
+          "stake": 226.78,
+          "win_rate": 0.8918918918918919
+        },
+        "description": "All executable high-probability favorite/longshot entries.",
+        "filters": {},
+        "rule_id": "all_settled",
+        "splits": {
+          "test": {
+            "avg_entry_ask": 0.8730508474576271,
+            "avg_spread": 0.011864406779661028,
+            "bets": 59,
+            "ci_hi": 0.0854261252315275,
+            "ci_lo": -0.09128624279935925,
+            "markets": 59,
+            "pnl": 0.3169329999999999,
+            "roi": 0.006152844107940204,
+            "stake": 51.51,
+            "win_rate": 0.8813559322033898
+          },
+          "train": {
+            "avg_entry_ask": 0.8769600000000001,
+            "avg_spread": 0.01176000000000001,
+            "bets": 125,
+            "ci_hi": 0.083566185611353,
+            "ci_lo": -0.037093516546672936,
+            "markets": 125,
+            "pnl": 3.0140119999999984,
+            "roi": 0.02749509213647143,
+            "stake": 109.62,
+            "win_rate": 0.904
+          },
+          "validation": {
+            "avg_entry_ask": 0.8753333333333334,
+            "avg_spread": 0.012266666666666676,
+            "bets": 75,
+            "ci_hi": 0.07861611494478195,
+            "ci_lo": -0.0902170512838359,
+            "markets": 75,
+            "pnl": 0.13359800000000022,
+            "roi": 0.002035003808073118,
+            "stake": 65.65,
+            "win_rate": 0.88
+          }
+        }
+      },
+      {
+        "all": {
+          "avg_entry_ask": 0.8753149606299212,
+          "avg_spread": 0.011929133858267727,
+          "bets": 254,
+          "ci_hi": 0.06474773740749548,
+          "ci_lo": -0.023552205974978188,
+          "markets": 254,
+          "pnl": 4.923584999999999,
+          "roi": 0.02214539198488733,
+          "stake": 222.32999999999998,
+          "win_rate": 0.8976377952755905
+        },
+        "description": "Exclude entries in the final 15 minutes before listed event end.",
+        "filters": {
+          "min_hours_to_end": 0.25
+        },
+        "rule_id": "exclude_last_15m",
+        "splits": {
+          "test": {
+            "avg_entry_ask": 0.8727586206896553,
+            "avg_spread": 0.011896551724137942,
+            "bets": 58,
+            "ci_hi": 0.1024056940573929,
+            "ci_lo": -0.07552670546302616,
+            "markets": 58,
+            "pnl": 1.2069329999999998,
+            "roi": 0.023843006716712755,
+            "stake": 50.620000000000005,
+            "win_rate": 0.896551724137931
+          },
+          "train": {
+            "avg_entry_ask": 0.876829268292683,
+            "avg_spread": 0.011788617886178873,
+            "bets": 123,
+            "ci_hi": 0.09082731082176472,
+            "ci_lo": -0.044560066590956765,
+            "markets": 123,
+            "pnl": 2.7901169999999986,
+            "roi": 0.02587034770514602,
+            "stake": 107.85000000000001,
+            "win_rate": 0.9024390243902439
+          },
+          "validation": {
+            "avg_entry_ask": 0.8747945205479452,
+            "avg_spread": 0.012191780821917818,
+            "bets": 73,
+            "ci_hi": 0.09304817444775183,
+            "ci_lo": -0.0774878212246621,
+            "markets": 73,
+            "pnl": 0.9265349999999996,
+            "roi": 0.014508847478859999,
+            "stake": 63.86,
+            "win_rate": 0.8904109589041096
+          }
+        }
+      },
+      {
+        "all": {
+          "avg_entry_ask": 0.8747058823529412,
+          "avg_spread": 0.012217194570135757,
+          "bets": 221,
+          "ci_hi": 0.06610183209108897,
+          "ci_lo": -0.026465574405096646,
+          "markets": 221,
+          "pnl": 4.039023999999998,
+          "roi": 0.020894025140965278,
+          "stake": 193.31,
+          "win_rate": 0.8959276018099548
+        },
+        "description": "Exclude entries in the final hour before listed event end.",
+        "filters": {
+          "min_hours_to_end": 1.0
+        },
+        "rule_id": "exclude_last_1h",
+        "splits": {
+          "test": {
+            "avg_entry_ask": 0.8724074074074074,
+            "avg_spread": 0.012037037037037047,
+            "bets": 54,
+            "ci_hi": 0.12105417149586879,
+            "ci_lo": -0.05135295419585237,
+            "markets": 54,
+            "pnl": 1.726182,
+            "roi": 0.03664151984716621,
+            "stake": 47.11,
+            "win_rate": 0.9074074074074074
+          },
+          "train": {
+            "avg_entry_ask": 0.8757009345794393,
+            "avg_spread": 0.012056074766355151,
+            "bets": 107,
+            "ci_hi": 0.08499646475695065,
+            "ci_lo": -0.043665143823974434,
+            "markets": 107,
+            "pnl": 1.9863139999999988,
+            "roi": 0.02119865528281749,
+            "stake": 93.7,
+            "win_rate": 0.897196261682243
+          },
+          "validation": {
+            "avg_entry_ask": 0.8750000000000001,
+            "avg_spread": 0.012666666666666677,
+            "bets": 60,
+            "ci_hi": 0.08318860268715142,
+            "ci_lo": -0.09109719811717863,
+            "markets": 60,
+            "pnl": 0.3265279999999998,
+            "roi": 0.006219580952380948,
+            "stake": 52.50000000000001,
+            "win_rate": 0.8833333333333333
+          }
+        }
+      },
+      {
+        "all": {
+          "avg_entry_ask": 0.8756854838709677,
+          "avg_spread": 0.011370967741935493,
+          "bets": 248,
+          "ci_hi": 0.0586631461974629,
+          "ci_lo": -0.02601356776336711,
+          "markets": 248,
+          "pnl": 4.105232999999998,
+          "roi": 0.018903315375051796,
+          "stake": 217.17,
+          "win_rate": 0.8951612903225806
+        },
+        "description": "Enter from 15 minutes to 24 hours before listed event end.",
+        "filters": {
+          "max_hours_to_end": 24.0,
+          "min_hours_to_end": 0.25
+        },
+        "rule_id": "entry_15m_to_24h",
+        "splits": {
+          "test": {
+            "avg_entry_ask": 0.8736363636363638,
+            "avg_spread": 0.010909090909090919,
+            "bets": 55,
+            "ci_hi": 0.10206998643855623,
+            "ci_lo": -0.08825675740583028,
+            "markets": 55,
+            "pnl": 0.7879760000000005,
+            "roi": 0.01639908428720084,
+            "stake": 48.050000000000004,
+            "win_rate": 0.8909090909090909
+          },
+          "train": {
+            "avg_entry_ask": 0.8770247933884296,
+            "avg_spread": 0.011404958677685961,
+            "bets": 121,
+            "ci_hi": 0.08203057248062615,
+            "ci_lo": -0.03858750443201876,
+            "markets": 121,
+            "pnl": 2.5271099999999986,
+            "roi": 0.023813701470033914,
+            "stake": 106.11999999999999,
+            "win_rate": 0.9008264462809917
+          },
+          "validation": {
+            "avg_entry_ask": 0.875,
+            "avg_spread": 0.011666666666666678,
+            "bets": 72,
+            "ci_hi": 0.0889617131498432,
+            "ci_lo": -0.08210545195891572,
+            "markets": 72,
+            "pnl": 0.7901469999999997,
+            "roi": 0.012542015873015868,
+            "stake": 63.0,
+            "win_rate": 0.8888888888888888
+          }
+        }
+      },
+      {
+        "all": {
+          "avg_entry_ask": 0.8751162790697675,
+          "avg_spread": 0.011581395348837219,
+          "bets": 215,
+          "ci_hi": 0.0651647258128182,
+          "ci_lo": -0.03122616986705088,
+          "markets": 215,
+          "pnl": 3.2206719999999978,
+          "roi": 0.017117576401807055,
+          "stake": 188.15,
+          "win_rate": 0.8930232558139535
+        },
+        "description": "Enter from 1 hour to 24 hours before listed event end.",
+        "filters": {
+          "max_hours_to_end": 24.0,
+          "min_hours_to_end": 1.0
+        },
+        "rule_id": "entry_1h_to_24h",
+        "splits": {
+          "test": {
+            "avg_entry_ask": 0.8733333333333333,
+            "avg_spread": 0.010980392156862756,
+            "bets": 51,
+            "ci_hi": 0.10207002647429733,
+            "ci_lo": -0.06500957742231145,
+            "markets": 51,
+            "pnl": 1.3072250000000005,
+            "roi": 0.029349461158509216,
+            "stake": 44.54,
+            "win_rate": 0.9019607843137255
+          },
+          "train": {
+            "avg_entry_ask": 0.8759047619047617,
+            "avg_spread": 0.01161904761904763,
+            "bets": 105,
+            "ci_hi": 0.08410138251700332,
+            "ci_lo": -0.04557529221418337,
+            "markets": 105,
+            "pnl": 1.7233069999999995,
+            "roi": 0.01873770794824399,
+            "stake": 91.96999999999998,
+            "win_rate": 0.8952380952380953
+          },
+          "validation": {
+            "avg_entry_ask": 0.8752542372881356,
+            "avg_spread": 0.012033898305084757,
+            "bets": 59,
+            "ci_hi": 0.08327141240192293,
+            "ci_lo": -0.11256606044463591,
+            "markets": 59,
+            "pnl": 0.19013999999999964,
+            "roi": 0.003682029434546856,
+            "stake": 51.64,
+            "win_rate": 0.8813559322033898
+          }
+        }
+      },
+      {
+        "all": {
+          "avg_entry_ask": 0.8751704545454545,
+          "avg_spread": 0.011704545454545466,
+          "bets": 176,
+          "ci_hi": 0.06938353845220857,
+          "ci_lo": -0.04328653385407285,
+          "markets": 176,
+          "pnl": 2.4557579999999986,
+          "roi": 0.015943374667272598,
+          "stake": 154.03,
+          "win_rate": 0.8920454545454546
+        },
+        "description": "Enter from 12 to 24 hours before listed event end.",
+        "filters": {
+          "max_hours_to_end": 24.0,
+          "min_hours_to_end": 12.0
+        },
+        "rule_id": "entry_12h_to_24h",
+        "splits": {
+          "test": {
+            "avg_entry_ask": 0.8725,
+            "avg_spread": 0.010909090909090919,
+            "bets": 44,
+            "ci_hi": 0.11878360801244897,
+            "ci_lo": -0.07967796546965178,
+            "markets": 44,
+            "pnl": 1.4764159999999997,
+            "roi": 0.03845834852826256,
+            "stake": 38.39,
+            "win_rate": 0.9090909090909091
+          },
+          "train": {
+            "avg_entry_ask": 0.8756976744186048,
+            "avg_spread": 0.01186046511627908,
+            "bets": 86,
+            "ci_hi": 0.08334978699347682,
+            "ci_lo": -0.07248301058688383,
+            "markets": 86,
+            "pnl": 0.4417019999999993,
+            "roi": 0.005865117514274322,
+            "stake": 75.31000000000002,
+            "win_rate": 0.8837209302325582
+          },
+          "validation": {
+            "avg_entry_ask": 0.8767391304347826,
+            "avg_spread": 0.012173913043478271,
+            "bets": 46,
+            "ci_hi": 0.11003661383811561,
+            "ci_lo": -0.09801323501712325,
+            "markets": 46,
+            "pnl": 0.5376400000000002,
+            "roi": 0.013331019092486988,
+            "stake": 40.33,
+            "win_rate": 0.8913043478260869
+          }
+        }
+      },
+      {
+        "all": {
+          "avg_entry_ask": 0.8765137614678898,
+          "avg_spread": 0.010000000000000009,
+          "bets": 218,
+          "ci_hi": 0.0465132733719284,
+          "ci_lo": -0.04830848226065819,
+          "markets": 218,
+          "pnl": 0.2963809999999991,
+          "roi": 0.0015510833158886286,
+          "stake": 191.07999999999998,
+          "win_rate": 0.8807339449541285
+        },
+        "description": "Only enter when the top-of-book spread is one cent or tighter.",
+        "filters": {
+          "max_spread": 0.0100001
+        },
+        "rule_id": "spread_1c_or_better",
+        "splits": {
+          "test": {
+            "avg_entry_ask": 0.8741176470588234,
+            "avg_spread": 0.010000000000000009,
+            "bets": 51,
+            "ci_hi": 0.07495306230722672,
+            "ci_lo": -0.14958540530903974,
+            "markets": 51,
+            "pnl": -0.7253079999999996,
+            "roi": -0.016269807088380432,
+            "stake": 44.58,
+            "win_rate": 0.8627450980392157
+          },
+          "train": {
+            "avg_entry_ask": 0.8783018867924529,
+            "avg_spread": 0.010000000000000009,
+            "bets": 106,
+            "ci_hi": 0.0822550733623962,
+            "ci_lo": -0.05644779923452952,
+            "markets": 106,
+            "pnl": 1.5954159999999986,
+            "roi": 0.017136584317937686,
+            "stake": 93.10000000000001,
+            "win_rate": 0.8962264150943396
+          },
+          "validation": {
+            "avg_entry_ask": 0.8754098360655738,
+            "avg_spread": 0.010000000000000009,
+            "bets": 61,
+            "ci_hi": 0.08598491874882586,
+            "ci_lo": -0.12039709581349325,
+            "markets": 61,
+            "pnl": -0.5737270000000001,
+            "roi": -0.010743951310861425,
+            "stake": 53.4,
+            "win_rate": 0.8688524590163934
+          }
+        }
+      },
+      {
+        "all": {
+          "avg_entry_ask": 0.8762616822429908,
+          "avg_spread": 0.010000000000000009,
+          "bets": 214,
+          "ci_hi": 0.054724050261942304,
+          "ci_lo": -0.04345596556054319,
+          "markets": 214,
+          "pnl": 1.8624859999999999,
+          "roi": 0.009932199232081908,
+          "stake": 187.52000000000004,
+          "win_rate": 0.8878504672897196
+        },
+        "description": "One-cent spread or tighter, 15 minutes to 24 hours before listed event end.",
+        "filters": {
+          "max_hours_to_end": 24.0,
+          "max_spread": 0.0100001,
+          "min_hours_to_end": 0.25
+        },
+        "rule_id": "spread_1c_15m_to_24h",
+        "splits": {
+          "test": {
+            "avg_entry_ask": 0.8737999999999999,
+            "avg_spread": 0.010000000000000009,
+            "bets": 50,
+            "ci_hi": 0.09625353460128323,
+            "ci_lo": -0.11051551487414187,
+            "markets": 50,
+            "pnl": 0.16469199999999992,
+            "roi": 0.003769558251316089,
+            "stake": 43.69,
+            "win_rate": 0.88
+          },
+          "train": {
+            "avg_entry_ask": 0.8781730769230768,
+            "avg_spread": 0.010000000000000009,
+            "bets": 104,
+            "ci_hi": 0.0751815534503311,
+            "ci_lo": -0.05754967771962573,
+            "markets": 104,
+            "pnl": 1.371520999999999,
+            "roi": 0.015017201357713778,
+            "stake": 91.32999999999998,
+            "win_rate": 0.8942307692307693
+          },
+          "validation": {
+            "avg_entry_ask": 0.8750000000000001,
+            "avg_spread": 0.010000000000000009,
+            "bets": 60,
+            "ci_hi": 0.08458587443514863,
+            "ci_lo": -0.0994869035939328,
+            "markets": 60,
+            "pnl": 0.3262729999999997,
+            "roi": 0.006214723809523803,
+            "stake": 52.50000000000001,
+            "win_rate": 0.8833333333333333
+          }
+        }
+      },
+      {
+        "all": {
+          "avg_entry_ask": 0.8713777777777778,
+          "avg_spread": 0.012088888888888899,
+          "bets": 225,
+          "ci_hi": 0.06011013145925777,
+          "ci_lo": -0.03802844822705836,
+          "markets": 225,
+          "pnl": 3.265564,
+          "roi": 0.016655942058553502,
+          "stake": 196.06,
+          "win_rate": 0.8888888888888888
+        },
+        "description": "Buy high-probability tokens priced from 85c to 89c inclusive.",
+        "filters": {
+          "max_ask": 0.89,
+          "min_ask": 0.85
+        },
+        "rule_id": "ask_85_89",
+        "splits": {
+          "test": {
+            "avg_entry_ask": 0.8694339622641509,
+            "avg_spread": 0.012075471698113219,
+            "bets": 53,
+            "ci_hi": 0.09322612148445206,
+            "ci_lo": -0.11540761213123485,
+            "markets": 53,
+            "pnl": -0.23760199999999992,
+            "roi": -0.005156293402777777,
+            "stake": 46.08,
+            "win_rate": 0.8679245283018868
+          },
+          "train": {
+            "avg_entry_ask": 0.8709803921568627,
+            "avg_spread": 0.0119607843137255,
+            "bets": 102,
+            "ci_hi": 0.09772155956875263,
+            "ci_lo": -0.026376460956134058,
+            "markets": 102,
+            "pnl": 2.8490109999999995,
+            "roi": 0.032069011706438534,
+            "stake": 88.84,
+            "win_rate": 0.9019607843137255
+          },
+          "validation": {
+            "avg_entry_ask": 0.8734285714285714,
+            "avg_spread": 0.012285714285714296,
+            "bets": 70,
+            "ci_hi": 0.09197167042947874,
+            "ci_lo": -0.08517604562625768,
+            "markets": 70,
+            "pnl": 0.6541550000000004,
+            "roi": 0.0106992966961073,
+            "stake": 61.14,
+            "win_rate": 0.8857142857142857
+          }
+        }
+      },
+      {
+        "all": {
+          "avg_entry_ask": 0.8779069767441862,
+          "avg_spread": 0.012325581395348848,
+          "bets": 86,
+          "ci_hi": 0.09694456943853867,
+          "ci_lo": -0.05090816185381628,
+          "markets": 86,
+          "pnl": 2.247772,
+          "roi": 0.029771814569536415,
+          "stake": 75.50000000000001,
+          "win_rate": 0.9069767441860465
+        },
+        "description": "NBA markets only.",
+        "filters": {
+          "sports": [
+            "basketball_nba"
+          ]
+        },
+        "rule_id": "nba_only",
+        "splits": {
+          "test": {
+            "avg_entry_ask": 0.874736842105263,
+            "avg_spread": 0.014210526315789486,
+            "bets": 19,
+            "ci_hi": 0.1455305958862674,
+            "ci_lo": -0.16389686668210346,
+            "markets": 19,
+            "pnl": 0.32425699999999996,
+            "roi": 0.01951004813477738,
+            "stake": 16.619999999999997,
+            "win_rate": 0.8947368421052632
+          },
+          "train": {
+            "avg_entry_ask": 0.8814634146341462,
+            "avg_spread": 0.011707317073170742,
+            "bets": 41,
+            "ci_hi": 0.13140145033438677,
+            "ci_lo": -0.06367004841055024,
+            "markets": 41,
+            "pnl": 1.74012,
+            "roi": 0.04814941892639735,
+            "stake": 36.13999999999999,
+            "win_rate": 0.926829268292683
+          },
+          "validation": {
+            "avg_entry_ask": 0.8746153846153847,
+            "avg_spread": 0.011923076923076929,
+            "bets": 26,
+            "ci_hi": 0.1415705352422907,
+            "ci_lo": -0.16928853744572875,
+            "markets": 26,
+            "pnl": 0.18339499999999992,
+            "roi": 0.008064863676341245,
+            "stake": 22.740000000000002,
+            "win_rate": 0.8846153846153846
+          }
+        }
+      },
+      {
+        "all": {
+          "avg_entry_ask": 0.8771604938271604,
+          "avg_spread": 0.01234567901234569,
+          "bets": 81,
+          "ci_hi": 0.10830712311095353,
+          "ci_lo": -0.01729636514084508,
+          "markets": 81,
+          "pnl": 3.7068139999999996,
+          "roi": 0.052171907107670654,
+          "stake": 71.05,
+          "win_rate": 0.9259259259259259
+        },
+        "description": "NBA markets, excluding the final 15 minutes before listed event end.",
+        "filters": {
+          "min_hours_to_end": 0.25,
+          "sports": [
+            "basketball_nba"
+          ]
+        },
+        "rule_id": "nba_exclude_last_15m",
+        "splits": {
+          "test": {
+            "avg_entry_ask": 0.8738888888888888,
+            "avg_spread": 0.014444444444444458,
+            "bets": 18,
+            "ci_hi": 0.14625266134185305,
+            "ci_lo": -0.0512608597715736,
+            "markets": 18,
+            "pnl": 1.214257,
+            "roi": 0.0771937062937063,
+            "stake": 15.729999999999999,
+            "win_rate": 0.9444444444444444
+          },
+          "train": {
+            "avg_entry_ask": 0.8812820512820512,
+            "avg_spread": 0.011794871794871806,
+            "bets": 39,
+            "ci_hi": 0.1348943615631432,
+            "ci_lo": -0.0748617868795276,
+            "markets": 39,
+            "pnl": 1.5162249999999997,
+            "roi": 0.0441147803316846,
+            "stake": 34.37,
+            "win_rate": 0.9230769230769231
+          },
+          "validation": {
+            "avg_entry_ask": 0.8729166666666667,
+            "avg_spread": 0.011666666666666672,
+            "bets": 24,
+            "ci_hi": 0.14499244375299186,
+            "ci_lo": -0.09805242547641733,
+            "markets": 24,
+            "pnl": 0.976332,
+            "roi": 0.04660295942720764,
+            "stake": 20.95,
+            "win_rate": 0.9166666666666666
+          }
+        }
+      },
+      {
+        "all": {
+          "avg_entry_ask": 0.874625,
+          "avg_spread": 0.01175000000000001,
+          "bets": 160,
+          "ci_hi": 0.05995806024886108,
+          "ci_lo": -0.058201447891876756,
+          "markets": 160,
+          "pnl": 0.5967279999999999,
+          "roi": 0.004264170358725167,
+          "stake": 139.94,
+          "win_rate": 0.88125
+        },
+        "description": "Soccer markets only.",
+        "filters": {
+          "sports": [
+            "soccer"
+          ]
+        },
+        "rule_id": "soccer_only",
+        "splits": {
+          "test": {
+            "avg_entry_ask": 0.871891891891892,
+            "avg_spread": 0.01081081081081082,
+            "bets": 37,
+            "ci_hi": 0.11321506127831213,
+            "ci_lo": -0.13863243347312088,
+            "markets": 37,
+            "pnl": -0.3676069999999994,
+            "roi": -0.01139513329200246,
+            "stake": 32.260000000000005,
+            "win_rate": 0.8648648648648649
+          },
+          "train": {
+            "avg_entry_ask": 0.8748051948051948,
+            "avg_spread": 0.01194805194805196,
+            "bets": 77,
+            "ci_hi": 0.0758320178287586,
+            "ci_lo": -0.0696371120572084,
+            "markets": 77,
+            "pnl": 0.4169139999999993,
+            "roi": 0.0061893408551068774,
+            "stake": 67.36,
+            "win_rate": 0.8831168831168831
+          },
+          "validation": {
+            "avg_entry_ask": 0.876521739130435,
+            "avg_spread": 0.012173913043478271,
+            "bets": 46,
+            "ci_hi": 0.1121909977108639,
+            "ci_lo": -0.10909752642034863,
+            "markets": 46,
+            "pnl": 0.5474209999999996,
+            "roi": 0.01357690972222221,
+            "stake": 40.32000000000001,
+            "win_rate": 0.8913043478260869
+          }
+        }
+      },
+      {
+        "all": {
+          "avg_entry_ask": 0.8745751633986928,
+          "avg_spread": 0.011764705882352951,
+          "bets": 153,
+          "ci_hi": 0.05844385606600909,
+          "ci_lo": -0.054752380888560874,
+          "markets": 153,
+          "pnl": 0.746375,
+          "roi": 0.005577871608997833,
+          "stake": 133.81,
+          "win_rate": 0.8823529411764706
+        },
+        "description": "Soccer markets from 12 to 24 hours before listed event end.",
+        "filters": {
+          "max_hours_to_end": 24.0,
+          "min_hours_to_end": 12.0,
+          "sports": [
+            "soccer"
+          ]
+        },
+        "rule_id": "soccer_12h_to_24h",
+        "splits": {
+          "test": {
+            "avg_entry_ask": 0.8711428571428571,
+            "avg_spread": 0.010857142857142867,
+            "bets": 35,
+            "ci_hi": 0.11300710859789503,
+            "ci_lo": -0.11594467632455961,
+            "markets": 35,
+            "pnl": 0.40533000000000013,
+            "roi": 0.01329386684158741,
+            "stake": 30.49,
+            "win_rate": 0.8857142857142857
+          },
+          "train": {
+            "avg_entry_ask": 0.8748000000000001,
+            "avg_spread": 0.011866666666666676,
+            "bets": 75,
+            "ci_hi": 0.07869157453765274,
+            "ci_lo": -0.08653483314980291,
+            "markets": 75,
+            "pnl": 0.17346299999999998,
+            "roi": 0.0026438500228623675,
+            "stake": 65.61000000000001,
+            "win_rate": 0.88
+          },
+          "validation": {
+            "avg_entry_ask": 0.8769767441860467,
+            "avg_spread": 0.012325581395348848,
+            "bets": 43,
+            "ci_hi": 0.08868881213143497,
+            "ci_lo": -0.12503563290123362,
+            "markets": 43,
+            "pnl": 0.16758200000000023,
+            "roi": 0.004443967117475476,
+            "stake": 37.71000000000001,
+            "win_rate": 0.8837209302325582
+          }
+        }
+      },
+      {
+        "all": {
+          "avg_entry_ask": 0.874625,
+          "avg_spread": 0.01175000000000001,
+          "bets": 160,
+          "ci_hi": 0.05995806024886108,
+          "ci_lo": -0.058201447891876756,
+          "markets": 160,
+          "pnl": 0.5967279999999999,
+          "roi": 0.004264170358725167,
+          "stake": 139.94,
+          "win_rate": 0.88125
+        },
+        "description": "Buy NO-side high-probability token against 10c-15c longshots.",
+        "filters": {
+          "buckets": [
+            "longshot_10_15_buy_no_token"
+          ]
+        },
+        "rule_id": "longshot_no_token",
+        "splits": {
+          "test": {
+            "avg_entry_ask": 0.871891891891892,
+            "avg_spread": 0.01081081081081082,
+            "bets": 37,
+            "ci_hi": 0.11321506127831213,
+            "ci_lo": -0.13863243347312088,
+            "markets": 37,
+            "pnl": -0.3676069999999994,
+            "roi": -0.01139513329200246,
+            "stake": 32.260000000000005,
+            "win_rate": 0.8648648648648649
+          },
+          "train": {
+            "avg_entry_ask": 0.8748051948051948,
+            "avg_spread": 0.01194805194805196,
+            "bets": 77,
+            "ci_hi": 0.0758320178287586,
+            "ci_lo": -0.0696371120572084,
+            "markets": 77,
+            "pnl": 0.4169139999999993,
+            "roi": 0.0061893408551068774,
+            "stake": 67.36,
+            "win_rate": 0.8831168831168831
+          },
+          "validation": {
+            "avg_entry_ask": 0.876521739130435,
+            "avg_spread": 0.012173913043478271,
+            "bets": 46,
+            "ci_hi": 0.1121909977108639,
+            "ci_lo": -0.10909752642034863,
+            "markets": 46,
+            "pnl": 0.5474209999999996,
+            "roi": 0.01357690972222221,
+            "stake": 40.32000000000001,
+            "win_rate": 0.8913043478260869
+          }
+        }
+      },
+      {
+        "all": {
+          "avg_entry_ask": 0.8763043478260869,
+          "avg_spread": 0.012282608695652186,
+          "bets": 92,
+          "ci_hi": 0.08998346185402166,
+          "ci_lo": -0.045688573819952095,
+          "markets": 92,
+          "pnl": 2.1085029999999993,
+          "roi": 0.02615359712230215,
+          "stake": 80.61999999999999,
+          "win_rate": 0.9021739130434783
+        },
+        "description": "Markets that matched both favorite-buy and longshot-fade buckets.",
+        "filters": {
+          "buckets": [
+            "high_prob_token_in_favorite_or_longshot_market"
+          ]
+        },
+        "rule_id": "overlap_bucket",
+        "splits": {
+          "test": {
+            "avg_entry_ask": 0.8744999999999999,
+            "avg_spread": 0.014000000000000012,
+            "bets": 20,
+            "ci_hi": 0.14359932300631095,
+            "ci_lo": -0.1461361322101656,
+            "markets": 20,
+            "pnl": 0.450852,
+            "roi": 0.02577770154373928,
+            "stake": 17.49,
+            "win_rate": 0.9
+          },
+          "train": {
+            "avg_entry_ask": 0.8790697674418604,
+            "avg_spread": 0.011395348837209312,
+            "bets": 43,
+            "ci_hi": 0.1362004376394329,
+            "ci_lo": -0.05098379463105002,
+            "markets": 43,
+            "pnl": 2.0714740000000003,
+            "roi": 0.05480089947089948,
+            "stake": 37.8,
+            "win_rate": 0.9302325581395349
+          },
+          "validation": {
+            "avg_entry_ask": 0.8734482758620692,
+            "avg_spread": 0.012413793103448282,
+            "bets": 29,
+            "ci_hi": 0.10601089575901704,
+            "ci_lo": -0.17455834358142158,
+            "markets": 29,
+            "pnl": -0.41382299999999983,
+            "roi": -0.01633726806158704,
+            "stake": 25.330000000000005,
+            "win_rate": 0.8620689655172413
+          }
+        }
+      }
+    ],
+    "gate": false,
+    "gate_reasons": [
+      "validation: cluster bootstrap CI lower bound is not positive",
+      "test: cluster bootstrap CI lower bound is not positive"
+    ],
+    "selected_description": "Exclude entries in the final 15 minutes before listed event end.",
+    "selected_filters": {
+      "min_hours_to_end": 0.25
+    },
+    "selected_rule_id": "exclude_last_15m",
+    "test": {
+      "avg_entry_ask": 0.8727586206896553,
+      "avg_spread": 0.011896551724137942,
+      "bets": 58,
+      "ci_hi": 0.1024056940573929,
+      "ci_lo": -0.07552670546302616,
+      "markets": 58,
+      "pnl": 1.2069329999999998,
+      "roi": 0.023843006716712755,
+      "stake": 50.620000000000005,
+      "win_rate": 0.896551724137931
+    },
+    "validation": {
+      "avg_entry_ask": 0.8747945205479452,
+      "avg_spread": 0.012191780821917818,
+      "bets": 73,
+      "ci_hi": 0.09304817444775183,
+      "ci_lo": -0.0774878212246621,
+      "markets": 73,
+      "pnl": 0.9265349999999996,
+      "roi": 0.014508847478859999,
+      "stake": 63.86,
+      "win_rate": 0.8904109589041096
+    }
+  },
+  "outputs": {
+    "json": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/execution_training/favorite_longshot_rule_validation_latest.json",
+    "report": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/favorite_longshot_rule_validation_latest.md"
+  },
+  "overall_gate": false,
+  "temporal": {
+    "candidates": [
+      {
+        "all": {
+          "avg_entry_ask": 0.8755984555984556,
+          "avg_spread": 0.01193050193050194,
+          "bets": 259,
+          "ci_hi": 0.05523162057983465,
+          "ci_lo": -0.029829093475161144,
+          "markets": 259,
+          "pnl": 3.464542999999999,
+          "roi": 0.015277109974424549,
+          "stake": 226.78,
+          "win_rate": 0.8918918918918919
+        },
+        "description": "All executable high-probability favorite/longshot entries.",
+        "filters": {},
+        "rule_id": "all_settled",
+        "splits": {
+          "test": {
+            "avg_entry_ask": 0.8744615384615385,
+            "avg_spread": 0.011076923076923087,
+            "bets": 65,
+            "ci_hi": 0.07049836835208291,
+            "ci_lo": -0.10579006002824204,
+            "markets": 65,
+            "pnl": -1.0246619999999997,
+            "roi": -0.018027128782547495,
+            "stake": 56.84,
+            "win_rate": 0.8615384615384616
+          },
+          "train": {
+            "avg_entry_ask": 0.8769767441860464,
+            "avg_spread": 0.011705426356589157,
+            "bets": 129,
+            "ci_hi": 0.07531834000748198,
+            "ci_lo": -0.05737590358058102,
+            "markets": 129,
+            "pnl": 1.497768999999999,
+            "roi": 0.013239361796163697,
+            "stake": 113.13,
+            "win_rate": 0.8914728682170543
+          },
+          "validation": {
+            "avg_entry_ask": 0.8739999999999999,
+            "avg_spread": 0.01323076923076924,
+            "bets": 65,
+            "ci_hi": 0.12391451932124753,
+            "ci_lo": -0.033075534700985385,
+            "markets": 65,
+            "pnl": 2.991436,
+            "roi": 0.052656856187290976,
+            "stake": 56.809999999999995,
+            "win_rate": 0.9230769230769231
+          }
+        }
+      },
+      {
+        "all": {
+          "avg_entry_ask": 0.8753149606299212,
+          "avg_spread": 0.011929133858267727,
+          "bets": 254,
+          "ci_hi": 0.06474773740749548,
+          "ci_lo": -0.023552205974978188,
+          "markets": 254,
+          "pnl": 4.923584999999999,
+          "roi": 0.02214539198488733,
+          "stake": 222.32999999999998,
+          "win_rate": 0.8976377952755905
+        },
+        "description": "Exclude entries in the final 15 minutes before listed event end.",
+        "filters": {
+          "min_hours_to_end": 0.25
+        },
+        "rule_id": "exclude_last_15m",
+        "splits": {
+          "test": {
+            "avg_entry_ask": 0.8744615384615385,
+            "avg_spread": 0.011076923076923087,
+            "bets": 65,
+            "ci_hi": 0.07049836835208291,
+            "ci_lo": -0.10579006002824204,
+            "markets": 65,
+            "pnl": -1.0246619999999997,
+            "roi": -0.018027128782547495,
+            "stake": 56.84,
+            "win_rate": 0.8615384615384616
+          },
+          "train": {
+            "avg_entry_ask": 0.8765599999999999,
+            "avg_spread": 0.01168000000000001,
+            "bets": 125,
+            "ci_hi": 0.08250164526442887,
+            "ci_lo": -0.03476524643705463,
+            "markets": 125,
+            "pnl": 3.0638739999999993,
+            "roi": 0.027962708770648895,
+            "stake": 109.57,
+            "win_rate": 0.904
+          },
+          "validation": {
+            "avg_entry_ask": 0.87375,
+            "avg_spread": 0.01328125000000001,
+            "bets": 64,
+            "ci_hi": 0.11871650370118993,
+            "ci_lo": -0.02039937678699071,
+            "markets": 64,
+            "pnl": 2.884373,
+            "roi": 0.051580346924177393,
+            "stake": 55.92,
+            "win_rate": 0.921875
+          }
+        }
+      },
+      {
+        "all": {
+          "avg_entry_ask": 0.8747058823529412,
+          "avg_spread": 0.012217194570135757,
+          "bets": 221,
+          "ci_hi": 0.06610183209108897,
+          "ci_lo": -0.026465574405096646,
+          "markets": 221,
+          "pnl": 4.039023999999998,
+          "roi": 0.020894025140965278,
+          "stake": 193.31,
+          "win_rate": 0.8959276018099548
+        },
+        "description": "Exclude entries in the final hour before listed event end.",
+        "filters": {
+          "min_hours_to_end": 1.0
+        },
+        "rule_id": "exclude_last_1h",
+        "splits": {
+          "test": {
+            "avg_entry_ask": 0.8736507936507937,
+            "avg_spread": 0.01111111111111112,
+            "bets": 63,
+            "ci_hi": 0.06936145071831243,
+            "ci_lo": -0.11560753673174566,
+            "markets": 63,
+            "pnl": -1.2192619999999996,
+            "roi": -0.02215228924418604,
+            "stake": 55.04,
+            "win_rate": 0.8571428571428571
+          },
+          "train": {
+            "avg_entry_ask": 0.8756862745098039,
+            "avg_spread": 0.012058823529411775,
+            "bets": 102,
+            "ci_hi": 0.09336340552943811,
+            "ci_lo": -0.03001415326158206,
+            "markets": 102,
+            "pnl": 3.3770779999999987,
+            "roi": 0.03780875503806537,
+            "stake": 89.32,
+            "win_rate": 0.9117647058823529
+          },
+          "validation": {
+            "avg_entry_ask": 0.8741071428571429,
+            "avg_spread": 0.01375000000000001,
+            "bets": 56,
+            "ci_hi": 0.12046691253626146,
+            "ci_lo": -0.04723925820188273,
+            "markets": 56,
+            "pnl": 1.881208,
+            "roi": 0.03843121552604698,
+            "stake": 48.95,
+            "win_rate": 0.9107142857142857
+          }
+        }
+      },
+      {
+        "all": {
+          "avg_entry_ask": 0.8756854838709677,
+          "avg_spread": 0.011370967741935493,
+          "bets": 248,
+          "ci_hi": 0.0586631461974629,
+          "ci_lo": -0.02601356776336711,
+          "markets": 248,
+          "pnl": 4.105232999999998,
+          "roi": 0.018903315375051796,
+          "stake": 217.17,
+          "win_rate": 0.8951612903225806
+        },
+        "description": "Enter from 15 minutes to 24 hours before listed event end.",
+        "filters": {
+          "max_hours_to_end": 24.0,
+          "min_hours_to_end": 0.25
+        },
+        "rule_id": "entry_15m_to_24h",
+        "splits": {
+          "test": {
+            "avg_entry_ask": 0.8744615384615385,
+            "avg_spread": 0.011076923076923087,
+            "bets": 65,
+            "ci_hi": 0.07049836835208291,
+            "ci_lo": -0.10579006002824204,
+            "markets": 65,
+            "pnl": -1.0246619999999997,
+            "roi": -0.018027128782547495,
+            "stake": 56.84,
+            "win_rate": 0.8615384615384616
+          },
+          "train": {
+            "avg_entry_ask": 0.8765599999999999,
+            "avg_spread": 0.01168000000000001,
+            "bets": 125,
+            "ci_hi": 0.08250164526442887,
+            "ci_lo": -0.03476524643705463,
+            "markets": 125,
+            "pnl": 3.0638739999999993,
+            "roi": 0.027962708770648895,
+            "stake": 109.57,
+            "win_rate": 0.904
+          },
+          "validation": {
+            "avg_entry_ask": 0.8751724137931035,
+            "avg_spread": 0.0110344827586207,
+            "bets": 58,
+            "ci_hi": 0.11754777998183313,
+            "ci_lo": -0.04207688982852633,
+            "markets": 58,
+            "pnl": 2.066021,
+            "roi": 0.040701753349093775,
+            "stake": 50.760000000000005,
+            "win_rate": 0.9137931034482759
+          }
+        }
+      },
+      {
+        "all": {
+          "avg_entry_ask": 0.8751162790697675,
+          "avg_spread": 0.011581395348837219,
+          "bets": 215,
+          "ci_hi": 0.0651647258128182,
+          "ci_lo": -0.03122616986705088,
+          "markets": 215,
+          "pnl": 3.2206719999999978,
+          "roi": 0.017117576401807055,
+          "stake": 188.15,
+          "win_rate": 0.8930232558139535
+        },
+        "description": "Enter from 1 hour to 24 hours before listed event end.",
+        "filters": {
+          "max_hours_to_end": 24.0,
+          "min_hours_to_end": 1.0
+        },
+        "rule_id": "entry_1h_to_24h",
+        "splits": {
+          "test": {
+            "avg_entry_ask": 0.8736507936507937,
+            "avg_spread": 0.01111111111111112,
+            "bets": 63,
+            "ci_hi": 0.06936145071831243,
+            "ci_lo": -0.11560753673174566,
+            "markets": 63,
+            "pnl": -1.2192619999999996,
+            "roi": -0.02215228924418604,
+            "stake": 55.04,
+            "win_rate": 0.8571428571428571
+          },
+          "train": {
+            "avg_entry_ask": 0.8756862745098039,
+            "avg_spread": 0.012058823529411775,
+            "bets": 102,
+            "ci_hi": 0.09336340552943811,
+            "ci_lo": -0.03001415326158206,
+            "markets": 102,
+            "pnl": 3.3770779999999987,
+            "roi": 0.03780875503806537,
+            "stake": 89.32,
+            "win_rate": 0.9117647058823529
+          },
+          "validation": {
+            "avg_entry_ask": 0.8757999999999998,
+            "avg_spread": 0.01120000000000001,
+            "bets": 50,
+            "ci_hi": 0.11559157701620026,
+            "ci_lo": -0.08993543768545995,
+            "markets": 50,
+            "pnl": 1.0628560000000002,
+            "roi": 0.02427166019639188,
+            "stake": 43.78999999999999,
+            "win_rate": 0.9
+          }
+        }
+      },
+      {
+        "all": {
+          "avg_entry_ask": 0.8751704545454545,
+          "avg_spread": 0.011704545454545466,
+          "bets": 176,
+          "ci_hi": 0.06938353845220857,
+          "ci_lo": -0.04328653385407285,
+          "markets": 176,
+          "pnl": 2.4557579999999986,
+          "roi": 0.015943374667272598,
+          "stake": 154.03,
+          "win_rate": 0.8920454545454546
+        },
+        "description": "Enter from 12 to 24 hours before listed event end.",
+        "filters": {
+          "max_hours_to_end": 24.0,
+          "min_hours_to_end": 12.0
+        },
+        "rule_id": "entry_12h_to_24h",
+        "splits": {
+          "test": {
+            "avg_entry_ask": 0.8738181818181816,
+            "avg_spread": 0.010909090909090919,
+            "bets": 55,
+            "ci_hi": 0.09653470950396599,
+            "ci_lo": -0.10964082964818139,
+            "markets": 55,
+            "pnl": -0.21918299999999985,
+            "roi": -0.004560611735330834,
+            "stake": 48.05999999999999,
+            "win_rate": 0.8727272727272727
+          },
+          "train": {
+            "avg_entry_ask": 0.8756976744186045,
+            "avg_spread": 0.012209302325581406,
+            "bets": 86,
+            "ci_hi": 0.09839269662153084,
+            "ci_lo": -0.03623493163937179,
+            "markets": 86,
+            "pnl": 2.436035,
+            "roi": 0.03234676669764972,
+            "stake": 75.30999999999999,
+            "win_rate": 0.9069767441860465
+          },
+          "validation": {
+            "avg_entry_ask": 0.876,
+            "avg_spread": 0.011714285714285724,
+            "bets": 35,
+            "ci_hi": 0.10957755730189915,
+            "ci_lo": -0.12049286988491048,
+            "markets": 35,
+            "pnl": 0.23890600000000023,
+            "roi": 0.00779210697977822,
+            "stake": 30.66,
+            "win_rate": 0.8857142857142857
+          }
+        }
+      },
+      {
+        "all": {
+          "avg_entry_ask": 0.8765137614678898,
+          "avg_spread": 0.010000000000000009,
+          "bets": 218,
+          "ci_hi": 0.0465132733719284,
+          "ci_lo": -0.04830848226065819,
+          "markets": 218,
+          "pnl": 0.2963809999999991,
+          "roi": 0.0015510833158886286,
+          "stake": 191.07999999999998,
+          "win_rate": 0.8807339449541285
+        },
+        "description": "Only enter when the top-of-book spread is one cent or tighter.",
+        "filters": {
+          "max_spread": 0.0100001
+        },
+        "rule_id": "spread_1c_or_better",
+        "splits": {
+          "test": {
+            "avg_entry_ask": 0.8755172413793104,
+            "avg_spread": 0.010000000000000009,
+            "bets": 58,
+            "ci_hi": 0.06229786318406391,
+            "ci_lo": -0.13468694671255757,
+            "markets": 58,
+            "pnl": -1.940266,
+            "roi": -0.03820925561244584,
+            "stake": 50.78,
+            "win_rate": 0.8448275862068966
+          },
+          "train": {
+            "avg_entry_ask": 0.8777570093457944,
+            "avg_spread": 0.010000000000000009,
+            "bets": 107,
+            "ci_hi": 0.0654465569143198,
+            "ci_lo": -0.07725245715775388,
+            "markets": 107,
+            "pnl": -0.22244800000000012,
+            "roi": -0.0023684838160136297,
+            "stake": 93.92,
+            "win_rate": 0.8785046728971962
+          },
+          "validation": {
+            "avg_entry_ask": 0.8750943396226413,
+            "avg_spread": 0.010000000000000009,
+            "bets": 53,
+            "ci_hi": 0.12117996596409052,
+            "ci_lo": -0.035132444010709286,
+            "markets": 53,
+            "pnl": 2.459095,
+            "roi": 0.053020590771884445,
+            "stake": 46.37999999999999,
+            "win_rate": 0.9245283018867925
+          }
+        }
+      },
+      {
+        "all": {
+          "avg_entry_ask": 0.8762616822429908,
+          "avg_spread": 0.010000000000000009,
+          "bets": 214,
+          "ci_hi": 0.054724050261942304,
+          "ci_lo": -0.04345596556054319,
+          "markets": 214,
+          "pnl": 1.8624859999999999,
+          "roi": 0.009932199232081908,
+          "stake": 187.52000000000004,
+          "win_rate": 0.8878504672897196
+        },
+        "description": "One-cent spread or tighter, 15 minutes to 24 hours before listed event end.",
+        "filters": {
+          "max_hours_to_end": 24.0,
+          "max_spread": 0.0100001,
+          "min_hours_to_end": 0.25
+        },
+        "rule_id": "spread_1c_15m_to_24h",
+        "splits": {
+          "test": {
+            "avg_entry_ask": 0.8755172413793104,
+            "avg_spread": 0.010000000000000009,
+            "bets": 58,
+            "ci_hi": 0.06229786318406391,
+            "ci_lo": -0.13468694671255757,
+            "markets": 58,
+            "pnl": -1.940266,
+            "roi": -0.03820925561244584,
+            "stake": 50.78,
+            "win_rate": 0.8448275862068966
+          },
+          "train": {
+            "avg_entry_ask": 0.8774038461538461,
+            "avg_spread": 0.010000000000000009,
+            "bets": 104,
+            "ci_hi": 0.07996518910805242,
+            "ci_lo": -0.059518973498644615,
+            "markets": 104,
+            "pnl": 1.4507199999999996,
+            "roi": 0.01589830136986301,
+            "stake": 91.25,
+            "win_rate": 0.8942307692307693
+          },
+          "validation": {
+            "avg_entry_ask": 0.8748076923076922,
+            "avg_spread": 0.010000000000000009,
+            "bets": 52,
+            "ci_hi": 0.12290649397975517,
+            "ci_lo": -0.03761480596648552,
+            "markets": 52,
+            "pnl": 2.3520320000000003,
+            "roi": 0.05170437458782151,
+            "stake": 45.489999999999995,
+            "win_rate": 0.9230769230769231
+          }
+        }
+      },
+      {
+        "all": {
+          "avg_entry_ask": 0.8713777777777778,
+          "avg_spread": 0.012088888888888899,
+          "bets": 225,
+          "ci_hi": 0.06011013145925777,
+          "ci_lo": -0.03802844822705836,
+          "markets": 225,
+          "pnl": 3.265564,
+          "roi": 0.016655942058553502,
+          "stake": 196.06,
+          "win_rate": 0.8888888888888888
+        },
+        "description": "Buy high-probability tokens priced from 85c to 89c inclusive.",
+        "filters": {
+          "max_ask": 0.89,
+          "min_ask": 0.85
+        },
+        "rule_id": "ask_85_89",
+        "splits": {
+          "test": {
+            "avg_entry_ask": 0.8713793103448275,
+            "avg_spread": 0.011206896551724148,
+            "bets": 58,
+            "ci_hi": 0.06621374686848144,
+            "ci_lo": -0.15439538729714514,
+            "markets": 58,
+            "pnl": -1.7057620000000007,
+            "roi": -0.033750732093391383,
+            "stake": 50.54,
+            "win_rate": 0.8448275862068966
+          },
+          "train": {
+            "avg_entry_ask": 0.8727027027027027,
+            "avg_spread": 0.011891891891891902,
+            "bets": 111,
+            "ci_hi": 0.08158968623340004,
+            "ci_lo": -0.049411560485702645,
+            "markets": 111,
+            "pnl": 1.7995050000000001,
+            "roi": 0.01857649427067204,
+            "stake": 96.86999999999999,
+            "win_rate": 0.8918918918918919
+          },
+          "validation": {
+            "avg_entry_ask": 0.86875,
+            "avg_spread": 0.013392857142857153,
+            "bets": 56,
+            "ci_hi": 0.12893571009268798,
+            "ci_lo": -0.01705477541284986,
+            "markets": 56,
+            "pnl": 3.1718210000000004,
+            "roi": 0.06519673175745119,
+            "stake": 48.65,
+            "win_rate": 0.9285714285714286
+          }
+        }
+      },
+      {
+        "all": {
+          "avg_entry_ask": 0.8779069767441862,
+          "avg_spread": 0.012325581395348848,
+          "bets": 86,
+          "ci_hi": 0.09694456943853867,
+          "ci_lo": -0.05090816185381628,
+          "markets": 86,
+          "pnl": 2.247772,
+          "roi": 0.029771814569536415,
+          "stake": 75.50000000000001,
+          "win_rate": 0.9069767441860465
+        },
+        "description": "NBA markets only.",
+        "filters": {
+          "sports": [
+            "basketball_nba"
+          ]
+        },
+        "rule_id": "nba_only",
+        "splits": {
+          "test": {
+            "avg_entry_ask": 0.8814285714285715,
+            "avg_spread": 0.010000000000000009,
+            "bets": 7,
+            "ci_hi": 0.1502158282496289,
+            "ci_lo": 0.11504162140575076,
+            "markets": 7,
+            "pnl": 0.808133,
+            "roi": 0.13097779578606158,
+            "stake": 6.17,
+            "win_rate": 1.0
+          },
+          "train": {
+            "avg_entry_ask": 0.8790243902439024,
+            "avg_spread": 0.01097560975609757,
+            "bets": 41,
+            "ci_hi": 0.07751077328159646,
+            "ci_lo": -0.15767264764115124,
+            "markets": 41,
+            "pnl": -1.152404,
+            "roi": -0.0319756936736959,
+            "stake": 36.04,
+            "win_rate": 0.8536585365853658
+          },
+          "validation": {
+            "avg_entry_ask": 0.8760526315789473,
+            "avg_spread": 0.014210526315789484,
+            "bets": 38,
+            "ci_hi": 0.14318180349286733,
+            "ci_lo": -0.015502196741310034,
+            "markets": 38,
+            "pnl": 2.5920430000000003,
+            "roi": 0.07786251126464405,
+            "stake": 33.29,
+            "win_rate": 0.9473684210526315
+          }
+        }
+      },
+      {
+        "all": {
+          "avg_entry_ask": 0.8771604938271604,
+          "avg_spread": 0.01234567901234569,
+          "bets": 81,
+          "ci_hi": 0.10830712311095353,
+          "ci_lo": -0.01729636514084508,
+          "markets": 81,
+          "pnl": 3.7068139999999996,
+          "roi": 0.052171907107670654,
+          "stake": 71.05,
+          "win_rate": 0.9259259259259259
+        },
+        "description": "NBA markets, excluding the final 15 minutes before listed event end.",
+        "filters": {
+          "min_hours_to_end": 0.25,
+          "sports": [
+            "basketball_nba"
+          ]
+        },
+        "rule_id": "nba_exclude_last_15m",
+        "splits": {
+          "test": {
+            "avg_entry_ask": 0.8814285714285715,
+            "avg_spread": 0.010000000000000009,
+            "bets": 7,
+            "ci_hi": 0.1502158282496289,
+            "ci_lo": 0.11504162140575076,
+            "markets": 7,
+            "pnl": 0.808133,
+            "roi": 0.13097779578606158,
+            "stake": 6.17,
+            "win_rate": 1.0
+          },
+          "train": {
+            "avg_entry_ask": 0.8778378378378378,
+            "avg_spread": 0.01081081081081082,
+            "bets": 37,
+            "ci_hi": 0.10834102103381935,
+            "ci_lo": -0.09782050788215843,
+            "markets": 37,
+            "pnl": 0.4137009999999999,
+            "roi": 0.012737099753694579,
+            "stake": 32.48,
+            "win_rate": 0.8918918918918919
+          },
+          "validation": {
+            "avg_entry_ask": 0.8756756756756756,
+            "avg_spread": 0.014324324324324334,
+            "bets": 37,
+            "ci_hi": 0.14518682608695652,
+            "ci_lo": -0.022167776555733498,
+            "markets": 37,
+            "pnl": 2.48498,
+            "roi": 0.07669691358024693,
+            "stake": 32.4,
+            "win_rate": 0.9459459459459459
+          }
+        }
+      },
+      {
+        "all": {
+          "avg_entry_ask": 0.874625,
+          "avg_spread": 0.01175000000000001,
+          "bets": 160,
+          "ci_hi": 0.05995806024886108,
+          "ci_lo": -0.058201447891876756,
+          "markets": 160,
+          "pnl": 0.5967279999999999,
+          "roi": 0.004264170358725167,
+          "stake": 139.94,
+          "win_rate": 0.88125
+        },
+        "description": "Soccer markets only.",
+        "filters": {
+          "sports": [
+            "soccer"
+          ]
+        },
+        "rule_id": "soccer_only",
+        "splits": {
+          "test": {
+            "avg_entry_ask": 0.8744444444444442,
+            "avg_spread": 0.01111111111111112,
+            "bets": 54,
+            "ci_hi": 0.07589260223347297,
+            "ci_lo": -0.13597078392743814,
+            "markets": 54,
+            "pnl": -1.371965,
+            "roi": -0.029054743752647192,
+            "stake": 47.21999999999999,
+            "win_rate": 0.8518518518518519
+          },
+          "train": {
+            "avg_entry_ask": 0.8759493670886075,
+            "avg_spread": 0.012151898734177225,
+            "bets": 79,
+            "ci_hi": 0.09548864863063665,
+            "ci_lo": -0.05296894094041191,
+            "markets": 79,
+            "pnl": 1.5692999999999995,
+            "roi": 0.02267774566473988,
+            "stake": 69.19999999999999,
+            "win_rate": 0.8987341772151899
+          },
+          "validation": {
+            "avg_entry_ask": 0.8711111111111111,
+            "avg_spread": 0.011851851851851862,
+            "bets": 27,
+            "ci_hi": 0.14102186373285355,
+            "ci_lo": -0.11310670076158087,
+            "markets": 27,
+            "pnl": 0.39939299999999994,
+            "roi": 0.016980994897959182,
+            "stake": 23.52,
+            "win_rate": 0.8888888888888888
+          }
+        }
+      },
+      {
+        "all": {
+          "avg_entry_ask": 0.8745751633986928,
+          "avg_spread": 0.011764705882352951,
+          "bets": 153,
+          "ci_hi": 0.05844385606600909,
+          "ci_lo": -0.054752380888560874,
+          "markets": 153,
+          "pnl": 0.746375,
+          "roi": 0.005577871608997833,
+          "stake": 133.81,
+          "win_rate": 0.8823529411764706
+        },
+        "description": "Soccer markets from 12 to 24 hours before listed event end.",
+        "filters": {
+          "max_hours_to_end": 24.0,
+          "min_hours_to_end": 12.0,
+          "sports": [
+            "soccer"
+          ]
+        },
+        "rule_id": "soccer_12h_to_24h",
+        "splits": {
+          "test": {
+            "avg_entry_ask": 0.8743137254901961,
+            "avg_spread": 0.010980392156862756,
+            "bets": 51,
+            "ci_hi": 0.09661112458203631,
+            "ci_lo": -0.11839277974693012,
+            "markets": 51,
+            "pnl": -0.7354159999999997,
+            "roi": -0.016492845929580616,
+            "stake": 44.59,
+            "win_rate": 0.8627450980392157
+          },
+          "train": {
+            "avg_entry_ask": 0.8757142857142857,
+            "avg_spread": 0.01220779220779222,
+            "bets": 77,
+            "ci_hi": 0.09308580934271062,
+            "ci_lo": -0.05696050697555855,
+            "markets": 77,
+            "pnl": 1.3454049999999997,
+            "roi": 0.019952617529289632,
+            "stake": 67.42999999999999,
+            "win_rate": 0.8961038961038961
+          },
+          "validation": {
+            "avg_entry_ask": 0.8715999999999999,
+            "avg_spread": 0.01200000000000001,
+            "bets": 25,
+            "ci_hi": 0.13990626796265426,
+            "ci_lo": -0.13445750956167127,
+            "markets": 25,
+            "pnl": 0.13638600000000017,
+            "roi": 0.00625910968334099,
+            "stake": 21.79,
+            "win_rate": 0.88
+          }
+        }
+      },
+      {
+        "all": {
+          "avg_entry_ask": 0.874625,
+          "avg_spread": 0.01175000000000001,
+          "bets": 160,
+          "ci_hi": 0.05995806024886108,
+          "ci_lo": -0.058201447891876756,
+          "markets": 160,
+          "pnl": 0.5967279999999999,
+          "roi": 0.004264170358725167,
+          "stake": 139.94,
+          "win_rate": 0.88125
+        },
+        "description": "Buy NO-side high-probability token against 10c-15c longshots.",
+        "filters": {
+          "buckets": [
+            "longshot_10_15_buy_no_token"
+          ]
+        },
+        "rule_id": "longshot_no_token",
+        "splits": {
+          "test": {
+            "avg_entry_ask": 0.8744444444444442,
+            "avg_spread": 0.01111111111111112,
+            "bets": 54,
+            "ci_hi": 0.07589260223347297,
+            "ci_lo": -0.13597078392743814,
+            "markets": 54,
+            "pnl": -1.371965,
+            "roi": -0.029054743752647192,
+            "stake": 47.21999999999999,
+            "win_rate": 0.8518518518518519
+          },
+          "train": {
+            "avg_entry_ask": 0.8759493670886075,
+            "avg_spread": 0.012151898734177225,
+            "bets": 79,
+            "ci_hi": 0.09548864863063665,
+            "ci_lo": -0.05296894094041191,
+            "markets": 79,
+            "pnl": 1.5692999999999995,
+            "roi": 0.02267774566473988,
+            "stake": 69.19999999999999,
+            "win_rate": 0.8987341772151899
+          },
+          "validation": {
+            "avg_entry_ask": 0.8711111111111111,
+            "avg_spread": 0.011851851851851862,
+            "bets": 27,
+            "ci_hi": 0.14102186373285355,
+            "ci_lo": -0.11310670076158087,
+            "markets": 27,
+            "pnl": 0.39939299999999994,
+            "roi": 0.016980994897959182,
+            "stake": 23.52,
+            "win_rate": 0.8888888888888888
+          }
+        }
+      },
+      {
+        "all": {
+          "avg_entry_ask": 0.8763043478260869,
+          "avg_spread": 0.012282608695652186,
+          "bets": 92,
+          "ci_hi": 0.08998346185402166,
+          "ci_lo": -0.045688573819952095,
+          "markets": 92,
+          "pnl": 2.1085029999999993,
+          "roi": 0.02615359712230215,
+          "stake": 80.61999999999999,
+          "win_rate": 0.9021739130434783
+        },
+        "description": "Markets that matched both favorite-buy and longshot-fade buckets.",
+        "filters": {
+          "buckets": [
+            "high_prob_token_in_favorite_or_longshot_market"
+          ]
+        },
+        "rule_id": "overlap_bucket",
+        "splits": {
+          "test": {
+            "avg_entry_ask": 0.8745454545454545,
+            "avg_spread": 0.010909090909090919,
+            "bets": 11,
+            "ci_hi": 0.14907008385744233,
+            "ci_lo": -0.1694129322916667,
+            "markets": 11,
+            "pnl": 0.34730299999999986,
+            "roi": 0.03610218295218294,
+            "stake": 9.62,
+            "win_rate": 0.9090909090909091
+          },
+          "train": {
+            "avg_entry_ask": 0.8780434782608693,
+            "avg_spread": 0.010869565217391314,
+            "bets": 46,
+            "ci_hi": 0.0893600424370184,
+            "ci_lo": -0.13785052593424324,
+            "markets": 46,
+            "pnl": -0.5193930000000001,
+            "roi": -0.012859445407279036,
+            "stake": 40.389999999999986,
+            "win_rate": 0.8695652173913043
+          },
+          "validation": {
+            "avg_entry_ask": 0.8745714285714287,
+            "avg_spread": 0.01457142857142858,
+            "bets": 35,
+            "ci_hi": 0.14461978644068818,
+            "ci_lo": -0.026697326121576746,
+            "markets": 35,
+            "pnl": 2.280593,
+            "roi": 0.07450483502123488,
+            "stake": 30.610000000000003,
+            "win_rate": 0.9428571428571428
+          }
+        }
+      }
+    ],
+    "gate": false,
+    "gate_reasons": [
+      "validation: cluster bootstrap CI lower bound is not positive",
+      "test: need >= 30 bets",
+      "test: need >= 30 markets"
+    ],
+    "selected_description": "NBA markets only.",
+    "selected_filters": {
+      "sports": [
+        "basketball_nba"
+      ]
+    },
+    "selected_rule_id": "nba_only",
+    "test": {
+      "avg_entry_ask": 0.8814285714285715,
+      "avg_spread": 0.010000000000000009,
+      "bets": 7,
+      "ci_hi": 0.1502158282496289,
+      "ci_lo": 0.11504162140575076,
+      "markets": 7,
+      "pnl": 0.808133,
+      "roi": 0.13097779578606158,
+      "stake": 6.17,
+      "win_rate": 1.0
+    },
+    "validation": {
+      "avg_entry_ask": 0.8760526315789473,
+      "avg_spread": 0.014210526315789484,
+      "bets": 38,
+      "ci_hi": 0.14318180349286733,
+      "ci_lo": -0.015502196741310034,
+      "markets": 38,
+      "pnl": 2.5920430000000003,
+      "roi": 0.07786251126464405,
+      "stake": 33.29,
+      "win_rate": 0.9473684210526315
+    }
+  },
+  "verdict": "HOLD: favorite-longshot rule not yet proven out of sample"
+}
