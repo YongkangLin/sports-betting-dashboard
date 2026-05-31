@@ -1,28 +1,28 @@
 # Live Execution Status
 
-- Generated: 2026-05-31T00:50:44.425145+00:00
+- Generated: 2026-05-31T01:08:46.222926+00:00
 - Capital enabled: False
 - Live capital gate: False
 - Gate reasons: queue/fill model not validated on authenticated fills, need authenticated Polymarket fill/order lifecycle rows, collector not healthy, Telonex convergence research gate failed, execution-adjusted backtest replay failed: no selected historical replay trades, no predeclared executable taker strategy bucket cleared validation, Telonex microstructure bucket audit failed, Telonex model monitor hold, live paper-fill LEV/price-hold quality gate failed, Telonex market-disjoint validation gate failed, Telonex temporal validation gate failed, favorite-longshot executable Telonex backtest gate failed, favorite-longshot out-of-sample rule validation failed
 - Gate warnings: cross-venue Kalshi comparison unavailable: no verified equivalent markets, predeclared non-ML Telonex strategy buckets failed, live game-state feed too thin for event-regime/scoreline/garbage-time features, trade-flow feature family has no confirmed economic permutation impact yet, Odds feature family has no confirmed economic permutation impact in latest audit, Odds API fusion not yet proven on held-out Telonex test, live strategy LEV evidence incomplete, favorite-longshot bucket has raw edge but not robust event-cluster CI yet
-- Collector: degraded loop 542
+- Collector: degraded loop 545
 - Latest executable books: 488
-- WebSocket events: 150973 {'price_change': 137092, 'best_bid_ask': 7779, 'book': 3439, 'new_market': 1344, 'last_trade_price': 1314, 'tick_size_change': 4, 'market_resolved': 1}
-- Paper orders/fills: 3138 / 895
-- Live paper-fill LEV gate/alpha 3s rows/probe 3s rows/avg/favorable/max lag: False / 13 / 201 / -0.015682615384615375 / 0.0 / 5.0
+- WebSocket events: 150974 {'price_change': 137092, 'best_bid_ask': 7779, 'book': 3439, 'new_market': 1345, 'last_trade_price': 1314, 'tick_size_change': 4, 'market_resolved': 1}
+- Paper orders/fills: 3207 / 904
+- Live paper-fill LEV gate/alpha 3s rows/probe 3s rows/avg/favorable/max lag: False / 13 / 210 / -0.015682615384615375 / 0.0 / 5.0
 - Live strategy health/quarantine: False / []
 - Live LEV drift alerts/max/latest50: 0 / 0.007296857142857149 / -0.015682615384615375
 - Large trade flow trades/wallet identity: 59 / False
-- Lifecycle rows: 7171 {'created': 3138, 'resting': 1971, 'rejected': 1167, 'filled': 895}
-- Lifecycle source rows: {'paper': 7171}
+- Lifecycle rows: 7318 {'created': 3207, 'resting': 2016, 'rejected': 1191, 'filled': 904}
+- Lifecycle source rows: {'paper': 7318}
 - Authenticated lifecycle/fill rows: 0 / 0
-- Execution rows: 285
+- Execution rows: 291
 - Telonex markets/assets: 389219 / 778438
 - Telonex quote/depth/trade rows: 7183240 / 105207074 / 249997
 - Telonex Odds API features rows/coverage: 1414160 / 0.48956842190899696
 - Historical CLOB quote/depth rows: 7183240 / 105207074
-- Queue rows: 2231
-- Queue fill model gate/auth/test AUC/Brier: True / False / 0.9565217391304348 / 0.022775815936313136
+- Queue rows: 2275
+- Queue fill model gate/auth/test AUC/Brier: True / False / 0.9510204081632653 / 0.024776388999858925
 - Telonex execution labels/markets/tokens: 2888585 / 216 / 429
 - Event/market inventory total events/markets; active events/markets: 108 / 216; 89 / 109
 - Strategy signal diagnostics raw maker gate/heldout gate/SHAP identity risk: False / True / True

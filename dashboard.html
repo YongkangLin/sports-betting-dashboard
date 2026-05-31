@@ -166,6 +166,15 @@
     grid-template-columns: repeat(3, minmax(220px, 1fr));
   }
 
+  .summary-stack {
+    display: grid;
+    gap: 16px;
+  }
+
+  .summary-two {
+    grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
+  }
+
   .plain-card {
     min-width: 0;
     padding: 16px;
@@ -553,6 +562,7 @@
 
     .topbar,
     .two,
+    .summary-two,
     .replay-layout,
     .metrics,
     .plain-cards,
@@ -608,38 +618,22 @@
     <section class="band">
       <div class="section-head">
         <div>
-          <h2>Start Here</h2>
-          <p>The three questions that matter before reading any ML metric.</p>
-        </div>
-      </div>
-      <div class="grid plain-cards" id="plain-grid"></div>
-    </section>
-
-    <section class="band">
-      <div class="section-head">
-        <div>
-          <h2>Bottom Line</h2>
-          <p>What this means in plain English.</p>
+          <h2>Top Summary</h2>
+          <p>What matters for a trader: strategy, performance, PnL, confidence, and whether live capital is allowed.</p>
         </div>
         <span class="pill bad" id="capital-pill">Capital off</span>
       </div>
-      <div class="grid two">
-        <div class="callout" id="verdict-copy"></div>
-        <div>
-          <h3>Primary blockers</h3>
-          <ul class="copy-list" id="gate-reasons"></ul>
+      <div class="summary-stack">
+        <div class="grid plain-cards" id="plain-grid"></div>
+        <div class="grid summary-two">
+          <div class="callout" id="verdict-copy"></div>
+          <div>
+            <h3>Why live money is off</h3>
+            <ul class="copy-list" id="gate-reasons"></ul>
+          </div>
         </div>
+        <div class="grid metrics" id="metric-grid"></div>
       </div>
-    </section>
-
-    <section class="band">
-      <div class="section-head">
-        <div>
-          <h2>Scoreboard</h2>
-          <p>Strategy, PnL, execution, and validation stats only. This is the page's trading cockpit.</p>
-        </div>
-      </div>
-      <div class="grid metrics" id="metric-grid"></div>
     </section>
 
     <section class="band">
@@ -660,8 +654,8 @@
         <div class="replay-chart-shell">
           <svg class="replay-chart" id="replay-chart" role="img" aria-label="Backtest event price path"></svg>
           <div class="chart-legend">
-            <span><i class="legend-dot" style="background:#1f77b4"></i>midpoint</span>
-            <span><i class="legend-dot" style="background:#9cc7e8"></i>bid/ask</span>
+            <span><i class="legend-dot" style="background:#1f77b4"></i>selected token</span>
+            <span><i class="legend-dot" style="background:#f59e0b"></i>other side</span>
             <span><i class="legend-dot" style="background:#067647"></i>buy</span>
             <span><i class="legend-dot" style="background:#b42318"></i>sell/mark</span>
           </div>
@@ -687,50 +681,6 @@
         </table>
       </div>
       <p class="note">The official favorite-longshot replay PnL is the settlement mark. Intermediate sell/mark rows show executable future-bid exit candidates, not a proven active exit policy yet.</p>
-    </section>
-
-    <section class="band">
-      <div class="section-head">
-        <div>
-          <h2>Why The ML Is Still A Hold</h2>
-          <p>The current candidate is judged by whether simulated maker orders actually fill and make money, not just whether the classifier looks smart.</p>
-        </div>
-        <span class="pill bad" id="model-gate-pill">Research hold</span>
-      </div>
-      <div class="grid two">
-        <dl class="kv" id="model-kv"></dl>
-        <div>
-          <h3>Data sanity</h3>
-          <ul class="copy-list" id="data-sanity"></ul>
-        </div>
-      </div>
-      <div class="link-row">
-        <a href="reports/telonex_convergence_model_latest.md">Telonex model report</a>
-        <a href="reports/strategy_data_readiness_latest.md">strategy readiness</a>
-        <a href="reports/telonex_model_monitor_latest.md">model monitor</a>
-        <a href="reports/live_execution_status_latest.md">live status report</a>
-      </div>
-    </section>
-
-    <section class="band">
-      <div class="section-head">
-        <div>
-          <h2>Trust Checks</h2>
-          <p>These checks answer: would this survive contact with real markets?</p>
-        </div>
-      </div>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Gate</th>
-              <th>Status</th>
-              <th>Evidence</th>
-            </tr>
-          </thead>
-          <tbody id="gate-table"></tbody>
-        </table>
-      </div>
     </section>
   </main>
 
@@ -1052,7 +1002,7 @@ const SNAPSHOT = {
     "data/processed/execution_training/event_market_inventory_latest.json": 14494,
     "data/processed/execution_training/favorite_longshot_executable_backtest_latest.json": 72452,
     "data/processed/execution_training/favorite_longshot_rule_validation_latest.json": 58000,
-    "data/processed/execution_training/favorite_longshot_event_replays_latest.json": 4400000,
+    "data/processed/execution_training/favorite_longshot_event_replays_latest.json": 427000,
     "data/processed/clob_capture/live_telonex_convergence_signals_latest.json": 3995,
     "data/processed/execution_training/telonex_microstructure_buckets_latest.json": 100352
   }
@@ -1062,7 +1012,9 @@ const state = {
   loaded: {},
   health: {},
   runSummaries: [],
-  selectedReplayId: null
+  selectedReplayId: null,
+  replayDetails: {},
+  replayLoading: {}
 };
 
 const $ = id => document.getElementById(id);
@@ -1414,50 +1366,47 @@ function renderVerdict(data) {
 function renderPlainCards(data) {
   const m = data.latestModel;
   const e = data.execution;
-  const r = data.readiness;
   const f = data.favoriteLongshotExecutable;
   const fv = data.favoriteLongshotRuleValidation;
   const mb = data.microstructureBuckets;
   const cards = [
     {
       tone: data.overall.liveCapitalGate ? "warn" : "bad",
-      label: "Can this trade real money?",
-      answer: data.overall.liveCapitalGate ? "Review only" : "No",
+      label: "Live capital",
+      answer: data.overall.liveCapitalGate ? "Review" : "Off",
       copy: data.overall.liveCapitalGate
         ? "Some checks may be green, but this still needs human review before capital."
-        : "The live-money gate is closed. Treat this as research, not a bot."
+        : "Do not trade real money yet. The evidence is still research-only."
     },
     {
-      tone: m.testTrades > 0 && m.testRoi > 0 ? "warn" : "bad",
-      label: "Did the current model find bets?",
-      answer: `${fmtInt(m.testTrades)} test trades`,
-      copy: m.testTrades > 0
-        ? `It found trades, but the pessimistic profit check is ${fmtPct(m.testCiLo)}.`
-        : "No. Under realistic fill-profit rules, the latest model abstained."
-    },
-    {
-      tone: f.gate ? "good" : "warn",
-      label: "Did favorite-longshot work?",
-      answer: f.gate ? "Passed" : "Not proven",
-      copy: `${fmtInt(f.settledEntries)} settled executable entries show ${fmtPct(f.roi)} ROI, but the pessimistic CI is ${fmtPct(f.ciLo)}.`
+      tone: f.roi > 0 ? "warn" : "bad",
+      label: "Best current bucket",
+      answer: "Favorite-longshot",
+      copy: `${fmtInt(f.settledEntries)} settled entries show ${fmtPct(f.roi)} ROI, but the conservative confidence bound is ${fmtPct(f.ciLo)}.`
     },
     {
       tone: fv.gate ? "good" : "warn",
-      label: "Did the rule validate?",
-      answer: fv.gate ? "Passed" : "No",
-      copy: `Market-disjoint test for ${fv.marketRule} is ${fmtPct(fv.marketTestRoi)} ROI, but CI low is ${fmtPct(fv.marketTestCiLo)}.`
+      label: "Out-of-sample proof",
+      answer: fv.gate ? "Passed" : "Not enough",
+      copy: `Market-disjoint test is ${fmtPct(fv.marketTestRoi)} ROI with CI low ${fmtPct(fv.marketTestCiLo)}.`
+    },
+    {
+      tone: e.liveSignalsSelected > 0 ? "warn" : "bad",
+      label: "Live picks now",
+      answer: fmtInt(e.liveSignalsSelected),
+      copy: "Current live scoring has not found a trade that clears the threshold."
     },
     {
       tone: mb.gate ? "good" : "warn",
-      label: "Any CLOB micro edge?",
-      answer: mb.gate ? "Candidate" : "No",
-      copy: `YES+NO strict arbs: ${fmtInt(mb.strictNetArbRows)}. Price-shock rule ${mb.selectedRule} has test CI low ${fmtPct(mb.testCiLo)}.`
+      label: "Microstructure edge",
+      answer: mb.gate ? "Candidate" : "None",
+      copy: `Strict YES+NO arbs: ${fmtInt(mb.strictNetArbRows)}. Price-shock rule: ${mb.selectedRule}.`
     },
     {
-      tone: e.authFills > 0 && r.overallGate ? "good" : "warn",
-      label: "Is this just bad data?",
-      answer: "Mixed",
-      copy: `CLOB coverage is stronger now (${fmtInt(f.bookAssets)}/${fmtInt(f.targetAssets)} target assets), but there are still ${fmtInt(e.authFills)} authenticated fills.`
+      tone: e.authFills > 0 ? "good" : "warn",
+      label: "Execution proof",
+      answer: `${fmtInt(e.authFills)} real fills`,
+      copy: `Paper fills are useful, but real authenticated fills are still required before trusting live execution.`
     }
   ];
   $("plain-grid").innerHTML = cards.map(card => `
@@ -1477,22 +1426,16 @@ function renderMetrics(data) {
   const fv = data.favoriteLongshotRuleValidation;
   const mb = data.microstructureBuckets;
   const metrics = [
-    ["Current run", m.runId, targetRead(m.targetCol), "This is the run the dashboard trusts most."],
-    ["Research status", m.researchGate ? "PASS" : "HOLD", `profit check ${m.performanceGate ? "passed" : "failed"}`, "HOLD means do not treat the model as a working strategy."],
-    ["Trades found", fmtInt(m.testTrades), `profit ${fmtPct(m.testRoi)} / pessimistic case ${fmtPct(m.testCiLo)}`, "Zero is not a typo. The stricter model found no test trades worth taking."],
-    ["Live picks now", fmtInt(e.liveSignalsSelected), `${fmtInt(e.liveSignalRows)} rows scored`, "This is what the model would pick from current live data. Zero means no live setup cleared the threshold."],
-    ["Favorite-longshot", `${fmtInt(f.settledEntries)} settled`, `ROI ${fmtPct(f.roi)} / CI low ${fmtPct(f.ciLo)}`, "This is the strongest current non-ML bucket, but it is still not statistically proven."],
-    ["Rule validation", fv.gate ? "PASS" : "HOLD", `${fv.marketRule}: ${fmtPct(fv.marketTestRoi)} test ROI / CI low ${fmtPct(fv.marketTestCiLo)}`, "This tests predeclared favorite-longshot rules out of sample. HOLD means do not deploy it."],
-    ["YES+NO arb", fmtInt(mb.strictNetArbRows), `${fmtInt(mb.nearArbRows)} near rows / max edge ${fmtPct(mb.maxNetEdge)}`, "Near-arb is not guaranteed profit. Strict fee-adjusted buy-both rows are the important number."],
-    ["Price-shock rules", mb.priceShockGate ? "PASS" : "HOLD", `${mb.selectedRule}: test ${fmtPct(mb.testRoi)} / CI low ${fmtPct(mb.testCiLo)}`, "This checks whether post-jump CLOB moves should be faded or followed after fees and spread."],
-    ["Paper fills", fmtInt(e.paperFills), `${fmtInt(e.authFills)} real authenticated fills`, "Paper fills help debug, but real fills are needed before believing execution."],
-    ["Odds coverage", fmtPct(m.oddsTestCoverage), `${fmtInt(m.oddsTestMatchedMarkets)} matched test markets`, "Low coverage means many test rows lack the sportsbook context the model wants."],
-    ["Order-book history", fmtInt(e.telonexDepthRows), `${fmtInt(e.telonexQuoteRows)} quotes / ${fmtInt(e.telonexTradeRows)} trades`, "This is the strongest part of the data story: there is meaningful historical CLOB depth."],
-    ["Active markets", fmtInt(r.activeMarkets), `${fmtInt(r.activeEvents)} events / target ${fmtInt(r.activeObservedMarketTarget)}`, "More independent markets are needed before trusting generalization."],
-    ["Collector health", data.overall.collectorStatus, `${fmtInt(data.overall.collectorLoops)} loops`, "The data collector is still degraded, so live evidence is not clean enough."],
-    ["Latest books", fmtInt(e.latestBooks), `${fmtInt(e.wsRows)} WebSocket events`, "Fresh books exist, but book collection alone does not prove profitable execution."],
-    ["Winning examples", fmtPct(m.positiveRate, 3), `${fmtInt(m.testFillPositiveRows)} positive test rows`, "The thing being predicted is rare, which makes easy-looking ML scores dangerous."],
-    ["ML ranking score", fmtPct(m.testAuc), `calibration error ${fmtPct(m.testEce, 3)}`, "Good ML metrics are nice, but profit gates decide whether this is tradable."]
+    ["Strategy being tested", "Favorite-longshot", "Buy high-probability side / fade longshot demand", "This is the only bucket with positive raw executable settlement ROI right now."],
+    ["Backtest result", fmtPct(f.roi), `${fmtInt(f.settledEntries)} settled / win rate ${fmtPct(f.winRate)}`, "Positive average ROI, but not enough confidence to risk capital."],
+    ["Confidence floor", fmtPct(f.ciLo), "Needs to be above 0%", "This is the important conservative number. Below zero means the edge can still be noise."],
+    ["Rule validation", fv.gate ? "PASS" : "HOLD", `${fmtInt(fv.marketTestBets)} market-disjoint bets / ROI ${fmtPct(fv.marketTestRoi)}`, "Out-of-sample validation is still the main blocker."],
+    ["Live picks", fmtInt(e.liveSignalsSelected), `${fmtInt(e.liveSignalRows)} current rows scored`, "A profitable bot should find live opportunities without forcing trades."],
+    ["Real fills", fmtInt(e.authFills), `${fmtInt(e.paperFills)} paper fills`, "Real authenticated fills are required before production sizing."],
+    ["CLOB history", fmtInt(e.telonexDepthRows), `${fmtInt(e.telonexQuoteRows)} quotes / ${fmtInt(e.telonexTradeRows)} trades`, "This is enough to build replays and improve validation quality."],
+    ["Replay events", fmtInt(f.settledEntries), `${fmtInt(f.bookAssets)}/${fmtInt(f.targetAssets)} target assets with books`, "Each replay below shows the actual event price path and decision points."],
+    ["Strict arbs", fmtInt(mb.strictNetArbRows), `${fmtInt(mb.nearArbRows)} near rows`, "Near-arbs are not enough; strict fee-adjusted arbs are what matter."],
+    ["Active universe", fmtInt(r.activeMarkets), `${fmtInt(r.activeEvents)} events`, "More independent markets make validation harder to fool."]
   ];
   $("metric-grid").innerHTML = metrics.map(([label, value, note, help]) => `
     <div class="metric">
@@ -1522,12 +1465,22 @@ function replayOptionLabel(event) {
 }
 
 function replayPricePoints(event) {
-  return (event.series_points || []).map(point => ({
-    offset: Number(point[0]),
-    bid: num(point[1]),
-    ask: num(point[2]),
-    mid: num(point[3])
-  })).filter(point => Number.isFinite(point.offset) && point.mid !== null);
+  const schema = event.series_schema || [];
+  const minuteSchema = schema.includes("selected_mid") && schema.includes("other_mid");
+  return (event.series_points || []).map(point => {
+    if (minuteSchema || point.length === 3) {
+      return {
+        offset: Number(point[0]),
+        selected: num(point[1]),
+        other: num(point[2])
+      };
+    }
+    return {
+      offset: Number(point[0]),
+      selected: num(point[3]),
+      other: null
+    };
+  }).filter(point => Number.isFinite(point.offset) && point.selected !== null);
 }
 
 function replayPath(points, key, sx, sy) {
@@ -1554,7 +1507,7 @@ function drawReplayChart(event) {
   const minX = Math.min(...points.map(point => point.offset));
   const maxX = Math.max(...points.map(point => point.offset));
   const priceValues = [
-    ...points.flatMap(point => [point.bid, point.ask, point.mid]),
+    ...points.flatMap(point => [point.selected, point.other]),
     ...markers.map(marker => num(marker.price))
   ].filter(value => value !== null);
   let minY = Math.max(0, Math.min(...priceValues));
@@ -1604,12 +1557,33 @@ function drawReplayChart(event) {
     ${grid}
     <line x1="${pad.left}" y1="${pad.top}" x2="${pad.left}" y2="${height - pad.bottom}" stroke="#d8dee8" />
     <line x1="${pad.left}" y1="${height - pad.bottom}" x2="${width - pad.right}" y2="${height - pad.bottom}" stroke="#d8dee8" />
-    <polyline points="${replayPath(points, "bid", sx, sy)}" fill="none" stroke="#9cc7e8" stroke-width="1.5" opacity="0.75" />
-    <polyline points="${replayPath(points, "ask", sx, sy)}" fill="none" stroke="#9cc7e8" stroke-width="1.5" opacity="0.75" />
-    <polyline points="${replayPath(points, "mid", sx, sy)}" fill="none" stroke="#1f77b4" stroke-width="3" />
+    <polyline points="${replayPath(points, "other", sx, sy)}" fill="none" stroke="#f59e0b" stroke-width="2.4" opacity="0.9" />
+    <polyline points="${replayPath(points, "selected", sx, sy)}" fill="none" stroke="#1f77b4" stroke-width="3" />
     ${markerSvg}
     ${xAxis}
   `;
+}
+
+async function loadReplayDetail(event) {
+  if (!event?.replay_id || !event?.replay_path || state.replayLoading[event.replay_id]) return;
+  state.replayLoading[event.replay_id] = true;
+  try {
+    const res = await fetch(`${event.replay_path}?t=${Date.now()}`);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    state.replayDetails[event.replay_id] = await res.json();
+  } catch (error) {
+    state.replayDetails[event.replay_id] = {
+      ...event,
+      series_points: [],
+      markers: [],
+      load_error: error.message
+    };
+  } finally {
+    state.replayLoading[event.replay_id] = false;
+    if (state.selectedReplayId === event.replay_id) {
+      renderReplay(deriveDashboard());
+    }
+  }
 }
 
 function renderReplay(data) {
@@ -1643,33 +1617,53 @@ function renderReplay(data) {
   }
   select.value = event.replay_id;
 
-  const stats = event.stats || {};
-  $("replay-title").textContent = event.title || event.slug || "Backtest event";
+  const detail = state.replayDetails[event.replay_id];
+  if (!detail) {
+    const stats = event.stats || {};
+    $("replay-title").textContent = event.title || event.slug || "Backtest event";
+    $("replay-kv").innerHTML = [
+      ["Outcome token", event.outcome || "--"],
+      ["Other side", event.other_outcome || "--"],
+      ["Event PnL", `${fmtSigned(stats.pnl)} (${fmtPct(stats.roi)})`],
+      ["Series", "loading one-minute event detail..."]
+    ].map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("");
+    $("replay-rationale").textContent = "Loading this event's one-minute selected-token vs other-side price path.";
+    $("replay-marker-table").innerHTML = `<tr><td colspan="5">Loading event detail...</td></tr>`;
+    drawReplayChart({ series_points: [] });
+    loadReplayDetail(event);
+    return;
+  }
+
+  const fullEvent = { ...event, ...detail };
+  const stats = fullEvent.stats || {};
+  $("replay-title").textContent = fullEvent.title || fullEvent.slug || "Backtest event";
   $("replay-kv").innerHTML = [
-    ["Strategy", event.bucket || replay.strategy || "favorite-longshot"],
-    ["Outcome token", event.outcome || "--"],
-    ["Sport", event.sport_family || "--"],
+    ["Strategy", fullEvent.bucket || replay.strategy || "favorite-longshot"],
+    ["Outcome token", fullEvent.outcome || "--"],
+    ["Other side", fullEvent.other_outcome || "--"],
+    ["Sport", fullEvent.sport_family || "--"],
     ["Result", stats.won ? "Won" : "Lost"],
     ["Entry", `${fmtPrice(stats.entry_ask)} ask / ${fmtPrice(stats.entry_bid)} bid`],
     ["Spread", fmtPrice(stats.entry_spread)],
     ["Stake", fmtPrice(stats.stake, 4)],
     ["Event PnL", `${fmtSigned(stats.pnl)} (${fmtPct(stats.roi)})`],
     ["Final midpoint", fmtPrice(stats.final_mid)],
-    ["Timing", `${event.entry_phase || "--"} before close`],
-    ["Series", `${fmtInt(event.series_point_count)} points from ${fmtInt(event.total_book_rows)} book rows`],
+    ["Timing", `${fullEvent.entry_phase || "--"} before close`],
+    ["Series", `${fmtInt(fullEvent.series_point_count)} one-minute points from ${fmtInt(fullEvent.total_book_rows)} book rows`],
+    ["Second line", fullEvent.other_price_source === "actual_opposite_token" ? "actual opposite token midpoint" : "derived as 1 - selected token"],
     ["Replay coverage", `${fmtInt(summary.events_with_series)} / ${fmtInt(summary.settled_events)} settled events`]
   ].map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("");
-  $("replay-rationale").textContent = event.rationale || "No rationale attached.";
-  $("replay-marker-table").innerHTML = (event.markers || []).map(marker => `
+  $("replay-rationale").textContent = fullEvent.load_error ? `Could not load event detail: ${fullEvent.load_error}` : (fullEvent.rationale || "No rationale attached.");
+  $("replay-marker-table").innerHTML = (fullEvent.markers || []).map(marker => `
     <tr>
       <td><strong>${esc(marker.label || marker.action)}</strong></td>
-      <td>${esc(replayTimeLabel(event, marker.offset_sec))}</td>
+      <td>${esc(replayTimeLabel(fullEvent, marker.offset_sec))}</td>
       <td>${esc(fmtPrice(marker.price))}</td>
       <td>${esc(marker.pnl === undefined ? "--" : `${fmtSigned(marker.pnl)}${marker.roi !== undefined ? ` (${fmtPct(marker.roi)})` : ""}`)}</td>
       <td>${esc(marker.reason || "--")}</td>
     </tr>
   `).join("");
-  drawReplayChart(event);
+  drawReplayChart(fullEvent);
 }
 
 function renderModel(data) {
@@ -1767,8 +1761,6 @@ function renderAll() {
   renderPlainCards(data);
   renderMetrics(data);
   renderReplay(data);
-  renderModel(data);
-  renderGates(data);
   $("footer").textContent = `Rendered ${new Date().toLocaleString()} from ${data.loadedFrom}.`;
 }
 

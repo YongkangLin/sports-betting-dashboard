@@ -1,6 +1,6 @@
 # Kalshi Verified Mappings
 
-- Generated: 2026-05-31T00:50:24.362439+00:00
+- Generated: 2026-05-31T01:15:06.735156+00:00
 - Manual map: /Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/clob_capture/cross_venue_manual_map.csv
 - Verified rows: 0
 - Output: None
