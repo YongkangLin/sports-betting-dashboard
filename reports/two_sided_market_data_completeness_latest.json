@@ -2,9 +2,9 @@
   "clob_actual_opposite_minutes": 329406,
   "clob_derived_other_events": 0,
   "clob_two_sided_events": 277,
-  "complete_both_venues_events": 264,
+  "complete_both_venues_events": 265,
   "events": 277,
-  "generated_at": "2026-05-31T05:20:20.028309+00:00",
+  "generated_at": "2026-05-31T07:29:33.220906+00:00",
   "missing_examples": [
     {
       "clob_two_sided": true,
@@ -73,23 +73,6 @@
       },
       "sportsbook_points": 0,
       "title": "Bayer Leverkusen vs Arsenal"
-    },
-    {
-      "clob_two_sided": true,
-      "market": "Soccer",
-      "outcome": "No",
-      "sportsbook_match": {
-        "away_team": "Mantova",
-        "commence_time": "2025-11-29T14:00:00+00:00",
-        "event_id": "f837fbd8a56e9288b50bc2160ce35572",
-        "home_team": "Venezia",
-        "market": "h2h",
-        "match_score": 1.0,
-        "point": null,
-        "sport": "soccer_italy_serie_b"
-      },
-      "sportsbook_points": 0,
-      "title": "Venezia vs Mantova"
     },
     {
       "clob_two_sided": true,
@@ -193,6 +176,6 @@
     }
   ],
   "odds_event_matches": 273,
-  "sportsbook_complete_side_events": 264,
-  "sportsbook_complete_side_points": 1355
+  "sportsbook_complete_side_events": 265,
+  "sportsbook_complete_side_points": 24163
 }

@@ -1,6 +1,6 @@
 # Strategy And Data Readiness
 
-- Generated: 2026-05-31T05:23:51.436650+00:00
+- Generated: 2026-05-31T07:33:03.495973+00:00
 - Overall gate: False
 - Verdict: HOLD: strategy is defined, but dataset is not complete enough to prove the bot
 - Gate reasons: Odds API point-in-time features have insufficient test coverage
@@ -28,8 +28,8 @@
 - Gate: True
 - Polymarket actual both-side CLOB events: 277 / 277
 - Polymarket derived opposite-token lines: 0
-- Complete on both CLOB and sportsbook overlays: 264 / 277 (95.31%)
-- Sportsbook missing/incomplete overlay events: 13
+- Complete on both CLOB and sportsbook overlays: 265 / 277 (95.67%)
+- Sportsbook missing/incomplete overlay events: 12
 - Completeness reasons: none
 
 ## Split Coverage

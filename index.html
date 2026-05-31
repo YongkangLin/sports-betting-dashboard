@@ -581,11 +581,15 @@
   }
 
   .chart-source-note {
-    flex: 0 0 auto;
+    flex: 1 1 auto;
+    min-width: 120px;
     color: var(--muted);
     font-size: 12px;
     font-weight: 700;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: right;
   }
 
   .window-buttons {
@@ -2274,6 +2278,31 @@ function renderChartLegend(items = []) {
   `).join("");
 }
 
+function replaySeriesCoverage(polyPoints, bookPoints) {
+  if (!polyPoints.length || !bookPoints.length) {
+    return { coverage: 0, startGapSec: null, endGapSec: null };
+  }
+  const polyStart = Math.min(...polyPoints.map(point => point.offset));
+  const polyEnd = Math.max(...polyPoints.map(point => point.offset));
+  const bookStart = Math.min(...bookPoints.map(point => point.offset));
+  const bookEnd = Math.max(...bookPoints.map(point => point.offset));
+  const overlap = Math.max(0, Math.min(polyEnd, bookEnd) - Math.max(polyStart, bookStart));
+  const span = Math.max(1, polyEnd - polyStart);
+  return {
+    coverage: overlap / span,
+    startGapSec: bookStart - polyStart,
+    endGapSec: polyEnd - bookEnd
+  };
+}
+
+function gapLabel(seconds, earlyText, lateText) {
+  if (seconds === null || !Number.isFinite(seconds)) return "";
+  if (Math.abs(seconds) < 60) return "aligned";
+  const hours = Math.abs(seconds) / 3600;
+  const value = hours >= 24 ? `${(hours / 24).toFixed(1)}d` : `${hours.toFixed(1)}h`;
+  return seconds < 0 ? `${value} ${earlyText}` : `${value} ${lateText}`;
+}
+
 function replayPath(points, key, sx, sy) {
   return points
     .filter(point => point[key] !== null)
@@ -2595,7 +2624,14 @@ function drawReplayChart(event) {
   const clobPointCount = event.series_point_count ?? polyPoints.length;
   const sportsbookPointCount = event.sportsbook_series_point_count ?? bookPoints.length;
   if (showPolymarket && showSportsbooks) {
-    setChartSourceNote(`${fmtInt(clobPointCount)} CLOB minute pts; ${fmtInt(sportsbookPointCount)} sportsbook snapshots`);
+    const coverage = replaySeriesCoverage(polyPoints, bookPoints);
+    const startGap = gapLabel(coverage.startGapSec, "early", "late");
+    const endGap = gapLabel(coverage.endGapSec, "late", "early");
+    const gapBits = [];
+    if (startGap && startGap !== "aligned") gapBits.push(`start ${startGap}`);
+    if (endGap && endGap !== "aligned") gapBits.push(`end ${endGap}`);
+    const gapText = gapBits.length ? `; ${gapBits.join(", ")}` : "";
+    setChartSourceNote(`${fmtInt(clobPointCount)} CLOB minute pts; ${fmtInt(sportsbookPointCount)} book snapshots; book span ${fmtPct(coverage.coverage)}${gapText}`);
   } else if (showSportsbooks) {
     setChartSourceNote(`${fmtInt(sportsbookPointCount)} sportsbook snapshots`);
   } else {
@@ -2686,6 +2722,18 @@ function drawReplayChart(event) {
         .map(point => `<circle cx="${sx(point.offset).toFixed(1)}" cy="${sy(point[`${key} opposite`]).toFixed(1)}" r="${isConsensus ? "4.0" : "2.5"}" fill="${otherColor}" opacity="${isConsensus ? "0.82" : "0.32"}" />`)
     ];
   }).join("") : "";
+  const bookOffsets = bookPoints.map(point => point.offset).filter(value => Number.isFinite(value));
+  const bookCoverageBand = showSportsbooks && bookOffsets.length
+    ? (() => {
+        const start = Math.max(bounds.minX, Math.min(...bookOffsets));
+        const end = Math.min(bounds.maxX, Math.max(...bookOffsets));
+        if (end <= start) return "";
+        return `<rect x="${sx(start).toFixed(1)}" y="${pad.top}" width="${Math.max(2, sx(end) - sx(start)).toFixed(1)}" height="${plotH}" fill="#16a34a" opacity="0.055" pointer-events="none" />`;
+      })()
+    : "";
+  const sportsbookNotice = showSportsbooks && bookPoints.length && !visibleBookPoints.length
+    ? `<text x="${(pad.left + 14).toFixed(1)}" y="${(pad.top + 24).toFixed(1)}" fill="#166534" font-size="12" font-weight="800">Sportsbook data exists outside this zoom window. Reset the graph or drag right to view it.</text>`
+    : "";
   const legendItems = [
     ...(showPolymarket ? [
       { label: `Polymarket ${event.outcome || "selected"}`, color: "#1f77b4", opacity: 0.98 },
@@ -2744,6 +2792,7 @@ function drawReplayChart(event) {
   };
   svg.innerHTML = `
     <rect x="0" y="0" width="${width}" height="${height}" fill="#fff" pointer-events="none" />
+    ${bookCoverageBand}
     ${grid}
     <line x1="${pad.left}" y1="${pad.top}" x2="${pad.left}" y2="${height - pad.bottom}" stroke="#d8dee8" />
     <line x1="${pad.left}" y1="${height - pad.bottom}" x2="${width - pad.right}" y2="${height - pad.bottom}" stroke="#d8dee8" />
@@ -2751,6 +2800,7 @@ function drawReplayChart(event) {
     ${sportsbookDots}
     ${polyLines}
     ${lineLabels}
+    ${sportsbookNotice}
     <rect data-chart-pan="xy" x="${pad.left}" y="${pad.top}" width="${plotW}" height="${plotH}" fill="transparent" pointer-events="all" cursor="move" />
     <rect data-chart-pan="y-scale" x="0" y="${pad.top}" width="${pad.left}" height="${plotH}" fill="transparent" pointer-events="all" cursor="ns-resize" />
     <rect data-chart-pan="x-scale" x="${pad.left}" y="${height - pad.bottom}" width="${plotW}" height="${pad.bottom}" fill="transparent" pointer-events="all" cursor="ew-resize" />
