@@ -1,0 +1,18 @@
+{
+  "candidate_events": 19,
+  "config": {
+    "gap_audit": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/reports/replay_sportsbook_gap_audit_latest.json",
+    "max_missing_snapshots": 100,
+    "validation": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/data/processed/execution_training/favorite_longshot_rule_validation_latest.json"
+  },
+  "estimated_credits_at_90_per_snapshot": 0,
+  "events": [],
+  "generated_at": "2026-05-31T12:41:14.067965+00:00",
+  "outputs": {
+    "json": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/reports/selected_validation_gap_backfill_plan_latest.json",
+    "manifest": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/data/processed/execution_training/selected_validation_gap_backfill_manifest_latest.json",
+    "report": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/reports/selected_validation_gap_backfill_plan_latest.md"
+  },
+  "planned_missing_5m_snapshots": 0,
+  "selected_events": 0
+}

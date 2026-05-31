@@ -1,0 +1,76 @@
+{
+  "dataset": {
+    "authenticated_user_channel_fills": 0,
+    "authenticated_user_channel_rows": 0,
+    "fill_rate": 0.42133333333333334,
+    "input_sha256": "4c8c09359ef0d7acfe50432bef7568e5a172894e536126c13f8d1f050ab4bb8b",
+    "missing_features": {},
+    "rows": 1125,
+    "sources": {
+      "live_paper_order": 1125
+    },
+    "splits": {
+      "test": 225,
+      "train": 675,
+      "val": 225
+    }
+  },
+  "gates": {
+    "auc_gate_source": "test",
+    "authenticated_live_fill_gate": false,
+    "min_authenticated_fills": 500,
+    "min_test_rows": 200,
+    "proxy_model_gate": true,
+    "reasons": [
+      "authenticated fill rows below 500"
+    ],
+    "warnings": []
+  },
+  "generated_at": "2026-05-30T19:41:16.457447+00:00",
+  "metrics": {
+    "test": {
+      "auc": 0.898747537292429,
+      "avg_prob": 0.18872243597796742,
+      "baseline_brier": 0.3485717421124828,
+      "brier": 0.08262604307761175,
+      "ece_10": 0.0841662840220326,
+      "fill_rate": 0.1688888888888889,
+      "log_loss": 0.6768130896016054,
+      "rows": 225
+    },
+    "train": {
+      "auc": 0.9988151658767772,
+      "avg_prob": 0.6223701362962963,
+      "baseline_brier": 0.23432866941015087,
+      "brier": 0.0016148118528385184,
+      "ece_10": 0.002815048888888661,
+      "fill_rate": 0.6251851851851852,
+      "log_loss": 0.021873215109951452,
+      "rows": 675
+    },
+    "val": {
+      "auc": 0.9984766418415707,
+      "avg_prob": 0.06222313333333334,
+      "baseline_brier": 0.37527791495198903,
+      "brier": 0.004000000000955555,
+      "ece_10": 9.555555555512605e-07,
+      "fill_rate": 0.06222222222222222,
+      "log_loss": 0.014449087706764393,
+      "rows": 225
+    }
+  },
+  "outputs": {
+    "model": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/execution_training/queue_fill_model/queue_fill_model_latest.joblib",
+    "predictions": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/execution_training/queue_fill_model/queue_fill_predictions_latest.parquet",
+    "report": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/queue_fill_model_latest.md",
+    "summary": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/execution_training/queue_fill_model/queue_fill_model_latest.json"
+  },
+  "reproducibility": {
+    "input": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/execution_training/queue_fill_training_latest.parquet",
+    "input_sha256": "4c8c09359ef0d7acfe50432bef7568e5a172894e536126c13f8d1f050ab4bb8b",
+    "model": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/execution_training/queue_fill_model/queue_fill_model_latest.joblib",
+    "model_sha256": "51670823ad59a2f4daec80a62a4656ef076c59395592b9e4c3401e8ae5d212a7",
+    "model_version": "queue-fill-51670823ad59",
+    "random_seed": 42
+  }
+}

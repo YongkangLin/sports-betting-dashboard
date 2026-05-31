@@ -1,6 +1,6 @@
 # Replay Sportsbook Gap Audit
 
-- Generated: 2026-05-31T11:13:10.945718+00:00
+- Generated: 2026-05-31T12:43:10.202480+00:00
 - Replay events audited: 277
 - Events with sportsbook overlay points: 276
 - Events with matched Odds API event but no usable sportsbook line: 0
@@ -21,13 +21,13 @@
 |---|---:|
 | CLOB one-minute replay events with no missing minutes | 277 / 277 |
 | Odds matched events with complete 15m raw cache | 276 / 276 |
-| Unique 15m raw cache snapshots cached / expected / missing | 17,026 / 17,026 / 0 |
-| Odds matched events with complete 5m raw cache | 155 / 276 |
-| Odds matched events with any missing 5m cache | 121 |
-| Unique 5m raw cache snapshots cached / expected / missing | 31,133 / 46,443 / 15,310 |
+| Unique 15m raw cache snapshots cached / expected / missing | 16,192 / 16,192 / 0 |
+| Odds matched events with complete 5m raw cache | 164 / 276 |
+| Odds matched events with any missing 5m cache | 112 |
+| Unique 5m raw cache snapshots cached / expected / missing | 32,101 / 46,443 / 14,342 |
 | Warehouse all-partition replay-window checks | 276 / 276 |
-| Events with extra non-replay sportsbook timestamps inside replay window | 0 |
-| Extra non-replay sportsbook timestamps inside replay windows | 0 |
+| Events with extra non-replay sportsbook timestamps inside replay window | 11 |
+| Extra non-replay sportsbook timestamps inside replay windows | 1,261 |
 
 ## Cache Coverage By Sport
 
@@ -37,7 +37,7 @@
 | basketball_nba | 89 | 89 | 89 | 88 | 1 | 0 |
 | basketball_wnba | 2 | 2 | 2 | 2 | 0 | 0 |
 | icehockey_nhl | 2 | 2 | 2 | 2 | 0 | 0 |
-| soccer | 175 | 174 | 174 | 54 | 120 | 1 |
+| soccer | 175 | 174 | 174 | 63 | 111 | 1 |
 
 ## Classification Counts
 
@@ -45,8 +45,8 @@
 |---|---:|
 | has_sportsbook_overlay | 276 |
 | sportsbook_event_not_listed_until_after_clob_start | 8 |
-| source_quote_gap_cache_complete | 3 |
 | sportsbook_last_quote_not_settlement | 3 |
+| source_quote_gap_cache_complete | 2 |
 | sportsbook_starts_after_clob | 2 |
 | internal_quote_gap_missing_5m_api_cache | 1 |
 | no_odds_event_match | 1 |
@@ -66,8 +66,7 @@ These are collection/credit gaps at native Odds API granularity. The 15-minute c
 |---|---|---:|---:|---|
 | ATA vs GEN | soccer | 159 / 248 | 89 | has_sportsbook_overlay |
 | ATA vs TOR | soccer | 166 / 260 | 94 | has_sportsbook_overlay |
-| Angers vs Paris Saint Germain | soccer | 145 / 226 | 79 | has_sportsbook_overlay |
-| COM vs TOR | soccer | 119 / 187 | 67 | has_sportsbook_overlay |
+| Angers vs Paris Saint Germain | soccer | 145 / 226 | 81 | has_sportsbook_overlay |
 | CRE vs COM | soccer | 154 / 248 | 93 | has_sportsbook_overlay |
 | Elche CF vs Barcelona | soccer | 169 / 263 | 93 | has_sportsbook_overlay |
 | LAZ vs CRE | soccer | 145 / 227 | 82 | has_sportsbook_overlay |
@@ -82,7 +81,6 @@ These are collection/credit gaps at native Odds API granularity. The 15-minute c
 | Bayer Leverkusen vs Arsenal | soccer | 151 / 236 | 85 | has_sportsbook_overlay |
 | Bayern Munich vs VfB Stuttgart | soccer | 129 / 202 | 72 | has_sportsbook_overlay |
 | CAG vs MIL | soccer | 167 / 260 | 93 | has_sportsbook_overlay |
-| CRE vs Napoli | soccer | 120 / 189 | 69 | has_sportsbook_overlay |
 | Frosinone vs Padova | soccer | 130 / 204 | 74 | has_sportsbook_overlay |
 | GEN vs Inter Milan | soccer | 144 / 227 | 83 | has_sportsbook_overlay |
 | Liverpool vs Galatasaray | soccer | 165 / 257 | 92 | has_sportsbook_overlay |
@@ -95,16 +93,14 @@ These are collection/credit gaps at native Odds API granularity. The 15-minute c
 | Real Madrid vs Alavés | soccer | 166 / 258 | 92 | has_sportsbook_overlay |
 | Real Madrid vs Oviedo | soccer | 165 / 256 | 91 | has_sportsbook_overlay |
 | Venezia vs Mantova | soccer | 114 / 179 | 65 | has_sportsbook_overlay |
-| VfB Stuttgart vs VfL Wolfsburg | soccer | 117 / 185 | 68 | has_sportsbook_overlay |
 | Villarreal vs Getafe | soccer | 111 / 173 | 62 | has_sportsbook_overlay |
 | Werder Bremen vs Bayern Munich | soccer | 125 / 196 | 71 | has_sportsbook_overlay |
 | AS Monaco vs Nantes | soccer | 170 / 264 | 94 | has_sportsbook_overlay |
 | Bayer Leverkusen vs VfL Wolfsburg | soccer | 116 / 183 | 66 | has_sportsbook_overlay |
-| Lille vs Nantes | soccer | 139 / 218 | 79 | has_sportsbook_overlay |
 | Lille vs Nice | soccer | 163 / 253 | 89 | has_sportsbook_overlay |
 | Napoli vs UDI | soccer | 134 / 216 | 81 | has_sportsbook_overlay |
 | PAR vs Napoli | soccer | 113 / 179 | 66 | has_sportsbook_overlay |
-| PAR vs ROM | soccer | 137 / 217 | 79 | has_sportsbook_overlay |
+| PAR vs ROM | soccer | 44 / 217 | 172 | has_sportsbook_overlay |
 | Palermo vs Avellino | soccer | 146 / 229 | 83 | has_sportsbook_overlay |
 | ROM vs SAS | soccer | 145 / 226 | 81 | has_sportsbook_overlay |
 | Real Madrid vs Real Betis | soccer | 130 / 204 | 73 | has_sportsbook_overlay |
@@ -124,6 +120,28 @@ These are collection/credit gaps at native Odds API granularity. The 15-minute c
 | Juventus vs BOL | soccer | 157 / 246 | 89 | has_sportsbook_overlay |
 | LEC vs Juventus | soccer | 159 / 248 | 89 | has_sportsbook_overlay |
 | MAD vs Espanyol | soccer | 166 / 259 | 93 | has_sportsbook_overlay |
+| Manchester City vs Galatasaray | soccer | 169 / 263 | 94 | has_sportsbook_overlay |
+| Marseille vs Auxerre | soccer | 167 / 259 | 92 | has_sportsbook_overlay |
+| RB Leipzig vs Union Berlin | soccer | 154 / 240 | 85 | has_sportsbook_overlay |
+| Real Sociedad vs Oviedo | soccer | 114 / 180 | 66 | has_sportsbook_overlay |
+
+## Warehouse Partition Cross-Check
+
+These events have additional sportsbook timestamps in older/non-replay warehouse partitions inside the CLOB replay window. The replay builder now reads all quote partition files for a sport, so these rows are eligible for dashboard overlays when they pass the event/market/side filters.
+
+| Event | Sport | Replay snapshots | All snapshots | Extra snapshots | Extra quote rows |
+|---|---|---:|---:|---:|---:|
+| COM vs TOR | soccer | 67 | 186 | 119 | 26,109 |
+| CRE vs Napoli | soccer | 69 | 189 | 120 | 26,706 |
+| VfB Stuttgart vs VfL Wolfsburg | soccer | 68 | 185 | 117 | 27,105 |
+| Lille vs Nantes | soccer | 79 | 218 | 139 | 31,623 |
+| PAR vs ROM | soccer | 79 | 172 | 93 | 22,380 |
+| UDI vs Inter Milan | soccer | 60 | 148 | 88 | 20,886 |
+| VER vs COM | soccer | 56 | 149 | 93 | 21,108 |
+| VfB Stuttgart vs Hamburger SV | soccer | 72 | 201 | 129 | 28,617 |
+| Napoli vs SAS | soccer | 87 | 199 | 112 | 27,702 |
+| CAG vs Juventus | soccer | 93 | 226 | 133 | 32,343 |
+| Bayer Leverkusen vs Augsburg | soccer | 68 | 186 | 118 | 26,682 |
 
 ## Largest Late Starts
 
@@ -140,7 +158,7 @@ These are collection/credit gaps at native Odds API granularity. The 15-minute c
 | Jazz vs Spurs | basketball_nba | 26.6m | 36.6m | 282 | has_sportsbook_overlay, sportsbook_starts_after_clob |
 | Pacers vs Hornets | basketball_nba | 25.6m | 25.6m | 283 | has_sportsbook_overlay, sportsbook_starts_after_clob |
 | Paris Saint Germain vs Lyon | soccer | 10.6m | 13.2h | 92 | has_sportsbook_overlay |
-| Napoli vs SAS | soccer | 4.7m | -6.9h | 87 | has_sportsbook_overlay |
+| Napoli vs SAS | soccer | 4.7m | 16.3h | 199 | has_sportsbook_overlay |
 
 ## Largest Internal Quote Gaps
 
@@ -149,19 +167,19 @@ These are collection/credit gaps at native Odds API granularity. The 15-minute c
 | Fredrikstad FK vs IK Start spread away-1.5 | soccer | 2.6d | 493 / 753 | 15.0m | 346 |
 | LEE vs Burnley | soccer | 1.3h | 0 / 15 | 5.0m | 234 |
 | Ducks vs Oilers total 4.5 | icehockey_nhl | 1.2h | 0 / 14 | 5.0m | 22 |
-| Suns vs Thunder | basketball_nba | 30.1m | 0 / 6 | 5.0m | 251 |
 | PAR vs Juventus | soccer | 30.0m | 4 / 6 | 15.0m | 90 |
 | SAS vs Inter Milan | soccer | 25.0m | 3 / 5 | 15.0m | 78 |
 | RC Lens vs Nantes | soccer | 18.0m | 2 / 3 | 15.0m | 88 |
-| CAG vs Juventus | soccer | 15.2m | 2 / 3 | 15.0m | 93 |
 | ATA vs TOR | soccer | 15.1m | 2 / 3 | 15.0m | 94 |
 | ROM vs SAS | soccer | 15.1m | 2 / 3 | 15.0m | 81 |
 | Villarreal vs Alavés | soccer | 15.1m | 2 / 3 | 15.0m | 73 |
-| Napoli vs SAS | soccer | 15.1m | 2 / 3 | 15.0m | 87 |
+| MAD vs Espanyol | soccer | 15.1m | 2 / 3 | 15.0m | 93 |
+| Real Sociedad vs Oviedo | soccer | 15.1m | 2 / 3 | 15.0m | 66 |
+| LEC vs Inter Milan | soccer | 15.1m | 2 / 3 | 15.0m | 81 |
 
 ## Cited Examples
 
 | Event | Sportsbook match | Points | Start gap | Last quote to final | Last selected fair | Notes |
 |---|---|---:|---:|---:|---:|---|
-| 76ers vs Nuggets | Denver Nuggets vs Philadelphia 76ers 2026-03-18T01:10:00+00:00 | 327 | 5.4d | 5.1m | 97.1% | has_sportsbook_overlay, sportsbook_event_not_listed_until_after_clob_start |
 | Oilers vs Ducks total 4.5 | Anaheim Ducks vs Edmonton Oilers 2026-04-25T02:10:00+00:00 | 21 | 38s | 1.7h | 84.6% | has_sportsbook_overlay, sportsbook_last_quote_not_settlement |
+| 76ers vs Nuggets | Denver Nuggets vs Philadelphia 76ers 2026-03-18T01:10:00+00:00 | 327 | 5.4d | 5.1m | 95.6% | has_sportsbook_overlay, sportsbook_event_not_listed_until_after_clob_start |

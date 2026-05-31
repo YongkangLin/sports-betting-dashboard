@@ -1,0 +1,8 @@
+{
+  "events": [],
+  "generated_at": "2026-05-31T12:41:14.067664+00:00",
+  "max_missing_5m_snapshots": 100,
+  "planned_missing_5m_snapshots": 0,
+  "selection": "market_disjoint_selected_rule_test_complete_15m_partial_5m_cheapest_first",
+  "source_manifest": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/data/processed/execution_training/favorite_longshot_event_replays_latest.json"
+}

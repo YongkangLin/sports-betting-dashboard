@@ -1,9 +1,9 @@
 # Strategy And Data Readiness
 
-- Generated: 2026-05-31T11:13:15.098382+00:00
+- Generated: 2026-05-31T12:41:11.455055+00:00
 - Overall gate: False
 - Verdict: HOLD: strategy is defined, but dataset is not complete enough to prove the bot
-- Gate reasons: Odds API point-in-time features have insufficient test coverage; sportsbook native 5-minute density gate failed: complete 5m replay cache 155 / 276 = 56.16% < 95%
+- Gate reasons: Odds API point-in-time features have insufficient test coverage; sportsbook native 5-minute density gate failed: complete 5m replay cache 164 / 276 = 59.42% < 95%
 
 ## Active Strategy
 
@@ -38,12 +38,12 @@
 - 15m cache gate: True
 - Native 5m density gate: False
 - Matched events with complete 15m cache: 276 / 276
-- Matched events with complete 5m cache: 155 / 276 (56.16%)
-- Unique 5m snapshots cached rate: 67.03%
-- Unique 5m snapshots missing: 15,310 / 46,443
+- Matched events with complete 5m cache: 164 / 276 (59.42%)
+- Unique 5m snapshots cached rate: 69.12%
+- Unique 5m snapshots missing: 14,342 / 46,443
 - Warehouse replay-window cross-checks: 276
-- Extra non-replay timestamps inside replay windows: 0
-- Gap reasons: complete 5m replay cache 155 / 276 = 56.16% < 95%
+- Extra non-replay timestamps inside replay windows: 1,261
+- Gap reasons: complete 5m replay cache 164 / 276 = 59.42% < 95%
 
 ## Split Coverage
 

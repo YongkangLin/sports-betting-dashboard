@@ -1,0 +1,45 @@
+{
+  "generated_at": "2026-05-30T22:57:40.696565+00:00",
+  "legacy_audit": {
+    "input_files": 41,
+    "clean_contracts": 486,
+    "target_events": 343
+  },
+  "target_contracts": 486,
+  "target_events": 343,
+  "matched_contracts": 463,
+  "matched_markets": 424,
+  "target_assets": 848,
+  "by_bucket": [
+    {
+      "bucket": "longshot_10_15_buy_no",
+      "target_contracts": 336,
+      "matched_contracts": 321,
+      "matched_markets": 389,
+      "target_assets": 778
+    },
+    {
+      "bucket": "favorite_85_95_buy_yes",
+      "target_contracts": 150,
+      "matched_contracts": 142,
+      "matched_markets": 194,
+      "target_assets": 388
+    }
+  ],
+  "matching_policy": {
+    "sport_mapped": true,
+    "event_date_delta_days_max": 1,
+    "event_score_min": 0.58,
+    "side_score_min": 0.45,
+    "match_score_min": 0.62,
+    "legacy_market_kind_enforced": true,
+    "h2h_excludes_totals_spreads_1h_props_exact_score": true,
+    "downloads_require_quotes_and_book_snapshot_5": true
+  },
+  "outputs": {
+    "json": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/execution_training/favorite_longshot_telonex_plan_latest.json",
+    "target_assets": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/execution_training/favorite_longshot_telonex_target_assets_latest.parquet",
+    "report": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/favorite_longshot_telonex_plan_latest.md"
+  },
+  "verdict": "READY_TO_DOWNLOAD_TARGETED_TELONEX_CLOB"
+}

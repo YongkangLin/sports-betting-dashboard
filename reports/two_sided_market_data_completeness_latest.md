@@ -1,12 +1,12 @@
 # Two-Sided Market Data Completeness
 
-- Generated: 2026-05-31T10:35:22.508197+00:00
+- Generated: 2026-05-31T12:40:30.463272+00:00
 - Replay events audited: 277
 - Polymarket CLOB actual two-sided events: 277 / 277 (100.0%)
 - Polymarket derived-opposite events: 0
 - Actual opposite-token CLOB minutes: 329,406
 - Sportsbook complete-side events: 276 / 277 (99.6%)
-- Sportsbook complete-side fair-probability points: 34,927
+- Sportsbook complete-side fair-probability points: 36,264
 - Complete on both venues: 276 / 277 (99.6%)
 
 Sportsbook fair probabilities now require complete sides in each bookmaker snapshot: h2h needs both competitors, soccer 3-way needs team/team/draw when draw is present, totals need Over and Under, and spreads need both competitors at the same point.
