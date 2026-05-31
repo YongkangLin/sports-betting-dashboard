@@ -6,7 +6,7 @@ Run a lean Telonex/Odds API execution workflow: collect/refresh CLOB and sportsb
 
 ## Current Verdict
 
-- Generated: 2026-05-31T21:14:50.914829+00:00
+- Generated: 2026-05-31T21:23:22.091887+00:00
 - Verdict: HOLD; live capital enabled: False; live capital gate: False
 - Collector: healthy at loop 479
 - Latest model: `20260530T215450Z-3e90e2b5d8da`
@@ -19,7 +19,7 @@ Run a lean Telonex/Odds API execution workflow: collect/refresh CLOB and sportsb
 - Materialized Odds API feature layer: 5,097,400 rows with 94.54% coverage.
 - Trained latest Telonex convergence model run `20260530T215450Z` using `base_odds` features.
 - Kept live CLOB capture, queue/fill modeling, Telonex scoring, validation, model monitoring, and dashboard publishing as the active workflow.
-- Consolidated repository reporting to this single latest-status file; per-script reports are treated as local byproducts.
+- Consolidated repository reporting to this single latest-status file; per-script summaries are treated as local byproducts outside the repo.
 
 ## What Is Left
 
