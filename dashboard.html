@@ -961,7 +961,7 @@ const ARTIFACTS = {
   latestTelonexSummary: { label: "Latest maker-fill model", path: "data/model/telonex_convergence/20260530T215450Z/summary.json" },
   liveSignals: { label: "Live Telonex signals", path: "data/live/clob/live_telonex_convergence_signals_latest.json" },
   strategyBuckets: { label: "Strategy bucket audit", path: "data/model/training/telonex_strategy_buckets_latest.json" },
-  favoriteLongshotEventReplays: { label: "Favorite-longshot event replays", path: "data/model/replays/favorite_longshot_event_replays_latest.json" },
+  favoriteLongshotEventReplays: { label: "Event replay bundle", path: "data/model/replays/event_replays_latest.json" },
   replaySportsbookGapAudit: { label: "Replay sportsbook gap audit", path: "data/model/replays/audits/replay_sportsbook_gap_audit_latest.json" },
   dashboardSportsbookIntegrityAudit: { label: "Dashboard sportsbook integrity audit", path: "data/model/replays/audits/dashboard_sportsbook_integrity_audit_latest.json" }
 };
@@ -1072,9 +1072,13 @@ const SNAPSHOT = {
   },
   favoriteLongshotEventReplays: {
     summary: {
-      settled_events: 277,
-      events_with_series: 277,
-      total_series_points: 329406
+      source_events: 2513,
+      preserved_decision_events: 277,
+      plot_only_events: 2352,
+      events_with_series: 2629,
+      total_series_points: 1275330,
+      sportsbook_events: 2564,
+      total_sportsbook_points: 928860
     },
     events: []
   },
@@ -1323,11 +1327,11 @@ const SNAPSHOT = {
   ],
   retiredArtifacts: [],
   artifactSizes: {
-    "data/status/latest_status.json": 133217,
-    "data/model/telonex_convergence/20260530T215450Z/summary.json": 31520,
-    "data/live/clob/live_telonex_convergence_signals_latest.json": 3995,
-    "data/model/training/telonex_strategy_buckets_latest.json": 100352,
-    "data/model/replays/favorite_longshot_event_replays_latest.json": 3526677,
+    "data/status/latest_status.json": 25873,
+    "data/model/telonex_convergence/20260530T215450Z/summary.json": 31450,
+    "data/live/clob/live_telonex_convergence_signals_latest.json": 3974,
+    "data/model/training/telonex_strategy_buckets_latest.json": 319650,
+    "data/model/replays/event_replays_latest.json": 2759719,
     "data/model/replays/audits/replay_sportsbook_gap_audit_latest.json": 1094086,
     "data/model/replays/audits/dashboard_sportsbook_integrity_audit_latest.json": 442651
   }
@@ -1362,6 +1366,7 @@ const STRATEGY_OPTIONS = [
   "Sharp-consensus CLOB mispricing",
   "Line-lag / CLV capture",
   "Fill-aware convergence ML",
+  "Market replay only",
   "YES + NO hedge/arb",
   "Post-event price shock"
 ];
@@ -2187,7 +2192,9 @@ function strategyLabel(value) {
     "sharp-consensus clob mispricing": "Sharp-consensus CLOB mispricing",
     "line_lag_clv_capture": "Line-lag / CLV capture",
     "line-lag clv capture": "Line-lag / CLV capture",
-    "line lag clv capture": "Line-lag / CLV capture"
+    "line lag clv capture": "Line-lag / CLV capture",
+    "market_replay_only": "Market replay only",
+    "market replay only": "Market replay only"
   };
   if (labels[key]) return labels[key];
   return raw
@@ -2588,12 +2595,18 @@ function replayMarkerPnl(marker) {
   return `${fmtSigned(marker.pnl)}${marker.roi !== undefined ? ` (${fmtPct(marker.roi)})` : ""}`;
 }
 
+function isPlotOnlyReplay(event) {
+  return event?.replay_kind === "plot_only" || event?.strategy === "market_replay_only";
+}
+
 function replayPosition(stats, marker = null) {
   const entry = num(stats?.entry_ask);
   const topAskSize = num(stats?.entry_ask_size);
   const targetStake = REPLAY_BANKROLL_USD * REPLAY_POSITION_FRACTION;
   const depthCap = entry && topAskSize ? entry * topAskSize : null;
-  const stakeUsd = Math.max(0, Math.min(targetStake, depthCap ?? targetStake));
+  const stakeUsd = entry && entry > 0
+    ? Math.max(0, Math.min(targetStake, depthCap ?? targetStake))
+    : null;
   const contracts = entry && entry > 0 ? stakeUsd / entry : null;
   const pnlPerContract = marker ? num(marker.pnl) : num(stats?.pnl);
   const pnlUsd = contracts !== null && pnlPerContract !== null ? contracts * pnlPerContract : null;
@@ -3316,6 +3329,8 @@ function renderDecisionPanel(event, marker) {
   $("decision-action").textContent = actionText;
   $("decision-action").className = `pill ${actionTone}`;
   if (!marker) {
+    $("decision-action").textContent = isPlotOnlyReplay(event) ? "PLOT" : "--";
+    $("decision-action").className = "pill info";
     $("replay-kv").innerHTML = "";
     $("replay-rationale").innerHTML = `<strong>Rationale</strong><span>No buy or mark point is available for this event.</span>`;
     return;
@@ -3456,6 +3471,7 @@ function renderReplay(data) {
     const stats = event.stats || {};
     const pos = replayPosition(stats);
     const side = replaySide(event);
+    const plotOnly = isPlotOnlyReplay(event);
     const dataSourceSelect = $("replay-data-source-select");
     if (dataSourceSelect) {
       dataSourceSelect.disabled = true;
@@ -3465,10 +3481,10 @@ function renderReplay(data) {
     $("replay-event-strip").innerHTML = [
       ["Strategy", strategyLabel(event.strategy_label || event.strategy || event.bucket)],
       ["Market", marketLabel(event)],
-      ["Order", side.order],
-      ["Position", replayTradeAmount(stats)],
-      ["Event PnL", `${fmtSignedUsd(pos.pnlUsd)} (${fmtPct(stats.roi)})`],
-      ["Start", fmtUsd(pos.bankroll, 0)]
+      ["Order", plotOnly ? `Plot ${side.display}` : side.order],
+      ["Position", plotOnly ? "--" : replayTradeAmount(stats)],
+      ["Event PnL", plotOnly ? "--" : `${fmtSignedUsd(pos.pnlUsd)} (${fmtPct(stats.roi)})`],
+      ["Start", plotOnly ? `${fmtInt(event.series_point_count)} points` : fmtUsd(pos.bankroll, 0)]
     ].map(([k, v]) => `<div class="event-stat"><span>${esc(k)}</span><strong>${esc(v)}</strong></div>`).join("");
     $("decision-title").textContent = "Loading event";
     $("decision-action").textContent = "--";
@@ -3484,6 +3500,9 @@ function renderReplay(data) {
   const stats = fullEvent.stats || {};
   const finalPos = replayPosition(stats);
   const side = replaySide(fullEvent);
+  const plotOnly = isPlotOnlyReplay(fullEvent);
+  const pricePoints = replayPricePoints(fullEvent);
+  const lastPricePoint = pricePoints[pricePoints.length - 1];
   const markers = fullEvent.markers || [];
   const markerIndex = selectedReplayMarkerIndex(fullEvent);
   const selectedMarker = markers[markerIndex];
@@ -3517,12 +3536,12 @@ function renderReplay(data) {
     ["Strategy", strategyLabel(fullEvent.strategy_label || fullEvent.strategy || fullEvent.bucket)],
     ["Market", marketLabel(fullEvent)],
     ["Data", qualityLabel ? `${dataLabel}; ${qualityLabel}` : dataLabel],
-    ["Order", side.order],
-    ["Result", stats.won ? "Won" : "Lost"],
-    ["Position", replayTradeAmount(stats)],
-    ["Event PnL", `${fmtSignedUsd(finalPos.pnlUsd)} (${fmtPct(stats.roi)})`],
-    ["Start", fmtUsd(finalPos.bankroll, 0)],
-    ["End", fmtUsd(finalPos.endBalance)]
+    ["Order", plotOnly ? `Plot ${side.display}` : side.order],
+    ["Result", plotOnly ? "No trade" : stats.won ? "Won" : "Lost"],
+    ["Position", plotOnly ? "--" : replayTradeAmount(stats)],
+    ["Event PnL", plotOnly ? "--" : `${fmtSignedUsd(finalPos.pnlUsd)} (${fmtPct(stats.roi)})`],
+    ["Start", plotOnly ? replayTimeLabel(fullEvent, 0) : fmtUsd(finalPos.bankroll, 0)],
+    ["End", plotOnly ? replayTimeLabel(fullEvent, lastPricePoint?.offset) : fmtUsd(finalPos.endBalance)]
   ].map(([k, v]) => `<div class="event-stat"><span>${esc(k)}</span><strong>${esc(v)}</strong></div>`).join("");
   if (fullEvent.load_error) {
     $("decision-title").textContent = "Load failed";
@@ -3611,7 +3630,7 @@ function renderArtifacts(data) {
   $("artifact-grid").innerHTML = entries.map(item => {
     const health = state.health[item.path] || { ok: false, label: "embedded", error: "using embedded snapshot" };
     const cls = health.ok ? "good" : health.label === "embedded" ? "warn" : "bad";
-    const size = data.artifactSizes[item.path];
+    const size = health.sizeBytes ?? data.artifactSizes[item.path];
     return `
       <div class="artifact">
         <h3>
@@ -3639,7 +3658,12 @@ async function fetchJson(key, path) {
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const json = await res.json();
     state.loaded[key] = json;
-    state.health[path] = { ok: true, label: "loaded" };
+    const sizeBytes = Number(res.headers.get("content-length"));
+    state.health[path] = {
+      ok: true,
+      label: "loaded",
+      sizeBytes: Number.isFinite(sizeBytes) ? sizeBytes : undefined
+    };
     return json;
   } catch (error) {
     state.health[path] = { ok: false, label: "embedded", error: error.message };

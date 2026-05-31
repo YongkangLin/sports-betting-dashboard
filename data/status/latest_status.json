@@ -61,7 +61,7 @@
     "Odds API fusion not yet proven on held-out Telonex test",
     "live strategy LEV evidence incomplete"
   ],
-  "generated_at": "2026-05-31T21:23:22.091887+00:00",
+  "generated_at": "2026-05-31T22:06:01.984741+00:00",
   "historical_clob": {
     "depth_rows": 0,
     "quote_rows": 0,
@@ -126,6 +126,20 @@
     "lifecycle_rows": 0,
     "lifecycle_source_counts": {},
     "order_rows": 0
+  },
+  "replays": {
+    "events_with_series": 2629,
+    "generated_at": "2026-05-31T22:05:46.526023+00:00",
+    "odds_feature_coverage_at_horizon": 0.9474408211518461,
+    "plot_only_events": 2352,
+    "preserved_decision_events": 277,
+    "source_events": 2513,
+    "source_label_rows_at_horizon": 1054811,
+    "source_markets": 1257,
+    "source_tokens": 2513,
+    "sportsbook_events": 2564,
+    "total_series_points": 1275330,
+    "total_sportsbook_points": 928860
   },
   "security": {
     "critical": 0,
