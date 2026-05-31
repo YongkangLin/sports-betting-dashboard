@@ -628,40 +628,17 @@
     grid-template-columns: minmax(110px, 0.7fr) minmax(0, 1.3fr);
   }
 
-  .replay-table-wrap {
-    margin-top: 16px;
-  }
-
-  .replay-table-wrap table {
-    min-width: 620px;
-  }
-
-  .marker-button {
-    width: 100%;
-    padding: 9px 10px;
-    border: 1px solid var(--soft-line);
-    border-radius: 8px;
-    background: #fff;
-    color: var(--ink);
-    font: inherit;
-    font-weight: 800;
-    text-align: left;
-    cursor: pointer;
-  }
-
-  .marker-button:hover,
-  .marker-button.active {
-    border-color: #b9d3ff;
-    background: var(--info-bg);
-    color: var(--info);
-  }
-
   .chart-marker {
     cursor: pointer;
+    pointer-events: all;
   }
 
   .chart-marker:focus {
     outline: none;
+  }
+
+  .chart-marker-hit {
+    pointer-events: all;
   }
 
   footer {
@@ -795,19 +772,6 @@
             <div class="decision-rationale" id="replay-rationale"></div>
           </div>
         </div>
-      </div>
-      <div class="table-wrap replay-table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Point</th>
-              <th>Time</th>
-              <th>Price</th>
-              <th>PnL</th>
-            </tr>
-          </thead>
-          <tbody id="replay-marker-table"></tbody>
-        </table>
       </div>
     </section>
   </main>
@@ -1648,6 +1612,28 @@ function replayMarkerPnl(marker) {
   return `${fmtSigned(marker.pnl)}${marker.roi !== undefined ? ` (${fmtPct(marker.roi)})` : ""}`;
 }
 
+function replayTradeAmount(stats) {
+  const stake = num(stats?.stake);
+  const entry = num(stats?.entry_ask);
+  if (stake === null) return "--";
+  const shares = entry && entry > 0 ? stake / entry : null;
+  return shares === null
+    ? `${fmtPrice(stake, 4)} stake`
+    : `${fmtPrice(stake, 4)} stake / ${fmtPrice(shares, 3)} contract`;
+}
+
+function replayDecisionRationale(event, marker) {
+  const stats = event.stats || {};
+  const action = marker?.action || "MARK";
+  if (action === "BUY") {
+    return `Buy ${event.outcome || "the contract"} at ${fmtPrice(marker.price)} using ${replayTradeAmount(stats)}.`;
+  }
+  if (action === "SETTLEMENT") {
+    return `Final result: ${stats.won ? "won" : "lost"} with total PnL ${replayMarkerPnl(marker)}.`;
+  }
+  return `Sell check at ${fmtPrice(marker.price)}. If exited here, PnL would be ${replayMarkerPnl(marker)}.`;
+}
+
 function selectedReplayMarkerIndex(event) {
   const markers = event.markers || [];
   let index = Number(state.selectedReplayMarkerById[event.replay_id]);
@@ -1659,9 +1645,7 @@ function selectedReplayMarkerIndex(event) {
 }
 
 function preferredWindowForMarker(marker) {
-  const action = marker?.action || "MARK";
   const label = String(marker?.horizon_label || marker?.label || "").toLowerCase();
-  if (action === "SETTLEMENT") return "full";
   if (label.includes("1d")) return "1d";
   return "90m";
 }
@@ -1672,22 +1656,37 @@ function setWindowButtonState() {
   });
 }
 
-function replayWindowBounds(points, markers) {
+function replayWindowBounds(points, markers, selectedMarker) {
   const fullMin = Math.min(...points.map(point => point.offset));
   const fullMax = Math.max(...points.map(point => point.offset));
   const buyMarker = markers.find(marker => marker.action === "BUY") || markers[0];
   const buyOffset = num(buyMarker?.offset_sec) ?? fullMin;
+  const focusOffset = num(selectedMarker?.offset_sec) ?? buyOffset;
+  const action = selectedMarker?.action || "BUY";
   let minX = fullMin;
   let maxX = fullMax;
+  if (state.replayWindow === "full") {
+    return { minX, maxX, fullMin, fullMax };
+  }
   if (state.replayWindow === "1d") {
-    minX = buyOffset - 15 * 60;
-    maxX = buyOffset + 24 * 3600;
-  } else if (state.replayWindow !== "full") {
+    minX = Math.min(buyOffset, focusOffset) - 15 * 60;
+    maxX = Math.max(buyOffset + 24 * 3600, focusOffset + 15 * 60);
+  } else if (action === "SETTLEMENT") {
+    minX = focusOffset - 90 * 60;
+    maxX = focusOffset + 10 * 60;
+  } else if (action === "MARK" && focusOffset - buyOffset <= 90 * 60) {
     minX = buyOffset - 10 * 60;
     maxX = buyOffset + 90 * 60;
+  } else {
+    minX = focusOffset - 10 * 60;
+    maxX = focusOffset + 90 * 60;
   }
   minX = Math.max(fullMin, minX);
   maxX = Math.min(fullMax, maxX);
+  if (focusOffset > maxX) {
+    maxX = Math.min(fullMax, focusOffset + 10 * 60);
+    minX = Math.max(fullMin, maxX - (state.replayWindow === "1d" ? 24 * 3600 : 90 * 60));
+  }
   if (maxX - minX < 10 * 60) {
     maxX = Math.min(fullMax, minX + 10 * 60);
   }
@@ -1722,7 +1721,8 @@ function drawReplayChart(event) {
   const pad = { left: 54, right: 128, top: 22, bottom: 44 };
   const plotW = width - pad.left - pad.right;
   const plotH = height - pad.top - pad.bottom;
-  const bounds = replayWindowBounds(points, markers);
+  const selectedMarker = markers.find(marker => marker.index === selectedIndex);
+  const bounds = replayWindowBounds(points, markers, selectedMarker);
   let visiblePoints = points.filter(point => point.offset >= bounds.minX && point.offset <= bounds.maxX);
   if (visiblePoints.length < 2) {
     visiblePoints = points;
@@ -1785,6 +1785,7 @@ function drawReplayChart(event) {
     return `
       <g class="chart-marker" data-marker-index="${marker.index}" tabindex="0" role="button" aria-label="${esc(replayMarkerLabel(marker))}">
         <title>${esc(`${marker.label}: ${marker.reason || ""}`)}</title>
+        <circle class="chart-marker-hit" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="16" fill="transparent" stroke="transparent" />
         <circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${isSelected ? "8.5" : "6.5"}" fill="${color}" stroke="${isSelected ? "#1d2430" : "#fff"}" stroke-width="${isSelected ? "3" : "2"}" />
         <text x="${x.toFixed(1)}" y="${labelY.toFixed(1)}" text-anchor="middle" fill="${color}" font-size="11" font-weight="700">${esc(displayLabel)}</text>
       </g>
@@ -1793,7 +1794,7 @@ function drawReplayChart(event) {
 
   svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
   svg.innerHTML = `
-    <rect x="0" y="0" width="${width}" height="${height}" fill="#fff" />
+    <rect x="0" y="0" width="${width}" height="${height}" fill="#fff" pointer-events="none" />
     ${grid}
     <line x1="${pad.left}" y1="${pad.top}" x2="${pad.left}" y2="${height - pad.bottom}" stroke="#d8dee8" />
     <line x1="${pad.left}" y1="${height - pad.bottom}" x2="${width - pad.right}" y2="${height - pad.bottom}" stroke="#d8dee8" />
@@ -1830,9 +1831,14 @@ async function loadReplayDetail(event) {
 function renderDecisionPanel(event, marker) {
   const stats = event.stats || {};
   const action = marker?.action || "MARK";
+  const token = event.outcome || "contract";
   const actionText = action === "BUY" ? "BUY" : action === "SETTLEMENT" ? "RESULT" : "SELL";
   const actionTone = action === "BUY" ? "good" : action === "SETTLEMENT" ? (stats.won ? "good" : "bad") : "warn";
-  $("decision-title").textContent = marker ? replayMarkerLabel(marker) : "No point selected";
+  const title =
+    action === "BUY" ? `Buy ${token}`
+      : action === "SETTLEMENT" ? `Final result: ${stats.won ? "won" : "lost"}`
+        : `Sell check ${token}`;
+  $("decision-title").textContent = marker ? title : "No point selected";
   $("decision-action").textContent = actionText;
   $("decision-action").className = `pill ${actionTone}`;
   if (!marker) {
@@ -1840,20 +1846,16 @@ function renderDecisionPanel(event, marker) {
     $("replay-rationale").textContent = "No buy or mark point is available for this event.";
     return;
   }
-  const priceName = action === "BUY" ? "Entry ask" : action === "SETTLEMENT" ? "Final price" : "Sell bid";
+  const priceName = action === "BUY" ? "Buy price" : action === "SETTLEMENT" ? "Final price" : "Sell price";
   const rows = [
+    ["Action", action === "BUY" ? "Buy" : action === "SETTLEMENT" ? "Result" : "Sell"],
+    ["Amount", replayTradeAmount(stats)],
     ["Time", replayTimeLabel(event, marker.offset_sec)],
     [priceName, fmtPrice(marker.price)],
-    ["Stake", fmtPrice(stats.stake, 4)],
     ["PnL", replayMarkerPnl(marker)]
   ];
-  if (action !== "BUY") {
-    rows.splice(2, 0, ["Entry ask", fmtPrice(stats.entry_ask)]);
-  } else {
-    rows.splice(2, 0, ["Entry bid", fmtPrice(stats.entry_bid)], ["Spread", fmtPrice(stats.entry_spread)]);
-  }
   $("replay-kv").innerHTML = rows.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("");
-  $("replay-rationale").textContent = marker.reason || event.rationale || "No rationale attached.";
+  $("replay-rationale").textContent = replayDecisionRationale(event, marker);
 }
 
 function renderReplay(data) {
@@ -1871,7 +1873,6 @@ function renderReplay(data) {
     $("decision-action").className = "pill info";
     $("replay-kv").innerHTML = "";
     $("replay-rationale").textContent = "The public dashboard loads this from favorite_longshot_event_replays_latest.json. If you are opening the file directly, use the GitHub Pages page so browser fetches work.";
-    $("replay-marker-table").innerHTML = "";
     drawReplayChart({ series_points: [] });
     return;
   }
@@ -1903,7 +1904,6 @@ function renderReplay(data) {
     $("decision-action").className = "pill info";
     $("replay-kv").innerHTML = "";
     $("replay-rationale").textContent = "Loading minute-level prices.";
-    $("replay-marker-table").innerHTML = `<tr><td colspan="4">Loading event detail...</td></tr>`;
     drawReplayChart({ series_points: [] });
     loadReplayDetail(event);
     return;
@@ -1916,8 +1916,7 @@ function renderReplay(data) {
   const selectedMarker = markers[markerIndex];
   $("replay-title").textContent = `${fullEvent.title || fullEvent.slug || "Backtest event"} x ${strategyLabel(fullEvent.bucket || replay.strategy)}`;
   $("replay-event-strip").innerHTML = [
-    ["Token", fullEvent.outcome || "--"],
-    ["Other side", fullEvent.other_outcome || "--"],
+    ["Contract", fullEvent.outcome || "--"],
     ["Result", stats.won ? "Won" : "Lost"],
     ["Event PnL", `${fmtSigned(stats.pnl)} (${fmtPct(stats.roi)})`]
   ].map(([k, v]) => `<div class="event-stat"><span>${esc(k)}</span><strong>${esc(v)}</strong></div>`).join("");
@@ -1930,14 +1929,6 @@ function renderReplay(data) {
   } else {
     renderDecisionPanel(fullEvent, selectedMarker);
   }
-  $("replay-marker-table").innerHTML = markers.map((marker, index) => `
-    <tr>
-      <td><button class="marker-button ${index === markerIndex ? "active" : ""}" type="button" data-marker-index="${index}">${esc(replayMarkerLabel(marker))}</button></td>
-      <td>${esc(replayTimeLabel(fullEvent, marker.offset_sec))}</td>
-      <td>${esc(fmtPrice(marker.price))}</td>
-      <td>${esc(replayMarkerPnl(marker))}</td>
-    </tr>
-  `).join("");
   drawReplayChart(fullEvent);
 }
 

@@ -1,29 +1,29 @@
 # Live Execution Collector Health
 
-- Generated: 2026-05-31T01:32:13.171860+00:00
+- Generated: 2026-05-31T01:46:41.774587+00:00
 - Loop status: running
 - Started: 2026-05-29T22:56:51.160360+00:00
-- Loop count: 550
+- Loop count: 556
 - Capital enabled: false
 - Alerts: 2
 
 ## Alerts
 
-- telonex_live_score failed (62 consecutive)
+- telonex_live_score failed (66 consecutive)
 - paper_trade failed (1 consecutive)
 
 ## Task State
 
 ```text
-http_capture: ok=True last_success=2026-05-31T01:30:25.629063+00:00 failures=0
-ws_capture: ok=True last_success=2026-05-31T01:31:14.089725+00:00 failures=0
-telonex_live_score: ok=False last_success=2026-05-30T20:09:38.550837+00:00 failures=62
-paper_trade: ok=False last_success=2026-05-31T01:25:04.287234+00:00 failures=1
-post_trade_http_capture: ok=True last_success=2026-05-31T01:31:53.959606+00:00 failures=0
-live_execution_quality: ok=True last_success=2026-05-31T01:32:03.703052+00:00 failures=0
-user_lifecycle: ok=True last_success=2026-05-31T01:32:13.170696+00:00 failures=0
-execution_training: ok=True last_success=2026-05-31T01:27:41.667702+00:00 failures=0
-queue_training: ok=True last_success=2026-05-31T01:27:58.942518+00:00 failures=0
+http_capture: ok=True last_success=2026-05-31T01:45:45.704727+00:00 failures=0
+ws_capture: ok=True last_success=2026-05-31T01:46:19.873739+00:00 failures=0
+telonex_live_score: ok=False last_success=2026-05-30T20:09:38.550837+00:00 failures=66
+paper_trade: ok=False last_success=2026-05-31T01:41:32.021482+00:00 failures=1
+post_trade_http_capture: ok=True last_success=2026-05-31T01:41:39.801348+00:00 failures=0
+live_execution_quality: ok=True last_success=2026-05-31T01:41:49.058669+00:00 failures=0
+user_lifecycle: ok=True last_success=2026-05-31T01:41:58.701453+00:00 failures=0
+execution_training: ok=True last_success=2026-05-31T01:43:03.641236+00:00 failures=0
+queue_training: ok=True last_success=2026-05-31T01:43:18.593142+00:00 failures=0
 queue_fill_model: ok=True last_success=2026-05-31T01:28:23.231863+00:00 failures=0
 model_monitor: ok=True last_success=2026-05-31T01:28:24.199057+00:00 failures=0
 game_state: ok=True last_success=2026-05-31T01:28:32.975687+00:00 failures=0
