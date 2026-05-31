@@ -1,6 +1,6 @@
 # Strategy And Data Readiness
 
-- Generated: 2026-05-31T14:05:34.001515+00:00
+- Generated: 2026-05-31T14:11:56.545044+00:00
 - Overall gate: False
 - Verdict: HOLD: strategy is defined, but dataset is not complete enough to prove the bot
 - Gate reasons: sportsbook native 5-minute density gate failed: complete 5m replay cache 167 / 276 = 60.51% < 95%

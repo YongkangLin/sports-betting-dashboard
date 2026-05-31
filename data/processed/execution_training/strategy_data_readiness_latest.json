@@ -52,7 +52,7 @@
     "sportsbook_native_5m_density_gate": false,
     "trade_confirmed_fill_holdout_gate": true
   },
-  "generated_at": "2026-05-31T14:05:34.001515+00:00",
+  "generated_at": "2026-05-31T14:11:56.545044+00:00",
   "latest_model_monitor": {
     "adverse_selection": {
       "available": false,
@@ -414,7 +414,7 @@
     "complete_both_venues_rate": 0.9963898916967509,
     "events": 277,
     "gate": true,
-    "generated_at": "2026-05-31T14:04:52.883970+00:00",
+    "generated_at": "2026-05-31T14:11:09.011093+00:00",
     "min_complete_both_venues_rate": 0.95,
     "missing_examples": [
       {
@@ -1432,7 +1432,7 @@
         "probabilities_in_bounds": true
       }
     },
-    "generated_at": "2026-05-31T13:42:55.571889+00:00",
+    "generated_at": "2026-05-31T14:06:17.253654+00:00",
     "labels": {
       "markets": 216,
       "rows": 2888585,
