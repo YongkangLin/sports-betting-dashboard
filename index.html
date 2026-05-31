@@ -965,6 +965,7 @@ const ARTIFACTS = {
   favoriteLongshotRuleValidation: { label: "Favorite-longshot rule validation", path: "data/processed/execution_training/favorite_longshot_rule_validation_latest.json" },
   favoriteLongshotEventReplays: { label: "Favorite-longshot event replays", path: "data/processed/execution_training/favorite_longshot_event_replays_latest.json" },
   replaySportsbookGapAudit: { label: "Replay sportsbook gap audit", path: "reports/replay_sportsbook_gap_audit_latest.json" },
+  dashboardSportsbookIntegrityAudit: { label: "Dashboard sportsbook integrity audit", path: "reports/dashboard_sportsbook_integrity_audit_latest.json" },
   liveSignals: { label: "Live Telonex signals", path: "data/processed/clob_capture/live_telonex_convergence_signals_latest.json" },
   strategyBuckets: { label: "Strategy bucket audit", path: "data/processed/execution_training/telonex_strategy_buckets_latest.json" },
   playByPlaySourcePlan: { label: "Play-by-play source plan", path: "data/processed/execution_training/play_by_play_source_plan_latest.json" },
@@ -1070,7 +1071,10 @@ const SNAPSHOT = {
     marketRule: "exclude_last_15m",
     marketTestBets: 58,
     marketTestRoi: 0.023843006716712755,
-    marketTestCiLo: -0.07552670546302616
+    marketTestCiLo: -0.07552670546302616,
+    qualityCounts: {},
+    temporalTestQualityBreakdown: [],
+    marketTestQualityBreakdown: []
   },
   favoriteLongshotEventReplays: {
     summary: {
@@ -1120,6 +1124,7 @@ const SNAPSHOT = {
     playByPlayMarkets: 0,
     sentimentStatus: "missing_feature_file",
     sentimentCoverage: 0,
+    strategySupport: [],
     strategyRows: [
       {
         strategy: "favorite_longshot_fade_v2",
@@ -1328,7 +1333,7 @@ const SNAPSHOT = {
     "data/processed/execution_training/strategy_data_readiness_latest.json": 59646,
     "data/processed/execution_training/event_market_inventory_latest.json": 14494,
     "data/processed/execution_training/favorite_longshot_executable_backtest_latest.json": 72452,
-    "data/processed/execution_training/favorite_longshot_rule_validation_latest.json": 58000,
+    "data/processed/execution_training/favorite_longshot_rule_validation_latest.json": 68000,
     "data/processed/execution_training/favorite_longshot_event_replays_latest.json": 427000,
     "data/processed/clob_capture/live_telonex_convergence_signals_latest.json": 3995,
     "data/processed/execution_training/telonex_strategy_buckets_latest.json": 100352,
@@ -1540,6 +1545,7 @@ function deriveDashboard() {
   const favoriteRuleValidation = state.loaded.favoriteLongshotRuleValidation;
   const favoriteLongshotEventReplays = state.loaded.favoriteLongshotEventReplays;
   const replaySportsbookGapAudit = state.loaded.replaySportsbookGapAudit;
+  const dashboardSportsbookIntegrityAudit = state.loaded.dashboardSportsbookIntegrityAudit;
   const strategyBuckets = state.loaded.strategyBuckets;
   const playByPlaySourcePlan = state.loaded.playByPlaySourcePlan;
   const microstructureBuckets = state.loaded.microstructureBuckets;
@@ -1602,6 +1608,9 @@ function deriveDashboard() {
     data.strategyBuckets.strategyRows = Array.isArray(artifact.strategy_rows)
       ? artifact.strategy_rows
       : data.strategyBuckets.strategyRows;
+    data.strategyBuckets.strategySupport = Array.isArray(artifact.strategy_support)
+      ? artifact.strategy_support
+      : data.strategyBuckets.strategySupport;
   }
 
   function applyPlayByPlaySourcePlan(artifact) {
@@ -1676,6 +1685,9 @@ function deriveDashboard() {
     data.favoriteLongshotRuleValidation.marketTestBets = favMarketTest.bets ?? data.favoriteLongshotRuleValidation.marketTestBets;
     data.favoriteLongshotRuleValidation.marketTestRoi = favMarketTest.roi ?? data.favoriteLongshotRuleValidation.marketTestRoi;
     data.favoriteLongshotRuleValidation.marketTestCiLo = favMarketTest.ci_lo ?? data.favoriteLongshotRuleValidation.marketTestCiLo;
+    data.favoriteLongshotRuleValidation.qualityCounts = favRules.input?.sportsbook_quality_counts || data.favoriteLongshotRuleValidation.qualityCounts;
+    data.favoriteLongshotRuleValidation.temporalTestQualityBreakdown = favTemporal.selected_rule_test_quality_breakdown || data.favoriteLongshotRuleValidation.temporalTestQualityBreakdown;
+    data.favoriteLongshotRuleValidation.marketTestQualityBreakdown = favMarket.selected_rule_test_quality_breakdown || data.favoriteLongshotRuleValidation.marketTestQualityBreakdown;
     applyStrategyBuckets(live.telonex_strategy_buckets);
     applyMicrostructure(live.telonex_microstructure_buckets);
 
@@ -1797,26 +1809,44 @@ function deriveDashboard() {
     data.favoriteLongshotRuleValidation.marketTestBets = marketTest.bets ?? data.favoriteLongshotRuleValidation.marketTestBets;
     data.favoriteLongshotRuleValidation.marketTestRoi = marketTest.roi ?? data.favoriteLongshotRuleValidation.marketTestRoi;
     data.favoriteLongshotRuleValidation.marketTestCiLo = marketTest.ci_lo ?? data.favoriteLongshotRuleValidation.marketTestCiLo;
+    data.favoriteLongshotRuleValidation.qualityCounts = favoriteRuleValidation.input?.sportsbook_quality_counts || data.favoriteLongshotRuleValidation.qualityCounts;
+    data.favoriteLongshotRuleValidation.temporalTestQualityBreakdown = temporal.selected_rule_test_quality_breakdown || data.favoriteLongshotRuleValidation.temporalTestQualityBreakdown;
+    data.favoriteLongshotRuleValidation.marketTestQualityBreakdown = market.selected_rule_test_quality_breakdown || data.favoriteLongshotRuleValidation.marketTestQualityBreakdown;
   }
 
   if (favoriteLongshotEventReplays) {
     data.favoriteLongshotEventReplays = favoriteLongshotEventReplays;
     const auditRows = replaySportsbookGapAudit?.events || [];
-    if (auditRows.length) {
+    const integrityRows = dashboardSportsbookIntegrityAudit?.events || [];
+    if (auditRows.length || integrityRows.length) {
       const auditByReplayId = new Map(auditRows.map(row => [row.replay_id, row]));
+      const integrityByReplayId = new Map(integrityRows.map(row => [row.replay_id, row]));
       data.favoriteLongshotEventReplays = {
         ...favoriteLongshotEventReplays,
         sportsbookGapAudit: {
-          totalEvents: replaySportsbookGapAudit.total_events,
-          matchedEvents: replaySportsbookGapAudit.events_with_sportsbook_match,
-          complete15mEvents: replaySportsbookGapAudit.matched_events_with_complete_15m_cache,
-          complete5mEvents: replaySportsbookGapAudit.matched_events_with_complete_5m_cache,
-          missing5mSnapshots: replaySportsbookGapAudit.unique_cache_5m_missing_snapshots,
-          expected5mSnapshots: replaySportsbookGapAudit.unique_cache_5m_expected_snapshots,
+          totalEvents: replaySportsbookGapAudit?.total_events,
+          matchedEvents: replaySportsbookGapAudit?.events_with_sportsbook_match,
+          complete15mEvents: replaySportsbookGapAudit?.matched_events_with_complete_15m_cache,
+          complete5mEvents: replaySportsbookGapAudit?.matched_events_with_complete_5m_cache,
+          missing5mSnapshots: replaySportsbookGapAudit?.unique_cache_5m_missing_snapshots,
+          expected5mSnapshots: replaySportsbookGapAudit?.unique_cache_5m_expected_snapshots,
         },
+        sportsbookIntegrityAudit: dashboardSportsbookIntegrityAudit ? {
+          totalEvents: dashboardSportsbookIntegrityAudit.totals?.events,
+          clobCompleteEvents: dashboardSportsbookIntegrityAudit.totals?.clob_complete_events,
+          matchedEvents: dashboardSportsbookIntegrityAudit.totals?.sportsbook_matched_events,
+          overlayEvents: dashboardSportsbookIntegrityAudit.totals?.sportsbook_overlay_events,
+          complete15mEvents: dashboardSportsbookIntegrityAudit.totals?.complete_15m_cache_events,
+          complete5mEvents: dashboardSportsbookIntegrityAudit.totals?.complete_5m_cache_events,
+          missing5mSnapshots: dashboardSportsbookIntegrityAudit.totals?.unique_missing_5m_snapshots,
+          materializationBugWindows: dashboardSportsbookIntegrityAudit.totals?.materialization_bug_windows,
+          paidRemaining: dashboardSportsbookIntegrityAudit.quota?.paid_remaining,
+          estimatedCreditsToFinish5m: dashboardSportsbookIntegrityAudit.quota?.estimated_credits_to_finish_5m,
+        } : null,
         events: (favoriteLongshotEventReplays.events || []).map(event => ({
           ...event,
           sportsbook_gap_audit: auditByReplayId.get(event.replay_id) || null,
+          sportsbook_integrity_audit: integrityByReplayId.get(event.replay_id) || null,
         })),
       };
     }
@@ -1867,12 +1897,45 @@ function strategyAuditSplit(row) {
   return row?.split ? `${row.split} split` : "not enough qualifying rows";
 }
 
+function strategySupportRow(data, strategyName, split = "test") {
+  const rows = data.strategyBuckets?.strategySupport || [];
+  return rows.find(row => row.strategy === strategyName && row.split === split)
+    || rows.find(row => row.strategy === strategyName && row.rows > 0)
+    || null;
+}
+
+function strategySupportNote(row) {
+  if (!row) return "No candidate support row was generated.";
+  const base = `${fmtInt(row.rows)} rows across ${fmtInt(row.markets)} markets`;
+  return row.reportable ? `${base}; reportable support.` : `${base}; ${row.reason || "below support gate"}.`;
+}
+
 function unavailableStrategyMetrics(reason) {
   return [
     ["Strategy Backtest ROI", "not validated", reason, "No strategy-specific held-out edge is proven yet."],
     ["Replay sample", "0 events", "0 one-minute points", "No replayable historical event set has passed the data gate yet."],
     ["Live picks", "0", "monitor only", "No live signal is cleared for capital."]
   ];
+}
+
+function qualityTierLabel(tier) {
+  const labels = {
+    complete_5m: "complete 5m",
+    complete_15m_partial_5m: "15m complete, 5m partial",
+    complete_5m_source_quote_gap: "source quote gap",
+    complete_5m_sportsbook_listed_late: "sportsbook listed late",
+    complete_5m_sportsbook_stopped_before_settlement: "sportsbook stopped before settlement",
+    no_odds_event_match: "no Odds match"
+  };
+  return labels[tier] || String(tier || "unknown").replaceAll("_", " ");
+}
+
+function qualitySplitSentence(rows) {
+  if (!Array.isArray(rows) || !rows.length) return "";
+  return rows
+    .slice(0, 3)
+    .map(row => `${fmtInt(row.bets)} ${qualityTierLabel(row.sportsbook_quality_tier)} bets at ${fmtPct(row.roi)} ROI`)
+    .join("; ");
 }
 
 function renderStrategyOverview(data) {
@@ -1889,8 +1952,15 @@ function renderStrategyOverview(data) {
   const replaySportsbookPoints = replaySummary.total_sportsbook_points ?? 0;
   const replayClobTwoSidedEvents = replaySummary.clob_two_sided_events ?? replayEvents;
   const replayBothCompleteEvents = replaySummary.two_sided_complete_events ?? 0;
+  const integritySummary = data.favoriteLongshotEventReplays?.sportsbookIntegrityAudit || {};
+  const replayNative5mEvents = integritySummary.complete5mEvents ?? replayBothCompleteEvents;
+  const replayMissing5mSnapshots = integritySummary.missing5mSnapshots ?? 0;
+  const replayMaterializationBugs = integritySummary.materializationBugWindows ?? 0;
   const favoriteAudit = strategyAuditRow(data, "favorite_longshot_fade_v2");
   const sharpAudit = strategyAuditRow(data, "sharp_consensus_clob_mispricing");
+  const sharpSupport = strategySupportRow(data, "sharp_consensus_clob_mispricing", "test");
+  const lineLagSupport = strategySupportRow(data, "line_lag_clv_capture", "test");
+  const favQualitySplit = qualitySplitSentence(data.favoriteLongshotRuleValidation.marketTestQualityBreakdown);
   const featureBlocker = [
     sb.playByPlayCoverage > 0 ? null : "play-by-play 0%",
     sb.playerNewsCoverage > 0 ? null : "injury/news 0%",
@@ -1904,7 +1974,7 @@ function renderStrategyOverview(data) {
       tone: favoriteAudit && favoriteAudit.ci_lo > 0 ? "good" : "warn",
       metrics: [
         ["Strategy Backtest ROI", fmtPct(f.roi), `${fmtInt(f.settledEntries)} settled events`, `Favorite-longshot only. Resolution-hold replay is positive; short-horizon executable audit is ${fmtPct(favoriteAudit?.roi)} on ${strategyAuditSplit(favoriteAudit)}.`],
-        ["Replay sample", `${fmtInt(replayEvents)} events`, `${fmtInt(replayPoints)} one-minute points`, `${fmtInt(replayClobTwoSidedEvents)} have actual CLOB both sides; ${fmtInt(replayBothCompleteEvents)} also have complete-side sportsbook overlays from ${fmtInt(replaySportsbookPoints)} fair-probability points.`],
+        ["Replay sample", `${fmtInt(replayEvents)} events`, `${fmtInt(replayPoints)} one-minute points`, `${fmtInt(replayClobTwoSidedEvents)} have actual CLOB both sides; ${fmtInt(replayBothCompleteEvents)} also have sportsbook overlays from ${fmtInt(replaySportsbookPoints)} fair-probability points; native 5m Odds is complete for ${fmtInt(replayNative5mEvents)} events with ${fmtInt(replayMissing5mSnapshots)} unique 5m snapshots still missing. Replay materialization bugs: ${fmtInt(replayMaterializationBugs)}. ${favQualitySplit ? `Selected-rule test quality split: ${favQualitySplit}.` : ""}`],
         ["Live picks", fmtInt(e.liveSignalsSelected), `${fmtInt(e.liveSignalCandidates)} candidates scanned`, "No current signal clears the live threshold."]
       ]
     },
@@ -1914,7 +1984,7 @@ function renderStrategyOverview(data) {
       status: sharpAudit && sharpAudit.ci_lo > 0 ? "Research pass" : "Not proven",
       tone: sharpAudit && sharpAudit.ci_lo > 0 ? "good" : "bad",
       metrics: [
-        ["Strategy Backtest ROI", fmtPct(sharpAudit?.roi), `${fmtInt(sharpAudit?.rows)} rows`, `Sharp-consensus only. Best available audit row is ${strategyAuditSplit(sharpAudit)} across ${fmtInt(sharpAudit?.markets)} markets.`],
+        ["Strategy Backtest ROI", fmtPct(sharpSupport?.roi ?? sharpAudit?.roi), strategySupportNote(sharpSupport || sharpAudit), `Sharp-consensus only. Test support is shown even when it fails the row/market gate, so sparse evidence does not get hidden.`],
         ["Replay sample", "0 events", `${fmtInt(sb.strategyCandidateRows)} candidate rows`, "Needs replayable event paths once the rule has a positive held-out bucket."],
         ["Live picks", "0", `${fmtPct(sb.oddsTestCoverage)} test odds coverage`, "Odds coverage is still too thin for a capital gate."]
       ]
@@ -1924,7 +1994,7 @@ function renderStrategyOverview(data) {
       copy: `Detect when sportsbook fair value moves before the CLOB moves, then enter for convergence and track CLV/LEV. Current Telonex/Odds overlap did not produce a robust qualifying held-out row.`,
       status: "Needs data",
       tone: "warn",
-      metrics: unavailableStrategyMetrics(`${fmtInt(sb.strategyCandidateMarkets)} candidate markets audited`)
+      metrics: unavailableStrategyMetrics(strategySupportNote(lineLagSupport))
     },
     {
       name: "Fill-aware convergence ML",
@@ -2344,7 +2414,41 @@ function replaySeriesCoverage(polyPoints, bookPoints) {
   };
 }
 
+function sportsbookIntegrityCategoryLabel(category) {
+  const labels = {
+    complete_or_no_large_gap: "source OK",
+    missing_native_5m_cache: "native 5m cache partial",
+    source_event_not_listed_yet: "sportsbook listed late",
+    source_market_or_point_absent: "requested line absent",
+    source_stale_or_no_new_quote: "no fresh source quote",
+    source_availability_gap: "source availability gap",
+    no_odds_event_match: "no sportsbook match",
+    matched_event_no_complete_line: "no complete sportsbook line",
+    replay_materialization_bug: "replay data bug"
+  };
+  return labels[category] || String(category || "").replaceAll("_", " ");
+}
+
 function replaySportsbookQuality(event) {
+  const integrity = event?.sportsbook_integrity_audit || {};
+  if (integrity.category) {
+    const category = sportsbookIntegrityCategoryLabel(integrity.category);
+    const missing = Number(integrity.missing_5m_snapshots || 0);
+    const expected = Number(integrity.expected_5m_snapshots || 0);
+    if (integrity.category === "missing_native_5m_cache" && expected > 0) {
+      return `${category} (${fmtInt(expected - missing)}/${fmtInt(expected)})`;
+    }
+    if (integrity.category === "replay_materialization_bug") {
+      return category;
+    }
+    if (integrity.complete_5m_cache) {
+      return `${category}; 5m cache complete`;
+    }
+    if (integrity.complete_15m_cache) {
+      return `${category}; 15m cache complete`;
+    }
+    return category;
+  }
   const audit = event?.sportsbook_gap_audit || {};
   const classes = audit.classifications || [];
   if (!audit || !Object.keys(audit).length) return "";

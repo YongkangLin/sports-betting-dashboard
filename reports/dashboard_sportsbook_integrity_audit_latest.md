@@ -1,6 +1,6 @@
 # Dashboard Sportsbook Integrity Audit
 
-- Generated: 2026-05-31T18:21:31.157440+00:00
+- Generated: 2026-05-31T19:06:10.825789+00:00
 - Replay events audited: 277
 - Polymarket one-minute CLOB complete: 277 / 277
 - Sportsbook event matches: 276 / 277
@@ -25,6 +25,17 @@
 - The random-looking sportsbook breaks are not all the same thing: most current long gap windows are missing raw 5-minute cache, while a smaller set are legitimate source behavior such as Odds API listing the event late or no longer offering the exact total/spread point.
 - Sportsbook lines are quote series, not settlement series. They should not be forced to end at 0/100 when books stop offering a line or change a total/spread point.
 - Timestamp alignment passes at the replay boundary: sportsbook points that are plotted are inside the same UTC window as the Polymarket CLOB series.
+
+## Missing-Data Verdict
+
+| Question | Answer |
+|---|---|
+| Did the dashboard drop complete raw sportsbook lines? | No. Materialization bug windows: 0. |
+| Is Polymarket replay data missing? | No. Minute-complete CLOB events: 277 / 277. |
+| Is sportsbook raw cache complete at the current durable 15-minute layer? | Yes. Complete 15m cache events: 276 / 276. |
+| Is sportsbook raw cache complete at native 5-minute density? | No. Complete 5m cache events: 167 / 276; missing unique 5m snapshots: 14,224. |
+| Are all gaps backfillable with Odds API pulls? | No. Backfillable 5m-cache events: 108; source/listing/market gaps: 12. |
+| Should we force-fill sportsbook lines to 0/100 at settlement? | No. Sportsbook odds are quotes, not resolved prediction-market settlement prices. |
 
 ## Event Categories
 

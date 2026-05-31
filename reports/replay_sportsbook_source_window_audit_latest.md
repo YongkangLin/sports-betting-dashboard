@@ -1,6 +1,6 @@
 # Replay Sportsbook Source Window Audit
 
-- Generated: 2026-05-31T18:19:17.124898+00:00
+- Generated: 2026-05-31T19:03:37.435662+00:00
 - Replay events audited: 277
 - Events with visible sportsbook gap windows: 120
 - Gap windows audited: 8,063
@@ -126,8 +126,8 @@
 
 | Event | Sport | Windows | Verdicts | Statuses |
 |---|---|---:|---|---|
-| 76ers vs Nuggets | basketball_nba | 1 | {'source_event_not_listed_before_first_seen': 1} | {'event_not_listed_before_first_seen': 1568} |
 | Oilers vs Ducks total 4.5 | icehockey_nhl | 1 | {'mixed_source_availability': 1} | {'stale_payload_at_or_before_gap_start': 1, 'requested_point_absent': 19} |
+| 76ers vs Nuggets | basketball_nba | 1 | {'source_event_not_listed_before_first_seen': 1} | {'event_not_listed_before_first_seen': 1568} |
 
 ## Largest Gap Windows
 

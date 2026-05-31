@@ -1,124 +1,22 @@
 # Telonex CLOB Download
 
-- Generated: 2026-05-31T15:00:52.696024+00:00
+- Generated: 2026-05-31T16:46:26.163185+00:00
 - Dry run: False
-- Asset plan: `/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/data/processed/execution_training/telonex_odds_h2h_target_assets_latest.parquet`
+- Asset plan: none
 - Channels: quotes, book_snapshot_5, trades
 - Dates: asset-plan to asset-plan
-- Day order: event-first
-- Market scope: h2h
-- Max files per asset: 3
-- Selected assets: 10000
-- Attempted downloads: 4100
-- Completed downloads: 4006
-- Skipped existing: 812
-- Failed downloads: 94
-- Rows downloaded this run: 205,292,462
-- Bytes downloaded this run: 4,498,114,764
+- Day order: chronological
+- Market scope: all
+- Max files per asset: unlimited
+- Selected assets: 52
+- Attempted downloads: 0
+- Completed downloads: 0
+- Skipped existing: 52
+- Failed downloads: 0
+- Rows downloaded this run: 0
+- Bytes downloaded this run: 0
 - Manifest: `/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/data/processed/clob_capture/telonex_download_manifest.json`
 
 ## Completed
 
-- `trades` `2026-05-18` `baseball_mlb` `mlb-ari-col-2026-05-17` `Arizona Diamondbacks` rows=36
-- `quotes` `2026-05-18` `baseball_mlb` `mlb-ari-col-2026-05-17` `Colorado Rockies` rows=165
-- `book_snapshot_5` `2026-05-18` `baseball_mlb` `mlb-ari-col-2026-05-17` `Colorado Rockies` rows=172
-- `trades` `2026-05-18` `baseball_mlb` `mlb-ari-col-2026-05-17` `Colorado Rockies` rows=36
-- `quotes` `2026-05-18` `baseball_mlb` `mlb-tex-hou-2026-05-17` `Houston Astros` rows=24
-- `book_snapshot_5` `2026-05-18` `baseball_mlb` `mlb-tex-hou-2026-05-17` `Houston Astros` rows=28
-- `trades` `2026-05-18` `baseball_mlb` `mlb-tex-hou-2026-05-17` `Houston Astros` rows=2
-- `quotes` `2026-05-18` `baseball_mlb` `mlb-tex-hou-2026-05-17` `Texas Rangers` rows=24
-- `book_snapshot_5` `2026-05-18` `baseball_mlb` `mlb-tex-hou-2026-05-17` `Texas Rangers` rows=28
-- `book_snapshot_5` `2026-05-19` `baseball_mlb` `mlb-bal-tb-2026-05-18` `Tampa Bay Rays` rows=6,534
-- `trades` `2026-05-19` `baseball_mlb` `mlb-bal-tb-2026-05-18` `Tampa Bay Rays` rows=287
-- `quotes` `2026-05-20` `baseball_mlb` `mlb-bal-tb-2026-05-19` `Baltimore Orioles` rows=14,013
-- `book_snapshot_5` `2026-05-20` `baseball_mlb` `mlb-bal-tb-2026-05-19` `Baltimore Orioles` rows=0
-- `quotes` `2026-05-20` `baseball_mlb` `mlb-bal-tb-2026-05-19` `Tampa Bay Rays` rows=14,013
-- `book_snapshot_5` `2026-05-20` `baseball_mlb` `mlb-bal-tb-2026-05-19` `Tampa Bay Rays` rows=37,343
-- `trades` `2026-05-20` `baseball_mlb` `mlb-bal-tb-2026-05-19` `Tampa Bay Rays` rows=584
-- `quotes` `2026-05-19` `baseball_mlb` `mlb-sf-ari-2026-05-18` `Arizona Diamondbacks` rows=12,968
-- `book_snapshot_5` `2026-05-19` `baseball_mlb` `mlb-sf-ari-2026-05-18` `Arizona Diamondbacks` rows=48,430
-- `trades` `2026-05-19` `baseball_mlb` `mlb-sf-ari-2026-05-18` `Arizona Diamondbacks` rows=500
-- `quotes` `2026-05-19` `baseball_mlb` `mlb-sf-ari-2026-05-18` `San Francisco Giants` rows=0
-- `trades` `2026-05-19` `baseball_mlb` `mlb-sf-ari-2026-05-18` `San Francisco Giants` rows=500
-- `book_snapshot_5` `2026-05-21` `baseball_mlb` `mlb-sf-ari-2026-05-20` `Arizona Diamondbacks` rows=81
-- `book_snapshot_5` `2026-05-21` `baseball_mlb` `mlb-sf-ari-2026-05-20` `San Francisco Giants` rows=81
-- `quotes` `2026-05-23` `baseball_mlb` `mlb-nym-mia-2026-05-22` `Miami Marlins` rows=0
-- `book_snapshot_5` `2026-05-23` `baseball_mlb` `mlb-nym-mia-2026-05-22` `Miami Marlins` rows=51,902
-- `trades` `2026-05-23` `baseball_mlb` `mlb-nym-mia-2026-05-22` `Miami Marlins` rows=489
-- `book_snapshot_5` `2026-05-24` `baseball_mlb` `mlb-nym-mia-2026-05-23` `Miami Marlins` rows=70
-- `trades` `2026-05-24` `baseball_mlb` `mlb-nym-mia-2026-05-23` `Miami Marlins` rows=5
-- `quotes` `2026-05-24` `baseball_mlb` `mlb-nym-mia-2026-05-23` `New York Mets` rows=66
-- `quotes` `2025-11-04` `basketball_nba` `nba-lal-por-2025-11-04` `Lakers` rows=0
-- `trades` `2025-11-04` `basketball_nba` `nba-lal-por-2025-11-04` `Lakers` rows=2,618
-- `quotes` `2025-11-04` `basketball_nba` `nba-lal-por-2025-11-04` `Trail Blazers` rows=14,812
-- `trades` `2025-11-04` `basketball_nba` `nba-lal-por-2025-11-04` `Trail Blazers` rows=2,618
-- `trades` `2025-11-06` `basketball_nba` `nba-okc-por-2025-11-06` `Thunder` rows=2,426
-- `quotes` `2025-11-06` `basketball_nba` `nba-okc-por-2025-11-06` `Trail Blazers` rows=14,185
-- `book_snapshot_5` `2025-11-06` `basketball_nba` `nba-okc-por-2025-11-06` `Trail Blazers` rows=0
-- `trades` `2025-11-06` `basketball_nba` `nba-okc-por-2025-11-06` `Trail Blazers` rows=0
-- `quotes` `2025-11-11` `basketball_nba` `nba-lal-cha-2025-11-11` `Hornets` rows=6,450
-- `book_snapshot_5` `2025-11-11` `basketball_nba` `nba-lal-cha-2025-11-11` `Hornets` rows=0
-- `trades` `2025-11-11` `basketball_nba` `nba-lal-cha-2025-11-11` `Hornets` rows=1,709
-- `quotes` `2025-11-11` `basketball_nba` `nba-lal-cha-2025-11-11` `Lakers` rows=6,450
-- `book_snapshot_5` `2025-11-11` `basketball_nba` `nba-lal-cha-2025-11-11` `Lakers` rows=28,219
-- `trades` `2025-11-11` `basketball_nba` `nba-lal-cha-2025-11-11` `Lakers` rows=1,709
-- `quotes` `2025-11-11` `basketball_nba` `nba-por-orl-2025-11-11` `Magic` rows=0
-- `trades` `2025-11-11` `basketball_nba` `nba-por-orl-2025-11-11` `Magic` rows=2,098
-- `trades` `2025-11-11` `basketball_nba` `nba-por-orl-2025-11-11` `Trail Blazers` rows=2,098
-- `trades` `2025-11-12` `basketball_nba` `nba-gsw-okc-2025-11-11` `Thunder` rows=1,217
-- `trades` `2025-11-12` `basketball_nba` `nba-gsw-okc-2025-11-11` `Warriors` rows=1,217
-- `book_snapshot_5` `2025-11-17` `basketball_nba` `nba-chi-uta-2025-11-16` `Bulls` rows=0
-- `trades` `2025-11-17` `basketball_nba` `nba-chi-uta-2025-11-16` `Bulls` rows=3,774
-
-## Errors
-
-- `quotes` `2026-04-27` `mlb-col-nym-2026-04-26` `Colorado Rockies`: download failed: HTTP 404 quotes 2026-04-27 {"detail":"File not found: polymarket/quotes/2026-04-27 with asset_id=94101723610324796292562105683168439730110290539811553235679613340118385779584"}
-- `book_snapshot_5` `2026-04-27` `mlb-col-nym-2026-04-26` `Colorado Rockies`: download failed: HTTP 404 book_snapshot_5 2026-04-27 {"detail":"File not found: polymarket/book_snapshot_5/2026-04-27 with asset_id=94101723610324796292562105683168439730110290539811553235679613340118385779584"}
-- `trades` `2026-04-27` `mlb-col-nym-2026-04-26` `Colorado Rockies`: download failed: HTTP 404 trades 2026-04-27 {"detail":"File not found: polymarket/trades/2026-04-27 with asset_id=94101723610324796292562105683168439730110290539811553235679613340118385779584"}
-- `quotes` `2026-04-27` `mlb-col-nym-2026-04-26` `New York Mets`: download failed: HTTP 404 quotes 2026-04-27 {"detail":"File not found: polymarket/quotes/2026-04-27 with asset_id=104013339241747519011072710085387505567691981621438178538948360461696595321414"}
-- `book_snapshot_5` `2026-04-27` `mlb-col-nym-2026-04-26` `New York Mets`: download failed: HTTP 404 book_snapshot_5 2026-04-27 {"detail":"File not found: polymarket/book_snapshot_5/2026-04-27 with asset_id=104013339241747519011072710085387505567691981621438178538948360461696595321414"}
-- `trades` `2026-04-27` `mlb-col-nym-2026-04-26` `New York Mets`: download failed: HTTP 404 trades 2026-04-27 {"detail":"File not found: polymarket/trades/2026-04-27 with asset_id=104013339241747519011072710085387505567691981621438178538948360461696595321414"}
-- `quotes` `2026-04-30` `mlb-laa-cws-2026-04-29` `Chicago White Sox`: download failed: HTTP 404 quotes 2026-04-30 {"detail":"File not found: polymarket/quotes/2026-04-30 with asset_id=77178926186640456199493980651634973698726148958068720728489713880351679324601"}
-- `book_snapshot_5` `2026-04-30` `mlb-laa-cws-2026-04-29` `Chicago White Sox`: download failed: HTTP 404 book_snapshot_5 2026-04-30 {"detail":"File not found: polymarket/book_snapshot_5/2026-04-30 with asset_id=77178926186640456199493980651634973698726148958068720728489713880351679324601"}
-- `trades` `2026-04-30` `mlb-laa-cws-2026-04-29` `Chicago White Sox`: download failed: HTTP 404 trades 2026-04-30 {"detail":"File not found: polymarket/trades/2026-04-30 with asset_id=77178926186640456199493980651634973698726148958068720728489713880351679324601"}
-- `quotes` `2026-04-30` `mlb-laa-cws-2026-04-29` `Los Angeles Angels`: download failed: HTTP 404 quotes 2026-04-30 {"detail":"File not found: polymarket/quotes/2026-04-30 with asset_id=32436986849103293696422597156222307714849886203392286961215122299473522284096"}
-- `book_snapshot_5` `2026-04-30` `mlb-laa-cws-2026-04-29` `Los Angeles Angels`: download failed: HTTP 404 book_snapshot_5 2026-04-30 {"detail":"File not found: polymarket/book_snapshot_5/2026-04-30 with asset_id=32436986849103293696422597156222307714849886203392286961215122299473522284096"}
-- `trades` `2026-04-30` `mlb-laa-cws-2026-04-29` `Los Angeles Angels`: download failed: HTTP 404 trades 2026-04-30 {"detail":"File not found: polymarket/trades/2026-04-30 with asset_id=32436986849103293696422597156222307714849886203392286961215122299473522284096"}
-- `quotes` `2026-04-30` `mlb-nyy-tex-2026-04-29` `New York Yankees`: download failed: HTTP 404 quotes 2026-04-30 {"detail":"File not found: polymarket/quotes/2026-04-30 with asset_id=83048866238976128778289775545418326037988570140233995863123308349661347727092"}
-- `book_snapshot_5` `2026-04-30` `mlb-nyy-tex-2026-04-29` `New York Yankees`: download failed: HTTP 404 book_snapshot_5 2026-04-30 {"detail":"File not found: polymarket/book_snapshot_5/2026-04-30 with asset_id=83048866238976128778289775545418326037988570140233995863123308349661347727092"}
-- `trades` `2026-04-30` `mlb-nyy-tex-2026-04-29` `New York Yankees`: download failed: HTTP 404 trades 2026-04-30 {"detail":"File not found: polymarket/trades/2026-04-30 with asset_id=83048866238976128778289775545418326037988570140233995863123308349661347727092"}
-- `quotes` `2026-04-30` `mlb-nyy-tex-2026-04-29` `Texas Rangers`: download failed: HTTP 404 quotes 2026-04-30 {"detail":"File not found: polymarket/quotes/2026-04-30 with asset_id=19338699884359633326905416240426690485510769054822534198179261355808240483986"}
-- `book_snapshot_5` `2026-04-30` `mlb-nyy-tex-2026-04-29` `Texas Rangers`: download failed: HTTP 404 book_snapshot_5 2026-04-30 {"detail":"File not found: polymarket/book_snapshot_5/2026-04-30 with asset_id=19338699884359633326905416240426690485510769054822534198179261355808240483986"}
-- `trades` `2026-04-30` `mlb-nyy-tex-2026-04-29` `Texas Rangers`: download failed: HTTP 404 trades 2026-04-30 {"detail":"File not found: polymarket/trades/2026-04-30 with asset_id=19338699884359633326905416240426690485510769054822534198179261355808240483986"}
-- `quotes` `2026-05-04` `mlb-bal-nyy-2026-05-03` `Baltimore Orioles`: download failed: HTTP 404 quotes 2026-05-04 {"detail":"File not found: polymarket/quotes/2026-05-04 with asset_id=31601456365541888813363948760251925594097297272661215836449084188511228793817"}
-- `book_snapshot_5` `2026-05-04` `mlb-bal-nyy-2026-05-03` `Baltimore Orioles`: download failed: HTTP 404 book_snapshot_5 2026-05-04 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-04 with asset_id=31601456365541888813363948760251925594097297272661215836449084188511228793817"}
-- `trades` `2026-05-04` `mlb-bal-nyy-2026-05-03` `Baltimore Orioles`: download failed: HTTP 404 trades 2026-05-04 {"detail":"File not found: polymarket/trades/2026-05-04 with asset_id=31601456365541888813363948760251925594097297272661215836449084188511228793817"}
-- `quotes` `2026-05-04` `mlb-bal-nyy-2026-05-03` `New York Yankees`: download failed: HTTP 404 quotes 2026-05-04 {"detail":"File not found: polymarket/quotes/2026-05-04 with asset_id=36023001782648268111352875034711530175987538109619838437428935931212878725035"}
-- `book_snapshot_5` `2026-05-04` `mlb-bal-nyy-2026-05-03` `New York Yankees`: download failed: HTTP 404 book_snapshot_5 2026-05-04 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-04 with asset_id=36023001782648268111352875034711530175987538109619838437428935931212878725035"}
-- `trades` `2026-05-04` `mlb-bal-nyy-2026-05-03` `New York Yankees`: download failed: HTTP 404 trades 2026-05-04 {"detail":"File not found: polymarket/trades/2026-05-04 with asset_id=36023001782648268111352875034711530175987538109619838437428935931212878725035"}
-- `quotes` `2026-05-07` `mlb-tor-tb-2026-05-06` `Tampa Bay Rays`: download failed: HTTP 404 quotes 2026-05-07 {"detail":"File not found: polymarket/quotes/2026-05-07 with asset_id=67803238588382071061650524760128276001506104463347084080034297102995370595863"}
-- `book_snapshot_5` `2026-05-07` `mlb-tor-tb-2026-05-06` `Tampa Bay Rays`: download failed: HTTP 404 book_snapshot_5 2026-05-07 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-07 with asset_id=67803238588382071061650524760128276001506104463347084080034297102995370595863"}
-- `trades` `2026-05-07` `mlb-tor-tb-2026-05-06` `Tampa Bay Rays`: download failed: HTTP 404 trades 2026-05-07 {"detail":"File not found: polymarket/trades/2026-05-07 with asset_id=67803238588382071061650524760128276001506104463347084080034297102995370595863"}
-- `quotes` `2026-05-07` `mlb-tor-tb-2026-05-06` `Toronto Blue Jays`: download failed: HTTP 404 quotes 2026-05-07 {"detail":"File not found: polymarket/quotes/2026-05-07 with asset_id=108636380516869329106228182016209544764325200450828800929883559871414557718027"}
-- `book_snapshot_5` `2026-05-07` `mlb-tor-tb-2026-05-06` `Toronto Blue Jays`: download failed: HTTP 404 book_snapshot_5 2026-05-07 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-07 with asset_id=108636380516869329106228182016209544764325200450828800929883559871414557718027"}
-- `trades` `2026-05-07` `mlb-tor-tb-2026-05-06` `Toronto Blue Jays`: download failed: HTTP 404 trades 2026-05-07 {"detail":"File not found: polymarket/trades/2026-05-07 with asset_id=108636380516869329106228182016209544764325200450828800929883559871414557718027"}
-- `trades` `2026-05-18` `mlb-tex-hou-2026-05-17` `Texas Rangers`: download failed: temporary file missing trades 2026-05-18
-- `quotes` `2026-05-19` `mlb-bal-tb-2026-05-18` `Baltimore Orioles`: download failed: temporary file missing quotes 2026-05-19
-- `book_snapshot_5` `2026-05-19` `mlb-bal-tb-2026-05-18` `Baltimore Orioles`: download failed: temporary file missing book_snapshot_5 2026-05-19
-- `trades` `2026-05-19` `mlb-bal-tb-2026-05-18` `Baltimore Orioles`: download failed while writing trades 2026-05-19: [Errno 2] No such file or directory: '/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/data/raw/telonex/polymarket/channel=trades/date=2026-05-19/asset=61b4d6c0cae9c602.parquet.tmp' -> '/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/data/raw/telonex/polymarket/channel=trades/date=2026-05-19/asset=61b4d6c0cae9c602.parquet'
-- `quotes` `2026-05-19` `mlb-bal-tb-2026-05-18` `Tampa Bay Rays`: download failed while writing quotes 2026-05-19: [Errno 2] No such file or directory: '/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/data/raw/telonex/polymarket/channel=quotes/date=2026-05-19/asset=a918144c9e204b22.parquet.tmp' -> '/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/data/raw/telonex/polymarket/channel=quotes/date=2026-05-19/asset=a918144c9e204b22.parquet'
-- `trades` `2026-05-20` `mlb-bal-tb-2026-05-19` `Baltimore Orioles`: download failed while writing trades 2026-05-20: [Errno 2] No such file or directory: '/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/data/raw/telonex/polymarket/channel=trades/date=2026-05-20/asset=08ab1c0615719dc8.parquet.tmp' -> '/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/data/raw/telonex/polymarket/channel=trades/date=2026-05-20/asset=08ab1c0615719dc8.parquet'
-- `book_snapshot_5` `2026-05-19` `mlb-sf-ari-2026-05-18` `San Francisco Giants`: download failed: temporary file missing book_snapshot_5 2026-05-19
-- `quotes` `2026-05-21` `mlb-bal-tb-2026-05-20` `Baltimore Orioles`: download failed: HTTP 404 quotes 2026-05-21 {"detail":"File not found: polymarket/quotes/2026-05-21 with asset_id=87123530453812139023650758528913699081500985933050088547028207442619571022055"}
-- `book_snapshot_5` `2026-05-21` `mlb-bal-tb-2026-05-20` `Baltimore Orioles`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=87123530453812139023650758528913699081500985933050088547028207442619571022055"}
-- `trades` `2026-05-21` `mlb-bal-tb-2026-05-20` `Baltimore Orioles`: download failed: HTTP 404 trades 2026-05-21 {"detail":"File not found: polymarket/trades/2026-05-21 with asset_id=87123530453812139023650758528913699081500985933050088547028207442619571022055"}
-- `quotes` `2026-05-21` `mlb-bal-tb-2026-05-20` `Tampa Bay Rays`: download failed: HTTP 404 quotes 2026-05-21 {"detail":"File not found: polymarket/quotes/2026-05-21 with asset_id=40740401260466474859579689652070588467377109250145683510156789859113568013830"}
-- `book_snapshot_5` `2026-05-21` `mlb-bal-tb-2026-05-20` `Tampa Bay Rays`: download failed: HTTP 404 book_snapshot_5 2026-05-21 {"detail":"File not found: polymarket/book_snapshot_5/2026-05-21 with asset_id=40740401260466474859579689652070588467377109250145683510156789859113568013830"}
-- `trades` `2026-05-21` `mlb-bal-tb-2026-05-20` `Tampa Bay Rays`: download failed: HTTP 404 trades 2026-05-21 {"detail":"File not found: polymarket/trades/2026-05-21 with asset_id=40740401260466474859579689652070588467377109250145683510156789859113568013830"}
-- `quotes` `2026-05-21` `mlb-sf-ari-2026-05-20` `Arizona Diamondbacks`: download failed while writing quotes 2026-05-21: [Errno 2] No such file or directory: '/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/data/raw/telonex/polymarket/channel=quotes/date=2026-05-21/asset=6caa4b88d9f0d2c4.parquet.tmp'
-- `trades` `2026-05-21` `mlb-sf-ari-2026-05-20` `Arizona Diamondbacks`: download failed while writing trades 2026-05-21: [Errno 2] No such file or directory: '/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/data/raw/telonex/polymarket/channel=trades/date=2026-05-21/asset=6caa4b88d9f0d2c4.parquet.tmp' -> '/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/data/raw/telonex/polymarket/channel=trades/date=2026-05-21/asset=6caa4b88d9f0d2c4.parquet'
-- `quotes` `2026-05-21` `mlb-sf-ari-2026-05-20` `San Francisco Giants`: download failed while writing quotes 2026-05-21: [Errno 2] No such file or directory: '/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/data/raw/telonex/polymarket/channel=quotes/date=2026-05-21/asset=fd51b90ff7e04088.parquet.tmp' -> '/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/data/raw/telonex/polymarket/channel=quotes/date=2026-05-21/asset=fd51b90ff7e04088.parquet'
-- `trades` `2026-05-21` `mlb-sf-ari-2026-05-20` `San Francisco Giants`: download failed: temporary file missing trades 2026-05-21
-- `quotes` `2026-05-23` `mlb-nym-mia-2026-05-22` `New York Mets`: download failed while writing quotes 2026-05-23: [Errno 2] No such file or directory: '/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/data/raw/telonex/polymarket/channel=quotes/date=2026-05-23/asset=5076a4f70f6a14f5.parquet.tmp' -> '/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/data/raw/telonex/polymarket/channel=quotes/date=2026-05-23/asset=5076a4f70f6a14f5.parquet'
-- `book_snapshot_5` `2026-05-23` `mlb-nym-mia-2026-05-22` `New York Mets`: download failed: temporary file missing book_snapshot_5 2026-05-23
-- `trades` `2026-05-23` `mlb-nym-mia-2026-05-22` `New York Mets`: download failed while writing trades 2026-05-23: [Errno 2] No such file or directory: '/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/data/raw/telonex/polymarket/channel=trades/date=2026-05-23/asset=5076a4f70f6a14f5.parquet.tmp' -> '/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/data/raw/telonex/polymarket/channel=trades/date=2026-05-23/asset=5076a4f70f6a14f5.parquet'
+- none

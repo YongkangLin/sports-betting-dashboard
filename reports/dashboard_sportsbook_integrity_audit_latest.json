@@ -11503,11 +11503,20 @@
       "visible_gap_windows": 0
     }
   ],
-  "generated_at": "2026-05-31T18:21:31.157440+00:00",
+  "generated_at": "2026-05-31T19:06:10.825789+00:00",
   "inputs": {
     "gap_audit": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/reports/replay_sportsbook_gap_audit_latest.json",
     "source_window_audit": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/reports/replay_sportsbook_source_window_audit_latest.json",
     "two_sided_completeness": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/reports/two_sided_market_data_completeness_latest.json"
+  },
+  "missing_data_verdict": {
+    "backfillable_5m_cache_events": 108,
+    "dashboard_dropped_complete_raw_lines": false,
+    "do_not_force_terminal_sportsbook_prices": true,
+    "polymarket_clob_minute_complete": true,
+    "source_or_mapping_gap_events": 12,
+    "sportsbook_15m_cache_complete": true,
+    "sportsbook_5m_cache_complete": false
   },
   "outputs": {
     "json": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/reports/dashboard_sportsbook_integrity_audit_latest.json",
