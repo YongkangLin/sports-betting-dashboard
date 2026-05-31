@@ -891,6 +891,8 @@ const ARTIFACTS = {
   favoriteLongshotRuleValidation: { label: "Favorite-longshot rule validation", path: "data/processed/execution_training/favorite_longshot_rule_validation_latest.json" },
   favoriteLongshotEventReplays: { label: "Favorite-longshot event replays", path: "data/processed/execution_training/favorite_longshot_event_replays_latest.json" },
   liveSignals: { label: "Live Telonex signals", path: "data/processed/clob_capture/live_telonex_convergence_signals_latest.json" },
+  strategyBuckets: { label: "Strategy bucket audit", path: "data/processed/execution_training/telonex_strategy_buckets_latest.json" },
+  playByPlaySourcePlan: { label: "Play-by-play source plan", path: "data/processed/execution_training/play_by_play_source_plan_latest.json" },
   microstructureBuckets: { label: "Microstructure buckets", path: "data/processed/execution_training/telonex_microstructure_buckets_latest.json" }
 };
 
@@ -1018,6 +1020,57 @@ const SNAPSHOT = {
     testMarkets: 0,
     testRoi: null,
     testCiLo: null
+  },
+  strategyBuckets: {
+    gate: false,
+    rows: 2888585,
+    markets: 216,
+    tokens: 429,
+    strategyCandidateRows: 832412,
+    strategyCandidateMarkets: 143,
+    positiveTestBuckets: 0,
+    positiveTakerTestBuckets: 0,
+    positiveMakerTestBuckets: 0,
+    oddsRowCoverage: 0.48956842190899696,
+    oddsTestCoverage: 0.3253589362755499,
+    oddsTestMatchedMarkets: 5,
+    playerNewsStatus: "missing_public_timestamped_feed",
+    playerNewsCoverage: 0,
+    playByPlayStatus: "missing_feature_file",
+    playByPlayCoverage: 0,
+    sentimentStatus: "missing_feature_file",
+    sentimentCoverage: 0,
+    strategyRows: [
+      {
+        strategy: "favorite_longshot_fade_v2",
+        split: "test",
+        side: "taker",
+        rows: 69104,
+        markets: 16,
+        roi: -0.04560110590132491,
+        ci_lo: -0.05211043928248859,
+        ci_hi: -0.038494754228060465,
+        avg_odds_gap_ask: -0.018379976111465055,
+        avg_line_lag_gap_5m: -0.0006803292303977972
+      },
+      {
+        strategy: "sharp_consensus_clob_mispricing",
+        split: "val",
+        side: "taker",
+        rows: 13486,
+        markets: 5,
+        roi: -0.06376967142188676,
+        ci_lo: -0.1387178432136774,
+        ci_hi: -0.05457821260366541,
+        avg_odds_gap_ask: 0.07795412109445218,
+        avg_line_lag_gap_5m: 0.003189107812099976
+      }
+    ]
+  },
+  playByPlaySourcePlan: {
+    featureStatus: "missing_feature_file",
+    nextBuildOrder: ["baseball_mlb", "soccer", "basketball_wnba", "icehockey_nhl"],
+    sourceCount: 6
   },
   gateReasons: [
     "queue/fill model not validated on authenticated fills",
@@ -1198,6 +1251,8 @@ const SNAPSHOT = {
     "data/processed/execution_training/favorite_longshot_rule_validation_latest.json": 58000,
     "data/processed/execution_training/favorite_longshot_event_replays_latest.json": 427000,
     "data/processed/clob_capture/live_telonex_convergence_signals_latest.json": 3995,
+    "data/processed/execution_training/telonex_strategy_buckets_latest.json": 100352,
+    "data/processed/execution_training/play_by_play_source_plan_latest.json": 10000,
     "data/processed/execution_training/telonex_microstructure_buckets_latest.json": 100352
   }
 };
@@ -1225,6 +1280,8 @@ const REPLAY_BANKROLL_USD = 1000;
 const REPLAY_POSITION_FRACTION = 0.05;
 const STRATEGY_OPTIONS = [
   "Favorite-longshot fade",
+  "Sharp-consensus CLOB mispricing",
+  "Line-lag / CLV capture",
   "Fill-aware convergence ML",
   "YES + NO hedge/arb",
   "Post-event price shock"
@@ -1399,6 +1456,8 @@ function deriveDashboard() {
   const favoriteExecutable = state.loaded.favoriteLongshotExecutable;
   const favoriteRuleValidation = state.loaded.favoriteLongshotRuleValidation;
   const favoriteLongshotEventReplays = state.loaded.favoriteLongshotEventReplays;
+  const strategyBuckets = state.loaded.strategyBuckets;
+  const playByPlaySourcePlan = state.loaded.playByPlaySourcePlan;
   const microstructureBuckets = state.loaded.microstructureBuckets;
 
   function applyMicrostructure(artifact) {
@@ -1425,6 +1484,49 @@ function deriveDashboard() {
     data.microstructureBuckets.testMarkets = test.markets ?? data.microstructureBuckets.testMarkets;
     data.microstructureBuckets.testRoi = test.roi ?? data.microstructureBuckets.testRoi;
     data.microstructureBuckets.testCiLo = test.ci_lo ?? data.microstructureBuckets.testCiLo;
+  }
+
+  function applyStrategyBuckets(artifact) {
+    if (!artifact) return;
+    const dataset = artifact.dataset || {};
+    const odds = artifact.odds_features || {};
+    const oddsTest = odds.coverage_by_split?.test || {};
+    const positive = artifact.positive_test_buckets_by_side || {};
+    const playerNews = artifact.player_news_features || {};
+    const pbp = artifact.play_by_play_features || {};
+    const sentiment = artifact.sentiment_features || {};
+    data.strategyBuckets.gate = Boolean(artifact.executable_taker_gate);
+    data.strategyBuckets.rows = dataset.rows ?? data.strategyBuckets.rows;
+    data.strategyBuckets.markets = dataset.markets ?? data.strategyBuckets.markets;
+    data.strategyBuckets.tokens = dataset.tokens ?? data.strategyBuckets.tokens;
+    data.strategyBuckets.strategyCandidateRows = artifact.strategy_candidate_rows ?? data.strategyBuckets.strategyCandidateRows;
+    data.strategyBuckets.strategyCandidateMarkets = artifact.strategy_candidate_markets ?? data.strategyBuckets.strategyCandidateMarkets;
+    data.strategyBuckets.positiveTestBuckets = artifact.positive_test_buckets ?? data.strategyBuckets.positiveTestBuckets;
+    data.strategyBuckets.positiveTakerTestBuckets = positive.taker ?? data.strategyBuckets.positiveTakerTestBuckets;
+    data.strategyBuckets.positiveMakerTestBuckets = positive.maker ?? data.strategyBuckets.positiveMakerTestBuckets;
+    data.strategyBuckets.oddsRowCoverage = odds.row_coverage ?? data.strategyBuckets.oddsRowCoverage;
+    data.strategyBuckets.oddsTestCoverage = oddsTest.row_coverage ?? data.strategyBuckets.oddsTestCoverage;
+    data.strategyBuckets.oddsTestMatchedMarkets = oddsTest.matched_markets ?? data.strategyBuckets.oddsTestMatchedMarkets;
+    data.strategyBuckets.playerNewsStatus = playerNews.status || data.strategyBuckets.playerNewsStatus;
+    data.strategyBuckets.playerNewsCoverage = playerNews.row_coverage ?? data.strategyBuckets.playerNewsCoverage;
+    data.strategyBuckets.playByPlayStatus = pbp.status || data.strategyBuckets.playByPlayStatus;
+    data.strategyBuckets.playByPlayCoverage = pbp.row_coverage ?? data.strategyBuckets.playByPlayCoverage;
+    data.strategyBuckets.sentimentStatus = sentiment.status || data.strategyBuckets.sentimentStatus;
+    data.strategyBuckets.sentimentCoverage = sentiment.row_coverage ?? data.strategyBuckets.sentimentCoverage;
+    data.strategyBuckets.strategyRows = Array.isArray(artifact.strategy_rows)
+      ? artifact.strategy_rows
+      : data.strategyBuckets.strategyRows;
+  }
+
+  function applyPlayByPlaySourcePlan(artifact) {
+    if (!artifact) return;
+    data.playByPlaySourcePlan.featureStatus = artifact.play_by_play_features?.status || data.playByPlaySourcePlan.featureStatus;
+    data.playByPlaySourcePlan.nextBuildOrder = Array.isArray(artifact.next_build_order)
+      ? artifact.next_build_order
+      : data.playByPlaySourcePlan.nextBuildOrder;
+    data.playByPlaySourcePlan.sourceCount = Array.isArray(artifact.sources)
+      ? artifact.sources.length
+      : data.playByPlaySourcePlan.sourceCount;
   }
 
   if (live) {
@@ -1475,6 +1577,7 @@ function deriveDashboard() {
     data.favoriteLongshotRuleValidation.marketTestBets = favMarketTest.bets ?? data.favoriteLongshotRuleValidation.marketTestBets;
     data.favoriteLongshotRuleValidation.marketTestRoi = favMarketTest.roi ?? data.favoriteLongshotRuleValidation.marketTestRoi;
     data.favoriteLongshotRuleValidation.marketTestCiLo = favMarketTest.ci_lo ?? data.favoriteLongshotRuleValidation.marketTestCiLo;
+    applyStrategyBuckets(live.telonex_strategy_buckets);
     applyMicrostructure(live.telonex_microstructure_buckets);
 
     const liveModel = live.telonex_convergence || {};
@@ -1601,6 +1704,8 @@ function deriveDashboard() {
     data.favoriteLongshotEventReplays = favoriteLongshotEventReplays;
   }
 
+  applyStrategyBuckets(strategyBuckets);
+  applyPlayByPlaySourcePlan(playByPlaySourcePlan);
   applyMicrostructure(microstructureBuckets);
 
   if (state.runSummaries.length) {
@@ -1630,36 +1735,74 @@ function renderVerdict(data) {
   }
 }
 
-function strategyEvidenceMetrics(data) {
-  const e = data.execution;
-  const f = data.favoriteLongshotExecutable;
-  const replaySummary = data.favoriteLongshotEventReplays?.summary || {};
-  const replayEvents = replaySummary.events_with_series ?? (data.favoriteLongshotEventReplays?.events || []).length;
-  const replayPoints = replaySummary.total_series_points ?? 0;
+function strategyAuditRow(data, strategyName) {
+  const rows = data.strategyBuckets?.strategyRows || [];
+  const matches = rows.filter(row => row.strategy === strategyName && row.side === "taker");
+  return matches.find(row => row.split === "test")
+    || matches.find(row => row.split === "val")
+    || matches.find(row => row.split === "train")
+    || matches[0]
+    || null;
+}
+
+function strategyAuditSplit(row) {
+  return row?.split ? `${row.split} split` : "not enough qualifying rows";
+}
+
+function unavailableStrategyMetrics(reason) {
   return [
-    ["Backtest ROI", fmtPct(f.roi), `${fmtInt(f.settledEntries)} settled events`, "Positive average, but the conservative confidence bound is still below zero."],
-    ["Replay sample", `${fmtInt(replayEvents)} events`, `${fmtInt(replayPoints)} one-minute points`, "Too small for final proof; target is thousands of events per major market/sport."],
-    ["Live picks", fmtInt(e.liveSignalsSelected), `${fmtInt(e.liveSignalCandidates)} candidates scanned`, "Current signals clearing the live threshold."]
+    ["Backtest ROI", "not validated", reason, "No strategy-specific held-out edge is proven yet."],
+    ["Replay sample", "0 events", "0 one-minute points", "No replayable historical event set has passed the data gate yet."],
+    ["Live picks", "0", "monitor only", "No live signal is cleared for capital."]
   ];
 }
 
 function renderStrategyOverview(data) {
+  const e = data.execution;
   const f = data.favoriteLongshotExecutable;
   const m = data.latestModel;
   const mb = data.microstructureBuckets;
-  const favoriteMetrics = strategyEvidenceMetrics(data);
-  const pendingMetrics = [
-    ["Backtest ROI", "not validated", "0 settled events", "No execution-adjusted backtest has cleared for this strategy yet."],
-    ["Replay sample", "0 events", "0 one-minute points", "No replayable historical event set has passed the data gate yet."],
-    ["Live picks", "0", "monitor only", "Current signals do not clear live execution thresholds."]
-  ];
+  const sb = data.strategyBuckets;
+  const pbpPlan = data.playByPlaySourcePlan;
+  const replaySummary = data.favoriteLongshotEventReplays?.summary || {};
+  const replayEvents = replaySummary.events_with_series ?? (data.favoriteLongshotEventReplays?.events || []).length;
+  const replayPoints = replaySummary.total_series_points ?? 0;
+  const favoriteAudit = strategyAuditRow(data, "favorite_longshot_fade_v2");
+  const sharpAudit = strategyAuditRow(data, "sharp_consensus_clob_mispricing");
+  const featureBlocker = [
+    sb.playByPlayCoverage > 0 ? null : "play-by-play 0%",
+    sb.playerNewsCoverage > 0 ? null : "injury/news 0%",
+    sb.sentimentCoverage > 0 ? null : "sentiment 0%"
+  ].filter(Boolean).join(", ");
   const rows = [
     {
       name: "Favorite-longshot fade",
-      copy: `Buy the boring high-probability side when the crowd overpays for lottery-like longshots. Current replay sample: ${fmtInt(f.settledEntries)} settled events, ROI ${fmtPct(f.roi)}, confidence-low ${fmtPct(f.ciLo)}.`,
-      status: f.gate ? "Research pass" : "Candidate, not proven",
-      tone: f.gate ? "good" : "warn",
-      metrics: favoriteMetrics
+      copy: `Buy the high-probability side when longshot demand appears to overprice the other side. V2 now splits by probability band, sport, market type, liquidity, and Odds API gap instead of one broad bucket.`,
+      status: favoriteAudit && favoriteAudit.ci_lo > 0 ? "Research pass" : "Candidate, not proven",
+      tone: favoriteAudit && favoriteAudit.ci_lo > 0 ? "good" : "warn",
+      metrics: [
+        ["Backtest ROI", fmtPct(f.roi), `${fmtInt(f.settledEntries)} settled events`, `Resolution-hold replay is positive; short-horizon executable audit is ${fmtPct(favoriteAudit?.roi)} on ${strategyAuditSplit(favoriteAudit)}.`],
+        ["Replay sample", `${fmtInt(replayEvents)} events`, `${fmtInt(replayPoints)} one-minute points`, "Too small for final proof; target is thousands of events per major sport/market."],
+        ["Live picks", fmtInt(e.liveSignalsSelected), `${fmtInt(e.liveSignalCandidates)} candidates scanned`, "No current signal clears the live threshold."]
+      ]
+    },
+    {
+      name: "Sharp-consensus CLOB mispricing",
+      copy: `Use multi-book no-vig Odds API fair probability as the baseline and only trade when Polymarket ask is meaningfully below that fair value. This is a strategy rule, not a generic winner picker.`,
+      status: sharpAudit && sharpAudit.ci_lo > 0 ? "Research pass" : "Not proven",
+      tone: sharpAudit && sharpAudit.ci_lo > 0 ? "good" : "bad",
+      metrics: [
+        ["Backtest ROI", fmtPct(sharpAudit?.roi), `${fmtInt(sharpAudit?.rows)} rows`, `Best available audit row is ${strategyAuditSplit(sharpAudit)} across ${fmtInt(sharpAudit?.markets)} markets.`],
+        ["Replay sample", "0 events", `${fmtInt(sb.strategyCandidateRows)} candidate rows`, "Needs replayable event paths once the rule has a positive held-out bucket."],
+        ["Live picks", "0", `${fmtPct(sb.oddsTestCoverage)} test odds coverage`, "Odds coverage is still too thin for a capital gate."]
+      ]
+    },
+    {
+      name: "Line-lag / CLV capture",
+      copy: `Detect when sportsbook fair value moves before the CLOB moves, then enter for convergence and track CLV/LEV. Current Telonex/Odds overlap did not produce a robust qualifying held-out row.`,
+      status: "Needs data",
+      tone: "warn",
+      metrics: unavailableStrategyMetrics(`${fmtInt(sb.strategyCandidateMarkets)} candidate markets audited`)
     },
     {
       name: "Fill-aware convergence ML",
@@ -1685,10 +1828,10 @@ function renderStrategyOverview(data) {
     },
     {
       name: "Post-event price shock",
-      copy: `Test whether prices overreact after sudden market moves and then revert. Current selected rule is ${mb.selectedRule || "none"} with insufficient validation/test support.`,
+      copy: `Use a game-state engine plus play-by-play to compare fair win-probability change against CLOB reaction after goals, scoring plays, cards, substitutions, and injuries. Build order: ${(pbpPlan.nextBuildOrder || []).slice(0, 4).join(", ") || "not planned"}.`,
       status: mb.priceShockGate ? "Candidate" : "Not ready",
       tone: mb.priceShockGate ? "warn" : "bad",
-      metrics: pendingMetrics
+      metrics: unavailableStrategyMetrics(featureBlocker || `selected rule: ${mb.selectedRule || "none"}`)
     }
   ];
   $("strategy-overview").innerHTML = `
@@ -1767,7 +1910,13 @@ function strategyLabel(value) {
     "favorite_85_95_buy_high_token": "Favorite-longshot fade",
     "longshot_10_15_buy_no_token": "Favorite-longshot fade",
     "longshot_10_15_buy_complement_token": "Favorite-longshot fade",
-    "downloaded_manifest_high_prob_token": "Favorite-longshot fade"
+    "downloaded_manifest_high_prob_token": "Favorite-longshot fade",
+    "favorite_longshot_fade_v2": "Favorite-longshot fade",
+    "sharp_consensus_clob_mispricing": "Sharp-consensus CLOB mispricing",
+    "sharp-consensus clob mispricing": "Sharp-consensus CLOB mispricing",
+    "line_lag_clv_capture": "Line-lag / CLV capture",
+    "line-lag clv capture": "Line-lag / CLV capture",
+    "line lag clv capture": "Line-lag / CLV capture"
   };
   if (labels[key]) return labels[key];
   return raw
