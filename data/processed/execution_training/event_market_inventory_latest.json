@@ -14,12 +14,11 @@
     "complete_for_profitable_bot_claim": false,
     "reasons": [
       "active observed markets 109 < 200 research target",
-      "test Odds API coverage 32.44% < 50% target",
-      "Odds API point-in-time features have insufficient test coverage"
+      "sportsbook native 5-minute density gate failed: complete 5m replay cache 164 / 276 = 59.42% < 95%"
     ],
     "strategy_readiness_gate": false
   },
-  "generated_at": "2026-05-31T10:37:53.473402+00:00",
+  "generated_at": "2026-05-31T12:55:00.509888+00:00",
   "market_breakdown": {
     "active_by_sport_type": [
       {
@@ -140,6 +139,13 @@
     "coverage_by_split": {
       "test": {
         "coverage": 0.3244483343942287,
+        "eligible_coverage": 0.7557921617892374,
+        "eligible_markets": 5,
+        "eligible_matched_markets": 5,
+        "eligible_matched_rows": 73398,
+        "eligible_matched_tokens": 10,
+        "eligible_rows": 97114,
+        "eligible_tokens": 10,
         "matched_markets": 5,
         "matched_rows": 73398,
         "matched_tokens": 10,
@@ -147,6 +153,13 @@
       },
       "train": {
         "coverage": 0.5140103654586763,
+        "eligible_coverage": 0.7111906751252316,
+        "eligible_markets": 46,
+        "eligible_matched_markets": 44,
+        "eligible_matched_rows": 913326,
+        "eligible_matched_tokens": 87,
+        "eligible_rows": 1284221,
+        "eligible_tokens": 91,
         "matched_markets": 44,
         "matched_rows": 913326,
         "matched_tokens": 87,
@@ -154,6 +167,13 @@
       },
       "unobserved": {
         "coverage": 0.4248834641351149,
+        "eligible_coverage": 0.9442305712815234,
+        "eligible_markets": 33,
+        "eligible_matched_markets": 24,
+        "eligible_matched_rows": 229330,
+        "eligible_matched_tokens": 48,
+        "eligible_rows": 242875,
+        "eligible_tokens": 65,
         "matched_markets": 24,
         "matched_rows": 229330,
         "matched_tokens": 48,
@@ -161,6 +181,13 @@
       },
       "val": {
         "coverage": 0.5035198843094721,
+        "eligible_coverage": 0.8209563331132699,
+        "eligible_markets": 6,
+        "eligible_matched_markets": 6,
+        "eligible_matched_rows": 174092,
+        "eligible_matched_tokens": 12,
+        "eligible_rows": 212060,
+        "eligible_tokens": 12,
         "matched_markets": 6,
         "matched_rows": 174092,
         "matched_tokens": 12,
@@ -168,6 +195,20 @@
       }
     },
     "feature_rows": 1390146,
+    "holdout": {
+      "eligible_matched_test_markets": 5,
+      "eligible_test_coverage": 0.7557921617892374,
+      "eligible_test_rows": 97114,
+      "full_test_coverage": 0.3244483343942287,
+      "gate": true,
+      "min_eligible_test_coverage": 0.75,
+      "min_eligible_test_markets": 5,
+      "min_full_test_coverage": 0.5,
+      "mode": "strategy_eligible",
+      "policy": "For Odds-dependent strategies, unsupported or unmatched markets are quarantined from the denominator. The gate measures rows where the token can actually map to a causal h2h/spreads/totals sportsbook outcome.",
+      "reasons": []
+    },
+    "holdout_gate": true,
     "matched_markets": 79,
     "matched_tokens": 157,
     "row_coverage": 0.48125500894036355

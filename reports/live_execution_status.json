@@ -63,12 +63,11 @@
       "complete_for_profitable_bot_claim": false,
       "reasons": [
         "active observed markets 109 < 200 research target",
-        "test Odds API coverage 32.44% < 50% target",
-        "Odds API point-in-time features have insufficient test coverage"
+        "sportsbook native 5-minute density gate failed: complete 5m replay cache 164 / 276 = 59.42% < 95%"
       ],
       "strategy_readiness_gate": false
     },
-    "generated_at": "2026-05-31T10:37:53.473402+00:00",
+    "generated_at": "2026-05-31T12:55:00.509888+00:00",
     "market_breakdown": {
       "active_by_sport_type": [
         {
@@ -189,6 +188,13 @@
       "coverage_by_split": {
         "test": {
           "coverage": 0.3244483343942287,
+          "eligible_coverage": 0.7557921617892374,
+          "eligible_markets": 5,
+          "eligible_matched_markets": 5,
+          "eligible_matched_rows": 73398,
+          "eligible_matched_tokens": 10,
+          "eligible_rows": 97114,
+          "eligible_tokens": 10,
           "matched_markets": 5,
           "matched_rows": 73398,
           "matched_tokens": 10,
@@ -196,6 +202,13 @@
         },
         "train": {
           "coverage": 0.5140103654586763,
+          "eligible_coverage": 0.7111906751252316,
+          "eligible_markets": 46,
+          "eligible_matched_markets": 44,
+          "eligible_matched_rows": 913326,
+          "eligible_matched_tokens": 87,
+          "eligible_rows": 1284221,
+          "eligible_tokens": 91,
           "matched_markets": 44,
           "matched_rows": 913326,
           "matched_tokens": 87,
@@ -203,6 +216,13 @@
         },
         "unobserved": {
           "coverage": 0.4248834641351149,
+          "eligible_coverage": 0.9442305712815234,
+          "eligible_markets": 33,
+          "eligible_matched_markets": 24,
+          "eligible_matched_rows": 229330,
+          "eligible_matched_tokens": 48,
+          "eligible_rows": 242875,
+          "eligible_tokens": 65,
           "matched_markets": 24,
           "matched_rows": 229330,
           "matched_tokens": 48,
@@ -210,6 +230,13 @@
         },
         "val": {
           "coverage": 0.5035198843094721,
+          "eligible_coverage": 0.8209563331132699,
+          "eligible_markets": 6,
+          "eligible_matched_markets": 6,
+          "eligible_matched_rows": 174092,
+          "eligible_matched_tokens": 12,
+          "eligible_rows": 212060,
+          "eligible_tokens": 12,
           "matched_markets": 6,
           "matched_rows": 174092,
           "matched_tokens": 12,
@@ -217,6 +244,20 @@
         }
       },
       "feature_rows": 1390146,
+      "holdout": {
+        "eligible_matched_test_markets": 5,
+        "eligible_test_coverage": 0.7557921617892374,
+        "eligible_test_rows": 97114,
+        "full_test_coverage": 0.3244483343942287,
+        "gate": true,
+        "min_eligible_test_coverage": 0.75,
+        "min_eligible_test_markets": 5,
+        "min_full_test_coverage": 0.5,
+        "mode": "strategy_eligible",
+        "policy": "For Odds-dependent strategies, unsupported or unmatched markets are quarantined from the denominator. The gate measures rows where the token can actually map to a causal h2h/spreads/totals sportsbook outcome.",
+        "reasons": []
+      },
+      "holdout_gate": true,
       "matched_markets": 79,
       "matched_tokens": 157,
       "row_coverage": 0.48125500894036355
@@ -1418,13 +1459,22 @@
       "temporal selected rule failed",
       "market-disjoint selected rule failed"
     ],
-    "generated_at": "2026-05-31T03:43:23.036703+00:00",
+    "generated_at": "2026-05-31T12:41:14.132616+00:00",
     "input": {
       "bets_path": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/data/processed/execution_training/favorite_longshot_executable_bets_latest.parquet",
       "entry_ts_max": "2026-05-26 00:00:04.542000+00:00",
       "entry_ts_min": "2025-10-26 00:00:07.861000+00:00",
       "markets": 277,
-      "settlement_rows": 277
+      "settlement_rows": 277,
+      "sportsbook_gap_audit": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/reports/replay_sportsbook_gap_audit_latest.json",
+      "sportsbook_quality_counts": {
+        "complete_15m_partial_5m": 112,
+        "complete_5m": 156,
+        "complete_5m_source_quote_gap": 2,
+        "complete_5m_sportsbook_listed_late": 5,
+        "complete_5m_sportsbook_stopped_before_settlement": 1,
+        "no_odds_event_match": 1
+      }
     },
     "market_disjoint": {
       "candidates": [
@@ -2314,6 +2364,101 @@
         "min_hours_to_end": 0.25
       },
       "selected_rule_id": "entry_15m_to_24h",
+      "selected_rule_quality_breakdown": [
+        {
+          "avg_entry_ask": 0.8763576158940396,
+          "avg_spread": 0.011125827814569547,
+          "bets": 151,
+          "ci_hi": 0.07909841325960563,
+          "ci_lo": -0.022693548795860635,
+          "markets": 151,
+          "pnl": 4.2239569999999995,
+          "roi": 0.03191987455603416,
+          "sportsbook_quality_tier": "complete_5m",
+          "stake": 132.32999999999998,
+          "win_rate": 0.9072847682119205
+        },
+        {
+          "avg_entry_ask": 0.8756880733944954,
+          "avg_spread": 0.011651376146789,
+          "bets": 109,
+          "ci_hi": 0.060213962029707066,
+          "ci_lo": -0.08346772528117104,
+          "markets": 109,
+          "pnl": -0.7599449999999998,
+          "roi": -0.007961707700366681,
+          "sportsbook_quality_tier": "complete_15m_partial_5m",
+          "stake": 95.45,
+          "win_rate": 0.8715596330275229
+        },
+        {
+          "avg_entry_ask": 0.885,
+          "avg_spread": 0.015000000000000013,
+          "bets": 2,
+          "ci_hi": 0.14552528735632184,
+          "ci_lo": 0.10811111111111109,
+          "markets": 2,
+          "pnl": 0.22390699999999997,
+          "roi": 0.1265011299435028,
+          "sportsbook_quality_tier": "complete_5m_source_quote_gap",
+          "stake": 1.77,
+          "win_rate": 1.0
+        },
+        {
+          "avg_entry_ask": 0.85,
+          "avg_spread": 0.010000000000000009,
+          "bets": 1,
+          "ci_hi": null,
+          "ci_lo": null,
+          "markets": 1,
+          "pnl": 0.14617500000000003,
+          "roi": 0.17197058823529415,
+          "sportsbook_quality_tier": "complete_5m_sportsbook_stopped_before_settlement",
+          "stake": 0.85,
+          "win_rate": 1.0
+        },
+        {
+          "avg_entry_ask": 0.93,
+          "avg_spread": 0.040000000000000036,
+          "bets": 1,
+          "ci_hi": null,
+          "ci_lo": null,
+          "markets": 1,
+          "pnl": 0.06804699999999995,
+          "roi": 0.07316881720430102,
+          "sportsbook_quality_tier": "no_odds_event_match",
+          "stake": 0.93,
+          "win_rate": 1.0
+        }
+      ],
+      "selected_rule_test_quality_breakdown": [
+        {
+          "avg_entry_ask": 0.875263157894737,
+          "avg_spread": 0.010789473684210536,
+          "bets": 38,
+          "ci_hi": 0.11013951502639215,
+          "ci_lo": -0.1323223156372276,
+          "markets": 38,
+          "pnl": -0.3674719999999999,
+          "roi": -0.011048466626578468,
+          "sportsbook_quality_tier": "complete_5m",
+          "stake": 33.260000000000005,
+          "win_rate": 0.868421052631579
+        },
+        {
+          "avg_entry_ask": 0.8726315789473683,
+          "avg_spread": 0.011052631578947378,
+          "bets": 19,
+          "ci_hi": 0.1510046808510639,
+          "ci_lo": -0.04391489393732997,
+          "markets": 19,
+          "pnl": 1.3598109999999999,
+          "roi": 0.08201513872135102,
+          "sportsbook_quality_tier": "complete_15m_partial_5m",
+          "stake": 16.58,
+          "win_rate": 0.9473684210526315
+        }
+      ],
       "test": {
         "avg_entry_ask": 0.8743859649122807,
         "avg_spread": 0.01087719298245615,
@@ -2344,6 +2489,86 @@
       "report": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/reports/favorite_longshot_rule_validation_latest.md"
     },
     "overall_gate": false,
+    "quality_breakdown": [
+      {
+        "avg_entry_ask": 0.8767948717948718,
+        "avg_spread": 0.011153846153846163,
+        "bets": 156,
+        "ci_hi": 0.07106132282391764,
+        "ci_lo": -0.034948356429396824,
+        "markets": 156,
+        "pnl": 2.7649149999999985,
+        "roi": 0.02021432226933761,
+        "sportsbook_quality_tier": "complete_5m",
+        "stake": 136.78,
+        "win_rate": 0.8974358974358975
+      },
+      {
+        "avg_entry_ask": 0.8762499999999999,
+        "avg_spread": 0.012321428571428582,
+        "bets": 112,
+        "ci_hi": 0.05716419668233801,
+        "ci_lo": -0.07650230239074403,
+        "markets": 112,
+        "pnl": -0.45819800000000055,
+        "roi": -0.004668820052985537,
+        "sportsbook_quality_tier": "complete_15m_partial_5m",
+        "stake": 98.13999999999999,
+        "win_rate": 0.875
+      },
+      {
+        "avg_entry_ask": 0.8560000000000001,
+        "avg_spread": 0.03400000000000001,
+        "bets": 5,
+        "ci_hi": 0.17197058823529415,
+        "ci_lo": 0.15332890046296296,
+        "markets": 5,
+        "pnl": 0.7015200000000001,
+        "roi": 0.1639065420560748,
+        "sportsbook_quality_tier": "complete_5m_sportsbook_listed_late",
+        "stake": 4.28,
+        "win_rate": 1.0
+      },
+      {
+        "avg_entry_ask": 0.885,
+        "avg_spread": 0.015000000000000013,
+        "bets": 2,
+        "ci_hi": 0.14552528735632184,
+        "ci_lo": 0.10811111111111109,
+        "markets": 2,
+        "pnl": 0.22390699999999997,
+        "roi": 0.1265011299435028,
+        "sportsbook_quality_tier": "complete_5m_source_quote_gap",
+        "stake": 1.77,
+        "win_rate": 1.0
+      },
+      {
+        "avg_entry_ask": 0.85,
+        "avg_spread": 0.010000000000000009,
+        "bets": 1,
+        "ci_hi": null,
+        "ci_lo": null,
+        "markets": 1,
+        "pnl": 0.14617500000000003,
+        "roi": 0.17197058823529415,
+        "sportsbook_quality_tier": "complete_5m_sportsbook_stopped_before_settlement",
+        "stake": 0.85,
+        "win_rate": 1.0
+      },
+      {
+        "avg_entry_ask": 0.93,
+        "avg_spread": 0.040000000000000036,
+        "bets": 1,
+        "ci_hi": null,
+        "ci_lo": null,
+        "markets": 1,
+        "pnl": 0.06804699999999995,
+        "roi": 0.07316881720430102,
+        "sportsbook_quality_tier": "no_odds_event_match",
+        "stake": 0.93,
+        "win_rate": 1.0
+      }
+    ],
     "temporal": {
       "candidates": [
         {
@@ -3234,6 +3459,62 @@
         ]
       },
       "selected_rule_id": "nba_only",
+      "selected_rule_quality_breakdown": [
+        {
+          "avg_entry_ask": 0.8800000000000001,
+          "avg_spread": 0.010602409638554227,
+          "bets": 83,
+          "ci_hi": 0.09181825917305583,
+          "ci_lo": -0.04739091162134827,
+          "markets": 83,
+          "pnl": 1.7214339999999992,
+          "roi": 0.02356837349397589,
+          "sportsbook_quality_tier": "complete_5m",
+          "stake": 73.04,
+          "win_rate": 0.9036144578313253
+        },
+        {
+          "avg_entry_ask": 0.8560000000000001,
+          "avg_spread": 0.03400000000000001,
+          "bets": 5,
+          "ci_hi": 0.17197058823529415,
+          "ci_lo": 0.15332890046296296,
+          "markets": 5,
+          "pnl": 0.7015200000000001,
+          "roi": 0.1639065420560748,
+          "sportsbook_quality_tier": "complete_5m_sportsbook_listed_late",
+          "stake": 4.28,
+          "win_rate": 1.0
+        },
+        {
+          "avg_entry_ask": 0.88,
+          "avg_spread": 0.040000000000000036,
+          "bets": 1,
+          "ci_hi": null,
+          "ci_lo": null,
+          "markets": 1,
+          "pnl": 0.11683199999999999,
+          "roi": 0.13276363636363636,
+          "sportsbook_quality_tier": "complete_15m_partial_5m",
+          "stake": 0.88,
+          "win_rate": 1.0
+        }
+      ],
+      "selected_rule_test_quality_breakdown": [
+        {
+          "avg_entry_ask": 0.8783333333333333,
+          "avg_spread": 0.010000000000000009,
+          "bets": 6,
+          "ci_hi": 0.15421235521235527,
+          "ci_lo": 0.11620708955223878,
+          "markets": 6,
+          "pnl": 0.710833,
+          "roi": 0.13488292220113854,
+          "sportsbook_quality_tier": "complete_5m",
+          "stake": 5.27,
+          "win_rate": 1.0
+        }
+      ],
       "test": {
         "avg_entry_ask": 0.8783333333333333,
         "avg_spread": 0.010000000000000009,
@@ -3333,7 +3614,7 @@
     "Telonex temporal validation gate failed",
     "favorite-longshot executable Telonex backtest gate failed",
     "favorite-longshot out-of-sample rule validation failed",
-    "strategy/data readiness gate failed: Odds API point-in-time features have insufficient test coverage; sportsbook native 5-minute density gate failed: complete 5m replay cache 155 / 276 = 56.16% < 95%"
+    "strategy/data readiness gate failed: sportsbook native 5-minute density gate failed: complete 5m replay cache 164 / 276 = 59.42% < 95%"
   ],
   "gate_warnings": [
     "cross-venue Kalshi comparison unavailable: no verified equivalent markets",
@@ -3345,7 +3626,7 @@
     "live strategy LEV evidence incomplete",
     "favorite-longshot bucket has raw edge but not robust event-cluster CI yet"
   ],
-  "generated_at": "2026-05-31T10:44:05.591767+00:00",
+  "generated_at": "2026-05-31T12:55:17.577377+00:00",
   "historical_clob": {
     "depth_rows": 105207694,
     "quote_rows": 14538432,
@@ -3437,8 +3718,7 @@
       "tokens": 429
     },
     "gate_reasons": [
-      "Odds API point-in-time features have insufficient test coverage",
-      "sportsbook native 5-minute density gate failed: complete 5m replay cache 155 / 276 = 56.16% < 95%"
+      "sportsbook native 5-minute density gate failed: complete 5m replay cache 164 / 276 = 59.42% < 95%"
     ],
     "gates": {
       "complete_side_market_data_gate": true,
@@ -3453,17 +3733,29 @@
       },
       "heldout_market_extent_gate": true,
       "historical_l2_scale_gate": true,
-      "odds_holdout_coverage_gate": false,
+      "odds_holdout_coverage": {
+        "eligible_matched_test_markets": 5,
+        "eligible_test_coverage": 0.7557921617892374,
+        "eligible_test_rows": 97114,
+        "full_test_coverage": 0.3244483343942287,
+        "gate": true,
+        "min_eligible_test_coverage": 0.75,
+        "min_eligible_test_markets": 5,
+        "min_full_test_coverage": 0.5,
+        "mode": "strategy_eligible",
+        "policy": "For Odds-dependent strategies, unsupported or unmatched markets are quarantined from the denominator. The gate measures rows where the token can actually map to a causal h2h/spreads/totals sportsbook outcome.",
+        "reasons": []
+      },
+      "odds_holdout_coverage_gate": true,
       "overall_gate": false,
       "quality_gate": true,
       "reasons": [
-        "Odds API point-in-time features have insufficient test coverage",
-        "sportsbook native 5-minute density gate failed: complete 5m replay cache 155 / 276 = 56.16% < 95%"
+        "sportsbook native 5-minute density gate failed: complete 5m replay cache 164 / 276 = 59.42% < 95%"
       ],
       "sportsbook_native_5m_density_gate": false,
       "trade_confirmed_fill_holdout_gate": true
     },
-    "generated_at": "2026-05-31T10:43:56.914015+00:00",
+    "generated_at": "2026-05-31T12:54:54.705933+00:00",
     "latest_model_monitor": {
       "adverse_selection": {
         "available": false,
@@ -3821,7 +4113,7 @@
       "complete_both_venues_rate": 0.9963898916967509,
       "events": 277,
       "gate": true,
-      "generated_at": "2026-05-31T10:35:22.508197+00:00",
+      "generated_at": "2026-05-31T12:40:30.463272+00:00",
       "min_complete_both_venues_rate": 0.95,
       "missing_examples": [
         {
@@ -3837,7 +4129,7 @@
       "path": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/reports/two_sided_market_data_completeness_latest.json",
       "reasons": [],
       "sportsbook_complete_side_events": 276,
-      "sportsbook_complete_side_points": 34927,
+      "sportsbook_complete_side_points": 36264,
       "sportsbook_missing_or_incomplete_events": 1
     },
     "odds_features": {
@@ -3893,6 +4185,13 @@
         "coverage_by_split": {
           "test": {
             "coverage": 0.3244483343942287,
+            "eligible_coverage": 0.7557921617892374,
+            "eligible_markets": 5,
+            "eligible_matched_markets": 5,
+            "eligible_matched_rows": 73398,
+            "eligible_matched_tokens": 10,
+            "eligible_rows": 97114,
+            "eligible_tokens": 10,
             "matched_markets": 5,
             "matched_rows": 73398,
             "matched_tokens": 10,
@@ -3900,6 +4199,13 @@
           },
           "train": {
             "coverage": 0.5140103654586763,
+            "eligible_coverage": 0.7111906751252316,
+            "eligible_markets": 46,
+            "eligible_matched_markets": 44,
+            "eligible_matched_rows": 913326,
+            "eligible_matched_tokens": 87,
+            "eligible_rows": 1284221,
+            "eligible_tokens": 91,
             "matched_markets": 44,
             "matched_rows": 913326,
             "matched_tokens": 87,
@@ -3907,6 +4213,13 @@
           },
           "unobserved": {
             "coverage": 0.4248834641351149,
+            "eligible_coverage": 0.9442305712815234,
+            "eligible_markets": 33,
+            "eligible_matched_markets": 24,
+            "eligible_matched_rows": 229330,
+            "eligible_matched_tokens": 48,
+            "eligible_rows": 242875,
+            "eligible_tokens": 65,
             "matched_markets": 24,
             "matched_rows": 229330,
             "matched_tokens": 48,
@@ -3914,6 +4227,13 @@
           },
           "val": {
             "coverage": 0.5035198843094721,
+            "eligible_coverage": 0.8209563331132699,
+            "eligible_markets": 6,
+            "eligible_matched_markets": 6,
+            "eligible_matched_rows": 174092,
+            "eligible_matched_tokens": 12,
+            "eligible_rows": 212060,
+            "eligible_tokens": 12,
             "matched_markets": 6,
             "matched_rows": 174092,
             "matched_tokens": 12,
@@ -3923,6 +4243,10 @@
         "coverage_by_split_market_type": [
           {
             "coverage": 0.0,
+            "eligible_coverage": 0.0,
+            "eligible_markets": 0,
+            "eligible_matched_rows": 0,
+            "eligible_rows": 0,
             "market_type": "exact_score",
             "matched_markets": 0,
             "matched_rows": 0,
@@ -3931,6 +4255,10 @@
           },
           {
             "coverage": 0.3508293754513003,
+            "eligible_coverage": 0.7455692919512406,
+            "eligible_markets": 4,
+            "eligible_matched_rows": 68992,
+            "eligible_rows": 92536,
             "market_type": "h2h",
             "matched_markets": 4,
             "matched_rows": 68992,
@@ -3939,6 +4267,10 @@
           },
           {
             "coverage": 0.0,
+            "eligible_coverage": 0.0,
+            "eligible_markets": 0,
+            "eligible_matched_rows": 0,
+            "eligible_rows": 0,
             "market_type": "nrfi",
             "matched_markets": 0,
             "matched_rows": 0,
@@ -3947,6 +4279,10 @@
           },
           {
             "coverage": 0.6568276684555754,
+            "eligible_coverage": 0.9624290083005679,
+            "eligible_markets": 1,
+            "eligible_matched_rows": 4406,
+            "eligible_rows": 4578,
             "market_type": "spreads",
             "matched_markets": 1,
             "matched_rows": 4406,
@@ -3955,6 +4291,10 @@
           },
           {
             "coverage": 0.0,
+            "eligible_coverage": 0.0,
+            "eligible_markets": 0,
+            "eligible_matched_rows": 0,
+            "eligible_rows": 0,
             "market_type": "corners",
             "matched_markets": 0,
             "matched_rows": 0,
@@ -3963,6 +4303,10 @@
           },
           {
             "coverage": 0.6001440064945706,
+            "eligible_coverage": 0.7154748327574174,
+            "eligible_markets": 41,
+            "eligible_matched_rows": 882672,
+            "eligible_rows": 1233687,
             "market_type": "h2h",
             "matched_markets": 41,
             "matched_rows": 882672,
@@ -3971,6 +4315,10 @@
           },
           {
             "coverage": 0.0,
+            "eligible_coverage": 0.0,
+            "eligible_markets": 0,
+            "eligible_matched_rows": 0,
+            "eligible_rows": 0,
             "market_type": "halftime",
             "matched_markets": 0,
             "matched_rows": 0,
@@ -3979,6 +4327,10 @@
           },
           {
             "coverage": 0.0,
+            "eligible_coverage": 0.0,
+            "eligible_markets": 0,
+            "eligible_matched_rows": 0,
+            "eligible_rows": 0,
             "market_type": "nrfi",
             "matched_markets": 0,
             "matched_rows": 0,
@@ -3987,6 +4339,10 @@
           },
           {
             "coverage": 0.0,
+            "eligible_coverage": 0.0,
+            "eligible_markets": 1,
+            "eligible_matched_rows": 0,
+            "eligible_rows": 6036,
             "market_type": "spreads",
             "matched_markets": 0,
             "matched_rows": 0,
@@ -3995,6 +4351,10 @@
           },
           {
             "coverage": 0.6785761721344136,
+            "eligible_coverage": 0.6888848937030878,
+            "eligible_markets": 4,
+            "eligible_matched_rows": 30654,
+            "eligible_rows": 44498,
             "market_type": "totals",
             "matched_markets": 3,
             "matched_rows": 30654,
@@ -4003,6 +4363,10 @@
           },
           {
             "coverage": 0.7827958036170679,
+            "eligible_coverage": 0.9712722132959638,
+            "eligible_markets": 19,
+            "eligible_matched_rows": 160798,
+            "eligible_rows": 165554,
             "market_type": "h2h",
             "matched_markets": 17,
             "matched_rows": 160798,
@@ -4011,6 +4375,10 @@
           },
           {
             "coverage": 0.0,
+            "eligible_coverage": 0.0,
+            "eligible_markets": 0,
+            "eligible_matched_rows": 0,
+            "eligible_rows": 0,
             "market_type": "nrfi",
             "matched_markets": 0,
             "matched_rows": 0,
@@ -4019,6 +4387,10 @@
           },
           {
             "coverage": 1.0,
+            "eligible_coverage": 1.0,
+            "eligible_markets": 4,
+            "eligible_matched_rows": 42286,
+            "eligible_rows": 42286,
             "market_type": "spreads",
             "matched_markets": 4,
             "matched_rows": 42286,
@@ -4027,6 +4399,10 @@
           },
           {
             "coverage": 0.7491365777080062,
+            "eligible_coverage": 0.7491365777080062,
+            "eligible_markets": 10,
+            "eligible_matched_rows": 26246,
+            "eligible_rows": 35035,
             "market_type": "totals",
             "matched_markets": 3,
             "matched_rows": 26246,
@@ -4035,6 +4411,10 @@
           },
           {
             "coverage": 0.529992693619094,
+            "eligible_coverage": 0.8209563331132699,
+            "eligible_markets": 6,
+            "eligible_matched_rows": 174092,
+            "eligible_rows": 212060,
             "market_type": "h2h",
             "matched_markets": 6,
             "matched_rows": 174092,
@@ -4043,6 +4423,10 @@
           },
           {
             "coverage": 0.0,
+            "eligible_coverage": 0.0,
+            "eligible_markets": 0,
+            "eligible_matched_rows": 0,
+            "eligible_rows": 0,
             "market_type": "nrfi",
             "matched_markets": 0,
             "matched_rows": 0,
@@ -4053,6 +4437,10 @@
         "coverage_by_split_sport": [
           {
             "coverage": 0.6718406724615532,
+            "eligible_coverage": 0.8454234028487289,
+            "eligible_markets": 4,
+            "eligible_matched_rows": 56268,
+            "eligible_rows": 66556,
             "matched_markets": 4,
             "matched_rows": 56268,
             "rows": 83752,
@@ -4061,6 +4449,10 @@
           },
           {
             "coverage": 0.5605733359513058,
+            "eligible_coverage": 0.5605733359513058,
+            "eligible_markets": 1,
+            "eligible_matched_rows": 17130,
+            "eligible_rows": 30558,
             "matched_markets": 1,
             "matched_rows": 17130,
             "rows": 30558,
@@ -4069,6 +4461,10 @@
           },
           {
             "coverage": 0.0,
+            "eligible_coverage": 0.0,
+            "eligible_markets": 0,
+            "eligible_matched_rows": 0,
+            "eligible_rows": 0,
             "matched_markets": 0,
             "matched_rows": 0,
             "rows": 111914,
@@ -4077,6 +4473,10 @@
           },
           {
             "coverage": 0.420739871689145,
+            "eligible_coverage": 0.5547648658277674,
+            "eligible_markets": 29,
+            "eligible_matched_rows": 418868,
+            "eligible_rows": 755037,
             "matched_markets": 29,
             "matched_rows": 418868,
             "rows": 995551,
@@ -4085,6 +4485,10 @@
           },
           {
             "coverage": 0.7459268367660621,
+            "eligible_coverage": 0.7459268367660621,
+            "eligible_markets": 1,
+            "eligible_matched_rows": 9706,
+            "eligible_rows": 13012,
             "matched_markets": 1,
             "matched_rows": 9706,
             "rows": 13012,
@@ -4093,6 +4497,10 @@
           },
           {
             "coverage": 0.6309410386567746,
+            "eligible_coverage": 0.939128817525941,
+            "eligible_markets": 16,
+            "eligible_matched_rows": 484752,
+            "eligible_rows": 516172,
             "matched_markets": 14,
             "matched_rows": 484752,
             "rows": 768300,
@@ -4101,6 +4509,10 @@
           },
           {
             "coverage": 0.4299416195786261,
+            "eligible_coverage": 0.9654861742615607,
+            "eligible_markets": 25,
+            "eligible_matched_rows": 229330,
+            "eligible_rows": 237528,
             "matched_markets": 24,
             "matched_rows": 229330,
             "rows": 533398,
@@ -4109,6 +4521,10 @@
           },
           {
             "coverage": 0.0,
+            "eligible_coverage": 0.0,
+            "eligible_markets": 8,
+            "eligible_matched_rows": 0,
+            "eligible_rows": 5347,
             "matched_markets": 0,
             "matched_rows": 0,
             "rows": 5347,
@@ -4117,6 +4533,10 @@
           },
           {
             "coverage": 0.0,
+            "eligible_coverage": 0.0,
+            "eligible_markets": 0,
+            "eligible_matched_rows": 0,
+            "eligible_rows": 0,
             "matched_markets": 0,
             "matched_rows": 0,
             "rows": 1003,
@@ -4125,6 +4545,10 @@
           },
           {
             "coverage": 0.5356426464391066,
+            "eligible_coverage": 0.6268889327283488,
+            "eligible_markets": 4,
+            "eligible_matched_rows": 63554,
+            "eligible_rows": 101380,
             "matched_markets": 4,
             "matched_rows": 63554,
             "rows": 118650,
@@ -4133,6 +4557,10 @@
           },
           {
             "coverage": 0.4867371202113606,
+            "eligible_coverage": 0.9987170220455367,
+            "eligible_markets": 2,
+            "eligible_matched_rows": 110538,
+            "eligible_rows": 110680,
             "matched_markets": 2,
             "matched_rows": 110538,
             "rows": 227100,
@@ -4162,6 +4590,400 @@
           "rows_without_fair_group": 28434
         },
         "markets": 79,
+        "odds_strategy_universe": {
+          "coverage_by_split": {
+            "test": {
+              "coverage": 0.3244483343942287,
+              "eligible_coverage": 0.7557921617892374,
+              "eligible_markets": 5,
+              "eligible_matched_markets": 5,
+              "eligible_matched_rows": 73398,
+              "eligible_matched_tokens": 10,
+              "eligible_rows": 97114,
+              "eligible_tokens": 10,
+              "matched_markets": 5,
+              "matched_rows": 73398,
+              "matched_tokens": 10,
+              "rows": 226224
+            },
+            "train": {
+              "coverage": 0.5140103654586763,
+              "eligible_coverage": 0.7111906751252316,
+              "eligible_markets": 46,
+              "eligible_matched_markets": 44,
+              "eligible_matched_rows": 913326,
+              "eligible_matched_tokens": 87,
+              "eligible_rows": 1284221,
+              "eligible_tokens": 91,
+              "matched_markets": 44,
+              "matched_rows": 913326,
+              "matched_tokens": 87,
+              "rows": 1776863
+            },
+            "unobserved": {
+              "coverage": 0.4248834641351149,
+              "eligible_coverage": 0.9442305712815234,
+              "eligible_markets": 33,
+              "eligible_matched_markets": 24,
+              "eligible_matched_rows": 229330,
+              "eligible_matched_tokens": 48,
+              "eligible_rows": 242875,
+              "eligible_tokens": 65,
+              "matched_markets": 24,
+              "matched_rows": 229330,
+              "matched_tokens": 48,
+              "rows": 539748
+            },
+            "val": {
+              "coverage": 0.5035198843094721,
+              "eligible_coverage": 0.8209563331132699,
+              "eligible_markets": 6,
+              "eligible_matched_markets": 6,
+              "eligible_matched_rows": 174092,
+              "eligible_matched_tokens": 12,
+              "eligible_rows": 212060,
+              "eligible_tokens": 12,
+              "matched_markets": 6,
+              "matched_rows": 174092,
+              "matched_tokens": 12,
+              "rows": 345750
+            }
+          },
+          "coverage_by_split_market_type": [
+            {
+              "coverage": 0.0,
+              "eligible_coverage": 0.0,
+              "eligible_markets": 0,
+              "eligible_matched_rows": 0,
+              "eligible_rows": 0,
+              "market_type": "exact_score",
+              "matched_markets": 0,
+              "matched_rows": 0,
+              "rows": 5666,
+              "split": "test"
+            },
+            {
+              "coverage": 0.3508293754513003,
+              "eligible_coverage": 0.7455692919512406,
+              "eligible_markets": 4,
+              "eligible_matched_rows": 68992,
+              "eligible_rows": 92536,
+              "market_type": "h2h",
+              "matched_markets": 4,
+              "matched_rows": 68992,
+              "rows": 196654,
+              "split": "test"
+            },
+            {
+              "coverage": 0.0,
+              "eligible_coverage": 0.0,
+              "eligible_markets": 0,
+              "eligible_matched_rows": 0,
+              "eligible_rows": 0,
+              "market_type": "nrfi",
+              "matched_markets": 0,
+              "matched_rows": 0,
+              "rows": 17196,
+              "split": "test"
+            },
+            {
+              "coverage": 0.6568276684555754,
+              "eligible_coverage": 0.9624290083005679,
+              "eligible_markets": 1,
+              "eligible_matched_rows": 4406,
+              "eligible_rows": 4578,
+              "market_type": "spreads",
+              "matched_markets": 1,
+              "matched_rows": 4406,
+              "rows": 6708,
+              "split": "test"
+            },
+            {
+              "coverage": 0.0,
+              "eligible_coverage": 0.0,
+              "eligible_markets": 0,
+              "eligible_matched_rows": 0,
+              "eligible_rows": 0,
+              "market_type": "corners",
+              "matched_markets": 0,
+              "matched_rows": 0,
+              "rows": 700,
+              "split": "train"
+            },
+            {
+              "coverage": 0.6001440064945706,
+              "eligible_coverage": 0.7154748327574174,
+              "eligible_markets": 41,
+              "eligible_matched_rows": 882672,
+              "eligible_rows": 1233687,
+              "market_type": "h2h",
+              "matched_markets": 41,
+              "matched_rows": 882672,
+              "rows": 1470767,
+              "split": "train"
+            },
+            {
+              "coverage": 0.0,
+              "eligible_coverage": 0.0,
+              "eligible_markets": 0,
+              "eligible_matched_rows": 0,
+              "eligible_rows": 0,
+              "market_type": "halftime",
+              "matched_markets": 0,
+              "matched_rows": 0,
+              "rows": 13672,
+              "split": "train"
+            },
+            {
+              "coverage": 0.0,
+              "eligible_coverage": 0.0,
+              "eligible_markets": 0,
+              "eligible_matched_rows": 0,
+              "eligible_rows": 0,
+              "market_type": "nrfi",
+              "matched_markets": 0,
+              "matched_rows": 0,
+              "rows": 240514,
+              "split": "train"
+            },
+            {
+              "coverage": 0.0,
+              "eligible_coverage": 0.0,
+              "eligible_markets": 1,
+              "eligible_matched_rows": 0,
+              "eligible_rows": 6036,
+              "market_type": "spreads",
+              "matched_markets": 0,
+              "matched_rows": 0,
+              "rows": 6036,
+              "split": "train"
+            },
+            {
+              "coverage": 0.6785761721344136,
+              "eligible_coverage": 0.6888848937030878,
+              "eligible_markets": 4,
+              "eligible_matched_rows": 30654,
+              "eligible_rows": 44498,
+              "market_type": "totals",
+              "matched_markets": 3,
+              "matched_rows": 30654,
+              "rows": 45174,
+              "split": "train"
+            },
+            {
+              "coverage": 0.7827958036170679,
+              "eligible_coverage": 0.9712722132959638,
+              "eligible_markets": 19,
+              "eligible_matched_rows": 160798,
+              "eligible_rows": 165554,
+              "market_type": "h2h",
+              "matched_markets": 17,
+              "matched_rows": 160798,
+              "rows": 205415,
+              "split": "unobserved"
+            },
+            {
+              "coverage": 0.0,
+              "eligible_coverage": 0.0,
+              "eligible_markets": 0,
+              "eligible_matched_rows": 0,
+              "eligible_rows": 0,
+              "market_type": "nrfi",
+              "matched_markets": 0,
+              "matched_rows": 0,
+              "rows": 257012,
+              "split": "unobserved"
+            },
+            {
+              "coverage": 1.0,
+              "eligible_coverage": 1.0,
+              "eligible_markets": 4,
+              "eligible_matched_rows": 42286,
+              "eligible_rows": 42286,
+              "market_type": "spreads",
+              "matched_markets": 4,
+              "matched_rows": 42286,
+              "rows": 42286,
+              "split": "unobserved"
+            },
+            {
+              "coverage": 0.7491365777080062,
+              "eligible_coverage": 0.7491365777080062,
+              "eligible_markets": 10,
+              "eligible_matched_rows": 26246,
+              "eligible_rows": 35035,
+              "market_type": "totals",
+              "matched_markets": 3,
+              "matched_rows": 26246,
+              "rows": 35035,
+              "split": "unobserved"
+            },
+            {
+              "coverage": 0.529992693619094,
+              "eligible_coverage": 0.8209563331132699,
+              "eligible_markets": 6,
+              "eligible_matched_rows": 174092,
+              "eligible_rows": 212060,
+              "market_type": "h2h",
+              "matched_markets": 6,
+              "matched_rows": 174092,
+              "rows": 328480,
+              "split": "val"
+            },
+            {
+              "coverage": 0.0,
+              "eligible_coverage": 0.0,
+              "eligible_markets": 0,
+              "eligible_matched_rows": 0,
+              "eligible_rows": 0,
+              "market_type": "nrfi",
+              "matched_markets": 0,
+              "matched_rows": 0,
+              "rows": 17270,
+              "split": "val"
+            }
+          ],
+          "coverage_by_split_sport": [
+            {
+              "coverage": 0.6718406724615532,
+              "eligible_coverage": 0.8454234028487289,
+              "eligible_markets": 4,
+              "eligible_matched_rows": 56268,
+              "eligible_rows": 66556,
+              "matched_markets": 4,
+              "matched_rows": 56268,
+              "rows": 83752,
+              "split": "test",
+              "sport_family": "baseball_mlb"
+            },
+            {
+              "coverage": 0.5605733359513058,
+              "eligible_coverage": 0.5605733359513058,
+              "eligible_markets": 1,
+              "eligible_matched_rows": 17130,
+              "eligible_rows": 30558,
+              "matched_markets": 1,
+              "matched_rows": 17130,
+              "rows": 30558,
+              "split": "test",
+              "sport_family": "basketball_wnba"
+            },
+            {
+              "coverage": 0.0,
+              "eligible_coverage": 0.0,
+              "eligible_markets": 0,
+              "eligible_matched_rows": 0,
+              "eligible_rows": 0,
+              "matched_markets": 0,
+              "matched_rows": 0,
+              "rows": 111914,
+              "split": "test",
+              "sport_family": "soccer"
+            },
+            {
+              "coverage": 0.420739871689145,
+              "eligible_coverage": 0.5547648658277674,
+              "eligible_markets": 29,
+              "eligible_matched_rows": 418868,
+              "eligible_rows": 755037,
+              "matched_markets": 29,
+              "matched_rows": 418868,
+              "rows": 995551,
+              "split": "train",
+              "sport_family": "baseball_mlb"
+            },
+            {
+              "coverage": 0.7459268367660621,
+              "eligible_coverage": 0.7459268367660621,
+              "eligible_markets": 1,
+              "eligible_matched_rows": 9706,
+              "eligible_rows": 13012,
+              "matched_markets": 1,
+              "matched_rows": 9706,
+              "rows": 13012,
+              "split": "train",
+              "sport_family": "basketball_wnba"
+            },
+            {
+              "coverage": 0.6309410386567746,
+              "eligible_coverage": 0.939128817525941,
+              "eligible_markets": 16,
+              "eligible_matched_rows": 484752,
+              "eligible_rows": 516172,
+              "matched_markets": 14,
+              "matched_rows": 484752,
+              "rows": 768300,
+              "split": "train",
+              "sport_family": "soccer"
+            },
+            {
+              "coverage": 0.4299416195786261,
+              "eligible_coverage": 0.9654861742615607,
+              "eligible_markets": 25,
+              "eligible_matched_rows": 229330,
+              "eligible_rows": 237528,
+              "matched_markets": 24,
+              "matched_rows": 229330,
+              "rows": 533398,
+              "split": "unobserved",
+              "sport_family": "baseball_mlb"
+            },
+            {
+              "coverage": 0.0,
+              "eligible_coverage": 0.0,
+              "eligible_markets": 8,
+              "eligible_matched_rows": 0,
+              "eligible_rows": 5347,
+              "matched_markets": 0,
+              "matched_rows": 0,
+              "rows": 5347,
+              "split": "unobserved",
+              "sport_family": "icehockey_nhl"
+            },
+            {
+              "coverage": 0.0,
+              "eligible_coverage": 0.0,
+              "eligible_markets": 0,
+              "eligible_matched_rows": 0,
+              "eligible_rows": 0,
+              "matched_markets": 0,
+              "matched_rows": 0,
+              "rows": 1003,
+              "split": "unobserved",
+              "sport_family": "soccer"
+            },
+            {
+              "coverage": 0.5356426464391066,
+              "eligible_coverage": 0.6268889327283488,
+              "eligible_markets": 4,
+              "eligible_matched_rows": 63554,
+              "eligible_rows": 101380,
+              "matched_markets": 4,
+              "matched_rows": 63554,
+              "rows": 118650,
+              "split": "val",
+              "sport_family": "baseball_mlb"
+            },
+            {
+              "coverage": 0.4867371202113606,
+              "eligible_coverage": 0.9987170220455367,
+              "eligible_markets": 2,
+              "eligible_matched_rows": 110538,
+              "eligible_rows": 110680,
+              "matched_markets": 2,
+              "matched_rows": 110538,
+              "rows": 227100,
+              "split": "val",
+              "sport_family": "soccer"
+            }
+          ],
+          "policy": "Sharp-consensus and line-lag strategies are only eligible on rows whose token can be causally mapped to an Odds API h2h/spreads/totals outcome. Unsupported or unmatched markets are quarantined instead of counted as missing sportsbook signal.",
+          "supported_market_types": [
+            "h2h",
+            "spreads",
+            "totals"
+          ]
+        },
         "poly_gap_mid_quantiles": {
           "0.0": -0.6582422098623939,
           "0.01": -0.20186656550137183,
@@ -4309,7 +5131,7 @@
           "probabilities_in_bounds": true
         }
       },
-      "generated_at": "2026-05-31T09:49:53.181304+00:00",
+      "generated_at": "2026-05-31T12:54:52.865899+00:00",
       "labels": {
         "markets": 216,
         "rows": 2888585,
@@ -4479,26 +5301,30 @@
         "has_sportsbook_overlay": 276,
         "internal_quote_gap_missing_5m_api_cache": 1,
         "no_odds_event_match": 1,
-        "source_quote_gap_cache_complete": 3,
+        "source_quote_gap_cache_complete": 2,
         "sportsbook_end_gap_missing_5m_api_cache": 1,
         "sportsbook_event_not_listed_until_after_clob_start": 8,
         "sportsbook_last_quote_not_settlement": 3,
         "sportsbook_starts_after_clob": 2
       },
-      "complete_5m_event_rate": 0.5615942028985508,
+      "complete_5m_event_rate": 0.5942028985507246,
       "events_with_sportsbook_match": 276,
       "gate_15m": true,
       "gate_5m": false,
       "matched_events_with_complete_15m_cache": 276,
-      "matched_events_with_complete_5m_cache": 155,
+      "matched_events_with_complete_5m_cache": 164,
       "min_complete_5m_event_rate": 0.95,
       "path": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/reports/replay_sportsbook_gap_audit_latest.json",
-      "raw_5m_snapshot_cache_rate": 0.6703485993583532,
+      "raw_5m_snapshot_cache_rate": 0.6911913528411171,
       "reasons": [
-        "complete 5m replay cache 155 / 276 = 56.16% < 95%"
+        "complete 5m replay cache 164 / 276 = 59.42% < 95%"
       ],
       "unique_cache_5m_expected_snapshots": 46443,
-      "unique_cache_5m_missing_snapshots": 15310
+      "unique_cache_5m_missing_snapshots": 14342,
+      "warehouse_extra_quote_rows_inside_replay_windows": 333075,
+      "warehouse_extra_snapshot_events": 11,
+      "warehouse_extra_snapshots_inside_replay_windows": 1261,
+      "warehouse_partition_window_checked_events": 276
     },
     "strategy": {
       "entry_policy": "Post/quote passively near the current best bid only when the calibrated convergence score lower bound clears validation-selected threshold and liquidity caps.",

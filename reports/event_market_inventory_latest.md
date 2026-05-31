@@ -1,6 +1,6 @@
 # Event And Market Inventory
 
-- Generated: 2026-05-31T10:37:53.473402+00:00
+- Generated: 2026-05-31T12:55:00.509888+00:00
 - Row definition: One row is one token/outcome at one minute timestamp for one forecast horizon, not one game.
 - Total events/markets/tokens: 108 / 216 / 429
 - Active model events/markets/tokens: 89 / 109 / 217
@@ -10,7 +10,7 @@
 - Excluded censored rows inside train/val/test: 364,022
 - Time span: 2026-03-02 00:03:00+00:00 to 2026-05-29 23:59:00+00:00
 - Complete enough for profitable bot claim: False
-- Completeness reasons: active observed markets 109 < 200 research target; test Odds API coverage 32.44% < 50% target; Odds API point-in-time features have insufficient test coverage
+- Completeness reasons: active observed markets 109 < 200 research target; sportsbook native 5-minute density gate failed: complete 5m replay cache 164 / 276 = 59.42% < 95%
 
 ## Active Market Types
 
@@ -54,13 +54,17 @@
 
 - Odds rows/markets/tokens: 1,390,146 / 79 / 157
 - Overall Odds row coverage: 48.13%
+- Odds holdout gate: True
+- Odds holdout mode: strategy_eligible
+- Strategy-eligible test coverage: 75.58%
+- Strategy-eligible test rows/markets: 97,114 / 5
 
-| Split | Coverage | Matched markets | Matched rows |
-|---|---:|---:|---:|
-| test | 32.44% | 5 | 73,398 |
-| train | 51.40% | 44 | 913,326 |
-| unobserved | 42.49% | 24 | 229,330 |
-| val | 50.35% | 6 | 174,092 |
+| Split | Coverage | Matched markets | Matched rows | Eligible coverage | Eligible rows |
+|---|---:|---:|---:|---:|---:|
+| test | 32.44% | 5 | 73,398 | 75.58% | 97,114 |
+| train | 51.40% | 44 | 913,326 | 71.12% | 1,284,221 |
+| unobserved | 42.49% | 24 | 229,330 | 94.42% | 242,875 |
+| val | 50.35% | 6 | 174,092 | 82.10% | 212,060 |
 
 ## Largest Active Events
 

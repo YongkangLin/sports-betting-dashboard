@@ -1,9 +1,9 @@
 # Strategy And Data Readiness
 
-- Generated: 2026-05-31T12:41:11.455055+00:00
+- Generated: 2026-05-31T12:54:54.705933+00:00
 - Overall gate: False
 - Verdict: HOLD: strategy is defined, but dataset is not complete enough to prove the bot
-- Gate reasons: Odds API point-in-time features have insufficient test coverage; sportsbook native 5-minute density gate failed: complete 5m replay cache 164 / 276 = 59.42% < 95%
+- Gate reasons: sportsbook native 5-minute density gate failed: complete 5m replay cache 164 / 276 = 59.42% < 95%
 
 ## Active Strategy
 
@@ -53,6 +53,16 @@
 | val | 345,750 | 16 | 32 | 312,014 | 230,990 | 934 | 7,298 | 2,716 | 208 | 50.35% |
 | test | 226,224 | 18 | 36 | 159,230 | 116,762 | 538 | 6,798 | 1,093 | 97 | 32.44% |
 
+## Odds Strategy Coverage
+
+- Gate: True
+- Mode: strategy_eligible
+- Full test coverage: 32.44%
+- Strategy-eligible test rows: 97,114
+- Strategy-eligible test coverage: 75.58%
+- Strategy-eligible matched test markets: 5
+- Policy: For Odds-dependent strategies, unsupported or unmatched markets are quarantined from the denominator. The gate measures rows where the token can actually map to a causal h2h/spreads/totals sportsbook outcome.
+
 ## Gates
 
 | Gate | Status |
@@ -61,7 +71,7 @@
 | historical_l2_scale_gate | True |
 | heldout_market_extent_gate | True |
 | trade_confirmed_fill_holdout_gate | True |
-| odds_holdout_coverage_gate | False |
+| odds_holdout_coverage_gate | True |
 | complete_side_market_data_gate | True |
 | sportsbook_native_5m_density_gate | False |
 | quality_gate | True |
