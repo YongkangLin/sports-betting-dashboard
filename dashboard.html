@@ -957,27 +957,17 @@
 
 <script>
 const ARTIFACTS = {
-  liveExecution: { label: "Live execution status", path: "reports/live_execution_status.json" },
-  latestTelonexSummary: { label: "Latest maker-fill model", path: "data/processed/telonex_convergence_ml/20260530T215450Z/summary.json" },
-  strategyReadiness: { label: "Strategy/data readiness", path: "data/processed/execution_training/strategy_data_readiness_latest.json" },
-  eventMarketInventory: { label: "Event/market inventory", path: "data/processed/execution_training/event_market_inventory_latest.json" },
-  favoriteLongshotExecutable: { label: "Favorite-longshot executable", path: "data/processed/execution_training/favorite_longshot_executable_backtest_latest.json" },
-  favoriteLongshotRuleValidation: { label: "Favorite-longshot rule validation", path: "data/processed/execution_training/favorite_longshot_rule_validation_latest.json" },
-  favoriteLongshotEventReplays: { label: "Favorite-longshot event replays", path: "data/processed/execution_training/favorite_longshot_event_replays_latest.json" },
-  replaySportsbookGapAudit: { label: "Replay sportsbook gap audit", path: "reports/replay_sportsbook_gap_audit_latest.json" },
-  dashboardSportsbookIntegrityAudit: { label: "Dashboard sportsbook integrity audit", path: "reports/dashboard_sportsbook_integrity_audit_latest.json" },
-  liveSignals: { label: "Live Telonex signals", path: "data/processed/clob_capture/live_telonex_convergence_signals_latest.json" },
-  strategyBuckets: { label: "Strategy bucket audit", path: "data/processed/execution_training/telonex_strategy_buckets_latest.json" },
-  takerStrategyValidation: { label: "Validation-selected taker strategies", path: "data/processed/execution_training/telonex_taker_strategy_validation_latest.json" },
-  playByPlaySourcePlan: { label: "Play-by-play source plan", path: "data/processed/execution_training/play_by_play_source_plan_latest.json" },
-  microstructureBuckets: { label: "Microstructure buckets", path: "data/processed/execution_training/telonex_microstructure_buckets_latest.json" }
+  liveExecution: { label: "Live execution status", path: "data/status/latest_status.json" },
+  latestTelonexSummary: { label: "Latest maker-fill model", path: "data/model/telonex_convergence/20260530T215450Z/summary.json" },
+  liveSignals: { label: "Live Telonex signals", path: "data/live/clob/live_telonex_convergence_signals_latest.json" },
+  strategyBuckets: { label: "Strategy bucket audit", path: "data/model/training/telonex_strategy_buckets_latest.json" }
 };
 
 const RUN_ARTIFACTS = [
   "20260530T215450Z"
 ].map(runId => ({
   label: runId,
-  path: `data/processed/telonex_convergence_ml/${runId}/summary.json`
+  path: `data/model/telonex_convergence/${runId}/summary.json`
 }));
 
 const SNAPSHOT = {
@@ -1315,7 +1305,7 @@ const SNAPSHOT = {
     { tone: "bad", text: "No profitable executable bot is proven. The latest fill-aware model chooses not to trade." },
     { tone: "warn", text: "The classifier looks smart on paper, but profitable fill examples are tiny: 97 positive rows out of 159,230 test rows." },
     { tone: "warn", text: "Odds coverage in the test period is weak, so the model is partly flying with missing market context." },
-    { tone: "warn", text: "The older outcome/proxy dashboard used stale or missing inputs and should not be trusted for the current verdict." },
+    { tone: "good", text: "The current verdict is sourced from Telonex/Odds API execution artifacts; retired proxy and exploratory outputs are no longer part of the repo." },
     { tone: "good", text: "The repo now has a lot of historical order-book data, so the next bottleneck is proof quality, not just data volume." }
   ],
   terms: [
@@ -1328,25 +1318,12 @@ const SNAPSHOT = {
     { term: "Market-disjoint", copy: "Tests on markets the model did not train on. This catches memorization and overfitting." },
     { term: "Temporal", copy: "Tests on later time periods. This catches strategies that only worked in the past slice." }
   ],
-  retiredArtifacts: [
-    { path: "data/processed/polymarket_ml/20260529T212018Z/summary.json", reason: "Missing in repo and stale relative to current Telonex runs." },
-    { path: "data/processed/proxy_convergence_ml/20260529T212608Z/summary.json", reason: "Missing in repo; old dashboard used an embedded fallback instead." },
-    { path: "data/processed/trade_sim/proxy_portfolio_stress_latest.json", reason: "Missing in repo; should not drive current status." },
-    { path: "data/processed/trade_sim/proxy_trade_path_latest.json", reason: "Missing in repo; the old chart was a visualization/debug proxy, not proof." }
-  ],
+  retiredArtifacts: [],
   artifactSizes: {
-    "reports/live_execution_status.json": 133217,
-    "data/processed/telonex_convergence_ml/20260530T215450Z/summary.json": 31520,
-    "data/processed/execution_training/strategy_data_readiness_latest.json": 59646,
-    "data/processed/execution_training/event_market_inventory_latest.json": 14494,
-    "data/processed/execution_training/favorite_longshot_executable_backtest_latest.json": 72452,
-    "data/processed/execution_training/favorite_longshot_rule_validation_latest.json": 68000,
-    "data/processed/execution_training/favorite_longshot_event_replays_latest.json": 427000,
-    "data/processed/clob_capture/live_telonex_convergence_signals_latest.json": 3995,
-    "data/processed/execution_training/telonex_strategy_buckets_latest.json": 100352,
-    "data/processed/execution_training/telonex_taker_strategy_validation_latest.json": 60000,
-    "data/processed/execution_training/play_by_play_source_plan_latest.json": 10000,
-    "data/processed/execution_training/telonex_microstructure_buckets_latest.json": 100352
+    "data/status/latest_status.json": 133217,
+    "data/model/telonex_convergence/20260530T215450Z/summary.json": 31520,
+    "data/live/clob/live_telonex_convergence_signals_latest.json": 3995,
+    "data/model/training/telonex_strategy_buckets_latest.json": 100352
   }
 };
 
@@ -3408,7 +3385,7 @@ function renderReplay(data) {
     $("decision-action").textContent = "--";
     $("decision-action").className = "pill info";
     $("replay-kv").innerHTML = "";
-    $("replay-rationale").innerHTML = `<strong>Rationale</strong><span>The public dashboard loads this from favorite_longshot_event_replays_latest.json. If you are opening the file directly, use the GitHub Pages page so browser fetches work.</span>`;
+    $("replay-rationale").innerHTML = `<strong>Rationale</strong><span>Historical replay details were retired from the lean repo; use live signals, validation, and execution-quality gates for the current model workflow.</span>`;
     drawReplayChart({ series_points: [] });
     return;
   }

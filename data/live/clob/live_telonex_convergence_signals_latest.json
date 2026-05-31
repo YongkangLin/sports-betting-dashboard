@@ -1,0 +1,122 @@
+{
+  "appended_signals": 0,
+  "candidate_tokens": 212,
+  "dry_run": true,
+  "ensemble": {
+    "blend_recent_weight": 0.0,
+    "historical_model": true,
+    "recent_model": false,
+    "recent_model_audit": {
+      "blend_recent_weight": 0.0,
+      "cutoff": "2026-05-08 23:59:00+00:00",
+      "enabled": true,
+      "markets": 116,
+      "min_recent_positive_rows": 100,
+      "min_recent_rows": 10000,
+      "positive_rate": 0.025017018548483788,
+      "positive_rows": 50494,
+      "reason": "trained",
+      "rows": 2018386,
+      "window_days": 21.0
+    },
+    "recent_window_days": 21.0
+  },
+  "feature_rows": 1060,
+  "feature_set": "base_odds",
+  "generated_at": "2026-05-30T17:35:22.356244+00:00",
+  "horizons": [
+    30,
+    60,
+    120,
+    300,
+    900
+  ],
+  "live_odds": {
+    "coverage": 0.04716981132075472,
+    "enabled": true,
+    "fair_rows": 336,
+    "feature_rows": 1060,
+    "market_match_diagnostics": {
+      "markets": 6,
+      "no_odds_event_match": 0,
+      "no_slug_date": 0,
+      "no_sport_pool": 1,
+      "no_title_parse": 0
+    },
+    "matched_markets": 5,
+    "matched_rows": 50,
+    "matched_tokens": 10,
+    "quotes_rows": 4556,
+    "token_mapping_diagnostics": {
+      "mapped_tokens": 10,
+      "tokens": 12,
+      "unmapped_side": 0,
+      "unsupported_market_type": 0,
+      "unsupported_market_types": {}
+    }
+  },
+  "max_convergence_prob_lower": 0.21213000810109747,
+  "model_dir": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/model/telonex_convergence/20260530T163238Z",
+  "model_run_id": "20260530T163238Z",
+  "model_version": "20260530T163238Z-4c3569fa30ce",
+  "report": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/live_telonex_convergence_signals_latest.md",
+  "score_margin_max": -0.21405958374405956,
+  "score_margin_p95": -0.41981197008803905,
+  "selected_signals": 0,
+  "signals_by_liquidity": {},
+  "signals_by_sport": {},
+  "threshold": 0.42618959184515703,
+  "validation_gates": {
+    "feature_set": "base_odds",
+    "gate": true,
+    "reasons": [],
+    "reports": {
+      "market_disjoint": {
+        "ensemble": {
+          "blend_recent_weight": 0.0,
+          "fold_recent_models": 0,
+          "folds": 4,
+          "min_recent_positive_rows": 100,
+          "min_recent_rows": 10000,
+          "recent_model": false,
+          "recent_window_days": 21.0,
+          "requested_blend_recent_weight": 0.0
+        },
+        "exists": true,
+        "feature_count": 82,
+        "feature_set": "base_odds",
+        "gate": true,
+        "gate_key": "market_disjoint_gate",
+        "generated_at": "2026-05-30T16:44:31.694311+00:00",
+        "path": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/model/telonex_convergence/telonex_walk_forward_base_odds_latest.json",
+        "test_ci_hi": 0.05299424818638533,
+        "test_ci_lo": 0.045988631441003285,
+        "test_roi": 0.049450035589986056,
+        "test_trades": 6306
+      },
+      "temporal": {
+        "ensemble": {
+          "blend_recent_weight": 0.0,
+          "fold_recent_models": 0,
+          "folds": 2,
+          "min_recent_positive_rows": 100,
+          "min_recent_rows": 10000,
+          "recent_model": false,
+          "recent_window_days": 21.0,
+          "requested_blend_recent_weight": 0.0
+        },
+        "exists": true,
+        "feature_count": 82,
+        "feature_set": "base_odds",
+        "gate": true,
+        "gate_key": "temporal_gate",
+        "generated_at": "2026-05-30T16:48:00.266911+00:00",
+        "path": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/model/telonex_convergence/telonex_temporal_validation_base_odds_latest.json",
+        "test_ci_hi": 0.032925264383011715,
+        "test_ci_lo": 0.016024613085294834,
+        "test_roi": 0.024275220943208088,
+        "test_trades": 3203
+      }
+    }
+  }
+}

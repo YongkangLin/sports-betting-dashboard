@@ -1,0 +1,767 @@
+{
+  "auth": {
+    "polymarket_user_channel_configured": false,
+    "polymarket_user_channel_missing_fields": [
+      "api_key",
+      "api_secret",
+      "passphrase"
+    ],
+    "polymarket_user_channel_sources": {
+      "api_key": null,
+      "api_secret": null,
+      "passphrase": null
+    }
+  },
+  "capital_enabled": false,
+  "clob": {
+    "book_rows": 0,
+    "latest_book_ts": null,
+    "latest_books": 0,
+    "trade_rows": 0,
+    "ws_event_counts": {},
+    "ws_event_rows": 0
+  },
+  "collector": {
+    "alerts": [],
+    "last_loop_finished_at": "2026-05-30T19:13:33.171390+00:00",
+    "loop_count": 479,
+    "status": "healthy"
+  },
+  "game_state": {
+    "garbage_time_proxy_rows": 0,
+    "matched_scoreline_regime_counts": {
+      "one_score": 2,
+      "pre": 14
+    },
+    "matches": 16,
+    "scoreboard_rows": 36,
+    "scoreline_regime_counts": {
+      "competitive": 1,
+      "one_score": 1,
+      "pre": 34
+    }
+  },
+  "gate_reasons": [
+    "queue/fill model not validated on authenticated fills",
+    "need >=5,000 historical CLOB depth/book rows",
+    "need >=100,000 historical CLOB quote rows",
+    "Polymarket user-channel credentials not configured",
+    "Telonex convergence research gate failed",
+    "no predeclared executable taker strategy bucket cleared validation",
+    "Telonex model monitor hold",
+    "live paper-fill LEV/price-hold quality gate failed",
+    "Telonex market-disjoint validation gate failed",
+    "Telonex temporal validation gate failed"
+  ],
+  "gate_warnings": [
+    "predeclared non-ML Telonex strategy buckets failed",
+    "live game-state feed too thin for event-regime/scoreline/garbage-time features",
+    "trade-flow feature family has no confirmed economic permutation impact yet",
+    "Odds feature family has no confirmed economic permutation impact in latest audit",
+    "Odds API fusion not yet proven on held-out Telonex test",
+    "live strategy LEV evidence incomplete"
+  ],
+  "generated_at": "2026-05-31T21:02:05.054264+00:00",
+  "historical_clob": {
+    "depth_rows": 0,
+    "quote_rows": 0,
+    "telonex_depth_rows": 0
+  },
+  "live_capital_gate": false,
+  "live_execution_quality": {
+    "alpha_fills": 653,
+    "fills": 674,
+    "fills_with_model_version": 34,
+    "gate_reasons": [
+      "need >=500 alpha paper fills with 3s post-fill books within 5s lag",
+      "3s alpha average LEV is not positive",
+      "3s alpha favorable post-fill move rate is not >52%",
+      "wallet-level whale detector unavailable from current trade feed",
+      "favorite_longshot_bias has only 0 timely 3s LEV rows after 653 fills"
+    ],
+    "generated_at": "2026-05-30T19:11:52.961910+00:00",
+    "hold_revert": {
+      "hold_rate_3s_to_120s": null,
+      "revert_rate_3s_to_120s": null,
+      "rows": 0
+    },
+    "large_trade_threshold_usd": 250.0,
+    "large_trades": 59,
+    "lev_3s_alpha_rows": 0,
+    "lev_3s_avg": null,
+    "lev_3s_avg_snapshot_lag_sec": null,
+    "lev_3s_favorable_rate": null,
+    "lev_3s_max_snapshot_lag_sec": null,
+    "lev_3s_p95_snapshot_lag_sec": null,
+    "lev_3s_probe_rows": 19,
+    "lev_3s_rows": 0,
+    "lev_drift_alert_count": 0,
+    "lev_drift_latest_50_mean": null,
+    "lev_drift_max_score": 0.0,
+    "lev_max_lag_sec": 5.0,
+    "probe_fills": 21,
+    "quality_gate": false,
+    "quarantined_strategies": [],
+    "strategy_health_gate": false,
+    "strategy_health_rows": [
+      {
+        "avg_lev_after_3s": null,
+        "evidence_insufficient": true,
+        "favorable_rate_after_3s": null,
+        "fills": 653,
+        "quarantined": false,
+        "reason": "favorite_longshot_bias has only 0 timely 3s LEV rows after 653 fills",
+        "rows_after_3s": 0,
+        "strategy": "favorite_longshot_bias"
+      }
+    ],
+    "wallet_identity_available": false,
+    "wallet_identity_reason": "market-channel last_trade_price payload lacks wallet identifiers; whale scoring needs on-chain fill decode or authenticated/user trade source"
+  },
+  "paper": {
+    "authenticated_fill_rows": 0,
+    "authenticated_lifecycle_rows": 0,
+    "fill_rows": 0,
+    "lifecycle_counts": {},
+    "lifecycle_rows": 0,
+    "lifecycle_source_counts": {},
+    "order_rows": 0
+  },
+  "security": {
+    "critical": 0,
+    "findings": 0,
+    "rotation_required_for_chat_leaked_keys": true
+  },
+  "telonex": {
+    "assets_with_book25": 699384,
+    "assets_with_quotes": 699384,
+    "depth_files": 0,
+    "depth_rows": 0,
+    "download_bytes": 0,
+    "download_existing_files": 0,
+    "download_files": 13362,
+    "download_missing_files": 13362,
+    "download_rows": 0,
+    "files_by_channel": {},
+    "files_by_sport": {},
+    "last_downloaded_at": null,
+    "last_run_channels": [
+      "quotes",
+      "book_snapshot_5",
+      "trades"
+    ],
+    "last_run_completed_downloads": 0,
+    "last_run_date_from": "asset-plan",
+    "last_run_date_to": "asset-plan",
+    "last_run_failed_downloads": 0,
+    "last_run_rows_downloaded": 0,
+    "manifest_files_by_channel": {
+      "book_snapshot_5": 4998,
+      "quotes": 4593,
+      "trades": 3771
+    },
+    "markets_generated_at": "2026-05-30T05:58:54.289873+00:00",
+    "missing_files_by_channel": {
+      "book_snapshot_5": 4998,
+      "quotes": 4593,
+      "trades": 3771
+    },
+    "quote_rows": 0,
+    "quotes_from_min": "2025-10-11",
+    "quotes_to_max": "2026-05-29",
+    "rows_by_channel": {},
+    "sports_assets": 778438,
+    "sports_markets": 389219,
+    "trade_rows": 0
+  },
+  "telonex_convergence": {
+    "calibration_plot": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/model/telonex_convergence/20260530T215450Z/calibration_reliability.png",
+    "conformal_abs_error_q90": 0.000441306266548985,
+    "dataset_markets": 109,
+    "dataset_rows": 1984815,
+    "dataset_tokens": 217,
+    "feature_set": "base_odds",
+    "label_coverage": {
+      "by_split": {
+        "calibration": {
+          "maker_trade_fill_any_rate": 0.09715861116086277,
+          "maker_trade_fill_any_rows": 15189,
+          "maker_trade_fill_positive_rate": 0.0010106696005936085,
+          "maker_trade_fill_positive_rows": 158,
+          "maker_trade_fill_queue_rate": 0.01283806258475552,
+          "maker_trade_fill_queue_rows": 2007,
+          "maker_trade_target_observed_rate": 1.0,
+          "maker_trade_target_observed_rows": 156332,
+          "markets": 8,
+          "nonzero_pnl_rows": 2007,
+          "positive_rate": 0.0010106696005936085,
+          "positive_rows": 158,
+          "rows": 156332,
+          "stake_sum": 75693.175,
+          "tokens": 16,
+          "trade_feature_rate": 0.8017680321367346,
+          "trade_feature_rows": 125342
+        },
+        "test": {
+          "maker_trade_fill_any_rate": 0.06327325252779,
+          "maker_trade_fill_any_rows": 10075,
+          "maker_trade_fill_positive_rate": 0.0006091816868680525,
+          "maker_trade_fill_positive_rows": 97,
+          "maker_trade_fill_queue_rate": 0.00686428436852352,
+          "maker_trade_fill_queue_rows": 1093,
+          "maker_trade_target_observed_rate": 1.0,
+          "maker_trade_target_observed_rows": 159230,
+          "markets": 18,
+          "nonzero_pnl_rows": 1093,
+          "positive_rate": 0.0006091816868680525,
+          "positive_rows": 97,
+          "rows": 159230,
+          "stake_sum": 73851.975,
+          "tokens": 36,
+          "trade_feature_rate": 0.7332914651761603,
+          "trade_feature_rows": 116762
+        },
+        "train": {
+          "maker_trade_fill_any_rate": 0.09987572436311214,
+          "maker_trade_fill_any_rows": 151169,
+          "maker_trade_fill_positive_rate": 0.0018631435195309634,
+          "maker_trade_fill_positive_rows": 2820,
+          "maker_trade_fill_queue_rate": 0.012656162148984091,
+          "maker_trade_fill_queue_rows": 19156,
+          "maker_trade_target_observed_rate": 1.0,
+          "maker_trade_target_observed_rows": 1513571,
+          "markets": 75,
+          "nonzero_pnl_rows": 19156,
+          "positive_rate": 0.0018631435195309634,
+          "positive_rows": 2820,
+          "rows": 1513571,
+          "stake_sum": 714055.6379999997,
+          "tokens": 149,
+          "trade_feature_rate": 0.7777580305119483,
+          "trade_feature_rows": 1177192
+        },
+        "val": {
+          "maker_trade_fill_any_rate": 0.05111059724309811,
+          "maker_trade_fill_any_rows": 7957,
+          "maker_trade_fill_positive_rate": 0.000321167508125538,
+          "maker_trade_fill_positive_rows": 50,
+          "maker_trade_fill_queue_rate": 0.004554155265220128,
+          "maker_trade_fill_queue_rows": 709,
+          "maker_trade_target_observed_rate": 1.0,
+          "maker_trade_target_observed_rows": 155682,
+          "markets": 8,
+          "nonzero_pnl_rows": 709,
+          "positive_rate": 0.000321167508125538,
+          "positive_rows": 50,
+          "rows": 155682,
+          "stake_sum": 75598.557,
+          "tokens": 16,
+          "trade_feature_rate": 0.6786140979689367,
+          "trade_feature_rows": 105648
+        }
+      },
+      "gate": true,
+      "pnl_col": "maker_trade_fill_pnl_per_share",
+      "reasons": [],
+      "stake_col": "entry_bid",
+      "target_col": "maker_trade_fill_positive",
+      "trade_fill_target": true
+    },
+    "label_coverage_gate": true,
+    "label_coverage_reasons": [],
+    "live_capital_gate": false,
+    "model_artifact_sha256": "3e90e2b5d8da5a95009453c5545ecb5b076312796b17796da159a22954e03649",
+    "model_version": "20260530T215450Z-3e90e2b5d8da",
+    "odds_feature_coverage": 0.5511264274000348,
+    "odds_feature_gate": true,
+    "odds_features_enabled": true,
+    "odds_test_coverage": 0.2977453997362306,
+    "odds_test_matched_markets": 5,
+    "performance_gate": false,
+    "pnl_col": "maker_trade_fill_pnl_per_share",
+    "research_gate": false,
+    "run_id": "20260530T215450Z",
+    "selection_score_col": "convergence_prob_lower",
+    "stake_col": "entry_bid",
+    "target_col": "maker_trade_fill_positive",
+    "test_brier": 0.0005182182627419229,
+    "test_ci_hi": null,
+    "test_ci_lo": null,
+    "test_ece_10": 0.00022721751128733201,
+    "test_markets": 0,
+    "test_roi": null,
+    "test_trades": 0,
+    "uses_odds_features": true,
+    "val_roi": null,
+    "val_trades": 0
+  },
+  "telonex_feature_importance": {
+    "confirmed_feature_count": 0,
+    "fdr_alpha": 0.1,
+    "feature_count": 83,
+    "feature_families": {
+      "book_depth": {
+        "confirmed_features": 0,
+        "economically_significant_features": 0,
+        "family": "book_depth",
+        "fdr_significant_features": 6,
+        "features": 17,
+        "max_abs_prob_shift": 0.0006744741516443894,
+        "max_abs_roi_delta": 0.0,
+        "max_brier_delta": 7.179615020567036e-05,
+        "mean_abs_prob_shift": 6.049628291311393e-05,
+        "mean_selected_trade_delta": 0.0,
+        "positive_brier_features": 7,
+        "total_positive_brier_delta": 7.539009994090155e-05
+      },
+      "categorical_context": {
+        "confirmed_features": 0,
+        "economically_significant_features": 0,
+        "family": "categorical_context",
+        "fdr_significant_features": 1,
+        "features": 2,
+        "max_abs_prob_shift": 2.0395509902422847e-05,
+        "max_abs_roi_delta": 0.0,
+        "max_brier_delta": 3.915649226665392e-06,
+        "mean_abs_prob_shift": 1.837511522316227e-05,
+        "mean_selected_trade_delta": 0.0,
+        "positive_brier_features": 2,
+        "total_positive_brier_delta": 4.3414075079943e-06
+      },
+      "market_pair": {
+        "confirmed_features": 0,
+        "economically_significant_features": 0,
+        "family": "market_pair",
+        "fdr_significant_features": 1,
+        "features": 1,
+        "max_abs_prob_shift": 4.11348728450768e-05,
+        "max_abs_roi_delta": 0.0,
+        "max_brier_delta": 3.358613524040454e-06,
+        "mean_abs_prob_shift": 4.11348728450768e-05,
+        "mean_selected_trade_delta": 0.0,
+        "positive_brier_features": 1,
+        "total_positive_brier_delta": 3.358613524040454e-06
+      },
+      "odds": {
+        "confirmed_features": 0,
+        "economically_significant_features": 0,
+        "family": "odds",
+        "fdr_significant_features": 8,
+        "features": 19,
+        "max_abs_prob_shift": 0.00025677038647396895,
+        "max_abs_roi_delta": 0.0,
+        "max_brier_delta": 1.4796122018358225e-05,
+        "mean_abs_prob_shift": 3.985776446114742e-05,
+        "mean_selected_trade_delta": 0.0,
+        "positive_brier_features": 12,
+        "total_positive_brier_delta": 4.8808601294181856e-05
+      },
+      "other": {
+        "confirmed_features": 0,
+        "economically_significant_features": 0,
+        "family": "other",
+        "fdr_significant_features": 1,
+        "features": 1,
+        "max_abs_prob_shift": 7.706967243717138e-05,
+        "max_abs_roi_delta": 0.0,
+        "max_brier_delta": 2.9392586604760257e-06,
+        "mean_abs_prob_shift": 7.706967243717138e-05,
+        "mean_selected_trade_delta": 0.0,
+        "positive_brier_features": 1,
+        "total_positive_brier_delta": 2.9392586604760257e-06
+      },
+      "price_level": {
+        "confirmed_features": 0,
+        "economically_significant_features": 0,
+        "family": "price_level",
+        "fdr_significant_features": 4,
+        "features": 5,
+        "max_abs_prob_shift": 0.0004500873440316246,
+        "max_abs_roi_delta": 0.0,
+        "max_brier_delta": 5.3995420341761764e-05,
+        "mean_abs_prob_shift": 9.632639371156698e-05,
+        "mean_selected_trade_delta": 0.0,
+        "positive_brier_features": 4,
+        "total_positive_brier_delta": 5.5593559096713473e-05
+      },
+      "price_momentum": {
+        "confirmed_features": 0,
+        "economically_significant_features": 0,
+        "family": "price_momentum",
+        "fdr_significant_features": 5,
+        "features": 12,
+        "max_abs_prob_shift": 0.00011489047116467092,
+        "max_abs_roi_delta": 0.0,
+        "max_brier_delta": 2.490057288579675e-06,
+        "mean_abs_prob_shift": 1.834788468948516e-05,
+        "mean_selected_trade_delta": 0.0,
+        "positive_brier_features": 5,
+        "total_positive_brier_delta": 3.2255741027139085e-06
+      },
+      "trade_flow": {
+        "confirmed_features": 0,
+        "economically_significant_features": 0,
+        "family": "trade_flow",
+        "fdr_significant_features": 16,
+        "features": 26,
+        "max_abs_prob_shift": 0.0003201285893773049,
+        "max_abs_roi_delta": 0.0,
+        "max_brier_delta": 2.805067272728807e-05,
+        "mean_abs_prob_shift": 4.752755573273526e-05,
+        "mean_selected_trade_delta": 0.0,
+        "positive_brier_features": 18,
+        "total_positive_brier_delta": 5.993431264963132e-05
+      }
+    },
+    "generated_at": "2026-05-31T16:05:51.111984+00:00",
+    "min_economic_prob_shift": 0.015,
+    "model_version": "20260531T153530Z-aeeeb0172cb0",
+    "repeats": 5,
+    "rows": 200000,
+    "run_id": "20260531T153530Z",
+    "top_abs_prob_shift": 0.0006744741516443894,
+    "top_brier_delta": 7.179615020567036e-05,
+    "top_confirmed": false,
+    "top_feature": "bid_size_best"
+  },
+  "telonex_live_signals": {
+    "appended_signals": 0,
+    "candidate_tokens": 212,
+    "feature_rows": 1060,
+    "generated_at": "2026-05-30T17:35:22.356244+00:00",
+    "live_odds": {
+      "coverage": 0.04716981132075472,
+      "enabled": true,
+      "fair_rows": 336,
+      "feature_rows": 1060,
+      "market_match_diagnostics": {
+        "markets": 6,
+        "no_odds_event_match": 0,
+        "no_slug_date": 0,
+        "no_sport_pool": 1,
+        "no_title_parse": 0
+      },
+      "matched_markets": 5,
+      "matched_rows": 50,
+      "matched_tokens": 10,
+      "quotes_rows": 4556,
+      "token_mapping_diagnostics": {
+        "mapped_tokens": 10,
+        "tokens": 12,
+        "unmapped_side": 0,
+        "unsupported_market_type": 0,
+        "unsupported_market_types": {}
+      }
+    },
+    "max_convergence_prob_lower": 0.21213000810109747,
+    "model_run_id": "20260530T163238Z",
+    "model_version": "20260530T163238Z-4c3569fa30ce",
+    "score_margin_max": -0.21405958374405956,
+    "score_margin_p95": -0.41981197008803905,
+    "selected_signals": 0,
+    "threshold": 0.42618959184515703
+  },
+  "telonex_market_disjoint_odds_validation": {
+    "abstained_folds": 4,
+    "folds_requested": 4,
+    "folds_run": 4,
+    "folds_with_market_overlap": 0,
+    "gate": false,
+    "gate_reasons": [
+      "sampled row-capped validation is diagnostic only, not capital proof",
+      "aggregate market-disjoint test ROI is not positive",
+      "aggregate market-disjoint ROI CI lower bound is not positive",
+      "aggregate test trades below 100",
+      "aggregate test markets below 40",
+      "no folds selected test trades"
+    ],
+    "generated_at": "2026-05-31T18:54:37.727559+00:00",
+    "positive_roi_folds": 0,
+    "row_time_order_enforced": false,
+    "row_time_order_ok_folds": 0,
+    "target": {
+      "pnl_col": "maker_trade_fill_pnl_per_share",
+      "stake_col": "entry_bid",
+      "target_col": "maker_trade_fill_positive"
+    },
+    "test_ci_hi": null,
+    "test_ci_lo": null,
+    "test_markets": 0,
+    "test_roi": null,
+    "test_trades": 0,
+    "traded_folds": 0,
+    "validation_mode": "market_disjoint"
+  },
+  "telonex_market_disjoint_validation": {
+    "abstained_folds": 3,
+    "folds_requested": 4,
+    "folds_run": 4,
+    "folds_with_market_overlap": 0,
+    "gate": false,
+    "gate_reasons": [
+      "aggregate test markets below 40"
+    ],
+    "generated_at": "2026-05-31T15:41:08.811979+00:00",
+    "positive_roi_folds": 1,
+    "row_time_order_enforced": false,
+    "row_time_order_ok_folds": 0,
+    "target": {
+      "pnl_col": "maker_pnl_per_share",
+      "stake_col": "entry_bid",
+      "target_col": "maker_positive"
+    },
+    "test_ci_hi": 0.047925161163604776,
+    "test_ci_lo": 0.02769462366056282,
+    "test_markets": 9,
+    "test_roi": 0.03794172421940666,
+    "test_trades": 577,
+    "traded_folds": 1,
+    "validation_mode": "market_disjoint"
+  },
+  "telonex_model_monitor": {
+    "adverse_avg_mid_move": null,
+    "adverse_favorable_mid_move_rate": null,
+    "correlated_p05_final_bankroll": null,
+    "correlated_quality_shock_std": null,
+    "ece_alerts": 0,
+    "latest_external_validation_gate": false,
+    "latest_external_validation_reasons": [
+      "market_disjoint validation gate failed: market_disjoint_gate=false in telonex_walk_forward_base_odds_latest.json",
+      "temporal validation gate failed: temporal_gate=false in telonex_temporal_validation_base_odds_latest.json"
+    ],
+    "latest_run": "20260531T175018Z",
+    "risk_p05_final_bankroll": null,
+    "roi_alerts": 0,
+    "verdict": "HOLD: latest research gate failed; latest external validation gate failed; latest test ROI is not positive; latest test CI lower bound is not positive"
+  },
+  "telonex_odds_features": {
+    "by_sport": {
+      "americanfootball_nfl": {
+        "markets": 80,
+        "rows": 415814,
+        "tokens": 160
+      },
+      "basketball_nba": {
+        "markets": 266,
+        "rows": 231094,
+        "tokens": 532
+      },
+      "basketball_wnba": {
+        "markets": 60,
+        "rows": 191728,
+        "tokens": 120
+      },
+      "icehockey_nhl": {
+        "markets": 249,
+        "rows": 1217522,
+        "tokens": 498
+      },
+      "soccer_brazil_campeonato": {
+        "markets": 60,
+        "rows": 262476,
+        "tokens": 120
+      },
+      "soccer_conmebol_copa_libertadores": {
+        "markets": 6,
+        "rows": 53636,
+        "tokens": 12
+      },
+      "soccer_epl": {
+        "markets": 138,
+        "rows": 808328,
+        "tokens": 276
+      },
+      "soccer_france_ligue_one": {
+        "markets": 54,
+        "rows": 233766,
+        "tokens": 108
+      },
+      "soccer_germany_bundesliga": {
+        "markets": 69,
+        "rows": 338706,
+        "tokens": 138
+      },
+      "soccer_italy_serie_a": {
+        "markets": 75,
+        "rows": 412806,
+        "tokens": 150
+      },
+      "soccer_italy_serie_b": {
+        "markets": 21,
+        "rows": 48744,
+        "tokens": 42
+      },
+      "soccer_spain_la_liga": {
+        "markets": 89,
+        "rows": 472702,
+        "tokens": 177
+      },
+      "soccer_spain_segunda_division": {
+        "markets": 11,
+        "rows": 29984,
+        "tokens": 22
+      },
+      "soccer_uefa_champs_league": {
+        "markets": 47,
+        "rows": 380094,
+        "tokens": 94
+      }
+    },
+    "join_diagnostics": {
+      "candidate_rows_with_fair_group": 5341216,
+      "groups_with_fair": 1916,
+      "join_groups": 1916,
+      "mapped_label_markets": 1247,
+      "mapped_label_rows": 5341216,
+      "mapped_label_tokens": 2493,
+      "matched_feature_rows": 5097400,
+      "rows_after_last_allowed_snapshot": 0,
+      "rows_before_first_odds_snapshot": 243816,
+      "rows_without_fair_group": 0
+    },
+    "markets": 1225,
+    "row_coverage": 0.9453526313310195,
+    "rows": 5097400,
+    "tokens": 2449
+  },
+  "telonex_odds_fusion_target_compatible": true,
+  "telonex_odds_fusion_validated": false,
+  "telonex_strategy_buckets": {
+    "executable_taker_gate": false,
+    "gate_reasons": [
+      "no predeclared executable taker bucket has positive test CI lower bound"
+    ],
+    "maker_research_lead_gate": false,
+    "markets": 1257,
+    "odds_features": {
+      "coverage_by_split": {
+        "test": {
+          "markets": 178,
+          "matched_markets": 172,
+          "matched_rows": 782836,
+          "row_coverage": 0.9653748732911258,
+          "rows": 810914
+        },
+        "train": {
+          "markets": 828,
+          "matched_markets": 815,
+          "matched_rows": 2872556,
+          "row_coverage": 0.9195286471204349,
+          "rows": 3123944
+        },
+        "unobserved": {
+          "markets": 74,
+          "matched_markets": 74,
+          "matched_rows": 531302,
+          "row_coverage": 1.0,
+          "rows": 531302
+        },
+        "val": {
+          "markets": 177,
+          "matched_markets": 164,
+          "matched_rows": 910706,
+          "row_coverage": 0.9835878959112303,
+          "rows": 925902
+        }
+      },
+      "enabled": true,
+      "matched_markets": 1225,
+      "matched_rows": 5097400,
+      "matched_tokens": 2449,
+      "path": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/data/model/training/telonex_odds_features_latest.parquet",
+      "row_coverage": 0.9453526313310195,
+      "rows": 5097400
+    },
+    "positive_test_buckets": 0,
+    "positive_test_buckets_by_side": {
+      "maker": 0,
+      "taker": 0
+    },
+    "rows": 5392062,
+    "tokens": 2513,
+    "verdict": "No predeclared test bucket cleared a positive cluster-bootstrap CI lower bound. Current Telonex data does not support live capital for maker/taker price-bucket strategies."
+  },
+  "telonex_temporal_odds_validation": {
+    "abstained_folds": 4,
+    "folds_requested": 4,
+    "folds_run": 4,
+    "folds_with_market_overlap": 0,
+    "gate": false,
+    "gate_reasons": [
+      "sampled row-capped validation is diagnostic only, not capital proof",
+      "aggregate temporal test ROI is not positive",
+      "aggregate temporal ROI CI lower bound is not positive",
+      "aggregate test trades below 100",
+      "aggregate test markets below 40",
+      "no temporal folds selected test trades"
+    ],
+    "generated_at": "2026-05-31T18:56:56.565871+00:00",
+    "positive_roi_folds": 0,
+    "row_time_order_enforced": false,
+    "row_time_order_ok_folds": 4,
+    "target": {
+      "pnl_col": "maker_trade_fill_pnl_per_share",
+      "stake_col": "entry_bid",
+      "target_col": "maker_trade_fill_positive"
+    },
+    "test_ci_hi": null,
+    "test_ci_lo": null,
+    "test_markets": 0,
+    "test_roi": null,
+    "test_trades": 0,
+    "traded_folds": 0,
+    "validation_mode": "strict_temporal_row_order"
+  },
+  "telonex_temporal_validation": {
+    "abstained_folds": 1,
+    "folds_requested": 1,
+    "folds_run": 1,
+    "folds_with_market_overlap": 1,
+    "gate": false,
+    "gate_reasons": [
+      "aggregate temporal test ROI is not positive",
+      "aggregate temporal ROI CI lower bound is not positive",
+      "aggregate test trades below 100",
+      "aggregate test markets below 10",
+      "no temporal folds selected test trades"
+    ],
+    "generated_at": "2026-05-30T21:21:26.253602+00:00",
+    "positive_roi_folds": 0,
+    "row_time_order_enforced": false,
+    "row_time_order_ok_folds": 1,
+    "target": {
+      "pnl_col": "maker_trade_fill_pnl_per_share",
+      "stake_col": "entry_bid",
+      "target_col": "maker_trade_fill_positive"
+    },
+    "test_ci_hi": null,
+    "test_ci_lo": null,
+    "test_markets": 0,
+    "test_roi": null,
+    "test_trades": 0,
+    "traded_folds": 0,
+    "validation_mode": "strict_temporal_row_order"
+  },
+  "training": {
+    "execution_rows": 191,
+    "queue_fill_model": {
+      "authenticated_fills": 0,
+      "authenticated_live_fill_gate": false,
+      "authenticated_rows": 0,
+      "gate_reasons": [
+        "authenticated fill rows below 500"
+      ],
+      "generated_at": "2026-05-30T19:41:16.457447+00:00",
+      "proxy_model_gate": true,
+      "test_auc": 0.898747537292429,
+      "test_baseline_brier": 0.3485717421124828,
+      "test_brier": 0.08262604307761175,
+      "test_rows": 225
+    },
+    "queue_rows": 1125,
+    "telonex_execution_markets": 1257,
+    "telonex_execution_positive_rate": 0.0016943425353788588,
+    "telonex_execution_rows": 5392062,
+    "telonex_execution_tokens": 2513
+  }
+}
