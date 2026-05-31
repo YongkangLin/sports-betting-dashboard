@@ -1,18 +1,18 @@
 # Telonex Microstructure Bucket Audit
 
-- Generated: 2026-05-31T14:44:44.058565+00:00
-- Labels: 5,418,878 rows, 632 markets, 1,261 tokens
-- Label SHA256: `a0a6e936af3ca1f7dbe20717dd54aad3f0078761c7c11a0784d7fb95862677da`
+- Generated: 2026-05-31T15:13:47.591677+00:00
+- Labels: 5,768,529 rows, 725 markets, 1,436 tokens
+- Label SHA256: `8cdfb7cda52ff8ab59d31872381cd6a64e65df78ed427febd3caff5f3a59ee39`
 - Overall gate: False
 - Gate reasons: YES+NO strict fee-adjusted arbitrage gate failed, no price-shock rule had enough validation rows/markets for CI
 
 ## YES+NO Underpricing
 
-- Unique paired snapshots: 540,638
-- Near buy-both rows (`ask_yes + ask_no <= 1.02`): 410,099 across 558 markets
+- Unique paired snapshots: 574,623
+- Near buy-both rows (`ask_yes + ask_no <= 1.02`): 443,919 across 639 markets
 - Strict gross buy-both rows: 0
 - Strict fee-adjusted buy-both rows: 0
-- Minimum ask sum / max net edge: 1.0 / -0.0002970000000000002
+- Minimum ask sum / max net edge: 1.0 / -2.9970000000000026e-05
 - Gate: False (no fee-adjusted YES+NO arbitrage in labels)
 
 ## Price-Shock Fade/Follow
@@ -24,16 +24,16 @@
 
 | Rule | Strategy | Val rows | Val markets | Val ROI | Val CI low | Test rows | Test markets | Test ROI | Test CI low |
 |---|---|---:|---:|---:|---:|---:|---:|---:|---:|
-| follow_lb900_move10c_h30 | follow | 500 | 16 | -2.98% | -3.46% | 183 | 11 | -3.67% | -5.92% |
-| follow_lb900_move5c_h30 | follow | 847 | 19 | -3.24% | -3.50% | 365 | 15 | -4.12% | -6.09% |
-| follow_lb900_move10c_h60 | follow | 492 | 16 | -3.21% | -3.78% | 180 | 10 | -3.42% | -6.63% |
-| follow_lb900_move5c_h60 | follow | 840 | 18 | -3.49% | -3.98% | 364 | 15 | -3.86% | -6.10% |
-| follow_lb900_move10c_h120 | follow | 484 | 14 | -3.06% | -4.12% | 180 | 10 | -2.80% | -5.57% |
-| follow_lb300_move5c_h30 | follow | 500 | 18 | -3.67% | -4.17% | 191 | 14 | -5.39% | -9.08% |
-| follow_lb900_move5c_h120 | follow | 826 | 17 | -3.45% | -4.32% | 361 | 14 | -3.66% | -6.37% |
-| follow_lb300_move10c_h30 | follow | 208 | 16 | -3.61% | -4.47% | 50 | 10 | -6.45% | -14.44% |
-| follow_lb300_move5c_h60 | follow | 494 | 17 | -4.15% | -4.51% | 190 | 14 | -5.33% | -9.03% |
-| follow_lb300_move5c_h120 | follow | 485 | 15 | -4.48% | -5.07% | 192 | 13 | -5.40% | -9.33% |
+| follow_lb900_move5c_h30 | follow | 895 | 21 | -3.08% | -3.35% | 592 | 21 | -3.72% | -4.84% |
+| follow_lb900_move10c_h30 | follow | 520 | 18 | -2.96% | -3.40% | 305 | 15 | -3.44% | -4.92% |
+| follow_lb300_move5c_h30 | follow | 532 | 22 | -3.36% | -3.72% | 312 | 19 | -5.08% | -6.89% |
+| follow_lb900_move10c_h60 | follow | 511 | 18 | -3.25% | -3.79% | 301 | 14 | -3.10% | -4.52% |
+| follow_lb900_move5c_h60 | follow | 882 | 19 | -3.35% | -3.88% | 592 | 21 | -3.54% | -4.96% |
+| follow_lb300_move10c_h30 | follow | 237 | 19 | -3.45% | -4.18% | 89 | 14 | -5.59% | -8.84% |
+| follow_lb300_move5c_h60 | follow | 524 | 20 | -3.87% | -4.31% | 311 | 19 | -4.83% | -6.89% |
+| follow_lb900_move5c_h120 | follow | 867 | 19 | -3.54% | -4.32% | 586 | 19 | -3.16% | -4.70% |
+| follow_lb900_move10c_h120 | follow | 502 | 16 | -3.55% | -4.56% | 301 | 14 | -2.23% | -3.53% |
+| follow_lb300_move10c_h60 | follow | 233 | 18 | -4.06% | -4.91% | 87 | 12 | -4.95% | -7.96% |
 
 ## Interpretation
 

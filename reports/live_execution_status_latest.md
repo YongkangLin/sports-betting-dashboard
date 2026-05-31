@@ -1,6 +1,6 @@
 # Live Execution Status
 
-- Generated: 2026-05-31T14:45:57.873858+00:00
+- Generated: 2026-05-31T16:06:09.267173+00:00
 - Capital enabled: False
 - Live capital gate: False
 - Gate reasons: queue/fill model not validated on authenticated fills, need authenticated Polymarket fill/order lifecycle rows, Telonex convergence research gate failed, execution-adjusted backtest replay failed: no selected historical replay trades, no predeclared executable taker strategy bucket cleared validation, Telonex microstructure bucket audit failed, Telonex model monitor hold, live paper-fill LEV/price-hold quality gate failed, Telonex market-disjoint validation gate failed, Telonex temporal validation gate failed, favorite-longshot executable Telonex backtest gate failed, favorite-longshot out-of-sample rule validation failed, strategy/data readiness gate failed: sportsbook native 5-minute density gate failed: complete 5m replay cache 167 / 276 = 60.51% < 95%
@@ -18,33 +18,33 @@
 - Authenticated lifecycle/fill rows: 0 / 0
 - Execution rows: 191
 - Telonex markets/assets: 389219 / 778438
-- Telonex manifest files existing/missing/total: 6625 / 0 / 6625
-- Telonex quote/depth/trade rows: 15595425 / 105207694 / 1164464
-- Telonex Odds API features rows/coverage: 3650416 / 0.6736479396657389
-- Historical CLOB quote/depth rows: 15595425 / 105207694
+- Telonex manifest files existing/missing/total: 10712 / 0 / 10712
+- Telonex quote/depth/trade rows: 54648470 / 270597653 / 4566016
+- Telonex Odds API features rows/coverage: 3998455 / 0.6931498480808539
+- Historical CLOB quote/depth rows: 54648470 / 270597653
 - Queue rows: 1125
 - Queue fill model gate/auth/test AUC/Brier: True / False / 0.898747537292429 / 0.08262604307761175
-- Telonex execution labels/markets/tokens: 5418878 / 632 / 1261
+- Telonex execution labels/markets/tokens: 5768529 / 725 / 1436
 - Event/market inventory total events/markets; active events/markets: 108 / 216; 89 / 109
 - Strategy signal diagnostics raw maker gate/heldout gate/SHAP identity risk: False / True / True
 - Favorite-longshot bucket raw/robust/primary: True / False / favorite_85_95_buy_yes
 - Favorite-longshot Telonex target plan contracts/markets/assets: 463 / 424 / 848
 - Favorite-longshot executable gate/entries/settled/ROI: False / 375 / 277 / 0.014197182286302774
 - Favorite-longshot rule validation gate/temporal/test ROI/market-disjoint/test ROI: False / nba_only / 0.13488292220113854 / entry_15m_to_24h / 0.019910493579454253
-- Telonex convergence version/feature set/selection/test ROI/trades/gate: 20260530T215450Z-3e90e2b5d8da / base_odds / convergence_prob_lower / None / 0 / False
+- Telonex convergence version/feature set/selection/test ROI/trades/gate: 20260531T153530Z-aeeeb0172cb0 / base_odds / convergence_prob_lower / None / 0 / False
 - Telonex label coverage gate/reasons: True / none
 - Strategy/data readiness gate: False / HOLD: strategy is defined, but dataset is not complete enough to prove the bot
 - Complete-side market data gate/CLOB both-side/complete both venues/missing sportsbook overlays: True / 277 / 276 / 1
-- Telonex odds feature held-out coverage/markets/gate: 0.2977453997362306 / 5 / True
+- Telonex odds feature held-out coverage/markets/gate: 0.6042545394580134 / 34 / True
 - Telonex monitor: HOLD: latest research gate failed; latest external validation gate failed; latest test ROI is not positive; latest test CI lower bound is not positive / external gate False / correlated p05 None
-- Telonex market-disjoint validation: False / ROI None / trades 0 / folds 2
+- Telonex market-disjoint validation: False / ROI 0.03794172421940666 / trades 577 / folds 4
 - Telonex temporal validation: False / ROI None / trades 0 / row-time folds 1
 - Telonex Odds fusion validated: False
-- Telonex Odds market-disjoint validation: False / ROI None / trades 0 / folds 2
-- Telonex Odds temporal validation: False / ROI None / trades 0 / row-time folds 1
-- Telonex feature audit top/confirmed/rows/repeats: horizon_sec / 15/82 / 10000 / 10
+- Telonex Odds market-disjoint validation: False / ROI None / trades 0 / folds 4
+- Telonex Odds temporal validation: False / ROI None / trades 0 / row-time folds 4
+- Telonex feature audit top/confirmed/rows/repeats: bid_size_best / 0/83 / 200000 / 5
 - Telonex strategy positive test buckets total/taker/maker: 0 / 0 / 0
-- Telonex microstructure gate/strict arbs/near arbs/price-shock rule: False / 0 / 410099 / None
+- Telonex microstructure gate/strict arbs/near arbs/price-shock rule: False / 0 / 443919 / None
 - Execution-adjusted replay gate/raw ROI/fill-adjusted ROI/avg fill: False / None / None / None
 - Live Telonex model signals/features/tokens/max margin: 0 / 1060 / 212 / -0.21405958374405956
 - Live Odds scoring coverage/matched tokens: 0.04716981132075472 / 10

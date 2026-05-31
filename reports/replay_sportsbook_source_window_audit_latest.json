@@ -250443,7 +250443,7 @@
     }
   ],
   "events_with_gap_windows": 120,
-  "generated_at": "2026-05-31T14:44:59.142897+00:00",
+  "generated_at": "2026-05-31T16:10:36.622976+00:00",
   "materialization_bug_windows": 0,
   "missing_cache_windows": 8047,
   "outputs": {

@@ -1,0 +1,80 @@
+{
+  "assets": {
+    "poly_book_rows": 197544975,
+    "poly_trade_rows": 3759458,
+    "source_complete_asset_rate": 0.1793,
+    "source_complete_assets": 1793,
+    "sportsbook_quote_rows": 55740114,
+    "sportsbook_snapshots": 676684,
+    "target_assets": 10000,
+    "zero_row_files": 0
+  },
+  "generated_at": "2026-05-31T16:10:02.868001+00:00",
+  "granularity": {
+    "polymarket_source": "book_snapshot_5 top-5 CLOB snapshots; model labels are materialized on a 60-second grid from this source.",
+    "sportsbook_source": "Odds API snapshots are point-in-time quotes, joined backward onto the model grid with quote_age recorded. Do not treat forward-filled sportsbook rows as independent minute observations."
+  },
+  "inputs": {
+    "manifest": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/data/processed/clob_capture/telonex_download_manifest.json",
+    "target_plan": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/data/processed/execution_training/telonex_odds_h2h_target_assets_latest.parquet"
+  },
+  "markets": {
+    "by_sport": [
+      {
+        "complete_markets": 238,
+        "complete_rate": 0.055246053853296194,
+        "markets": 4308,
+        "poly_book_rows": 26923773,
+        "sport_family": "soccer",
+        "sportsbook_quote_rows": 26765349
+      },
+      {
+        "complete_markets": 256,
+        "complete_rate": 0.9516728624535316,
+        "markets": 269,
+        "poly_book_rows": 89936657,
+        "sport_family": "basketball_nba",
+        "sportsbook_quote_rows": 520362
+      },
+      {
+        "complete_markets": 249,
+        "complete_rate": 1.0,
+        "markets": 249,
+        "poly_book_rows": 52357142,
+        "sport_family": "icehockey_nhl",
+        "sportsbook_quote_rows": 181494
+      },
+      {
+        "complete_markets": 69,
+        "complete_rate": 0.8625,
+        "markets": 80,
+        "poly_book_rows": 10247289,
+        "sport_family": "americanfootball_nfl",
+        "sportsbook_quote_rows": 378264
+      },
+      {
+        "complete_markets": 60,
+        "complete_rate": 1.0,
+        "markets": 60,
+        "poly_book_rows": 14048112,
+        "sport_family": "basketball_wnba",
+        "sportsbook_quote_rows": 13132
+      },
+      {
+        "complete_markets": 18,
+        "complete_rate": 0.5294117647058824,
+        "markets": 34,
+        "poly_book_rows": 4032002,
+        "sport_family": "baseball_mlb",
+        "sportsbook_quote_rows": 11456
+      }
+    ],
+    "source_complete_market_rate": 0.178,
+    "source_complete_markets": 890,
+    "target_markets": 5000
+  },
+  "outputs": {
+    "json": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/reports/telonex_odds_h2h_timeseries_completeness_latest.json",
+    "report": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/reports/telonex_odds_h2h_timeseries_completeness_latest.md"
+  }
+}

@@ -1,14 +1,14 @@
 # Telonex Feature Importance Audit
 
-- Generated: 2026-05-30T16:52:46.374598+00:00
-- Run: `20260530T163238Z`
-- Model version: `20260530T163238Z-4c3569fa30ce`
-- Rows audited: 10,000
-- Repeats per feature: 10
+- Generated: 2026-05-31T16:05:51.111984+00:00
+- Run: `20260531T153530Z`
+- Model version: `20260531T153530Z-aeeeb0172cb0`
+- Rows audited: 200,000
+- Repeats per feature: 5
 - FDR alpha / min economic prob shift / min ROI delta: 0.1 / 0.015 / 0.005
-- Confirmed features: 15 / 82
-- Baseline Brier/ECE/log loss: 0.03203438132608235 / 0.007425116469169704 / 0.11413523329028553
-- Baseline selected trades/ROI: 100 / 0.09661918976545841
+- Confirmed features: 0 / 83
+- Baseline Brier/ECE/log loss: 0.0004334839229684664 / 5.278201467340086e-05 / 0.0018058785251927208
+- Baseline selected trades/ROI: 0 / None
 
 Positive Brier delta means shuffling the feature made the model worse. A confirmed feature must also pass BH FDR and an economic-size filter, so noisy tiny effects do not get treated as edge.
 
@@ -16,48 +16,48 @@ Positive Brier delta means shuffling the feature made the model worse. A confirm
 
 ```text
              family  features  confirmed_features  fdr_significant_features  economically_significant_features  positive_brier_features  total_positive_brier_delta  max_brier_delta  mean_abs_prob_shift  max_abs_prob_shift  mean_selected_trade_delta  max_abs_roi_delta
-        price_level         5                   3                         4                                  3                        4                    0.011707         0.004351             0.019199            0.033838                  -8.780000           0.040232
-         book_depth        17                   2                        10                                  4                       11                    0.003475         0.001629             0.001936            0.010226                   1.017647           0.015485
-     price_momentum        12                   9                        10                                 10                       10                    0.002882         0.000844             0.004371            0.008941                  -9.866667           0.053828
-categorical_context         2                   1                         2                                  1                        2                    0.000200         0.000184             0.001854            0.003648                  -0.650000           0.005810
-               odds        18                   0                         4                                  0                        6                    0.000087         0.000039             0.000393            0.002790                  -0.305556           0.001368
-        market_pair         1                   0                         0                                  1                        1                    0.000076         0.000076             0.007876            0.007876                   8.700000           0.017572
-              other         1                   0                         0                                  0                        1                    0.000010         0.000010             0.001516            0.001516                   2.100000           0.001821
-         trade_flow        26                   0                         0                                  0                        0                    0.000000         0.000000             0.000000            0.000000                   0.000000           0.000000
+         book_depth        17                   0                         6                                  0                        7                    0.000075         0.000072             0.000060            0.000674                        0.0                0.0
+         trade_flow        26                   0                        16                                  0                       18                    0.000060         0.000028             0.000048            0.000320                        0.0                0.0
+        price_level         5                   0                         4                                  0                        4                    0.000056         0.000054             0.000096            0.000450                        0.0                0.0
+               odds        19                   0                         8                                  0                       12                    0.000049         0.000015             0.000040            0.000257                        0.0                0.0
+categorical_context         2                   0                         1                                  0                        2                    0.000004         0.000004             0.000018            0.000020                        0.0                0.0
+        market_pair         1                   0                         1                                  0                        1                    0.000003         0.000003             0.000041            0.000041                        0.0                0.0
+     price_momentum        12                   0                         5                                  0                        5                    0.000003         0.000002             0.000018            0.000115                        0.0                0.0
+              other         1                   0                         1                                  0                        1                    0.000003         0.000003             0.000077            0.000077                        0.0                0.0
 ```
 
 ## Top Features
 
 ```text
-                   feature  repeats  mean_brier_delta  std_brier_delta  brier_delta_positive_pvalue  mean_abs_prob_shift  mean_selected_trade_delta  mean_selected_roi_delta  economically_significant  brier_delta_fdr_qvalue  fdr_significant  confirmed_feature
-               horizon_sec       10          0.004351         0.000356                2.309452e-295             0.026466                        5.3                -0.040232                      True           1.893751e-293             True               True
-              entry_spread       10          0.003649         0.000346                3.303104e-220             0.033838                      -38.6                -0.001567                      True           6.771363e-219             True               True
-                 entry_bid       10          0.003139         0.000456                 4.024834e-95             0.029147                      -12.1                -0.038819                      True            5.500607e-94             True               True
-             bid_size_best       10          0.001629         0.000142                2.563247e-261             0.010226                       12.5                -0.015485                      True           1.050931e-259             True               True
-              bid_depth_1c       10          0.000970         0.000119                1.917005e-133             0.005692                        4.8                -0.002274                     False           3.143888e-132             True              False
-         spread_delta_300s       10          0.000844         0.000157                 5.397850e-59             0.008941                      -35.4                 0.022026                      True            4.918041e-58             True               True
-        mid_abs_delta_300s       10          0.000726         0.000129                 8.307635e-64             0.008699                      -21.7                -0.009361                      True            8.515325e-63             True               True
-                 entry_ask       10          0.000567         0.000054                7.136341e-221             0.002948                        4.4                -0.001366                     False           1.950600e-219             True              False
-             ask_size_best       10          0.000400         0.000065                 3.003072e-76             0.003168                        5.0                -0.004003                     False            3.517884e-75             True              False
-         lag_quote_age_60s       10          0.000283         0.000084                 2.527889e-24             0.004216                       -1.7                -0.009512                      True            1.480621e-23             True               True
-        lag_quote_age_300s       10          0.000213         0.000133                 7.034576e-07             0.006125                       -0.3                -0.013162                      True            2.884176e-06             True               True
-            mid_delta_300s       10          0.000201         0.000070                 2.100405e-18             0.004719                        4.8                 0.007791                      True            1.148221e-17             True               True
-          spread_delta_30s       10          0.000195         0.000086                 6.576082e-12             0.003660                      -17.1                 0.020531                      True            3.171993e-11             True               True
-         lag_quote_age_30s       10          0.000186         0.000049                 1.466112e-30             0.002588                        0.2                -0.001865                     False            9.247781e-30             True              False
-              outcome_role       10          0.000184         0.000044                 1.518941e-36             0.003648                       -1.3                 0.005810                      True            1.132301e-35             True               True
-          obi_3c_delta_30s       10          0.000175         0.000045                 3.976737e-32             0.001719                       -3.0                -0.006653                      True            2.717437e-31             True               True
-              ask_depth_3c       10          0.000127         0.000029                 7.644849e-39             0.000940                        4.6                -0.004681                     False            6.268776e-38             True              False
-          spread_delta_60s       10          0.000111         0.000042                 7.331248e-16             0.004229                      -25.6                 0.053828                      True            3.757265e-15             True               True
-              ask_depth_1c       10          0.000094         0.000082                 3.065837e-04             0.002316                        0.6                 0.001717                     False            1.047494e-03             True              False
-         mid_abs_delta_60s       10          0.000091         0.000065                 1.288939e-05             0.004832                      -14.6                 0.041612                      True            4.595347e-05             True               True
-               market_type       10          0.000076         0.000145                 5.645355e-02             0.007876                        8.7                -0.017572                      True            1.493287e-01            False              False
-         odds_poly_gap_bid       10          0.000039         0.000095                 1.091789e-01             0.002790                       -3.5                -0.000724                     False            2.797710e-01            False              False
-         mid_abs_delta_30s       10          0.000033         0.000022                 5.636032e-06             0.001582                       -8.3                 0.009292                      True            2.100703e-05             True               True
-         obi_3c_delta_300s       10          0.000031         0.000020                 2.372667e-06             0.000434                       -0.4                -0.001347                     False            9.264698e-06             True              False
-depth_imbalance_delta_300s       10          0.000018         0.000018                 1.155668e-03             0.000256                        0.2                -0.000185                     False            3.509808e-03             True              False
-        ask_depth_5_levels       10          0.000018         0.000019                 2.832173e-03             0.000690                        1.3                -0.000543                     False            8.294220e-03             True              False
-            odds_fair_mean       10          0.000017         0.000008                 2.253309e-11             0.000077                        0.6                -0.000806                     False            1.026508e-10             True              False
-              sport_family       10          0.000016         0.000008                 7.089460e-11             0.000060                        0.0                 0.000000                     False            3.059662e-10             True              False
-           odds_book_count       10          0.000012         0.000033                 1.304363e-01             0.000458                       -0.4                 0.001368                     False            3.241146e-01            False              False
-             quote_age_sec       10          0.000010         0.000037                 1.992745e-01             0.001516                        2.1                -0.001821                     False            4.806031e-01            False              False
+                        feature  repeats  mean_brier_delta  std_brier_delta  brier_delta_positive_pvalue  mean_abs_prob_shift  mean_selected_trade_delta mean_selected_roi_delta  economically_significant  brier_delta_fdr_qvalue  fdr_significant  confirmed_feature
+                  bid_size_best        5      7.179615e-05     5.491024e-06                4.880343e-151             0.000674                        0.0                    None                     False           4.500761e-150             True              False
+                    horizon_sec        5      5.399542e-05     4.259753e-06                4.332829e-142             0.000450                        0.0                    None                     False           3.596248e-141             True              False
+               trade_count_300s        5      2.805067e-05     7.638507e-07                 0.000000e+00             0.000320                        0.0                    None                     False            0.000000e+00             True              False
+odds_source_minutes_to_commence        5      1.479612e-05     1.325738e-06                1.146554e-110             0.000257                        0.0                    None                     False           8.651275e-110             True              False
+             last_trade_age_sec        5      9.955757e-06     3.455263e-06                 4.139889e-09             0.000198                        0.0                    None                     False            1.431712e-08             True              False
+             odds_quote_age_sec        5      9.619571e-06     3.567754e-06                 3.474058e-08             0.000114                        0.0                    None                     False            1.153387e-07             True              False
+              odds_poly_gap_mid        5      7.787435e-06     3.624822e-07                 0.000000e+00             0.000045                        0.0                    None                     False            0.000000e+00             True              False
+                     odds_sport        5      6.249599e-06     4.019690e-06                 9.370421e-04             0.000108                        0.0                    None                     False            2.430453e-03             True              False
+            trade_notional_300s        5      5.301153e-06     4.962633e-07                1.436389e-101             0.000110                        0.0                    None                     False           9.935026e-101             True              False
+                trade_size_300s        5      5.074220e-06     7.068981e-07                 4.864397e-47             0.000146                        0.0                    None                     False            2.523406e-46             True              False
+                   sport_family        5      3.915649e-06     5.564575e-07                 2.763653e-45             0.000020                        0.0                    None                     False            1.349313e-44             True              False
+              odds_poly_gap_bid        5      3.732996e-06     1.704069e-07                 0.000000e+00             0.000020                        0.0                    None                     False            0.000000e+00             True              False
+                    market_type        5      3.358614e-06     3.234585e-06                 1.891513e-02             0.000041                        0.0                    None                     False            4.025528e-02             True              False
+              odds_poly_gap_ask        5      3.308624e-06     5.529214e-07                 2.620235e-33             0.000034                        0.0                    None                     False            1.208219e-32             True              False
+                  quote_age_sec        5      2.939259e-06     1.964194e-06                 1.381973e-03             0.000077                        0.0                    None                     False            3.475871e-03             True              False
+             mid_abs_delta_300s        5      2.490057e-06     6.097885e-07                 1.581365e-16             0.000115                        0.0                    None                     False            6.562666e-16             True              False
+           trade_buy_ratio_300s        5      2.404112e-06     4.954802e-07                 1.447140e-22             0.000026                        0.0                    None                     False            6.321717e-22             True              False
+                  odds_fair_std        5      1.798625e-06     7.169852e-07                 2.621645e-07             0.000027                        0.0                    None                     False            8.369098e-07             True              False
+           trade_buy_count_300s        5      1.755288e-06     1.645072e-07                2.417328e-101             0.000056                        0.0                    None                     False           1.543371e-100             True              False
+                trade_count_60s        5      1.688256e-06     2.742349e-08                 0.000000e+00             0.000010                        0.0                    None                     False            0.000000e+00             True              False
+           trade_sell_size_300s        5      1.288182e-06     7.264860e-07                 1.953136e-04             0.000068                        0.0                    None                     False            5.403676e-04             True              False
+         trade_signed_size_300s        5      1.255027e-06     1.162520e-08                 0.000000e+00             0.000005                        0.0                    None                     False            0.000000e+00             True              False
+     depth_imbalance_delta_300s        5      1.034670e-06     2.742609e-07                 2.258844e-14             0.000016                        0.0                    None                     False            8.522001e-14             True              False
+                   entry_spread        5      8.984152e-07     8.104129e-07                 1.330544e-02             0.000013                        0.0                    None                     False            2.906187e-02             True              False
+                last_trade_size        5      7.764494e-07     8.215978e-07                 2.937255e-02             0.000018                        0.0                    None                     False            6.094805e-02             True              False
+             ask_depth_5_levels        5      7.414629e-07     2.074333e-06                 2.373377e-01             0.000020                        0.0                    None                     False            4.191282e-01            False              False
+                   obi_5_levels        5      7.380069e-07     3.439186e-07                 8.863397e-06             0.000015                        0.0                    None                     False            2.627364e-05             True              False
+                      entry_bid        5      6.964516e-07     5.540550e-07                 5.968251e-03             0.000013                        0.0                    None                     False            1.376013e-02             True              False
+                         obi_3c        5      6.709178e-07     5.448437e-07                 6.893028e-03             0.000029                        0.0                    None                     False            1.546274e-02             True              False
+             trade_notional_60s        5      6.674381e-07     1.807033e-07                 7.502369e-14             0.000020                        0.0                    None                     False            2.707377e-13             True              False
 ```

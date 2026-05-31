@@ -1,6 +1,6 @@
 # Strategy And Data Readiness
 
-- Generated: 2026-05-31T14:45:59.047403+00:00
+- Generated: 2026-05-31T15:30:37.703705+00:00
 - Overall gate: False
 - Verdict: HOLD: strategy is defined, but dataset is not complete enough to prove the bot
 - Gate reasons: sportsbook native 5-minute density gate failed: complete 5m replay cache 167 / 276 = 60.51% < 95%
@@ -16,11 +16,11 @@
 
 ## Dataset Extent
 
-- Labels/markets/tokens: 5,418,878 / 632 / 1,261
+- Labels/markets/tokens: 5,768,529 / 725 / 1,436
 - Time span: 2025-10-26 00:01:00+00:00 to 2026-05-29 23:59:00+00:00
-- Sports: {'soccer': 2625089, 'baseball_mlb': 1731351, 'basketball_nba': 900769, 'americanfootball_nfl': 66302, 'basketball_wnba': 55474, 'tennis': 26200, 'icehockey_nhl': 13693}
-- Telonex quote/depth/trade rows: 15,595,425 / 105,207,694 / 1,164,464
-- Telonex manifest files existing/missing/total: 6,625 / 0 / 6,625
+- Sports: {'soccer': 2625089, 'baseball_mlb': 1755107, 'basketball_nba': 908403, 'americanfootball_nfl': 384029, 'basketball_wnba': 56008, 'tennis': 26200, 'icehockey_nhl': 13693}
+- Telonex quote/depth/trade rows: 35,604,122 / 203,679,373 / 3,430,854
+- Telonex manifest files existing/missing/total: 8,712 / 0 / 8,712
 - Telonex downloaded date span: 2025-10-23 to 2026-05-29
 - Telonex catalog quote span: 2025-10-11 to 2026-05-29
 
@@ -49,18 +49,18 @@
 
 | Split | Rows | Markets | Tokens | Target observed | Past trade rows | Taker+ | Maker+ | Fill queue | Fill+ | Odds coverage |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| train | 2,060,552 | 220 | 439 | 1,948,779 | 1,749,456 | 6,751 | 65,912 | 33,418 | 2,009 | 70.84% |
-| val | 959,378 | 47 | 94 | 823,070 | 648,626 | 3,573 | 21,848 | 8,566 | 1,084 | 64.74% |
-| test | 852,668 | 48 | 96 | 730,124 | 544,884 | 1,509 | 18,488 | 4,403 | 311 | 46.22% |
+| train | 2,195,358 | 287 | 567 | 2,090,788 | 1,904,142 | 9,064 | 65,870 | 40,554 | 2,794 | 73.50% |
+| val | 797,523 | 62 | 123 | 704,029 | 588,788 | 4,068 | 21,876 | 10,888 | 1,299 | 64.36% |
+| test | 1,265,120 | 62 | 123 | 1,091,540 | 830,090 | 2,486 | 25,620 | 6,275 | 574 | 57.84% |
 
 ## Odds Strategy Coverage
 
 - Gate: True
 - Mode: strategy_eligible
-- Full test coverage: 46.22%
-- Strategy-eligible test rows: 463,902
-- Strategy-eligible test coverage: 84.95%
-- Strategy-eligible matched test markets: 22
+- Full test coverage: 57.84%
+- Strategy-eligible test rows: 843,968
+- Strategy-eligible test coverage: 86.71%
+- Strategy-eligible matched test markets: 34
 - Policy: For Odds-dependent strategies, unsupported or unmatched markets are quarantined from the denominator. The gate measures rows where the token can actually map to a causal h2h/spreads/totals sportsbook outcome.
 
 ## Gates
@@ -79,9 +79,9 @@
 
 ## Held-Out Market Gate
 
-- Test markets: 48
-- Usable train/val/test markets: 315
-- Test market ratio: 15.24%
+- Test markets: 62
+- Usable train/val/test markets: 411
+- Test market ratio: 15.09%
 - Minimum required ratio: 15.00%
 - Legacy absolute 100-market gate would pass: False
 

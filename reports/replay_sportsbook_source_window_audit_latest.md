@@ -1,6 +1,6 @@
 # Replay Sportsbook Source Window Audit
 
-- Generated: 2026-05-31T14:44:59.142897+00:00
+- Generated: 2026-05-31T16:10:36.622976+00:00
 - Replay events audited: 277
 - Events with visible sportsbook gap windows: 120
 - Gap windows audited: 8,063
