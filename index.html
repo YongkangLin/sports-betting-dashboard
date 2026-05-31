@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="data:,">
-<title>Sports Betting Strategy Evidence Dashboard</title>
+<title>Sports Trading Strategy Dashboard</title>
 <style>
   :root {
     color-scheme: light;
@@ -427,6 +427,105 @@
     word-break: break-word;
   }
 
+  .replay-controls {
+    display: grid;
+    grid-template-columns: minmax(160px, 0.25fr) minmax(0, 1fr);
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+
+  .replay-controls label {
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  .replay-controls select {
+    width: 100%;
+    min-height: 42px;
+    padding: 8px 10px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #fff;
+    color: var(--ink);
+    font: inherit;
+  }
+
+  .replay-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.55fr) minmax(320px, 0.45fr);
+    gap: 18px;
+    align-items: stretch;
+  }
+
+  .replay-chart-shell {
+    min-width: 0;
+    border: 1px solid var(--soft-line);
+    border-radius: 8px;
+    background: #fff;
+    overflow: hidden;
+  }
+
+  .replay-chart {
+    display: block;
+    width: 100%;
+    height: 380px;
+  }
+
+  .chart-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 14px;
+    padding: 10px 12px;
+    border-top: 1px solid var(--soft-line);
+    color: var(--muted);
+    font-size: 12px;
+  }
+
+  .legend-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 5px;
+    border-radius: 999px;
+    vertical-align: -1px;
+  }
+
+  .replay-detail {
+    min-width: 0;
+    padding: 14px;
+    border: 1px solid var(--soft-line);
+    border-radius: 8px;
+    background: #fbfcfe;
+  }
+
+  .replay-detail h3 {
+    margin-bottom: 12px;
+    font-size: 18px;
+    line-height: 1.2;
+  }
+
+  .replay-detail .kv {
+    grid-template-columns: minmax(110px, 0.7fr) minmax(0, 1.3fr);
+  }
+
+  .replay-rationale {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--soft-line);
+    color: var(--muted);
+  }
+
+  .replay-table-wrap {
+    margin-top: 16px;
+  }
+
+  .replay-table-wrap table {
+    min-width: 760px;
+  }
+
   footer {
     margin-top: 18px;
     color: var(--muted);
@@ -454,6 +553,7 @@
 
     .topbar,
     .two,
+    .replay-layout,
     .metrics,
     .plain-cards,
     .artifact-grid,
@@ -478,6 +578,14 @@
     .kv {
       grid-template-columns: 1fr;
     }
+
+    .replay-controls {
+      grid-template-columns: 1fr;
+    }
+
+    .replay-chart {
+      height: 320px;
+    }
   }
 </style>
 </head>
@@ -486,8 +594,8 @@
   <header class="topbar">
     <div>
       <p class="eyebrow">Current repo evidence</p>
-      <h1>Sports Betting Strategy Evidence Dashboard</h1>
-      <p class="subtitle">A plain-English readout of whether the current betting model is actually tradable. Good-looking ML scores are separated from the harder question: did a realistic strategy make money after fills, timing, and market conditions?</p>
+      <h1>Sports Trading Strategy Dashboard</h1>
+      <p class="subtitle">Strategy, performance, PnL, execution evidence, and replayable backtest events for the Polymarket sports trading system.</p>
     </div>
     <div class="status-stack">
       <span class="pill bad" id="overall-pill">HOLD</span>
@@ -528,10 +636,57 @@
       <div class="section-head">
         <div>
           <h2>Scoreboard</h2>
-          <p>Each number has a short read so big ML-looking values do not get mistaken for profit.</p>
+          <p>Strategy, PnL, execution, and validation stats only. This is the page's trading cockpit.</p>
         </div>
       </div>
       <div class="grid metrics" id="metric-grid"></div>
+    </section>
+
+    <section class="band">
+      <div class="section-head">
+        <div>
+          <h2>Backtest Event Replay</h2>
+          <p>Choose a settled backtest event to inspect historical CLOB price movement, buy point, sell/mark candidates, rationale, and event PnL.</p>
+        </div>
+        <span class="pill warn" id="replay-count-pill">loading</span>
+      </div>
+      <div class="replay-controls">
+        <label for="replay-select">Event</label>
+        <select id="replay-select">
+          <option>loading backtest events...</option>
+        </select>
+      </div>
+      <div class="replay-layout">
+        <div class="replay-chart-shell">
+          <svg class="replay-chart" id="replay-chart" role="img" aria-label="Backtest event price path"></svg>
+          <div class="chart-legend">
+            <span><i class="legend-dot" style="background:#1f77b4"></i>midpoint</span>
+            <span><i class="legend-dot" style="background:#9cc7e8"></i>bid/ask</span>
+            <span><i class="legend-dot" style="background:#067647"></i>buy</span>
+            <span><i class="legend-dot" style="background:#b42318"></i>sell/mark</span>
+          </div>
+        </div>
+        <div class="replay-detail">
+          <h3 id="replay-title">No event selected</h3>
+          <dl class="kv" id="replay-kv"></dl>
+          <div class="replay-rationale" id="replay-rationale"></div>
+        </div>
+      </div>
+      <div class="table-wrap replay-table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Point</th>
+              <th>Time</th>
+              <th>Price</th>
+              <th>PnL</th>
+              <th>Why</th>
+            </tr>
+          </thead>
+          <tbody id="replay-marker-table"></tbody>
+        </table>
+      </div>
+      <p class="note">The official favorite-longshot replay PnL is the settlement mark. Intermediate sell/mark rows show executable future-bid exit candidates, not a proven active exit policy yet.</p>
     </section>
 
     <section class="band">
@@ -560,33 +715,6 @@
     <section class="band">
       <div class="section-head">
         <div>
-          <h2>Run History</h2>
-          <p>This keeps the tempting old green numbers visible, with the catch shown next to them.</p>
-        </div>
-      </div>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Run</th>
-              <th>Target</th>
-              <th>Inputs</th>
-              <th>Decision rule</th>
-              <th>Tuning window</th>
-              <th>Final check</th>
-              <th>Gate</th>
-              <th>Plain read</th>
-            </tr>
-          </thead>
-          <tbody id="run-table"></tbody>
-        </table>
-      </div>
-      <p class="note">The older profitable-looking run is not treated as proof because it used <span class="mono">maker_positive</span>, not the current trade-fill PnL target, and the latest fill-aware run abstains from all trades.</p>
-    </section>
-
-    <section class="band">
-      <div class="section-head">
-        <div>
           <h2>Trust Checks</h2>
           <p>These checks answer: would this survive contact with real markets?</p>
         </div>
@@ -604,37 +732,6 @@
         </table>
       </div>
     </section>
-
-    <section class="band">
-      <div class="section-head">
-        <div>
-          <h2>Term Decoder</h2>
-          <p>Short translations for the labels that usually make ML dashboards feel slippery.</p>
-        </div>
-      </div>
-      <div class="grid term-grid" id="term-grid"></div>
-    </section>
-
-    <section class="band">
-      <div class="section-head">
-        <div>
-          <h2>Old Inputs Ignored</h2>
-          <p>These were the main source of the confusing old page. They are no longer used for the top-level verdict.</p>
-        </div>
-      </div>
-      <ul class="copy-list" id="retired-list"></ul>
-    </section>
-
-    <section class="band">
-      <div class="section-head">
-        <div>
-          <h2>Data Files Loaded</h2>
-          <p>When opened from a local file, browsers may block fetches. The embedded snapshot below still reflects the current repo at edit time.</p>
-        </div>
-        <span class="pill info" id="artifact-count">checking</span>
-      </div>
-      <div class="grid artifact-grid" id="artifact-grid"></div>
-    </section>
   </main>
 
   <footer id="footer"></footer>
@@ -646,21 +743,11 @@ const ARTIFACTS = {
   latestTelonexSummary: { label: "Latest maker-fill model", path: "data/processed/telonex_convergence_ml/20260530T215450Z/summary.json" },
   strategyReadiness: { label: "Strategy/data readiness", path: "data/processed/execution_training/strategy_data_readiness_latest.json" },
   eventMarketInventory: { label: "Event/market inventory", path: "data/processed/execution_training/event_market_inventory_latest.json" },
-  signalDiagnostics: { label: "Signal diagnostics", path: "data/processed/telonex_convergence_ml/strategy_signal_diagnostics_latest.json" },
-  favoriteLongshotBias: { label: "Favorite-longshot bias", path: "data/processed/execution_training/favorite_longshot_bias_latest.json" },
   favoriteLongshotExecutable: { label: "Favorite-longshot executable", path: "data/processed/execution_training/favorite_longshot_executable_backtest_latest.json" },
   favoriteLongshotRuleValidation: { label: "Favorite-longshot rule validation", path: "data/processed/execution_training/favorite_longshot_rule_validation_latest.json" },
-  backtestReplay: { label: "Backtest replay", path: "data/processed/telonex_convergence_ml/backtest_replay_latest.json" },
-  modelMonitor: { label: "Model monitor", path: "data/processed/telonex_convergence_ml/telonex_model_monitor_latest.json" },
-  featureImportance: { label: "Feature importance audit", path: "data/processed/telonex_convergence_ml/telonex_feature_importance_latest.json" },
-  marketDisjoint: { label: "Market-disjoint validation", path: "data/processed/telonex_convergence_ml/telonex_walk_forward_base_odds_latest.json" },
-  temporal: { label: "Temporal validation", path: "data/processed/telonex_convergence_ml/telonex_temporal_validation_base_odds_latest.json" },
+  favoriteLongshotEventReplays: { label: "Favorite-longshot event replays", path: "data/processed/execution_training/favorite_longshot_event_replays_latest.json" },
   liveSignals: { label: "Live Telonex signals", path: "data/processed/clob_capture/live_telonex_convergence_signals_latest.json" },
-  strategyBuckets: { label: "Strategy buckets", path: "data/processed/execution_training/telonex_strategy_buckets_latest.json" },
-  microstructureBuckets: { label: "Microstructure buckets", path: "data/processed/execution_training/telonex_microstructure_buckets_latest.json" },
-  modelAudit: { label: "Legacy outcome model audit", path: "data/processed/model_data_audit.json" },
-  intragame: { label: "Intragame coverage", path: "data/processed/intragame_data_coverage.json" },
-  clobDepth: { label: "Historical CLOB depth report", path: "data/processed/poly_history_depth_report.json" }
+  microstructureBuckets: { label: "Microstructure buckets", path: "data/processed/execution_training/telonex_microstructure_buckets_latest.json" }
 };
 
 const RUN_ARTIFACTS = [
@@ -760,6 +847,14 @@ const SNAPSHOT = {
     marketTestBets: 58,
     marketTestRoi: 0.023843006716712755,
     marketTestCiLo: -0.07552670546302616
+  },
+  favoriteLongshotEventReplays: {
+    summary: {
+      settled_events: 0,
+      events_with_series: 0,
+      total_series_points: 0
+    },
+    events: []
   },
   microstructureBuckets: {
     gate: false,
@@ -955,28 +1050,19 @@ const SNAPSHOT = {
     "data/processed/telonex_convergence_ml/20260530T215450Z/summary.json": 31520,
     "data/processed/execution_training/strategy_data_readiness_latest.json": 59646,
     "data/processed/execution_training/event_market_inventory_latest.json": 14494,
-    "data/processed/telonex_convergence_ml/strategy_signal_diagnostics_latest.json": 11136,
-    "data/processed/execution_training/favorite_longshot_bias_latest.json": 14815,
     "data/processed/execution_training/favorite_longshot_executable_backtest_latest.json": 72452,
     "data/processed/execution_training/favorite_longshot_rule_validation_latest.json": 58000,
-    "data/processed/telonex_convergence_ml/backtest_replay_latest.json": 1678,
-    "data/processed/telonex_convergence_ml/telonex_model_monitor_latest.json": 44140,
-    "data/processed/telonex_convergence_ml/telonex_feature_importance_latest.json": 45484,
-    "data/processed/telonex_convergence_ml/telonex_walk_forward_base_odds_latest.json": 10127,
-    "data/processed/telonex_convergence_ml/telonex_temporal_validation_base_odds_latest.json": 8797,
+    "data/processed/execution_training/favorite_longshot_event_replays_latest.json": 4400000,
     "data/processed/clob_capture/live_telonex_convergence_signals_latest.json": 3995,
-    "data/processed/execution_training/telonex_strategy_buckets_latest.json": 103708,
-    "data/processed/execution_training/telonex_microstructure_buckets_latest.json": 100352,
-    "data/processed/model_data_audit.json": 61397,
-    "data/processed/intragame_data_coverage.json": 30664,
-    "data/processed/poly_history_depth_report.json": 3921
+    "data/processed/execution_training/telonex_microstructure_buckets_latest.json": 100352
   }
 };
 
 const state = {
   loaded: {},
   health: {},
-  runSummaries: []
+  runSummaries: [],
+  selectedReplayId: null
 };
 
 const $ = id => document.getElementById(id);
@@ -1007,6 +1093,17 @@ function fmtInt(value) {
 function fmtPct(value, digits = 2) {
   const n = num(value);
   return n === null ? "--" : `${(n * 100).toFixed(digits)}%`;
+}
+
+function fmtPrice(value, digits = 3) {
+  const n = num(value);
+  return n === null ? "--" : n.toFixed(digits);
+}
+
+function fmtSigned(value, digits = 4) {
+  const n = num(value);
+  if (n === null) return "--";
+  return `${n >= 0 ? "+" : ""}${n.toFixed(digits)}`;
 }
 
 function fmtProb(value) {
@@ -1076,6 +1173,7 @@ function deriveDashboard() {
   const signals = state.loaded.liveSignals;
   const favoriteExecutable = state.loaded.favoriteLongshotExecutable;
   const favoriteRuleValidation = state.loaded.favoriteLongshotRuleValidation;
+  const favoriteLongshotEventReplays = state.loaded.favoriteLongshotEventReplays;
   const microstructureBuckets = state.loaded.microstructureBuckets;
 
   function applyMicrostructure(artifact) {
@@ -1274,6 +1372,10 @@ function deriveDashboard() {
     data.favoriteLongshotRuleValidation.marketTestCiLo = marketTest.ci_lo ?? data.favoriteLongshotRuleValidation.marketTestCiLo;
   }
 
+  if (favoriteLongshotEventReplays) {
+    data.favoriteLongshotEventReplays = favoriteLongshotEventReplays;
+  }
+
   applyMicrostructure(microstructureBuckets);
 
   if (state.runSummaries.length) {
@@ -1402,6 +1504,174 @@ function renderMetrics(data) {
   `).join("");
 }
 
+function replayTimeLabel(event, offsetSec) {
+  const start = Date.parse(event.series_start_ts);
+  const offset = Number(offsetSec);
+  if (!Number.isFinite(start) || !Number.isFinite(offset)) return "--";
+  return new Date(start + offset * 1000).toLocaleString([], {
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit"
+  });
+}
+
+function replayOptionLabel(event) {
+  const stats = event.stats || {};
+  return `${event.title || event.slug || event.replay_id} | ${event.outcome || "token"} | PnL ${fmtSigned(stats.pnl)} / ROI ${fmtPct(stats.roi)}`;
+}
+
+function replayPricePoints(event) {
+  return (event.series_points || []).map(point => ({
+    offset: Number(point[0]),
+    bid: num(point[1]),
+    ask: num(point[2]),
+    mid: num(point[3])
+  })).filter(point => Number.isFinite(point.offset) && point.mid !== null);
+}
+
+function replayPath(points, key, sx, sy) {
+  return points
+    .filter(point => point[key] !== null)
+    .map(point => `${sx(point.offset).toFixed(1)},${sy(point[key]).toFixed(1)}`)
+    .join(" ");
+}
+
+function drawReplayChart(event) {
+  const svg = $("replay-chart");
+  const points = replayPricePoints(event);
+  const markers = (event.markers || []).filter(marker => num(marker.offset_sec) !== null && num(marker.price) !== null);
+  if (!points.length) {
+    svg.innerHTML = `<text x="24" y="42" fill="#627083">No price series available for this event.</text>`;
+    return;
+  }
+
+  const width = 940;
+  const height = 380;
+  const pad = { left: 54, right: 18, top: 20, bottom: 44 };
+  const plotW = width - pad.left - pad.right;
+  const plotH = height - pad.top - pad.bottom;
+  const minX = Math.min(...points.map(point => point.offset));
+  const maxX = Math.max(...points.map(point => point.offset));
+  const priceValues = [
+    ...points.flatMap(point => [point.bid, point.ask, point.mid]),
+    ...markers.map(marker => num(marker.price))
+  ].filter(value => value !== null);
+  let minY = Math.max(0, Math.min(...priceValues));
+  let maxY = Math.min(1, Math.max(...priceValues));
+  const span = Math.max(0.01, maxY - minY);
+  minY = Math.max(0, minY - Math.max(0.02, span * 0.18));
+  maxY = Math.min(1, maxY + Math.max(0.02, span * 0.18));
+  if (maxY - minY < 0.06) {
+    const mid = (maxY + minY) / 2;
+    minY = Math.max(0, mid - 0.03);
+    maxY = Math.min(1, mid + 0.03);
+  }
+  const sx = value => pad.left + ((value - minX) / Math.max(1, maxX - minX)) * plotW;
+  const sy = value => pad.top + (1 - ((value - minY) / Math.max(0.0001, maxY - minY))) * plotH;
+  const yTicks = [0, 0.25, 0.5, 0.75, 1].filter(value => value >= minY - 0.001 && value <= maxY + 0.001);
+  if (!yTicks.length) {
+    yTicks.push(minY, (minY + maxY) / 2, maxY);
+  }
+  const xTicks = [minX, minX + (maxX - minX) / 2, maxX];
+
+  const grid = yTicks.map(value => `
+    <line x1="${pad.left}" y1="${sy(value).toFixed(1)}" x2="${width - pad.right}" y2="${sy(value).toFixed(1)}" stroke="#e9edf3" />
+    <text x="${pad.left - 10}" y="${(sy(value) + 4).toFixed(1)}" text-anchor="end" fill="#627083" font-size="12">${fmtPrice(value, 2)}</text>
+  `).join("");
+  const xAxis = xTicks.map(value => `
+    <text x="${sx(value).toFixed(1)}" y="${height - 14}" text-anchor="middle" fill="#627083" font-size="12">${esc(replayTimeLabel(event, value))}</text>
+  `).join("");
+  const markerSvg = markers.map(marker => {
+    const action = marker.action || "MARK";
+    const color = action === "BUY" ? "#067647" : action === "SETTLEMENT" ? "#1d2430" : "#b42318";
+    const x = sx(num(marker.offset_sec));
+    const y = sy(num(marker.price));
+    const labelY = action === "BUY" ? y - 12 : y + 22;
+    const displayLabel = action === "MARK" ? (marker.horizon_label || "mark") : action === "SETTLEMENT" ? "settle" : "buy";
+    return `
+      <g>
+        <title>${esc(`${marker.label}: ${marker.reason || ""}`)}</title>
+        <circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="6.5" fill="${color}" stroke="#fff" stroke-width="2" />
+        <text x="${x.toFixed(1)}" y="${labelY.toFixed(1)}" text-anchor="middle" fill="${color}" font-size="11" font-weight="700">${esc(displayLabel)}</text>
+      </g>
+    `;
+  }).join("");
+
+  svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
+  svg.innerHTML = `
+    <rect x="0" y="0" width="${width}" height="${height}" fill="#fff" />
+    ${grid}
+    <line x1="${pad.left}" y1="${pad.top}" x2="${pad.left}" y2="${height - pad.bottom}" stroke="#d8dee8" />
+    <line x1="${pad.left}" y1="${height - pad.bottom}" x2="${width - pad.right}" y2="${height - pad.bottom}" stroke="#d8dee8" />
+    <polyline points="${replayPath(points, "bid", sx, sy)}" fill="none" stroke="#9cc7e8" stroke-width="1.5" opacity="0.75" />
+    <polyline points="${replayPath(points, "ask", sx, sy)}" fill="none" stroke="#9cc7e8" stroke-width="1.5" opacity="0.75" />
+    <polyline points="${replayPath(points, "mid", sx, sy)}" fill="none" stroke="#1f77b4" stroke-width="3" />
+    ${markerSvg}
+    ${xAxis}
+  `;
+}
+
+function renderReplay(data) {
+  const replay = data.favoriteLongshotEventReplays || {};
+  const events = replay.events || [];
+  const summary = replay.summary || {};
+  $("replay-count-pill").textContent = events.length ? `${fmtInt(events.length)} events` : "no events";
+  $("replay-count-pill").className = "pill " + (events.length ? "info" : "warn");
+  const select = $("replay-select");
+  if (!events.length) {
+    select.innerHTML = `<option>No replay data loaded</option>`;
+    $("replay-title").textContent = "No event replay data loaded";
+    $("replay-kv").innerHTML = "";
+    $("replay-rationale").textContent = "The public dashboard loads this from favorite_longshot_event_replays_latest.json. If you are opening the file directly, use the GitHub Pages page so browser fetches work.";
+    $("replay-marker-table").innerHTML = "";
+    drawReplayChart({ series_points: [] });
+    return;
+  }
+
+  const selectedStillExists = events.some(event => event.replay_id === state.selectedReplayId);
+  if (!state.selectedReplayId || !selectedStillExists) {
+    state.selectedReplayId = events[0].replay_id;
+  }
+  const event = events.find(item => item.replay_id === state.selectedReplayId) || events[0];
+  const currentOptions = Array.from(select.options).map(option => option.value).join("|");
+  const nextOptions = events.map(event => event.replay_id).join("|");
+  if (currentOptions !== nextOptions) {
+    select.innerHTML = events.map(item => `
+      <option value="${esc(item.replay_id)}">${esc(replayOptionLabel(item))}</option>
+    `).join("");
+  }
+  select.value = event.replay_id;
+
+  const stats = event.stats || {};
+  $("replay-title").textContent = event.title || event.slug || "Backtest event";
+  $("replay-kv").innerHTML = [
+    ["Strategy", event.bucket || replay.strategy || "favorite-longshot"],
+    ["Outcome token", event.outcome || "--"],
+    ["Sport", event.sport_family || "--"],
+    ["Result", stats.won ? "Won" : "Lost"],
+    ["Entry", `${fmtPrice(stats.entry_ask)} ask / ${fmtPrice(stats.entry_bid)} bid`],
+    ["Spread", fmtPrice(stats.entry_spread)],
+    ["Stake", fmtPrice(stats.stake, 4)],
+    ["Event PnL", `${fmtSigned(stats.pnl)} (${fmtPct(stats.roi)})`],
+    ["Final midpoint", fmtPrice(stats.final_mid)],
+    ["Timing", `${event.entry_phase || "--"} before close`],
+    ["Series", `${fmtInt(event.series_point_count)} points from ${fmtInt(event.total_book_rows)} book rows`],
+    ["Replay coverage", `${fmtInt(summary.events_with_series)} / ${fmtInt(summary.settled_events)} settled events`]
+  ].map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("");
+  $("replay-rationale").textContent = event.rationale || "No rationale attached.";
+  $("replay-marker-table").innerHTML = (event.markers || []).map(marker => `
+    <tr>
+      <td><strong>${esc(marker.label || marker.action)}</strong></td>
+      <td>${esc(replayTimeLabel(event, marker.offset_sec))}</td>
+      <td>${esc(fmtPrice(marker.price))}</td>
+      <td>${esc(marker.pnl === undefined ? "--" : `${fmtSigned(marker.pnl)}${marker.roi !== undefined ? ` (${fmtPct(marker.roi)})` : ""}`)}</td>
+      <td>${esc(marker.reason || "--")}</td>
+    </tr>
+  `).join("");
+  drawReplayChart(event);
+}
+
 function renderModel(data) {
   const m = data.latestModel;
   $("model-gate-pill").textContent = m.researchGate ? "Research pass" : "Research hold";
@@ -1496,12 +1766,9 @@ function renderAll() {
   renderVerdict(data);
   renderPlainCards(data);
   renderMetrics(data);
+  renderReplay(data);
   renderModel(data);
-  renderRuns(data);
   renderGates(data);
-  renderGlossary(data);
-  renderRetired(data);
-  renderArtifacts(data);
   $("footer").textContent = `Rendered ${new Date().toLocaleString()} from ${data.loadedFrom}.`;
 }
 
@@ -1528,6 +1795,13 @@ async function loadArtifacts() {
   await Promise.all(loads);
   renderAll();
 }
+
+document.addEventListener("change", event => {
+  if (event.target && event.target.id === "replay-select") {
+    state.selectedReplayId = event.target.value;
+    renderReplay(deriveDashboard());
+  }
+});
 
 loadArtifacts();
 </script>

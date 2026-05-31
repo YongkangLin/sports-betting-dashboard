@@ -34,8 +34,8 @@
   },
   "capital_enabled": false,
   "clob": {
-    "book_rows": 304847,
-    "latest_book_ts": "2026-05-31 00:36:27.629201+00:00",
+    "book_rows": 305005,
+    "latest_book_ts": "2026-05-31 00:48:00.421539+00:00",
     "latest_books": 488,
     "trade_rows": 1314,
     "ws_event_counts": {
@@ -51,11 +51,11 @@
   },
   "collector": {
     "alerts": [
-      "telonex_live_score failed (52 consecutive)"
+      "telonex_live_score failed (54 consecutive)"
     ],
-    "last_loop_finished_at": "2026-05-31T00:33:54.536904+00:00",
-    "loop_count": 540,
-    "status": "running"
+    "last_loop_finished_at": "2026-05-31T00:50:39.814515+00:00",
+    "loop_count": 542,
+    "status": "degraded"
   },
   "event_market_inventory": {
     "active_model_usage": {
@@ -3596,6 +3596,7 @@
   "gate_reasons": [
     "queue/fill model not validated on authenticated fills",
     "need authenticated Polymarket fill/order lifecycle rows",
+    "collector not healthy",
     "Telonex convergence research gate failed",
     "execution-adjusted backtest replay failed: no selected historical replay trades",
     "no predeclared executable taker strategy bucket cleared validation",
@@ -3617,7 +3618,7 @@
     "live strategy LEV evidence incomplete",
     "favorite-longshot bucket has raw edge but not robust event-cluster CI yet"
   ],
-  "generated_at": "2026-05-31T00:38:41.541481+00:00",
+  "generated_at": "2026-05-31T00:50:44.425145+00:00",
   "historical_clob": {
     "depth_rows": 105207074,
     "quote_rows": 7183240,
@@ -3629,8 +3630,8 @@
   "live_capital_gate": false,
   "live_execution_quality": {
     "alpha_fills": 692,
-    "fills": 889,
-    "fills_with_model_version": 249,
+    "fills": 895,
+    "fills_with_model_version": 255,
     "gate_reasons": [
       "need >=500 alpha paper fills with 3s post-fill books within 5s lag",
       "3s alpha average LEV is not positive",
@@ -3638,7 +3639,7 @@
       "wallet-level whale detector unavailable from current trade feed",
       "favorite_longshot_bias has only 13 timely 3s LEV rows after 692 fills"
     ],
-    "generated_at": "2026-05-31T00:36:42.694369+00:00",
+    "generated_at": "2026-05-31T00:48:14.278303+00:00",
     "hold_revert": {
       "hold_rate_3s_to_120s": null,
       "revert_rate_3s_to_120s": null,
@@ -3652,13 +3653,13 @@
     "lev_3s_favorable_rate": 0.0,
     "lev_3s_max_snapshot_lag_sec": 1.121764,
     "lev_3s_p95_snapshot_lag_sec": 1.121764,
-    "lev_3s_probe_rows": 195,
+    "lev_3s_probe_rows": 201,
     "lev_3s_rows": 13,
     "lev_drift_alert_count": 0,
     "lev_drift_latest_50_mean": -0.015682615384615375,
     "lev_drift_max_score": 0.007296857142857149,
     "lev_max_lag_sec": 5.0,
-    "probe_fills": 197,
+    "probe_fills": 203,
     "quality_gate": false,
     "quarantined_strategies": [],
     "report": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/live_execution_quality_latest.md",
@@ -3681,18 +3682,18 @@
   "paper": {
     "authenticated_fill_rows": 0,
     "authenticated_lifecycle_rows": 0,
-    "fill_rows": 889,
+    "fill_rows": 895,
     "lifecycle_counts": {
-      "created": 3092,
-      "filled": 889,
-      "rejected": 1151,
-      "resting": 1941
+      "created": 3138,
+      "filled": 895,
+      "rejected": 1167,
+      "resting": 1971
     },
-    "lifecycle_rows": 7073,
+    "lifecycle_rows": 7171,
     "lifecycle_source_counts": {
-      "paper": 7073
+      "paper": 7171
     },
-    "order_rows": 3092
+    "order_rows": 3138
   },
   "security": {
     "critical": 0,
@@ -8972,15 +8973,15 @@
       "gate_reasons": [
         "authenticated fill rows below 500"
       ],
-      "generated_at": "2026-05-31T00:33:19.208600+00:00",
+      "generated_at": "2026-05-31T00:50:02.552494+00:00",
       "proxy_model_gate": true,
       "report": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/reports/queue_fill_model_latest.md",
-      "test_auc": 0.9612403100775193,
-      "test_baseline_brier": 0.21608323834858562,
-      "test_brier": 0.02329444887064845,
-      "test_rows": 439
+      "test_auc": 0.9565217391304348,
+      "test_baseline_brier": 0.20794981731634224,
+      "test_brier": 0.022775815936313136,
+      "test_rows": 447
     },
-    "queue_rows": 2195,
+    "queue_rows": 2231,
     "telonex_execution_markets": 216,
     "telonex_execution_positive_rate": 0.0038309414471099173,
     "telonex_execution_rows": 2888585,
