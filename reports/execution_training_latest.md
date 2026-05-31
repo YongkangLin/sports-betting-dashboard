@@ -1,6 +1,6 @@
 # Execution Training Set
 
-- Generated: 2026-05-31T01:14:01.548580+00:00
+- Generated: 2026-05-31T01:27:41.556642+00:00
 - Rows: 294
 - Output: /Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/execution_training/execution_training_latest.parquet
 - Retention deleted/kept snapshots: 1 / 24

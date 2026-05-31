@@ -1,11 +1,11 @@
 # Live Execution Quality
 
-- Generated: 2026-05-31T01:19:08.172154+00:00
+- Generated: 2026-05-31T01:25:39.818157+00:00
 - Quality gate: False
 - Gate reasons: need >=500 alpha paper fills with 3s post-fill books within 5s lag, 3s alpha average LEV is not positive, 3s alpha favorable post-fill move rate is not >52%, wallet-level whale detector unavailable from current trade feed, favorite_longshot_bias has only 13 timely 3s LEV rows after 692 fills
-- Paper fills analyzed: 910
-- Alpha/probe fills analyzed: 692 / 218
-- Paper fills with model version: 270
+- Paper fills analyzed: 912
+- Alpha/probe fills analyzed: 692 / 220
+- Paper fills with model version: 272
 - Strategy health gate: False
 - Quarantined strategies: none
 - LEV drift alerts: 0 / max score 0.007296857142857149
@@ -23,7 +23,7 @@
 
 | Horizon | Rows | Avg LEV/share | Favorable | Avg lag |
 |---:|---:|---:|---:|---:|
-| 3s | 216 | -0.013040988493536592 | 1.85% | 0.6655966157407407 |
+| 3s | 218 | -0.013074355571577542 | 1.83% | 0.6689024082568806 |
 | 30s | 0 | None | n/a | None |
 | 120s | 0 | None | n/a | None |
 | 300s | 11 | 0.025279454545454536 | 18.18% | 2.1687010909090905 |
@@ -39,7 +39,7 @@
 | Strategy | Model | Side | Fills | 3s rows | 3s avg LEV | 3s favorable | 120s rows | 120s avg LEV | 120s favorable |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|
 | favorite_longshot_bias | None | buy | 640 | 0 | None | n/a | 59 | -0.02346764338521336 | 38.98% |
-| data_collection_probe | data-collection-probe-v1 | buy | 218 | 216 | -0.013040988493536592 | 1.85% | 0 | None | n/a |
+| data_collection_probe | data-collection-probe-v1 | buy | 220 | 218 | -0.013074355571577542 | 1.83% | 0 | None | n/a |
 | favorite_longshot_bias | favorite_longshot_bias:rules-v1 | buy | 52 | 13 | -0.015682615384615375 | 0.00% | 0 | None | n/a |
 
 ## Strategy Health
