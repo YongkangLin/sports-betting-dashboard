@@ -2,67 +2,10 @@
   "clob_actual_opposite_minutes": 329406,
   "clob_derived_other_events": 0,
   "clob_two_sided_events": 277,
-  "complete_both_venues_events": 267,
+  "complete_both_venues_events": 273,
   "events": 277,
-  "generated_at": "2026-05-31T08:16:04.973620+00:00",
+  "generated_at": "2026-05-31T08:36:57.507980+00:00",
   "missing_examples": [
-    {
-      "clob_two_sided": true,
-      "market": "Soccer",
-      "outcome": "No",
-      "sportsbook_match": {
-        "away_team": "Gr\u00eamio",
-        "commence_time": "2026-04-01T20:00:00+00:00",
-        "event_id": "5eea5b74bf6c9a294ac9ace96d58d645",
-        "first_seen": "2026-03-20T19:55:38+00:00",
-        "home_team": "Palmeiras",
-        "market": "h2h",
-        "match_score": 1.0,
-        "point": null,
-        "sport": "soccer_brazil_campeonato",
-        "time_gap_hours": 28.5
-      },
-      "sportsbook_points": 0,
-      "title": "Palmeiras vs Gr\u00eamio"
-    },
-    {
-      "clob_two_sided": true,
-      "market": "Soccer",
-      "outcome": "No",
-      "sportsbook_match": {
-        "away_team": "Paris Saint Germain",
-        "commence_time": "2026-02-18T20:00:00+00:00",
-        "event_id": "ae3cd6dfda26ca3798df658e68245805",
-        "first_seen": "2026-01-30T19:55:37+00:00",
-        "home_team": "AS Monaco",
-        "market": "h2h",
-        "match_score": 1.0,
-        "point": null,
-        "sport": "soccer_uefa_champs_league",
-        "time_gap_hours": 24.0
-      },
-      "sportsbook_points": 0,
-      "title": "AS Monaco vs Paris Saint Germain"
-    },
-    {
-      "clob_two_sided": true,
-      "market": "Soccer",
-      "outcome": "No",
-      "sportsbook_match": {
-        "away_team": "Arsenal",
-        "commence_time": "2026-03-10T19:45:00+00:00",
-        "event_id": "47e3cc3f2a61684f96117cff71d35d7e",
-        "first_seen": "2026-02-27T22:55:37+00:00",
-        "home_team": "Bayer Leverkusen",
-        "market": "h2h",
-        "match_score": 1.0,
-        "point": null,
-        "sport": "soccer_uefa_champs_league",
-        "time_gap_hours": 22.0
-      },
-      "sportsbook_points": 0,
-      "title": "Bayer Leverkusen vs Arsenal"
-    },
     {
       "clob_two_sided": true,
       "market": "Soccer",
@@ -75,47 +18,9 @@
       "clob_two_sided": true,
       "market": "Soccer",
       "outcome": "No",
-      "sportsbook_match": {
-        "away_team": "Burnley",
-        "commence_time": "2026-04-18T14:00:00+00:00",
-        "event_id": "8a88098e8c6f096661abb89ef4a82d14",
-        "first_seen": "2026-03-21T16:25:37+00:00",
-        "home_team": "Nottingham Forest",
-        "market": "h2h",
-        "match_score": 1.0,
-        "point": null,
-        "sport": "soccer_epl",
-        "time_gap_hours": 23.0
-      },
-      "sportsbook_points": 0,
-      "title": "Nottingham Forest vs Burnley"
-    },
-    {
-      "clob_two_sided": true,
-      "market": "Soccer",
-      "outcome": "No",
       "sportsbook_match": null,
       "sportsbook_points": 0,
       "title": "Tottenham Hotspur vs Sporting Lisbon"
-    },
-    {
-      "clob_two_sided": true,
-      "market": "Soccer",
-      "outcome": "No",
-      "sportsbook_match": {
-        "away_team": "Newcastle United",
-        "commence_time": "2026-02-17T20:00:00+00:00",
-        "event_id": "8dfca60155ae563e31563e6c79e12c00",
-        "first_seen": "2026-02-02T22:55:37+00:00",
-        "home_team": "Qaraba\u011f FK",
-        "market": "h2h",
-        "match_score": 1.0,
-        "point": null,
-        "sport": "soccer_uefa_champs_league",
-        "time_gap_hours": 21.75
-      },
-      "sportsbook_points": 0,
-      "title": "Qaraba\u011f FK vs Newcastle United"
     },
     {
       "clob_two_sided": true,
@@ -132,28 +37,9 @@
       "sportsbook_match": null,
       "sportsbook_points": 0,
       "title": "Barcelona vs BM"
-    },
-    {
-      "clob_two_sided": true,
-      "market": "Soccer",
-      "outcome": "Fredrikstad FK",
-      "sportsbook_match": {
-        "away_team": "IK Start",
-        "commence_time": "2026-05-29T17:00:00+00:00",
-        "event_id": "9ed11a325ca9ac074e04b632a7fe30b2",
-        "first_seen": "2026-05-28T05:55:37+00:00",
-        "home_team": "Fredrikstad FK",
-        "market": "spreads",
-        "match_score": 1.0,
-        "point": 1.5,
-        "sport": "soccer_norway_eliteserien",
-        "time_gap_hours": 0.0
-      },
-      "sportsbook_points": 0,
-      "title": "Fredrikstad FK vs IK Start spread away-1.5"
     }
   ],
   "odds_event_matches": 273,
-  "sportsbook_complete_side_events": 267,
-  "sportsbook_complete_side_points": 23565
+  "sportsbook_complete_side_events": 273,
+  "sportsbook_complete_side_points": 18926
 }
