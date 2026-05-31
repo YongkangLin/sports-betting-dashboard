@@ -11503,7 +11503,7 @@
       "visible_gap_windows": 0
     }
   ],
-  "generated_at": "2026-05-31T16:10:44.983292+00:00",
+  "generated_at": "2026-05-31T18:21:31.157440+00:00",
   "inputs": {
     "gap_audit": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/reports/replay_sportsbook_gap_audit_latest.json",
     "source_window_audit": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/reports/replay_sportsbook_source_window_audit_latest.json",
@@ -11518,6 +11518,15 @@
     "estimated_credits_per_snapshot": 90,
     "estimated_credits_to_finish_5m": 1280160,
     "paid_remaining": 126
+  },
+  "quote_end_checks": {
+    "last_quote_after_event_end": 274,
+    "last_quote_after_final": 0,
+    "last_quote_before_event_end_gt_10m": 2,
+    "last_quote_before_event_end_gt_1h": 1,
+    "last_quote_before_final_gt_10m": 4,
+    "last_quote_before_final_gt_1h": 3,
+    "last_quote_non_terminal_probability": 179
   },
   "totals": {
     "clob_complete_events": 277,

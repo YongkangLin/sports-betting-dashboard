@@ -1,6 +1,6 @@
 # Dashboard Sportsbook Integrity Audit
 
-- Generated: 2026-05-31T16:10:44.983292+00:00
+- Generated: 2026-05-31T18:21:31.157440+00:00
 - Replay events audited: 277
 - Polymarket one-minute CLOB complete: 277 / 277
 - Sportsbook event matches: 276 / 277
@@ -46,6 +46,18 @@
 | basketball_wnba | 2 | 2 | 2 | 2 | 0 | 0 |
 | icehockey_nhl | 2 | 2 | 2 | 2 | 0 | 0 |
 | soccer | 175 | 174 | 174 | 66 | 18,668 | 0 |
+
+## Sportsbook Quote End Checks
+
+| Check | Events | Meaning |
+|---|---:|---|
+| Last sportsbook quote more than 10m before Polymarket listed close | 2 | Book stopped offering a complete usable line before the listed market close/start timestamp. Do not force-fill past this point. |
+| Last sportsbook quote more than 1h before Polymarket listed close | 1 | Large late gap; check source status before using this interval for model labels. |
+| Last sportsbook quote after Polymarket listed close | 274 | The source still had quotes after Polymarket's listed close/start timestamp, usually because live/pre-final quote windows differ by venue. |
+| Last sportsbook quote more than 10m before Polymarket final/settlement | 4 | The sportsbook source stopped before the replay's final settlement timestamp. This is expected when books suspend/remove lines. |
+| Last sportsbook quote more than 1h before Polymarket final/settlement | 3 | Large gap to settlement; do not treat the last sportsbook quote as a game-ending probability. |
+| Last sportsbook quote after Polymarket final/settlement | 0 | Unexpected timing edge case if nonzero; inspect before using these rows. |
+| Last sportsbook fair probability was non-terminal | 179 | Expected: sportsbook odds are quotes, not settlement prices, so they do not need to end at 0/100. |
 
 ## Checked Examples
 

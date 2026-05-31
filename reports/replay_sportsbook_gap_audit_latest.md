@@ -1,6 +1,6 @@
 # Replay Sportsbook Gap Audit
 
-- Generated: 2026-05-31T16:09:57.900766+00:00
+- Generated: 2026-05-31T18:18:26.104463+00:00
 - Replay events audited: 277
 - Events with sportsbook overlay points: 276
 - Events with matched Odds API event but no usable sportsbook line: 0
@@ -182,5 +182,5 @@ These events have additional sportsbook timestamps in older/non-replay warehouse
 
 | Event | Sportsbook match | Points | Start gap | Last quote to final | Last selected fair | Notes |
 |---|---|---:|---:|---:|---:|---|
-| 76ers vs Nuggets | Denver Nuggets vs Philadelphia 76ers 2026-03-18T01:10:00+00:00 | 327 | 5.4d | 5.1m | 95.6% | has_sportsbook_overlay, sportsbook_event_not_listed_until_after_clob_start |
 | Oilers vs Ducks total 4.5 | Anaheim Ducks vs Edmonton Oilers 2026-04-25T02:10:00+00:00 | 21 | 38s | 1.7h | 84.6% | has_sportsbook_overlay, sportsbook_last_quote_not_settlement |
+| 76ers vs Nuggets | Denver Nuggets vs Philadelphia 76ers 2026-03-18T01:10:00+00:00 | 327 | 5.4d | 5.1m | 95.6% | has_sportsbook_overlay, sportsbook_event_not_listed_until_after_clob_start |
