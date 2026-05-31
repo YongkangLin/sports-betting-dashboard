@@ -3369,6 +3369,9 @@ function renderReplay(data) {
   $("replay-data-source-select").disabled = false;
   select.disabled = false;
   if (!events.length) {
+    const dataset = data.strategyBuckets || {};
+    const datasetLine = `${fmtInt(dataset.rows)} rows | ${fmtInt(dataset.markets)} markets | ${fmtInt(dataset.tokens)} tokens`;
+    const coverageLine = `${fmtPct(dataset.oddsRowCoverage)} Odds API coverage`;
     marketSelect.disabled = true;
     strategySelect.disabled = true;
     $("replay-data-source-select").disabled = true;
@@ -3380,12 +3383,16 @@ function renderReplay(data) {
     $("replay-count-pill").textContent = "no events";
     $("replay-count-pill").className = "pill warn";
     $("replay-title").textContent = "No event replay data loaded";
-    $("replay-event-strip").innerHTML = "";
+    $("replay-event-strip").innerHTML = [
+      ["Protected dataset", datasetLine],
+      ["Feature coverage", coverageLine],
+      ["Replay status", "event playback data not loaded"]
+    ].map(([k, v]) => `<div class="event-stat"><span>${esc(k)}</span><strong>${esc(v)}</strong></div>`).join("");
     $("decision-title").textContent = "No point selected";
     $("decision-action").textContent = "--";
     $("decision-action").className = "pill info";
     $("replay-kv").innerHTML = "";
-    $("replay-rationale").innerHTML = `<strong>Rationale</strong><span>Historical replay details were retired from the lean repo; use live signals, validation, and execution-quality gates for the current model workflow.</span>`;
+    $("replay-rationale").innerHTML = `<strong>Rationale</strong><span>The protected Telonex/Odds dataset is available, but replay playback needs separate minute-level event paths and trade markers. Those replay artifacts are not part of the lean repo; use live signals, validation, and execution-quality gates for the current model workflow.</span>`;
     drawReplayChart({ series_points: [] });
     return;
   }
