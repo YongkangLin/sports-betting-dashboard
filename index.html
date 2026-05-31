@@ -1479,8 +1479,6 @@ function renderVerdict(data) {
   $("overall-pill").className = "pill " + (data.overall.liveCapitalGate ? "warn" : "bad");
   $("capital-pill").textContent = data.overall.capitalEnabled ? "Capital enabled" : "Capital off";
   $("capital-pill").className = "pill " + (data.overall.capitalEnabled ? "warn" : "bad");
-  if ($("rendered-at")) $("rendered-at").textContent = `status ${new Date(data.generatedAt).toLocaleString()}`;
-  if ($("source-mode")) $("source-mode").textContent = data.loadedFrom;
 }
 
 function renderPlainCards(data) {

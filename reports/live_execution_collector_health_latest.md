@@ -1,6 +1,6 @@
 # Live Execution Collector Health
 
-- Generated: 2026-05-31T01:31:53.961040+00:00
+- Generated: 2026-05-31T01:32:13.171860+00:00
 - Loop status: running
 - Started: 2026-05-29T22:56:51.160360+00:00
 - Loop count: 550
@@ -20,8 +20,8 @@ ws_capture: ok=True last_success=2026-05-31T01:31:14.089725+00:00 failures=0
 telonex_live_score: ok=False last_success=2026-05-30T20:09:38.550837+00:00 failures=62
 paper_trade: ok=False last_success=2026-05-31T01:25:04.287234+00:00 failures=1
 post_trade_http_capture: ok=True last_success=2026-05-31T01:31:53.959606+00:00 failures=0
-live_execution_quality: ok=True last_success=2026-05-31T01:25:41.290673+00:00 failures=0
-user_lifecycle: ok=True last_success=2026-05-31T01:25:59.440422+00:00 failures=0
+live_execution_quality: ok=True last_success=2026-05-31T01:32:03.703052+00:00 failures=0
+user_lifecycle: ok=True last_success=2026-05-31T01:32:13.170696+00:00 failures=0
 execution_training: ok=True last_success=2026-05-31T01:27:41.667702+00:00 failures=0
 queue_training: ok=True last_success=2026-05-31T01:27:58.942518+00:00 failures=0
 queue_fill_model: ok=True last_success=2026-05-31T01:28:23.231863+00:00 failures=0
