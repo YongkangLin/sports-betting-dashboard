@@ -1,9 +1,9 @@
 # Live Execution Status
 
-- Generated: 2026-05-31T07:33:02.832999+00:00
+- Generated: 2026-05-31T09:38:21.840064+00:00
 - Capital enabled: False
 - Live capital gate: False
-- Gate reasons: queue/fill model not validated on authenticated fills, need authenticated Polymarket fill/order lifecycle rows, Telonex convergence research gate failed, execution-adjusted backtest replay failed: no selected historical replay trades, no predeclared executable taker strategy bucket cleared validation, Telonex microstructure bucket audit failed, Telonex model monitor hold, live paper-fill LEV/price-hold quality gate failed, Telonex market-disjoint validation gate failed, Telonex temporal validation gate failed, favorite-longshot executable Telonex backtest gate failed, favorite-longshot out-of-sample rule validation failed, strategy/data readiness gate failed: Odds API point-in-time features have insufficient test coverage
+- Gate reasons: queue/fill model not validated on authenticated fills, need authenticated Polymarket fill/order lifecycle rows, Telonex convergence research gate failed, execution-adjusted backtest replay failed: no selected historical replay trades, no predeclared executable taker strategy bucket cleared validation, Telonex microstructure bucket audit failed, Telonex model monitor hold, live paper-fill LEV/price-hold quality gate failed, Telonex market-disjoint validation gate failed, Telonex temporal validation gate failed, favorite-longshot executable Telonex backtest gate failed, favorite-longshot out-of-sample rule validation failed, strategy/data readiness gate failed: Telonex manifest references raw files not present in this worktree; Odds API point-in-time features have insufficient test coverage
 - Gate warnings: cross-venue Kalshi comparison unavailable: no verified equivalent markets, predeclared non-ML Telonex strategy buckets failed, live game-state feed too thin for event-regime/scoreline/garbage-time features, trade-flow feature family has no confirmed economic permutation impact yet, Odds feature family has no confirmed economic permutation impact in latest audit, Odds API fusion not yet proven on held-out Telonex test, live strategy LEV evidence incomplete, favorite-longshot bucket has raw edge but not robust event-cluster CI yet
 - Collector: healthy loop 479
 - Latest executable books: 0
@@ -18,9 +18,10 @@
 - Authenticated lifecycle/fill rows: 0 / 0
 - Execution rows: 191
 - Telonex markets/assets: 389219 / 778438
-- Telonex quote/depth/trade rows: 7183240 / 105207074 / 249997
+- Telonex manifest files existing/missing/total: 1136 / 5189 / 6325
+- Telonex quote/depth/trade rows: 7618994 / 42864676 / 861000
 - Telonex Odds API features rows/coverage: 1414160 / 0.48956842190899696
-- Historical CLOB quote/depth rows: 7183240 / 105207074
+- Historical CLOB quote/depth rows: 7618994 / 42864676
 - Queue rows: 1125
 - Queue fill model gate/auth/test AUC/Brier: True / False / 0.898747537292429 / 0.08262604307761175
 - Telonex execution labels/markets/tokens: 2888585 / 216 / 429
@@ -33,7 +34,7 @@
 - Telonex convergence version/feature set/selection/test ROI/trades/gate: 20260530T215450Z-3e90e2b5d8da / base_odds / convergence_prob_lower / None / 0 / False
 - Telonex label coverage gate/reasons: True / none
 - Strategy/data readiness gate: False / HOLD: strategy is defined, but dataset is not complete enough to prove the bot
-- Complete-side market data gate/CLOB both-side/complete both venues/missing sportsbook overlays: True / 277 / 264 / 13
+- Complete-side market data gate/CLOB both-side/complete both venues/missing sportsbook overlays: True / 277 / 276 / 1
 - Telonex odds feature held-out coverage/markets/gate: 0.2977453997362306 / 5 / True
 - Telonex monitor: HOLD: latest research gate failed; latest external validation gate failed; latest test ROI is not positive; latest test CI lower bound is not positive / external gate False / correlated p05 None
 - Telonex market-disjoint validation: False / ROI None / trades 0 / folds 2

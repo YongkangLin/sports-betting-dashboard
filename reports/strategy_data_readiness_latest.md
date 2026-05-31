@@ -1,9 +1,9 @@
 # Strategy And Data Readiness
 
-- Generated: 2026-05-31T07:33:03.495973+00:00
+- Generated: 2026-05-31T09:36:20.401219+00:00
 - Overall gate: False
 - Verdict: HOLD: strategy is defined, but dataset is not complete enough to prove the bot
-- Gate reasons: Odds API point-in-time features have insufficient test coverage
+- Gate reasons: Telonex manifest references raw files not present in this worktree; Odds API point-in-time features have insufficient test coverage
 
 ## Active Strategy
 
@@ -19,7 +19,8 @@
 - Labels/markets/tokens: 2,888,585 / 216 / 429
 - Time span: 2026-03-02 00:03:00+00:00 to 2026-05-29 23:59:00+00:00
 - Sports: {'baseball_mlb': 1731351, 'soccer': 1108317, 'basketball_wnba': 43570, 'icehockey_nhl': 5347}
-- Telonex quote/depth/trade rows: 7,183,240 / 105,207,074 / 249,997
+- Telonex quote/depth/trade rows: 7,618,994 / 42,864,676 / 861,000
+- Telonex manifest files existing/missing/total: 1,136 / 5,189 / 6,325
 - Telonex downloaded date span: 2025-10-26 to 2026-05-29
 - Telonex catalog quote span: 2025-10-11 to 2026-05-29
 
@@ -28,8 +29,8 @@
 - Gate: True
 - Polymarket actual both-side CLOB events: 277 / 277
 - Polymarket derived opposite-token lines: 0
-- Complete on both CLOB and sportsbook overlays: 265 / 277 (95.67%)
-- Sportsbook missing/incomplete overlay events: 12
+- Complete on both CLOB and sportsbook overlays: 276 / 277 (99.64%)
+- Sportsbook missing/incomplete overlay events: 1
 - Completeness reasons: none
 
 ## Split Coverage
@@ -44,6 +45,7 @@
 
 | Gate | Status |
 |---|---:|
+| download_manifest_integrity_gate | False |
 | historical_l2_scale_gate | True |
 | heldout_market_extent_gate | True |
 | trade_confirmed_fill_holdout_gate | True |

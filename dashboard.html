@@ -1030,6 +1030,9 @@ const SNAPSHOT = {
     telonexQuoteRows: 6719183,
     telonexDepthRows: 34575311,
     telonexTradeRows: 168681,
+    telonexManifestFiles: 0,
+    telonexExistingFiles: 0,
+    telonexMissingFiles: 0,
     liveSignalsSelected: 0,
     liveSignalRows: 2320,
     liveSignalCandidates: 212,
@@ -1184,7 +1187,7 @@ const SNAPSHOT = {
       tone: "warn",
       label: "Is the data the problem?",
       answer: "Partly",
-      copy: "There is a lot of CLOB data now, but authenticated fills, test odds coverage, and validation gates are still missing."
+      copy: "There is a lot of CLOB data now, but authenticated fills, test odds coverage, and manifest integrity still block proof."
     }
   ],
   gates: [
@@ -1194,7 +1197,7 @@ const SNAPSHOT = {
     { name: "Works in later time periods", ok: false, evidence: "No. The temporal check failed, so it has not proven it survives time." },
     { name: "Enough clean inputs", ok: false, evidence: "Not yet. Test odds coverage is weak and active observed markets are below the target." },
     { name: "Real fill proof", ok: false, evidence: "No. There are 0 authenticated fills, so paper fills are not enough." },
-    { name: "Historical order-book data", ok: true, evidence: "Yes. Telonex has millions of quote/depth/trade rows; raw data scale is no longer the main excuse." },
+    { name: "Historical order-book data", ok: false, evidence: "Needs audit. The dashboard now checks whether Telonex manifest entries resolve to files before counting them." },
     { name: "Secret hygiene", ok: false, evidence: "Not safe for live execution until chat-leaked keys are rotated." }
   ],
   modelRuns: [
@@ -1631,6 +1634,19 @@ function deriveDashboard() {
     data.execution.telonexQuoteRows = live.telonex?.quote_rows ?? data.execution.telonexQuoteRows;
     data.execution.telonexDepthRows = live.telonex?.depth_rows ?? data.execution.telonexDepthRows;
     data.execution.telonexTradeRows = live.telonex?.trade_rows ?? data.execution.telonexTradeRows;
+    data.execution.telonexManifestFiles = live.telonex?.download_files ?? data.execution.telonexManifestFiles;
+    data.execution.telonexExistingFiles = live.telonex?.download_existing_files ?? data.execution.telonexExistingFiles;
+    data.execution.telonexMissingFiles = live.telonex?.download_missing_files ?? data.execution.telonexMissingFiles;
+    const historicalGate = data.gates.find(gate => gate.name === "Historical order-book data");
+    if (historicalGate) {
+      const manifestFiles = data.execution.telonexManifestFiles || 0;
+      const existingFiles = data.execution.telonexExistingFiles || 0;
+      const missingFiles = data.execution.telonexMissingFiles || 0;
+      historicalGate.ok = manifestFiles > 0 && missingFiles === 0;
+      historicalGate.evidence = historicalGate.ok
+        ? `Clean. ${existingFiles.toLocaleString()} Telonex manifest files resolve locally.`
+        : `Blocked. ${missingFiles.toLocaleString()} of ${manifestFiles.toLocaleString()} Telonex manifest files do not resolve locally, so some apparent gaps are missing-data issues.`;
+    }
     const fav = live.favorite_longshot_executable || {};
     const favCoverage = fav.coverage || {};
     const favSettlement = fav.settlement_total || {};

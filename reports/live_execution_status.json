@@ -3333,7 +3333,7 @@
     "Telonex temporal validation gate failed",
     "favorite-longshot executable Telonex backtest gate failed",
     "favorite-longshot out-of-sample rule validation failed",
-    "strategy/data readiness gate failed: Odds API point-in-time features have insufficient test coverage"
+    "strategy/data readiness gate failed: Telonex manifest references raw files not present in this worktree; Odds API point-in-time features have insufficient test coverage"
   ],
   "gate_warnings": [
     "cross-venue Kalshi comparison unavailable: no verified equivalent markets",
@@ -3345,11 +3345,11 @@
     "live strategy LEV evidence incomplete",
     "favorite-longshot bucket has raw edge but not robust event-cluster CI yet"
   ],
-  "generated_at": "2026-05-31T07:33:02.832999+00:00",
+  "generated_at": "2026-05-31T09:38:21.840064+00:00",
   "historical_clob": {
-    "depth_rows": 105207074,
-    "quote_rows": 7183240,
-    "telonex_depth_rows": 105207074
+    "depth_rows": 42864676,
+    "quote_rows": 7618994,
+    "telonex_depth_rows": 42864676
   },
   "kalshi": {
     "verified_mappings": 0
@@ -3437,10 +3437,12 @@
       "tokens": 429
     },
     "gate_reasons": [
+      "Telonex manifest references raw files not present in this worktree",
       "Odds API point-in-time features have insufficient test coverage"
     ],
     "gates": {
       "complete_side_market_data_gate": true,
+      "download_manifest_integrity_gate": false,
       "heldout_market_extent": {
         "legacy_absolute_gate": false,
         "legacy_absolute_min_test_markets": 100,
@@ -3455,11 +3457,12 @@
       "overall_gate": false,
       "quality_gate": true,
       "reasons": [
+        "Telonex manifest references raw files not present in this worktree",
         "Odds API point-in-time features have insufficient test coverage"
       ],
       "trade_confirmed_fill_holdout_gate": true
     },
-    "generated_at": "2026-05-31T05:23:51.436650+00:00",
+    "generated_at": "2026-05-31T09:36:20.401219+00:00",
     "latest_model_monitor": {
       "adverse_selection": {
         "available": false,
@@ -3813,205 +3816,28 @@
       "clob_actual_opposite_minutes": 329406,
       "clob_derived_other_events": 0,
       "clob_two_sided_events": 277,
-      "complete_both_venues_events": 264,
-      "complete_both_venues_rate": 0.9530685920577617,
+      "complete_both_venues_events": 276,
+      "complete_both_venues_rate": 0.9963898916967509,
       "events": 277,
       "gate": true,
-      "generated_at": "2026-05-31T05:20:20.028309+00:00",
+      "generated_at": "2026-05-31T09:21:23.088467+00:00",
       "min_complete_both_venues_rate": 0.95,
       "missing_examples": [
         {
           "clob_two_sided": true,
-          "market": "NHL",
-          "outcome": "Over",
-          "sportsbook_match": {
-            "away_team": "Anaheim Ducks",
-            "commence_time": "2026-04-23T02:10:00+00:00",
-            "event_id": "36ed21131d3e0f66cdddfaf605807019",
-            "home_team": "Edmonton Oilers",
-            "market": "totals",
-            "match_score": 0.95,
-            "point": 4.5,
-            "sport": "icehockey_nhl"
-          },
-          "sportsbook_points": 0,
-          "title": "Oilers vs Ducks total 4.5"
-        },
-        {
-          "clob_two_sided": true,
-          "market": "Soccer",
-          "outcome": "No",
-          "sportsbook_match": {
-            "away_team": "Gr\u00eamio",
-            "commence_time": "2026-04-01T20:00:00+00:00",
-            "event_id": "5eea5b74bf6c9a294ac9ace96d58d645",
-            "home_team": "Palmeiras",
-            "market": "h2h",
-            "match_score": 1.0,
-            "point": null,
-            "sport": "soccer_brazil_campeonato"
-          },
-          "sportsbook_points": 0,
-          "title": "Palmeiras vs Gr\u00eamio"
-        },
-        {
-          "clob_two_sided": true,
-          "market": "Soccer",
-          "outcome": "No",
-          "sportsbook_match": {
-            "away_team": "Paris Saint Germain",
-            "commence_time": "2026-02-18T20:00:00+00:00",
-            "event_id": "ae3cd6dfda26ca3798df658e68245805",
-            "home_team": "AS Monaco",
-            "market": "h2h",
-            "match_score": 1.0,
-            "point": null,
-            "sport": "soccer_uefa_champs_league"
-          },
-          "sportsbook_points": 0,
-          "title": "AS Monaco vs Paris Saint Germain"
-        },
-        {
-          "clob_two_sided": true,
-          "market": "Soccer",
-          "outcome": "No",
-          "sportsbook_match": {
-            "away_team": "Arsenal",
-            "commence_time": "2026-03-10T19:45:00+00:00",
-            "event_id": "47e3cc3f2a61684f96117cff71d35d7e",
-            "home_team": "Bayer Leverkusen",
-            "market": "h2h",
-            "match_score": 1.0,
-            "point": null,
-            "sport": "soccer_uefa_champs_league"
-          },
-          "sportsbook_points": 0,
-          "title": "Bayer Leverkusen vs Arsenal"
-        },
-        {
-          "clob_two_sided": true,
-          "market": "Soccer",
-          "outcome": "No",
-          "sportsbook_match": {
-            "away_team": "Mantova",
-            "commence_time": "2025-11-29T14:00:00+00:00",
-            "event_id": "f837fbd8a56e9288b50bc2160ce35572",
-            "home_team": "Venezia",
-            "market": "h2h",
-            "match_score": 1.0,
-            "point": null,
-            "sport": "soccer_italy_serie_b"
-          },
-          "sportsbook_points": 0,
-          "title": "Venezia vs Mantova"
-        },
-        {
-          "clob_two_sided": true,
           "market": "Soccer",
           "outcome": "No",
           "sportsbook_match": null,
           "sportsbook_points": 0,
-          "title": "Bragantino vs Cear\u00e1"
-        },
-        {
-          "clob_two_sided": true,
-          "market": "NBA",
-          "outcome": "Heat",
-          "sportsbook_match": {
-            "away_team": "Brooklyn Nets",
-            "commence_time": "2026-03-04T00:40:00+00:00",
-            "event_id": "637bb875ffdc47533ca3ed42d7bbcaa7",
-            "home_team": "Miami Heat",
-            "market": "h2h",
-            "match_score": 0.95,
-            "point": null,
-            "sport": "basketball_nba"
-          },
-          "sportsbook_points": 0,
-          "title": "Nets vs Heat"
-        },
-        {
-          "clob_two_sided": true,
-          "market": "Soccer",
-          "outcome": "No",
-          "sportsbook_match": {
-            "away_team": "Burnley",
-            "commence_time": "2026-04-18T14:00:00+00:00",
-            "event_id": "8a88098e8c6f096661abb89ef4a82d14",
-            "home_team": "Nottingham Forest",
-            "market": "h2h",
-            "match_score": 1.0,
-            "point": null,
-            "sport": "soccer_epl"
-          },
-          "sportsbook_points": 0,
-          "title": "Nottingham Forest vs Burnley"
-        },
-        {
-          "clob_two_sided": true,
-          "market": "Soccer",
-          "outcome": "No",
-          "sportsbook_match": null,
-          "sportsbook_points": 0,
-          "title": "Tottenham Hotspur vs Sporting Lisbon"
-        },
-        {
-          "clob_two_sided": true,
-          "market": "Soccer",
-          "outcome": "No",
-          "sportsbook_match": {
-            "away_team": "Newcastle United",
-            "commence_time": "2026-02-17T20:00:00+00:00",
-            "event_id": "8dfca60155ae563e31563e6c79e12c00",
-            "home_team": "Qaraba\u011f FK",
-            "market": "h2h",
-            "match_score": 1.0,
-            "point": null,
-            "sport": "soccer_uefa_champs_league"
-          },
-          "sportsbook_points": 0,
-          "title": "Qaraba\u011f FK vs Newcastle United"
-        },
-        {
-          "clob_two_sided": true,
-          "market": "Soccer",
-          "outcome": "No",
-          "sportsbook_match": null,
-          "sportsbook_points": 0,
-          "title": "Sporting Lisbon vs Barcelona"
-        },
-        {
-          "clob_two_sided": true,
-          "market": "Soccer",
-          "outcome": "No",
-          "sportsbook_match": null,
-          "sportsbook_points": 0,
-          "title": "Barcelona vs BM"
-        },
-        {
-          "clob_two_sided": true,
-          "market": "Soccer",
-          "outcome": "Fredrikstad FK",
-          "sportsbook_match": {
-            "away_team": "IK Start",
-            "commence_time": "2026-05-29T17:00:00+00:00",
-            "event_id": "9ed11a325ca9ac074e04b632a7fe30b2",
-            "home_team": "Fredrikstad FK",
-            "market": "spreads",
-            "match_score": 1.0,
-            "point": 1.5,
-            "sport": "soccer_norway_eliteserien"
-          },
-          "sportsbook_points": 0,
-          "title": "Fredrikstad FK vs IK Start spread away-1.5"
+          "title": "Barcelona vs Bayern Munich"
         }
       ],
-      "odds_event_matches": 273,
+      "odds_event_matches": 276,
       "path": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/reports/two_sided_market_data_completeness_latest.json",
       "reasons": [],
-      "sportsbook_complete_side_events": 264,
-      "sportsbook_complete_side_points": 1355,
-      "sportsbook_missing_or_incomplete_events": 13
+      "sportsbook_complete_side_events": 276,
+      "sportsbook_complete_side_points": 19211,
+      "sportsbook_missing_or_incomplete_events": 1
     },
     "odds_features": {
       "config": {
@@ -4355,20 +4181,38 @@
     "telonex_download": {
       "date_max": "2026-05-29",
       "date_min": "2025-10-26",
-      "depth_files": 2688,
-      "depth_rows": 105207074,
+      "depth_files": 380,
+      "depth_rows": 42864676,
+      "existing_files": 1136,
       "files_by_channel": {
-        "book_snapshot_5": 2688,
-        "quotes": 1858,
-        "trades": 1047
+        "book_snapshot_5": 380,
+        "quotes": 380,
+        "trades": 376
       },
-      "quote_rows": 7183240,
+      "manifest_files": 6325,
+      "manifest_files_by_channel": {
+        "book_snapshot_5": 2692,
+        "quotes": 2224,
+        "trades": 1409
+      },
+      "manifest_rows_by_channel": {
+        "book_snapshot_5": 105207694,
+        "quotes": 14538432,
+        "trades": 1064811
+      },
+      "missing_files": 5189,
+      "missing_files_by_channel": {
+        "book_snapshot_5": 2312,
+        "quotes": 1844,
+        "trades": 1033
+      },
+      "quote_rows": 7618994,
       "rows_by_channel": {
-        "book_snapshot_5": 105207074,
-        "quotes": 7183240,
-        "trades": 249997
+        "book_snapshot_5": 42864676,
+        "quotes": 7618994,
+        "trades": 861000
       },
-      "trade_rows": 249997
+      "trade_rows": 861000
     },
     "verdict": "HOLD: strategy is defined, but dataset is not complete enough to prove the bot"
   },
@@ -4681,46 +4525,55 @@
   "telonex": {
     "assets_with_book25": 699384,
     "assets_with_quotes": 699384,
-    "depth_files": 2688,
-    "depth_rows": 105207074,
-    "download_bytes": 2495569702,
-    "download_files": 5593,
-    "download_rows": 112640311,
+    "depth_files": 380,
+    "depth_rows": 42864676,
+    "download_bytes": 1211567265,
+    "download_existing_files": 1136,
+    "download_files": 6325,
+    "download_missing_files": 5189,
+    "download_rows": 51344670,
     "files_by_channel": {
-      "book_snapshot_5": 2688,
-      "quotes": 1858,
-      "trades": 1047
+      "book_snapshot_5": 380,
+      "quotes": 380,
+      "trades": 376
     },
     "files_by_sport": {
-      "americanfootball_nfl": 28,
-      "baseball_mlb": 2319,
-      "basketball_nba": 686,
-      "basketball_wnba": 84,
-      "icehockey_nhl": 48,
-      "soccer": 2418,
-      "tennis": 10
+      "basketball_nba": 570,
+      "soccer": 566
     },
-    "last_downloaded_at": "2026-05-31T00:33:50.160248+00:00",
+    "last_downloaded_at": "2026-05-31T08:43:11.922537+00:00",
     "last_run_channels": [
-      "book_snapshot_5"
+      "quotes",
+      "book_snapshot_5",
+      "trades"
     ],
-    "last_run_completed_downloads": 0,
-    "last_run_date_from": "2026-04-01",
+    "last_run_completed_downloads": 1136,
+    "last_run_date_from": "2026-03-01",
     "last_run_date_to": "2026-05-29",
-    "last_run_failed_downloads": 164,
-    "last_run_rows_downloaded": 0,
+    "last_run_failed_downloads": 10,
+    "last_run_rows_downloaded": 51344670,
+    "manifest_files_by_channel": {
+      "book_snapshot_5": 2692,
+      "quotes": 2224,
+      "trades": 1409
+    },
     "markets_generated_at": "2026-05-30T05:58:54.289873+00:00",
-    "quote_rows": 7183240,
+    "missing_files_by_channel": {
+      "book_snapshot_5": 2312,
+      "quotes": 1844,
+      "trades": 1033
+    },
+    "quote_rows": 7618994,
     "quotes_from_min": "2025-10-11",
     "quotes_to_max": "2026-05-29",
     "rows_by_channel": {
-      "book_snapshot_5": 105207074,
-      "quotes": 7183240,
-      "trades": 249997
+      "book_snapshot_5": 42864676,
+      "quotes": 7618994,
+      "trades": 861000
     },
     "sports_assets": 778438,
     "sports_markets": 389219,
-    "trade_rows": 249997
+    "trade_rows": 861000
   },
   "telonex_convergence": {
     "calibration_plot": "/Users/yongkanglin/Documents/Codex/2026-05-28/i-have-this-repo-git-github-3/Sports-Betting-ml/data/processed/telonex_convergence_ml/20260530T215450Z/calibration_reliability.png",
