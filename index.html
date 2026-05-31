@@ -1813,6 +1813,8 @@ function renderStrategyOverview(data) {
   const replayPoints = replaySummary.total_series_points ?? 0;
   const replaySportsbookEvents = replaySummary.sportsbook_events ?? 0;
   const replaySportsbookPoints = replaySummary.total_sportsbook_points ?? 0;
+  const replayClobTwoSidedEvents = replaySummary.clob_two_sided_events ?? replayEvents;
+  const replayBothCompleteEvents = replaySummary.two_sided_complete_events ?? 0;
   const favoriteAudit = strategyAuditRow(data, "favorite_longshot_fade_v2");
   const sharpAudit = strategyAuditRow(data, "sharp_consensus_clob_mispricing");
   const featureBlocker = [
@@ -1828,7 +1830,7 @@ function renderStrategyOverview(data) {
       tone: favoriteAudit && favoriteAudit.ci_lo > 0 ? "good" : "warn",
       metrics: [
         ["Backtest ROI", fmtPct(f.roi), `${fmtInt(f.settledEntries)} settled events`, `Resolution-hold replay is positive; short-horizon executable audit is ${fmtPct(favoriteAudit?.roi)} on ${strategyAuditSplit(favoriteAudit)}.`],
-        ["Replay sample", `${fmtInt(replayEvents)} events`, `${fmtInt(replayPoints)} CLOB minute points`, `${fmtInt(replaySportsbookEvents)} events have sportsbook overlays from ${fmtInt(replaySportsbookPoints)} fair-probability points; target is thousands of events per major sport/market.`],
+        ["Replay sample", `${fmtInt(replayEvents)} events`, `${fmtInt(replayPoints)} CLOB minute points`, `${fmtInt(replayClobTwoSidedEvents)} have actual CLOB both sides; ${fmtInt(replayBothCompleteEvents)} also have complete-side sportsbook overlays from ${fmtInt(replaySportsbookPoints)} fair-probability points.`],
         ["Live picks", fmtInt(e.liveSignalsSelected), `${fmtInt(e.liveSignalCandidates)} candidates scanned`, "No current signal clears the live threshold."]
       ]
     },
@@ -2205,10 +2207,11 @@ function replayHasSportsbook(event) {
 
 function replayDataSourceOptions(event) {
   const hasSportsbook = replayHasSportsbook(event);
+  const sportsbookPointCount = event?.sportsbook_series_point_count ?? (event?.sportsbook_series_points || []).length;
   return [
     { value: "polymarket", label: "Polymarket CLOB", enabled: true },
-    { value: "sportsbooks", label: "Sportsbook fair %", enabled: hasSportsbook },
-    { value: "both", label: "Both", enabled: hasSportsbook },
+    { value: "sportsbooks", label: hasSportsbook ? `Sportsbook fair % (${fmtInt(sportsbookPointCount)} pts)` : "Sportsbook fair %", enabled: hasSportsbook },
+    { value: "both", label: hasSportsbook ? `Both (${fmtInt(sportsbookPointCount)} book pts)` : "Both", enabled: hasSportsbook },
   ];
 }
 
@@ -2492,7 +2495,9 @@ function drawReplayChart(event) {
   const sourceMode = state.selectedReplayDataSource || "polymarket";
   const showPolymarket = sourceMode === "polymarket" || sourceMode === "both" || !bookPoints.length;
   const showSportsbooks = bookPoints.length && (sourceMode === "sportsbooks" || sourceMode === "both");
-  const points = showPolymarket ? polyPoints : bookPoints;
+  const points = sourceMode === "both" && bookPoints.length
+    ? [...polyPoints, ...bookPoints]
+    : showPolymarket ? polyPoints : bookPoints;
   const selectedIndex = selectedReplayMarkerIndex(event);
   const markers = (event.markers || [])
     .map((marker, index) => ({ ...marker, index }))
@@ -2581,6 +2586,12 @@ function drawReplayChart(event) {
   const sportsbookLines = showSportsbooks ? sportsbookKeys.map((key, index) => `
     <polyline class="chart-series" points="${replayPath(visibleBookPoints, key, sx, sy)}" fill="none" stroke="${sportsbookColors[index % sportsbookColors.length]}" stroke-width="${key === "Sportsbook consensus" ? "3" : "1.8"}" stroke-dasharray="none" opacity="${key === "Sportsbook consensus" ? "0.95" : "0.55"}" />
   `).join("") : "";
+  const sportsbookDots = showSportsbooks ? sportsbookKeys.map((key, index) =>
+    visibleBookPoints
+      .filter(point => point[key] !== null)
+      .map(point => `<circle cx="${sx(point.offset).toFixed(1)}" cy="${sy(point[key]).toFixed(1)}" r="${key === "Sportsbook consensus" ? "4.2" : "2.8"}" fill="${sportsbookColors[index % sportsbookColors.length]}" opacity="${key === "Sportsbook consensus" ? "0.92" : "0.5"}" />`)
+      .join("")
+  ).join("") : "";
   const polyLines = showPolymarket ? `
     <polyline class="chart-series" points="${replayPath(visiblePolyPoints, "other", sx, sy)}" fill="none" stroke="#f59e0b" stroke-width="3" stroke-dasharray="none" opacity="0.95" />
     <polyline class="chart-series" points="${replayPath(visiblePolyPoints, "selected", sx, sy)}" fill="none" stroke="#1f77b4" stroke-width="3" stroke-dasharray="none" opacity="0.98" />
@@ -2627,6 +2638,7 @@ function drawReplayChart(event) {
     <line x1="${pad.left}" y1="${pad.top}" x2="${pad.left}" y2="${height - pad.bottom}" stroke="#d8dee8" />
     <line x1="${pad.left}" y1="${height - pad.bottom}" x2="${width - pad.right}" y2="${height - pad.bottom}" stroke="#d8dee8" />
     ${sportsbookLines}
+    ${sportsbookDots}
     ${polyLines}
     ${lineLabels}
     <rect data-chart-pan="xy" x="${pad.left}" y="${pad.top}" width="${plotW}" height="${plotH}" fill="transparent" pointer-events="all" cursor="move" />

@@ -1,10 +1,12 @@
 # Favorite-Longshot Event Replays
 
-- Generated: 2026-05-31T05:07:45.041709+00:00
+- Generated: 2026-05-31T05:20:20.028309+00:00
 - Events with replay series: 277 / 277
 - Series cadence: 1min
 - Total minute points: 329,406
-- Sportsbook overlay coverage: 264 / 277 (95.3%)
+- Polymarket CLOB actual two-sided coverage: 277 / 277
+- Sportsbook complete-side overlay coverage: 264 / 277 (95.3%)
+- Complete on both venues: 264 / 277
 - Odds API event matches: 273 / 277
 - Total sportsbook points: 1,355
 - Event detail files: 277
