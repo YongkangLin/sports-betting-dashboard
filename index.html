@@ -2280,7 +2280,7 @@ function renderChartLegend(items = []) {
 
 function replaySeriesCoverage(polyPoints, bookPoints) {
   if (!polyPoints.length || !bookPoints.length) {
-    return { coverage: 0, startGapSec: null, endGapSec: null };
+    return { coverage: 0, startGapSec: null, endGapSec: null, maxGapSec: null };
   }
   const polyStart = Math.min(...polyPoints.map(point => point.offset));
   const polyEnd = Math.max(...polyPoints.map(point => point.offset));
@@ -2288,10 +2288,19 @@ function replaySeriesCoverage(polyPoints, bookPoints) {
   const bookEnd = Math.max(...bookPoints.map(point => point.offset));
   const overlap = Math.max(0, Math.min(polyEnd, bookEnd) - Math.max(polyStart, bookStart));
   const span = Math.max(1, polyEnd - polyStart);
+  const sortedBookOffsets = bookPoints
+    .map(point => point.offset)
+    .filter(value => Number.isFinite(value))
+    .sort((a, b) => a - b);
+  const maxGapSec = sortedBookOffsets.reduce((maxGap, value, index) => {
+    if (index === 0) return maxGap;
+    return Math.max(maxGap, value - sortedBookOffsets[index - 1]);
+  }, 0);
   return {
     coverage: overlap / span,
     startGapSec: bookStart - polyStart,
-    endGapSec: polyEnd - bookEnd
+    endGapSec: polyEnd - bookEnd,
+    maxGapSec
   };
 }
 
@@ -2303,11 +2312,36 @@ function gapLabel(seconds, earlyText, lateText) {
   return seconds < 0 ? `${value} ${earlyText}` : `${value} ${lateText}`;
 }
 
+function durationLabel(seconds) {
+  if (seconds === null || !Number.isFinite(seconds)) return "";
+  const hours = Math.abs(seconds) / 3600;
+  if (hours < 1) return `${Math.round(Math.abs(seconds) / 60)}m`;
+  return hours >= 24 ? `${(hours / 24).toFixed(1)}d` : `${hours.toFixed(1)}h`;
+}
+
 function replayPath(points, key, sx, sy) {
   return points
     .filter(point => point[key] !== null)
     .map(point => `${sx(point.offset).toFixed(1)},${sy(point[key]).toFixed(1)}`)
     .join(" ");
+}
+
+function replaySegmentPaths(points, key, sx, sy, maxGapSec = 30 * 60) {
+  const rows = points
+    .filter(point => point[key] !== null)
+    .sort((a, b) => a.offset - b.offset);
+  const segments = [];
+  let current = [];
+  rows.forEach(point => {
+    const previous = current[current.length - 1];
+    if (previous && point.offset - previous.offset > maxGapSec) {
+      if (current.length >= 2) segments.push(current);
+      current = [];
+    }
+    current.push(point);
+  });
+  if (current.length >= 2) segments.push(current);
+  return segments.map(segment => replayPath(segment, key, sx, sy));
 }
 
 function replayMarkerLabel(marker) {
@@ -2630,6 +2664,7 @@ function drawReplayChart(event) {
     const gapBits = [];
     if (startGap && startGap !== "aligned") gapBits.push(`start ${startGap}`);
     if (endGap && endGap !== "aligned") gapBits.push(`end ${endGap}`);
+    if (coverage.maxGapSec && coverage.maxGapSec > 30 * 60) gapBits.push(`max gap ${durationLabel(coverage.maxGapSec)}`);
     const gapText = gapBits.length ? `; ${gapBits.join(", ")}` : "";
     setChartSourceNote(`${fmtInt(clobPointCount)} CLOB minute pts; ${fmtInt(sportsbookPointCount)} book snapshots; book span ${fmtPct(coverage.coverage)}${gapText}`);
   } else if (showSportsbooks) {
@@ -2704,9 +2739,11 @@ function drawReplayChart(event) {
     const otherOpacity = isConsensus ? 0.88 : 0.34;
     const selectedWidth = isConsensus ? 3 : 1.8;
     const otherWidth = isConsensus ? 2.6 : 1.6;
+    const selectedSegments = replaySegmentPaths(visibleBookPoints, key, sx, sy);
+    const otherSegments = replaySegmentPaths(visibleBookPoints, `${key} opposite`, sx, sy);
     return [
-      `<polyline class="chart-series" points="${replayPath(visibleBookPoints, key, sx, sy)}" fill="none" stroke="${selectedColor}" stroke-width="${selectedWidth}" stroke-dasharray="none" opacity="${selectedOpacity}" />`,
-      `<polyline class="chart-series" points="${replayPath(visibleBookPoints, `${key} opposite`, sx, sy)}" fill="none" stroke="${otherColor}" stroke-width="${otherWidth}" stroke-dasharray="none" opacity="${otherOpacity}" />`
+      ...selectedSegments.map(path => `<polyline class="chart-series" points="${path}" fill="none" stroke="${selectedColor}" stroke-width="${selectedWidth}" stroke-dasharray="none" opacity="${selectedOpacity}" />`),
+      ...otherSegments.map(path => `<polyline class="chart-series" points="${path}" fill="none" stroke="${otherColor}" stroke-width="${otherWidth}" stroke-dasharray="none" opacity="${otherOpacity}" />`)
     ];
   }).join("") : "";
   const sportsbookDots = showSportsbooks ? sportsbookKeys.flatMap((key, index) => {

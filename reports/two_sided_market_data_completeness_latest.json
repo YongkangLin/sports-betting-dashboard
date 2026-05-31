@@ -4,7 +4,7 @@
   "clob_two_sided_events": 277,
   "complete_both_venues_events": 265,
   "events": 277,
-  "generated_at": "2026-05-31T07:29:33.220906+00:00",
+  "generated_at": "2026-05-31T07:54:48.865120+00:00",
   "missing_examples": [
     {
       "clob_two_sided": true,
@@ -177,5 +177,5 @@
   ],
   "odds_event_matches": 273,
   "sportsbook_complete_side_events": 265,
-  "sportsbook_complete_side_points": 24163
+  "sportsbook_complete_side_points": 23511
 }
