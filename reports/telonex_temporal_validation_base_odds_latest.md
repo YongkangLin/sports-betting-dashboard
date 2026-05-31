@@ -1,12 +1,14 @@
 # Telonex Temporal Validation
 
-- Generated: 2026-05-31T15:50:54.021910+00:00
+- Generated: 2026-05-31T18:56:56.565871+00:00
 - Feature set: `base_odds`
 - Target/PnL/Stake: `maker_trade_fill_positive` / `maker_trade_fill_pnl_per_share` / `entry_bid`
-- Odds API features: True / coverage 71.07% / matched markets 353
-- Labels: 3,886,357 / markets 411 / tokens 809
+- Odds API features: True / coverage 94.09% / matched markets 1151
+- Odds API required: True / dropped rows 106,336
+- Labels: 1,693,793 / markets 1151 / tokens 2301
+- Row cap: 2000000 / sampled diagnostic: True
 - Feature guardrails: 83 selected / all-null 0 / high-missing 0
-- Time range: 2025-10-26 00:01:00+00:00 to 2026-05-29 23:59:00+00:00
+- Time range: 2025-11-04 00:01:00+00:00 to 2026-05-29 02:09:00+00:00
 - Time filter: start_after=None / end_before=None / dropped_rows=0
 - Folds requested/run: 4 / 4
 - Train mode: expanding
@@ -29,13 +31,14 @@ This is a temporal leakage audit, not an unseen-market generalization audit. Sam
 
 | Fold | Train rows | Cal rows | Val rows | Test rows | Test markets | Market overlap | Abstain | Threshold | Test trades | Test ROI | CI | ECE |
 |---:|---:|---:|---:|---:|---:|---:|---|---:|---:|---:|---|---:|
-| 1 | 9,358 | 2,889 | 1,926 | 7,547 | 0 | 0 | True | 1.000001 | 0 | n/a | n/a | 0.05% |
-| 2 | 12,541 | 2,942 | 7,875 | 72,164 | 0 | 0 | True | 1.000001 | 0 | n/a | n/a | 0.04% |
-| 3 | 16,987 | 6,371 | 84,054 | 80,586 | 0 | 0 | True | 1.000001 | 0 | n/a | n/a | 0.08% |
-| 4 | 24,152 | 90,990 | 83,886 | 26,237 | 0 | 0 | True | 1.000001 | 0 | n/a | n/a | 0.02% |
+| 1 | 2,239 | 76,811 | 226,538 | 270,349 | 0 | 0 | True | 1.000001 | 0 | n/a | n/a | 0.01% |
+| 2 | 186,918 | 231,766 | 216,604 | 173,627 | 0 | 0 | True | 1.000001 | 0 | n/a | n/a | 0.01% |
+| 3 | 533,596 | 196,556 | 82,502 | 32,730 | 0 | 0 | True | 1.000001 | 0 | n/a | n/a | 0.10% |
+| 4 | 808,160 | 11,826 | 32,801 | 37,132 | 0 | 0 | True | 1.000001 | 0 | n/a | n/a | 0.04% |
 
 ## Gate Reasons
 
+- sampled row-capped validation is diagnostic only, not capital proof
 - aggregate temporal test ROI is not positive
 - aggregate temporal ROI CI lower bound is not positive
 - aggregate test trades below 100

@@ -13,12 +13,14 @@
     "traded_folds": 0
   },
   "dataset": {
-    "markets": 411,
-    "positive_rate": 0.0012008675476802568,
-    "rows": 3886357,
-    "time_max": "2026-05-29 23:59:00+00:00",
-    "time_min": "2025-10-26 00:01:00+00:00",
-    "tokens": 809
+    "markets": 1151,
+    "max_rows_arg": 2000000,
+    "positive_rate": 0.00027098943023143914,
+    "rows": 1693793,
+    "sampled_diagnostic": true,
+    "time_max": "2026-05-29 02:09:00+00:00",
+    "time_min": "2025-11-04 00:01:00+00:00",
+    "tokens": 2301
   },
   "ensemble": {
     "blend_recent_weight": 0.0,
@@ -37,32 +39,32 @@
     "high_missing_features": {},
     "numeric_feature_count": 77,
     "numeric_missing_ratio": {
-      "depth_imbalance_delta_300s": 0.10580062510983937,
-      "depth_imbalance_delta_60s": 0.09933055558200135,
-      "lag_quote_age_300s": 0.10580062510983937,
-      "lag_quote_age_30s": 0.09583396481589314,
-      "lag_quote_age_60s": 0.09933055558200135,
-      "last_trade_age_sec": 0.14495245804747223,
-      "last_trade_price": 0.14495245804747223,
-      "last_trade_price_delta_mid": 0.14495245804747223,
-      "last_trade_size": 0.14495245804747223,
-      "mid_abs_delta_300s": 0.10580062510983937,
-      "mid_abs_delta_60s": 0.09933055558200135,
-      "mid_delta_300s": 0.10580062510983937,
-      "mid_delta_60s": 0.09933055558200135,
-      "obi_3c_delta_300s": 0.10580062510983937,
-      "obi_3c_delta_60s": 0.09933055558200135,
-      "odds_date_gap_days": 0.28927193255791994,
-      "odds_quote_age_sec": 0.28927193255791994,
-      "odds_source_minutes_to_commence": 0.28927193255791994,
-      "spread_delta_300s": 0.10580062510983937,
-      "spread_delta_60s": 0.09933055558200135
+      "depth_imbalance_delta_300s": 0.13637557836170064,
+      "depth_imbalance_delta_30s": 0.15874253819681625,
+      "depth_imbalance_delta_60s": 0.11510556484765258,
+      "lag_quote_age_300s": 0.13637557836170064,
+      "lag_quote_age_30s": 0.15874253819681625,
+      "lag_quote_age_60s": 0.11510556484765258,
+      "last_trade_age_sec": 0.04592473814686918,
+      "last_trade_price": 0.04592473814686918,
+      "mid_abs_delta_300s": 0.13637557836170064,
+      "mid_abs_delta_30s": 0.15874253819681625,
+      "mid_abs_delta_60s": 0.11510556484765258,
+      "mid_delta_300s": 0.13637557836170064,
+      "mid_delta_30s": 0.15874253819681625,
+      "mid_delta_60s": 0.11510556484765258,
+      "obi_3c_delta_300s": 0.13637557836170064,
+      "obi_3c_delta_30s": 0.15874253819681625,
+      "obi_3c_delta_60s": 0.11510556484765258,
+      "spread_delta_300s": 0.13637557836170064,
+      "spread_delta_30s": 0.15874253819681625,
+      "spread_delta_60s": 0.11510556484765258
     },
     "split_feature_audit": {
       "all": {
         "all_null_features": [],
         "high_missing_features": {},
-        "rows": 3886357
+        "rows": 1693793
       }
     },
     "unsafe_feature_columns": []
@@ -70,33 +72,33 @@
   "feature_set": "base_odds",
   "folds": [
     {
-      "conformal_abs_error_q90": 0.0025575447570332483,
+      "conformal_abs_error_q90": 0.00028641731002070016,
       "ensemble": {
         "blend_recent_weight": 0.0,
         "historical_model": true,
         "historical_sample_weight": {
-          "mean_weight": 1.0087637908437306,
+          "mean_weight": 0.5000005000004999,
           "model_random_seed": 43,
-          "p01_weight": 0.45166480992772456,
-          "p50_weight": 0.49384175083124926,
-          "p99_weight": 0.5499246654831734,
-          "positive_rate": 0.0003205813207950417,
-          "positive_rows": 3,
-          "rows": 9358,
+          "p01_weight": 0.4590560664371995,
+          "p50_weight": 0.497696964876162,
+          "p99_weight": 0.5469209794621179,
+          "positive_rate": 0.0,
+          "positive_rows": 0,
+          "rows": 2239,
           "sample_half_life_days": 60.0
         },
         "recent_model": false,
         "recent_model_audit": {
           "blend_recent_weight": 0.0,
-          "cutoff": "2025-10-25 00:09:00+00:00",
+          "cutoff": "2025-10-29 04:09:00+00:00",
           "enabled": false,
-          "markets": 12,
+          "markets": 7,
           "min_recent_positive_rows": 100,
           "min_recent_rows": 10000,
-          "positive_rate": 0.0003205813207950417,
-          "positive_rows": 3,
-          "reason": "recent rows 9358 < 10000; recent positive rows 3 < 100",
-          "rows": 9358,
+          "positive_rate": 0.0,
+          "positive_rows": 0,
+          "reason": "recent rows 2239 < 10000; recent positive rows 0 < 100; recent target has one class",
+          "rows": 2239,
           "window_days": 21.0
         },
         "recent_window_days": 21.0
@@ -105,57 +107,57 @@
       "market_overlap": {},
       "market_overlap_total": 0,
       "markets": {
-        "calibration": 4,
-        "test": 6,
-        "train": 12,
-        "val": 8
+        "calibration": 105,
+        "test": 148,
+        "train": 7,
+        "val": 116
       },
       "ranges": {
         "calibration": {
-          "markets": 4,
-          "max_asof": "2025-11-20 01:09:00+00:00",
-          "max_target": "2025-11-20 01:09:30+00:00",
-          "min_asof": "2025-11-18 00:01:00+00:00",
-          "rows": 2889,
-          "tokens": 7
+          "markets": 105,
+          "max_asof": "2025-11-29 23:00:00+00:00",
+          "max_target": "2025-11-29 23:00:30+00:00",
+          "min_asof": "2025-11-25 00:01:00+00:00",
+          "rows": 76811,
+          "tokens": 210
         },
         "test": {
-          "markets": 6,
-          "max_asof": "2025-11-30 21:14:00+00:00",
-          "max_target": "2025-11-30 21:14:30+00:00",
-          "min_asof": "2025-11-26 00:01:00+00:00",
-          "rows": 7547,
-          "tokens": 7
+          "markets": 148,
+          "max_asof": "2025-12-09 20:09:00+00:00",
+          "max_target": "2025-12-09 20:09:30+00:00",
+          "min_asof": "2025-12-05 00:01:00+00:00",
+          "rows": 270349,
+          "tokens": 296
         },
         "train": {
-          "markets": 12,
-          "max_asof": "2025-11-15 00:09:00+00:00",
-          "max_target": "2025-11-15 00:09:30+00:00",
-          "min_asof": "2025-10-26 00:01:00+00:00",
-          "rows": 9358,
-          "tokens": 23
+          "markets": 7,
+          "max_asof": "2025-11-19 04:09:00+00:00",
+          "max_target": "2025-11-19 04:09:30+00:00",
+          "min_asof": "2025-11-04 00:01:00+00:00",
+          "rows": 2239,
+          "tokens": 14
         },
         "val": {
-          "markets": 8,
-          "max_asof": "2025-11-25 03:09:00+00:00",
-          "max_target": "2025-11-25 03:09:30+00:00",
-          "min_asof": "2025-11-22 00:19:00+00:00",
-          "rows": 1926,
-          "tokens": 13
+          "markets": 116,
+          "max_asof": "2025-12-04 20:09:00+00:00",
+          "max_target": "2025-12-04 20:09:30+00:00",
+          "min_asof": "2025-11-30 00:01:00+00:00",
+          "rows": 226538,
+          "tokens": 232
         }
       },
       "row_time_order_ok": true,
       "rows": {
-        "calibration": 2889,
-        "test": 7547,
-        "train": 9358,
-        "val": 1926
+        "calibration": 76811,
+        "test": 270349,
+        "train": 2239,
+        "val": 226538
       },
       "selection_abstained": true,
-      "test_brier": 0.00026494927529533427,
+      "test_brier": 0.00015534778746179663,
       "test_ci_hi": null,
       "test_ci_lo": null,
-      "test_ece_10": 0.00046759194767354516,
+      "test_ece_10": 0.00013106256485796605,
       "test_markets": 0,
       "test_roi": null,
       "test_trades": 0,
@@ -164,42 +166,42 @@
       "val_roi": null,
       "val_trades": 0,
       "window": {
-        "calibration_end": "2025-11-21 00:01:00+00:00",
+        "calibration_end": "2025-11-30 00:01:00+00:00",
         "fold": 1,
-        "start": "2025-10-26 00:01:00+00:00",
-        "test_end": "2025-12-01 00:01:00+00:00",
-        "train_end": "2025-11-16 00:01:00+00:00",
-        "validation_end": "2025-11-26 00:01:00+00:00"
+        "start": "2025-11-04 00:01:00+00:00",
+        "test_end": "2025-12-10 00:01:00+00:00",
+        "train_end": "2025-11-25 00:01:00+00:00",
+        "validation_end": "2025-12-05 00:01:00+00:00"
       }
     },
     {
-      "conformal_abs_error_q90": 0.0,
+      "conformal_abs_error_q90": 0.0004089607852047076,
       "ensemble": {
         "blend_recent_weight": 0.0,
         "historical_model": true,
         "historical_sample_weight": {
-          "mean_weight": 1.060146415322539,
+          "mean_weight": 0.9995056922583925,
           "model_random_seed": 44,
-          "p01_weight": 0.4309396719271882,
-          "p50_weight": 0.4784798399101401,
-          "p99_weight": 0.5887801254446374,
-          "positive_rate": 0.0009568614942987002,
-          "positive_rows": 12,
-          "rows": 12541,
+          "p01_weight": 0.44241586456178555,
+          "p50_weight": 0.5024336925061118,
+          "p99_weight": 0.5111586644801018,
+          "positive_rate": 0.00018724788409890967,
+          "positive_rows": 35,
+          "rows": 186918,
           "sample_half_life_days": 60.0
         },
         "recent_model": false,
         "recent_model_audit": {
           "blend_recent_weight": 0.0,
-          "cutoff": "2025-11-01 00:39:00+00:00",
+          "cutoff": "2025-11-10 20:09:00+00:00",
           "enabled": false,
-          "markets": 14,
+          "markets": 172,
           "min_recent_positive_rows": 100,
           "min_recent_rows": 10000,
-          "positive_rate": 0.0009364092959904657,
-          "positive_rows": 11,
-          "reason": "recent positive rows 11 < 100",
-          "rows": 11747,
+          "positive_rate": 0.00018836040341416686,
+          "positive_rows": 35,
+          "reason": "recent positive rows 35 < 100",
+          "rows": 185814,
           "window_days": 21.0
         },
         "recent_window_days": 21.0
@@ -208,57 +210,57 @@
       "market_overlap": {},
       "market_overlap_total": 0,
       "markets": {
-        "calibration": 10,
-        "test": 11,
-        "train": 18,
-        "val": 4
+        "calibration": 116,
+        "test": 100,
+        "train": 174,
+        "val": 107
       },
       "ranges": {
         "calibration": {
-          "markets": 10,
-          "max_asof": "2025-11-27 03:09:00+00:00",
-          "max_target": "2025-11-27 03:09:30+00:00",
-          "min_asof": "2025-11-24 00:01:00+00:00",
-          "rows": 2942,
-          "tokens": 13
+          "markets": 116,
+          "max_asof": "2025-12-06 20:09:00+00:00",
+          "max_target": "2025-12-06 20:09:30+00:00",
+          "min_asof": "2025-12-02 00:01:00+00:00",
+          "rows": 231766,
+          "tokens": 232
         },
         "test": {
-          "markets": 11,
-          "max_asof": "2025-12-07 21:34:00+00:00",
-          "max_target": "2025-12-07 21:34:30+00:00",
-          "min_asof": "2025-12-05 00:01:00+00:00",
-          "rows": 72164,
-          "tokens": 22
+          "markets": 100,
+          "max_asof": "2025-12-16 03:39:00+00:00",
+          "max_target": "2025-12-16 03:39:30+00:00",
+          "min_asof": "2025-12-12 00:01:00+00:00",
+          "rows": 173627,
+          "tokens": 199
         },
         "train": {
-          "markets": 18,
-          "max_asof": "2025-11-22 00:39:00+00:00",
-          "max_target": "2025-11-22 00:39:30+00:00",
-          "min_asof": "2025-10-26 00:01:00+00:00",
-          "rows": 12541,
-          "tokens": 34
+          "markets": 174,
+          "max_asof": "2025-12-01 20:09:00+00:00",
+          "max_target": "2025-12-01 20:09:30+00:00",
+          "min_asof": "2025-11-04 00:01:00+00:00",
+          "rows": 186918,
+          "tokens": 348
         },
         "val": {
-          "markets": 4,
-          "max_asof": "2025-12-02 01:24:00+00:00",
-          "max_target": "2025-12-02 01:24:30+00:00",
-          "min_asof": "2025-11-29 00:01:00+00:00",
-          "rows": 7875,
-          "tokens": 7
+          "markets": 107,
+          "max_asof": "2025-12-11 20:23:00+00:00",
+          "max_target": "2025-12-11 20:24:00+00:00",
+          "min_asof": "2025-12-07 00:01:00+00:00",
+          "rows": 216604,
+          "tokens": 214
         }
       },
       "row_time_order_ok": true,
       "rows": {
-        "calibration": 2942,
-        "test": 72164,
-        "train": 12541,
-        "val": 7875
+        "calibration": 231766,
+        "test": 173627,
+        "train": 186918,
+        "val": 216604
       },
       "selection_abstained": true,
-      "test_brier": 0.0003751411086599864,
+      "test_brier": 0.00012095292737133407,
       "test_ci_hi": null,
       "test_ci_lo": null,
-      "test_ece_10": 0.0003782775409851984,
+      "test_ece_10": 8.459176189900351e-05,
       "test_markets": 0,
       "test_roi": null,
       "test_trades": 0,
@@ -267,42 +269,42 @@
       "val_roi": null,
       "val_trades": 0,
       "window": {
-        "calibration_end": "2025-11-28 00:01:00+00:00",
+        "calibration_end": "2025-12-07 00:01:00+00:00",
         "fold": 2,
-        "start": "2025-10-26 00:01:00+00:00",
-        "test_end": "2025-12-08 00:01:00+00:00",
-        "train_end": "2025-11-23 00:01:00+00:00",
-        "validation_end": "2025-12-03 00:01:00+00:00"
+        "start": "2025-11-04 00:01:00+00:00",
+        "test_end": "2025-12-17 00:01:00+00:00",
+        "train_end": "2025-12-02 00:01:00+00:00",
+        "validation_end": "2025-12-12 00:01:00+00:00"
       }
     },
     {
-      "conformal_abs_error_q90": 0.00823045267489712,
+      "conformal_abs_error_q90": 5.972359918298116e-06,
       "ensemble": {
         "blend_recent_weight": 0.0,
         "historical_model": true,
         "historical_sample_weight": {
-          "mean_weight": 1.0299826193987398,
+          "mean_weight": 1.000809080537735,
           "model_random_seed": 45,
-          "p01_weight": 0.40490417729929157,
-          "p50_weight": 0.4817544923297553,
-          "p99_weight": 0.6002946477123795,
-          "positive_rate": 0.0007652911049626184,
-          "positive_rows": 13,
-          "rows": 16987,
+          "p01_weight": 0.463402485648437,
+          "p50_weight": 0.4994714989771214,
+          "p99_weight": 0.5298428023534525,
+          "positive_rate": 0.00018553362468984026,
+          "positive_rows": 99,
+          "rows": 533596,
           "sample_half_life_days": 60.0
         },
         "recent_model": false,
         "recent_model_audit": {
           "blend_recent_weight": 0.0,
-          "cutoff": "2025-11-08 02:39:00+00:00",
+          "cutoff": "2025-11-17 20:23:00+00:00",
           "enabled": false,
-          "markets": 21,
+          "markets": 354,
           "min_recent_positive_rows": 100,
           "min_recent_rows": 10000,
-          "positive_rate": 0.0013314101852879175,
-          "positive_rows": 12,
-          "reason": "recent rows 9013 < 10000; recent positive rows 12 < 100",
-          "rows": 9013,
+          "positive_rate": 0.00018608008210078774,
+          "positive_rows": 99,
+          "reason": "recent positive rows 99 < 100",
+          "rows": 532029,
           "window_days": 21.0
         },
         "recent_window_days": 21.0
@@ -311,57 +313,57 @@
       "market_overlap": {},
       "market_overlap_total": 0,
       "markets": {
-        "calibration": 3,
-        "test": 15,
-        "train": 29,
-        "val": 13
+        "calibration": 94,
+        "test": 22,
+        "train": 360,
+        "val": 47
       },
       "ranges": {
         "calibration": {
-          "markets": 3,
-          "max_asof": "2025-12-02 01:24:00+00:00",
-          "max_target": "2025-12-02 01:24:30+00:00",
-          "min_asof": "2025-11-30 00:01:00+00:00",
-          "rows": 6371,
-          "tokens": 5
+          "markets": 94,
+          "max_asof": "2025-12-13 20:13:00+00:00",
+          "max_target": "2025-12-13 20:14:00+00:00",
+          "min_asof": "2025-12-09 00:01:00+00:00",
+          "rows": 196556,
+          "tokens": 188
         },
         "test": {
-          "markets": 15,
-          "max_asof": "2025-12-14 20:29:00+00:00",
-          "max_target": "2025-12-14 20:29:30+00:00",
-          "min_asof": "2025-12-11 00:01:00+00:00",
-          "rows": 80586,
-          "tokens": 30
+          "markets": 22,
+          "max_asof": "2025-12-23 02:39:00+00:00",
+          "max_target": "2025-12-23 02:39:30+00:00",
+          "min_asof": "2025-12-19 00:01:00+00:00",
+          "rows": 32730,
+          "tokens": 44
         },
         "train": {
-          "markets": 29,
-          "max_asof": "2025-11-29 02:39:00+00:00",
-          "max_target": "2025-11-29 02:39:30+00:00",
-          "min_asof": "2025-10-26 00:01:00+00:00",
-          "rows": 16987,
-          "tokens": 49
+          "markets": 360,
+          "max_asof": "2025-12-08 20:23:00+00:00",
+          "max_target": "2025-12-08 20:24:00+00:00",
+          "min_asof": "2025-11-04 00:01:00+00:00",
+          "rows": 533596,
+          "tokens": 720
         },
         "val": {
-          "markets": 13,
-          "max_asof": "2025-12-08 20:24:00+00:00",
-          "max_target": "2025-12-08 20:24:30+00:00",
-          "min_asof": "2025-12-05 00:01:00+00:00",
-          "rows": 84054,
-          "tokens": 26
+          "markets": 47,
+          "max_asof": "2025-12-18 20:24:00+00:00",
+          "max_target": "2025-12-18 20:24:30+00:00",
+          "min_asof": "2025-12-14 00:01:00+00:00",
+          "rows": 82502,
+          "tokens": 93
         }
       },
       "row_time_order_ok": true,
       "rows": {
-        "calibration": 6371,
-        "test": 80586,
-        "train": 16987,
-        "val": 84054
+        "calibration": 196556,
+        "test": 32730,
+        "train": 533596,
+        "val": 82502
       },
       "selection_abstained": true,
-      "test_brier": 1.1559356544396252e-05,
+      "test_brier": 0.0010910005174513777,
       "test_ci_hi": null,
       "test_ci_lo": null,
-      "test_ece_10": 0.0008070912174564673,
+      "test_ece_10": 0.0010226428431801883,
       "test_markets": 0,
       "test_roi": null,
       "test_trades": 0,
@@ -370,42 +372,42 @@
       "val_roi": null,
       "val_trades": 0,
       "window": {
-        "calibration_end": "2025-12-05 00:01:00+00:00",
+        "calibration_end": "2025-12-14 00:01:00+00:00",
         "fold": 3,
-        "start": "2025-10-26 00:01:00+00:00",
-        "test_end": "2025-12-15 00:01:00+00:00",
-        "train_end": "2025-11-30 00:01:00+00:00",
-        "validation_end": "2025-12-10 00:01:00+00:00"
+        "start": "2025-11-04 00:01:00+00:00",
+        "test_end": "2025-12-24 00:01:00+00:00",
+        "train_end": "2025-12-09 00:01:00+00:00",
+        "validation_end": "2025-12-19 00:01:00+00:00"
       }
     },
     {
-      "conformal_abs_error_q90": 0.00010195758564437195,
+      "conformal_abs_error_q90": 0.00010117361392148928,
       "ensemble": {
         "blend_recent_weight": 0.0,
         "historical_model": true,
         "historical_sample_weight": {
-          "mean_weight": 1.050422004249985,
+          "mean_weight": 0.9948177035755894,
           "model_random_seed": 46,
-          "p01_weight": 0.37933028939797786,
-          "p50_weight": 0.5064508156938051,
-          "p99_weight": 0.6023232330868492,
-          "positive_rate": 0.001366346472341835,
-          "positive_rows": 33,
-          "rows": 24152,
+          "p01_weight": 0.4535654945982436,
+          "p50_weight": 0.49950955630569616,
+          "p99_weight": 0.548463851717804,
+          "positive_rate": 0.00015467234211047318,
+          "positive_rows": 125,
+          "rows": 808160,
           "sample_half_life_days": 60.0
         },
         "recent_model": false,
         "recent_model_audit": {
           "blend_recent_weight": 0.0,
-          "cutoff": "2025-11-14 01:24:00+00:00",
-          "enabled": false,
-          "markets": 22,
+          "cutoff": "2025-11-24 20:23:00+00:00",
+          "enabled": true,
+          "markets": 489,
           "min_recent_positive_rows": 100,
           "min_recent_rows": 10000,
-          "positive_rate": 0.00202020202020202,
-          "positive_rows": 30,
-          "reason": "recent positive rows 30 < 100",
-          "rows": 14850,
+          "positive_rate": 0.00015510205094544007,
+          "positive_rows": 125,
+          "reason": "trained",
+          "rows": 805921,
           "window_days": 21.0
         },
         "recent_window_days": 21.0
@@ -414,57 +416,57 @@
       "market_overlap": {},
       "market_overlap_total": 0,
       "markets": {
-        "calibration": 13,
-        "test": 4,
-        "train": 33,
-        "val": 15
+        "calibration": 11,
+        "test": 13,
+        "train": 496,
+        "val": 19
       },
       "ranges": {
         "calibration": {
-          "markets": 13,
-          "max_asof": "2025-12-11 20:24:00+00:00",
-          "max_target": "2025-12-11 20:24:30+00:00",
-          "min_asof": "2025-12-07 00:01:00+00:00",
-          "rows": 90990,
-          "tokens": 26
+          "markets": 11,
+          "max_asof": "2025-12-20 20:28:00+00:00",
+          "max_target": "2025-12-20 20:29:00+00:00",
+          "min_asof": "2025-12-16 00:01:00+00:00",
+          "rows": 11826,
+          "tokens": 22
         },
         "test": {
-          "markets": 4,
-          "max_asof": "2025-12-21 13:08:00+00:00",
-          "max_target": "2025-12-21 13:09:00+00:00",
-          "min_asof": "2025-12-18 00:03:00+00:00",
-          "rows": 26237,
-          "tokens": 7
+          "markets": 13,
+          "max_asof": "2025-12-30 01:23:00+00:00",
+          "max_target": "2025-12-30 01:24:00+00:00",
+          "min_asof": "2025-12-27 00:01:00+00:00",
+          "rows": 37132,
+          "tokens": 26
         },
         "train": {
-          "markets": 33,
-          "max_asof": "2025-12-05 01:24:00+00:00",
-          "max_target": "2025-12-05 01:24:30+00:00",
-          "min_asof": "2025-10-26 00:01:00+00:00",
-          "rows": 24152,
-          "tokens": 56
+          "markets": 496,
+          "max_asof": "2025-12-15 20:23:00+00:00",
+          "max_target": "2025-12-15 20:24:00+00:00",
+          "min_asof": "2025-11-04 00:01:00+00:00",
+          "rows": 808160,
+          "tokens": 991
         },
         "val": {
-          "markets": 15,
-          "max_asof": "2025-12-15 20:24:00+00:00",
-          "max_target": "2025-12-15 20:24:30+00:00",
-          "min_asof": "2025-12-14 00:01:00+00:00",
-          "rows": 83886,
-          "tokens": 30
+          "markets": 19,
+          "max_asof": "2025-12-25 20:23:00+00:00",
+          "max_target": "2025-12-25 20:24:00+00:00",
+          "min_asof": "2025-12-21 00:01:00+00:00",
+          "rows": 32801,
+          "tokens": 38
         }
       },
       "row_time_order_ok": true,
       "rows": {
-        "calibration": 90990,
-        "test": 26237,
-        "train": 24152,
-        "val": 83886
+        "calibration": 11826,
+        "test": 37132,
+        "train": 808160,
+        "val": 32801
       },
       "selection_abstained": true,
-      "test_brier": 1.6620727717795532e-06,
+      "test_brier": 0.0005832033567208375,
       "test_ci_hi": null,
       "test_ci_lo": null,
-      "test_ece_10": 0.00022310866412467801,
+      "test_ece_10": 0.00044953233353531053,
       "test_markets": 0,
       "test_roi": null,
       "test_trades": 0,
@@ -473,25 +475,26 @@
       "val_roi": null,
       "val_trades": 0,
       "window": {
-        "calibration_end": "2025-12-12 00:01:00+00:00",
+        "calibration_end": "2025-12-21 00:01:00+00:00",
         "fold": 4,
-        "start": "2025-10-26 00:01:00+00:00",
-        "test_end": "2025-12-22 00:01:00+00:00",
-        "train_end": "2025-12-07 00:01:00+00:00",
-        "validation_end": "2025-12-17 00:01:00+00:00"
+        "start": "2025-11-04 00:01:00+00:00",
+        "test_end": "2025-12-31 00:01:00+00:00",
+        "train_end": "2025-12-16 00:01:00+00:00",
+        "validation_end": "2025-12-26 00:01:00+00:00"
       }
     }
   ],
   "folds_requested": 4,
   "folds_run": 4,
   "gate_reasons": [
+    "sampled row-capped validation is diagnostic only, not capital proof",
     "aggregate temporal test ROI is not positive",
     "aggregate temporal ROI CI lower bound is not positive",
     "aggregate test trades below 100",
     "aggregate test markets below 40",
     "no temporal folds selected test trades"
   ],
-  "generated_at": "2026-05-31T15:50:54.021910+00:00",
+  "generated_at": "2026-05-31T18:56:56.565871+00:00",
   "limitations": [
     "Temporal validation enforces no future rows, but it allows the same market to appear in earlier and later split roles.",
     "Same-market overlap is realistic for live market-state learning but optimistic for unseen-market generalization.",
@@ -500,57 +503,60 @@
   "odds_features": {
     "coverage_by_split": {
       "test": {
-        "markets": 62,
-        "matched_markets": 34,
-        "matched_rows": 659568,
-        "matched_tokens": 67,
-        "row_coverage": 0.6042545394580134,
-        "rows": 1091540
+        "markets": 178,
+        "matched_markets": 172,
+        "matched_rows": 290491,
+        "matched_tokens": 344,
+        "row_coverage": 0.9688135751495788,
+        "rows": 299842
       },
       "train": {
-        "markets": 287,
-        "matched_markets": 272,
-        "matched_rows": 1606455,
-        "matched_tokens": 533,
-        "row_coverage": 0.7683490626500631,
-        "rows": 2090788
+        "markets": 828,
+        "matched_markets": 815,
+        "matched_rows": 1065560,
+        "matched_tokens": 1629,
+        "row_coverage": 0.9210539963972436,
+        "rows": 1156892
       },
       "val": {
-        "markets": 62,
-        "matched_markets": 47,
-        "matched_rows": 496120,
-        "matched_tokens": 93,
-        "row_coverage": 0.7046868807961035,
-        "rows": 704029
+        "markets": 177,
+        "matched_markets": 164,
+        "matched_rows": 337742,
+        "matched_tokens": 328,
+        "row_coverage": 0.9835379082397822,
+        "rows": 343395
       }
     },
+    "dropped_missing_odds_rows": 106336,
     "enabled": true,
-    "fallback_policy": "Rows without causal Odds API matches keep odds_has_feature/odds_api_available=0 and use entry_mid as the fair-probability fallback so missing sportsbook coverage is explicit rather than silently median-imputed.",
-    "fallback_to_polymarket_mid_rows": 1124214,
-    "feature_rows": 3998455,
-    "matched_label_rows": 2762143,
-    "matched_markets": 353,
-    "matched_tokens": 693,
-    "max_snapshot_age_min": 10077.383333333333,
+    "fallback_policy": "Rows without a causal Odds API match are filtered out for odds-dependent training and validation. Fallback features remain available only when --allow-missing-odds-fallback is explicitly set.",
+    "fallback_to_polymarket_mid_rows": 106336,
+    "feature_rows": 5097400,
+    "matched_label_rows": 1693793,
+    "matched_markets": 1151,
+    "matched_tokens": 2301,
+    "max_snapshot_age_min": 3981.366666666667,
     "path": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/data/processed/execution_training/telonex_odds_features_latest.parquet",
-    "row_coverage": 0.7107280674420801,
-    "sha256": "9d00f04fd4f9c8b1b2394778df78bc42633806ea3588f6b0e0e78e5519b41f3f",
+    "require_odds_feature": true,
+    "row_coverage": 0.9409286778891958,
+    "rows_after_odds_requirement": 1693793,
+    "rows_before_odds_requirement": 1800129,
+    "sha256": "36abbbd7179f928a0cbe0572d59cbc3ed410a5013285b537c7e72bbfa652779a",
     "sports": {
-      "americanfootball_nfl": 363808,
-      "baseball_mlb": 526994,
-      "basketball_nba": 540921,
-      "basketball_wnba": 27370,
-      "soccer_brazil_campeonato": 443488,
-      "soccer_chile_campeonato": 16296,
-      "soccer_conmebol_copa_libertadores": 127564,
-      "soccer_epl": 96980,
-      "soccer_france_ligue_one": 111382,
-      "soccer_germany_bundesliga": 105438,
-      "soccer_italy_serie_a": 171606,
-      "soccer_italy_serie_b": 20312,
-      "soccer_norway_eliteserien": 106808,
-      "soccer_spain_la_liga": 69782,
-      "soccer_uefa_champs_league": 33394
+      "americanfootball_nfl": 154140,
+      "basketball_nba": 85736,
+      "basketball_wnba": 70500,
+      "icehockey_nhl": 451537,
+      "soccer_brazil_campeonato": 87869,
+      "soccer_conmebol_copa_libertadores": 19936,
+      "soccer_epl": 254213,
+      "soccer_france_ligue_one": 72429,
+      "soccer_germany_bundesliga": 118812,
+      "soccer_italy_serie_a": 102889,
+      "soccer_italy_serie_b": 18024,
+      "soccer_spain_la_liga": 139905,
+      "soccer_spain_segunda_division": 11193,
+      "soccer_uefa_champs_league": 106610
     }
   },
   "outputs": {
@@ -569,8 +575,8 @@
   "time_filter": {
     "dropped_rows": 0,
     "end_before": null,
-    "rows_after": 3886357,
-    "rows_before": 3886357,
+    "rows_after": 1693793,
+    "rows_before": 1693793,
     "start_after": null
   },
   "train_mode": "expanding",

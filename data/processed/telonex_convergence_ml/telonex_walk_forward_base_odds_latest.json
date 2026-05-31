@@ -10,12 +10,14 @@
     "traded_folds": 0
   },
   "dataset": {
-    "markets": 411,
-    "positive_rate": 0.0012008675476802568,
-    "rows": 3886357,
-    "time_max": "2026-05-29 23:59:00+00:00",
-    "time_min": "2025-10-26 00:01:00+00:00",
-    "tokens": 809
+    "markets": 1183,
+    "max_rows_arg": 2000000,
+    "positive_rate": 0.0005532936806195556,
+    "rows": 1800129,
+    "sampled_diagnostic": true,
+    "time_max": "2026-05-29 02:09:00+00:00",
+    "time_min": "2025-11-04 00:01:00+00:00",
+    "tokens": 2365
   },
   "ensemble": {
     "blend_recent_weight": 0.0,
@@ -34,32 +36,32 @@
     "high_missing_features": {},
     "numeric_feature_count": 77,
     "numeric_missing_ratio": {
-      "depth_imbalance_delta_300s": 0.10580062510983937,
-      "depth_imbalance_delta_60s": 0.09933055558200135,
-      "lag_quote_age_300s": 0.10580062510983937,
-      "lag_quote_age_30s": 0.09583396481589314,
-      "lag_quote_age_60s": 0.09933055558200135,
-      "last_trade_age_sec": 0.14495245804747223,
-      "last_trade_price": 0.14495245804747223,
-      "last_trade_price_delta_mid": 0.14495245804747223,
-      "last_trade_size": 0.14495245804747223,
-      "mid_abs_delta_300s": 0.10580062510983937,
-      "mid_abs_delta_60s": 0.09933055558200135,
-      "mid_delta_300s": 0.10580062510983937,
-      "mid_delta_60s": 0.09933055558200135,
-      "obi_3c_delta_300s": 0.10580062510983937,
-      "obi_3c_delta_60s": 0.09933055558200135,
-      "odds_date_gap_days": 0.28927193255791994,
-      "odds_quote_age_sec": 0.28927193255791994,
-      "odds_source_minutes_to_commence": 0.28927193255791994,
-      "spread_delta_300s": 0.10580062510983937,
-      "spread_delta_60s": 0.09933055558200135
+      "depth_imbalance_delta_300s": 0.14035105261900674,
+      "depth_imbalance_delta_30s": 0.1652442686051944,
+      "depth_imbalance_delta_60s": 0.1183670725820205,
+      "lag_quote_age_300s": 0.14035105261900674,
+      "lag_quote_age_30s": 0.1652442686051944,
+      "lag_quote_age_60s": 0.1183670725820205,
+      "mid_abs_delta_300s": 0.14035105261900674,
+      "mid_abs_delta_30s": 0.1652442686051944,
+      "mid_abs_delta_60s": 0.1183670725820205,
+      "mid_delta_300s": 0.14035105261900674,
+      "mid_delta_30s": 0.1652442686051944,
+      "mid_delta_60s": 0.1183670725820205,
+      "obi_3c_delta_300s": 0.14035105261900674,
+      "obi_3c_delta_30s": 0.1652442686051944,
+      "obi_3c_delta_60s": 0.1183670725820205,
+      "odds_quote_age_sec": 0.05907132211080428,
+      "odds_source_minutes_to_commence": 0.05907132211080428,
+      "spread_delta_300s": 0.14035105261900674,
+      "spread_delta_30s": 0.1652442686051944,
+      "spread_delta_60s": 0.1183670725820205
     },
     "split_feature_audit": {
       "all": {
         "all_null_features": [],
         "high_missing_features": {},
-        "rows": 3886357
+        "rows": 1800129
       }
     },
     "unsafe_feature_columns": []
@@ -67,33 +69,33 @@
   "feature_set": "base_odds",
   "folds": [
     {
-      "conformal_abs_error_q90": 0.0005332317653780232,
+      "conformal_abs_error_q90": 6.854479402289396e-05,
       "ensemble": {
         "blend_recent_weight": 0.0,
         "historical_model": true,
         "historical_sample_weight": {
-          "mean_weight": 0.9900701341490368,
+          "mean_weight": 1.0005660500835902,
           "model_random_seed": 43,
-          "p01_weight": 0.3000506301794645,
-          "p50_weight": 0.4874454182881984,
-          "p99_weight": 0.5745022094830017,
-          "positive_rate": 0.00028710554966499615,
-          "positive_rows": 101,
-          "rows": 351787,
+          "p01_weight": 0.3860551556866522,
+          "p50_weight": 0.5042957066815481,
+          "p99_weight": 0.5070136444144024,
+          "positive_rate": 0.00016224735768588912,
+          "positive_rows": 14,
+          "rows": 86288,
           "sample_half_life_days": 60.0
         },
         "recent_model": false,
         "recent_model_audit": {
           "blend_recent_weight": 0.0,
-          "cutoff": "2025-12-07 21:34:00+00:00",
+          "cutoff": "2025-11-08 17:38:00+00:00",
           "enabled": false,
-          "markets": 38,
+          "markets": 78,
           "min_recent_positive_rows": 100,
           "min_recent_rows": 10000,
-          "positive_rate": 0.0001834024669582896,
-          "positive_rows": 47,
-          "reason": "recent positive rows 47 < 100",
-          "rows": 256267,
+          "positive_rate": 0.00016435011269722014,
+          "positive_rows": 14,
+          "reason": "recent positive rows 14 < 100",
+          "rows": 85184,
           "window_days": 21.0
         },
         "recent_window_days": 21.0
@@ -113,40 +115,40 @@
       "ranges": {
         "calibration": {
           "markets": 20,
-          "max_asof": "2026-03-01 00:09:00+00:00",
-          "min_asof": "2025-12-29 00:01:00+00:00",
-          "rows": 29064
+          "max_asof": "2025-11-29 19:54:00+00:00",
+          "min_asof": "2025-11-29 00:01:00+00:00",
+          "rows": 30631
         },
         "test": {
           "markets": 20,
-          "max_asof": "2026-03-15 22:09:00+00:00",
-          "min_asof": "2026-03-10 00:01:00+00:00",
-          "rows": 155968
+          "max_asof": "2025-11-30 15:23:00+00:00",
+          "min_asof": "2025-11-30 00:01:00+00:00",
+          "rows": 33396
         },
         "train": {
           "markets": 80,
-          "max_asof": "2025-12-28 21:34:00+00:00",
-          "min_asof": "2025-10-26 00:01:00+00:00",
-          "rows": 351787
+          "max_asof": "2025-11-29 17:38:00+00:00",
+          "min_asof": "2025-11-04 00:01:00+00:00",
+          "rows": 86288
         },
         "val": {
           "markets": 20,
-          "max_asof": "2026-03-09 02:09:00+00:00",
-          "min_asof": "2026-02-24 15:59:00+00:00",
-          "rows": 105118
+          "max_asof": "2025-11-30 13:08:00+00:00",
+          "min_asof": "2025-11-29 00:01:00+00:00",
+          "rows": 37222
         }
       },
       "rows": {
-        "calibration": 29064,
-        "test": 155968,
-        "train": 351787,
-        "val": 105118
+        "calibration": 30631,
+        "test": 33396,
+        "train": 86288,
+        "val": 37222
       },
       "selection_abstained": true,
-      "test_brier": 0.00031803299147111305,
+      "test_brier": 0.0002990832448503298,
       "test_ci_hi": null,
       "test_ci_lo": null,
-      "test_ece_10": 0.002936228235422548,
+      "test_ece_10": 0.0001124119573431218,
       "test_markets": 0,
       "test_roi": null,
       "test_trades": 0,
@@ -155,33 +157,33 @@
       "val_trades": 0
     },
     {
-      "conformal_abs_error_q90": 0.0005768222338751966,
+      "conformal_abs_error_q90": 0.0,
       "ensemble": {
         "blend_recent_weight": 0.0,
         "historical_model": true,
         "historical_sample_weight": {
-          "mean_weight": 0.838796350731323,
+          "mean_weight": 0.999425471059562,
           "model_random_seed": 44,
-          "p01_weight": 0.16299141319391328,
-          "p50_weight": 0.5931446283234608,
-          "p99_weight": 0.7995532443346905,
-          "positive_rate": 0.00048763718914502047,
-          "positive_rows": 444,
-          "rows": 910513,
+          "p01_weight": 0.4589387026367067,
+          "p50_weight": 0.5021452427520565,
+          "p99_weight": 0.5527352081956837,
+          "positive_rate": 0.0001642371054004869,
+          "positive_rows": 124,
+          "rows": 755006,
           "sample_half_life_days": 60.0
         },
         "recent_model": false,
         "recent_model_audit": {
           "blend_recent_weight": 0.0,
-          "cutoff": "2026-03-08 23:09:00+00:00",
-          "enabled": false,
-          "markets": 51,
+          "cutoff": "2025-11-22 14:38:00+00:00",
+          "enabled": true,
+          "markets": 421,
           "min_recent_positive_rows": 100,
           "min_recent_rows": 10000,
-          "positive_rate": 0.00011743264063733043,
-          "positive_rows": 50,
-          "reason": "recent positive rows 50 < 100",
-          "rows": 425776,
+          "positive_rate": 0.0001647256056654981,
+          "positive_rows": 124,
+          "reason": "trained",
+          "rows": 752767,
           "window_days": 21.0
         },
         "recent_window_days": 21.0
@@ -190,7 +192,7 @@
       "markets": {
         "calibration": 20,
         "test": 20,
-        "train": 170,
+        "train": 428,
         "val": 20
       },
       "purged_rows": {
@@ -201,40 +203,40 @@
       "ranges": {
         "calibration": {
           "markets": 20,
-          "max_asof": "2026-04-02 20:57:00+00:00",
-          "min_asof": "2026-03-27 00:17:00+00:00",
-          "rows": 172774
+          "max_asof": "2025-12-13 17:39:00+00:00",
+          "min_asof": "2025-12-13 00:01:00+00:00",
+          "rows": 30657
         },
         "test": {
           "markets": 20,
-          "max_asof": "2026-04-12 13:09:00+00:00",
-          "min_asof": "2026-04-01 13:04:00+00:00",
-          "rows": 233490
+          "max_asof": "2025-12-14 16:24:00+00:00",
+          "min_asof": "2025-12-14 00:01:00+00:00",
+          "rows": 38037
         },
         "train": {
-          "markets": 170,
-          "max_asof": "2026-03-29 23:09:00+00:00",
-          "min_asof": "2025-10-26 00:01:00+00:00",
-          "rows": 910513
+          "markets": 428,
+          "max_asof": "2025-12-13 14:38:00+00:00",
+          "min_asof": "2025-11-04 00:01:00+00:00",
+          "rows": 755006
         },
         "val": {
           "markets": 20,
-          "max_asof": "2026-04-07 23:09:00+00:00",
-          "min_asof": "2026-03-30 00:14:00+00:00",
-          "rows": 172205
+          "max_asof": "2025-12-14 13:09:00+00:00",
+          "min_asof": "2025-12-13 00:01:00+00:00",
+          "rows": 33349
         }
       },
       "rows": {
-        "calibration": 172774,
-        "test": 233490,
-        "train": 910513,
-        "val": 172205
+        "calibration": 30657,
+        "test": 38037,
+        "train": 755006,
+        "val": 33349
       },
       "selection_abstained": true,
-      "test_brier": 0.0016172770818828415,
+      "test_brier": 8.091130114184568e-05,
       "test_ci_hi": null,
       "test_ci_lo": null,
-      "test_ece_10": 0.0015664076970904731,
+      "test_ece_10": 5.4417287773885536e-05,
       "test_markets": 0,
       "test_roi": null,
       "test_trades": 0,
@@ -243,33 +245,33 @@
       "val_trades": 0
     },
     {
-      "conformal_abs_error_q90": 0.00023914863087408825,
+      "conformal_abs_error_q90": 0.0,
       "ensemble": {
         "blend_recent_weight": 0.0,
         "historical_model": true,
         "historical_sample_weight": {
-          "mean_weight": 1.0914885924604039,
+          "mean_weight": 1.071893695080387,
           "model_random_seed": 45,
-          "p01_weight": 0.14328907161095425,
-          "p50_weight": 0.5792348837017729,
-          "p99_weight": 0.7231346117277975,
-          "positive_rate": 0.0012702131219860962,
-          "positive_rows": 2338,
-          "rows": 1840636,
+          "p01_weight": 0.3870970328390178,
+          "p50_weight": 0.4336346290056311,
+          "p99_weight": 1.1667188657933711,
+          "positive_rate": 0.00031778500200898565,
+          "positive_rows": 348,
+          "rows": 1095080,
           "sample_half_life_days": 60.0
         },
         "recent_model": false,
         "recent_model_audit": {
           "blend_recent_weight": 0.0,
-          "cutoff": "2026-03-29 18:54:00+00:00",
-          "enabled": true,
-          "markets": 94,
+          "cutoff": "2026-02-11 00:09:00+00:00",
+          "enabled": false,
+          "markets": 136,
           "min_recent_positive_rows": 100,
           "min_recent_rows": 10000,
-          "positive_rate": 0.002027422657679211,
-          "positive_rows": 1894,
-          "reason": "trained",
-          "rows": 934191,
+          "positive_rate": 0.00041740706729794517,
+          "positive_rows": 35,
+          "reason": "recent positive rows 35 < 100",
+          "rows": 83851,
           "window_days": 21.0
         },
         "recent_window_days": 21.0
@@ -278,7 +280,7 @@
       "markets": {
         "calibration": 20,
         "test": 20,
-        "train": 261,
+        "train": 775,
         "val": 20
       },
       "purged_rows": {
@@ -289,40 +291,40 @@
       "ranges": {
         "calibration": {
           "markets": 20,
-          "max_asof": "2026-04-28 05:33:00+00:00",
-          "min_asof": "2026-04-19 00:01:00+00:00",
-          "rows": 183400
+          "max_asof": "2026-03-06 00:09:00+00:00",
+          "min_asof": "2026-03-04 00:00:00+00:00",
+          "rows": 6350
         },
         "test": {
           "markets": 20,
-          "max_asof": "2026-05-17 11:40:00+00:00",
-          "min_asof": "2026-05-02 10:08:00+00:00",
-          "rows": 187091
+          "max_asof": "2026-03-11 02:09:00+00:00",
+          "min_asof": "2026-03-08 00:01:00+00:00",
+          "rows": 23732
         },
         "train": {
-          "markets": 261,
-          "max_asof": "2026-04-19 18:54:00+00:00",
-          "min_asof": "2025-10-26 00:01:00+00:00",
-          "rows": 1840636
+          "markets": 775,
+          "max_asof": "2026-03-04 00:09:00+00:00",
+          "min_asof": "2025-11-04 00:01:00+00:00",
+          "rows": 1095080
         },
         "val": {
           "markets": 20,
-          "max_asof": "2026-05-05 02:53:00+00:00",
-          "min_asof": "2026-04-22 13:10:00+00:00",
-          "rows": 156262
+          "max_asof": "2026-03-08 01:39:00+00:00",
+          "min_asof": "2026-03-06 00:01:00+00:00",
+          "rows": 9345
         }
       },
       "rows": {
-        "calibration": 183400,
-        "test": 187091,
-        "train": 1840636,
-        "val": 156262
+        "calibration": 6350,
+        "test": 23732,
+        "train": 1095080,
+        "val": 9345
       },
       "selection_abstained": true,
-      "test_brier": 0.0008022666886831467,
+      "test_brier": 5.671906367135984e-08,
       "test_ci_hi": null,
       "test_ci_lo": null,
-      "test_ece_10": 0.0003096083637448282,
+      "test_ece_10": 2.6624982287460723e-05,
       "test_markets": 0,
       "test_roi": null,
       "test_trades": 0,
@@ -331,33 +333,33 @@
       "val_trades": 0
     },
     {
-      "conformal_abs_error_q90": 2.370791844476055e-05,
+      "conformal_abs_error_q90": 0.0,
       "ensemble": {
         "blend_recent_weight": 0.0,
         "historical_model": true,
         "historical_sample_weight": {
-          "mean_weight": 1.0848977467460945,
+          "mean_weight": 1.241459204359054,
           "model_random_seed": 46,
-          "p01_weight": 0.12094555219331302,
-          "p50_weight": 0.4985097092656235,
-          "p99_weight": 0.8397430746112549,
-          "positive_rate": 0.0015730130622053527,
-          "positive_rows": 4366,
-          "rows": 2775565,
+          "p01_weight": 0.20172946788889445,
+          "p50_weight": 0.2430246069684224,
+          "p99_weight": 1.3214549082829765,
+          "positive_rate": 0.00047068050277288416,
+          "positive_rows": 809,
+          "rows": 1718788,
           "sample_half_life_days": 60.0
         },
         "recent_model": false,
         "recent_model_audit": {
           "blend_recent_weight": 0.0,
-          "cutoff": "2026-05-03 13:09:00+00:00",
+          "cutoff": "2026-04-23 02:08:00+00:00",
           "enabled": true,
-          "markets": 55,
+          "markets": 67,
           "min_recent_positive_rows": 100,
           "min_recent_rows": 10000,
-          "positive_rate": 0.0022264915138355905,
-          "positive_rows": 1371,
+          "positive_rate": 0.0019306035768818998,
+          "positive_rows": 220,
           "reason": "trained",
-          "rows": 615767,
+          "rows": 113954,
           "window_days": 21.0
         },
         "recent_window_days": 21.0
@@ -366,7 +368,7 @@
       "markets": {
         "calibration": 20,
         "test": 20,
-        "train": 351,
+        "train": 1123,
         "val": 20
       },
       "purged_rows": {
@@ -377,40 +379,40 @@
       "ranges": {
         "calibration": {
           "markets": 20,
-          "max_asof": "2026-05-28 23:59:00+00:00",
-          "min_asof": "2026-05-18 00:53:00+00:00",
-          "rows": 175460
+          "max_asof": "2026-05-19 02:09:00+00:00",
+          "min_asof": "2026-05-14 00:01:00+00:00",
+          "rows": 31146
         },
         "test": {
           "markets": 20,
-          "max_asof": "2026-05-29 23:59:00+00:00",
-          "min_asof": "2026-05-23 00:20:00+00:00",
-          "rows": 546764
+          "max_asof": "2026-05-29 02:09:00+00:00",
+          "min_asof": "2026-05-24 00:01:00+00:00",
+          "rows": 21332
         },
         "train": {
-          "markets": 351,
-          "max_asof": "2026-05-24 13:09:00+00:00",
-          "min_asof": "2025-10-26 00:01:00+00:00",
-          "rows": 2775565
+          "markets": 1123,
+          "max_asof": "2026-05-14 02:08:00+00:00",
+          "min_asof": "2025-11-04 00:01:00+00:00",
+          "rows": 1718788
         },
         "val": {
           "markets": 20,
-          "max_asof": "2026-05-29 23:58:00+00:00",
-          "min_asof": "2026-05-22 00:01:00+00:00",
-          "rows": 388568
+          "max_asof": "2026-05-24 13:08:00+00:00",
+          "min_asof": "2026-05-14 00:08:00+00:00",
+          "rows": 28863
         }
       },
       "rows": {
-        "calibration": 175460,
-        "test": 546764,
-        "train": 2775565,
-        "val": 388568
+        "calibration": 31146,
+        "test": 21332,
+        "train": 1718788,
+        "val": 28863
       },
       "selection_abstained": true,
-      "test_brier": 5.548740193755053e-06,
+      "test_brier": 0.00032591244669397205,
       "test_ci_hi": null,
       "test_ci_lo": null,
-      "test_ece_10": 2.5914519497956107e-05,
+      "test_ece_10": 3.2022848354436606e-05,
       "test_markets": 0,
       "test_roi": null,
       "test_trades": 0,
@@ -422,13 +424,14 @@
   "folds_requested": 4,
   "folds_run": 4,
   "gate_reasons": [
+    "sampled row-capped validation is diagnostic only, not capital proof",
     "aggregate market-disjoint test ROI is not positive",
     "aggregate market-disjoint ROI CI lower bound is not positive",
     "aggregate test trades below 100",
     "aggregate test markets below 40",
     "no folds selected test trades"
   ],
-  "generated_at": "2026-05-31T15:49:52.964592+00:00",
+  "generated_at": "2026-05-31T18:54:37.727559+00:00",
   "limitations": [
     "Market-disjoint validation proves each fold tests unseen markets, but it is not a strict temporal no-future-row audit unless row_time_order_enforced is true.",
     "Historical CLOB backtest ROI remains a ceiling until authenticated order lifecycle, queue position, fills, and market impact are captured live."
@@ -438,57 +441,56 @@
   "odds_features": {
     "coverage_by_split": {
       "test": {
-        "markets": 62,
-        "matched_markets": 34,
-        "matched_rows": 659568,
-        "matched_tokens": 67,
-        "row_coverage": 0.6042545394580134,
-        "rows": 1091540
+        "markets": 178,
+        "matched_markets": 172,
+        "matched_rows": 290491,
+        "matched_tokens": 344,
+        "row_coverage": 0.9688135751495788,
+        "rows": 299842
       },
       "train": {
-        "markets": 287,
-        "matched_markets": 272,
-        "matched_rows": 1606455,
-        "matched_tokens": 533,
-        "row_coverage": 0.7683490626500631,
-        "rows": 2090788
+        "markets": 828,
+        "matched_markets": 815,
+        "matched_rows": 1065560,
+        "matched_tokens": 1629,
+        "row_coverage": 0.9210539963972436,
+        "rows": 1156892
       },
       "val": {
-        "markets": 62,
-        "matched_markets": 47,
-        "matched_rows": 496120,
-        "matched_tokens": 93,
-        "row_coverage": 0.7046868807961035,
-        "rows": 704029
+        "markets": 177,
+        "matched_markets": 164,
+        "matched_rows": 337742,
+        "matched_tokens": 328,
+        "row_coverage": 0.9835379082397822,
+        "rows": 343395
       }
     },
     "enabled": true,
     "fallback_policy": "Rows without causal Odds API matches keep odds_has_feature/odds_api_available=0 and use entry_mid as the fair-probability fallback so missing sportsbook coverage is explicit rather than silently median-imputed.",
-    "fallback_to_polymarket_mid_rows": 1124214,
-    "feature_rows": 3998455,
-    "matched_label_rows": 2762143,
-    "matched_markets": 353,
-    "matched_tokens": 693,
-    "max_snapshot_age_min": 10077.383333333333,
+    "fallback_to_polymarket_mid_rows": 106336,
+    "feature_rows": 5097400,
+    "matched_label_rows": 1693793,
+    "matched_markets": 1151,
+    "matched_tokens": 2301,
+    "max_snapshot_age_min": 3981.366666666667,
     "path": "/Users/yongkanglin/Documents/Codex/2026-05-30/can-you-check-why-the-dashboard/Sports-Betting/data/processed/execution_training/telonex_odds_features_latest.parquet",
-    "row_coverage": 0.7107280674420801,
-    "sha256": "9d00f04fd4f9c8b1b2394778df78bc42633806ea3588f6b0e0e78e5519b41f3f",
+    "row_coverage": 0.9409286778891958,
+    "sha256": "36abbbd7179f928a0cbe0572d59cbc3ed410a5013285b537c7e72bbfa652779a",
     "sports": {
-      "americanfootball_nfl": 363808,
-      "baseball_mlb": 526994,
-      "basketball_nba": 540921,
-      "basketball_wnba": 27370,
-      "soccer_brazil_campeonato": 443488,
-      "soccer_chile_campeonato": 16296,
-      "soccer_conmebol_copa_libertadores": 127564,
-      "soccer_epl": 96980,
-      "soccer_france_ligue_one": 111382,
-      "soccer_germany_bundesliga": 105438,
-      "soccer_italy_serie_a": 171606,
-      "soccer_italy_serie_b": 20312,
-      "soccer_norway_eliteserien": 106808,
-      "soccer_spain_la_liga": 69782,
-      "soccer_uefa_champs_league": 33394
+      "americanfootball_nfl": 154140,
+      "basketball_nba": 85736,
+      "basketball_wnba": 70500,
+      "icehockey_nhl": 451537,
+      "soccer_brazil_campeonato": 87869,
+      "soccer_conmebol_copa_libertadores": 19936,
+      "soccer_epl": 254213,
+      "soccer_france_ligue_one": 72429,
+      "soccer_germany_bundesliga": 118812,
+      "soccer_italy_serie_a": 102889,
+      "soccer_italy_serie_b": 18024,
+      "soccer_spain_la_liga": 139905,
+      "soccer_spain_segunda_division": 11193,
+      "soccer_uefa_champs_league": 106610
     }
   },
   "outputs": {

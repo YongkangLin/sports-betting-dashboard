@@ -1,10 +1,11 @@
 # Telonex Market-Disjoint Validation
 
-- Generated: 2026-05-31T15:49:52.964592+00:00
+- Generated: 2026-05-31T18:54:37.727559+00:00
 - Feature set: `base_odds`
 - Target/PnL/Stake: `maker_trade_fill_positive` / `maker_trade_fill_pnl_per_share` / `entry_bid`
-- Odds API features: True / coverage 71.07% / matched markets 353
-- Labels: 3,886,357 / markets 411 / tokens 809
+- Odds API features: True / coverage 94.09% / matched markets 1151
+- Labels: 1,800,129 / markets 1183 / tokens 2365
+- Row cap: 2000000 / sampled diagnostic: True
 - Feature guardrails: 83 selected / all-null 0 / high-missing 0
 - Folds requested/run: 4 / 4
 - Fold market windows: train 80, calibration 20, validation 20, test 20
@@ -27,13 +28,14 @@ Row timestamps may overlap across split roles because live sports markets overla
 
 | Fold | Train rows | Cal rows | Val rows | Test rows | Test markets | Abstain | Threshold | Test trades | Test ROI | CI | ECE |
 |---:|---:|---:|---:|---:|---:|---|---:|---:|---:|---|---:|
-| 1 | 351,787 | 29,064 | 105,118 | 155,968 | 0 | True | 1.000001 | 0 | n/a | n/a | 0.29% |
-| 2 | 910,513 | 172,774 | 172,205 | 233,490 | 0 | True | 1.000001 | 0 | n/a | n/a | 0.16% |
-| 3 | 1,840,636 | 183,400 | 156,262 | 187,091 | 0 | True | 1.000001 | 0 | n/a | n/a | 0.03% |
-| 4 | 2,775,565 | 175,460 | 388,568 | 546,764 | 0 | True | 1.000001 | 0 | n/a | n/a | 0.00% |
+| 1 | 86,288 | 30,631 | 37,222 | 33,396 | 0 | True | 1.000001 | 0 | n/a | n/a | 0.01% |
+| 2 | 755,006 | 30,657 | 33,349 | 38,037 | 0 | True | 1.000001 | 0 | n/a | n/a | 0.01% |
+| 3 | 1,095,080 | 6,350 | 9,345 | 23,732 | 0 | True | 1.000001 | 0 | n/a | n/a | 0.00% |
+| 4 | 1,718,788 | 31,146 | 28,863 | 21,332 | 0 | True | 1.000001 | 0 | n/a | n/a | 0.00% |
 
 ## Gate Reasons
 
+- sampled row-capped validation is diagnostic only, not capital proof
 - aggregate market-disjoint test ROI is not positive
 - aggregate market-disjoint ROI CI lower bound is not positive
 - aggregate test trades below 100
