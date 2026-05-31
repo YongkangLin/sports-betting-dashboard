@@ -243,12 +243,6 @@
     font-size: 18px;
   }
 
-  .strategy-metrics {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(150px, 1fr));
-    gap: 12px;
-  }
-
   .strategy-list {
     display: grid;
     gap: 12px;
@@ -289,6 +283,22 @@
 
   .strategy-copy {
     margin-top: 10px;
+    color: var(--muted);
+  }
+
+  .strategy-stat {
+    min-width: 0;
+    padding: 2px 0 0;
+  }
+
+  .strategy-stat .metric-value {
+    font-size: 22px;
+  }
+
+  .strategy-stat .metric-help {
+    margin-top: 8px;
+    padding-top: 0;
+    border-top: 0;
     color: var(--muted);
   }
 
@@ -786,8 +796,8 @@
       display: none;
     }
 
-    .strategy-metrics {
-      grid-template-columns: 1fr;
+    .strategy-stat {
+      padding-top: 6px;
     }
   }
 </style>
@@ -1699,7 +1709,7 @@ function renderStrategyOverview(data) {
             <div class="strategy-copy">${esc(row.copy)}</div>
           </div>
           ${row.metrics.map(([label, value, note, help]) => `
-            <div class="metric">
+            <div class="strategy-stat">
               <div class="metric-label">${esc(label)}</div>
               <div class="metric-value">${esc(value)}</div>
               <div class="metric-note">${esc(note)}</div>
@@ -1942,9 +1952,7 @@ function replaySide(event) {
 }
 
 function replayOptionLabel(event) {
-  const stats = event.stats || {};
-  const pos = replayPosition(stats);
-  return `${replayExperimentLabel(event)} | ${replaySide(event).order} | ${fmtSignedUsd(pos.pnlUsd)} / ROI ${fmtPct(stats.roi)}`;
+  return replayExperimentLabel(event);
 }
 
 function replayPricePoints(event) {
