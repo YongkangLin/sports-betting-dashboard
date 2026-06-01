@@ -712,6 +712,27 @@
     border-radius: 8px;
     background: #fff;
     box-shadow: 0 2px 8px rgba(29, 36, 48, 0.04);
+    transition: background 140ms ease, border-color 140ms ease, box-shadow 140ms ease, opacity 140ms ease;
+  }
+
+  .player-card.in-play {
+    border-color: #86efac;
+    background: #f0fdf4;
+    box-shadow: inset 0 0 0 1px #bbf7d0, 0 4px 14px rgba(22, 163, 74, 0.08);
+  }
+
+  .player-card.off-court {
+    border-color: #d1d5db;
+    background: #f8fafc;
+    color: #64748b;
+    opacity: 0.72;
+    box-shadow: none;
+  }
+
+  .player-card.off-court strong,
+  .player-card.off-court .player-card-chip b,
+  .player-card.off-court .player-card-main b {
+    color: #64748b;
   }
 
   .player-card strong {
@@ -797,9 +818,10 @@
     text-overflow: ellipsis;
   }
 
-  .player-card-rotation {
+  .player-card-status {
     display: inline-flex;
     align-items: center;
+    gap: 5px;
     max-width: 100%;
     margin-top: 8px;
     padding: 4px 7px;
@@ -811,6 +833,32 @@
     line-height: 1;
     text-transform: uppercase;
     white-space: nowrap;
+  }
+
+  .player-card-status::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 999px;
+    background: #94a3b8;
+  }
+
+  .player-card.in-play .player-card-status {
+    background: #dcfce7;
+    color: #166534;
+  }
+
+  .player-card.in-play .player-card-status::before {
+    background: #16a34a;
+  }
+
+  .player-card.off-court .player-card-status {
+    background: #e5e7eb;
+    color: #64748b;
+  }
+
+  .player-card.off-court .player-card-status::before {
+    background: #9ca3af;
   }
 
   .window-buttons {
@@ -3145,6 +3193,7 @@ function replayPlayerStats(event, options = {}) {
 function cleanPbpPlayerName(value) {
   return String(value || "")
     .replace(/[\n\r]+/g, " ")
+    .replace(/\s+(?:lost ball|bad pass|out of bounds|traveling|palming|double dribble|lane violation|shot clock turnover|turnover)\b.*$/i, "")
     .replace(/\s+/g, " ")
     .replace(/[.;]\s*$/g, "")
     .trim();
@@ -3605,6 +3654,20 @@ function renderReplayTeamCard(team, activeSide) {
   `;
 }
 
+function replayPlayerCourtState(player) {
+  const lastSubState = String(player?.last_sub_state || "").toLowerCase();
+  if (lastSubState === "out") {
+    return { className: "off-court", label: "Off court", rank: 0 };
+  }
+  if (lastSubState === "in") {
+    return { className: "in-play", label: "On court", rank: 2 };
+  }
+  if ((num(player?.event_count) || 0) > 0) {
+    return { className: "in-play", label: "On court", rank: 2 };
+  }
+  return { className: "unknown", label: "Tracked", rank: 1 };
+}
+
 function renderReplayPlayerCards(event) {
   const target = $("replay-player-cards");
   if (!target) return;
@@ -3621,7 +3684,7 @@ function renderReplayPlayerCards(event) {
   if (!rows.length) rows = allRows;
   rows = [...rows]
     .sort((a, b) => (
-      (String(b.last_sub_state || "") === "in" ? 1 : 0) - (String(a.last_sub_state || "") === "in" ? 1 : 0)
+      replayPlayerCourtState(b).rank - replayPlayerCourtState(a).rank
       || (num(b.points) || 0) - (num(a.points) || 0)
       || ((num(b.rebounds) || 0) + (num(b.assists) || 0)) - ((num(a.rebounds) || 0) + (num(a.assists) || 0))
       || (num(b.event_count) || 0) - (num(a.event_count) || 0)
@@ -3645,17 +3708,9 @@ function renderReplayPlayerCards(event) {
     const made = fmtInt(player.field_goals_made || 0);
     const attempted = fmtInt(player.field_goals_attempted || 0);
     const team = player.team || player.team_side || "team unknown";
-    const lastSubState = String(player.last_sub_state || "").toLowerCase();
-    const lastSub = lastSubState
-      ? `${lastSubState === "in" ? "subbed in" : "subbed out"}${player.last_sub_period ? ` P${fmtInt(player.last_sub_period)}` : ""}${player.last_sub_clock ? ` ${player.last_sub_clock}` : ""}`
-      : player.last_seen_period
-        ? `last touch P${fmtInt(player.last_seen_period)} ${player.last_seen_clock || ""}`.trim()
-        : "play-by-play tracked";
-    const subCounts = (num(player.sub_ins) || num(player.sub_outs))
-      ? ` | ${fmtInt(player.sub_ins || 0)} in / ${fmtInt(player.sub_outs || 0)} out`
-      : "";
+    const courtState = replayPlayerCourtState(player);
     return `
-      <div class="player-card" title="${esc(player.player || "Player")}">
+      <div class="player-card ${esc(courtState.className)}" title="${esc(`${player.player || "Player"} - ${courtState.label}`)}">
         <strong>${esc(player.player || "Player")}</strong>
         <span class="player-card-team">${esc(team)}</span>
         <div class="player-card-main"><b>${fmtInt(player.points || 0)}</b><span>PTS</span></div>
@@ -3665,7 +3720,7 @@ function renderReplayPlayerCards(event) {
           <span class="player-card-chip"><b>${made}/${attempted}</b><span>FG</span></span>
         </div>
         <span class="player-card-sub">${fmtInt(player.steals || 0)} STL | ${fmtInt(player.blocks || 0)} BLK | ${fmtInt(player.fouls || 0)} PF</span>
-        <span class="player-card-rotation">${esc(`${lastSub}${subCounts}`)}</span>
+        <span class="player-card-status">${esc(courtState.label)}</span>
       </div>
     `;
   }).join("");
