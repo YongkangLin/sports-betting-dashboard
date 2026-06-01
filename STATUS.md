@@ -6,7 +6,7 @@ Run a lean Telonex/Odds API execution workflow: collect/refresh CLOB and sportsb
 
 ## Current Verdict
 
-- Generated: 2026-06-01T00:48:39.773126+00:00
+- Generated: 2026-06-01T03:58:47.341081+00:00
 - Verdict: HOLD; live capital enabled: False; live capital gate: False
 - Collector: healthy at loop 479
 - Latest model: `20260531T234614Z-03d084dd3bd6`
@@ -15,11 +15,11 @@ Run a lean Telonex/Odds API execution workflow: collect/refresh CLOB and sportsb
 
 ## Achieved
 
-- Built protected Telonex/Odds API model dataset: 6,395,081 label rows, 1,550 markets, 3,098 tokens.
-- Materialized Odds API feature layer: 5,358,403 rows with 83.79% coverage.
+- Built protected Telonex/Odds API model dataset: 6,548,479 label rows, 1,590 markets, 3,178 tokens.
+- Materialized Odds API feature layer: 5,408,039 rows with 82.58% coverage.
 - Trained latest Telonex convergence model run `20260531T234614Z` for `all` using `all_odds` features.
 - Audited separate market-type model readiness: gate False.
-- Materialized dashboard replay bundle: 1,660 events (277 decision replays, 1,383 plot-only series).
+- Materialized dashboard replay bundle: 54,229 events (277 decision replays, 53,952 plot-only series).
 - Kept live CLOB capture, queue/fill modeling, Telonex scoring, validation, model monitoring, and dashboard publishing as the active workflow.
 - Consolidated repository reporting to this single latest-status file; per-script summaries are treated as local byproducts outside the repo.
 
@@ -54,12 +54,12 @@ Run a lean Telonex/Odds API execution workflow: collect/refresh CLOB and sportsb
 
 ## Current Metrics
 
-- Telonex labels: 6,395,081 rows, 1,550 markets, 3,098 tokens.
-- Odds features: 5,358,403 rows, 1,312 markets, 2,622 tokens, 83.79% coverage.
-- Telonex downloaded quote/depth/trade rows: 2,258,881 / 11,451,632 / 38,783.
+- Telonex labels: 6,548,479 rows, 1,590 markets, 3,178 tokens.
+- Odds features: 5,408,039 rows, 1,338 markets, 2,674 tokens, 82.58% coverage.
+- Telonex downloaded quote/depth/trade rows: 2,258,881 / 2,614,043,230 / 54,385.
 - Queue/fill training rows: 1,125; queue model proxy/auth gates: True / False.
 - Strategy buckets positive test buckets: 0; executable taker gate: False.
-- Replay bundle: 1,660 events, 849,053 CLOB points, 1,422 events with Odds API overlays.
+- Replay bundle: 54,229 events, 21,781,831 CLOB points, 276 events with Odds API overlays.
 - Live Telonex selected signals/candidate tokens: 0 / 212.
 - Live execution quality gate: False; alpha/probe 3s rows: 0 / 19.
 - Model monitor verdict: HOLD: latest external validation gate failed; ECE drift alerts fired; external validation gate: False.

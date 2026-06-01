@@ -491,7 +491,7 @@
 
   .replay-controls {
     display: grid;
-    grid-template-columns: minmax(130px, 0.65fr) minmax(170px, 0.8fr) minmax(250px, 1.45fr) minmax(150px, 0.7fr) minmax(170px, 0.8fr);
+    grid-template-columns: minmax(120px, 0.55fr) minmax(150px, 0.7fr) minmax(155px, 0.75fr) minmax(140px, 0.65fr) minmax(220px, 1.25fr) minmax(190px, 1fr) minmax(165px, 0.8fr);
     gap: 12px;
     align-items: end;
     margin-bottom: 14px;
@@ -942,15 +942,27 @@
           </select>
         </div>
         <div class="replay-filter">
+          <label for="replay-bet-type-select">Bet type</label>
+          <select id="replay-bet-type-select">
+            <option>loading bet types...</option>
+          </select>
+        </div>
+        <div class="replay-filter">
+          <label for="replay-date-select">Date</label>
+          <select id="replay-date-select">
+            <option>loading dates...</option>
+          </select>
+        </div>
+        <div class="replay-filter">
           <label for="replay-select">Event</label>
           <select id="replay-select">
             <option>loading backtest events...</option>
           </select>
         </div>
         <div class="replay-filter">
-          <label for="replay-bet-type-select">Bet type</label>
-          <select id="replay-bet-type-select">
-            <option>loading bet types...</option>
+          <label for="replay-line-select">Line</label>
+          <select id="replay-line-select">
+            <option>loading lines...</option>
           </select>
         </div>
         <div class="replay-filter">
@@ -1381,6 +1393,9 @@ const state = {
   selectedReplayMarket: "__all__",
   selectedReplayStrategy: "__all__",
   selectedReplayBetType: "__all__",
+  selectedReplayDate: "__all__",
+  selectedReplayEventName: "__all__",
+  selectedReplayLine: "__all__",
   selectedReplayDataSource: "both",
   preferredReplayDataSource: "both",
   selectedSportsbookSourcesById: {},
@@ -2268,34 +2283,89 @@ function marketLabel(event) {
 function marketTypeValue(event) {
   const explicit = String(event?.bet_type || event?.market_type || "").trim();
   if (explicit) {
-    const key = explicit.toLowerCase();
+    const key = explicit.toLowerCase().replaceAll("_", " ").replaceAll("-", " ");
     const labels = {
       moneyline: "Moneyline",
+      "soccer moneyline": "Moneyline",
       h2h: "Moneyline",
-      draw: "Draw",
-      total: "Total",
-      totals: "Total",
+      draw: "Soccer draw",
+      total: "Game total",
+      totals: "Game total",
       spread: "Spread",
       spreads: "Spread",
       nrfi: "NRFI",
-      exact_score: "Exact score"
+      "exact score": "Exact score",
+      "player points": "Player points",
+      "player points alternate": "Player points",
+      "player rebounds": "Player rebounds",
+      "player rebounds alternate": "Player rebounds",
+      "player assists": "Player assists",
+      "player assists alternate": "Player assists",
+      "player threes": "Player threes",
+      "player threes alternate": "Player threes",
+      "player points rebounds assists": "Player PRA",
+      "player points rebounds": "Player points + rebounds",
+      "player points assists": "Player points + assists",
+      "player rebounds assists": "Player rebounds + assists",
+      "player goals": "Player goals",
+      "player shots on goal": "Player shots on goal",
+      "player total saves": "Player saves",
+      "player blocked shots": "Player blocked shots",
+      "player blocks": "Player blocks",
+      "player steals": "Player steals",
+      "player double double": "Player double-double",
+      "player triple double": "Player triple-double",
+      "player touchdown": "Player touchdown",
+      "batter total bases": "Batter total bases",
+      "batter hits": "Batter hits",
+      "batter home runs": "Batter home runs",
+      "batter runs scored": "Batter runs scored",
+      "pitcher strikeouts": "Pitcher strikeouts",
+      "pitcher outs": "Pitcher outs"
     };
-    return labels[key] || explicit.replaceAll("_", " ").replaceAll("-", " ").replace(/\b\w/g, letter => letter.toUpperCase());
+    return labels[key] || key.replace(/\b\w/g, letter => letter.toUpperCase());
   }
-  const slug = String(event?.slug || event?.question || event?.title || "").toLowerCase();
+  const slug = String(event?.slug || "").toLowerCase();
+  const question = String(event?.question || event?.title || "").toLowerCase();
   const outcome = String(event?.outcome || "").toLowerCase();
   const oddsMarket = String(event?.sportsbook_match?.market || event?.odds_market || "").toLowerCase();
+  const text = `${slug} ${question} ${oddsMarket}`;
+  if (text.includes("player_points") || text.includes("-points-") || question.includes(": points")) return "Player points";
+  if (text.includes("player_rebounds") || text.includes("-rebounds-") || question.includes(": rebounds")) return "Player rebounds";
+  if (text.includes("player_assists") || text.includes("-assists-") || question.includes(": assists")) return "Player assists";
+  if (text.includes("player_threes") || question.includes(": threes") || question.includes("3-pointers")) return "Player threes";
+  if (text.includes("player_points_rebounds_assists")) return "Player PRA";
+  if (text.includes("player_points_rebounds")) return "Player points + rebounds";
+  if (text.includes("player_points_assists")) return "Player points + assists";
+  if (text.includes("player_rebounds_assists")) return "Player rebounds + assists";
+  if (text.includes("player_shots_on_goal") || question.includes("shots on goal")) return "Player shots on goal";
+  if (text.includes("player_total_saves") || question.includes(": saves")) return "Player saves";
+  if (text.includes("player_goals") || slug.includes("-ags-") || question.includes("anytime goalscorer")) return "Player goals";
+  if (text.includes("batter_total_bases") || question.includes("total bases")) return "Batter total bases";
+  if (text.includes("batter_hits") || question.includes(": hits")) return "Batter hits";
+  if (text.includes("batter_home_runs") || question.includes("home runs")) return "Batter home runs";
+  if (text.includes("batter_runs_scored") || question.includes("runs scored")) return "Batter runs scored";
+  if (text.includes("pitcher_strikeouts") || question.includes("strikeouts")) return "Pitcher strikeouts";
+  if (text.includes("pitcher_outs") || question.includes("pitcher outs")) return "Pitcher outs";
+  if (text.includes("anytime-td") || question.includes("anytime touchdown")) return "Player touchdown";
   if (slug.includes("nrfi")) return "NRFI";
   if (slug.includes("exact-score")) return "Exact score";
   if (oddsMarket === "spreads" || slug.includes("-spread-")) return "Spread";
-  if (oddsMarket === "totals" || slug.includes("-total-") || ["over", "under"].includes(outcome)) return "Total";
-  if (outcome.includes("draw") || slug.endsWith("-draw") || slug.includes("-draw-")) return "Draw";
+  if (oddsMarket === "totals" || slug.includes("-total-") || ["over", "under"].includes(outcome)) return "Game total";
+  if (outcome.includes("draw") || slug.endsWith("-draw") || slug.includes("-draw-")) return "Soccer draw";
   return "Moneyline";
 }
 
-function replayDateLabel(event) {
-  const raw = event?.event_end_ts || event?.series_start_ts || "";
+function replayDateValue(event) {
+  const raw = event?.event_end_ts || event?.odds_commence_time || event?.series_start_ts || event?.start_ts || "";
   const date = new Date(raw);
+  if (!Number.isFinite(date.getTime())) return "";
+  return date.toISOString().slice(0, 10);
+}
+
+function replayDateLabel(event) {
+  const value = typeof event === "string" ? event : replayDateValue(event);
+  const date = new Date(`${value}T12:00:00Z`);
   if (!Number.isFinite(date.getTime())) return "";
   return date.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" });
 }
@@ -2356,20 +2426,18 @@ function formatSlugToken(token, event) {
 function cleanReplayEventName(event) {
   const raw = String(event?.title || event?.question || event?.slug || event?.replay_id || "Event").trim();
   if (!raw) return "Event";
-  if (/\s/.test(raw) && !/^[a-z0-9-]+$/i.test(raw)) return raw;
+  if (/\s/.test(raw) && !/^[a-z0-9-]+$/i.test(raw)) {
+    return raw
+      .replace(/\s+-\s+Player Props$/i, "")
+      .replace(/\s+-\s+(More Markets|Total Corners|Halftime Result|Exact Score).*$/i, "")
+      .replace(/\s+(Spread|Total):.*$/i, "")
+      .trim();
+  }
   const match = raw.match(/^([a-z0-9]+)-([a-z0-9]+)-([a-z0-9]+)-(\d{4})-(\d{2})-(\d{2})(?:-(.+))?$/i);
   if (!match) return raw.replaceAll("-", " ");
   const left = formatSlugToken(match[2], event);
   const right = formatSlugToken(match[3], event);
-  const suffix = String(match[7] || "");
-  const market = suffix.startsWith("total-")
-    ? ` total ${suffix.slice(6).replace("pt", ".")}`
-    : suffix.startsWith("spread-")
-      ? ` spread ${suffix.slice(7).replace("pt", ".")}`
-      : suffix.startsWith("exact-score-")
-        ? ` exact score ${suffix.slice(12).replaceAll("-", "-")}`
-        : "";
-  return `${left} vs ${right}${market}`;
+  return `${left} vs ${right}`;
 }
 
 function replayStrategyValue(event) {
@@ -2384,10 +2452,48 @@ function replayBetTypeValue(event) {
   return marketTypeValue(event);
 }
 
+function replayEventNameValue(event) {
+  return replayExperimentLabel(event);
+}
+
+function formatReplayPoint(value) {
+  const raw = String(value ?? "").trim();
+  if (!raw || raw.toLowerCase() === "nan") return "";
+  return raw.replace(/^(-?\d+)pt(\d+)$/i, "$1.$2");
+}
+
+function replayLineValue(event) {
+  const explicit = String(event?.line_label || event?.contract_label || "").trim();
+  if (explicit) return explicit;
+  const question = String(event?.question || "").trim();
+  if (question && !/^[a-z0-9-]+$/i.test(question)) {
+    const eventName = replayEventNameValue(event);
+    const withoutEvent = question
+      .replace(eventName, "")
+      .replace(/^\s*[:|-]\s*/, "")
+      .trim();
+    if (withoutEvent && withoutEvent !== question) return withoutEvent;
+    if (question.includes(":") || /\b(o\/u|over|under|spread|points|rebounds|assists|strikeouts|touchdown|goals|shots|saves|hits|runs)\b/i.test(question)) {
+      return question;
+    }
+  }
+  const outcome = String(event?.outcome || event?.odds_base_outcome || "").trim();
+  const point = formatReplayPoint(event?.odds_point);
+  const slug = String(event?.slug || "").toLowerCase();
+  const suffix = slug.match(/^\w+-\w+-\w+-20\d{2}-\d{2}-\d{2}-(.+)$/i)?.[1] || "";
+  if (point && outcome) return `${replayBetTypeValue(event)} ${point} | ${outcome}`;
+  if (point) return `${replayBetTypeValue(event)} ${point}`;
+  if (suffix.startsWith("total-")) return `Game total ${formatReplayPoint(suffix.slice(6))}`;
+  if (suffix.startsWith("spread-")) return `Spread ${formatReplayPoint(suffix.replace(/^spread-(home|away)-/i, ""))}`;
+  if (suffix.startsWith("exact-score-")) return `Exact score ${suffix.slice(12).replaceAll("-", "-")}`;
+  if (suffix) return suffix.replaceAll("-", " ").replace(/\b\w/g, letter => letter.toUpperCase());
+  return outcome || "Primary line";
+}
+
 function replayOptionCounts(events, valueFn) {
   const counts = new Map();
   events.forEach(item => {
-    const value = valueFn(item);
+    const value = valueFn(item) || "Unknown";
     counts.set(value, (counts.get(value) || 0) + 1);
   });
   return [...counts.entries()].sort((a, b) => {
@@ -2405,6 +2511,9 @@ function replayEventsForFilters(events) {
     replayFilterMatch(replayMarketValue(item), state.selectedReplayMarket)
     && replayFilterMatch(replayStrategyValue(item), state.selectedReplayStrategy)
     && replayFilterMatch(replayBetTypeValue(item), state.selectedReplayBetType)
+    && replayFilterMatch(replayDateValue(item), state.selectedReplayDate)
+    && replayFilterMatch(replayEventNameValue(item), state.selectedReplayEventName)
+    && replayFilterMatch(replayLineValue(item), state.selectedReplayLine)
   ));
 }
 
@@ -2414,6 +2523,17 @@ function renderReplayFilterOptions(select, rows, selectedValue, allLabel) {
   select.innerHTML = [
     `<option value="__all__">${esc(allLabel)}</option>`,
     ...rows.map(([value, count]) => `<option value="${esc(value)}">${esc(value)} (${fmtInt(count)})</option>`)
+  ].join("");
+  select.value = active;
+  return active;
+}
+
+function renderReplayDateOptions(select, rows, selectedValue) {
+  const values = rows.map(([value]) => value);
+  const active = selectedValue !== "__all__" && values.includes(selectedValue) ? selectedValue : "__all__";
+  select.innerHTML = [
+    `<option value="__all__">All dates</option>`,
+    ...rows.map(([value, count]) => `<option value="${esc(value)}">${esc(replayDateLabel(value) || value)} (${fmtInt(count)})</option>`)
   ].join("");
   select.value = active;
   return active;
@@ -2457,14 +2577,13 @@ function replaySide(event) {
 }
 
 function replayOptionLabel(event) {
-  const bits = [replayExperimentLabel(event)];
-  const date = replayDateLabel(event);
-  const betType = replayBetTypeValue(event);
-  const outcome = String(event?.outcome || "").trim();
-  if (date) bits.push(date);
-  if (betType) bits.push(betType);
-  if (outcome) bits.push(outcome);
-  return bits.filter(Boolean).join(" | ");
+  return replayEventNameValue(event);
+}
+
+function replayChartTitle(event) {
+  const name = replayEventNameValue(event);
+  const line = replayLineValue(event);
+  return line && line !== "Primary line" ? `${name} | ${line}` : name;
 }
 
 function replayPricePoints(event) {
@@ -2510,13 +2629,18 @@ function replayHasSportsbook(event) {
   );
 }
 
+function replayHasPolymarket(event) {
+  return replayPricePoints(event).length > 0;
+}
+
 function replayDataSourceOptions(event) {
   const hasSportsbook = replayHasSportsbook(event);
+  const hasPolymarket = replayHasPolymarket(event);
   const sportsbookPointCount = event?.sportsbook_series_point_count ?? (event?.sportsbook_series_points || []).length;
   const sourceCount = Math.max(0, (event?.sportsbook_series_schema || []).length - 1);
   return [
-    { value: "both", label: hasSportsbook ? `CLOB + sportsbook sources (${fmtInt(sportsbookPointCount)} snapshots)` : "CLOB + sportsbook sources", enabled: hasSportsbook },
-    { value: "polymarket", label: "Polymarket CLOB", enabled: true },
+    { value: "both", label: hasSportsbook ? `CLOB + sportsbook sources (${fmtInt(sportsbookPointCount)} snapshots)` : "CLOB + sportsbook sources", enabled: hasSportsbook && hasPolymarket },
+    { value: "polymarket", label: "Polymarket CLOB", enabled: hasPolymarket },
     { value: "sportsbooks", label: hasSportsbook ? `Sportsbook sources (${fmtInt(sourceCount)})` : "Sportsbook sources", enabled: hasSportsbook },
   ];
 }
@@ -3025,7 +3149,7 @@ function drawReplayChart(event) {
   const visibleMarkers = markers.filter(marker => num(marker.offset_sec) >= bounds.minX && num(marker.offset_sec) <= bounds.maxX);
   const spanX = Math.max(1, bounds.maxX - bounds.minX);
   if ($("chart-title")) {
-    $("chart-title").textContent = replayOptionLabel(event);
+    $("chart-title").textContent = replayChartTitle(event);
   }
   const clobPointCount = event.series_point_count ?? polyPoints.length;
   const sportsbookPointCount = event.sportsbook_series_point_count ?? bookPoints.length;
@@ -3472,17 +3596,23 @@ function renderReplay(data) {
   const marketSelect = $("replay-market-select");
   const strategySelect = $("replay-strategy-select");
   const betTypeSelect = $("replay-bet-type-select");
+  const dateSelect = $("replay-date-select");
+  const lineSelect = $("replay-line-select");
   if (state.replayTab === "paper") {
     $("replay-count-pill").textContent = "no paper trades";
     $("replay-count-pill").className = "pill warn";
     marketSelect.disabled = true;
     strategySelect.disabled = true;
     betTypeSelect.disabled = true;
+    dateSelect.disabled = true;
+    lineSelect.disabled = true;
     $("replay-data-source-select").disabled = true;
     select.disabled = true;
     marketSelect.innerHTML = `<option>No paper markets yet</option>`;
     strategySelect.innerHTML = `<option>No paper strategies yet</option>`;
     betTypeSelect.innerHTML = `<option>No paper bet types yet</option>`;
+    dateSelect.innerHTML = `<option>No paper dates yet</option>`;
+    lineSelect.innerHTML = `<option>No paper lines yet</option>`;
     $("replay-data-source-select").innerHTML = `<option>No paper data yet</option>`;
     select.innerHTML = `<option>No paper trades yet</option>`;
     $("replay-title").textContent = "Paper Trade";
@@ -3500,6 +3630,8 @@ function renderReplay(data) {
   marketSelect.disabled = false;
   strategySelect.disabled = false;
   betTypeSelect.disabled = false;
+  dateSelect.disabled = false;
+  lineSelect.disabled = false;
   $("replay-data-source-select").disabled = false;
   select.disabled = false;
   if (!events.length) {
@@ -3509,11 +3641,15 @@ function renderReplay(data) {
     marketSelect.disabled = true;
     strategySelect.disabled = true;
     betTypeSelect.disabled = true;
+    dateSelect.disabled = true;
+    lineSelect.disabled = true;
     $("replay-data-source-select").disabled = true;
     select.disabled = true;
     marketSelect.innerHTML = `<option>No markets loaded</option>`;
     strategySelect.innerHTML = `<option>No strategies loaded</option>`;
     betTypeSelect.innerHTML = `<option>No bet types loaded</option>`;
+    dateSelect.innerHTML = `<option>No dates loaded</option>`;
+    lineSelect.innerHTML = `<option>No lines loaded</option>`;
     $("replay-data-source-select").innerHTML = `<option>No sources loaded</option>`;
     select.innerHTML = `<option>No replay data loaded</option>`;
     $("replay-count-pill").textContent = "no events";
@@ -3552,6 +3688,26 @@ function renderReplay(data) {
     state.selectedReplayBetType,
     "All bet types"
   );
+  const betTypeFiltered = strategyFiltered.filter(item => replayFilterMatch(replayBetTypeValue(item), state.selectedReplayBetType));
+  state.selectedReplayDate = renderReplayDateOptions(
+    dateSelect,
+    replayOptionCounts(betTypeFiltered, replayDateValue),
+    state.selectedReplayDate
+  );
+  const dateFiltered = betTypeFiltered.filter(item => replayFilterMatch(replayDateValue(item), state.selectedReplayDate));
+  state.selectedReplayEventName = renderReplayFilterOptions(
+    select,
+    replayOptionCounts(dateFiltered, replayEventNameValue),
+    state.selectedReplayEventName,
+    "All events"
+  );
+  const eventFiltered = dateFiltered.filter(item => replayFilterMatch(replayEventNameValue(item), state.selectedReplayEventName));
+  state.selectedReplayLine = renderReplayFilterOptions(
+    lineSelect,
+    replayOptionCounts(eventFiltered, replayLineValue),
+    state.selectedReplayLine,
+    "All lines"
+  );
   const filteredEvents = replayEventsForFilters(events);
   $("replay-count-pill").textContent = filteredEvents.length
     ? `${fmtInt(filteredEvents.length)} / ${fmtInt(events.length)} events`
@@ -3561,9 +3717,12 @@ function renderReplay(data) {
   if (!filteredEvents.length) {
     select.disabled = true;
     betTypeSelect.disabled = false;
+    dateSelect.disabled = false;
+    lineSelect.disabled = true;
     $("replay-data-source-select").disabled = true;
     $("replay-data-source-select").innerHTML = `<option>No sources loaded</option>`;
     select.innerHTML = `<option>No events for selected filters</option>`;
+    lineSelect.innerHTML = `<option>No lines for selected filters</option>`;
     $("replay-title").textContent = "No matching event";
     $("replay-event-strip").innerHTML = "";
     $("decision-title").textContent = "No point selected";
@@ -3580,14 +3739,8 @@ function renderReplay(data) {
     state.selectedReplayId = filteredEvents[0].replay_id;
   }
   const event = filteredEvents.find(item => item.replay_id === state.selectedReplayId) || filteredEvents[0];
-  const currentOptions = Array.from(select.options).map(option => option.value).join("|");
-  const nextOptions = filteredEvents.map(event => event.replay_id).join("|");
-  if (currentOptions !== nextOptions) {
-    select.innerHTML = filteredEvents.map(item => `
-      <option value="${esc(item.replay_id)}">${esc(replayOptionLabel(item))}</option>
-    `).join("");
-  }
-  select.value = event.replay_id;
+  select.value = state.selectedReplayEventName;
+  lineSelect.value = state.selectedReplayLine;
 
   const detail = state.replayDetails[event.replay_id];
   if (!detail) {
@@ -3605,6 +3758,8 @@ function renderReplay(data) {
       ["Strategy", strategyLabel(event.strategy_label || event.strategy || event.bucket)],
       ["Market", marketLabel(event)],
       ["Bet type", replayBetTypeValue(event)],
+      ["Date", replayDateLabel(event)],
+      ["Line", replayLineValue(event)],
       ["Order", plotOnly ? `Plot ${side.display}` : side.order],
       ["Position", plotOnly ? "--" : replayTradeAmount(stats)],
       ["Event PnL", plotOnly ? "--" : `${fmtSignedUsd(pos.pnlUsd)} (${fmtPct(stats.roi)})`],
@@ -3641,7 +3796,7 @@ function renderReplay(data) {
         ? state.preferredReplayDataSource
         : enabledValues.includes("both")
           ? "both"
-          : "polymarket";
+          : enabledValues[0] || "polymarket";
     }
     dataSourceSelect.disabled = false;
     dataSourceSelect.innerHTML = options.map(option => `
@@ -3660,6 +3815,8 @@ function renderReplay(data) {
     ["Strategy", strategyLabel(fullEvent.strategy_label || fullEvent.strategy || fullEvent.bucket)],
     ["Market", marketLabel(fullEvent)],
     ["Bet type", replayBetTypeValue(fullEvent)],
+    ["Date", replayDateLabel(fullEvent)],
+    ["Line", replayLineValue(fullEvent)],
     ["Data", qualityLabel ? `${dataLabel}; ${qualityLabel}` : dataLabel],
     ["Order", plotOnly ? `Plot ${side.display}` : side.order],
     ["Result", plotOnly ? "No trade" : stats.won ? "Won" : "Lost"],
@@ -3811,6 +3968,9 @@ document.addEventListener("change", event => {
     state.selectedReplayMarket = event.target.value || "__all__";
     state.selectedReplayStrategy = "__all__";
     state.selectedReplayBetType = "__all__";
+    state.selectedReplayDate = "__all__";
+    state.selectedReplayEventName = "__all__";
+    state.selectedReplayLine = "__all__";
     state.selectedReplayId = null;
     state.replayWindow = "full";
     state.replayZoomById = {};
@@ -3822,6 +3982,9 @@ document.addEventListener("change", event => {
   if (event.target && event.target.id === "replay-strategy-select") {
     state.selectedReplayStrategy = event.target.value || "__all__";
     state.selectedReplayBetType = "__all__";
+    state.selectedReplayDate = "__all__";
+    state.selectedReplayEventName = "__all__";
+    state.selectedReplayLine = "__all__";
     state.selectedReplayId = null;
     state.replayWindow = "full";
     state.replayZoomById = {};
@@ -3832,6 +3995,21 @@ document.addEventListener("change", event => {
   }
   if (event.target && event.target.id === "replay-bet-type-select") {
     state.selectedReplayBetType = event.target.value || "__all__";
+    state.selectedReplayDate = "__all__";
+    state.selectedReplayEventName = "__all__";
+    state.selectedReplayLine = "__all__";
+    state.selectedReplayId = null;
+    state.replayWindow = "full";
+    state.replayZoomById = {};
+    state.replayYRangeById = {};
+    state.replayDrag = null;
+    renderReplay(deriveDashboard());
+    return;
+  }
+  if (event.target && event.target.id === "replay-date-select") {
+    state.selectedReplayDate = event.target.value || "__all__";
+    state.selectedReplayEventName = "__all__";
+    state.selectedReplayLine = "__all__";
     state.selectedReplayId = null;
     state.replayWindow = "full";
     state.replayZoomById = {};
@@ -3841,10 +4019,21 @@ document.addEventListener("change", event => {
     return;
   }
   if (event.target && event.target.id === "replay-select") {
-    state.selectedReplayId = event.target.value;
+    state.selectedReplayEventName = event.target.value || "__all__";
+    state.selectedReplayLine = "__all__";
+    state.selectedReplayId = null;
     state.replayWindow = "full";
-    delete state.replayZoomById[state.selectedReplayId];
-    delete state.replayYRangeById[state.selectedReplayId];
+    state.replayZoomById = {};
+    state.replayYRangeById = {};
+    renderReplay(deriveDashboard());
+    return;
+  }
+  if (event.target && event.target.id === "replay-line-select") {
+    state.selectedReplayLine = event.target.value || "__all__";
+    state.selectedReplayId = null;
+    state.replayWindow = "full";
+    state.replayZoomById = {};
+    state.replayYRangeById = {};
     renderReplay(deriveDashboard());
     return;
   }
@@ -3879,6 +4068,9 @@ document.addEventListener("click", event => {
     state.selectedReplayMarket = "__all__";
     state.selectedReplayStrategy = "__all__";
     state.selectedReplayBetType = "__all__";
+    state.selectedReplayDate = "__all__";
+    state.selectedReplayEventName = "__all__";
+    state.selectedReplayLine = "__all__";
     state.replayWindow = "full";
     state.replayZoomById = {};
     state.replayYRangeById = {};
