@@ -627,11 +627,33 @@
     border: 1px solid #dbeafe;
     border-radius: 8px;
     background: #f8fbff;
+    color: inherit;
+    font: inherit;
+    text-align: left;
+    appearance: none;
+    cursor: pointer;
+    transition: border-color 140ms ease, box-shadow 140ms ease, background 140ms ease, opacity 140ms ease;
   }
 
   .team-card.away {
     border-color: #fed7aa;
     background: #fffaf5;
+  }
+
+  .team-card:not(.active) {
+    opacity: 0.62;
+  }
+
+  .team-card.active {
+    border-color: #1f77b4;
+    background: #eff6ff;
+    box-shadow: inset 0 0 0 1px #1f77b4, 0 6px 18px rgba(31, 119, 180, 0.12);
+  }
+
+  .team-card.away.active {
+    border-color: #f59e0b;
+    background: #fff7ed;
+    box-shadow: inset 0 0 0 1px #f59e0b, 0 6px 18px rgba(245, 158, 11, 0.13);
   }
 
   .team-card-label {
@@ -676,9 +698,9 @@
   }
 
   .player-card {
-    flex: 0 0 166px;
+    flex: 0 0 206px;
     min-width: 0;
-    padding: 9px 10px;
+    padding: 10px 11px;
     border: 1px solid var(--soft-line);
     border-radius: 8px;
     background: #fff;
@@ -721,6 +743,37 @@
     line-height: 1;
   }
 
+  .player-card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 5px;
+    margin-top: 8px;
+  }
+
+  .player-card-chip {
+    border: 1px solid var(--soft-line);
+    border-radius: 6px;
+    padding: 5px 6px;
+    background: #fbfcfe;
+  }
+
+  .player-card-chip b {
+    display: block;
+    color: var(--text);
+    font-size: 12px;
+    line-height: 1;
+  }
+
+  .player-card-chip span {
+    display: block;
+    margin-top: 3px;
+    color: var(--muted);
+    font-size: 9px;
+    font-weight: 900;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
   .player-card-main span,
   .player-card-sub {
     color: var(--muted);
@@ -735,6 +788,22 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+
+  .player-card-rotation {
+    display: inline-flex;
+    align-items: center;
+    max-width: 100%;
+    margin-top: 8px;
+    padding: 4px 7px;
+    border-radius: 999px;
+    background: #f1f5f9;
+    color: #475569;
+    font-size: 10px;
+    font-weight: 900;
+    line-height: 1;
+    text-transform: uppercase;
+    white-space: nowrap;
   }
 
   .window-buttons {
@@ -1657,6 +1726,7 @@ const state = {
   preferredReplayDataSource: "both",
   selectedSportsbookSourcesById: {},
   selectedReplayMarkerById: {},
+  selectedReplayTeamSideById: {},
   replayTab: "backtest",
   replayWindow: "full",
   replayZoomById: {},
@@ -2722,7 +2792,7 @@ function replayEventsForFilters(events) {
     && replayFilterMatch(replayBetTypeValue(item), state.selectedReplayBetType)
     && replayFilterMatch(replayDateValue(item), state.selectedReplayDate)
     && replayFilterMatch(replayGameKey(item), state.selectedReplayEventName)
-    && replayFilterMatch(replayLineValue(item), state.selectedReplayLine)
+    && (state.selectedReplayEventName === "__all__" || replayFilterMatch(replayLineValue(item), state.selectedReplayLine))
   ));
 }
 
@@ -2733,11 +2803,22 @@ function replayCountText(count, noun = "") {
 
 function renderReplayFilterOptions(select, rows, selectedValue, allLabel, options = {}) {
   const values = rows.map(([value]) => value);
-  const active = selectedValue !== "__all__" && values.includes(selectedValue) ? selectedValue : "__all__";
+  const includeAll = options.includeAll !== false;
+  if (!rows.length) {
+    const emptyValue = includeAll ? "__all__" : "__none__";
+    select.innerHTML = `<option value="${emptyValue}">${esc(includeAll ? allLabel : `No ${options.noun || "options"}`)}</option>`;
+    select.value = emptyValue;
+    return emptyValue;
+  }
+  const active = selectedValue !== "__all__" && values.includes(selectedValue)
+    ? selectedValue
+    : includeAll
+      ? "__all__"
+      : values[0];
   const noun = options.noun || "";
   const showCounts = options.showCounts !== false;
   select.innerHTML = [
-    `<option value="__all__">${esc(allLabel)}</option>`,
+    ...(includeAll ? [`<option value="__all__">${esc(allLabel)}</option>`] : []),
     ...rows.map(([value, count, display]) => {
       const text = display || value;
       const label = showCounts ? `${text} (${replayCountText(count, noun)})` : text;
@@ -2817,8 +2898,42 @@ function replaySide(event) {
   };
 }
 
+function replayResolution(event) {
+  return event?.resolution || event?.fundamental_context?.resolution || {};
+}
+
+function replayResolutionLabel(event) {
+  const resolution = replayResolution(event);
+  if (!resolution || !Object.keys(resolution).length) {
+    return event?.resolution_status || "Pending data";
+  }
+  if (!resolution.available) {
+    return resolution.reason ? `Needs ${resolution.reason.replaceAll("_", " ")}` : "Pending data";
+  }
+  const status = String(resolution.status || "resolved").toUpperCase();
+  const point = resolution.point !== undefined && resolution.point !== null
+    ? ` @ ${fmtPrice(resolution.point, 1)}`
+    : resolution.handicap !== undefined && resolution.handicap !== null
+      ? ` ${fmtSigned(resolution.handicap)}`
+      : "";
+  const final = resolution.final_score ? ` | ${resolution.final_score}` : "";
+  return `${status}${point}${final}`;
+}
+
 function replayOptionLabel(event) {
   return replayEventNameValue(event);
+}
+
+function isEmptyReplayValue(value) {
+  return value === null || value === undefined || value === "";
+}
+
+function mergeReplayDetailEvent(summaryEvent, detailEvent = {}) {
+  const merged = { ...(summaryEvent || {}) };
+  Object.entries(detailEvent || {}).forEach(([key, value]) => {
+    if (!isEmptyReplayValue(value)) merged[key] = value;
+  });
+  return merged;
 }
 
 function replayChartTitle(event) {
@@ -2909,7 +3024,55 @@ function replayTeamSummaries(event) {
   ].filter(team => team.name);
 }
 
-function renderReplayTeamCard(team) {
+function canonicalReplayName(value) {
+  return String(value || "")
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, " ")
+    .replace(/\b(the|fc|sc|club|team)\b/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function replayNamesMatch(left, right) {
+  const a = canonicalReplayName(left);
+  const b = canonicalReplayName(right);
+  if (!a || !b) return false;
+  if (a === b || a.includes(b) || b.includes(a)) return true;
+  const aLast = a.split(" ").pop();
+  const bLast = b.split(" ").pop();
+  return Boolean(aLast && bLast && aLast.length > 3 && aLast === bLast);
+}
+
+function replayTeamSelectionKey(event) {
+  return replayGameKey(event) || String(event?.replay_id || "");
+}
+
+function selectedReplayTeamSide(event) {
+  const teams = replayTeamSummaries(event);
+  const keys = [replayTeamSelectionKey(event), event?.replay_id].filter(Boolean);
+  for (const key of keys) {
+    const stored = state.selectedReplayTeamSideById[key];
+    if (stored && teams.some(team => team.side === stored)) return stored;
+  }
+  const outcome = event?.outcome || event?.odds_base_outcome || "";
+  const matched = teams.find(team => replayNamesMatch(team.name, outcome));
+  return (matched || teams[0])?.side || "";
+}
+
+function replayTeamForSide(event, side) {
+  return replayTeamSummaries(event).find(team => team.side === side) || null;
+}
+
+function replayLineKeyForTeam(event, team) {
+  if (!team) return "";
+  if (replayNamesMatch(team.name, event?.outcome || event?.odds_base_outcome || "")) return "selected";
+  if (replayNamesMatch(team.name, event?.other_outcome || event?.odds_other_outcome || "")) return "other";
+  return "";
+}
+
+function renderReplayTeamCard(team, activeSide) {
   const score = team.score === null ? "--" : fmtInt(team.score);
   const meta = [
     team.fair === null ? "" : `${fmtPct(team.fair)} Elo fair`,
@@ -2917,14 +3080,14 @@ function renderReplayTeamCard(team) {
     team.eventCount === null ? "" : `${fmtInt(team.eventCount)} plays`
   ].filter(Boolean).join(" | ");
   return `
-    <div class="team-card ${team.side === "away" ? "away" : "home"}" title="${esc(team.name)}">
+    <button type="button" class="team-card ${team.side === "away" ? "away" : "home"} ${team.side === activeSide ? "active" : ""}" data-replay-team-side="${esc(team.side)}" title="${esc(team.name)}">
       <span class="team-card-label">${esc(team.label)} team</span>
       <strong>${esc(team.name)}</strong>
       <div class="team-card-row">
         <span class="team-card-score">${esc(score)}</span>
         <span class="team-card-meta">${esc(meta || "team context")}</span>
       </div>
-    </div>
+    </button>
   `;
 }
 
@@ -2932,23 +3095,53 @@ function renderReplayPlayerCards(event) {
   const target = $("replay-player-cards");
   if (!target) return;
   const teams = replayTeamSummaries(event);
-  const rows = replayPlayerStats(event).slice(0, 8);
+  const selectedSide = selectedReplayTeamSide(event);
+  const selectedTeam = replayTeamForSide(event, selectedSide);
+  const allRows = replayPlayerStats(event);
+  let rows = allRows.filter(player => {
+    const playerSide = String(player.team_side || "").toLowerCase();
+    const playerTeam = player.team || "";
+    return playerSide === selectedSide || replayNamesMatch(playerTeam, selectedTeam?.name || "");
+  });
+  if (!rows.length) rows = allRows;
+  rows = [...rows]
+    .sort((a, b) => (
+      (num(b.points) || 0) - (num(a.points) || 0)
+      || ((num(b.rebounds) || 0) + (num(b.assists) || 0)) - ((num(a.rebounds) || 0) + (num(a.assists) || 0))
+      || (num(b.sub_ins) || 0) - (num(a.sub_ins) || 0)
+    ))
+    .slice(0, 8);
   target.classList.toggle("active", teams.length > 0 || rows.length > 0);
   if (!teams.length && !rows.length) {
     target.innerHTML = "";
     return;
   }
-  const teamCards = teams.map(renderReplayTeamCard).join("");
+  const teamCards = teams.map(team => renderReplayTeamCard(team, selectedSide)).join("");
   const playerCards = rows.map(player => {
     const made = fmtInt(player.field_goals_made || 0);
     const attempted = fmtInt(player.field_goals_attempted || 0);
     const team = player.team || player.team_side || "team unknown";
+    const lastSubState = String(player.last_sub_state || "").toLowerCase();
+    const lastSub = lastSubState
+      ? `${lastSubState === "in" ? "subbed in" : "subbed out"}${player.last_sub_period ? ` P${fmtInt(player.last_sub_period)}` : ""}${player.last_sub_clock ? ` ${player.last_sub_clock}` : ""}`
+      : player.last_seen_period
+        ? `last touch P${fmtInt(player.last_seen_period)} ${player.last_seen_clock || ""}`.trim()
+        : "play-by-play tracked";
+    const subCounts = (num(player.sub_ins) || num(player.sub_outs))
+      ? ` | ${fmtInt(player.sub_ins || 0)} in / ${fmtInt(player.sub_outs || 0)} out`
+      : "";
     return `
       <div class="player-card" title="${esc(player.player || "Player")}">
         <strong>${esc(player.player || "Player")}</strong>
         <span class="player-card-team">${esc(team)}</span>
         <div class="player-card-main"><b>${fmtInt(player.points || 0)}</b><span>PTS</span></div>
-        <span class="player-card-sub">${fmtInt(player.rebounds || 0)} REB | ${fmtInt(player.assists || 0)} AST | ${made}/${attempted} FG</span>
+        <div class="player-card-grid">
+          <span class="player-card-chip"><b>${fmtInt(player.rebounds || 0)}</b><span>REB</span></span>
+          <span class="player-card-chip"><b>${fmtInt(player.assists || 0)}</b><span>AST</span></span>
+          <span class="player-card-chip"><b>${made}/${attempted}</b><span>FG</span></span>
+        </div>
+        <span class="player-card-sub">${fmtInt(player.steals || 0)} STL | ${fmtInt(player.blocks || 0)} BLK | ${fmtInt(player.fouls || 0)} PF</span>
+        <span class="player-card-rotation">${esc(`${lastSub}${subCounts}`)}</span>
       </div>
     `;
   }).join("");
@@ -3077,20 +3270,19 @@ function replayPbpOverlay(event, bounds, sx, pad, plotH, options = {}) {
   }
   const maxDots = Math.max(20, options.maxDots || REPLAY_PBP_DOT_LIMIT);
   const dotsSource = compactPbpDots(visible, maxDots);
-  const maxLane = Math.max(...dotsSource.map(play => pbpTypeLane(play.type)));
-  const laneGap = 12;
-  const bandHeight = Math.min(132, Math.max(38, 26 + (maxLane + 1) * laneGap));
-  const bandY = pad.top + plotH - bandHeight;
+  const laneY = Number.isFinite(options.laneY) ? options.laneY : pad.top + plotH + 34;
+  const bandHeight = Number.isFinite(options.laneHeight) ? options.laneHeight : 58;
+  const bandY = laneY - bandHeight / 2;
+  const bandW = Math.max(1, sx(bounds.maxX) - sx(bounds.minX));
   const typeCounts = new Map();
   visible.forEach(play => {
     typeCounts.set(play.type, (typeCounts.get(play.type) || 0) + 1);
   });
   const dots = dotsSource.map(play => {
-    const lane = pbpTypeLane(play.type);
     const color = pbpTypeColor(play.type);
     const scoring = pbpIsScoring(play);
     const x = sx(play.offset);
-    const y = bandY + 18 + lane * laneGap;
+    const y = laneY;
     const title = [
       `P${play.period || ""} ${play.clock || ""}`.trim(),
       play.score ? `Score ${play.score}` : "",
@@ -3117,8 +3309,9 @@ function replayPbpOverlay(event, bounds, sx, pad, plotH, options = {}) {
     count: visible.length,
     renderedCount: dotsSource.length,
     band: `
-      <rect x="${pad.left}" y="${bandY.toFixed(1)}" width="${Math.max(1, sx(bounds.maxX) - sx(bounds.minX)).toFixed(1)}" height="${bandHeight.toFixed(1)}" fill="#f8fafc" opacity="0.72" pointer-events="none" />
-      <text x="${(pad.left + 8).toFixed(1)}" y="${(bandY + 13).toFixed(1)}" fill="#627083" font-size="11" font-weight="800">PBP</text>
+      <rect x="${pad.left}" y="${bandY.toFixed(1)}" width="${bandW.toFixed(1)}" height="${bandHeight.toFixed(1)}" rx="8" fill="#f8fafc" opacity="0.9" pointer-events="none" />
+      <line x1="${pad.left}" y1="${laneY.toFixed(1)}" x2="${sx(bounds.maxX).toFixed(1)}" y2="${laneY.toFixed(1)}" stroke="#cbd5e1" stroke-width="2.2" stroke-linecap="round" pointer-events="none" />
+      <text x="${(pad.left + 8).toFixed(1)}" y="${(bandY + 15).toFixed(1)}" fill="#627083" font-size="11" font-weight="800">Game timeline</text>
     `,
     svg: `<g class="pbp-event-dots">${dots}</g>`,
     legendItems
@@ -3635,10 +3828,12 @@ function drawReplayLineOverlayChart(event, overlayEvents) {
   }
 
   const width = 940;
-  const height = 420;
-  const pad = { left: 54, right: 142, top: 22, bottom: 44 };
+  const height = 470;
+  const pad = { left: 54, right: 142, top: 22, bottom: 54 };
+  const timelineH = 76;
   const plotW = width - pad.left - pad.right;
-  const plotH = height - pad.top - pad.bottom;
+  const plotH = height - pad.top - pad.bottom - timelineH;
+  const priceBottom = pad.top + plotH;
   const allPoints = rows.flatMap(row => row.points);
   const bounds = replayWindowBounds(allPoints, [], null, event);
   const spanX = Math.max(1, bounds.maxX - bounds.minX);
@@ -3679,7 +3874,11 @@ function drawReplayLineOverlayChart(event, overlayEvents) {
   const xAxis = xTicks.map(value => `
     <text x="${sx(value).toFixed(1)}" y="${height - 14}" text-anchor="middle" fill="#627083" font-size="12">${esc(replayAxisLabel(event, value, spanX))}</text>
   `).join("");
-  const pbpOverlay = replayPbpOverlay(event, bounds, sx, pad, plotH, { maxDots: REPLAY_PBP_OVERLAY_DOT_LIMIT });
+  const pbpOverlay = replayPbpOverlay(event, bounds, sx, pad, plotH, {
+    maxDots: REPLAY_PBP_OVERLAY_DOT_LIMIT,
+    laneY: priceBottom + 38,
+    laneHeight: 58,
+  });
   const colors = ["#1f77b4", "#f59e0b", "#16a34a", "#7c3aed", "#dc2626", "#0891b2", "#be123c", "#0f766e", "#a16207", "#9333ea"];
   const lineSvg = visibleRows.map(row => {
     const color = colors[row.index % colors.length];
@@ -3696,7 +3895,7 @@ function drawReplayLineOverlayChart(event, overlayEvents) {
     const last = [...row.points].reverse().find(point => point.selected !== null);
     if (!last) return "";
     const color = colors[row.index % colors.length];
-    const y = Math.max(pad.top + 12, Math.min(height - pad.bottom - 8, sy(last.selected)));
+    const y = Math.max(pad.top + 12, Math.min(priceBottom - 8, sy(last.selected)));
     return `<text x="${(width - pad.right + 10).toFixed(1)}" y="${y.toFixed(1)}" fill="${color}" font-size="12" font-weight="800" paint-order="stroke" stroke="#fff" stroke-width="4">${esc(shortLabel(row.label, 17))}</text>`;
   }).join("");
   const expected = event.line_overlay_expected_count || rows.length;
@@ -3725,6 +3924,7 @@ function drawReplayLineOverlayChart(event, overlayEvents) {
     maxY,
     width,
     height,
+    teamSelectionKey: replayTeamSelectionKey(event),
     markerPoints: []
   };
   svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
@@ -3732,13 +3932,13 @@ function drawReplayLineOverlayChart(event, overlayEvents) {
     <rect x="0" y="0" width="${width}" height="${height}" fill="#fff" pointer-events="none" />
     ${pbpOverlay.band}
     ${grid}
-    <line x1="${pad.left}" y1="${pad.top}" x2="${pad.left}" y2="${height - pad.bottom}" stroke="#d8dee8" />
-    <line x1="${pad.left}" y1="${height - pad.bottom}" x2="${width - pad.right}" y2="${height - pad.bottom}" stroke="#d8dee8" />
+    <line x1="${pad.left}" y1="${pad.top}" x2="${pad.left}" y2="${priceBottom}" stroke="#d8dee8" />
+    <line x1="${pad.left}" y1="${priceBottom}" x2="${width - pad.right}" y2="${priceBottom}" stroke="#d8dee8" />
     ${lineSvg}
     ${labels}
     <rect data-chart-pan="xy" x="${pad.left}" y="${pad.top}" width="${plotW}" height="${plotH}" fill="transparent" pointer-events="all" cursor="move" />
     <rect data-chart-pan="y-scale" x="0" y="${pad.top}" width="${pad.left}" height="${plotH}" fill="transparent" pointer-events="all" cursor="ns-resize" />
-    <rect data-chart-pan="x-scale" x="${pad.left}" y="${height - pad.bottom}" width="${plotW}" height="${pad.bottom}" fill="transparent" pointer-events="all" cursor="ew-resize" />
+    <rect data-chart-pan="x-scale" x="${pad.left}" y="${priceBottom}" width="${plotW}" height="${height - priceBottom}" fill="transparent" pointer-events="all" cursor="ew-resize" />
     ${pbpOverlay.svg}
     ${xAxis}
   `;
@@ -3779,10 +3979,12 @@ function drawReplayChart(event) {
   }
 
   const width = 940;
-  const height = 420;
-  const pad = { left: 54, right: 128, top: 22, bottom: 44 };
+  const height = 470;
+  const pad = { left: 54, right: 128, top: 22, bottom: 54 };
+  const timelineH = 76;
   const plotW = width - pad.left - pad.right;
-  const plotH = height - pad.top - pad.bottom;
+  const plotH = height - pad.top - pad.bottom - timelineH;
+  const priceBottom = pad.top + plotH;
   const selectedMarker = markers.find(marker => marker.index === selectedIndex);
   const bounds = replayWindowBounds(points, markers, selectedMarker, event);
   let visiblePoints = points.filter(point => point.offset >= bounds.minX && point.offset <= bounds.maxX);
@@ -3840,7 +4042,10 @@ function drawReplayChart(event) {
   }
   const sx = value => pad.left + ((value - bounds.minX) / spanX) * plotW;
   const sy = value => pad.top + (1 - ((value - minY) / Math.max(0.0001, maxY - minY))) * plotH;
-  const pbpOverlay = replayPbpOverlay(event, bounds, sx, pad, plotH);
+  const pbpOverlay = replayPbpOverlay(event, bounds, sx, pad, plotH, {
+    laneY: priceBottom + 38,
+    laneHeight: 58,
+  });
   setChartSourceNote(sourceNoteBuilder(pbpOverlayNote(pbpOverlay)));
   let yTicks = [0, 0.25, 0.5, 0.75, 1].filter(value => value >= minY - 0.001 && value <= maxY + 0.001);
   if (yTicks.length < 3) {
@@ -3855,11 +4060,19 @@ function drawReplayChart(event) {
   const xAxis = xTicks.map(value => `
     <text x="${sx(value).toFixed(1)}" y="${height - 14}" text-anchor="middle" fill="#627083" font-size="12">${esc(replayAxisLabel(event, value, spanX))}</text>
   `).join("");
+  const activeTeamSide = selectedReplayTeamSide(event);
+  const activeTeam = replayTeamForSide(event, activeTeamSide);
+  const activeLineKey = replayLineKeyForTeam(event, activeTeam);
+  const lineEmphasis = key => {
+    if (!activeLineKey || key === activeLineKey) return { width: 4, opacity: 0.98, labelWeight: 900 };
+    return { width: 2, opacity: 0.28, labelWeight: 700 };
+  };
   const lineLabel = (rows, key, label, color, dy = 0) => {
     const last = [...rows].reverse().find(point => point[key] !== null);
     if (!last) return "";
-    const y = Math.max(pad.top + 12, Math.min(height - pad.bottom - 8, sy(last[key]) + dy));
-    return `<text x="${(width - pad.right + 10).toFixed(1)}" y="${y.toFixed(1)}" fill="${color}" font-size="12" font-weight="800" paint-order="stroke" stroke="#fff" stroke-width="4">${esc(shortLabel(label, 16))}</text>`;
+    const y = Math.max(pad.top + 12, Math.min(priceBottom - 8, sy(last[key]) + dy));
+    const emphasis = lineEmphasis(key);
+    return `<text x="${(width - pad.right + 10).toFixed(1)}" y="${y.toFixed(1)}" fill="${color}" font-size="12" font-weight="${emphasis.labelWeight}" opacity="${emphasis.opacity}" paint-order="stroke" stroke="#fff" stroke-width="4">${esc(shortLabel(label, 16))}</text>`;
   };
   const sportsbookColors = ["#16a34a", "#7c3aed", "#dc2626", "#0891b2", "#9333ea", "#65a30d", "#be123c", "#0f766e", "#a16207"];
   const polyLabels = showPolymarket ? [
@@ -3904,8 +4117,8 @@ function drawReplayChart(event) {
     : "";
   const legendItems = [
     ...(showPolymarket ? [
-      { label: `Polymarket ${event.outcome || "selected"}`, color: "#1f77b4", opacity: 0.98 },
-      { label: `Polymarket ${event.other_outcome || "opposite"}`, color: "#f59e0b", opacity: 0.95 }
+      { label: `Polymarket ${event.outcome || "selected"}`, color: "#1f77b4", opacity: lineEmphasis("selected").opacity },
+      { label: `Polymarket ${event.other_outcome || "opposite"}`, color: "#f59e0b", opacity: lineEmphasis("other").opacity }
     ] : []),
     ...(showSportsbooks ? sportsbookKeys.flatMap((key, index) => {
       const selectedColor = sportsbookColors[index % sportsbookColors.length];
@@ -3917,9 +4130,11 @@ function drawReplayChart(event) {
     ...pbpOverlay.legendItems
   ];
   renderChartLegend(legendItems);
+  const selectedStyle = lineEmphasis("selected");
+  const otherStyle = lineEmphasis("other");
   const polyLines = showPolymarket ? `
-    <polyline class="chart-series" points="${replayPath(visiblePolyPoints, "other", sx, sy)}" fill="none" stroke="#f59e0b" stroke-width="3" stroke-dasharray="none" opacity="0.95" />
-    <polyline class="chart-series" points="${replayPath(visiblePolyPoints, "selected", sx, sy)}" fill="none" stroke="#1f77b4" stroke-width="3" stroke-dasharray="none" opacity="0.98" />
+    <polyline class="chart-series" points="${replayPath(visiblePolyPoints, "other", sx, sy)}" fill="none" stroke="#f59e0b" stroke-width="${otherStyle.width}" stroke-dasharray="none" opacity="${otherStyle.opacity}" />
+    <polyline class="chart-series" points="${replayPath(visiblePolyPoints, "selected", sx, sy)}" fill="none" stroke="#1f77b4" stroke-width="${selectedStyle.width}" stroke-dasharray="none" opacity="${selectedStyle.opacity}" />
   ` : "";
   const markerPoints = [];
   const markerSvg = visibleMarkers.map(marker => {
@@ -3955,6 +4170,7 @@ function drawReplayChart(event) {
     maxY,
     width,
     height,
+    teamSelectionKey: replayTeamSelectionKey(event),
     markerPoints
   };
   svg.innerHTML = `
@@ -3962,8 +4178,8 @@ function drawReplayChart(event) {
     ${bookCoverageBand}
     ${pbpOverlay.band}
     ${grid}
-    <line x1="${pad.left}" y1="${pad.top}" x2="${pad.left}" y2="${height - pad.bottom}" stroke="#d8dee8" />
-    <line x1="${pad.left}" y1="${height - pad.bottom}" x2="${width - pad.right}" y2="${height - pad.bottom}" stroke="#d8dee8" />
+    <line x1="${pad.left}" y1="${pad.top}" x2="${pad.left}" y2="${priceBottom}" stroke="#d8dee8" />
+    <line x1="${pad.left}" y1="${priceBottom}" x2="${width - pad.right}" y2="${priceBottom}" stroke="#d8dee8" />
     ${sportsbookLines}
     ${sportsbookDots}
     ${polyLines}
@@ -3971,7 +4187,7 @@ function drawReplayChart(event) {
     ${sportsbookNotice}
     <rect data-chart-pan="xy" x="${pad.left}" y="${pad.top}" width="${plotW}" height="${plotH}" fill="transparent" pointer-events="all" cursor="move" />
     <rect data-chart-pan="y-scale" x="0" y="${pad.top}" width="${pad.left}" height="${plotH}" fill="transparent" pointer-events="all" cursor="ns-resize" />
-    <rect data-chart-pan="x-scale" x="${pad.left}" y="${height - pad.bottom}" width="${plotW}" height="${pad.bottom}" fill="transparent" pointer-events="all" cursor="ew-resize" />
+    <rect data-chart-pan="x-scale" x="${pad.left}" y="${priceBottom}" width="${plotW}" height="${height - priceBottom}" fill="transparent" pointer-events="all" cursor="ew-resize" />
     ${pbpOverlay.svg}
     ${xAxis}
     ${markerSvg}
@@ -4477,14 +4693,25 @@ function renderReplay(data) {
     { noun: "line" }
   );
   const betTypeFiltered = eventFiltered.filter(item => replayFilterMatch(replayBetTypeValue(item), state.selectedReplayBetType));
-  state.selectedReplayLine = renderReplayFilterOptions(
-    lineSelect,
-    replayOptionCounts(betTypeFiltered, replayLineValue, item => item?.replay_id || `${replayLineValue(item)}||${item?.outcome || ""}`),
-    state.selectedReplayLine,
-    "All lines",
-    { noun: "line" }
-  );
-  const lineFiltered = betTypeFiltered.filter(item => replayFilterMatch(replayLineValue(item), state.selectedReplayLine));
+  const hasSpecificReplayGame = state.selectedReplayEventName !== "__all__";
+  if (hasSpecificReplayGame) {
+    lineSelect.disabled = false;
+    state.selectedReplayLine = renderReplayFilterOptions(
+      lineSelect,
+      replayOptionCounts(betTypeFiltered, replayLineValue, item => item?.replay_id || `${replayLineValue(item)}||${item?.outcome || ""}`),
+      state.selectedReplayLine,
+      "All lines",
+      { noun: "line", includeAll: false }
+    );
+  } else {
+    state.selectedReplayLine = "__none__";
+    lineSelect.disabled = true;
+    lineSelect.innerHTML = `<option value="__none__">Pick a game first</option>`;
+    lineSelect.value = "__none__";
+  }
+  const lineFiltered = hasSpecificReplayGame
+    ? betTypeFiltered.filter(item => replayFilterMatch(replayLineValue(item), state.selectedReplayLine))
+    : betTypeFiltered;
   state.selectedReplayStrategy = renderReplayStrategyOptions(
     strategySelect,
     lineFiltered,
@@ -4526,12 +4753,7 @@ function renderReplay(data) {
   const event = filteredEvents.find(item => item.replay_id === state.selectedReplayId) || filteredEvents[0];
   select.value = state.selectedReplayEventName;
   lineSelect.value = state.selectedReplayLine;
-  const showAllLines = state.selectedReplayLine === "__all__"
-    && state.selectedReplayEventName !== "__all__"
-    && filteredEvents.length > 1;
-  if (showAllLines) {
-    loadReplayDetails(filteredEvents);
-  }
+  const showAllLines = false;
 
   const detail = state.replayDetails[event.replay_id];
   if (!detail) {
@@ -4552,6 +4774,7 @@ function renderReplay(data) {
       ["Date", replayDateLabel(event)],
       ["Line", showAllLines ? `All lines (${fmtInt(filteredEvents.length)})` : replayLineValue(event)],
       ["Order", showAllLines ? "Plot all selected sides" : plotOnly ? `Plot ${side.display}` : side.order],
+      ["Resolution", event.resolution_status || "loading detail"],
       ["Position", plotOnly ? "--" : replayTradeAmount(stats)],
       ["Game PnL", plotOnly ? "--" : `${fmtSignedUsd(pos.pnlUsd)} (${fmtPct(stats.roi)})`],
       ["Start", plotOnly ? `${fmtInt(event.series_point_count)} points` : fmtUsd(pos.bankroll, 0)]
@@ -4571,8 +4794,7 @@ function renderReplay(data) {
     ? filteredEvents.map(item => state.replayDetails[item.replay_id]).filter(Boolean)
     : [];
   const fullEvent = {
-    ...event,
-    ...detail,
+    ...mergeReplayDetailEvent(event, detail),
     line_overlay_events: lineOverlayDetails,
     line_overlay_expected_count: showAllLines ? filteredEvents.length : 0
   };
@@ -4622,6 +4844,7 @@ function renderReplay(data) {
     ["Data", qualityLabel && !showAllLines ? `${dataLabel}; ${qualityLabel}` : dataLabel],
     ["Order", showAllLines ? "Plot all selected sides" : plotOnly ? `Plot ${side.display}` : side.order],
     ["Result", plotOnly ? "No trade" : stats.won ? "Won" : "Lost"],
+    ["Resolution", replayResolutionLabel(fullEvent)],
     ["Position", plotOnly ? "--" : replayTradeAmount(stats)],
     ["Game PnL", plotOnly ? "--" : `${fmtSignedUsd(finalPos.pnlUsd)} (${fmtPct(stats.roi)})`],
     ["Start", plotOnly ? replayTimeLabel(fullEvent, 0) : fmtUsd(finalPos.bankroll, 0)],
@@ -4901,6 +5124,17 @@ document.addEventListener("click", event => {
       delete state.replayYRangeById[state.selectedReplayId];
     }
     renderReplay(deriveDashboard());
+    return;
+  }
+  const teamButton = event.target.closest("[data-replay-team-side]");
+  if (teamButton) {
+    const side = teamButton.dataset.replayTeamSide || "";
+    const key = state.replayChart?.teamSelectionKey || state.selectedReplayId;
+    if (side && key) {
+      state.selectedReplayTeamSideById[key] = side;
+      if (state.selectedReplayId) state.selectedReplayTeamSideById[state.selectedReplayId] = side;
+      renderReplay(deriveDashboard());
+    }
     return;
   }
   const markerTarget = event.target.closest("[data-marker-index]");
