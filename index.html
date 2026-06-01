@@ -620,6 +620,41 @@
     display: flex;
   }
 
+  .pbp-snapshot-card {
+    flex: 0 0 280px;
+    min-width: 0;
+    padding: 10px 11px;
+    border: 1px solid #c7d2fe;
+    border-radius: 8px;
+    background: #f7f8ff;
+  }
+
+  .pbp-snapshot-card span {
+    display: block;
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0;
+    text-transform: uppercase;
+  }
+
+  .pbp-snapshot-card strong {
+    display: block;
+    margin-top: 4px;
+    color: var(--text);
+    font-size: 13px;
+    line-height: 1.25;
+  }
+
+  .pbp-snapshot-card small {
+    display: block;
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 750;
+    line-height: 1.35;
+  }
+
   .team-card {
     flex: 0 0 216px;
     min-width: 0;
@@ -849,8 +884,88 @@
     cursor: grabbing;
   }
 
-  .pbp-dot {
-    cursor: help;
+  .pbp-timeline-hit {
+    cursor: pointer;
+  }
+
+  .pbp-timebar-thumb {
+    cursor: ew-resize;
+  }
+
+  .replay-pbp-panel {
+    display: none;
+    gap: 12px;
+    padding: 10px 12px 12px;
+    border-top: 1px solid var(--soft-line);
+    background: #fbfcfe;
+  }
+
+  .replay-pbp-panel.active {
+    display: grid;
+    grid-template-columns: minmax(220px, 0.8fr) minmax(260px, 1.2fr);
+  }
+
+  .pbp-current-play {
+    min-width: 0;
+    padding: 10px 11px;
+    border: 1px solid #c7d2fe;
+    border-radius: 8px;
+    background: #f7f8ff;
+  }
+
+  .pbp-current-play span,
+  .pbp-play-list-title {
+    display: block;
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0;
+    text-transform: uppercase;
+  }
+
+  .pbp-current-play strong {
+    display: block;
+    margin-top: 4px;
+    color: var(--text);
+    font-size: 13px;
+    line-height: 1.25;
+  }
+
+  .pbp-current-play small {
+    display: block;
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 750;
+    line-height: 1.35;
+  }
+
+  .pbp-odds-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 9px;
+  }
+
+  .pbp-odds-row b {
+    display: inline-flex;
+    align-items: center;
+    min-height: 22px;
+    padding: 3px 7px;
+    border-radius: 999px;
+    background: #fff;
+    color: var(--text);
+    font-size: 10px;
+    font-weight: 900;
+  }
+
+  .pbp-panel-list {
+    min-width: 0;
+  }
+
+  .pbp-panel-list .play-list {
+    max-height: 180px;
+    overflow: auto;
   }
 
   .chart-legend {
@@ -1084,6 +1199,12 @@
     line-height: 1.25;
   }
 
+  .play-row.active {
+    border-color: #c7d2fe;
+    background: #eef2ff;
+    color: var(--text);
+  }
+
   .play-row strong {
     display: block;
     margin-bottom: 2px;
@@ -1207,16 +1328,6 @@
     <section class="band">
       <div class="section-head">
         <div>
-          <h2>Model Strategy</h2>
-          <p>One model strategy: hold to resolution by default to avoid overtrading. Play-by-play and player-state shocks can trigger an exit or side switch when the live state invalidates the original fair-value case.</p>
-        </div>
-      </div>
-      <div class="strategy-overview" id="strategy-overview"></div>
-    </section>
-
-    <section class="band">
-      <div class="section-head">
-        <div>
           <h2>Game Replay</h2>
           <p>CLOB and sportsbook replay paths by market, date, game, bet type, and line.</p>
         </div>
@@ -1278,6 +1389,7 @@
           </div>
           <div class="replay-player-cards" id="replay-player-cards"></div>
           <svg class="replay-chart" id="replay-chart" role="img" aria-label="Backtest game price path"></svg>
+          <div class="replay-pbp-panel" id="replay-pbp-panel"></div>
           <div class="source-toggles" id="replay-source-toggles"></div>
           <div class="chart-legend" id="chart-legend"></div>
         </div>
@@ -1727,6 +1839,7 @@ const state = {
   selectedSportsbookSourcesById: {},
   selectedReplayMarkerById: {},
   selectedReplayTeamSideById: {},
+  selectedReplayPbpById: {},
   replayTab: "backtest",
   replayWindow: "full",
   replayZoomById: {},
@@ -1744,7 +1857,7 @@ const REPLAY_BANKROLL_USD = 1000;
 const REPLAY_POSITION_FRACTION = 0.05;
 const PRIMARY_MODEL_STRATEGY = "Hold to resolution strategy";
 const REPLAY_PBP_DOT_LIMIT = 260;
-const REPLAY_PBP_OVERLAY_DOT_LIMIT = 120;
+const REPLAY_PBP_OVERLAY_DOT_LIMIT = 220;
 const TEAM_ABBREVIATIONS = {
   ari: "Cardinals",
   atl: "Hawks",
@@ -2979,9 +3092,333 @@ function sportsbookPricePoints(event) {
   }).filter(point => Number.isFinite(point.offset));
 }
 
-function replayPlayerStats(event) {
+function replayPlayerStats(event, options = {}) {
+  const snapshot = options.snapshot === undefined ? replaySelectedPbpSnapshot(event) : options.snapshot;
+  if (snapshot?.player_stats) return snapshot.player_stats;
   const pbp = event?.fundamental_context?.play_by_play || {};
   return Array.isArray(pbp.player_stats) ? pbp.player_stats : [];
+}
+
+function cleanPbpPlayerName(value) {
+  return String(value || "")
+    .replace(/[\n\r]+/g, " ")
+    .replace(/\s+/g, " ")
+    .replace(/[.;]\s*$/g, "")
+    .trim();
+}
+
+function replayTeamNameForSide(event, side) {
+  const context = event?.fundamental_context || {};
+  const pbpTeams = context?.play_by_play?.teams || {};
+  const [nameLeft, nameRight] = replayNameSides(event);
+  if (side === "home") return pbpTeams?.home?.name || context.home_team || nameLeft || "";
+  if (side === "away") return pbpTeams?.away?.name || context.away_team || nameRight || "";
+  return "";
+}
+
+function replayPbpFinalPlayerLookup(event) {
+  const pbp = event?.fundamental_context?.play_by_play || {};
+  const rows = Array.isArray(pbp.player_stats) ? pbp.player_stats : [];
+  const lookup = new Map();
+  rows.forEach(row => {
+    const key = canonicalReplayName(row.player || "");
+    if (key) lookup.set(key, row);
+  });
+  return lookup;
+}
+
+function newPbpSnapshotPlayer(event, name, side, finalRow = null) {
+  const resolvedSide = String(finalRow?.team_side || side || "").toLowerCase();
+  return {
+    player: cleanPbpPlayerName(finalRow?.player || name || "Player"),
+    team_side: resolvedSide,
+    team: finalRow?.team || replayTeamNameForSide(event, resolvedSide) || resolvedSide || "team unknown",
+    points: 0,
+    field_goals_made: 0,
+    field_goals_attempted: 0,
+    three_points_made: 0,
+    three_points_attempted: 0,
+    free_throws_made: 0,
+    free_throws_attempted: 0,
+    rebounds: 0,
+    assists: 0,
+    turnovers: 0,
+    fouls: 0,
+    steals: 0,
+    blocks: 0,
+    sub_ins: 0,
+    sub_outs: 0,
+    event_count: 0,
+    last_sub_state: "",
+    last_sub_period: null,
+    last_sub_clock: "",
+    last_seen_period: null,
+    last_seen_clock: "",
+    last_seen_game_seconds: null
+  };
+}
+
+function ensurePbpSnapshotPlayer(event, stats, finalLookup, name, side = "") {
+  const cleanName = cleanPbpPlayerName(name);
+  if (!cleanName) return null;
+  const key = canonicalReplayName(cleanName);
+  if (!key) return null;
+  const finalRow = finalLookup.get(key) || null;
+  if (!stats.has(key)) {
+    stats.set(key, newPbpSnapshotPlayer(event, cleanName, side, finalRow));
+  }
+  const row = stats.get(key);
+  if (!row.team_side && (side || finalRow?.team_side)) {
+    row.team_side = String(finalRow?.team_side || side || "").toLowerCase();
+  }
+  if ((!row.team || row.team === "team unknown") && (finalRow?.team || row.team_side)) {
+    row.team = finalRow?.team || replayTeamNameForSide(event, row.team_side) || row.team;
+  }
+  return row;
+}
+
+function touchPbpSnapshotPlayer(row, play) {
+  if (!row) return;
+  row.event_count = (num(row.event_count) || 0) + 1;
+  row.last_seen_period = num(play?.period) ?? row.last_seen_period;
+  row.last_seen_clock = play?.clock || row.last_seen_clock;
+  row.last_seen_game_seconds = num(play?.game_seconds_elapsed) ?? row.last_seen_game_seconds;
+}
+
+function parsePbpSubstitution(play) {
+  const match = String(play?.text || "").match(/^\s*(.+?)\s+enters the game for\s+(.+?)\s*$/i);
+  if (!match) return null;
+  return {
+    entering: cleanPbpPlayerName(match[1]),
+    exiting: cleanPbpPlayerName(match[2])
+  };
+}
+
+function parsePbpParentheticalPlayer(text, verb) {
+  const pattern = new RegExp(`\\(([^()]+?)\\s+${verb}s?\\)`, "i");
+  const match = String(text || "").match(pattern);
+  return match ? cleanPbpPlayerName(match[1]) : "";
+}
+
+function pbpPlayTeamSide(play) {
+  const side = String(play?.possession_side || "").toLowerCase();
+  return side === "home" || side === "away" ? side : "";
+}
+
+function applyPbpSnapshotPlay(event, play, stats, finalLookup) {
+  const type = String(play?.type || "other").toLowerCase().replace(/\s+/g, "_");
+  const text = String(play?.text || "");
+  const lowerText = text.toLowerCase();
+  const side = pbpPlayTeamSide(play);
+  const sub = type === "substitution" ? parsePbpSubstitution(play) : null;
+  if (sub?.entering || sub?.exiting) {
+    const entering = ensurePbpSnapshotPlayer(event, stats, finalLookup, sub.entering, side);
+    if (entering) {
+      touchPbpSnapshotPlayer(entering, play);
+      entering.sub_ins += 1;
+      entering.last_sub_state = "in";
+      entering.last_sub_period = num(play?.period);
+      entering.last_sub_clock = play?.clock || "";
+    }
+    const exiting = ensurePbpSnapshotPlayer(event, stats, finalLookup, sub.exiting, side);
+    if (exiting) {
+      touchPbpSnapshotPlayer(exiting, play);
+      exiting.sub_outs += 1;
+      exiting.last_sub_state = "out";
+      exiting.last_sub_period = num(play?.period);
+      exiting.last_sub_clock = play?.clock || "";
+    }
+    return;
+  }
+
+  const main = ensurePbpSnapshotPlayer(event, stats, finalLookup, play?.player, side);
+  if (main) {
+    touchPbpSnapshotPlayer(main, play);
+    if (type === "shot") {
+      const isThree = /\b(three|3-point|3pt|3 pt)\b/i.test(text);
+      const made = /\bmakes?\b/i.test(text);
+      const missed = /\bmiss(?:es|ed)?\b/i.test(text);
+      if (made || missed) {
+        main.field_goals_attempted += 1;
+        if (isThree) main.three_points_attempted += 1;
+      }
+      if (made) {
+        main.field_goals_made += 1;
+        if (isThree) main.three_points_made += 1;
+        main.points += num(play?.score_value) || (isThree ? 3 : 2);
+      }
+    } else if (type === "free_throw") {
+      const made = /\bmakes?\b/i.test(text);
+      const missed = /\bmiss(?:es|ed)?\b/i.test(text);
+      if (made || missed) main.free_throws_attempted += 1;
+      if (made) {
+        main.free_throws_made += 1;
+        main.points += num(play?.score_value) || 1;
+      }
+    } else if (type === "rebound") {
+      main.rebounds += 1;
+    } else if (type === "turnover") {
+      main.turnovers += 1;
+    } else if (type === "foul") {
+      main.fouls += 1;
+    }
+  }
+
+  const assistName = parsePbpParentheticalPlayer(text, "assist");
+  const stealName = parsePbpParentheticalPlayer(text, "steal");
+  const blockName = parsePbpParentheticalPlayer(text, "block");
+  const helpers = [
+    { name: assistName, stat: "assists" },
+    { name: stealName, stat: "steals" },
+    { name: blockName, stat: "blocks" }
+  ];
+  helpers.forEach(helper => {
+    if (!helper.name) return;
+    const row = ensurePbpSnapshotPlayer(event, stats, finalLookup, helper.name, "");
+    if (!row) return;
+    row[helper.stat] += 1;
+    touchPbpSnapshotPlayer(row, play);
+  });
+}
+
+function parsePbpScore(score) {
+  const match = String(score || "").match(/(\d+)\s*-\s*(\d+)/);
+  if (!match) return null;
+  return { away: Number(match[1]), home: Number(match[2]) };
+}
+
+function replayScoreLabel(event, score) {
+  if (!score) return "";
+  const away = replayTeamNameForSide(event, "away") || "Away";
+  const home = replayTeamNameForSide(event, "home") || "Home";
+  return `${away} ${fmtInt(score.away)} - ${home} ${fmtInt(score.home)}`;
+}
+
+function pbpPlayLabel(play) {
+  const parts = [
+    play?.period ? `P${fmtInt(play.period)}` : "",
+    play?.clock || ""
+  ].filter(Boolean);
+  return parts.join(" ").trim() || "Selected play";
+}
+
+function selectedReplayPbpIndex(event) {
+  const timeline = replayPbpTimeline(event);
+  const stored = state.selectedReplayPbpById[event?.replay_id];
+  if (!Number.isInteger(stored)) return timeline[0]?.index ?? null;
+  return timeline.some(play => play.index === stored) ? stored : (timeline[0]?.index ?? null);
+}
+
+function replaySelectedPbpSnapshot(event) {
+  const selectedIndex = selectedReplayPbpIndex(event);
+  if (selectedIndex === null) return null;
+  if (!event.__pbpSnapshotCache) event.__pbpSnapshotCache = {};
+  if (event.__pbpSnapshotCache[selectedIndex]) return event.__pbpSnapshotCache[selectedIndex];
+  const timeline = replayPbpTimeline(event).sort((a, b) => a.index - b.index);
+  const selectedPlay = timeline.find(play => play.index === selectedIndex);
+  if (!selectedPlay) return null;
+  const finalLookup = replayPbpFinalPlayerLookup(event);
+  const stats = new Map();
+  const teamCounts = { home: 0, away: 0 };
+  let lastScore = null;
+  timeline.forEach(play => {
+    if (play.index > selectedIndex) return;
+    const side = pbpPlayTeamSide(play);
+    if (side) teamCounts[side] += 1;
+    const score = parsePbpScore(play.score);
+    if (score) lastScore = score;
+    applyPbpSnapshotPlay(event, play, stats, finalLookup);
+  });
+  const rows = [...stats.values()]
+    .filter(row => row.event_count || row.points || row.rebounds || row.assists || row.sub_ins || row.sub_outs)
+    .map(row => ({ ...row, snapshot: true }));
+  const snapshot = {
+    selected_index: selectedIndex,
+    play: selectedPlay,
+    score: lastScore,
+    score_label: replayScoreLabel(event, lastScore),
+    player_stats: rows,
+    teams: {
+      home: { score: lastScore?.home ?? null, event_count: teamCounts.home },
+      away: { score: lastScore?.away ?? null, event_count: teamCounts.away }
+    }
+  };
+  event.__pbpSnapshotCache[selectedIndex] = snapshot;
+  return snapshot;
+}
+
+function nearestAsOfPoint(points, offset) {
+  if (!Array.isArray(points) || !points.length || !Number.isFinite(offset)) return null;
+  let prior = null;
+  let nearest = null;
+  points.forEach(point => {
+    if (!Number.isFinite(point.offset)) return;
+    const distance = Math.abs(point.offset - offset);
+    if (!nearest || distance < nearest.distance) nearest = { point, distance };
+    if (point.offset <= offset && (!prior || point.offset > prior.offset)) prior = point;
+  });
+  return prior || nearest?.point || null;
+}
+
+function replaySnapshotOdds(event, offset) {
+  const poly = nearestAsOfPoint(replayPricePoints(event), offset);
+  const book = nearestAsOfPoint(sportsbookPricePoints(event), offset);
+  const sourceMode = state.selectedReplayDataSource || "both";
+  const bookKeys = sportsbookKeysForMode(event, sourceMode);
+  const consensusKey = bookKeys.includes("Sportsbook consensus") ? "Sportsbook consensus" : bookKeys[0];
+  return {
+    polymarketSelected: poly?.selected ?? null,
+    polymarketOther: poly?.other ?? null,
+    sportsbookConsensus: book && consensusKey ? book[consensusKey] ?? null : null,
+    sportsbookLabel: consensusKey || "",
+  };
+}
+
+function renderReplayPbpPanel(event) {
+  const target = $("replay-pbp-panel");
+  if (!target) return;
+  const timeline = replayPbpTimeline(event);
+  if (!timeline.length) {
+    target.classList.remove("active");
+    target.innerHTML = "";
+    return;
+  }
+  const snapshot = replaySelectedPbpSnapshot(event);
+  const selectedIndex = snapshot?.selected_index ?? null;
+  const asOfPlays = selectedIndex === null
+    ? timeline.slice(0, 8)
+    : timeline.filter(play => play.index <= selectedIndex).slice(-10);
+  const currentPlay = snapshot?.play || null;
+  const odds = currentPlay ? replaySnapshotOdds(event, currentPlay.offset) : null;
+  const header = currentPlay
+    ? `${pbpPlayLabel(currentPlay)}${snapshot.score_label ? ` | ${snapshot.score_label}` : ""}`
+    : "Pick a time on the game bar";
+  const copy = currentPlay?.text || "The chart is showing full-game data. Use the bottom time bar to switch every card and score into an as-of snapshot.";
+  const oddsBits = odds ? [
+    odds.polymarketSelected === null ? "" : `PM ${event.outcome || "selected"} ${fmtPrice(odds.polymarketSelected, 2)}`,
+    odds.polymarketOther === null ? "" : `PM ${event.other_outcome || "other"} ${fmtPrice(odds.polymarketOther, 2)}`,
+    odds.sportsbookConsensus === null ? "" : `${odds.sportsbookLabel || "Sportsbook"} ${fmtPrice(odds.sportsbookConsensus, 2)}`
+  ].filter(Boolean) : [];
+  target.classList.add("active");
+  target.innerHTML = `
+    <div class="pbp-current-play">
+      <span>${currentPlay ? "Current play snapshot" : "Game time bar"}</span>
+      <strong>${esc(header)}</strong>
+      <small>${esc(copy)}</small>
+      ${oddsBits.length ? `<div class="pbp-odds-row">${oddsBits.map(bit => `<b>${esc(bit)}</b>`).join("")}</div>` : ""}
+    </div>
+    <div class="pbp-panel-list">
+      <span class="pbp-play-list-title">${currentPlay ? "Plays known up to this point" : "Play-by-play sample"}</span>
+      <div class="play-list">
+        ${asOfPlays.map(play => `
+          <div class="play-row ${play.index === selectedIndex ? "active" : ""}">
+            <strong>${esc(`${pbpPlayLabel(play)} ${play.score || ""} ${pbpTypeLabel(play.type || "other")}`)}</strong>
+            ${esc(play.text || "")}
+          </div>
+        `).join("")}
+      </div>
+    </div>
+  `;
 }
 
 function replayNameSides(event) {
@@ -2995,7 +3432,7 @@ function replayNameSides(event) {
   return ["", ""];
 }
 
-function replayTeamSummaries(event) {
+function replayTeamSummaries(event, snapshot = null) {
   const context = event?.fundamental_context || {};
   const pbpTeams = context?.play_by_play?.teams || {};
   const [nameLeft, nameRight] = replayNameSides(event);
@@ -3007,8 +3444,8 @@ function replayTeamSummaries(event) {
       side: "home",
       label: "Home",
       name: homeName,
-      score: num(pbpTeams?.home?.score),
-      eventCount: num(pbpTeams?.home?.event_count),
+      score: num(snapshot?.teams?.home?.score) ?? num(pbpTeams?.home?.score),
+      eventCount: num(snapshot?.teams?.home?.event_count) ?? num(pbpTeams?.home?.event_count),
       fair: homeExpected,
       rest: num(context?.elo?.home_rest_days)
     },
@@ -3016,8 +3453,8 @@ function replayTeamSummaries(event) {
       side: "away",
       label: "Away",
       name: awayName,
-      score: num(pbpTeams?.away?.score),
-      eventCount: num(pbpTeams?.away?.event_count),
+      score: num(snapshot?.teams?.away?.score) ?? num(pbpTeams?.away?.score),
+      eventCount: num(snapshot?.teams?.away?.event_count) ?? num(pbpTeams?.away?.event_count),
       fair: homeExpected === null ? null : 1 - homeExpected,
       rest: num(context?.elo?.away_rest_days)
     }
@@ -3094,10 +3531,11 @@ function renderReplayTeamCard(team, activeSide) {
 function renderReplayPlayerCards(event) {
   const target = $("replay-player-cards");
   if (!target) return;
-  const teams = replayTeamSummaries(event);
+  const snapshot = replaySelectedPbpSnapshot(event);
+  const teams = replayTeamSummaries(event, snapshot);
   const selectedSide = selectedReplayTeamSide(event);
   const selectedTeam = replayTeamForSide(event, selectedSide);
-  const allRows = replayPlayerStats(event);
+  const allRows = replayPlayerStats(event, { snapshot });
   let rows = allRows.filter(player => {
     const playerSide = String(player.team_side || "").toLowerCase();
     const playerTeam = player.team || "";
@@ -3106,8 +3544,10 @@ function renderReplayPlayerCards(event) {
   if (!rows.length) rows = allRows;
   rows = [...rows]
     .sort((a, b) => (
-      (num(b.points) || 0) - (num(a.points) || 0)
+      (String(b.last_sub_state || "") === "in" ? 1 : 0) - (String(a.last_sub_state || "") === "in" ? 1 : 0)
+      || (num(b.points) || 0) - (num(a.points) || 0)
       || ((num(b.rebounds) || 0) + (num(b.assists) || 0)) - ((num(a.rebounds) || 0) + (num(a.assists) || 0))
+      || (num(b.event_count) || 0) - (num(a.event_count) || 0)
       || (num(b.sub_ins) || 0) - (num(a.sub_ins) || 0)
     ))
     .slice(0, 8);
@@ -3117,6 +3557,13 @@ function renderReplayPlayerCards(event) {
     return;
   }
   const teamCards = teams.map(team => renderReplayTeamCard(team, selectedSide)).join("");
+  const snapshotCard = snapshot ? `
+    <div class="pbp-snapshot-card">
+      <span>Selected time snapshot</span>
+      <strong>${esc(pbpPlayLabel(snapshot.play))}${snapshot.score_label ? ` | ${esc(snapshot.score_label)}` : ""}</strong>
+      <small>${esc(snapshot.play?.text || pbpTypeLabel(snapshot.play?.type || "other"))}</small>
+    </div>
+  ` : "";
   const playerCards = rows.map(player => {
     const made = fmtInt(player.field_goals_made || 0);
     const attempted = fmtInt(player.field_goals_attempted || 0);
@@ -3145,7 +3592,7 @@ function renderReplayPlayerCards(event) {
       </div>
     `;
   }).join("");
-  target.innerHTML = teamCards + playerCards;
+  target.innerHTML = teamCards + snapshotCard + playerCards;
 }
 
 function replayClockSeconds(clock) {
@@ -3263,66 +3710,65 @@ function compactPbpDots(visible, maxDots) {
 }
 
 function replayPbpOverlay(event, bounds, sx, pad, plotH, options = {}) {
-  const visible = replayPbpTimeline(event)
-    .filter(play => play.offset >= bounds.minX && play.offset <= bounds.maxX);
-  if (!visible.length) {
-    return { count: 0, renderedCount: 0, band: "", svg: "", legendItems: [] };
+  const timeline = replayPbpTimeline(event)
+    .filter(play => Number.isFinite(play.offset))
+    .sort((a, b) => a.offset - b.offset || a.index - b.index);
+  if (!timeline.length) {
+    return { count: 0, renderedCount: 0, band: "", svg: "", legendItems: [], points: [] };
   }
-  const maxDots = Math.max(20, options.maxDots || REPLAY_PBP_DOT_LIMIT);
-  const dotsSource = compactPbpDots(visible, maxDots);
+  const selectedIndex = selectedReplayPbpIndex(event);
+  const selectedPlay = selectedIndex === null ? timeline[0] : (timeline.find(play => play.index === selectedIndex) || timeline[0]);
   const laneY = Number.isFinite(options.laneY) ? options.laneY : pad.top + plotH + 34;
   const bandHeight = Number.isFinite(options.laneHeight) ? options.laneHeight : 58;
   const bandY = laneY - bandHeight / 2;
+  const barMinX = Math.min(...timeline.map(play => play.offset));
+  const barMaxX = Math.max(...timeline.map(play => play.offset));
+  const barSpan = Math.max(1, barMaxX - barMinX);
+  const timelineX = value => pad.left + ((value - barMinX) / barSpan) * (sx(bounds.maxX) - sx(bounds.minX));
   const bandW = Math.max(1, sx(bounds.maxX) - sx(bounds.minX));
-  const typeCounts = new Map();
-  visible.forEach(play => {
-    typeCounts.set(play.type, (typeCounts.get(play.type) || 0) + 1);
+  const selectedX = Math.max(pad.left, Math.min(pad.left + bandW, timelineX(selectedPlay.offset)));
+  const pbpPoints = timeline.map(play => ({ index: play.index, x: Math.max(pad.left, Math.min(pad.left + bandW, timelineX(play.offset))), y: laneY }));
+  const periodTicks = [];
+  const seenPeriods = new Set();
+  timeline.forEach(play => {
+    const period = num(play.period);
+    if (!period || seenPeriods.has(period)) return;
+    seenPeriods.add(period);
+    const x = Math.max(pad.left, Math.min(pad.left + bandW, timelineX(play.offset)));
+    periodTicks.push(`
+      <line x1="${x.toFixed(1)}" y1="${(laneY - 9).toFixed(1)}" x2="${x.toFixed(1)}" y2="${(laneY + 9).toFixed(1)}" stroke="#94a3b8" stroke-width="1.1" opacity="0.65" pointer-events="none" />
+      <text x="${x.toFixed(1)}" y="${(bandY + 15).toFixed(1)}" text-anchor="middle" fill="#64748b" font-size="10" font-weight="800" pointer-events="none">Q${fmtInt(period)}</text>
+    `);
   });
-  const dots = dotsSource.map(play => {
-    const color = pbpTypeColor(play.type);
-    const scoring = pbpIsScoring(play);
-    const x = sx(play.offset);
-    const y = laneY;
-    const title = [
-      `P${play.period || ""} ${play.clock || ""}`.trim(),
-      play.score ? `Score ${play.score}` : "",
-      pbpTypeLabel(play.type),
-      play.player || "",
-      play.text || ""
-    ].filter(Boolean).join(" | ");
-    return `
-      <circle class="pbp-dot" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${scoring ? "4.2" : "3"}" fill="${color}" stroke="#fff" stroke-width="1.4" opacity="${scoring ? "0.98" : "0.72"}">
-        <title>${esc(title)}</title>
-      </circle>
-    `;
-  }).join("");
-  const legendItems = [...typeCounts.entries()]
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 5)
-    .map(([type, count]) => ({
-      label: `${pbpTypeLabel(type)} (${fmtInt(count)})`,
-      color: pbpTypeColor(type),
-      opacity: 0.8,
-      dot: true
-    }));
+  const labelW = 230;
+  const labelX = Math.max(pad.left + 6, Math.min(pad.left + bandW - labelW - 6, selectedX - labelW / 2));
+  const labelY = bandY + bandHeight - 20;
+  const selectedLabel = `${pbpPlayLabel(selectedPlay)}${selectedPlay.score ? ` | ${selectedPlay.score}` : ""}`;
   return {
-    count: visible.length,
-    renderedCount: dotsSource.length,
+    count: timeline.length,
+    renderedCount: 1,
     band: `
       <rect x="${pad.left}" y="${bandY.toFixed(1)}" width="${bandW.toFixed(1)}" height="${bandHeight.toFixed(1)}" rx="8" fill="#f8fafc" opacity="0.9" pointer-events="none" />
-      <line x1="${pad.left}" y1="${laneY.toFixed(1)}" x2="${sx(bounds.maxX).toFixed(1)}" y2="${laneY.toFixed(1)}" stroke="#cbd5e1" stroke-width="2.2" stroke-linecap="round" pointer-events="none" />
-      <text x="${(pad.left + 8).toFixed(1)}" y="${(bandY + 15).toFixed(1)}" fill="#627083" font-size="11" font-weight="800">Game timeline</text>
+      <line x1="${pad.left}" y1="${laneY.toFixed(1)}" x2="${(pad.left + bandW).toFixed(1)}" y2="${laneY.toFixed(1)}" stroke="#cbd5e1" stroke-width="7" stroke-linecap="round" pointer-events="none" />
+      <line x1="${pad.left}" y1="${laneY.toFixed(1)}" x2="${selectedX.toFixed(1)}" y2="${laneY.toFixed(1)}" stroke="#2563eb" stroke-width="7" stroke-linecap="round" pointer-events="none" />
+      ${periodTicks.join("")}
+      <line x1="${selectedX.toFixed(1)}" y1="${(bandY + 7).toFixed(1)}" x2="${selectedX.toFixed(1)}" y2="${(bandY + bandHeight - 7).toFixed(1)}" stroke="#111827" stroke-width="1.6" opacity="0.62" pointer-events="none" />
+      <circle class="pbp-timebar-thumb" cx="${selectedX.toFixed(1)}" cy="${laneY.toFixed(1)}" r="9" fill="#fff" stroke="#111827" stroke-width="3" pointer-events="none" />
+      <text x="${(pad.left + 8).toFixed(1)}" y="${(bandY + 15).toFixed(1)}" fill="#627083" font-size="11" font-weight="800">Game time</text>
+      <rect x="${labelX.toFixed(1)}" y="${labelY.toFixed(1)}" width="${labelW}" height="17" rx="8.5" fill="#111827" opacity="0.88" pointer-events="none" />
+      <text x="${(labelX + 10).toFixed(1)}" y="${(labelY + 12).toFixed(1)}" fill="#fff" font-size="10.5" font-weight="850" pointer-events="none">${esc(shortLabel(selectedLabel, 34))}</text>
     `,
-    svg: `<g class="pbp-event-dots">${dots}</g>`,
-    legendItems
+    svg: `<g class="pbp-event-dots" data-pbp-timeline="1" role="listbox" aria-label="Selectable play-by-play timeline">
+      <rect class="pbp-timeline-hit" x="${pad.left}" y="${bandY.toFixed(1)}" width="${bandW.toFixed(1)}" height="${bandHeight.toFixed(1)}" fill="transparent" pointer-events="all" />
+    </g>`,
+    legendItems: [{ label: "Game time snapshot", color: "#2563eb", opacity: 0.95 }],
+    points: pbpPoints
   };
 }
 
 function pbpOverlayNote(overlay) {
   if (!overlay?.count) return "";
-  return overlay.renderedCount < overlay.count
-    ? `${fmtInt(overlay.renderedCount)} / ${fmtInt(overlay.count)} PBP dots shown`
-    : `${fmtInt(overlay.count)} PBP dots`;
+  return `${fmtInt(overlay.count)} PBP plays on game time bar`;
 }
 
 function replayHasSportsbook(event) {
@@ -3925,7 +4371,8 @@ function drawReplayLineOverlayChart(event, overlayEvents) {
     width,
     height,
     teamSelectionKey: replayTeamSelectionKey(event),
-    markerPoints: []
+    markerPoints: [],
+    pbpPoints: pbpOverlay.points || []
   };
   svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
   svg.innerHTML = `
@@ -3946,6 +4393,7 @@ function drawReplayLineOverlayChart(event, overlayEvents) {
 
 function drawReplayChart(event) {
   renderReplayPlayerCards(event);
+  renderReplayPbpPanel(event);
   const overlayEvents = Array.isArray(event?.line_overlay_events)
     ? event.line_overlay_events.filter(item => item && !item.load_error)
     : [];
@@ -4171,7 +4619,8 @@ function drawReplayChart(event) {
     width,
     height,
     teamSelectionKey: replayTeamSelectionKey(event),
-    markerPoints
+    markerPoints,
+    pbpPoints: pbpOverlay.points || []
   };
   svg.innerHTML = `
     <rect x="0" y="0" width="${width}" height="${height}" fill="#fff" pointer-events="none" />
@@ -4262,6 +4711,22 @@ function nearestReplayMarkerIndex(event) {
   return best && best.dist2 <= 24 * 24 ? best.index : null;
 }
 
+function nearestReplayPbpIndex(event) {
+  const chart = state.replayChart;
+  const point = replaySvgPointFromPointer(event);
+  if (!point || !chart?.pbpPoints?.length) return null;
+  let best = null;
+  for (const play of chart.pbpPoints) {
+    const dx = play.x - point.x;
+    const dy = play.y - point.y;
+    const dist2 = dx * dx + dy * dy;
+    if (!best || dist2 < best.dist2) {
+      best = { index: play.index, dist2 };
+    }
+  }
+  return best && best.dist2 <= 32 * 32 ? best.index : null;
+}
+
 function zoomReplayChart(factor, anchorOffset = null) {
   const chart = state.replayChart;
   if (!chart?.replayId) return;
@@ -4313,7 +4778,12 @@ function handleReplayWheel(event) {
 }
 
 function handleReplayPointerDown(event) {
-  if (!event.target.closest?.("#replay-chart") || event.target.closest?.("[data-marker-index]")) return;
+  if (
+    !event.target.closest?.("#replay-chart")
+    || event.target.closest?.("[data-marker-index]")
+    || event.target.closest?.("[data-pbp-index]")
+    || event.target.closest?.("[data-pbp-timeline]")
+  ) return;
   const chart = state.replayChart;
   if (!chart?.replayId) return;
   const point = replaySvgPointFromPointer(event);
@@ -4515,9 +4985,14 @@ function renderReplayModelContext(event) {
   const tlx = context.telonex || {};
   const odds = context.odds_api || {};
   const blockers = Array.isArray(context.blockers) ? context.blockers : [];
-  const sample = Array.isArray(pbp.sample) ? pbp.sample.slice(0, 8) : [];
-  const playerActivity = Array.isArray(pbp.player_activity) ? pbp.player_activity.slice(0, 8) : [];
-  const playerStats = Array.isArray(pbp.player_stats) ? pbp.player_stats.slice(0, 10) : [];
+  const snapshot = replaySelectedPbpSnapshot(event);
+  const selectedIndex = snapshot?.selected_index ?? null;
+  const timeline = replayPbpTimeline(event);
+  const sample = snapshot
+    ? timeline.filter(play => play.index <= selectedIndex).slice(-8)
+    : Array.isArray(pbp.sample) ? pbp.sample.slice(0, 8) : [];
+  const playerActivity = snapshot ? [] : Array.isArray(pbp.player_activity) ? pbp.player_activity.slice(0, 8) : [];
+  const playerStats = replayPlayerStats(event, { snapshot }).slice(0, 10);
   target.innerHTML = `
     <h4>Model context</h4>
     <div class="context-grid">
@@ -4527,7 +5002,7 @@ function renderReplayModelContext(event) {
       <div class="context-chip"><span>Rest</span><strong>${fmtSigned(elo.rest_diff_home, 1)} days home</strong></div>
       <div class="context-chip"><span>Odds API</span><strong>${odds.available ? esc(odds.market || "mapped") : "optional missing"}</strong></div>
       <div class="context-chip"><span>Play-by-play</span><strong>${fmtInt(pbp.rows || 0)} rows</strong></div>
-      <div class="context-chip"><span>Player stats</span><strong>${playerStats.length ? `${fmtInt(playerStats.length)} players` : "Missing"}</strong></div>
+      <div class="context-chip"><span>Player stats</span><strong>${playerStats.length ? `${fmtInt(playerStats.length)} as-of players` : "Missing"}</strong></div>
       <div class="context-chip"><span>Market intel</span><strong>${intel.available ? `${fmtInt(intel.rows || 0)} rows` : "Missing"}</strong></div>
       <div class="context-chip"><span>Injury</span><strong>${intel.parsed_event_level_injury_rows ? "parsed" : (intel.injury_timeline_available ? "snapshots" : "missing")}</strong></div>
       <div class="context-chip"><span>Player</span><strong>${player.player_market ? (player.player_rating_available ? "rated" : "missing rating") : "not player market"}</strong></div>
@@ -4536,7 +5011,7 @@ function renderReplayModelContext(event) {
     ${tlx.event_slug ? `<div class="decision-rationale"><strong>Telonex game</strong><span>${esc(tlx.event_slug)}${tlx.question ? ` - ${esc(tlx.question)}` : ""}</span></div>` : ""}
     ${blockers.length ? `<div class="decision-rationale"><strong>Blockers</strong><span>${esc(blockers.slice(0, 4).join("; "))}</span></div>` : ""}
     ${sample.length ? `
-      <div class="plain-label">Play-by-play sample</div>
+      <div class="plain-label">${snapshot ? "As-of play-by-play" : "Play-by-play sample"}</div>
       <div class="play-list">
         ${sample.map(play => `
           <div class="play-row">
@@ -4966,7 +5441,6 @@ function renderArtifacts(data) {
 function renderAll() {
   const data = deriveDashboard();
   renderVerdict(data);
-  renderStrategyOverview(data);
   renderReplay(data);
   $("footer").textContent = `Rendered ${new Date().toLocaleString()} from ${data.loadedFrom}.`;
 }
@@ -5137,22 +5611,32 @@ document.addEventListener("click", event => {
     }
     return;
   }
+  const pbpTarget = event.target.closest("[data-pbp-index], [data-pbp-timeline]");
+  if (pbpTarget && state.selectedReplayId) {
+    const nearestIndex = nearestReplayPbpIndex(event);
+    const index = nearestIndex ?? Number(pbpTarget.dataset.pbpIndex);
+    if (Number.isInteger(index)) {
+      state.selectedReplayPbpById[state.selectedReplayId] = index;
+      renderReplay(deriveDashboard());
+    }
+    return;
+  }
   const markerTarget = event.target.closest("[data-marker-index]");
   if (!markerTarget || !state.selectedReplayId) return;
   const nearestIndex = nearestReplayMarkerIndex(event);
   const index = nearestIndex ?? Number(markerTarget.dataset.markerIndex);
   if (!Number.isInteger(index)) return;
   state.selectedReplayMarkerById[state.selectedReplayId] = index;
-  const detail = state.replayDetails[state.selectedReplayId];
   renderReplay(deriveDashboard());
 });
 
 document.addEventListener("keydown", event => {
   if (!["Enter", " "].includes(event.key)) return;
   const markerTarget = event.target.closest?.("[data-marker-index]");
-  if (!markerTarget) return;
+  const pbpTarget = event.target.closest?.("[data-pbp-index]");
+  if (!markerTarget && !pbpTarget) return;
   event.preventDefault();
-  markerTarget.click();
+  (markerTarget || pbpTarget).click();
 });
 
 $("replay-chart").addEventListener("wheel", handleReplayWheel, { passive: false });
