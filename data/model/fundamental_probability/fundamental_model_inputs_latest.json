@@ -1,0 +1,88 @@
+{
+  "attach_replays": true,
+  "blockers": [
+    "player ratings/minutes projection feed not implemented yet",
+    "timestamped injury snapshots exist but player/game status-change parsing is not implemented yet",
+    "game notes probable-starter/minutes context not implemented yet"
+  ],
+  "coverage": {
+    "asset_plan_rows": 122338,
+    "elo_context_coverage": 0.896,
+    "elo_context_rows": 224,
+    "elo_rows": 7905,
+    "feature_rows": 250,
+    "market_intelligence_rows": 22,
+    "market_intelligence_sources": 4,
+    "odds_api_available_rows": 0,
+    "play_by_play_coverage": 0.912,
+    "play_by_play_rows": 154411,
+    "player_context_coverage": 0.0,
+    "player_market_rows": 0,
+    "replay_detail_files_updated": 250,
+    "replay_rows": 54229,
+    "ruleset_rows": 250,
+    "score_rows": 7981,
+    "target_rows": 0,
+    "telonex_asset_rows": 787696,
+    "telonex_feature_events": 51
+  },
+  "generated_at": "2026-06-01T06:55:59.630689+00:00",
+  "inputs": {
+    "asset_plan": "/Users/yongkanglin/Documents/Codex/2026-05-31/pull-this-github-yongkanglin-sports-betting/Sports-Betting/data/model/training/odds_api_telonex_backfill_assets_latest.parquet",
+    "focus_sport": "basketball_wnba",
+    "market_intelligence_root": "/Users/yongkanglin/Documents/Codex/2026-05-31/pull-this-github-yongkanglin-sports-betting/Sports-Betting/data/model/fundamental_probability/wnba_market_intelligence_partitioned",
+    "ontology": "/Users/yongkanglin/Documents/Codex/2026-05-31/pull-this-github-yongkanglin-sports-betting/Sports-Betting/data/reference/sport_model_ontology.json",
+    "play_by_play_root": "/Users/yongkanglin/Documents/Codex/2026-05-31/pull-this-github-yongkanglin-sports-betting/Sports-Betting/data/model/fundamental_probability/wnba_play_by_play_partitioned",
+    "replay_json": "/Users/yongkanglin/Documents/Codex/2026-05-31/pull-this-github-yongkanglin-sports-betting/Sports-Betting/data/model/replays/event_replays_latest.json",
+    "scores": "/Users/yongkanglin/Documents/Codex/2026-05-31/pull-this-github-yongkanglin-sports-betting/Sports-Betting/data/odds_api/scores.parquet",
+    "telonex_assets": "/Users/yongkanglin/Documents/Codex/2026-05-31/pull-this-github-yongkanglin-sports-betting/Sports-Betting/data/live/clob/telonex_sports_assets.parquet"
+  },
+  "market_intelligence": {
+    "available": true,
+    "blockers": [
+      "official injury source is snapshotted, but player/game status-change parsing is not implemented yet",
+      "game notes PDF discovery/parsing is not implemented yet"
+    ],
+    "family_counts": {
+      "injury_availability": 2,
+      "referees": 2,
+      "roster_availability": 16,
+      "transactions": 2
+    },
+    "first_seen_max": "2026-06-01T06:55:42.791615+00:00",
+    "first_seen_min": "2026-06-01T06:55:42.791615+00:00",
+    "game_notes_available": false,
+    "injury_timeline_available": true,
+    "parsed_event_level_injury_rows": 0,
+    "referee_context_available": true,
+    "roster_context_available": true,
+    "row_type_counts": {
+      "injury_report_policy": 1,
+      "referee_assignment_feed_snapshot": 1,
+      "roster_size_snapshot": 15,
+      "source_snapshot": 4,
+      "transaction_feed_snapshot": 1
+    },
+    "rows": 22,
+    "source_count": 4,
+    "source_counts": {
+      "nba_official_referee_assignments": 2,
+      "wnba_official_injury_report": 2,
+      "wnba_official_roster_tracker": 16,
+      "wnba_official_transactions": 2
+    },
+    "transaction_context_available": true
+  },
+  "outputs": {
+    "event_features": "/Users/yongkanglin/Documents/Codex/2026-05-31/pull-this-github-yongkanglin-sports-betting/Sports-Betting/data/model/fundamental_probability/event_features_latest.parquet",
+    "report": "/tmp/sports-betting-reports/fundamental_model_inputs_latest.md",
+    "team_elo": "/Users/yongkanglin/Documents/Codex/2026-05-31/pull-this-github-yongkanglin-sports-betting/Sports-Betting/data/model/fundamental_probability/team_elo_latest.parquet"
+  },
+  "research_notes": [
+    "All Elo/form/rest values are computed before the event result is applied.",
+    "Missing player, injury, lineup, and play-by-play fields are explicit columns so LightGBM can receive NaN/False rather than silently dropping events.",
+    "Telonex/Polymarket market identity is the canonical key. Odds API event ids are optional market-reference mappings.",
+    "Every non-price information source must carry source_ts and first_seen_ts before it can become a causal feature.",
+    "The table is model input plumbing, not a trained fundamental probability model."
+  ]
+}

@@ -27,6 +27,94 @@
     "loop_count": 479,
     "status": "healthy"
   },
+  "fundamental_model_inputs": {
+    "attach_replays": true,
+    "blockers": [
+      "player ratings/minutes projection feed not implemented yet",
+      "timestamped injury snapshots exist but player/game status-change parsing is not implemented yet",
+      "game notes probable-starter/minutes context not implemented yet"
+    ],
+    "coverage": {
+      "asset_plan_rows": 122338,
+      "elo_context_coverage": 0.896,
+      "elo_context_rows": 224,
+      "elo_rows": 7905,
+      "feature_rows": 250,
+      "market_intelligence_rows": 22,
+      "market_intelligence_sources": 4,
+      "odds_api_available_rows": 0,
+      "play_by_play_coverage": 0.912,
+      "play_by_play_rows": 154411,
+      "player_context_coverage": 0.0,
+      "player_market_rows": 0,
+      "replay_detail_files_updated": 250,
+      "replay_rows": 54229,
+      "ruleset_rows": 250,
+      "score_rows": 7981,
+      "target_rows": 0,
+      "telonex_asset_rows": 787696,
+      "telonex_feature_events": 51
+    },
+    "generated_at": "2026-06-01T06:55:59.630689+00:00",
+    "inputs": {
+      "asset_plan": "/Users/yongkanglin/Documents/Codex/2026-05-31/pull-this-github-yongkanglin-sports-betting/Sports-Betting/data/model/training/odds_api_telonex_backfill_assets_latest.parquet",
+      "focus_sport": "basketball_wnba",
+      "market_intelligence_root": "/Users/yongkanglin/Documents/Codex/2026-05-31/pull-this-github-yongkanglin-sports-betting/Sports-Betting/data/model/fundamental_probability/wnba_market_intelligence_partitioned",
+      "ontology": "/Users/yongkanglin/Documents/Codex/2026-05-31/pull-this-github-yongkanglin-sports-betting/Sports-Betting/data/reference/sport_model_ontology.json",
+      "play_by_play_root": "/Users/yongkanglin/Documents/Codex/2026-05-31/pull-this-github-yongkanglin-sports-betting/Sports-Betting/data/model/fundamental_probability/wnba_play_by_play_partitioned",
+      "replay_json": "/Users/yongkanglin/Documents/Codex/2026-05-31/pull-this-github-yongkanglin-sports-betting/Sports-Betting/data/model/replays/event_replays_latest.json",
+      "scores": "/Users/yongkanglin/Documents/Codex/2026-05-31/pull-this-github-yongkanglin-sports-betting/Sports-Betting/data/odds_api/scores.parquet",
+      "telonex_assets": "/Users/yongkanglin/Documents/Codex/2026-05-31/pull-this-github-yongkanglin-sports-betting/Sports-Betting/data/live/clob/telonex_sports_assets.parquet"
+    },
+    "market_intelligence": {
+      "available": true,
+      "blockers": [
+        "official injury source is snapshotted, but player/game status-change parsing is not implemented yet",
+        "game notes PDF discovery/parsing is not implemented yet"
+      ],
+      "family_counts": {
+        "injury_availability": 2,
+        "referees": 2,
+        "roster_availability": 16,
+        "transactions": 2
+      },
+      "first_seen_max": "2026-06-01T06:55:42.791615+00:00",
+      "first_seen_min": "2026-06-01T06:55:42.791615+00:00",
+      "game_notes_available": false,
+      "injury_timeline_available": true,
+      "parsed_event_level_injury_rows": 0,
+      "referee_context_available": true,
+      "roster_context_available": true,
+      "row_type_counts": {
+        "injury_report_policy": 1,
+        "referee_assignment_feed_snapshot": 1,
+        "roster_size_snapshot": 15,
+        "source_snapshot": 4,
+        "transaction_feed_snapshot": 1
+      },
+      "rows": 22,
+      "source_count": 4,
+      "source_counts": {
+        "nba_official_referee_assignments": 2,
+        "wnba_official_injury_report": 2,
+        "wnba_official_roster_tracker": 16,
+        "wnba_official_transactions": 2
+      },
+      "transaction_context_available": true
+    },
+    "outputs": {
+      "event_features": "/Users/yongkanglin/Documents/Codex/2026-05-31/pull-this-github-yongkanglin-sports-betting/Sports-Betting/data/model/fundamental_probability/event_features_latest.parquet",
+      "report": "/tmp/sports-betting-reports/fundamental_model_inputs_latest.md",
+      "team_elo": "/Users/yongkanglin/Documents/Codex/2026-05-31/pull-this-github-yongkanglin-sports-betting/Sports-Betting/data/model/fundamental_probability/team_elo_latest.parquet"
+    },
+    "research_notes": [
+      "All Elo/form/rest values are computed before the event result is applied.",
+      "Missing player, injury, lineup, and play-by-play fields are explicit columns so LightGBM can receive NaN/False rather than silently dropping events.",
+      "Telonex/Polymarket market identity is the canonical key. Odds API event ids are optional market-reference mappings.",
+      "Every non-price information source must carry source_ts and first_seen_ts before it can become a causal feature.",
+      "The table is model input plumbing, not a trained fundamental probability model."
+    ]
+  },
   "game_state": {
     "garbage_time_proxy_rows": 0,
     "matched_scoreline_regime_counts": {
@@ -52,14 +140,16 @@
   ],
   "gate_warnings": [
     "predeclared non-ML Telonex strategy buckets failed",
+    "no independent play-by-play/fundamental probability model exists yet",
     "live game-state feed too thin for event-regime/scoreline/garbage-time features",
+    "fundamental WNBA model inputs incomplete: player ratings/minutes projection feed not implemented yet; timestamped injury snapshots exist but player/game status-change parsing is not implemented yet",
     "trade-flow feature family has no confirmed economic permutation impact yet",
     "Odds feature family has no confirmed economic permutation impact in latest audit",
     "Odds API fusion reports are not target-compatible with latest Telonex model",
     "live strategy LEV evidence incomplete",
     "Telonex market-disjoint validation not run"
   ],
-  "generated_at": "2026-06-01T04:53:43.987346+00:00",
+  "generated_at": "2026-06-01T06:56:14.504251+00:00",
   "historical_clob": {
     "depth_rows": 2624106587,
     "quote_rows": 2258881,
@@ -1190,7 +1280,11 @@
   "telonex_odds_fusion_target_compatible": false,
   "telonex_odds_fusion_validated": false,
   "telonex_strategy_buckets": {
+    "edge_families": [],
+    "edge_opportunity_verdict": null,
     "executable_taker_gate": false,
+    "fundamental_probability_model_blockers": [],
+    "fundamental_probability_model_exists": false,
     "gate_reasons": [
       "no predeclared executable taker bucket has positive test CI lower bound"
     ],
@@ -1327,5 +1421,95 @@
     "telonex_execution_positive_rate": 0.0014533145788510585,
     "telonex_execution_rows": 6548479,
     "telonex_execution_tokens": 3178
+  },
+  "wnba_data_expansion_plan": {
+    "by_market": [
+      {
+        "assets": 872,
+        "markets": 436,
+        "odds_matched_assets": 18,
+        "replay_assets": 24,
+        "telonex_market_type": "h2h"
+      },
+      {
+        "assets": 376,
+        "markets": 188,
+        "odds_matched_assets": 282,
+        "replay_assets": 264,
+        "telonex_market_type": "totals"
+      },
+      {
+        "assets": 280,
+        "markets": 140,
+        "odds_matched_assets": 220,
+        "replay_assets": 212,
+        "telonex_market_type": "spreads"
+      },
+      {
+        "assets": 2,
+        "markets": 1,
+        "odds_matched_assets": 0,
+        "replay_assets": 0,
+        "telonex_market_type": "player_prop"
+      }
+    ],
+    "canonical_source": "telonex",
+    "commands": {
+      "odds_targeted_snapshots": "python scripts/collect_targeted_odds_snapshots.py --sports basketball_wnba --date-from 2026-05-01T00:00:00Z --date-to 2026-06-01T00:00:00Z --step-minutes 30 --markets h2h,spreads,totals --regions us",
+      "telonex_download": "python scripts/collect_telonex_clob.py --sports basketball_wnba --channels book_snapshot_5,quotes,trades --date-from 2025-05-01 --date-to 2026-06-30 --max-assets 0 --max-downloads 0 --workers 8 --day-order event-first --allow-partial-channels",
+      "telonex_dry_run": "python scripts/collect_telonex_clob.py --sports basketball_wnba --channels book_snapshot_5,quotes,trades --date-from 2025-05-01 --date-to 2026-06-30 --max-assets 0 --max-downloads 0 --workers 8 --day-order event-first --allow-partial-channels --dry-run"
+    },
+    "coverage": {
+      "asset_plan_markets": 765,
+      "asset_plan_odds_events": 47,
+      "asset_plan_rows": 1530,
+      "odds_asset_coverage": 0.33986928104575165,
+      "odds_event_date_from": "2025-10-11T00:08:14+00:00",
+      "odds_event_date_to": "2026-05-30T02:00:00+00:00",
+      "odds_matched_assets": 520,
+      "replay_asset_coverage": 0.32679738562091504,
+      "replay_assets": 500,
+      "selected_download_assets": 1030,
+      "selected_recommended_date_from": "2025-10-15",
+      "selected_recommended_date_to": "2026-05-31",
+      "telonex_date_from": "2024-09-23T21:49:07.167000+00:00",
+      "telonex_date_to": "2026-06-13T02:00:00+00:00",
+      "telonex_event_slugs": 437,
+      "telonex_events": 437
+    },
+    "generated_at": "2026-06-01T06:41:35.792127+00:00",
+    "inputs": {
+      "asset_plan": "/Users/yongkanglin/Documents/Codex/2026-05-31/pull-this-github-yongkanglin-sports-betting/Sports-Betting/data/model/training/odds_api_telonex_backfill_assets_latest.parquet",
+      "replay_json": "/Users/yongkanglin/Documents/Codex/2026-05-31/pull-this-github-yongkanglin-sports-betting/Sports-Betting/data/model/replays/event_replays_latest.json",
+      "telonex_assets": "/Users/yongkanglin/Documents/Codex/2026-05-31/pull-this-github-yongkanglin-sports-betting/Sports-Betting/data/live/clob/telonex_sports_assets.parquet"
+    },
+    "sport": "basketball_wnba"
+  },
+  "wnba_market_intelligence": {
+    "errors": [],
+    "family_counts": {
+      "injury_availability": 2,
+      "referees": 2,
+      "roster_availability": 16,
+      "transactions": 2
+    },
+    "generated_at": "2026-06-01T06:55:42.791615+00:00",
+    "row_type_counts": {
+      "injury_report_policy": 1,
+      "referee_assignment_feed_snapshot": 1,
+      "roster_size_snapshot": 15,
+      "source_snapshot": 4,
+      "transaction_feed_snapshot": 1
+    },
+    "rows_appended": 22,
+    "rows_observed": 22,
+    "source_counts": {
+      "nba_official_referee_assignments": 2,
+      "wnba_official_injury_report": 2,
+      "wnba_official_roster_tracker": 16,
+      "wnba_official_transactions": 2
+    },
+    "sources_requested": 4,
+    "sources_successful": 4
   }
 }

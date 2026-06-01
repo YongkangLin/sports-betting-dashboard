@@ -845,6 +845,76 @@
     grid-template-columns: minmax(110px, 0.7fr) minmax(0, 1.3fr);
   }
 
+  .model-context {
+    margin-top: 12px;
+    padding: 12px;
+    border: 1px solid var(--soft-line);
+    border-radius: 8px;
+    background: #fff;
+  }
+
+  .model-context h4 {
+    margin: 0 0 10px;
+    font-size: 14px;
+    line-height: 1.2;
+  }
+
+  .context-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .context-chip {
+    min-width: 0;
+    padding: 8px;
+    border: 1px solid var(--soft-line);
+    border-radius: 8px;
+    background: #fbfcfe;
+  }
+
+  .context-chip span {
+    display: block;
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 850;
+    text-transform: uppercase;
+  }
+
+  .context-chip strong {
+    display: block;
+    margin-top: 3px;
+    font-size: 14px;
+    line-height: 1.15;
+    word-break: break-word;
+  }
+
+  .play-list {
+    display: grid;
+    gap: 6px;
+    margin-top: 8px;
+    max-height: 210px;
+    overflow: auto;
+  }
+
+  .play-row {
+    padding: 8px;
+    border: 1px solid var(--soft-line);
+    border-radius: 8px;
+    background: #fbfcfe;
+    font-size: 12px;
+    line-height: 1.25;
+  }
+
+  .play-row strong {
+    display: block;
+    margin-bottom: 2px;
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
   .chart-marker {
     cursor: pointer;
     pointer-events: all;
@@ -1052,6 +1122,7 @@
             <div class="decision-rationale" id="replay-rationale"></div>
             <dl class="kv" id="replay-kv"></dl>
           </div>
+          <div class="model-context" id="replay-model-context"></div>
         </div>
       </div>
     </section>
@@ -1066,6 +1137,9 @@ const ARTIFACTS = {
   latestTelonexSummary: { label: "Latest Telonex model", path: "data/model/telonex_convergence/20260531T234614Z/summary.json" },
   liveSignals: { label: "Live Telonex signals", path: "data/live/clob/live_telonex_convergence_signals_latest.json" },
   strategyBuckets: { label: "Strategy bucket audit", path: "data/model/training/telonex_strategy_buckets_latest.json" },
+  fundamentalInputs: { label: "Fundamental model inputs", path: "data/model/fundamental_probability/fundamental_model_inputs_latest.json" },
+  wnbaMarketIntelligence: { label: "WNBA market intelligence", path: "data/model/fundamental_probability/wnba_market_intelligence_manifest.json" },
+  wnbaExpansionPlan: { label: "WNBA data expansion plan", path: "data/status/wnba_data_expansion_plan_latest.json" },
   favoriteLongshotEventReplays: { label: "Event replay bundle", path: "data/model/replays/event_replays_latest.json" },
   replaySportsbookGapAudit: { label: "Replay sportsbook gap audit", path: "data/model/replays/audits/replay_sportsbook_gap_audit_latest.json" },
   dashboardSportsbookIntegrityAudit: { label: "Dashboard sportsbook integrity audit", path: "data/model/replays/audits/dashboard_sportsbook_integrity_audit_latest.json" }
@@ -1186,6 +1260,29 @@ const SNAPSHOT = {
       total_sportsbook_points: 455572
     },
     events: []
+  },
+  fundamentalInputs: {
+    featureRows: 0,
+    eloRows: 0,
+    eloContextRows: 0,
+    playByPlayRows: 0,
+    marketIntelligenceRows: 0,
+    marketIntelligenceSources: 0,
+    replayDetailFilesUpdated: 0,
+    blockers: []
+  },
+  wnbaMarketIntelligence: {
+    rowsObserved: 0,
+    sourcesSuccessful: 0,
+    sourcesRequested: 0,
+    rowTypeCounts: {},
+    familyCounts: {}
+  },
+  wnbaExpansionPlan: {
+    assetPlanRows: 0,
+    selectedDownloadAssets: 0,
+    replayAssetCoverage: 0,
+    oddsEvents: 0
   },
   microstructureBuckets: {
     gate: false,
@@ -1686,6 +1783,9 @@ function deriveDashboard() {
   const replaySportsbookGapAudit = state.loaded.replaySportsbookGapAudit;
   const dashboardSportsbookIntegrityAudit = state.loaded.dashboardSportsbookIntegrityAudit;
   const strategyBuckets = state.loaded.strategyBuckets;
+  const fundamentalInputs = state.loaded.fundamentalInputs;
+  const wnbaMarketIntelligence = state.loaded.wnbaMarketIntelligence;
+  const wnbaExpansionPlan = state.loaded.wnbaExpansionPlan;
   const takerStrategyValidation = state.loaded.takerStrategyValidation;
   const playByPlaySourcePlan = state.loaded.playByPlaySourcePlan;
   const microstructureBuckets = state.loaded.microstructureBuckets;
@@ -1890,6 +1990,38 @@ function deriveDashboard() {
     data.execution.liveSignalCandidates = liveSignals.candidate_tokens ?? data.execution.liveSignalCandidates;
     data.execution.liveSignalMaxLower = liveSignals.max_convergence_prob_lower ?? data.execution.liveSignalMaxLower;
     data.execution.liveSignalThreshold = liveSignals.threshold ?? data.execution.liveSignalThreshold;
+  }
+
+  const liveFundamental = live?.fundamental_model_inputs || fundamentalInputs;
+  if (liveFundamental) {
+    const coverage = liveFundamental.coverage || {};
+    const marketIntel = liveFundamental.market_intelligence || {};
+    data.fundamentalInputs.featureRows = coverage.feature_rows ?? data.fundamentalInputs.featureRows;
+    data.fundamentalInputs.eloRows = coverage.elo_rows ?? data.fundamentalInputs.eloRows;
+    data.fundamentalInputs.eloContextRows = coverage.elo_context_rows ?? data.fundamentalInputs.eloContextRows;
+    data.fundamentalInputs.playByPlayRows = coverage.play_by_play_rows ?? data.fundamentalInputs.playByPlayRows;
+    data.fundamentalInputs.marketIntelligenceRows = marketIntel.rows ?? coverage.market_intelligence_rows ?? data.fundamentalInputs.marketIntelligenceRows;
+    data.fundamentalInputs.marketIntelligenceSources = marketIntel.source_count ?? coverage.market_intelligence_sources ?? data.fundamentalInputs.marketIntelligenceSources;
+    data.fundamentalInputs.replayDetailFilesUpdated = coverage.replay_detail_files_updated ?? data.fundamentalInputs.replayDetailFilesUpdated;
+    data.fundamentalInputs.blockers = liveFundamental.blockers || data.fundamentalInputs.blockers;
+  }
+
+  const liveWnbaIntel = live?.wnba_market_intelligence || wnbaMarketIntelligence;
+  if (liveWnbaIntel) {
+    data.wnbaMarketIntelligence.rowsObserved = liveWnbaIntel.rows_observed ?? data.wnbaMarketIntelligence.rowsObserved;
+    data.wnbaMarketIntelligence.sourcesSuccessful = liveWnbaIntel.sources_successful ?? data.wnbaMarketIntelligence.sourcesSuccessful;
+    data.wnbaMarketIntelligence.sourcesRequested = liveWnbaIntel.sources_requested ?? data.wnbaMarketIntelligence.sourcesRequested;
+    data.wnbaMarketIntelligence.rowTypeCounts = liveWnbaIntel.row_type_counts || data.wnbaMarketIntelligence.rowTypeCounts;
+    data.wnbaMarketIntelligence.familyCounts = liveWnbaIntel.family_counts || data.wnbaMarketIntelligence.familyCounts;
+  }
+
+  const liveWnbaExpansion = live?.wnba_data_expansion_plan || wnbaExpansionPlan;
+  if (liveWnbaExpansion) {
+    const coverage = liveWnbaExpansion.coverage || {};
+    data.wnbaExpansionPlan.assetPlanRows = coverage.asset_plan_rows ?? data.wnbaExpansionPlan.assetPlanRows;
+    data.wnbaExpansionPlan.selectedDownloadAssets = coverage.selected_download_assets ?? data.wnbaExpansionPlan.selectedDownloadAssets;
+    data.wnbaExpansionPlan.replayAssetCoverage = coverage.replay_asset_coverage ?? data.wnbaExpansionPlan.replayAssetCoverage;
+    data.wnbaExpansionPlan.oddsEvents = coverage.asset_plan_odds_events ?? data.wnbaExpansionPlan.oddsEvents;
   }
 
   if (latest) {
@@ -2160,6 +2292,9 @@ function renderStrategyOverview(data) {
   const replayNative5mEvents = integritySummary.complete5mEvents ?? replayBothCompleteEvents;
   const replayMissing5mSnapshots = integritySummary.missing5mSnapshots ?? 0;
   const replayMaterializationBugs = integritySummary.materializationBugWindows ?? 0;
+  const fi = data.fundamentalInputs || {};
+  const wnbaIntel = data.wnbaMarketIntelligence || {};
+  const wnbaPlan = data.wnbaExpansionPlan || {};
   const favoriteAudit = strategyAuditRow(data, "favorite_longshot_fade_v2");
   const sharpAudit = strategyAuditRow(data, "sharp_consensus_clob_mispricing");
   const sharpSupport = strategySupportRow(data, "sharp_consensus_clob_mispricing", "test");
@@ -2227,6 +2362,18 @@ function renderStrategyOverview(data) {
         ["Strategy Backtest ROI", "not validated", `${fmtInt(mb.strictNetArbRows)} strict arbs`, "YES + NO hedge/arb only. Strict executable arb evidence is not large enough to claim profitability."],
         ["Replay sample", "0 events", "research only", "Needs paired YES/NO order books with executable sizing before replaying trades."],
         ["Live picks", "0", "monitor only", "No live hedge/arb signal is cleared for capital."]
+      ]
+    },
+    {
+      name: "WNBA fundamental model lane",
+      copy: `Use WNBA as the first niche sport: build a basketball rules-state layer, causal Elo/rest/form priors, player availability/quality features, and play-by-play state before comparing our fair probability to Polymarket and books.`,
+      status: fi.playByPlayRows > 0 && fi.eloContextRows > 0 ? "Data wiring started" : "Needs data",
+      tone: fi.playByPlayRows > 0 && fi.eloContextRows > 0 ? "warn" : "bad",
+      metrics: [
+        ["Strategy Backtest ROI", "not trained", `${fmtInt(fi.featureRows)} WNBA replay feature rows`, "This is model-input plumbing, not a trained probability model yet."],
+        ["Replay sample", `${fmtInt(fi.replayDetailFilesUpdated)} details enriched`, `${fmtInt(fi.playByPlayRows)} play-by-play rows`, "Replay details now expose rules, Elo/rest, player gaps, play-by-play samples, and timestamped market-intelligence source status when available."],
+        ["Info timing", `${fmtInt(wnbaIntel.rowsObserved || fi.marketIntelligenceRows)} rows`, `${fmtInt(wnbaIntel.sourcesSuccessful || fi.marketIntelligenceSources)} source pages`, "Injury/roster/referee pages are snapshotted with source_ts and first_seen_ts; parsed player/game joins are next."],
+        ["Expansion", `${fmtInt(wnbaPlan.selectedDownloadAssets)} Telonex assets`, `${fmtPct(wnbaPlan.replayAssetCoverage)} current replay asset coverage`, `${fmtInt(wnbaPlan.assetPlanRows)} WNBA candidate assets across ${fmtInt(wnbaPlan.oddsEvents)} Odds events.`]
       ]
     },
     {
@@ -3859,6 +4006,59 @@ function renderDecisionPanel(event, marker) {
   $("replay-rationale").innerHTML = `<strong>Rationale</strong><span>${esc(replayDecisionRationale(event, marker))}</span>`;
 }
 
+function renderReplayModelContext(event) {
+  const target = $("replay-model-context");
+  if (!target) return;
+  const context = event?.fundamental_context || null;
+  if (!context) {
+    target.innerHTML = `
+      <h4>Model context</h4>
+      <div class="context-grid">
+        <div class="context-chip"><span>Fundamental</span><strong>${event?.fundamental_context_available ? "Summary only" : "Not wired"}</strong></div>
+        <div class="context-chip"><span>Play-by-play</span><strong>${fmtInt(event?.play_by_play_rows || 0)} rows</strong></div>
+      </div>
+    `;
+    return;
+  }
+  const elo = context.elo || {};
+  const rules = context.rules || {};
+  const player = context.player_context || {};
+  const pbp = context.play_by_play || {};
+  const intel = context.market_intelligence || {};
+  const tlx = context.telonex || {};
+  const odds = context.odds_api || {};
+  const blockers = Array.isArray(context.blockers) ? context.blockers : [];
+  const sample = Array.isArray(pbp.sample) ? pbp.sample.slice(0, 8) : [];
+  target.innerHTML = `
+    <h4>Model context</h4>
+    <div class="context-grid">
+      <div class="context-chip"><span>Rules</span><strong>${esc(rules.ruleset_id || "--")}</strong></div>
+      <div class="context-chip"><span>Primary</span><strong>${esc(context.primary_event_source || "telonex")}</strong></div>
+      <div class="context-chip"><span>Elo</span><strong>${elo.available ? `${fmtSigned(elo.selected_elo_diff, 1)} selected` : "Missing"}</strong></div>
+      <div class="context-chip"><span>Rest</span><strong>${fmtSigned(elo.rest_diff_home, 1)} days home</strong></div>
+      <div class="context-chip"><span>Odds API</span><strong>${odds.available ? esc(odds.market || "mapped") : "optional missing"}</strong></div>
+      <div class="context-chip"><span>Play-by-play</span><strong>${fmtInt(pbp.rows || 0)} rows</strong></div>
+      <div class="context-chip"><span>Market intel</span><strong>${intel.available ? `${fmtInt(intel.rows || 0)} rows` : "Missing"}</strong></div>
+      <div class="context-chip"><span>Injury</span><strong>${intel.parsed_event_level_injury_rows ? "parsed" : (intel.injury_timeline_available ? "snapshots" : "missing")}</strong></div>
+      <div class="context-chip"><span>Player</span><strong>${player.player_market ? (player.player_rating_available ? "rated" : "missing rating") : "not player market"}</strong></div>
+      <div class="context-chip"><span>Ready</span><strong>${context.model_input_ready ? "Base ready" : "Blocked"}</strong></div>
+    </div>
+    ${tlx.event_slug ? `<div class="decision-rationale"><strong>Telonex event</strong><span>${esc(tlx.event_slug)}${tlx.question ? ` - ${esc(tlx.question)}` : ""}</span></div>` : ""}
+    ${blockers.length ? `<div class="decision-rationale"><strong>Blockers</strong><span>${esc(blockers.slice(0, 4).join("; "))}</span></div>` : ""}
+    ${sample.length ? `
+      <div class="plain-label">Play-by-play sample</div>
+      <div class="play-list">
+        ${sample.map(play => `
+          <div class="play-row">
+            <strong>${esc(`P${play.period || ""} ${play.clock || ""} ${play.score || ""} ${play.type || ""}`)}</strong>
+            ${esc(play.text || "")}
+          </div>
+        `).join("")}
+      </div>
+    ` : ""}
+  `;
+}
+
 function renderReplay(data) {
   const replay = data.favoriteLongshotEventReplays || {};
   const events = replay.events || [];
@@ -3895,6 +4095,7 @@ function renderReplay(data) {
     $("decision-action").className = "pill info";
     $("replay-kv").innerHTML = "";
     $("replay-rationale").innerHTML = `<strong>Rationale</strong><span>Paper trade replays will appear here after paper executions are logged with price series, entry, exit, size, and PnL.</span>`;
+    renderReplayModelContext(null);
     drawReplayChart({ series_points: [] });
     if ($("chart-title")) $("chart-title").textContent = "Paper trade replay";
     return;
@@ -3938,6 +4139,7 @@ function renderReplay(data) {
     $("decision-action").className = "pill info";
     $("replay-kv").innerHTML = "";
     $("replay-rationale").innerHTML = `<strong>Rationale</strong><span>The protected Telonex/Odds dataset is available, but replay playback depends on the compact event replay bundle loading successfully. Check the artifact health panel if this empty state appears on the public dashboard.</span>`;
+    renderReplayModelContext(null);
     drawReplayChart({ series_points: [] });
     return;
   }
@@ -4009,6 +4211,7 @@ function renderReplay(data) {
     $("decision-action").className = "pill info";
     $("replay-kv").innerHTML = "";
     $("replay-rationale").innerHTML = `<strong>Rationale</strong><span>No replay event matches the selected filters.</span>`;
+    renderReplayModelContext(null);
     drawReplayChart({ series_points: [] });
     return;
   }
@@ -4055,6 +4258,7 @@ function renderReplay(data) {
     $("decision-action").className = "pill info";
     $("replay-kv").innerHTML = "";
     $("replay-rationale").innerHTML = `<strong>Rationale</strong><span>Loading minute-level prices.</span>`;
+    renderReplayModelContext(event);
     drawReplayChart({ series_points: [] });
     loadReplayDetail(event);
     return;
@@ -4140,6 +4344,7 @@ function renderReplay(data) {
   } else {
     renderDecisionPanel(fullEvent, selectedMarker);
   }
+  renderReplayModelContext(fullEvent);
   drawReplayChart(fullEvent);
 }
 

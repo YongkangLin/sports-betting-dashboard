@@ -1,0 +1,68 @@
+{
+  "canonical_identity_source": "telonex_polymarket",
+  "dry_run": false,
+  "errors": [],
+  "family_counts": {
+    "injury_availability": 2,
+    "referees": 2,
+    "roster_availability": 16,
+    "transactions": 2
+  },
+  "generated_at": "2026-06-01T06:55:42.791615+00:00",
+  "notes": [
+    "Rows are timestamped observations, not final causal features until first_seen_ts is <= asof_ts.",
+    "Official injury page policy and source snapshots are wired; event/player status PDF parsing is the next collector layer.",
+    "Roster tracker rows are team-level context for minutes/rotation stress, not a player availability model yet."
+  ],
+  "observed_record_hashes": {
+    "00ba65cc95b43320a368562aa5d34c75c438a0e0e63342b167be1cadd0b61228": "2026-06-01T06:55:42.791615+00:00",
+    "03d538a5ffbb8916702bf90be54be0441b26800b568cc4e7ab291db23e7cdae5": "2026-06-01T06:55:42.791615+00:00",
+    "0e36bca22ad09c1e83ba9aeb827ecd1b2befb53f17e1f7361e0a6e78f450fc9e": "2026-06-01T06:55:42.791615+00:00",
+    "2b56beb9bed726505ee332df821697586ec804965b5948feaa462fd323a0a9b3": "2026-06-01T06:55:42.791615+00:00",
+    "35ef600d8e4304a94a189d0d66f9960e544a1f55017bf76a0c71f665af890124": "2026-06-01T06:55:42.791615+00:00",
+    "468b579f7e2f2f5f1e25534d6c43e72adb41de4d91ae4a4f5c1b47c0a8254daa": "2026-06-01T06:55:42.791615+00:00",
+    "7b0bd801b2ace596ca8edcf4f8cdcb8c9ecaffa7b42ffb555d40d1f538e7f3fe": "2026-06-01T06:55:42.791615+00:00",
+    "7c0e3046a64e9a6bf3a229a4090660fbf45d5a22d05e123677bd80760dc27d93": "2026-06-01T06:55:42.791615+00:00",
+    "85a9483ba9fe6a7c598bfee8baf3148c4bfc046d33a47d30acbec114dbb6d9ba": "2026-06-01T06:55:42.791615+00:00",
+    "8f030c80799a6e151685b52657d99b9e3ec3df195cf9fe2a13994106dbe7465b": "2026-06-01T06:55:42.791615+00:00",
+    "8ff2f5afedf0b864bbffdc85f8cbd8266ee2d524aada75a5a40b42b61f1a373c": "2026-06-01T06:55:42.791615+00:00",
+    "9c0e413059d19b4fd7f527cdf3f870e685358bd201eca2f31287b9e38a88aba0": "2026-06-01T06:55:42.791615+00:00",
+    "b29092567e811d5c4f77cbd5652f96a680a7f957fe36ae099f4a67abf72c4a4d": "2026-06-01T06:55:42.791615+00:00",
+    "b7661a24aee8e918dfb2fd6fcfb86eef8fb65dceb1e8e3a7197db2f542dab46c": "2026-06-01T06:55:42.791615+00:00",
+    "b987f743fbd25981371be21f87aae6123374632133bbddb62c75c5be468c3e64": "2026-06-01T06:55:42.791615+00:00",
+    "cfaa7a853c143eb70441622c552341bd43c9f7c96de12b5dedc23e2a22c0bdcd": "2026-06-01T06:55:42.791615+00:00",
+    "d089414ea32eab026ae066792ead3dcb0ec4438a3f75c5c1a2c8d62d8771d4f3": "2026-06-01T06:55:42.791615+00:00",
+    "d32113f12cbf6e25f087deb2f959ec151fbac89645bc019549814ab76cd09a2a": "2026-06-01T06:55:42.791615+00:00",
+    "d728fb8fb7b152e1a0f1a02ccd46afeea1c5d37cd28efcf8eb4fdde0b0fd7ffe": "2026-06-01T06:55:42.791615+00:00",
+    "f5b02c457d08e1d566afe9dc6e84ff031c91415ee9a2c5fd5dbddc10eb3e8d0c": "2026-06-01T06:55:42.791615+00:00",
+    "facd97f4c78fad7b02d3b56ce53607c2bece733e014b8a2e7a6ebb453ab75b39": "2026-06-01T06:55:42.791615+00:00",
+    "ff75e1c9795f71af74b76ec0b47ef0ce2432bafa20c7716a2cf803e0ec6b2384": "2026-06-01T06:55:42.791615+00:00"
+  },
+  "out_root": "/Users/yongkanglin/Documents/Codex/2026-05-31/pull-this-github-yongkanglin-sports-betting/Sports-Betting/data/model/fundamental_probability/wnba_market_intelligence_partitioned",
+  "raw_paths": [
+    "data/cache/wnba_market_intelligence_raw/wnba_official_injury_report/20260601T065542.791615+0000.html",
+    "data/cache/wnba_market_intelligence_raw/wnba_official_roster_tracker/20260601T065542.791615+0000.html",
+    "data/cache/wnba_market_intelligence_raw/wnba_official_transactions/20260601T065542.791615+0000.html",
+    "data/cache/wnba_market_intelligence_raw/nba_official_referee_assignments/20260601T065542.791615+0000.html"
+  ],
+  "raw_root": "/Users/yongkanglin/Documents/Codex/2026-05-31/pull-this-github-yongkanglin-sports-betting/Sports-Betting/data/cache/wnba_market_intelligence_raw",
+  "row_type_counts": {
+    "injury_report_policy": 1,
+    "referee_assignment_feed_snapshot": 1,
+    "roster_size_snapshot": 15,
+    "source_snapshot": 4,
+    "transaction_feed_snapshot": 1
+  },
+  "rows_appended": 22,
+  "rows_observed": 22,
+  "source_contract": "/Users/yongkanglin/Documents/Codex/2026-05-31/pull-this-github-yongkanglin-sports-betting/Sports-Betting/data/reference/wnba_market_intelligence_sources.json",
+  "source_counts": {
+    "nba_official_referee_assignments": 2,
+    "wnba_official_injury_report": 2,
+    "wnba_official_roster_tracker": 16,
+    "wnba_official_transactions": 2
+  },
+  "sources_requested": 4,
+  "sources_successful": 4,
+  "sport": "basketball_wnba"
+}
