@@ -6,7 +6,7 @@
   "event_replay_details_removed_stale": 0,
   "event_replay_details_skipped_too_large": 0,
   "event_replay_details_unchanged": 0,
-  "generated_at": "2026-06-01T15:14:42.908429+00:00",
+  "generated_at": "2026-06-01T15:39:32.836094+00:00",
   "note": "Static dashboard bundle for GitHub Pages. Raw data, .env, parquet, joblib, and logs are intentionally excluded.",
   "shell_files_copied": 2,
   "status_copied": 1,

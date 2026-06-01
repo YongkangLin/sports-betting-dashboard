@@ -7,15 +7,15 @@
   ],
   "coverage": {
     "asset_plan_rows": 122338,
-    "elo_context_coverage": 0.896,
-    "elo_context_rows": 224,
+    "elo_context_coverage": 0.972,
+    "elo_context_rows": 243,
     "elo_rows": 7905,
     "feature_rows": 250,
     "market_intelligence_rows": 22,
     "market_intelligence_sources": 4,
     "odds_api_available_rows": 0,
-    "play_by_play_coverage": 0.912,
-    "play_by_play_rows": 154411,
+    "play_by_play_coverage": 1.0,
+    "play_by_play_rows": 156077,
     "player_context_coverage": 0.0,
     "player_market_rows": 0,
     "replay_detail_files_updated": 250,
@@ -26,7 +26,7 @@
     "telonex_asset_rows": 787696,
     "telonex_feature_events": 51
   },
-  "generated_at": "2026-06-01T15:02:19.945777+00:00",
+  "generated_at": "2026-06-01T15:28:30.931852+00:00",
   "inputs": {
     "asset_plan": "/Users/yongkanglin/Documents/Codex/2026-05-31/pull-this-github-yongkanglin-sports-betting/Sports-Betting/data/model/training/odds_api_telonex_backfill_assets_latest.parquet",
     "focus_sport": "basketball_wnba",

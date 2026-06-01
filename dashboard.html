@@ -238,32 +238,6 @@
     background: #fbfcfe;
   }
 
-  .strategy-evidence-controls {
-    display: grid;
-    grid-template-columns: minmax(220px, 360px);
-    gap: 8px;
-    margin-top: 12px;
-  }
-
-  .strategy-evidence-controls label {
-    color: var(--muted);
-    font-size: 11px;
-    font-weight: 800;
-    text-transform: uppercase;
-  }
-
-  .strategy-evidence-controls select {
-    width: 100%;
-    min-height: 42px;
-    padding: 8px 10px;
-    border-radius: 8px;
-    border: 1px solid var(--line);
-    background: #fff;
-    color: var(--text);
-    font: inherit;
-    font-size: 14px;
-  }
-
   .strategy-overview h3 {
     margin: 0 0 12px;
     font-size: 18px;
@@ -1030,14 +1004,9 @@
     <section class="band">
       <div class="section-head">
         <div>
-          <h2>Strategy Evidence</h2>
+          <h2>Model Strategy</h2>
+          <p>One model strategy: hold to resolution by default to avoid overtrading. Play-by-play and player-state shocks can trigger an exit or side switch when the live state invalidates the original fair-value case.</p>
         </div>
-      </div>
-      <div class="strategy-evidence-controls">
-        <label for="strategy-evidence-select">Strategy</label>
-        <select id="strategy-evidence-select">
-          <option>loading strategies...</option>
-        </select>
       </div>
       <div class="strategy-overview" id="strategy-overview"></div>
     </section>
@@ -1085,10 +1054,10 @@
             <option>loading lines...</option>
           </select>
         </div>
-        <div class="replay-filter strategy">
+        <div class="replay-filter strategy" hidden aria-hidden="true">
           <label for="replay-strategy-select">Strategy</label>
           <select id="replay-strategy-select">
-            <option>loading strategies...</option>
+            <option>Hold to resolution strategy</option>
           </select>
         </div>
         <div class="replay-filter source">
@@ -1552,7 +1521,6 @@ const state = {
   selectedReplayDataSource: "both",
   preferredReplayDataSource: "both",
   selectedSportsbookSourcesById: {},
-  selectedEvidenceStrategy: "Favorite-longshot fade",
   selectedReplayMarkerById: {},
   replayTab: "backtest",
   replayWindow: "full",
@@ -1568,15 +1536,7 @@ const state = {
 const $ = id => document.getElementById(id);
 const REPLAY_BANKROLL_USD = 1000;
 const REPLAY_POSITION_FRACTION = 0.05;
-const STRATEGY_OPTIONS = [
-  "Favorite-longshot fade",
-  "Sharp-consensus CLOB mispricing",
-  "Line-lag / CLV capture",
-  "Fill-aware convergence ML",
-  "Market replay only",
-  "YES + NO hedge/arb",
-  "Post-game price shock"
-];
+const PRIMARY_MODEL_STRATEGY = "Hold to resolution strategy";
 const TEAM_ABBREVIATIONS = {
   ari: "Cardinals",
   atl: "Hawks",
@@ -2208,99 +2168,8 @@ function renderVerdict(data) {
   }
 }
 
-function strategyAuditRow(data, strategyName) {
-  const rows = data.strategyBuckets?.strategyRows || [];
-  const matches = rows.filter(row => row.strategy === strategyName && row.side === "taker");
-  return matches.find(row => row.split === "test")
-    || matches.find(row => row.split === "val")
-    || matches.find(row => row.split === "train")
-    || matches[0]
-    || null;
-}
-
-function strategyAuditSplit(row) {
-  return row?.split ? `${row.split} split` : "not enough qualifying rows";
-}
-
-function strategySupportRow(data, strategyName, split = "test") {
-  const rows = data.strategyBuckets?.strategySupport || [];
-  return rows.find(row => row.strategy === strategyName && row.split === split)
-    || rows.find(row => row.strategy === strategyName && row.rows > 0)
-    || null;
-}
-
-function strategySupportNote(row) {
-  if (!row) return "No candidate support row was generated.";
-  const base = `${fmtInt(row.rows)} rows across ${fmtInt(row.markets)} markets`;
-  return row.reportable ? `${base}; reportable support.` : `${base}; ${row.reason || "below support gate"}.`;
-}
-
-function unavailableStrategyMetrics(reason) {
-  return [
-    ["Strategy Backtest ROI", "not validated", reason, "No strategy-specific held-out edge is proven yet."],
-    ["Replay sample", "0 games", "0 one-minute points", "No replayable historical game set has passed the data gate yet."],
-    ["Live picks", "0", "monitor only", "No live signal is cleared for capital."]
-  ];
-}
-
-function takerValidationRow(data, strategyKey) {
-  return (data.takerStrategyValidation?.results || []).find(row => row.strategy === strategyKey) || null;
-}
-
-function takerValidationStatus(row) {
-  if (!row) return "not run";
-  if (row.gate) return "validated";
-  if (row.selected) return "test failed";
-  return "no validation rule";
-}
-
-function takerValidationMetric(row) {
-  if (!row) {
-    return ["Strategy Backtest ROI", "not run", "no validation artifact", "No validation-selected rule has been tested."];
-  }
-  if (!row.selected) {
-    return [
-      "Strategy Backtest ROI",
-      "not selected",
-      `${takerValidationStatus(row)}`,
-      row.reason || "No validation rule cleared a positive cluster-bootstrap confidence bound."
-    ];
-  }
-  return [
-    "Strategy Backtest ROI",
-    fmtPct(row.testRoi),
-    `${fmtInt(row.testRows)} test rows / ${fmtInt(row.testMarkets)} markets`,
-    `Validation chose the rule first; frozen test CI lower bound is ${fmtPct(row.testCiLo)}. ${row.reason || ""}`
-  ];
-}
-
-function qualityTierLabel(tier) {
-  const labels = {
-    complete_5m: "complete 5m",
-    complete_15m_partial_5m: "15m complete, 5m partial",
-    complete_5m_source_quote_gap: "source quote gap",
-    complete_5m_sportsbook_listed_late: "sportsbook listed late",
-    complete_5m_sportsbook_stopped_before_settlement: "sportsbook stopped before settlement",
-    no_odds_event_match: "no Odds match"
-  };
-  return labels[tier] || String(tier || "unknown").replaceAll("_", " ");
-}
-
-function qualitySplitSentence(rows) {
-  if (!Array.isArray(rows) || !rows.length) return "";
-  return rows
-    .slice(0, 3)
-    .map(row => `${fmtInt(row.bets)} ${qualityTierLabel(row.sportsbook_quality_tier)} bets at ${fmtPct(row.roi)} ROI`)
-    .join("; ");
-}
-
 function renderStrategyOverview(data) {
-  const e = data.execution;
-  const f = data.favoriteLongshotExecutable;
   const m = data.latestModel;
-  const mb = data.microstructureBuckets;
-  const sb = data.strategyBuckets;
-  const pbpPlan = data.playByPlaySourcePlan;
   const replaySummary = data.favoriteLongshotEventReplays?.summary || {};
   const replayEvents = replaySummary.events_with_series ?? (data.favoriteLongshotEventReplays?.events || []).length;
   const replayPoints = replaySummary.total_series_points ?? 0;
@@ -2308,145 +2177,63 @@ function renderStrategyOverview(data) {
   const replaySportsbookPoints = replaySummary.total_sportsbook_points ?? 0;
   const replayClobTwoSidedEvents = replaySummary.clob_two_sided_events ?? replayEvents;
   const replayBothCompleteEvents = replaySummary.two_sided_complete_events ?? 0;
-  const integritySummary = data.favoriteLongshotEventReplays?.sportsbookIntegrityAudit || {};
-  const replayNative5mEvents = integritySummary.complete5mEvents ?? replayBothCompleteEvents;
-  const replayMissing5mSnapshots = integritySummary.missing5mSnapshots ?? 0;
-  const replayMaterializationBugs = integritySummary.materializationBugWindows ?? 0;
   const fi = data.fundamentalInputs || {};
   const wnbaIntel = data.wnbaMarketIntelligence || {};
-  const wnbaPlan = data.wnbaExpansionPlan || {};
-  const favoriteAudit = strategyAuditRow(data, "favorite_longshot_fade_v2");
-  const sharpAudit = strategyAuditRow(data, "sharp_consensus_clob_mispricing");
-  const sharpSupport = strategySupportRow(data, "sharp_consensus_clob_mispricing", "test");
-  const lineLagSupport = strategySupportRow(data, "line_lag_clv_capture", "test");
-  const favoriteValidation = takerValidationRow(data, "favorite_longshot_fade_v2");
-  const sharpValidation = takerValidationRow(data, "sharp_consensus_clob_mispricing");
-  const lineLagValidation = takerValidationRow(data, "line_lag_clv_capture");
-  const favQualitySplit = qualitySplitSentence(data.favoriteLongshotRuleValidation.marketTestQualityBreakdown);
-  const featureBlocker = [
-    sb.playByPlayCoverage > 0 ? null : "play-by-play 0%",
-    sb.playerNewsCoverage > 0 ? null : "injury/news 0%",
-    sb.sentimentCoverage > 0 ? null : "sentiment 0%"
-  ].filter(Boolean).join(", ");
-  const rows = [
-    {
-      name: "Favorite-longshot fade",
-      copy: `Buy the high-probability side when longshot demand appears to overprice the other side. V2 now splits by probability band, sport, market type, liquidity, and Odds API gap instead of one broad bucket.`,
-      status: favoriteValidation?.gate ? "Validated" : "Candidate, not proven",
-      tone: favoriteValidation?.gate ? "good" : "warn",
-      metrics: [
-        takerValidationMetric(favoriteValidation),
-        ["Replay sample", `${fmtInt(replayEvents)} games`, `${fmtInt(replayPoints)} one-minute points`, `${fmtInt(replayClobTwoSidedEvents)} have actual CLOB both sides; ${fmtInt(replayBothCompleteEvents)} also have sportsbook overlays from ${fmtInt(replaySportsbookPoints)} fair-probability points; native 5m Odds is complete for ${fmtInt(replayNative5mEvents)} games with ${fmtInt(replayMissing5mSnapshots)} unique 5m snapshots still missing. Replay materialization bugs: ${fmtInt(replayMaterializationBugs)}. ${favQualitySplit ? `Selected-rule test quality split: ${favQualitySplit}.` : ""}`],
-        ["Live picks", fmtInt(e.liveSignalsSelected), `${fmtInt(e.liveSignalCandidates)} candidates scanned`, "No current signal clears the live threshold."]
+  const modelDataRows = fi.featureRows || replayEvents;
+  const clvReady = replaySportsbookEvents > 0 && replaySportsbookPoints > 0;
+  const status = m.researchGate && clvReady ? "Research pass" : "Re-evaluating";
+  const tone = m.researchGate && clvReady ? "warn" : "info";
+  const selectedRow = {
+    name: PRIMARY_MODEL_STRATEGY,
+    copy: `One production strategy consumes the model score and executable Polymarket prices, enters only when fair value beats the CLV/sportsbook benchmark after spread and slippage, and normally holds qualifying positions to official resolution. It can exit or switch only when play-by-play/player-state evidence says the original fair-value thesis has changed enough to justify the extra churn.`,
+    status,
+    tone,
+    metrics: [
+      [
+        "CLV gate",
+        clvReady ? "benchmark wired" : "needs coverage",
+        `${fmtInt(replaySportsbookEvents)} sportsbook-overlaid games`,
+        `The model must beat sportsbook/closing fair value before resolution ROI is trusted; current overlays contain ${fmtInt(replaySportsbookPoints)} fair-probability points.`
+      ],
+      [
+        "Exit policy",
+        "hold default",
+        `${fmtInt(fi.playByPlayRows)} play-by-play rows`,
+        `Default exit is official resolution. Early exit or switch is only allowed from live game-state/player-state evidence, not short-term price noise. WNBA replay lines with PBP context: ${fmtInt(replaySummary.play_by_play_events || 0)}.`
+      ],
+      [
+        "Continuous feed",
+        `${fmtInt(modelDataRows)} model rows`,
+        `${fmtInt(fi.playByPlayRows)} play-by-play rows; ${fmtInt(wnbaIntel.rowsObserved || fi.marketIntelligenceRows)} timing rows`,
+        `Each refresh folds in new Telonex/Odds/PBP/player/injury data and re-runs the hold-to-resolution/CLV gate. Replay base: ${fmtInt(replayEvents)} games, ${fmtInt(replayPoints)} one-minute CLOB points, ${fmtInt(replayClobTwoSidedEvents)} two-sided games, ${fmtInt(replayBothCompleteEvents)} sportsbook-overlaid games.`
       ]
-    },
-    {
-      name: "Sharp-consensus CLOB mispricing",
-      copy: `Use multi-book no-vig Odds API fair probability as the baseline and only trade when Polymarket ask is meaningfully below that fair value. This is a strategy rule, not a generic winner picker.`,
-      status: sharpValidation?.gate ? "Validated" : "Not proven",
-      tone: sharpValidation?.gate ? "good" : "bad",
-      metrics: [
-        takerValidationMetric(sharpValidation),
-        ["Replay sample", "0 games", `${fmtInt(sb.strategyCandidateRows)} candidate rows`, "Needs replayable game paths once the rule has a positive held-out bucket."],
-        ["Live picks", "0", `${fmtPct(sb.oddsTestCoverage)} test odds coverage`, "Odds coverage is still too thin for a capital gate."]
-      ]
-    },
-    {
-      name: "Line-lag / CLV capture",
-      copy: `Detect when sportsbook fair value moves before the CLOB moves, then enter for convergence and track CLV/LEV. Current Telonex/Odds overlap did not produce a robust qualifying held-out row.`,
-      status: lineLagValidation?.gate ? "Validated" : "Needs data",
-      tone: lineLagValidation?.gate ? "good" : "warn",
-      metrics: [
-        takerValidationMetric(lineLagValidation),
-        ["Replay sample", "0 games", "0 one-minute points", "No replayable historical game set has passed the data gate yet."],
-        ["Live picks", "0", "monitor only", "No live signal is cleared for capital."]
-      ]
-    },
-    {
-      name: "Fill-aware convergence ML",
-      copy: `Predict whether a CLOB entry can actually fill and later exit profitably. Current run ${m.runId} abstains because the realistic fill-profit target does not clear the threshold.`,
-      status: m.researchGate ? "Research pass" : "Hold",
-      tone: m.researchGate ? "warn" : "bad",
-      metrics: [
-        ["Strategy Backtest ROI", fmtPct(m.testRoi), `${fmtInt(m.testTrades)} test trades`, "Fill-aware convergence only. Market-disjoint and temporal validation remain below the capital gate."],
-        ["Replay sample", "0 games", "not replay-ready", "The convergence model needs reliable historical fills/LEV replays before dashboard playback is meaningful."],
-        ["Live picks", "0", "abstained", "Current run does not select live trades after execution filters."]
-      ]
-    },
-    {
-      name: "YES + NO hedge/arb",
-      copy: `Look for binary markets where buying both sides or hedging after a move is underpriced. Strict net arbs found: ${fmtInt(mb.strictNetArbRows)}; near-arb rows are research-only until executable proof improves.`,
-      status: mb.yesNoGate ? "Candidate" : "Monitor",
-      tone: mb.yesNoGate ? "warn" : "info",
-      metrics: [
-        ["Strategy Backtest ROI", "not validated", `${fmtInt(mb.strictNetArbRows)} strict arbs`, "YES + NO hedge/arb only. Strict executable arb evidence is not large enough to claim profitability."],
-        ["Replay sample", "0 games", "research only", "Needs paired YES/NO order books with executable sizing before replaying trades."],
-        ["Live picks", "0", "monitor only", "No live hedge/arb signal is cleared for capital."]
-      ]
-    },
-    {
-      name: "WNBA fundamental model lane",
-      copy: `Use WNBA as the first niche sport: build a basketball rules-state layer, causal Elo/rest/form priors, player availability/quality features, and play-by-play state before comparing our fair probability to Polymarket and books.`,
-      status: fi.playByPlayRows > 0 && fi.eloContextRows > 0 ? "Data wiring started" : "Needs data",
-      tone: fi.playByPlayRows > 0 && fi.eloContextRows > 0 ? "warn" : "bad",
-      metrics: [
-        ["Strategy Backtest ROI", "not trained", `${fmtInt(fi.featureRows)} WNBA replay feature rows`, "This is model-input plumbing, not a trained probability model yet."],
-        ["Replay sample", `${fmtInt(fi.replayDetailFilesUpdated)} details enriched`, `${fmtInt(fi.playByPlayRows)} play-by-play rows`, "Replay details now expose rules, Elo/rest, player gaps, play-by-play samples, and timestamped market-intelligence source status when available."],
-        ["Info timing", `${fmtInt(wnbaIntel.rowsObserved || fi.marketIntelligenceRows)} rows`, `${fmtInt(wnbaIntel.sourcesSuccessful || fi.marketIntelligenceSources)} source pages`, "Injury/roster/referee pages are snapshotted with source_ts and first_seen_ts; parsed player/game joins are next."],
-        ["Expansion", `${fmtInt(wnbaPlan.selectedDownloadAssets)} Telonex assets`, `${fmtPct(wnbaPlan.replayAssetCoverage)} current replay asset coverage`, `${fmtInt(wnbaPlan.assetPlanRows)} WNBA candidate assets across ${fmtInt(wnbaPlan.oddsEvents)} Odds games.`]
-      ]
-    },
-    {
-      name: "Post-game price shock",
-      copy: `Use a game-state engine plus play-by-play to compare fair win-probability change against CLOB reaction after goals, scoring plays, cards, substitutions, and injuries. Build order: ${(pbpPlan.nextBuildOrder || []).slice(0, 4).join(", ") || "not planned"}.`,
-      status: mb.priceShockGate ? "Candidate" : "Not ready",
-      tone: mb.priceShockGate ? "warn" : "bad",
-      metrics: [
-        ["Strategy Backtest ROI", "not validated", `play-by-play coverage ${fmtPct(sb.playByPlayCoverage)}`, "Post-game shock only. No post-game trading rule has a positive held-out bucket yet."],
-        ["Replay sample", `${fmtInt(sb.playByPlayMarkets)} MLB markets`, `${fmtInt(sb.playByPlayRows)} game-state rows`, "Game-state data exists now; trade replays still need game-shock signals that pass validation."],
-        ["Live picks", "0", featureBlocker || "monitor only", "No live post-game shock signal is cleared for capital."]
-      ]
-    }
-  ];
-  const evidenceSelect = $("strategy-evidence-select");
-  if (evidenceSelect) {
-    const available = rows.map(row => row.name);
-    if (!available.includes(state.selectedEvidenceStrategy)) {
-      state.selectedEvidenceStrategy = available[0] || "Favorite-longshot fade";
-    }
-    evidenceSelect.innerHTML = available.map(name => `
-      <option value="${esc(name)}">${esc(name)}</option>
-    `).join("");
-    evidenceSelect.value = state.selectedEvidenceStrategy;
-  }
-  const selectedRow = rows.find(row => row.name === state.selectedEvidenceStrategy) || rows[0];
+    ]
+  };
   $("strategy-overview").innerHTML = `
     <div class="strategy-grid-head">
-      <span>Strategy</span>
-      <span>Strategy Backtest ROI</span>
-      <span>Replay sample</span>
-      <span>Live picks</span>
+      <span>Model</span>
+      <span>CLV gate</span>
+      <span>Exit policy</span>
+      <span>Continuous feed</span>
     </div>
     <div class="strategy-list">
-      ${selectedRow ? `
-        <div class="strategy-row">
-          <div>
-            <div class="strategy-row-head">
-              <strong>${esc(selectedRow.name)}</strong>
-              <span class="pill ${esc(selectedRow.tone)}">${esc(selectedRow.status)}</span>
-            </div>
-            <div class="strategy-copy">${esc(selectedRow.copy)}</div>
+      <div class="strategy-row">
+        <div>
+          <div class="strategy-row-head">
+            <strong>${esc(selectedRow.name)}</strong>
+            <span class="pill ${esc(selectedRow.tone)}">${esc(selectedRow.status)}</span>
           </div>
-          ${selectedRow.metrics.map(([label, value, note, help]) => `
-            <div class="strategy-stat">
-              <div class="metric-label">${esc(label)}</div>
-              <div class="metric-value">${esc(value)}</div>
-              <div class="metric-note">${esc(note)}</div>
-              <div class="metric-help">${esc(help)}</div>
-            </div>
-          `).join("")}
+          <div class="strategy-copy">${esc(selectedRow.copy)}</div>
         </div>
-      ` : ""}
+        ${selectedRow.metrics.map(([label, value, note, help]) => `
+          <div class="strategy-stat">
+            <div class="metric-label">${esc(label)}</div>
+            <div class="metric-value">${esc(value)}</div>
+            <div class="metric-note">${esc(note)}</div>
+            <div class="metric-help">${esc(help)}</div>
+          </div>
+        `).join("")}
+      </div>
     </div>
   `;
 }
@@ -2482,35 +2269,6 @@ function replayAxisLabel(event, offsetSec, spanSec) {
 function shortLabel(value, max = 24) {
   const text = String(value || "--");
   return text.length > max ? `${text.slice(0, Math.max(1, max - 3))}...` : text;
-}
-
-function strategyLabel(value) {
-  const raw = String(value || "favorite-longshot");
-  const key = raw.toLowerCase();
-  const labels = {
-    "favorite-longshot": "Favorite-longshot fade",
-    "favorite_longshot": "Favorite-longshot fade",
-    "favorite-longshot fade": "Favorite-longshot fade",
-    "favorite longshot fade": "Favorite-longshot fade",
-    "high_prob_token_in_favorite_or_longshot_market": "Favorite-longshot fade",
-    "favorite_85_95_buy_high_token": "Favorite-longshot fade",
-    "longshot_10_15_buy_no_token": "Favorite-longshot fade",
-    "longshot_10_15_buy_complement_token": "Favorite-longshot fade",
-    "downloaded_manifest_high_prob_token": "Favorite-longshot fade",
-    "favorite_longshot_fade_v2": "Favorite-longshot fade",
-    "sharp_consensus_clob_mispricing": "Sharp-consensus CLOB mispricing",
-    "sharp-consensus clob mispricing": "Sharp-consensus CLOB mispricing",
-    "line_lag_clv_capture": "Line-lag / CLV capture",
-    "line-lag clv capture": "Line-lag / CLV capture",
-    "line lag clv capture": "Line-lag / CLV capture",
-    "market_replay_only": "Market replay only",
-    "market replay only": "Market replay only"
-  };
-  if (labels[key]) return labels[key];
-  return raw
-    .replaceAll("_", " ")
-    .replaceAll("-", " ")
-    .replace(/\b\w/g, letter => letter.toUpperCase());
 }
 
 function marketLabel(event) {
@@ -2745,7 +2503,7 @@ function cleanReplayEventName(event) {
 }
 
 function replayStrategyValue(event) {
-  return strategyLabel(event?.strategy_label || event?.strategy || event?.bucket);
+  return PRIMARY_MODEL_STRATEGY;
 }
 
 function replayMarketValue(event) {
@@ -2895,20 +2653,9 @@ function renderReplayDateOptions(select, rows, selectedValue) {
 }
 
 function renderReplayStrategyOptions(select, events, selectedValue) {
-  const counts = new Map();
-  events.forEach(item => {
-    const value = replayStrategyValue(item);
-    if (!counts.has(value)) counts.set(value, new Set());
-    counts.get(value).add(item?.replay_id || replayEventIdentity(item));
-  });
-  const active = selectedValue !== "__all__" && STRATEGY_OPTIONS.includes(selectedValue)
-    ? selectedValue
-    : "__all__";
+  const active = PRIMARY_MODEL_STRATEGY;
   select.innerHTML = [
-    `<option value="__all__">All strategies</option>`,
-    ...STRATEGY_OPTIONS.map(name => `
-      <option value="${esc(name)}">${esc(name)} (${replayCountText(counts.get(name)?.size || 0, "line")})</option>
-    `)
+    `<option value="${esc(PRIMARY_MODEL_STRATEGY)}">${esc(PRIMARY_MODEL_STRATEGY)} (${replayCountText(events.length, "line")})</option>`
   ].join("");
   select.value = active;
   return active;
@@ -4106,12 +3853,17 @@ function renderReplayModelContext(event) {
   if (!target) return;
   const context = event?.fundamental_context || null;
   if (!context) {
+    const missingText = event
+      ? "No play-by-play or player-stat context is attached to this replay row yet."
+      : "Select a replay row to inspect play-by-play and player stats.";
     target.innerHTML = `
       <h4>Model context</h4>
       <div class="context-grid">
         <div class="context-chip"><span>Fundamental</span><strong>${event?.fundamental_context_available ? "Summary only" : "Not wired"}</strong></div>
         <div class="context-chip"><span>Play-by-play</span><strong>${fmtInt(event?.play_by_play_rows || 0)} rows</strong></div>
+        <div class="context-chip"><span>Player stats</span><strong>Missing</strong></div>
       </div>
+      <div class="decision-rationale"><strong>Data gap</strong><span>${esc(missingText)}</span></div>
     `;
     return;
   }
@@ -4125,6 +3877,7 @@ function renderReplayModelContext(event) {
   const blockers = Array.isArray(context.blockers) ? context.blockers : [];
   const sample = Array.isArray(pbp.sample) ? pbp.sample.slice(0, 8) : [];
   const playerActivity = Array.isArray(pbp.player_activity) ? pbp.player_activity.slice(0, 8) : [];
+  const playerStats = Array.isArray(pbp.player_stats) ? pbp.player_stats.slice(0, 10) : [];
   target.innerHTML = `
     <h4>Model context</h4>
     <div class="context-grid">
@@ -4134,6 +3887,7 @@ function renderReplayModelContext(event) {
       <div class="context-chip"><span>Rest</span><strong>${fmtSigned(elo.rest_diff_home, 1)} days home</strong></div>
       <div class="context-chip"><span>Odds API</span><strong>${odds.available ? esc(odds.market || "mapped") : "optional missing"}</strong></div>
       <div class="context-chip"><span>Play-by-play</span><strong>${fmtInt(pbp.rows || 0)} rows</strong></div>
+      <div class="context-chip"><span>Player stats</span><strong>${playerStats.length ? `${fmtInt(playerStats.length)} players` : "Missing"}</strong></div>
       <div class="context-chip"><span>Market intel</span><strong>${intel.available ? `${fmtInt(intel.rows || 0)} rows` : "Missing"}</strong></div>
       <div class="context-chip"><span>Injury</span><strong>${intel.parsed_event_level_injury_rows ? "parsed" : (intel.injury_timeline_available ? "snapshots" : "missing")}</strong></div>
       <div class="context-chip"><span>Player</span><strong>${player.player_market ? (player.player_rating_available ? "rated" : "missing rating") : "not player market"}</strong></div>
@@ -4152,6 +3906,24 @@ function renderReplayModelContext(event) {
         `).join("")}
       </div>
     ` : ""}
+    ${!sample.length ? `<div class="decision-rationale"><strong>Play-by-play</strong><span>No play-by-play rows are attached to this replay yet.</span></div>` : ""}
+    ${playerStats.length ? `
+      <div class="plain-label">Player stats</div>
+      <div class="play-list">
+        ${playerStats.map(item => `
+          <div class="play-row">
+            <strong>${esc(item.player || "Player")}</strong>
+            ${esc([
+              `${fmtInt(item.points || 0)} pts`,
+              `${fmtInt(item.rebounds || 0)} reb`,
+              `${fmtInt(item.assists || 0)} ast`,
+              `${fmtInt(item.turnovers || 0)} tov`,
+              `${fmtInt(item.fouls || 0)} fouls`
+            ].join(" | "))}
+          </div>
+        `).join("")}
+      </div>
+    ` : `<div class="decision-rationale"><strong>Player stats</strong><span>No player stat rows are attached to this replay yet.</span></div>`}
     ${playerActivity.length ? `
       <div class="plain-label">Player activity</div>
       <div class="play-list">
@@ -4350,7 +4122,7 @@ function renderReplay(data) {
     }
     $("replay-title").textContent = replayExperimentLabel(event);
     $("replay-event-strip").innerHTML = [
-      ["Strategy", showAllLines && state.selectedReplayStrategy === "__all__" ? "All strategies" : strategyLabel(event.strategy_label || event.strategy || event.bucket)],
+      ["Model", PRIMARY_MODEL_STRATEGY],
       ["Market", marketLabel(event)],
       ["Bet type", showAllLines && state.selectedReplayBetType === "__all__" ? "All bet types" : replayBetTypeValue(event)],
       ["Date", replayDateLabel(event)],
@@ -4418,7 +4190,7 @@ function renderReplay(data) {
         : "Polymarket CLOB";
   const qualityLabel = replaySportsbookQuality(fullEvent);
   $("replay-event-strip").innerHTML = [
-    ["Strategy", showAllLines && state.selectedReplayStrategy === "__all__" ? "All strategies" : strategyLabel(fullEvent.strategy_label || fullEvent.strategy || fullEvent.bucket)],
+    ["Model", PRIMARY_MODEL_STRATEGY],
     ["Market", marketLabel(fullEvent)],
     ["Bet type", showAllLines && state.selectedReplayBetType === "__all__" ? "All bet types" : replayBetTypeValue(fullEvent)],
     ["Date", replayDateLabel(fullEvent)],
@@ -4671,10 +4443,6 @@ document.addEventListener("change", event => {
     state.selectedSportsbookSourcesById[state.selectedReplayId] = checked;
     renderReplay(deriveDashboard());
     return;
-  }
-  if (event.target && event.target.id === "strategy-evidence-select") {
-    state.selectedEvidenceStrategy = event.target.value || "Favorite-longshot fade";
-    renderStrategyOverview(deriveDashboard());
   }
 });
 
