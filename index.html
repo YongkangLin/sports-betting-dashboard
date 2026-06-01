@@ -1045,8 +1045,8 @@
     <section class="band">
       <div class="section-head">
         <div>
-          <h2>Event Replay</h2>
-          <p>CLOB and sportsbook replay paths by market, date, event, bet type, and line.</p>
+          <h2>Game Replay</h2>
+          <p>CLOB and sportsbook replay paths by market, date, game, bet type, and line.</p>
         </div>
         <span class="pill warn" id="replay-count-pill">loading</span>
       </div>
@@ -1068,9 +1068,9 @@
           </select>
         </div>
         <div class="replay-filter event">
-          <label for="replay-select">Event</label>
+          <label for="replay-select">Game</label>
           <select id="replay-select">
-            <option>loading backtest events...</option>
+            <option>loading backtest games...</option>
           </select>
         </div>
         <div class="replay-filter bet-type">
@@ -1104,12 +1104,12 @@
             <div class="chart-title" id="chart-title">Minute replay</div>
             <div class="chart-source-note" id="chart-source-note"></div>
           </div>
-          <svg class="replay-chart" id="replay-chart" role="img" aria-label="Backtest event price path"></svg>
+          <svg class="replay-chart" id="replay-chart" role="img" aria-label="Backtest game price path"></svg>
           <div class="source-toggles" id="replay-source-toggles"></div>
           <div class="chart-legend" id="chart-legend"></div>
         </div>
         <div class="replay-detail">
-          <h3 id="replay-title">No event selected</h3>
+          <h3 id="replay-title">No game selected</h3>
           <div class="event-strip" id="replay-event-strip"></div>
           <div class="decision-panel">
             <div class="decision-heading">
@@ -1140,7 +1140,7 @@ const ARTIFACTS = {
   fundamentalInputs: { label: "Fundamental model inputs", path: "data/model/fundamental_probability/fundamental_model_inputs_latest.json" },
   wnbaMarketIntelligence: { label: "WNBA market intelligence", path: "data/model/fundamental_probability/wnba_market_intelligence_manifest.json" },
   wnbaExpansionPlan: { label: "WNBA data expansion plan", path: "data/status/wnba_data_expansion_plan_latest.json" },
-  favoriteLongshotEventReplays: { label: "Event replay bundle", path: "data/model/replays/event_replays_latest.json" },
+  favoriteLongshotEventReplays: { label: "Game replay bundle", path: "data/model/replays/event_replays_latest.json" },
   replaySportsbookGapAudit: { label: "Replay sportsbook gap audit", path: "data/model/replays/audits/replay_sportsbook_gap_audit_latest.json" },
   dashboardSportsbookIntegrityAudit: { label: "Dashboard sportsbook integrity audit", path: "data/model/replays/audits/dashboard_sportsbook_integrity_audit_latest.json" }
 };
@@ -1575,7 +1575,7 @@ const STRATEGY_OPTIONS = [
   "Fill-aware convergence ML",
   "Market replay only",
   "YES + NO hedge/arb",
-  "Post-event price shock"
+  "Post-game price shock"
 ];
 const TEAM_ABBREVIATIONS = {
   ari: "Cardinals",
@@ -1658,6 +1658,26 @@ const NBA_TEAM_ABBREVIATIONS = {
   tor: "Raptors",
   uta: "Jazz",
   was: "Wizards"
+};
+
+const WNBA_TEAM_ABBREVIATIONS = {
+  atl: "Atlanta Dream",
+  chi: "Chicago Sky",
+  conn: "Connecticut Sun",
+  dal: "Dallas Wings",
+  gsv: "Golden State Valkyries",
+  ind: "Indiana Fever",
+  la: "Los Angeles Sparks",
+  las: "Las Vegas Aces",
+  lv: "Las Vegas Aces",
+  min: "Minnesota Lynx",
+  nyl: "New York Liberty",
+  ny: "New York Liberty",
+  phx: "Phoenix Mercury",
+  por: "Portland Fire",
+  sea: "Seattle Storm",
+  tor: "Toronto Tempo",
+  wsh: "Washington Mystics"
 };
 
 function esc(value) {
@@ -2218,7 +2238,7 @@ function strategySupportNote(row) {
 function unavailableStrategyMetrics(reason) {
   return [
     ["Strategy Backtest ROI", "not validated", reason, "No strategy-specific held-out edge is proven yet."],
-    ["Replay sample", "0 events", "0 one-minute points", "No replayable historical event set has passed the data gate yet."],
+    ["Replay sample", "0 games", "0 one-minute points", "No replayable historical game set has passed the data gate yet."],
     ["Live picks", "0", "monitor only", "No live signal is cleared for capital."]
   ];
 }
@@ -2316,7 +2336,7 @@ function renderStrategyOverview(data) {
       tone: favoriteValidation?.gate ? "good" : "warn",
       metrics: [
         takerValidationMetric(favoriteValidation),
-        ["Replay sample", `${fmtInt(replayEvents)} events`, `${fmtInt(replayPoints)} one-minute points`, `${fmtInt(replayClobTwoSidedEvents)} have actual CLOB both sides; ${fmtInt(replayBothCompleteEvents)} also have sportsbook overlays from ${fmtInt(replaySportsbookPoints)} fair-probability points; native 5m Odds is complete for ${fmtInt(replayNative5mEvents)} events with ${fmtInt(replayMissing5mSnapshots)} unique 5m snapshots still missing. Replay materialization bugs: ${fmtInt(replayMaterializationBugs)}. ${favQualitySplit ? `Selected-rule test quality split: ${favQualitySplit}.` : ""}`],
+        ["Replay sample", `${fmtInt(replayEvents)} games`, `${fmtInt(replayPoints)} one-minute points`, `${fmtInt(replayClobTwoSidedEvents)} have actual CLOB both sides; ${fmtInt(replayBothCompleteEvents)} also have sportsbook overlays from ${fmtInt(replaySportsbookPoints)} fair-probability points; native 5m Odds is complete for ${fmtInt(replayNative5mEvents)} games with ${fmtInt(replayMissing5mSnapshots)} unique 5m snapshots still missing. Replay materialization bugs: ${fmtInt(replayMaterializationBugs)}. ${favQualitySplit ? `Selected-rule test quality split: ${favQualitySplit}.` : ""}`],
         ["Live picks", fmtInt(e.liveSignalsSelected), `${fmtInt(e.liveSignalCandidates)} candidates scanned`, "No current signal clears the live threshold."]
       ]
     },
@@ -2327,7 +2347,7 @@ function renderStrategyOverview(data) {
       tone: sharpValidation?.gate ? "good" : "bad",
       metrics: [
         takerValidationMetric(sharpValidation),
-        ["Replay sample", "0 events", `${fmtInt(sb.strategyCandidateRows)} candidate rows`, "Needs replayable event paths once the rule has a positive held-out bucket."],
+        ["Replay sample", "0 games", `${fmtInt(sb.strategyCandidateRows)} candidate rows`, "Needs replayable game paths once the rule has a positive held-out bucket."],
         ["Live picks", "0", `${fmtPct(sb.oddsTestCoverage)} test odds coverage`, "Odds coverage is still too thin for a capital gate."]
       ]
     },
@@ -2338,7 +2358,7 @@ function renderStrategyOverview(data) {
       tone: lineLagValidation?.gate ? "good" : "warn",
       metrics: [
         takerValidationMetric(lineLagValidation),
-        ["Replay sample", "0 events", "0 one-minute points", "No replayable historical event set has passed the data gate yet."],
+        ["Replay sample", "0 games", "0 one-minute points", "No replayable historical game set has passed the data gate yet."],
         ["Live picks", "0", "monitor only", "No live signal is cleared for capital."]
       ]
     },
@@ -2349,7 +2369,7 @@ function renderStrategyOverview(data) {
       tone: m.researchGate ? "warn" : "bad",
       metrics: [
         ["Strategy Backtest ROI", fmtPct(m.testRoi), `${fmtInt(m.testTrades)} test trades`, "Fill-aware convergence only. Market-disjoint and temporal validation remain below the capital gate."],
-        ["Replay sample", "0 events", "not replay-ready", "The convergence model needs reliable historical fills/LEV replays before dashboard playback is meaningful."],
+        ["Replay sample", "0 games", "not replay-ready", "The convergence model needs reliable historical fills/LEV replays before dashboard playback is meaningful."],
         ["Live picks", "0", "abstained", "Current run does not select live trades after execution filters."]
       ]
     },
@@ -2360,7 +2380,7 @@ function renderStrategyOverview(data) {
       tone: mb.yesNoGate ? "warn" : "info",
       metrics: [
         ["Strategy Backtest ROI", "not validated", `${fmtInt(mb.strictNetArbRows)} strict arbs`, "YES + NO hedge/arb only. Strict executable arb evidence is not large enough to claim profitability."],
-        ["Replay sample", "0 events", "research only", "Needs paired YES/NO order books with executable sizing before replaying trades."],
+        ["Replay sample", "0 games", "research only", "Needs paired YES/NO order books with executable sizing before replaying trades."],
         ["Live picks", "0", "monitor only", "No live hedge/arb signal is cleared for capital."]
       ]
     },
@@ -2373,18 +2393,18 @@ function renderStrategyOverview(data) {
         ["Strategy Backtest ROI", "not trained", `${fmtInt(fi.featureRows)} WNBA replay feature rows`, "This is model-input plumbing, not a trained probability model yet."],
         ["Replay sample", `${fmtInt(fi.replayDetailFilesUpdated)} details enriched`, `${fmtInt(fi.playByPlayRows)} play-by-play rows`, "Replay details now expose rules, Elo/rest, player gaps, play-by-play samples, and timestamped market-intelligence source status when available."],
         ["Info timing", `${fmtInt(wnbaIntel.rowsObserved || fi.marketIntelligenceRows)} rows`, `${fmtInt(wnbaIntel.sourcesSuccessful || fi.marketIntelligenceSources)} source pages`, "Injury/roster/referee pages are snapshotted with source_ts and first_seen_ts; parsed player/game joins are next."],
-        ["Expansion", `${fmtInt(wnbaPlan.selectedDownloadAssets)} Telonex assets`, `${fmtPct(wnbaPlan.replayAssetCoverage)} current replay asset coverage`, `${fmtInt(wnbaPlan.assetPlanRows)} WNBA candidate assets across ${fmtInt(wnbaPlan.oddsEvents)} Odds events.`]
+        ["Expansion", `${fmtInt(wnbaPlan.selectedDownloadAssets)} Telonex assets`, `${fmtPct(wnbaPlan.replayAssetCoverage)} current replay asset coverage`, `${fmtInt(wnbaPlan.assetPlanRows)} WNBA candidate assets across ${fmtInt(wnbaPlan.oddsEvents)} Odds games.`]
       ]
     },
     {
-      name: "Post-event price shock",
+      name: "Post-game price shock",
       copy: `Use a game-state engine plus play-by-play to compare fair win-probability change against CLOB reaction after goals, scoring plays, cards, substitutions, and injuries. Build order: ${(pbpPlan.nextBuildOrder || []).slice(0, 4).join(", ") || "not planned"}.`,
       status: mb.priceShockGate ? "Candidate" : "Not ready",
       tone: mb.priceShockGate ? "warn" : "bad",
       metrics: [
-        ["Strategy Backtest ROI", "not validated", `play-by-play coverage ${fmtPct(sb.playByPlayCoverage)}`, "Post-event shock only. No post-event trading rule has a positive held-out bucket yet."],
-        ["Replay sample", `${fmtInt(sb.playByPlayMarkets)} MLB markets`, `${fmtInt(sb.playByPlayRows)} event-state rows`, "Game-state data exists now; trade replays still need event-shock signals that pass validation."],
-        ["Live picks", "0", featureBlocker || "monitor only", "No live post-event shock signal is cleared for capital."]
+        ["Strategy Backtest ROI", "not validated", `play-by-play coverage ${fmtPct(sb.playByPlayCoverage)}`, "Post-game shock only. No post-game trading rule has a positive held-out bucket yet."],
+        ["Replay sample", `${fmtInt(sb.playByPlayMarkets)} MLB markets`, `${fmtInt(sb.playByPlayRows)} game-state rows`, "Game-state data exists now; trade replays still need game-shock signals that pass validation."],
+        ["Live picks", "0", featureBlocker || "monitor only", "No live post-game shock signal is cleared for capital."]
       ]
     }
   ];
@@ -2594,7 +2614,9 @@ function marketTypeValue(event) {
 }
 
 function replayDateValue(event) {
-  const raw = event?.event_end_ts || event?.odds_commence_time || event?.series_start_ts || event?.start_ts || "";
+  const slugDate = replaySlugGameParts(event)?.date;
+  if (slugDate) return slugDate;
+  const raw = event?.event_date || event?.odds_commence_time || event?.series_start_ts || event?.start_ts || event?.event_end_ts || "";
   const date = new Date(raw);
   if (!Number.isFinite(date.getTime())) return "";
   return date.toISOString().slice(0, 10);
@@ -2608,12 +2630,15 @@ function replayDateLabel(event) {
 }
 
 function replayExperimentLabel(event) {
-  return cleanReplayEventName(event);
+  return replayGameLabel(event);
 }
 
 function formatSlugToken(token, event) {
   const key = String(token || "").toLowerCase();
   const sport = String(event?.sport_family || event?.market_label || "").toLowerCase();
+  if (sport.includes("wnba")) {
+    return WNBA_TEAM_ABBREVIATIONS[key] || key.toUpperCase();
+  }
   if (sport.includes("basketball") || sport === "nba") {
     return NBA_TEAM_ABBREVIATIONS[key] || TEAM_ABBREVIATIONS[key] || key.toUpperCase();
   }
@@ -2660,9 +2685,51 @@ function formatSlugToken(token, event) {
   return key.toUpperCase();
 }
 
+function replaySlugGameParts(event) {
+  const candidates = [
+    event?.event_slug,
+    event?.telonex_event_slug,
+    event?.slug,
+    event?.title,
+    event?.question
+  ].map(value => String(value || "").trim()).filter(Boolean);
+  for (const raw of candidates) {
+    const match = raw.match(/^([a-z0-9]+)-([a-z0-9]+)-([a-z0-9]+)-(20\d{2}-\d{2}-\d{2})(?:-.+)?$/i);
+    if (match) {
+      return {
+        sport: match[1].toLowerCase(),
+        left: match[2].toLowerCase(),
+        right: match[3].toLowerCase(),
+        date: match[4],
+        base: `${match[1].toLowerCase()}-${match[2].toLowerCase()}-${match[3].toLowerCase()}-${match[4]}`
+      };
+    }
+  }
+  return null;
+}
+
+function replayGameKey(event) {
+  const parts = replaySlugGameParts(event);
+  if (parts) return parts.base;
+  const sport = String(event?.sport_family || event?.market_label || replayMarketValue(event) || "").toLowerCase();
+  const date = replayDateValue(event);
+  const name = cleanReplayEventName(event).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  return [sport, date, name].filter(Boolean).join("||") || String(event?.replay_id || "");
+}
+
+function replayGameLabel(event) {
+  const parts = replaySlugGameParts(event);
+  if (parts) {
+    const left = formatSlugToken(parts.left, event);
+    const right = formatSlugToken(parts.right, event);
+    return `${left} vs ${right}`;
+  }
+  return cleanReplayEventName(event);
+}
+
 function cleanReplayEventName(event) {
-  const raw = String(event?.title || event?.question || event?.slug || event?.replay_id || "Event").trim();
-  if (!raw) return "Event";
+  const raw = String(event?.title || event?.question || event?.slug || event?.replay_id || "Game").trim();
+  if (!raw) return "Game";
   if (/\s/.test(raw) && !/^[a-z0-9-]+$/i.test(raw)) {
     return raw
       .replace(/\s+-\s+Player Props$/i, "")
@@ -2690,7 +2757,7 @@ function replayBetTypeValue(event) {
 }
 
 function replayEventNameValue(event) {
-  return replayExperimentLabel(event);
+  return replayGameLabel(event);
 }
 
 function formatReplayPoint(value) {
@@ -2728,11 +2795,7 @@ function replayLineValue(event) {
 }
 
 function replayEventIdentity(event) {
-  return [
-    replayMarketValue(event),
-    replayDateValue(event),
-    replayEventNameValue(event)
-  ].map(value => String(value || "").trim()).join("||");
+  return replayGameKey(event);
 }
 
 function replayUniqueEventCount(events) {
@@ -2762,7 +2825,7 @@ function replayEventsForFilters(events) {
     && replayFilterMatch(replayStrategyValue(item), state.selectedReplayStrategy)
     && replayFilterMatch(replayBetTypeValue(item), state.selectedReplayBetType)
     && replayFilterMatch(replayDateValue(item), state.selectedReplayDate)
-    && replayFilterMatch(replayEventNameValue(item), state.selectedReplayEventName)
+    && replayFilterMatch(replayGameKey(item), state.selectedReplayEventName)
     && replayFilterMatch(replayLineValue(item), state.selectedReplayLine)
   ));
 }
@@ -2779,8 +2842,9 @@ function renderReplayFilterOptions(select, rows, selectedValue, allLabel, option
   const showCounts = options.showCounts !== false;
   select.innerHTML = [
     `<option value="__all__">${esc(allLabel)}</option>`,
-    ...rows.map(([value, count]) => {
-      const label = showCounts ? `${value} (${replayCountText(count, noun)})` : value;
+    ...rows.map(([value, count, display]) => {
+      const text = display || value;
+      const label = showCounts ? `${text} (${replayCountText(count, noun)})` : text;
       return `<option value="${esc(value)}">${esc(label)}</option>`;
     })
   ].join("");
@@ -2788,12 +2852,43 @@ function renderReplayFilterOptions(select, rows, selectedValue, allLabel, option
   return active;
 }
 
+function replayGameOptionCounts(events) {
+  const byKey = new Map();
+  events.forEach(item => {
+    const key = replayGameKey(item);
+    if (!key) return;
+    if (!byKey.has(key)) {
+      byKey.set(key, {
+        key,
+        label: replayGameLabel(item),
+        date: replayDateValue(item),
+        lines: new Set()
+      });
+    }
+    byKey.get(key).lines.add(item?.replay_id || replayLineValue(item));
+  });
+  const rows = [...byKey.values()];
+  const labelCounts = rows.reduce((acc, row) => {
+    acc.set(row.label, (acc.get(row.label) || 0) + 1);
+    return acc;
+  }, new Map());
+  return rows
+    .map(row => [
+      row.key,
+      1,
+      labelCounts.get(row.label) > 1 && row.date
+        ? `${row.label} - ${replayDateLabel(row.date)}`
+        : row.label
+    ])
+    .sort((a, b) => String(a[2]).localeCompare(String(b[2])));
+}
+
 function renderReplayDateOptions(select, rows, selectedValue) {
   const values = rows.map(([value]) => value);
   const active = selectedValue !== "__all__" && values.includes(selectedValue) ? selectedValue : "__all__";
   select.innerHTML = [
     `<option value="__all__">All dates</option>`,
-    ...rows.map(([value, count]) => `<option value="${esc(value)}">${esc(replayDateLabel(value) || value)} (${replayCountText(count, "event")})</option>`)
+    ...rows.map(([value, count]) => `<option value="${esc(value)}">${esc(replayDateLabel(value) || value)} (${replayCountText(count, "game")})</option>`)
   ].join("");
   select.value = active;
   return active;
@@ -3517,7 +3612,7 @@ function drawReplayChart(event) {
   setWindowButtonState();
   if (!points.length) {
     state.replayChart = null;
-    svg.innerHTML = `<text x="24" y="42" fill="#627083">No price series available for this event.</text>`;
+    svg.innerHTML = `<text x="24" y="42" fill="#627083">No price series available for this game.</text>`;
     if ($("chart-title")) $("chart-title").textContent = "Minute replay";
     setChartSourceNote("");
     renderChartLegend([]);
@@ -3985,7 +4080,7 @@ function renderDecisionPanel(event, marker) {
     $("decision-action").textContent = isPlotOnlyReplay(event) ? "PLOT" : "--";
     $("decision-action").className = "pill info";
     $("replay-kv").innerHTML = "";
-    $("replay-rationale").innerHTML = `<strong>Rationale</strong><span>No buy or mark point is available for this event.</span>`;
+    $("replay-rationale").innerHTML = `<strong>Rationale</strong><span>No buy or mark point is available for this game.</span>`;
     return;
   }
   const priceName = action === "BUY" ? "Buy price" : action === "SETTLEMENT" ? "Final price" : "Sell price";
@@ -4029,6 +4124,7 @@ function renderReplayModelContext(event) {
   const odds = context.odds_api || {};
   const blockers = Array.isArray(context.blockers) ? context.blockers : [];
   const sample = Array.isArray(pbp.sample) ? pbp.sample.slice(0, 8) : [];
+  const playerActivity = Array.isArray(pbp.player_activity) ? pbp.player_activity.slice(0, 8) : [];
   target.innerHTML = `
     <h4>Model context</h4>
     <div class="context-grid">
@@ -4043,7 +4139,7 @@ function renderReplayModelContext(event) {
       <div class="context-chip"><span>Player</span><strong>${player.player_market ? (player.player_rating_available ? "rated" : "missing rating") : "not player market"}</strong></div>
       <div class="context-chip"><span>Ready</span><strong>${context.model_input_ready ? "Base ready" : "Blocked"}</strong></div>
     </div>
-    ${tlx.event_slug ? `<div class="decision-rationale"><strong>Telonex event</strong><span>${esc(tlx.event_slug)}${tlx.question ? ` - ${esc(tlx.question)}` : ""}</span></div>` : ""}
+    ${tlx.event_slug ? `<div class="decision-rationale"><strong>Telonex game</strong><span>${esc(tlx.event_slug)}${tlx.question ? ` - ${esc(tlx.question)}` : ""}</span></div>` : ""}
     ${blockers.length ? `<div class="decision-rationale"><strong>Blockers</strong><span>${esc(blockers.slice(0, 4).join("; "))}</span></div>` : ""}
     ${sample.length ? `
       <div class="plain-label">Play-by-play sample</div>
@@ -4052,6 +4148,17 @@ function renderReplayModelContext(event) {
           <div class="play-row">
             <strong>${esc(`P${play.period || ""} ${play.clock || ""} ${play.score || ""} ${play.type || ""}`)}</strong>
             ${esc(play.text || "")}
+          </div>
+        `).join("")}
+      </div>
+    ` : ""}
+    ${playerActivity.length ? `
+      <div class="plain-label">Player activity</div>
+      <div class="play-list">
+        ${playerActivity.map(item => `
+          <div class="play-row">
+            <strong>${esc(`${item.player || "Player"} - ${fmtInt(item.events || 0)} tracked plays`)}</strong>
+            ${esc(Object.entries(item.event_types || {}).map(([key, value]) => `${key}: ${value}`).join("; ") || "play-by-play activity")}
           </div>
         `).join("")}
       </div>
@@ -4126,19 +4233,19 @@ function renderReplay(data) {
     lineSelect.innerHTML = `<option>No lines loaded</option>`;
     $("replay-data-source-select").innerHTML = `<option>No sources loaded</option>`;
     select.innerHTML = `<option>No replay data loaded</option>`;
-    $("replay-count-pill").textContent = "no events";
+    $("replay-count-pill").textContent = "no games";
     $("replay-count-pill").className = "pill warn";
-    $("replay-title").textContent = "No event replay data loaded";
+    $("replay-title").textContent = "No game replay data loaded";
     $("replay-event-strip").innerHTML = [
       ["Protected dataset", datasetLine],
       ["Feature coverage", coverageLine],
-      ["Replay status", "event playback data not loaded"]
+      ["Replay status", "game playback data not loaded"]
     ].map(([k, v]) => `<div class="event-stat"><span>${esc(k)}</span><strong>${esc(v)}</strong></div>`).join("");
     $("decision-title").textContent = "No point selected";
     $("decision-action").textContent = "--";
     $("decision-action").className = "pill info";
     $("replay-kv").innerHTML = "";
-    $("replay-rationale").innerHTML = `<strong>Rationale</strong><span>The protected Telonex/Odds dataset is available, but replay playback depends on the compact event replay bundle loading successfully. Check the artifact health panel if this empty state appears on the public dashboard.</span>`;
+    $("replay-rationale").innerHTML = `<strong>Rationale</strong><span>The protected Telonex/Odds dataset is available, but replay playback depends on the compact game replay bundle loading successfully. Check the artifact health panel if this empty state appears on the public dashboard.</span>`;
     renderReplayModelContext(null);
     drawReplayChart({ series_points: [] });
     return;
@@ -4149,7 +4256,7 @@ function renderReplay(data) {
     replayOptionCounts(events, replayMarketValue, replayEventIdentity),
     state.selectedReplayMarket,
     "All markets",
-    { noun: "event" }
+    { noun: "game" }
   );
   const marketFiltered = events.filter(item => replayFilterMatch(replayMarketValue(item), state.selectedReplayMarket));
   state.selectedReplayDate = renderReplayDateOptions(
@@ -4160,12 +4267,12 @@ function renderReplay(data) {
   const dateFiltered = marketFiltered.filter(item => replayFilterMatch(replayDateValue(item), state.selectedReplayDate));
   state.selectedReplayEventName = renderReplayFilterOptions(
     select,
-    replayOptionCounts(dateFiltered, replayEventNameValue, replayEventIdentity),
+    replayGameOptionCounts(dateFiltered),
     state.selectedReplayEventName,
-    "All events",
-    { noun: "event" }
+    "All games",
+    { showCounts: false }
   );
-  const eventFiltered = dateFiltered.filter(item => replayFilterMatch(replayEventNameValue(item), state.selectedReplayEventName));
+  const eventFiltered = dateFiltered.filter(item => replayFilterMatch(replayGameKey(item), state.selectedReplayEventName));
   state.selectedReplayBetType = renderReplayFilterOptions(
     betTypeSelect,
     replayOptionCounts(eventFiltered, replayBetTypeValue, item => item?.replay_id || replayLineValue(item)),
@@ -4191,8 +4298,8 @@ function renderReplay(data) {
   const uniqueFilteredEvents = replayUniqueEventCount(filteredEvents);
   const uniqueTotalEvents = replayUniqueEventCount(events);
   $("replay-count-pill").textContent = filteredEvents.length
-    ? `${fmtInt(uniqueFilteredEvents)} / ${fmtInt(uniqueTotalEvents)} events | ${fmtInt(filteredEvents.length)} replay lines`
-    : "no matching events";
+    ? `${fmtInt(uniqueFilteredEvents)} / ${fmtInt(uniqueTotalEvents)} games | ${fmtInt(filteredEvents.length)} replay lines`
+    : "no matching games";
   $("replay-count-pill").className = "pill " + (filteredEvents.length ? "info" : "warn");
 
   if (!filteredEvents.length) {
@@ -4202,15 +4309,15 @@ function renderReplay(data) {
     lineSelect.disabled = true;
     $("replay-data-source-select").disabled = true;
     $("replay-data-source-select").innerHTML = `<option>No sources loaded</option>`;
-    select.innerHTML = `<option>No events for selected filters</option>`;
+    select.innerHTML = `<option>No games for selected filters</option>`;
     lineSelect.innerHTML = `<option>No lines for selected filters</option>`;
-    $("replay-title").textContent = "No matching event";
+    $("replay-title").textContent = "No matching game";
     $("replay-event-strip").innerHTML = "";
     $("decision-title").textContent = "No point selected";
     $("decision-action").textContent = "--";
     $("decision-action").className = "pill info";
     $("replay-kv").innerHTML = "";
-    $("replay-rationale").innerHTML = `<strong>Rationale</strong><span>No replay event matches the selected filters.</span>`;
+    $("replay-rationale").innerHTML = `<strong>Rationale</strong><span>No replay game matches the selected filters.</span>`;
     renderReplayModelContext(null);
     drawReplayChart({ series_points: [] });
     return;
@@ -4250,10 +4357,10 @@ function renderReplay(data) {
       ["Line", showAllLines ? `All lines (${fmtInt(filteredEvents.length)})` : replayLineValue(event)],
       ["Order", showAllLines ? "Plot all selected sides" : plotOnly ? `Plot ${side.display}` : side.order],
       ["Position", plotOnly ? "--" : replayTradeAmount(stats)],
-      ["Event PnL", plotOnly ? "--" : `${fmtSignedUsd(pos.pnlUsd)} (${fmtPct(stats.roi)})`],
+      ["Game PnL", plotOnly ? "--" : `${fmtSignedUsd(pos.pnlUsd)} (${fmtPct(stats.roi)})`],
       ["Start", plotOnly ? `${fmtInt(event.series_point_count)} points` : fmtUsd(pos.bankroll, 0)]
     ].map(([k, v]) => `<div class="event-stat"><span>${esc(k)}</span><strong>${esc(v)}</strong></div>`).join("");
-    $("decision-title").textContent = "Loading event";
+    $("decision-title").textContent = "Loading game";
     $("decision-action").textContent = "--";
     $("decision-action").className = "pill info";
     $("replay-kv").innerHTML = "";
@@ -4320,7 +4427,7 @@ function renderReplay(data) {
     ["Order", showAllLines ? "Plot all selected sides" : plotOnly ? `Plot ${side.display}` : side.order],
     ["Result", plotOnly ? "No trade" : stats.won ? "Won" : "Lost"],
     ["Position", plotOnly ? "--" : replayTradeAmount(stats)],
-    ["Event PnL", plotOnly ? "--" : `${fmtSignedUsd(finalPos.pnlUsd)} (${fmtPct(stats.roi)})`],
+    ["Game PnL", plotOnly ? "--" : `${fmtSignedUsd(finalPos.pnlUsd)} (${fmtPct(stats.roi)})`],
     ["Start", plotOnly ? replayTimeLabel(fullEvent, 0) : fmtUsd(finalPos.bankroll, 0)],
     ["End", plotOnly ? replayTimeLabel(fullEvent, lastPricePoint?.offset) : fmtUsd(finalPos.endBalance)]
   ].map(([k, v]) => `<div class="event-stat"><span>${esc(k)}</span><strong>${esc(v)}</strong></div>`).join("");
@@ -4329,18 +4436,18 @@ function renderReplay(data) {
     $("decision-action").textContent = "--";
     $("decision-action").className = "pill bad";
     $("replay-kv").innerHTML = "";
-    $("replay-rationale").innerHTML = `<strong>Rationale</strong><span>Could not load event detail: ${esc(fullEvent.load_error)}</span>`;
+    $("replay-rationale").innerHTML = `<strong>Rationale</strong><span>Could not load game detail: ${esc(fullEvent.load_error)}</span>`;
   } else if (showAllLines) {
     $("decision-title").textContent = "All lines overlay";
     $("decision-action").textContent = "Plot only";
     $("decision-action").className = "pill info";
     $("replay-kv").innerHTML = [
       ["Loaded lines", `${fmtInt(lineOverlayDetails.length)} / ${fmtInt(filteredEvents.length)}`],
-      ["Displayed event", replayEventNameValue(fullEvent)],
+      ["Displayed game", replayEventNameValue(fullEvent)],
       ["Date", replayDateLabel(fullEvent)],
       ["Mode", "CLOB selected and other-side series"]
     ].map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("");
-    $("replay-rationale").innerHTML = `<strong>Rationale</strong><span>All-line view overlays every matching line for this event. Select one line to inspect its trade markers, sportsbook source toggles, and rationale.</span>`;
+    $("replay-rationale").innerHTML = `<strong>Rationale</strong><span>All-line view overlays every matching line for this game. Select one line to inspect its trade markers, sportsbook source toggles, and rationale.</span>`;
   } else {
     renderDecisionPanel(fullEvent, selectedMarker);
   }

@@ -6,7 +6,7 @@ Run a lean Telonex/Odds API execution workflow: collect/refresh CLOB and sportsb
 
 ## Current Verdict
 
-- Generated: 2026-06-01T06:56:14.504251+00:00
+- Generated: 2026-06-01T15:02:32.029074+00:00
 - Verdict: HOLD; live capital enabled: False; live capital gate: False
 - Collector: healthy at loop 479
 - Latest model: `20260531T234614Z-03d084dd3bd6`
