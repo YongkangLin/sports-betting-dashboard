@@ -6,7 +6,7 @@ Run a lean Telonex/Odds API execution workflow: collect/refresh CLOB and sportsb
 
 ## Current Verdict
 
-- Generated: 2026-06-01T18:57:57.165980+00:00
+- Generated: 2026-06-01T19:48:13.743211+00:00
 - Verdict: HOLD; live capital enabled: False; live capital gate: False
 - Collector: healthy at loop 479
 - Latest model: `20260531T234614Z-03d084dd3bd6`
@@ -19,9 +19,9 @@ Run a lean Telonex/Odds API execution workflow: collect/refresh CLOB and sportsb
 - Materialized Odds API feature layer: 5,408,039 rows with 82.58% coverage.
 - Trained latest Telonex convergence model run `20260531T234614Z` for `all` using `all_odds` features.
 - Audited separate market-type model readiness: gate False.
-- Started WNBA-first fundamental model input lane: 300 replay rows enriched, 364,756 play-by-play rows available.
+- Started WNBA-first fundamental model input lane: 1,229 replay rows enriched, 364,756 play-by-play rows available.
 - Started timestamped WNBA market-intelligence snapshots: 22 observed rows from 4 source pages.
-- Materialized dashboard replay bundle: 54,279 replay lines (277 decision replays, 54,002 plot-only series).
+- Materialized dashboard replay bundle: 55,208 replay lines (277 decision replays, 54,089 plot-only price series, 842 PBP-only game-state lines).
 - Kept live CLOB capture, queue/fill modeling, Telonex scoring, validation, model monitoring, and dashboard publishing as the active workflow.
 - Consolidated repository reporting to this single latest-status file; per-script summaries are treated as local byproducts outside the repo.
 
@@ -62,14 +62,14 @@ Run a lean Telonex/Odds API execution workflow: collect/refresh CLOB and sportsb
 
 - Telonex labels: 6,548,479 rows, 1,590 markets, 3,178 tokens.
 - Odds features: 5,408,039 rows, 1,338 markets, 2,674 tokens, 82.58% coverage.
-- Telonex downloaded quote/depth/trade rows: 2,258,881 / 2,636,392,059 / 54,385.
+- Telonex downloaded quote/depth/trade rows: 2,258,881 / 2,659,639,311 / 54,385.
 - Queue/fill training rows: 1,125; queue model proxy/auth gates: True / False.
 - Strategy buckets positive test buckets: 0; executable taker gate: False.
 - Fundamental probability model exists: False; blockers: 0.
-- WNBA fundamental inputs: 300 replay rows, 285 Elo-context rows, 364,756 play-by-play rows.
+- WNBA fundamental inputs: 1,229 replay rows, 328 Elo-context rows, 364,756 play-by-play rows.
 - WNBA market intelligence: 22 observed rows, 4/4 sources successful.
 - WNBA expansion plan: 1,530 candidate assets, 1,030 selected Telonex assets, replay asset coverage 32.68%.
-- Replay bundle: 54,279 replay lines, 21,818,179 CLOB points, 276 replay lines with Odds API overlays.
+- Replay bundle: 55,208 replay lines, 21,863,903 CLOB points, 842 PBP-only game-state lines, 276 replay lines with Odds API overlays.
 - Live Telonex selected signals/candidate tokens: 0 / 212.
 - Live execution quality gate: False; alpha/probe 3s rows: 0 / 19.
 - Model monitor verdict: HOLD: latest external validation gate failed; ECE drift alerts fired; external validation gate: False.

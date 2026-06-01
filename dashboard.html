@@ -884,8 +884,12 @@
     cursor: grabbing;
   }
 
+  .replay-chart.scrubbing {
+    cursor: ew-resize;
+  }
+
   .pbp-timeline-hit {
-    cursor: pointer;
+    cursor: ew-resize;
   }
 
   .pbp-timebar-thumb {
@@ -902,7 +906,65 @@
 
   .replay-pbp-panel.active {
     display: grid;
-    grid-template-columns: minmax(220px, 0.8fr) minmax(260px, 1.2fr);
+    grid-template-columns: minmax(300px, 0.9fr) minmax(320px, 1.1fr);
+  }
+
+  .pbp-snapshot-stack {
+    display: grid;
+    min-width: 0;
+    gap: 10px;
+  }
+
+  .pbp-state-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .pbp-state-card {
+    min-width: 0;
+    padding: 9px 10px;
+    border: 1px solid var(--soft-line);
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 1px 0 rgba(29, 36, 48, 0.04);
+  }
+
+  .pbp-state-card span {
+    display: block;
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 900;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .pbp-state-card strong {
+    display: block;
+    margin-top: 6px;
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .pbp-state-card small {
+    display: block;
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 750;
+    line-height: 1.25;
+  }
+
+  .pbp-state-card.market strong {
+    color: var(--info);
+  }
+
+  .pbp-state-card.book strong {
+    color: #047857;
   }
 
   .pbp-current-play {
@@ -1296,6 +1358,11 @@
 
     .replay-chart {
       height: 320px;
+    }
+
+    .replay-pbp-panel.active,
+    .pbp-state-grid {
+      grid-template-columns: 1fr;
     }
 
     .event-strip {
@@ -2629,6 +2696,8 @@ function marketTypeValue(event) {
       totals: "Game total",
       spread: "Spread",
       spreads: "Spread",
+      "game state": "Game state",
+      "play by play": "Game state",
       nrfi: "NRFI",
       "exact score": "Exact score",
       "player points": "Player points",
@@ -3390,25 +3459,59 @@ function renderReplayPbpPanel(event) {
     : timeline.filter(play => play.index <= selectedIndex).slice(-10);
   const currentPlay = snapshot?.play || null;
   const odds = currentPlay ? replaySnapshotOdds(event, currentPlay.offset) : null;
+  const clockLabel = currentPlay ? pbpPlayLabel(currentPlay) : "Pick a time";
+  const playType = currentPlay ? pbpTypeLabel(currentPlay.type || "other") : "Drag the game time bar";
+  const scoreLabel = snapshot?.score_label || "--";
+  const pmSelected = odds?.polymarketSelected === null || odds?.polymarketSelected === undefined
+    ? "--"
+    : fmtPrice(odds.polymarketSelected, 2);
+  const pmOther = odds?.polymarketOther === null || odds?.polymarketOther === undefined
+    ? "--"
+    : fmtPrice(odds.polymarketOther, 2);
+  const bookValue = odds?.sportsbookConsensus === null || odds?.sportsbookConsensus === undefined
+    ? "--"
+    : fmtPrice(odds.sportsbookConsensus, 2);
+  const pmSub = [
+    event.outcome ? `${event.outcome}: ${pmSelected}` : "",
+    event.other_outcome ? `${event.other_outcome}: ${pmOther}` : "",
+  ].filter(Boolean).join(" | ") || "selected / other";
   const header = currentPlay
     ? `${pbpPlayLabel(currentPlay)}${snapshot.score_label ? ` | ${snapshot.score_label}` : ""}`
-    : "Pick a time on the game bar";
-  const copy = currentPlay?.text || "The chart is showing full-game data. Use the bottom time bar to switch every card and score into an as-of snapshot.";
-  const oddsBits = odds ? [
-    odds.polymarketSelected === null ? "" : `PM ${event.outcome || "selected"} ${fmtPrice(odds.polymarketSelected, 2)}`,
-    odds.polymarketOther === null ? "" : `PM ${event.other_outcome || "other"} ${fmtPrice(odds.polymarketOther, 2)}`,
-    odds.sportsbookConsensus === null ? "" : `${odds.sportsbookLabel || "Sportsbook"} ${fmtPrice(odds.sportsbookConsensus, 2)}`
-  ].filter(Boolean) : [];
+    : "No play selected";
+  const copy = currentPlay?.text || "Drag the game time bar to switch every card and score into an as-of snapshot.";
   target.classList.add("active");
   target.innerHTML = `
-    <div class="pbp-current-play">
-      <span>${currentPlay ? "Current play snapshot" : "Game time bar"}</span>
-      <strong>${esc(header)}</strong>
-      <small>${esc(copy)}</small>
-      ${oddsBits.length ? `<div class="pbp-odds-row">${oddsBits.map(bit => `<b>${esc(bit)}</b>`).join("")}</div>` : ""}
+    <div class="pbp-snapshot-stack">
+      <div class="pbp-state-grid">
+        <div class="pbp-state-card">
+          <span>Clock</span>
+          <strong>${esc(clockLabel)}</strong>
+          <small>${esc(playType)}</small>
+        </div>
+        <div class="pbp-state-card">
+          <span>Score</span>
+          <strong>${esc(scoreLabel)}</strong>
+          <small>as-of selected play</small>
+        </div>
+        <div class="pbp-state-card market">
+          <span>Polymarket</span>
+          <strong>${esc(pmSelected)} / ${esc(pmOther)}</strong>
+          <small>${esc(pmSub)}</small>
+        </div>
+        <div class="pbp-state-card book">
+          <span>Sportsbook</span>
+          <strong>${esc(bookValue)}</strong>
+          <small>${esc(odds?.sportsbookLabel || "no matched book at this time")}</small>
+        </div>
+      </div>
+      <div class="pbp-current-play">
+        <span>${currentPlay ? "Current play" : "Game time bar"}</span>
+        <strong>${esc(header)}</strong>
+        <small>${esc(copy)}</small>
+      </div>
     </div>
     <div class="pbp-panel-list">
-      <span class="pbp-play-list-title">${currentPlay ? "Plays known up to this point" : "Play-by-play sample"}</span>
+      <span class="pbp-play-list-title">${currentPlay ? "Recent plays known at this time" : "Play-by-play sample"}</span>
       <div class="play-list">
         ${asOfPlays.map(play => `
           <div class="play-row ${play.index === selectedIndex ? "active" : ""}">
@@ -3718,6 +3821,7 @@ function replayPbpOverlay(event, bounds, sx, pad, plotH, options = {}) {
   }
   const selectedIndex = selectedReplayPbpIndex(event);
   const selectedPlay = selectedIndex === null ? timeline[0] : (timeline.find(play => play.index === selectedIndex) || timeline[0]);
+  const selectedPosition = Math.max(0, timeline.findIndex(play => play.index === selectedPlay.index));
   const laneY = Number.isFinite(options.laneY) ? options.laneY : pad.top + plotH + 34;
   const bandHeight = Number.isFinite(options.laneHeight) ? options.laneHeight : 58;
   const bandY = laneY - bandHeight / 2;
@@ -3758,7 +3862,7 @@ function replayPbpOverlay(event, bounds, sx, pad, plotH, options = {}) {
       <rect x="${labelX.toFixed(1)}" y="${labelY.toFixed(1)}" width="${labelW}" height="17" rx="8.5" fill="#111827" opacity="0.88" pointer-events="none" />
       <text x="${(labelX + 10).toFixed(1)}" y="${(labelY + 12).toFixed(1)}" fill="#fff" font-size="10.5" font-weight="850" pointer-events="none">${esc(shortLabel(selectedLabel, 34))}</text>
     `,
-    svg: `<g class="pbp-event-dots" data-pbp-timeline="1" role="listbox" aria-label="Selectable play-by-play timeline">
+    svg: `<g class="pbp-event-dots" data-pbp-timeline="1" role="slider" tabindex="0" aria-label="Game time snapshot" aria-valuemin="0" aria-valuemax="${Math.max(0, timeline.length - 1)}" aria-valuenow="${selectedPosition}" aria-valuetext="${esc(selectedLabel)}">
       <rect class="pbp-timeline-hit" x="${pad.left}" y="${bandY.toFixed(1)}" width="${bandW.toFixed(1)}" height="${bandHeight.toFixed(1)}" fill="transparent" pointer-events="all" />
     </g>`,
     legendItems: [{ label: "Game time snapshot", color: "#2563eb", opacity: 0.95 }],
@@ -3784,8 +3888,12 @@ function replayHasPolymarket(event) {
 function replayDataSourceOptions(event) {
   const hasSportsbook = replayHasSportsbook(event);
   const hasPolymarket = replayHasPolymarket(event);
+  const hasPbp = replayPbpTimeline(event).length > 0;
   const sportsbookPointCount = event?.sportsbook_series_point_count ?? (event?.sportsbook_series_points || []).length;
   const sourceCount = Math.max(0, (event?.sportsbook_series_schema || []).length - 1);
+  if (!hasSportsbook && !hasPolymarket && hasPbp) {
+    return [{ value: "pbp", label: "Play-by-play only", enabled: true }];
+  }
   return [
     { value: "both", label: hasSportsbook ? `CLOB + sportsbook sources (${fmtInt(sportsbookPointCount)} snapshots)` : "CLOB + sportsbook sources", enabled: hasSportsbook && hasPolymarket },
     { value: "polymarket", label: "Polymarket CLOB", enabled: hasPolymarket },
@@ -3994,7 +4102,7 @@ function replayMarkerPnl(marker) {
 }
 
 function isPlotOnlyReplay(event) {
-  return event?.replay_kind === "plot_only" || event?.strategy === "market_replay_only";
+  return event?.replay_kind === "plot_only" || event?.replay_kind === "pbp_only" || event?.strategy === "market_replay_only";
 }
 
 function replayPosition(stats, marker = null) {
@@ -4391,6 +4499,70 @@ function drawReplayLineOverlayChart(event, overlayEvents) {
   `;
 }
 
+function drawPbpOnlyReplayChart(event) {
+  const svg = $("replay-chart");
+  const timeline = replayPbpTimeline(event)
+    .filter(play => Number.isFinite(play.offset))
+    .sort((a, b) => a.offset - b.offset || a.index - b.index);
+  if (!timeline.length) return false;
+  const width = 940;
+  const height = 300;
+  const pad = { left: 54, right: 54, top: 26, bottom: 44 };
+  const plotH = 120;
+  const plotW = width - pad.left - pad.right;
+  const priceBottom = pad.top + plotH;
+  const fullMin = Math.min(...timeline.map(play => play.offset));
+  const fullMax = Math.max(...timeline.map(play => play.offset), fullMin + 1);
+  const zoom = state.replayZoomById[event?.replay_id];
+  let bounds = { minX: fullMin, maxX: fullMax, fullMin, fullMax };
+  if (zoom && Number.isFinite(zoom.minX) && Number.isFinite(zoom.maxX)) {
+    bounds = { ...clampReplayRange(zoom.minX, zoom.maxX, fullMin, fullMax), fullMin, fullMax };
+  }
+  const spanX = Math.max(1, bounds.maxX - bounds.minX);
+  const sx = value => pad.left + ((value - bounds.minX) / spanX) * plotW;
+  const xTicks = xTicksFor(event, bounds.minX, bounds.maxX, plotW);
+  const xAxis = xTicks.map(value => `
+    <text x="${sx(value).toFixed(1)}" y="${height - 17}" text-anchor="middle" fill="#627083" font-size="12">${esc(replayAxisLabel(event, value, spanX))}</text>
+  `).join("");
+  const pbpOverlay = replayPbpOverlay(event, bounds, sx, pad, plotH, {
+    laneY: priceBottom + 54,
+    laneHeight: 66,
+  });
+  setWindowButtonState();
+  setChartSourceNote(`PBP-only game replay; ${pbpOverlayNote(pbpOverlay)}. No Telonex CLOB or Odds API price series is available for this game yet.`);
+  renderChartLegend(pbpOverlay.legendItems);
+  state.replayChart = {
+    replayId: event.replay_id,
+    minX: bounds.minX,
+    maxX: bounds.maxX,
+    fullMin: bounds.fullMin,
+    fullMax: bounds.fullMax,
+    pad,
+    plotW,
+    plotH,
+    minY: 0,
+    maxY: 1,
+    width,
+    height,
+    teamSelectionKey: replayTeamSelectionKey(event),
+    markerPoints: [],
+    pbpPoints: pbpOverlay.points || []
+  };
+  if ($("chart-title")) $("chart-title").textContent = `${replayEventNameValue(event)} | Play-by-play`;
+  svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
+  svg.innerHTML = `
+    <rect x="0" y="0" width="${width}" height="${height}" fill="#fff" pointer-events="none" />
+    <rect x="${pad.left}" y="${pad.top}" width="${plotW}" height="${plotH}" rx="8" fill="#f8fafc" stroke="#e2e8f0" pointer-events="none" />
+    <text x="${(pad.left + 14).toFixed(1)}" y="${(pad.top + 30).toFixed(1)}" fill="#1f2937" font-size="15" font-weight="900">Game-state replay</text>
+    <text x="${(pad.left + 14).toFixed(1)}" y="${(pad.top + 54).toFixed(1)}" fill="#627083" font-size="12" font-weight="700">Use the game time bar below to inspect score, players, and play-by-play without future stats leaking in.</text>
+    ${pbpOverlay.band}
+    <rect data-chart-pan="x-scale" x="${pad.left}" y="${priceBottom}" width="${plotW}" height="${height - priceBottom}" fill="transparent" pointer-events="all" cursor="ew-resize" />
+    ${pbpOverlay.svg}
+    ${xAxis}
+  `;
+  return true;
+}
+
 function drawReplayChart(event) {
   renderReplayPlayerCards(event);
   renderReplayPbpPanel(event);
@@ -4418,6 +4590,7 @@ function drawReplayChart(event) {
     .filter(marker => num(marker.offset_sec) !== null && num(marker.price) !== null);
   setWindowButtonState();
   if (!points.length) {
+    if (drawPbpOnlyReplayChart(event)) return;
     state.replayChart = null;
     svg.innerHTML = `<text x="24" y="42" fill="#627083">No price series available for this game.</text>`;
     if ($("chart-title")) $("chart-title").textContent = "Minute replay";
@@ -4711,20 +4884,54 @@ function nearestReplayMarkerIndex(event) {
   return best && best.dist2 <= 24 * 24 ? best.index : null;
 }
 
-function nearestReplayPbpIndex(event) {
+function nearestReplayPbpIndex(event, options = {}) {
   const chart = state.replayChart;
   const point = replaySvgPointFromPointer(event);
   if (!point || !chart?.pbpPoints?.length) return null;
+  const maxDistance = Number.isFinite(options.maxDistance) ? options.maxDistance : 32;
+  const horizontalOnly = Boolean(options.horizontalOnly);
   let best = null;
   for (const play of chart.pbpPoints) {
     const dx = play.x - point.x;
     const dy = play.y - point.y;
-    const dist2 = dx * dx + dy * dy;
-    if (!best || dist2 < best.dist2) {
-      best = { index: play.index, dist2 };
+    const distance = horizontalOnly ? Math.abs(dx) : Math.sqrt(dx * dx + dy * dy);
+    if (!best || distance < best.distance) {
+      best = { index: play.index, distance };
     }
   }
-  return best && best.dist2 <= 32 * 32 ? best.index : null;
+  return best && best.distance <= maxDistance ? best.index : null;
+}
+
+function selectReplayPbpFromPointer(event, options = {}) {
+  if (!state.selectedReplayId) return false;
+  const index = nearestReplayPbpIndex(event, { maxDistance: Infinity, horizontalOnly: true });
+  if (!Number.isInteger(index)) return false;
+  const changed = state.selectedReplayPbpById[state.selectedReplayId] !== index;
+  state.selectedReplayPbpById[state.selectedReplayId] = index;
+  if (changed || options.forceRender) {
+    if (options.schedule) scheduleReplayRender();
+    else renderReplay(deriveDashboard());
+  }
+  return true;
+}
+
+function stepReplayPbpSelection(delta) {
+  if (!state.selectedReplayId || !state.replayChart?.pbpPoints?.length) return false;
+  const points = [...state.replayChart.pbpPoints].sort((a, b) => a.x - b.x || a.index - b.index);
+  const current = state.selectedReplayPbpById[state.selectedReplayId];
+  let pos = points.findIndex(point => point.index === current);
+  if (pos < 0) pos = 0;
+  const nextPos = delta === Infinity
+    ? points.length - 1
+    : delta === -Infinity
+      ? 0
+      : Math.max(0, Math.min(points.length - 1, pos + delta));
+  const nextIndex = points[nextPos]?.index;
+  if (!Number.isInteger(nextIndex)) return false;
+  const changed = state.selectedReplayPbpById[state.selectedReplayId] !== nextIndex;
+  state.selectedReplayPbpById[state.selectedReplayId] = nextIndex;
+  if (changed) renderReplay(deriveDashboard());
+  return changed;
 }
 
 function zoomReplayChart(factor, anchorOffset = null) {
@@ -4778,11 +4985,22 @@ function handleReplayWheel(event) {
 }
 
 function handleReplayPointerDown(event) {
+  const timelineTarget = event.target.closest?.("[data-pbp-timeline]");
+  if (timelineTarget && event.target.closest?.("#replay-chart")) {
+    event.preventDefault();
+    event.currentTarget?.setPointerCapture?.(event.pointerId);
+    $("replay-chart")?.classList.add("scrubbing");
+    state.replayDrag = {
+      mode: "pbp-timebar",
+      pointerId: event.pointerId
+    };
+    selectReplayPbpFromPointer(event, { forceRender: true });
+    return;
+  }
   if (
     !event.target.closest?.("#replay-chart")
     || event.target.closest?.("[data-marker-index]")
     || event.target.closest?.("[data-pbp-index]")
-    || event.target.closest?.("[data-pbp-timeline]")
   ) return;
   const chart = state.replayChart;
   if (!chart?.replayId) return;
@@ -4825,6 +5043,11 @@ function handleReplayPointerMove(event) {
   const drag = state.replayDrag;
   const chart = state.replayChart;
   if (!drag || !chart?.replayId) return;
+  if (drag.mode === "pbp-timebar") {
+    event.preventDefault();
+    selectReplayPbpFromPointer(event, { schedule: true });
+    return;
+  }
   const svg = $("replay-chart");
   const rect = svg.getBoundingClientRect();
   const dxSvg = ((event.clientX - drag.clientX) / Math.max(1, rect.width)) * drag.width;
@@ -4864,6 +5087,7 @@ function handleReplayPointerUp(event) {
   state.replayDrag = null;
   const svg = $("replay-chart");
   svg?.classList.remove("dragging");
+  svg?.classList.remove("scrubbing");
   if (event?.pointerId !== undefined) svg?.releasePointerCapture?.(event.pointerId);
 }
 
@@ -5304,7 +5528,9 @@ function renderReplay(data) {
   $("replay-title").textContent = replayExperimentLabel(fullEvent);
   const dataLabel = showAllLines
     ? "All-line CLOB overlay"
-    : state.selectedReplayDataSource === "sportsbooks"
+    : state.selectedReplayDataSource === "pbp"
+      ? "Play-by-play only"
+      : state.selectedReplayDataSource === "sportsbooks"
       ? "Sportsbook sources"
       : state.selectedReplayDataSource === "both"
         ? "CLOB + sportsbook sources"
@@ -5613,6 +5839,10 @@ document.addEventListener("click", event => {
   }
   const pbpTarget = event.target.closest("[data-pbp-index], [data-pbp-timeline]");
   if (pbpTarget && state.selectedReplayId) {
+    if (pbpTarget.matches("[data-pbp-timeline]")) {
+      selectReplayPbpFromPointer(event, { forceRender: true });
+      return;
+    }
     const nearestIndex = nearestReplayPbpIndex(event);
     const index = nearestIndex ?? Number(pbpTarget.dataset.pbpIndex);
     if (Number.isInteger(index)) {
@@ -5631,6 +5861,29 @@ document.addEventListener("click", event => {
 });
 
 document.addEventListener("keydown", event => {
+  const timelineTarget = event.target.closest?.("[data-pbp-timeline]");
+  if (timelineTarget && state.selectedReplayId) {
+    if (event.key === "ArrowLeft" || event.key === "ArrowDown") {
+      event.preventDefault();
+      stepReplayPbpSelection(-1);
+      return;
+    }
+    if (event.key === "ArrowRight" || event.key === "ArrowUp") {
+      event.preventDefault();
+      stepReplayPbpSelection(1);
+      return;
+    }
+    if (event.key === "Home") {
+      event.preventDefault();
+      stepReplayPbpSelection(-Infinity);
+      return;
+    }
+    if (event.key === "End") {
+      event.preventDefault();
+      stepReplayPbpSelection(Infinity);
+      return;
+    }
+  }
   if (!["Enter", " "].includes(event.key)) return;
   const markerTarget = event.target.closest?.("[data-marker-index]");
   const pbpTarget = event.target.closest?.("[data-pbp-index]");
