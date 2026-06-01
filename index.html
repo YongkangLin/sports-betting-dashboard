@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="data:,">
-<title>Sports Trading Strategy Dashboard</title>
+<title>Sports Betting Replay</title>
 <style>
   :root {
     color-scheme: light;
@@ -529,34 +529,6 @@
       linear-gradient(45deg, transparent 50%, #98a2b3 50%) calc(100% - 17px) 50% / 6px 6px no-repeat,
       linear-gradient(135deg, #98a2b3 50%, transparent 50%) calc(100% - 12px) 50% / 6px 6px no-repeat,
       #f2f4f7;
-  }
-
-  .replay-tabs {
-    display: inline-flex;
-    gap: 4px;
-    margin-bottom: 14px;
-    padding: 4px;
-    border: 1px solid var(--soft-line);
-    border-radius: 8px;
-    background: #f9fafb;
-  }
-
-  .replay-tab {
-    min-height: 34px;
-    padding: 6px 12px;
-    border: 0;
-    border-radius: 6px;
-    background: transparent;
-    color: var(--muted);
-    font: inherit;
-    font-weight: 850;
-    cursor: pointer;
-  }
-
-  .replay-tab.active {
-    background: #fff;
-    color: var(--ink);
-    box-shadow: 0 1px 4px rgba(29, 36, 48, 0.08);
   }
 
   .replay-layout {
@@ -1387,7 +1359,7 @@
 <div class="page">
   <header class="topbar">
     <div>
-      <h1>Sports Trading Strategy Dashboard</h1>
+      <h1>Sports Betting Replay</h1>
     </div>
   </header>
 
@@ -1396,13 +1368,8 @@
       <div class="section-head">
         <div>
           <h2>Game Replay</h2>
-          <p>CLOB and sportsbook replay paths by market, date, game, bet type, and line.</p>
         </div>
         <span class="pill warn" id="replay-count-pill">loading</span>
-      </div>
-      <div class="replay-tabs" role="tablist" aria-label="Replay type">
-        <button class="replay-tab active" type="button" data-replay-tab="backtest">Backtest</button>
-        <button class="replay-tab" type="button" data-replay-tab="paper">Paper Trade</button>
       </div>
       <div class="replay-controls">
         <div class="replay-filter market">
@@ -1420,7 +1387,7 @@
         <div class="replay-filter event">
           <label for="replay-select">Game</label>
           <select id="replay-select">
-            <option>loading backtest games...</option>
+            <option>loading games...</option>
           </select>
         </div>
         <div class="replay-filter bet-type">
@@ -1455,7 +1422,7 @@
             <div class="chart-source-note" id="chart-source-note"></div>
           </div>
           <div class="replay-player-cards" id="replay-player-cards"></div>
-          <svg class="replay-chart" id="replay-chart" role="img" aria-label="Backtest game price path"></svg>
+          <svg class="replay-chart" id="replay-chart" role="img" aria-label="Game replay price path"></svg>
           <div class="replay-pbp-panel" id="replay-pbp-panel"></div>
           <div class="source-toggles" id="replay-source-toggles"></div>
           <div class="chart-legend" id="chart-legend"></div>
@@ -1492,7 +1459,11 @@ const ARTIFACTS = {
   fundamentalInputs: { label: "Fundamental model inputs", path: "data/model/fundamental_probability/fundamental_model_inputs_latest.json" },
   wnbaMarketIntelligence: { label: "WNBA market intelligence", path: "data/model/fundamental_probability/wnba_market_intelligence_manifest.json" },
   wnbaExpansionPlan: { label: "WNBA data expansion plan", path: "data/status/wnba_data_expansion_plan_latest.json" },
-  favoriteLongshotEventReplays: { label: "Game replay bundle", path: "data/model/replays/event_replays_latest.json" },
+  favoriteLongshotEventReplays: {
+    label: "Game replay bundle",
+    path: "data/model/replays/event_replays_latest.json",
+    rawPath: "https://raw.githubusercontent.com/YongkangLin/sports-betting-dashboard/main/data/model/replays/event_replays_latest.json"
+  },
   replaySportsbookGapAudit: { label: "Replay sportsbook gap audit", path: "data/model/replays/audits/replay_sportsbook_gap_audit_latest.json" },
   dashboardSportsbookIntegrityAudit: { label: "Dashboard sportsbook integrity audit", path: "data/model/replays/audits/dashboard_sportsbook_integrity_audit_latest.json" }
 };
@@ -1503,6 +1474,8 @@ const RUN_ARTIFACTS = [
   label: runId,
   path: `data/model/telonex_convergence/${runId}/summary.json`
 }));
+
+const DATA_VERSION = "2026-06-01-wnba-920-smooth-v1";
 
 const SNAPSHOT = {
   generatedAt: "2026-06-01T00:37:16.228041+00:00",
@@ -1884,7 +1857,7 @@ const SNAPSHOT = {
     "data/model/telonex_convergence/20260531T234614Z/summary.json": 46565,
     "data/live/clob/live_telonex_convergence_signals_latest.json": 3974,
     "data/model/training/telonex_strategy_buckets_latest.json": 319650,
-    "data/model/replays/event_replays_latest.json": 1749593,
+    "data/model/replays/event_replays_latest.json": 51268985,
     "data/model/replays/audits/replay_sportsbook_gap_audit_latest.json": 1094086,
     "data/model/replays/audits/dashboard_sportsbook_integrity_audit_latest.json": 442651
   }
@@ -1907,13 +1880,14 @@ const state = {
   selectedReplayMarkerById: {},
   selectedReplayTeamSideById: {},
   selectedReplayPbpById: {},
-  replayTab: "backtest",
   replayWindow: "full",
   replayZoomById: {},
   replayYRangeById: {},
   replayChart: null,
   replayDrag: null,
   replayRenderFrame: null,
+  replaySnapshotFrame: null,
+  activeReplayEvent: null,
   replayDetails: {},
   replayLoading: {},
   replayBulkLoading: {}
@@ -3831,7 +3805,13 @@ function replayPbpOverlay(event, bounds, sx, pad, plotH, options = {}) {
   const timelineX = value => pad.left + ((value - barMinX) / barSpan) * (sx(bounds.maxX) - sx(bounds.minX));
   const bandW = Math.max(1, sx(bounds.maxX) - sx(bounds.minX));
   const selectedX = Math.max(pad.left, Math.min(pad.left + bandW, timelineX(selectedPlay.offset)));
-  const pbpPoints = timeline.map(play => ({ index: play.index, x: Math.max(pad.left, Math.min(pad.left + bandW, timelineX(play.offset))), y: laneY }));
+  const pbpPoints = timeline.map((play, position) => ({
+    index: play.index,
+    position,
+    offset: play.offset,
+    x: Math.max(pad.left, Math.min(pad.left + bandW, timelineX(play.offset))),
+    y: laneY
+  }));
   const periodTicks = [];
   const seenPeriods = new Set();
   timeline.forEach(play => {
@@ -3854,19 +3834,21 @@ function replayPbpOverlay(event, bounds, sx, pad, plotH, options = {}) {
     band: `
       <rect x="${pad.left}" y="${bandY.toFixed(1)}" width="${bandW.toFixed(1)}" height="${bandHeight.toFixed(1)}" rx="8" fill="#f8fafc" opacity="0.9" pointer-events="none" />
       <line x1="${pad.left}" y1="${laneY.toFixed(1)}" x2="${(pad.left + bandW).toFixed(1)}" y2="${laneY.toFixed(1)}" stroke="#cbd5e1" stroke-width="7" stroke-linecap="round" pointer-events="none" />
-      <line x1="${pad.left}" y1="${laneY.toFixed(1)}" x2="${selectedX.toFixed(1)}" y2="${laneY.toFixed(1)}" stroke="#2563eb" stroke-width="7" stroke-linecap="round" pointer-events="none" />
+      <line class="pbp-timebar-progress" x1="${pad.left}" y1="${laneY.toFixed(1)}" x2="${selectedX.toFixed(1)}" y2="${laneY.toFixed(1)}" stroke="#2563eb" stroke-width="7" stroke-linecap="round" pointer-events="none" />
       ${periodTicks.join("")}
-      <line x1="${selectedX.toFixed(1)}" y1="${(bandY + 7).toFixed(1)}" x2="${selectedX.toFixed(1)}" y2="${(bandY + bandHeight - 7).toFixed(1)}" stroke="#111827" stroke-width="1.6" opacity="0.62" pointer-events="none" />
+      <line class="pbp-timebar-cursor" x1="${selectedX.toFixed(1)}" y1="${(bandY + 7).toFixed(1)}" x2="${selectedX.toFixed(1)}" y2="${(bandY + bandHeight - 7).toFixed(1)}" stroke="#111827" stroke-width="1.6" opacity="0.62" pointer-events="none" />
       <circle class="pbp-timebar-thumb" cx="${selectedX.toFixed(1)}" cy="${laneY.toFixed(1)}" r="9" fill="#fff" stroke="#111827" stroke-width="3" pointer-events="none" />
       <text x="${(pad.left + 8).toFixed(1)}" y="${(bandY + 15).toFixed(1)}" fill="#627083" font-size="11" font-weight="800">Game time</text>
-      <rect x="${labelX.toFixed(1)}" y="${labelY.toFixed(1)}" width="${labelW}" height="17" rx="8.5" fill="#111827" opacity="0.88" pointer-events="none" />
-      <text x="${(labelX + 10).toFixed(1)}" y="${(labelY + 12).toFixed(1)}" fill="#fff" font-size="10.5" font-weight="850" pointer-events="none">${esc(shortLabel(selectedLabel, 34))}</text>
+      <rect class="pbp-selected-label-bg" x="${labelX.toFixed(1)}" y="${labelY.toFixed(1)}" width="${labelW}" height="17" rx="8.5" fill="#111827" opacity="0.88" pointer-events="none" />
+      <text class="pbp-selected-label-text" x="${(labelX + 10).toFixed(1)}" y="${(labelY + 12).toFixed(1)}" fill="#fff" font-size="10.5" font-weight="850" pointer-events="none">${esc(shortLabel(selectedLabel, 34))}</text>
     `,
     svg: `<g class="pbp-event-dots" data-pbp-timeline="1" role="slider" tabindex="0" aria-label="Game time snapshot" aria-valuemin="0" aria-valuemax="${Math.max(0, timeline.length - 1)}" aria-valuenow="${selectedPosition}" aria-valuetext="${esc(selectedLabel)}">
       <rect class="pbp-timeline-hit" x="${pad.left}" y="${bandY.toFixed(1)}" width="${bandW.toFixed(1)}" height="${bandHeight.toFixed(1)}" fill="transparent" pointer-events="all" />
     </g>`,
     legendItems: [{ label: "Game time snapshot", color: "#2563eb", opacity: 0.95 }],
-    points: pbpPoints
+    points: pbpPoints,
+    timeline,
+    lane: { padLeft: pad.left, bandW, laneY, bandY, bandHeight, labelW, labelY, barMinX, barSpan }
   };
 }
 
@@ -4480,7 +4462,9 @@ function drawReplayLineOverlayChart(event, overlayEvents) {
     height,
     teamSelectionKey: replayTeamSelectionKey(event),
     markerPoints: [],
-    pbpPoints: pbpOverlay.points || []
+    pbpPoints: pbpOverlay.points || [],
+    pbpTimeline: pbpOverlay.timeline || [],
+    pbpLane: pbpOverlay.lane || null
   };
   svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
   svg.innerHTML = `
@@ -4546,7 +4530,9 @@ function drawPbpOnlyReplayChart(event) {
     height,
     teamSelectionKey: replayTeamSelectionKey(event),
     markerPoints: [],
-    pbpPoints: pbpOverlay.points || []
+    pbpPoints: pbpOverlay.points || [],
+    pbpTimeline: pbpOverlay.timeline || [],
+    pbpLane: pbpOverlay.lane || null
   };
   if ($("chart-title")) $("chart-title").textContent = `${replayEventNameValue(event)} | Play-by-play`;
   svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
@@ -4793,7 +4779,9 @@ function drawReplayChart(event) {
     height,
     teamSelectionKey: replayTeamSelectionKey(event),
     markerPoints,
-    pbpPoints: pbpOverlay.points || []
+    pbpPoints: pbpOverlay.points || [],
+    pbpTimeline: pbpOverlay.timeline || [],
+    pbpLane: pbpOverlay.lane || null
   };
   svg.innerHTML = `
     <rect x="0" y="0" width="${width}" height="${height}" fill="#fff" pointer-events="none" />
@@ -4890,16 +4878,78 @@ function nearestReplayPbpIndex(event, options = {}) {
   if (!point || !chart?.pbpPoints?.length) return null;
   const maxDistance = Number.isFinite(options.maxDistance) ? options.maxDistance : 32;
   const horizontalOnly = Boolean(options.horizontalOnly);
+  if (horizontalOnly) {
+    const points = chart.pbpPoints;
+    const clampedX = Math.max(points[0].x, Math.min(points[points.length - 1].x, point.x));
+    let lo = 0;
+    let hi = points.length - 1;
+    while (lo < hi) {
+      const mid = Math.floor((lo + hi) / 2);
+      if (points[mid].x < clampedX) lo = mid + 1;
+      else hi = mid;
+    }
+    const prev = points[Math.max(0, lo - 1)];
+    const next = points[lo];
+    const best = !prev || Math.abs(next.x - clampedX) <= Math.abs(prev.x - clampedX) ? next : prev;
+    return Math.abs(best.x - point.x) <= maxDistance ? best.index : null;
+  }
   let best = null;
   for (const play of chart.pbpPoints) {
     const dx = play.x - point.x;
     const dy = play.y - point.y;
-    const distance = horizontalOnly ? Math.abs(dx) : Math.sqrt(dx * dx + dy * dy);
+    const distance = Math.sqrt(dx * dx + dy * dy);
     if (!best || distance < best.distance) {
       best = { index: play.index, distance };
     }
   }
   return best && best.distance <= maxDistance ? best.index : null;
+}
+
+function updateReplayPbpTimelineVisual(event) {
+  const chart = state.replayChart;
+  const lane = chart?.pbpLane;
+  const timeline = chart?.pbpTimeline || [];
+  if (!chart || !lane || !timeline.length) return;
+  const selectedIndex = selectedReplayPbpIndex(event);
+  const selectedPlay = selectedIndex === null ? timeline[0] : (timeline.find(play => play.index === selectedIndex) || timeline[0]);
+  const selectedPosition = Math.max(0, timeline.findIndex(play => play.index === selectedPlay.index));
+  const selectedX = Math.max(lane.padLeft, Math.min(lane.padLeft + lane.bandW, lane.padLeft + ((selectedPlay.offset - lane.barMinX) / Math.max(1, lane.barSpan)) * lane.bandW));
+  const label = `${pbpPlayLabel(selectedPlay)}${selectedPlay.score ? ` | ${selectedPlay.score}` : ""}`;
+  const labelX = Math.max(lane.padLeft + 6, Math.min(lane.padLeft + lane.bandW - lane.labelW - 6, selectedX - lane.labelW / 2));
+  const svg = $("replay-chart");
+  svg?.querySelector(".pbp-timebar-progress")?.setAttribute("x2", selectedX.toFixed(1));
+  const cursor = svg?.querySelector(".pbp-timebar-cursor");
+  cursor?.setAttribute("x1", selectedX.toFixed(1));
+  cursor?.setAttribute("x2", selectedX.toFixed(1));
+  svg?.querySelector(".pbp-timebar-thumb")?.setAttribute("cx", selectedX.toFixed(1));
+  svg?.querySelector(".pbp-selected-label-bg")?.setAttribute("x", labelX.toFixed(1));
+  const text = svg?.querySelector(".pbp-selected-label-text");
+  if (text) {
+    text.setAttribute("x", (labelX + 10).toFixed(1));
+    text.textContent = shortLabel(label, 34);
+  }
+  const timelineTarget = svg?.querySelector("[data-pbp-timeline]");
+  timelineTarget?.setAttribute("aria-valuenow", String(selectedPosition));
+  timelineTarget?.setAttribute("aria-valuetext", label);
+}
+
+function renderReplaySnapshotOnly() {
+  const event = state.activeReplayEvent;
+  if (!event || event.replay_id !== state.selectedReplayId) {
+    renderReplay(deriveDashboard());
+    return;
+  }
+  renderReplayPlayerCards(event);
+  renderReplayPbpPanel(event);
+  updateReplayPbpTimelineVisual(event);
+}
+
+function scheduleReplaySnapshotUpdate() {
+  if (state.replaySnapshotFrame) return;
+  state.replaySnapshotFrame = requestAnimationFrame(() => {
+    state.replaySnapshotFrame = null;
+    renderReplaySnapshotOnly();
+  });
 }
 
 function selectReplayPbpFromPointer(event, options = {}) {
@@ -4909,8 +4959,8 @@ function selectReplayPbpFromPointer(event, options = {}) {
   const changed = state.selectedReplayPbpById[state.selectedReplayId] !== index;
   state.selectedReplayPbpById[state.selectedReplayId] = index;
   if (changed || options.forceRender) {
-    if (options.schedule) scheduleReplayRender();
-    else renderReplay(deriveDashboard());
+    if (options.schedule) scheduleReplaySnapshotUpdate();
+    else renderReplaySnapshotOnly();
   }
   return true;
 }
@@ -4930,7 +4980,7 @@ function stepReplayPbpSelection(delta) {
   if (!Number.isInteger(nextIndex)) return false;
   const changed = state.selectedReplayPbpById[state.selectedReplayId] !== nextIndex;
   state.selectedReplayPbpById[state.selectedReplayId] = nextIndex;
-  if (changed) renderReplay(deriveDashboard());
+  if (changed) renderReplaySnapshotOnly();
   return changed;
 }
 
@@ -5191,7 +5241,7 @@ function renderReplayModelContext(event) {
       ? "No play-by-play or player-stat context is attached to this replay row yet."
       : "Select a replay row to inspect play-by-play and player stats.";
     target.innerHTML = `
-      <h4>Model context</h4>
+      <h4>Snapshot data</h4>
       <div class="context-grid">
         <div class="context-chip"><span>Fundamental</span><strong>${event?.fundamental_context_available ? "Summary only" : "Not wired"}</strong></div>
         <div class="context-chip"><span>Play-by-play</span><strong>${fmtInt(event?.play_by_play_rows || 0)} rows</strong></div>
@@ -5218,7 +5268,7 @@ function renderReplayModelContext(event) {
   const playerActivity = snapshot ? [] : Array.isArray(pbp.player_activity) ? pbp.player_activity.slice(0, 8) : [];
   const playerStats = replayPlayerStats(event, { snapshot }).slice(0, 10);
   target.innerHTML = `
-    <h4>Model context</h4>
+    <h4>Snapshot data</h4>
     <div class="context-grid">
       <div class="context-chip"><span>Rules</span><strong>${esc(rules.ruleset_id || "--")}</strong></div>
       <div class="context-chip"><span>Primary</span><strong>${esc(context.primary_event_source || "telonex")}</strong></div>
@@ -5230,7 +5280,7 @@ function renderReplayModelContext(event) {
       <div class="context-chip"><span>Market intel</span><strong>${intel.available ? `${fmtInt(intel.rows || 0)} rows` : "Missing"}</strong></div>
       <div class="context-chip"><span>Injury</span><strong>${intel.parsed_event_level_injury_rows ? "parsed" : (intel.injury_timeline_available ? "snapshots" : "missing")}</strong></div>
       <div class="context-chip"><span>Player</span><strong>${player.player_market ? (player.player_rating_available ? "rated" : "missing rating") : "not player market"}</strong></div>
-      <div class="context-chip"><span>Ready</span><strong>${context.model_input_ready ? "Base ready" : "Blocked"}</strong></div>
+      <div class="context-chip"><span>Replay data</span><strong>${context.model_input_ready ? "Ready" : "Incomplete"}</strong></div>
     </div>
     ${tlx.event_slug ? `<div class="decision-rationale"><strong>Telonex game</strong><span>${esc(tlx.event_slug)}${tlx.question ? ` - ${esc(tlx.question)}` : ""}</span></div>` : ""}
     ${blockers.length ? `<div class="decision-rationale"><strong>Blockers</strong><span>${esc(blockers.slice(0, 4).join("; "))}</span></div>` : ""}
@@ -5280,44 +5330,12 @@ function renderReplayModelContext(event) {
 function renderReplay(data) {
   const replay = data.favoriteLongshotEventReplays || {};
   const events = replay.events || [];
-  document.querySelectorAll("[data-replay-tab]").forEach(button => {
-    button.classList.toggle("active", button.dataset.replayTab === state.replayTab);
-  });
   const select = $("replay-select");
   const marketSelect = $("replay-market-select");
   const strategySelect = $("replay-strategy-select");
   const betTypeSelect = $("replay-bet-type-select");
   const dateSelect = $("replay-date-select");
   const lineSelect = $("replay-line-select");
-  if (state.replayTab === "paper") {
-    $("replay-count-pill").textContent = "no paper trades";
-    $("replay-count-pill").className = "pill warn";
-    marketSelect.disabled = true;
-    strategySelect.disabled = true;
-    betTypeSelect.disabled = true;
-    dateSelect.disabled = true;
-    lineSelect.disabled = true;
-    $("replay-data-source-select").disabled = true;
-    select.disabled = true;
-    marketSelect.innerHTML = `<option>No paper markets yet</option>`;
-    strategySelect.innerHTML = `<option>No paper strategies yet</option>`;
-    betTypeSelect.innerHTML = `<option>No paper bet types yet</option>`;
-    dateSelect.innerHTML = `<option>No paper dates yet</option>`;
-    lineSelect.innerHTML = `<option>No paper lines yet</option>`;
-    $("replay-data-source-select").innerHTML = `<option>No paper data yet</option>`;
-    select.innerHTML = `<option>No paper trades yet</option>`;
-    $("replay-title").textContent = "Paper Trade";
-    $("replay-event-strip").innerHTML = "";
-    $("decision-title").textContent = "No paper trades yet";
-    $("decision-action").textContent = "--";
-    $("decision-action").className = "pill info";
-    $("replay-kv").innerHTML = "";
-    $("replay-rationale").innerHTML = `<strong>Rationale</strong><span>Paper trade replays will appear here after paper executions are logged with price series, entry, exit, size, and PnL.</span>`;
-    renderReplayModelContext(null);
-    drawReplayChart({ series_points: [] });
-    if ($("chart-title")) $("chart-title").textContent = "Paper trade replay";
-    return;
-  }
 
   marketSelect.disabled = false;
   strategySelect.disabled = false;
@@ -5327,6 +5345,7 @@ function renderReplay(data) {
   $("replay-data-source-select").disabled = false;
   select.disabled = false;
   if (!events.length) {
+    state.activeReplayEvent = null;
     const dataset = data.strategyBuckets || {};
     const datasetLine = `${fmtInt(dataset.rows)} rows | ${fmtInt(dataset.markets)} markets | ${fmtInt(dataset.tokens)} tokens`;
     const coverageLine = `${fmtPct(dataset.oddsRowCoverage)} Odds API coverage`;
@@ -5425,6 +5444,7 @@ function renderReplay(data) {
   $("replay-count-pill").className = "pill " + (filteredEvents.length ? "info" : "warn");
 
   if (!filteredEvents.length) {
+    state.activeReplayEvent = null;
     select.disabled = false;
     betTypeSelect.disabled = false;
     dateSelect.disabled = false;
@@ -5456,6 +5476,7 @@ function renderReplay(data) {
 
   const detail = state.replayDetails[event.replay_id];
   if (!detail) {
+    state.activeReplayEvent = null;
     const stats = event.stats || {};
     const pos = replayPosition(stats);
     const side = replaySide(event);
@@ -5497,6 +5518,7 @@ function renderReplay(data) {
     line_overlay_events: lineOverlayDetails,
     line_overlay_expected_count: showAllLines ? filteredEvents.length : 0
   };
+  state.activeReplayEvent = fullEvent;
   const stats = fullEvent.stats || {};
   const finalPos = replayPosition(stats);
   const side = replaySide(fullEvent);
@@ -5671,29 +5693,35 @@ function renderAll() {
   $("footer").textContent = `Rendered ${new Date().toLocaleString()} from ${data.loadedFrom}.`;
 }
 
-async function fetchJson(key, path) {
-  try {
-    const res = await fetch(`${path}?t=${Date.now()}`);
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const json = await res.json();
-    state.loaded[key] = json;
-    const sizeBytes = Number(res.headers.get("content-length"));
-    state.health[path] = {
-      ok: true,
-      label: "loaded",
-      sizeBytes: Number.isFinite(sizeBytes) ? sizeBytes : undefined
-    };
-    return json;
-  } catch (error) {
-    state.health[path] = { ok: false, label: "embedded", error: error.message };
-    return null;
+async function fetchJson(key, info) {
+  const path = typeof info === "string" ? info : info.path;
+  const candidates = [path, typeof info === "string" ? "" : info.rawPath].filter(Boolean);
+  let lastError = null;
+  for (const candidate of candidates) {
+    try {
+      const res = await fetch(`${candidate}${candidate.includes("?") ? "&" : "?"}v=${encodeURIComponent(DATA_VERSION)}`);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const json = await res.json();
+      state.loaded[key] = json;
+      const sizeBytes = Number(res.headers.get("content-length"));
+      state.health[path] = {
+        ok: true,
+        label: candidate === path ? "loaded" : "raw mirror",
+        sizeBytes: Number.isFinite(sizeBytes) ? sizeBytes : undefined
+      };
+      return json;
+    } catch (error) {
+      lastError = error;
+    }
   }
+  state.health[path] = { ok: false, label: "embedded", error: lastError?.message || "not fetched" };
+  return null;
 }
 
 async function loadArtifacts() {
   renderAll();
-  const loads = Object.entries(ARTIFACTS).map(([key, info]) => fetchJson(key, info.path));
-  const runLoads = RUN_ARTIFACTS.map(info => fetchJson(`run:${info.label}`, info.path));
+  const loads = Object.entries(ARTIFACTS).map(([key, info]) => fetchJson(key, info));
+  const runLoads = RUN_ARTIFACTS.map(info => fetchJson(`run:${info.label}`, info));
   const runResults = await Promise.all(runLoads);
   state.runSummaries = runResults.filter(Boolean);
   await Promise.all(loads);
@@ -5794,23 +5822,6 @@ document.addEventListener("change", event => {
 });
 
 document.addEventListener("click", event => {
-  const tabButton = event.target.closest("[data-replay-tab]");
-  if (tabButton) {
-    state.replayTab = tabButton.dataset.replayTab || "backtest";
-    state.selectedReplayId = null;
-    state.selectedReplayMarket = "__all__";
-    state.selectedReplayStrategy = "__all__";
-    state.selectedReplayBetType = "__all__";
-    state.selectedReplayDate = "__all__";
-    state.selectedReplayEventName = "__all__";
-    state.selectedReplayLine = "__all__";
-    state.replayWindow = "full";
-    state.replayZoomById = {};
-    state.replayYRangeById = {};
-    state.replayDrag = null;
-    renderReplay(deriveDashboard());
-    return;
-  }
   const zoomButton = event.target.closest("[data-replay-zoom]");
   if (zoomButton) {
     zoomReplayChart(zoomButton.dataset.replayZoom === "in" ? 0.55 : 1.8);
@@ -5847,7 +5858,7 @@ document.addEventListener("click", event => {
     const index = nearestIndex ?? Number(pbpTarget.dataset.pbpIndex);
     if (Number.isInteger(index)) {
       state.selectedReplayPbpById[state.selectedReplayId] = index;
-      renderReplay(deriveDashboard());
+      renderReplaySnapshotOnly();
     }
     return;
   }
