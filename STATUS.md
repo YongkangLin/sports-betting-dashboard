@@ -6,7 +6,7 @@ Run a lean Telonex/Odds API execution workflow: collect/refresh CLOB and sportsb
 
 ## Current Verdict
 
-- Generated: 2026-06-01T03:58:47.341081+00:00
+- Generated: 2026-06-01T04:53:43.987346+00:00
 - Verdict: HOLD; live capital enabled: False; live capital gate: False
 - Collector: healthy at loop 479
 - Latest model: `20260531T234614Z-03d084dd3bd6`
@@ -56,10 +56,10 @@ Run a lean Telonex/Odds API execution workflow: collect/refresh CLOB and sportsb
 
 - Telonex labels: 6,548,479 rows, 1,590 markets, 3,178 tokens.
 - Odds features: 5,408,039 rows, 1,338 markets, 2,674 tokens, 82.58% coverage.
-- Telonex downloaded quote/depth/trade rows: 2,258,881 / 2,614,043,230 / 54,385.
+- Telonex downloaded quote/depth/trade rows: 2,258,881 / 2,624,106,587 / 54,385.
 - Queue/fill training rows: 1,125; queue model proxy/auth gates: True / False.
 - Strategy buckets positive test buckets: 0; executable taker gate: False.
-- Replay bundle: 54,229 events, 21,781,831 CLOB points, 276 events with Odds API overlays.
+- Replay bundle: 54,229 events, 21,799,861 CLOB points, 276 events with Odds API overlays.
 - Live Telonex selected signals/candidate tokens: 0 / 212.
 - Live execution quality gate: False; alpha/probe 3s rows: 0 / 19.
 - Model monitor verdict: HOLD: latest external validation gate failed; ECE drift alerts fired; external validation gate: False.

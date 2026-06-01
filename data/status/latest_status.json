@@ -59,11 +59,11 @@
     "live strategy LEV evidence incomplete",
     "Telonex market-disjoint validation not run"
   ],
-  "generated_at": "2026-06-01T03:58:47.341081+00:00",
+  "generated_at": "2026-06-01T04:53:43.987346+00:00",
   "historical_clob": {
-    "depth_rows": 2614043230,
+    "depth_rows": 2624106587,
     "quote_rows": 2258881,
-    "telonex_depth_rows": 2614043230
+    "telonex_depth_rows": 2624106587
   },
   "live_capital_gate": false,
   "live_execution_quality": {
@@ -705,16 +705,16 @@
   },
   "replays": {
     "events_with_series": 54229,
-    "generated_at": "2026-06-01T03:58:02.382571+00:00",
+    "generated_at": "2026-06-01T04:45:14.527640+00:00",
     "odds_feature_coverage_at_horizon": 0.0,
     "plot_only_events": 53952,
     "preserved_decision_events": 277,
-    "source_events": 108468,
+    "source_events": 108922,
     "source_label_rows_at_horizon": 0,
     "source_markets": 54114,
-    "source_tokens": 108468,
+    "source_tokens": 108922,
     "sportsbook_events": 276,
-    "total_series_points": 21781831,
+    "total_series_points": 21799861,
     "total_sportsbook_points": 36382
   },
   "security": {
@@ -725,47 +725,47 @@
   "telonex": {
     "assets_with_book25": 705208,
     "assets_with_quotes": 705208,
-    "depth_files": 109288,
-    "depth_rows": 2614043230,
-    "download_bytes": 59778460120,
-    "download_existing_files": 110622,
-    "download_files": 123552,
-    "download_missing_files": 12930,
-    "download_rows": 2616356496,
+    "depth_files": 109780,
+    "depth_rows": 2624106587,
+    "download_bytes": 60002874077,
+    "download_existing_files": 111114,
+    "download_files": 124043,
+    "download_missing_files": 12929,
+    "download_rows": 2626419853,
     "files_by_channel": {
-      "book_snapshot_5": 109288,
+      "book_snapshot_5": 109780,
       "quotes": 736,
       "trades": 598
     },
     "files_by_sport": {
-      "americanfootball_nfl": 5164,
+      "americanfootball_nfl": 5176,
       "baseball_kbo": 116,
       "baseball_mlb": 14534,
       "basketball_nba": 36746,
-      "basketball_wnba": 624,
-      "cricket": 34,
-      "icehockey_nhl": 12284,
-      "mma": 429,
-      "soccer": 35621,
-      "tennis": 5070
+      "basketball_wnba": 626,
+      "cricket": 36,
+      "icehockey_nhl": 12296,
+      "mma": 436,
+      "soccer": 36061,
+      "tennis": 5087
     },
-    "last_downloaded_at": "2026-06-01T03:06:25.846911+00:00",
+    "last_downloaded_at": "2026-06-01T04:16:57.260509+00:00",
     "last_run_channels": [
       "book_snapshot_5"
     ],
-    "last_run_completed_downloads": 61,
+    "last_run_completed_downloads": 50,
     "last_run_date_from": "asset-plan",
     "last_run_date_to": "asset-plan",
-    "last_run_failed_downloads": 99,
-    "last_run_rows_downloaded": 737520,
+    "last_run_failed_downloads": 12,
+    "last_run_rows_downloaded": 757067,
     "manifest_files_by_channel": {
-      "book_snapshot_5": 113854,
+      "book_snapshot_5": 114345,
       "quotes": 5329,
       "trades": 4369
     },
     "markets_generated_at": "2026-05-31T22:15:46.239173+00:00",
     "missing_files_by_channel": {
-      "book_snapshot_5": 4566,
+      "book_snapshot_5": 4565,
       "quotes": 4593,
       "trades": 3771
     },
@@ -773,7 +773,7 @@
     "quotes_from_min": "2025-10-11",
     "quotes_to_max": "2026-05-31",
     "rows_by_channel": {
-      "book_snapshot_5": 2614043230,
+      "book_snapshot_5": 2624106587,
       "quotes": 2258881,
       "trades": 54385
     },

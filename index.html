@@ -491,14 +491,31 @@
 
   .replay-controls {
     display: grid;
-    grid-template-columns: minmax(120px, 0.55fr) minmax(150px, 0.7fr) minmax(155px, 0.75fr) minmax(140px, 0.65fr) minmax(220px, 1.25fr) minmax(190px, 1fr) minmax(165px, 0.8fr);
-    gap: 12px;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 10px;
     align-items: end;
-    margin-bottom: 14px;
+    margin-bottom: 16px;
+    padding: 12px;
+    border: 1px solid var(--soft-line);
+    border-radius: 8px;
+    background: #f8fafc;
   }
 
   .replay-filter {
     min-width: 0;
+  }
+
+  .replay-filter.market,
+  .replay-filter.date,
+  .replay-filter.bet-type,
+  .replay-filter.strategy,
+  .replay-filter.source {
+    grid-column: span 2;
+  }
+
+  .replay-filter.event,
+  .replay-filter.line {
+    grid-column: span 3;
   }
 
   .replay-controls label {
@@ -512,13 +529,32 @@
 
   .replay-controls select {
     width: 100%;
-    min-height: 42px;
-    padding: 8px 10px;
+    min-height: 44px;
+    padding: 9px 34px 9px 11px;
     border: 1px solid var(--line);
     border-radius: 8px;
-    background: #fff;
+    background:
+      linear-gradient(45deg, transparent 50%, #627083 50%) calc(100% - 17px) 50% / 6px 6px no-repeat,
+      linear-gradient(135deg, #627083 50%, transparent 50%) calc(100% - 12px) 50% / 6px 6px no-repeat,
+      #fff;
     color: var(--ink);
     font: inherit;
+    font-weight: 650;
+    appearance: none;
+    box-shadow: 0 1px 2px rgba(29, 36, 48, 0.04);
+  }
+
+  .replay-controls select:focus {
+    outline: 3px solid #dbeafe;
+    border-color: #7aa7e8;
+  }
+
+  .replay-controls select:disabled {
+    color: #98a2b3;
+    background:
+      linear-gradient(45deg, transparent 50%, #98a2b3 50%) calc(100% - 17px) 50% / 6px 6px no-repeat,
+      linear-gradient(135deg, #98a2b3 50%, transparent 50%) calc(100% - 12px) 50% / 6px 6px no-repeat,
+      #f2f4f7;
   }
 
   .replay-tabs {
@@ -551,7 +587,7 @@
 
   .replay-layout {
     display: grid;
-    grid-template-columns: minmax(0, 1.55fr) minmax(320px, 0.45fr);
+    grid-template-columns: minmax(0, 1.68fr) minmax(330px, 0.42fr);
     gap: 18px;
     align-items: stretch;
   }
@@ -562,6 +598,7 @@
     border-radius: 8px;
     background: #fff;
     overflow: hidden;
+    box-shadow: 0 8px 18px rgba(29, 36, 48, 0.05);
   }
 
   .chart-toolbar {
@@ -569,8 +606,9 @@
     justify-content: space-between;
     gap: 12px;
     align-items: center;
-    padding: 10px 12px;
+    padding: 12px 14px;
     border-bottom: 1px solid var(--soft-line);
+    background: #fbfcfe;
   }
 
   .chart-title {
@@ -676,6 +714,13 @@
     color: var(--muted);
     font-size: 12px;
     font-weight: 800;
+    cursor: pointer;
+  }
+
+  .source-toggle:has(input:checked) {
+    border-color: #b9d3ff;
+    color: var(--info);
+    background: var(--info-bg);
   }
 
   .source-toggle input {
@@ -712,6 +757,7 @@
     border: 1px solid var(--soft-line);
     border-radius: 8px;
     background: #fbfcfe;
+    box-shadow: 0 8px 18px rgba(29, 36, 48, 0.04);
   }
 
   .replay-detail h3 {
@@ -870,6 +916,16 @@
       grid-template-columns: 1fr;
     }
 
+    .replay-filter.market,
+    .replay-filter.date,
+    .replay-filter.event,
+    .replay-filter.bet-type,
+    .replay-filter.line,
+    .replay-filter.strategy,
+    .replay-filter.source {
+      grid-column: 1 / -1;
+    }
+
     .replay-chart {
       height: 320px;
     }
@@ -920,7 +976,7 @@
       <div class="section-head">
         <div>
           <h2>Event Replay</h2>
-          <p>Choose a market, strategy, and event, then click a buy or sell point to see the trade details and rationale.</p>
+          <p>CLOB and sportsbook replay paths by market, date, event, bet type, and line.</p>
         </div>
         <span class="pill warn" id="replay-count-pill">loading</span>
       </div>
@@ -929,43 +985,43 @@
         <button class="replay-tab" type="button" data-replay-tab="paper">Paper Trade</button>
       </div>
       <div class="replay-controls">
-        <div class="replay-filter">
+        <div class="replay-filter market">
           <label for="replay-market-select">Market</label>
           <select id="replay-market-select">
             <option>loading markets...</option>
           </select>
         </div>
-        <div class="replay-filter">
-          <label for="replay-strategy-select">Strategy</label>
-          <select id="replay-strategy-select">
-            <option>loading strategies...</option>
-          </select>
-        </div>
-        <div class="replay-filter">
-          <label for="replay-bet-type-select">Bet type</label>
-          <select id="replay-bet-type-select">
-            <option>loading bet types...</option>
-          </select>
-        </div>
-        <div class="replay-filter">
+        <div class="replay-filter date">
           <label for="replay-date-select">Date</label>
           <select id="replay-date-select">
             <option>loading dates...</option>
           </select>
         </div>
-        <div class="replay-filter">
+        <div class="replay-filter event">
           <label for="replay-select">Event</label>
           <select id="replay-select">
             <option>loading backtest events...</option>
           </select>
         </div>
-        <div class="replay-filter">
+        <div class="replay-filter bet-type">
+          <label for="replay-bet-type-select">Bet type</label>
+          <select id="replay-bet-type-select">
+            <option>loading bet types...</option>
+          </select>
+        </div>
+        <div class="replay-filter line">
           <label for="replay-line-select">Line</label>
           <select id="replay-line-select">
             <option>loading lines...</option>
           </select>
         </div>
-        <div class="replay-filter">
+        <div class="replay-filter strategy">
+          <label for="replay-strategy-select">Strategy</label>
+          <select id="replay-strategy-select">
+            <option>loading strategies...</option>
+          </select>
+        </div>
+        <div class="replay-filter source">
           <label for="replay-data-source-select">Data source</label>
           <select id="replay-data-source-select">
             <option>Polymarket CLOB</option>
@@ -1408,7 +1464,8 @@ const state = {
   replayChart: null,
   replayDrag: null,
   replayDetails: {},
-  replayLoading: {}
+  replayLoading: {},
+  replayBulkLoading: {}
 };
 
 const $ = id => document.getElementById(id);
@@ -1470,6 +1527,39 @@ const TEAM_ABBREVIATIONS = {
   sf: "49ers",
   tor: "Raptors",
   ten: "Titans",
+  was: "Wizards"
+};
+
+const NBA_TEAM_ABBREVIATIONS = {
+  atl: "Hawks",
+  bkn: "Nets",
+  bos: "Celtics",
+  cha: "Hornets",
+  chi: "Bulls",
+  cle: "Cavaliers",
+  dal: "Mavericks",
+  den: "Nuggets",
+  det: "Pistons",
+  gsw: "Warriors",
+  hou: "Rockets",
+  ind: "Pacers",
+  lac: "Clippers",
+  lal: "Lakers",
+  mem: "Grizzlies",
+  mia: "Heat",
+  mil: "Bucks",
+  min: "Timberwolves",
+  nop: "Pelicans",
+  nyk: "Knicks",
+  okc: "Thunder",
+  orl: "Magic",
+  phi: "76ers",
+  phx: "Suns",
+  por: "Trail Blazers",
+  sac: "Kings",
+  sas: "Spurs",
+  tor: "Raptors",
+  uta: "Jazz",
   was: "Wizards"
 };
 
@@ -2378,7 +2468,7 @@ function formatSlugToken(token, event) {
   const key = String(token || "").toLowerCase();
   const sport = String(event?.sport_family || event?.market_label || "").toLowerCase();
   if (sport.includes("basketball") || sport === "nba") {
-    return TEAM_ABBREVIATIONS[key] || key.toUpperCase();
+    return NBA_TEAM_ABBREVIATIONS[key] || TEAM_ABBREVIATIONS[key] || key.toUpperCase();
   }
   if (sport.includes("football") || sport === "nfl") {
     const nfl = {
@@ -2490,13 +2580,26 @@ function replayLineValue(event) {
   return outcome || "Primary line";
 }
 
-function replayOptionCounts(events, valueFn) {
+function replayEventIdentity(event) {
+  return [
+    replayMarketValue(event),
+    replayDateValue(event),
+    replayEventNameValue(event)
+  ].map(value => String(value || "").trim()).join("||");
+}
+
+function replayUniqueEventCount(events) {
+  return new Set(events.map(replayEventIdentity).filter(Boolean)).size;
+}
+
+function replayOptionCounts(events, valueFn, keyFn = item => item?.replay_id || replayEventIdentity(item)) {
   const counts = new Map();
   events.forEach(item => {
     const value = valueFn(item) || "Unknown";
-    counts.set(value, (counts.get(value) || 0) + 1);
+    if (!counts.has(value)) counts.set(value, new Set());
+    counts.get(value).add(keyFn(item) || value);
   });
-  return [...counts.entries()].sort((a, b) => {
+  return [...counts.entries()].map(([value, keys]) => [value, keys.size]).sort((a, b) => {
     const countDelta = b[1] - a[1];
     return countDelta || a[0].localeCompare(b[0]);
   });
@@ -2517,12 +2620,22 @@ function replayEventsForFilters(events) {
   ));
 }
 
-function renderReplayFilterOptions(select, rows, selectedValue, allLabel) {
+function replayCountText(count, noun = "") {
+  const suffix = noun ? ` ${noun}${count === 1 ? "" : "s"}` : "";
+  return `${fmtInt(count)}${suffix}`;
+}
+
+function renderReplayFilterOptions(select, rows, selectedValue, allLabel, options = {}) {
   const values = rows.map(([value]) => value);
   const active = selectedValue !== "__all__" && values.includes(selectedValue) ? selectedValue : "__all__";
+  const noun = options.noun || "";
+  const showCounts = options.showCounts !== false;
   select.innerHTML = [
     `<option value="__all__">${esc(allLabel)}</option>`,
-    ...rows.map(([value, count]) => `<option value="${esc(value)}">${esc(value)} (${fmtInt(count)})</option>`)
+    ...rows.map(([value, count]) => {
+      const label = showCounts ? `${value} (${replayCountText(count, noun)})` : value;
+      return `<option value="${esc(value)}">${esc(label)}</option>`;
+    })
   ].join("");
   select.value = active;
   return active;
@@ -2533,7 +2646,7 @@ function renderReplayDateOptions(select, rows, selectedValue) {
   const active = selectedValue !== "__all__" && values.includes(selectedValue) ? selectedValue : "__all__";
   select.innerHTML = [
     `<option value="__all__">All dates</option>`,
-    ...rows.map(([value, count]) => `<option value="${esc(value)}">${esc(replayDateLabel(value) || value)} (${fmtInt(count)})</option>`)
+    ...rows.map(([value, count]) => `<option value="${esc(value)}">${esc(replayDateLabel(value) || value)} (${replayCountText(count, "event")})</option>`)
   ].join("");
   select.value = active;
   return active;
@@ -2543,7 +2656,8 @@ function renderReplayStrategyOptions(select, events, selectedValue) {
   const counts = new Map();
   events.forEach(item => {
     const value = replayStrategyValue(item);
-    counts.set(value, (counts.get(value) || 0) + 1);
+    if (!counts.has(value)) counts.set(value, new Set());
+    counts.get(value).add(item?.replay_id || replayEventIdentity(item));
   });
   const active = selectedValue !== "__all__" && STRATEGY_OPTIONS.includes(selectedValue)
     ? selectedValue
@@ -2551,7 +2665,7 @@ function renderReplayStrategyOptions(select, events, selectedValue) {
   select.innerHTML = [
     `<option value="__all__">All strategies</option>`,
     ...STRATEGY_OPTIONS.map(name => `
-      <option value="${esc(name)}">${esc(name)} (${fmtInt(counts.get(name) || 0)})</option>
+      <option value="${esc(name)}">${esc(name)} (${replayCountText(counts.get(name)?.size || 0, "line")})</option>
     `)
   ].join("");
   select.value = active;
@@ -3105,7 +3219,139 @@ function xTicksFor(event, minX, maxX, plotW) {
   return ticks.slice(0, 10);
 }
 
+function drawReplayLineOverlayChart(event, overlayEvents) {
+  const svg = $("replay-chart");
+  renderSportsbookSourceToggles({ sportsbook_series_schema: [] });
+  const rows = overlayEvents
+    .map((lineEvent, index) => ({
+      event: lineEvent,
+      index,
+      label: replayLineValue(lineEvent),
+      points: replayPricePoints(lineEvent)
+    }))
+    .filter(row => row.points.length);
+  if (!rows.length) {
+    state.replayChart = null;
+    svg.innerHTML = `<text x="24" y="42" fill="#627083">No price series available for these lines.</text>`;
+    if ($("chart-title")) $("chart-title").textContent = "All lines";
+    setChartSourceNote("");
+    renderChartLegend([]);
+    return;
+  }
+
+  const width = 940;
+  const height = 420;
+  const pad = { left: 54, right: 142, top: 22, bottom: 44 };
+  const plotW = width - pad.left - pad.right;
+  const plotH = height - pad.top - pad.bottom;
+  const allPoints = rows.flatMap(row => row.points);
+  const bounds = replayWindowBounds(allPoints, [], null, event);
+  const spanX = Math.max(1, bounds.maxX - bounds.minX);
+  const visibleRows = rows.map(row => ({
+    ...row,
+    points: row.points.filter(point => point.offset >= bounds.minX && point.offset <= bounds.maxX)
+  })).filter(row => row.points.length);
+  const priceValues = visibleRows
+    .flatMap(row => row.points.flatMap(point => [point.selected, point.other]))
+    .filter(value => value !== null);
+  let minY = Math.max(0, Math.min(...priceValues));
+  let maxY = Math.min(1, Math.max(...priceValues));
+  const span = Math.max(0.01, maxY - minY);
+  minY = Math.max(0, minY - Math.max(0.02, span * 0.16));
+  maxY = Math.min(1, maxY + Math.max(0.02, span * 0.16));
+  if (maxY - minY < 0.06) {
+    const mid = (maxY + minY) / 2;
+    minY = Math.max(0, mid - 0.03);
+    maxY = Math.min(1, mid + 0.03);
+  }
+  const savedY = state.replayYRangeById[event.replay_id];
+  if (savedY && Number.isFinite(savedY.minY) && Number.isFinite(savedY.maxY)) {
+    const clampedY = clampReplayYRange(savedY.minY, savedY.maxY);
+    minY = clampedY.minY;
+    maxY = clampedY.maxY;
+  }
+  const sx = value => pad.left + ((value - bounds.minX) / spanX) * plotW;
+  const sy = value => pad.top + (1 - ((value - minY) / Math.max(0.0001, maxY - minY))) * plotH;
+  let yTicks = [0, 0.25, 0.5, 0.75, 1].filter(value => value >= minY - 0.001 && value <= maxY + 0.001);
+  if (yTicks.length < 3) {
+    yTicks = [minY, (minY + maxY) / 2, maxY];
+  }
+  const xTicks = xTicksFor(event, bounds.minX, bounds.maxX, plotW);
+  const grid = yTicks.map(value => `
+    <line x1="${pad.left}" y1="${sy(value).toFixed(1)}" x2="${width - pad.right}" y2="${sy(value).toFixed(1)}" stroke="#e9edf3" />
+    <text x="${pad.left - 10}" y="${(sy(value) + 4).toFixed(1)}" text-anchor="end" fill="#627083" font-size="12">${fmtPrice(value, 2)}</text>
+  `).join("");
+  const xAxis = xTicks.map(value => `
+    <text x="${sx(value).toFixed(1)}" y="${height - 14}" text-anchor="middle" fill="#627083" font-size="12">${esc(replayAxisLabel(event, value, spanX))}</text>
+  `).join("");
+  const colors = ["#1f77b4", "#f59e0b", "#16a34a", "#7c3aed", "#dc2626", "#0891b2", "#be123c", "#0f766e", "#a16207", "#9333ea"];
+  const lineSvg = visibleRows.map(row => {
+    const color = colors[row.index % colors.length];
+    const widthPx = row.index === 0 ? 2.7 : 1.7;
+    const selected = replaySegmentPaths(row.points, "selected", sx, sy).map(path =>
+      `<polyline class="chart-series" points="${path}" fill="none" stroke="${color}" stroke-width="${widthPx}" opacity="${row.index === 0 ? "0.96" : "0.68"}" />`
+    ).join("");
+    const other = replaySegmentPaths(row.points, "other", sx, sy).map(path =>
+      `<polyline class="chart-series" points="${path}" fill="none" stroke="${color}" stroke-width="1.45" stroke-dasharray="5 4" opacity="0.36" />`
+    ).join("");
+    return `${other}${selected}`;
+  }).join("");
+  const labels = visibleRows.slice(0, 10).map(row => {
+    const last = [...row.points].reverse().find(point => point.selected !== null);
+    if (!last) return "";
+    const color = colors[row.index % colors.length];
+    const y = Math.max(pad.top + 12, Math.min(height - pad.bottom - 8, sy(last.selected)));
+    return `<text x="${(width - pad.right + 10).toFixed(1)}" y="${y.toFixed(1)}" fill="${color}" font-size="12" font-weight="800" paint-order="stroke" stroke="#fff" stroke-width="4">${esc(shortLabel(row.label, 17))}</text>`;
+  }).join("");
+  const expected = event.line_overlay_expected_count || rows.length;
+  const loadedText = rows.length === expected
+    ? `${fmtInt(rows.length)} lines`
+    : `${fmtInt(rows.length)} / ${fmtInt(expected)} lines loaded`;
+  if ($("chart-title")) $("chart-title").textContent = `${replayEventNameValue(event)} | All lines`;
+  setChartSourceNote(`${loadedText}; solid = selected side, dashed = other side. Pick one line for sportsbook source overlays.`);
+  renderChartLegend([
+    { label: "Selected side", color: "#1f77b4", opacity: 0.9 },
+    { label: "Other side", color: "#1f77b4", opacity: 0.36 }
+  ]);
+  setWindowButtonState();
+  state.replayChart = {
+    replayId: event.replay_id,
+    minX: bounds.minX,
+    maxX: bounds.maxX,
+    fullMin: bounds.fullMin,
+    fullMax: bounds.fullMax,
+    pad,
+    plotW,
+    plotH,
+    minY,
+    maxY,
+    width,
+    height,
+    markerPoints: []
+  };
+  svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
+  svg.innerHTML = `
+    <rect x="0" y="0" width="${width}" height="${height}" fill="#fff" pointer-events="none" />
+    ${grid}
+    <line x1="${pad.left}" y1="${pad.top}" x2="${pad.left}" y2="${height - pad.bottom}" stroke="#d8dee8" />
+    <line x1="${pad.left}" y1="${height - pad.bottom}" x2="${width - pad.right}" y2="${height - pad.bottom}" stroke="#d8dee8" />
+    ${lineSvg}
+    ${labels}
+    <rect data-chart-pan="xy" x="${pad.left}" y="${pad.top}" width="${plotW}" height="${plotH}" fill="transparent" pointer-events="all" cursor="move" />
+    <rect data-chart-pan="y-scale" x="0" y="${pad.top}" width="${pad.left}" height="${plotH}" fill="transparent" pointer-events="all" cursor="ns-resize" />
+    <rect data-chart-pan="x-scale" x="${pad.left}" y="${height - pad.bottom}" width="${plotW}" height="${pad.bottom}" fill="transparent" pointer-events="all" cursor="ew-resize" />
+    ${xAxis}
+  `;
+}
+
 function drawReplayChart(event) {
+  const overlayEvents = Array.isArray(event?.line_overlay_events)
+    ? event.line_overlay_events.filter(item => item && !item.load_error)
+    : [];
+  if (overlayEvents.length > 1) {
+    drawReplayLineOverlayChart(event, overlayEvents);
+    return;
+  }
   const svg = $("replay-chart");
   const polyPoints = replayPricePoints(event);
   const bookPoints = sportsbookPricePoints(event);
@@ -3522,9 +3768,7 @@ function handleReplayPointerUp(event) {
   if (event?.pointerId !== undefined) svg?.releasePointerCapture?.(event.pointerId);
 }
 
-async function loadReplayDetail(event) {
-  if (!event?.replay_id || !event?.replay_path || state.replayLoading[event.replay_id]) return;
-  state.replayLoading[event.replay_id] = true;
+async function fetchReplayDetail(event) {
   try {
     const res = await fetch(`${event.replay_path}?t=${Date.now()}`);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -3536,11 +3780,40 @@ async function loadReplayDetail(event) {
       markers: [],
       load_error: error.message
     };
+  }
+}
+
+async function loadReplayDetail(event) {
+  if (!event?.replay_id || !event?.replay_path || state.replayLoading[event.replay_id]) return;
+  state.replayLoading[event.replay_id] = true;
+  try {
+    await fetchReplayDetail(event);
   } finally {
     state.replayLoading[event.replay_id] = false;
     if (state.selectedReplayId === event.replay_id) {
       renderReplay(deriveDashboard());
     }
+  }
+}
+
+async function loadReplayDetails(events) {
+  const missing = events.filter(event =>
+    event?.replay_id
+    && event?.replay_path
+    && !state.replayDetails[event.replay_id]
+    && !state.replayLoading[event.replay_id]
+  );
+  if (!missing.length) return;
+  const key = missing.map(event => event.replay_id).sort().join("|");
+  if (state.replayBulkLoading[key]) return;
+  state.replayBulkLoading[key] = true;
+  missing.forEach(event => { state.replayLoading[event.replay_id] = true; });
+  try {
+    await Promise.all(missing.map(fetchReplayDetail));
+  } finally {
+    missing.forEach(event => { state.replayLoading[event.replay_id] = false; });
+    delete state.replayBulkLoading[key];
+    renderReplay(deriveDashboard());
   }
 }
 
@@ -3671,51 +3944,57 @@ function renderReplay(data) {
 
   state.selectedReplayMarket = renderReplayFilterOptions(
     marketSelect,
-    replayOptionCounts(events, replayMarketValue),
+    replayOptionCounts(events, replayMarketValue, replayEventIdentity),
     state.selectedReplayMarket,
-    "All markets"
+    "All markets",
+    { noun: "event" }
   );
   const marketFiltered = events.filter(item => replayFilterMatch(replayMarketValue(item), state.selectedReplayMarket));
-  state.selectedReplayStrategy = renderReplayStrategyOptions(
-    strategySelect,
-    marketFiltered,
-    state.selectedReplayStrategy
-  );
-  const strategyFiltered = marketFiltered.filter(item => replayFilterMatch(replayStrategyValue(item), state.selectedReplayStrategy));
-  state.selectedReplayBetType = renderReplayFilterOptions(
-    betTypeSelect,
-    replayOptionCounts(strategyFiltered, replayBetTypeValue),
-    state.selectedReplayBetType,
-    "All bet types"
-  );
-  const betTypeFiltered = strategyFiltered.filter(item => replayFilterMatch(replayBetTypeValue(item), state.selectedReplayBetType));
   state.selectedReplayDate = renderReplayDateOptions(
     dateSelect,
-    replayOptionCounts(betTypeFiltered, replayDateValue),
+    replayOptionCounts(marketFiltered, replayDateValue, replayEventIdentity),
     state.selectedReplayDate
   );
-  const dateFiltered = betTypeFiltered.filter(item => replayFilterMatch(replayDateValue(item), state.selectedReplayDate));
+  const dateFiltered = marketFiltered.filter(item => replayFilterMatch(replayDateValue(item), state.selectedReplayDate));
   state.selectedReplayEventName = renderReplayFilterOptions(
     select,
-    replayOptionCounts(dateFiltered, replayEventNameValue),
+    replayOptionCounts(dateFiltered, replayEventNameValue, replayEventIdentity),
     state.selectedReplayEventName,
-    "All events"
+    "All events",
+    { noun: "event" }
   );
   const eventFiltered = dateFiltered.filter(item => replayFilterMatch(replayEventNameValue(item), state.selectedReplayEventName));
+  state.selectedReplayBetType = renderReplayFilterOptions(
+    betTypeSelect,
+    replayOptionCounts(eventFiltered, replayBetTypeValue, item => item?.replay_id || replayLineValue(item)),
+    state.selectedReplayBetType,
+    "All bet types",
+    { noun: "line" }
+  );
+  const betTypeFiltered = eventFiltered.filter(item => replayFilterMatch(replayBetTypeValue(item), state.selectedReplayBetType));
   state.selectedReplayLine = renderReplayFilterOptions(
     lineSelect,
-    replayOptionCounts(eventFiltered, replayLineValue),
+    replayOptionCounts(betTypeFiltered, replayLineValue, item => item?.replay_id || `${replayLineValue(item)}||${item?.outcome || ""}`),
     state.selectedReplayLine,
-    "All lines"
+    "All lines",
+    { noun: "line" }
+  );
+  const lineFiltered = betTypeFiltered.filter(item => replayFilterMatch(replayLineValue(item), state.selectedReplayLine));
+  state.selectedReplayStrategy = renderReplayStrategyOptions(
+    strategySelect,
+    lineFiltered,
+    state.selectedReplayStrategy
   );
   const filteredEvents = replayEventsForFilters(events);
+  const uniqueFilteredEvents = replayUniqueEventCount(filteredEvents);
+  const uniqueTotalEvents = replayUniqueEventCount(events);
   $("replay-count-pill").textContent = filteredEvents.length
-    ? `${fmtInt(filteredEvents.length)} / ${fmtInt(events.length)} events`
+    ? `${fmtInt(uniqueFilteredEvents)} / ${fmtInt(uniqueTotalEvents)} events | ${fmtInt(filteredEvents.length)} replay lines`
     : "no matching events";
   $("replay-count-pill").className = "pill " + (filteredEvents.length ? "info" : "warn");
 
   if (!filteredEvents.length) {
-    select.disabled = true;
+    select.disabled = false;
     betTypeSelect.disabled = false;
     dateSelect.disabled = false;
     lineSelect.disabled = true;
@@ -3729,7 +4008,7 @@ function renderReplay(data) {
     $("decision-action").textContent = "--";
     $("decision-action").className = "pill info";
     $("replay-kv").innerHTML = "";
-    $("replay-rationale").innerHTML = `<strong>Rationale</strong><span>No replay event matches the selected market and strategy.</span>`;
+    $("replay-rationale").innerHTML = `<strong>Rationale</strong><span>No replay event matches the selected filters.</span>`;
     drawReplayChart({ series_points: [] });
     return;
   }
@@ -3741,6 +4020,12 @@ function renderReplay(data) {
   const event = filteredEvents.find(item => item.replay_id === state.selectedReplayId) || filteredEvents[0];
   select.value = state.selectedReplayEventName;
   lineSelect.value = state.selectedReplayLine;
+  const showAllLines = state.selectedReplayLine === "__all__"
+    && state.selectedReplayEventName !== "__all__"
+    && filteredEvents.length > 1;
+  if (showAllLines) {
+    loadReplayDetails(filteredEvents);
+  }
 
   const detail = state.replayDetails[event.replay_id];
   if (!detail) {
@@ -3755,12 +4040,12 @@ function renderReplay(data) {
     }
     $("replay-title").textContent = replayExperimentLabel(event);
     $("replay-event-strip").innerHTML = [
-      ["Strategy", strategyLabel(event.strategy_label || event.strategy || event.bucket)],
+      ["Strategy", showAllLines && state.selectedReplayStrategy === "__all__" ? "All strategies" : strategyLabel(event.strategy_label || event.strategy || event.bucket)],
       ["Market", marketLabel(event)],
-      ["Bet type", replayBetTypeValue(event)],
+      ["Bet type", showAllLines && state.selectedReplayBetType === "__all__" ? "All bet types" : replayBetTypeValue(event)],
       ["Date", replayDateLabel(event)],
-      ["Line", replayLineValue(event)],
-      ["Order", plotOnly ? `Plot ${side.display}` : side.order],
+      ["Line", showAllLines ? `All lines (${fmtInt(filteredEvents.length)})` : replayLineValue(event)],
+      ["Order", showAllLines ? "Plot all selected sides" : plotOnly ? `Plot ${side.display}` : side.order],
       ["Position", plotOnly ? "--" : replayTradeAmount(stats)],
       ["Event PnL", plotOnly ? "--" : `${fmtSignedUsd(pos.pnlUsd)} (${fmtPct(stats.roi)})`],
       ["Start", plotOnly ? `${fmtInt(event.series_point_count)} points` : fmtUsd(pos.bankroll, 0)]
@@ -3775,7 +4060,15 @@ function renderReplay(data) {
     return;
   }
 
-  const fullEvent = { ...event, ...detail };
+  const lineOverlayDetails = showAllLines
+    ? filteredEvents.map(item => state.replayDetails[item.replay_id]).filter(Boolean)
+    : [];
+  const fullEvent = {
+    ...event,
+    ...detail,
+    line_overlay_events: lineOverlayDetails,
+    line_overlay_expected_count: showAllLines ? filteredEvents.length : 0
+  };
   const stats = fullEvent.stats || {};
   const finalPos = replayPosition(stats);
   const side = replaySide(fullEvent);
@@ -3805,20 +4098,22 @@ function renderReplay(data) {
     dataSourceSelect.value = state.selectedReplayDataSource;
   }
   $("replay-title").textContent = replayExperimentLabel(fullEvent);
-  const dataLabel = state.selectedReplayDataSource === "sportsbooks"
-    ? "Sportsbook sources"
-    : state.selectedReplayDataSource === "both"
-      ? "CLOB + sportsbook sources"
-      : "Polymarket CLOB";
+  const dataLabel = showAllLines
+    ? "All-line CLOB overlay"
+    : state.selectedReplayDataSource === "sportsbooks"
+      ? "Sportsbook sources"
+      : state.selectedReplayDataSource === "both"
+        ? "CLOB + sportsbook sources"
+        : "Polymarket CLOB";
   const qualityLabel = replaySportsbookQuality(fullEvent);
   $("replay-event-strip").innerHTML = [
-    ["Strategy", strategyLabel(fullEvent.strategy_label || fullEvent.strategy || fullEvent.bucket)],
+    ["Strategy", showAllLines && state.selectedReplayStrategy === "__all__" ? "All strategies" : strategyLabel(fullEvent.strategy_label || fullEvent.strategy || fullEvent.bucket)],
     ["Market", marketLabel(fullEvent)],
-    ["Bet type", replayBetTypeValue(fullEvent)],
+    ["Bet type", showAllLines && state.selectedReplayBetType === "__all__" ? "All bet types" : replayBetTypeValue(fullEvent)],
     ["Date", replayDateLabel(fullEvent)],
-    ["Line", replayLineValue(fullEvent)],
-    ["Data", qualityLabel ? `${dataLabel}; ${qualityLabel}` : dataLabel],
-    ["Order", plotOnly ? `Plot ${side.display}` : side.order],
+    ["Line", showAllLines ? `All lines (${fmtInt(filteredEvents.length)})` : replayLineValue(fullEvent)],
+    ["Data", qualityLabel && !showAllLines ? `${dataLabel}; ${qualityLabel}` : dataLabel],
+    ["Order", showAllLines ? "Plot all selected sides" : plotOnly ? `Plot ${side.display}` : side.order],
     ["Result", plotOnly ? "No trade" : stats.won ? "Won" : "Lost"],
     ["Position", plotOnly ? "--" : replayTradeAmount(stats)],
     ["Event PnL", plotOnly ? "--" : `${fmtSignedUsd(finalPos.pnlUsd)} (${fmtPct(stats.roi)})`],
@@ -3831,6 +4126,17 @@ function renderReplay(data) {
     $("decision-action").className = "pill bad";
     $("replay-kv").innerHTML = "";
     $("replay-rationale").innerHTML = `<strong>Rationale</strong><span>Could not load event detail: ${esc(fullEvent.load_error)}</span>`;
+  } else if (showAllLines) {
+    $("decision-title").textContent = "All lines overlay";
+    $("decision-action").textContent = "Plot only";
+    $("decision-action").className = "pill info";
+    $("replay-kv").innerHTML = [
+      ["Loaded lines", `${fmtInt(lineOverlayDetails.length)} / ${fmtInt(filteredEvents.length)}`],
+      ["Displayed event", replayEventNameValue(fullEvent)],
+      ["Date", replayDateLabel(fullEvent)],
+      ["Mode", "CLOB selected and other-side series"]
+    ].map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("");
+    $("replay-rationale").innerHTML = `<strong>Rationale</strong><span>All-line view overlays every matching line for this event. Select one line to inspect its trade markers, sportsbook source toggles, and rationale.</span>`;
   } else {
     renderDecisionPanel(fullEvent, selectedMarker);
   }
@@ -3981,10 +4287,6 @@ document.addEventListener("change", event => {
   }
   if (event.target && event.target.id === "replay-strategy-select") {
     state.selectedReplayStrategy = event.target.value || "__all__";
-    state.selectedReplayBetType = "__all__";
-    state.selectedReplayDate = "__all__";
-    state.selectedReplayEventName = "__all__";
-    state.selectedReplayLine = "__all__";
     state.selectedReplayId = null;
     state.replayWindow = "full";
     state.replayZoomById = {};
@@ -3995,9 +4297,8 @@ document.addEventListener("change", event => {
   }
   if (event.target && event.target.id === "replay-bet-type-select") {
     state.selectedReplayBetType = event.target.value || "__all__";
-    state.selectedReplayDate = "__all__";
-    state.selectedReplayEventName = "__all__";
     state.selectedReplayLine = "__all__";
+    state.selectedReplayStrategy = "__all__";
     state.selectedReplayId = null;
     state.replayWindow = "full";
     state.replayZoomById = {};
@@ -4009,7 +4310,9 @@ document.addEventListener("change", event => {
   if (event.target && event.target.id === "replay-date-select") {
     state.selectedReplayDate = event.target.value || "__all__";
     state.selectedReplayEventName = "__all__";
+    state.selectedReplayBetType = "__all__";
     state.selectedReplayLine = "__all__";
+    state.selectedReplayStrategy = "__all__";
     state.selectedReplayId = null;
     state.replayWindow = "full";
     state.replayZoomById = {};
@@ -4020,7 +4323,9 @@ document.addEventListener("change", event => {
   }
   if (event.target && event.target.id === "replay-select") {
     state.selectedReplayEventName = event.target.value || "__all__";
+    state.selectedReplayBetType = "__all__";
     state.selectedReplayLine = "__all__";
+    state.selectedReplayStrategy = "__all__";
     state.selectedReplayId = null;
     state.replayWindow = "full";
     state.replayZoomById = {};
@@ -4030,6 +4335,7 @@ document.addEventListener("change", event => {
   }
   if (event.target && event.target.id === "replay-line-select") {
     state.selectedReplayLine = event.target.value || "__all__";
+    state.selectedReplayStrategy = "__all__";
     state.selectedReplayId = null;
     state.replayWindow = "full";
     state.replayZoomById = {};
