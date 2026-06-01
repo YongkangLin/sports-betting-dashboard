@@ -491,7 +491,7 @@
 
   .replay-controls {
     display: grid;
-    grid-template-columns: minmax(140px, 0.7fr) minmax(180px, 0.85fr) minmax(170px, 0.8fr) minmax(260px, 1.65fr);
+    grid-template-columns: minmax(130px, 0.65fr) minmax(170px, 0.8fr) minmax(250px, 1.45fr) minmax(150px, 0.7fr) minmax(170px, 0.8fr);
     gap: 12px;
     align-items: end;
     margin-bottom: 14px;
@@ -650,6 +650,36 @@
 
   .chart-legend.active {
     display: flex;
+  }
+
+  .source-toggles {
+    display: none;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px 12px 0;
+    border-top: 1px solid var(--soft-line);
+  }
+
+  .source-toggles.active {
+    display: flex;
+  }
+
+  .source-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 30px;
+    padding: 5px 9px;
+    border: 1px solid var(--soft-line);
+    border-radius: 8px;
+    background: #fff;
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 800;
+  }
+
+  .source-toggle input {
+    margin: 0;
   }
 
   .legend-item {
@@ -912,15 +942,21 @@
           </select>
         </div>
         <div class="replay-filter">
-          <label for="replay-data-source-select">Data source</label>
-          <select id="replay-data-source-select">
-            <option>Polymarket CLOB</option>
-          </select>
-        </div>
-        <div class="replay-filter">
           <label for="replay-select">Event</label>
           <select id="replay-select">
             <option>loading backtest events...</option>
+          </select>
+        </div>
+        <div class="replay-filter">
+          <label for="replay-bet-type-select">Bet type</label>
+          <select id="replay-bet-type-select">
+            <option>loading bet types...</option>
+          </select>
+        </div>
+        <div class="replay-filter">
+          <label for="replay-data-source-select">Data source</label>
+          <select id="replay-data-source-select">
+            <option>Polymarket CLOB</option>
           </select>
         </div>
       </div>
@@ -931,6 +967,7 @@
             <div class="chart-source-note" id="chart-source-note"></div>
           </div>
           <svg class="replay-chart" id="replay-chart" role="img" aria-label="Backtest event price path"></svg>
+          <div class="source-toggles" id="replay-source-toggles"></div>
           <div class="chart-legend" id="chart-legend"></div>
         </div>
         <div class="replay-detail">
@@ -958,7 +995,7 @@
 <script>
 const ARTIFACTS = {
   liveExecution: { label: "Live execution status", path: "data/status/latest_status.json" },
-  latestTelonexSummary: { label: "Latest maker-fill model", path: "data/model/telonex_convergence/20260530T215450Z/summary.json" },
+  latestTelonexSummary: { label: "Latest Telonex model", path: "data/model/telonex_convergence/20260531T234614Z/summary.json" },
   liveSignals: { label: "Live Telonex signals", path: "data/live/clob/live_telonex_convergence_signals_latest.json" },
   strategyBuckets: { label: "Strategy bucket audit", path: "data/model/training/telonex_strategy_buckets_latest.json" },
   favoriteLongshotEventReplays: { label: "Event replay bundle", path: "data/model/replays/event_replays_latest.json" },
@@ -967,52 +1004,52 @@ const ARTIFACTS = {
 };
 
 const RUN_ARTIFACTS = [
-  "20260530T215450Z"
+  "20260531T234614Z"
 ].map(runId => ({
   label: runId,
   path: `data/model/telonex_convergence/${runId}/summary.json`
 }));
 
 const SNAPSHOT = {
-  generatedAt: "2026-05-30T22:39:44.975739+00:00",
-  editedAt: "2026-05-30",
+  generatedAt: "2026-06-01T00:37:16.228041+00:00",
+  editedAt: "2026-06-01",
   loadedFrom: "embedded current snapshot",
   overall: {
     verdict: "HOLD",
     capitalEnabled: false,
     liveCapitalGate: false,
-    collectorStatus: "degraded",
-    collectorLoops: 516
+    collectorStatus: "healthy",
+    collectorLoops: 479
   },
   latestModel: {
-    runId: "20260530T215450Z",
-    modelVersion: "20260530T215450Z-3e90e2b5d8da",
-    targetCol: "maker_trade_fill_positive",
-    pnlCol: "maker_trade_fill_pnl_per_share",
-    featureSet: "base_odds",
-    selectedThreshold: 1.000001,
+    runId: "20260531T234614Z",
+    modelVersion: "20260531T234614Z-03d084dd3bd6",
+    targetCol: "maker_positive",
+    pnlCol: "maker_pnl_per_share",
+    featureSet: "all_odds",
+    selectedThreshold: 0.5483912013758625,
     selectionScoreCol: "convergence_prob_lower",
-    selectionAbstained: true,
-    researchGate: false,
-    performanceGate: false,
+    selectionAbstained: false,
+    researchGate: true,
+    performanceGate: true,
     liveCapitalGate: false,
-    datasetRows: 1984815,
-    datasetMarkets: 109,
-    datasetTokens: 217,
-    positiveRate: 0.0015744540423162864,
-    valTrades: 0,
-    testTrades: 0,
-    testMarkets: 0,
-    testRoi: null,
-    testCiLo: null,
-    testCiHi: null,
-    testAuc: 0.963893685247139,
-    testEce: 0.00022721751128733201,
-    oddsFeatureCoverage: 0.5511264274000348,
-    oddsTestCoverage: 0.2977453997362306,
-    oddsTestMatchedMarkets: 5,
-    testFillPositiveRows: 97,
-    testRows: 159230
+    datasetRows: 6395081,
+    datasetMarkets: 1550,
+    datasetTokens: 3098,
+    positiveRate: 0.012063021562979422,
+    valTrades: 2496,
+    testTrades: 2134,
+    testMarkets: 50,
+    testRoi: 0.09215129866564915,
+    testCiLo: 0.07253860862525935,
+    testCiHi: 0.1143532122951372,
+    testAuc: 0.9368845579511055,
+    testEce: 0.002852705387360348,
+    oddsFeatureCoverage: 0.8378944692021884,
+    oddsTestCoverage: 0.9523544428812344,
+    oddsTestMatchedMarkets: 186,
+    testFillPositiveRows: 11386,
+    testRows: 858632
   },
   execution: {
     latestBooks: 474,
@@ -1037,12 +1074,12 @@ const SNAPSHOT = {
   },
   readiness: {
     overallGate: false,
-    rows: 2888585,
-    markets: 216,
-    tokens: 429,
+    rows: 6395081,
+    markets: 1550,
+    tokens: 3098,
     activeMarkets: 109,
     activeEvents: 89,
-    testOddsCoverage: 0.3253589362755499,
+    testOddsCoverage: 0.9523544428812344,
     activeObservedMarketTarget: 200
   },
   favoriteLongshotExecutable: {
@@ -1072,13 +1109,13 @@ const SNAPSHOT = {
   },
   favoriteLongshotEventReplays: {
     summary: {
-      source_events: 2513,
+      source_events: 3094,
       preserved_decision_events: 277,
-      plot_only_events: 2352,
-      events_with_series: 2629,
-      total_series_points: 1275330,
-      sportsbook_events: 2564,
-      total_sportsbook_points: 928860
+      plot_only_events: 1383,
+      events_with_series: 1660,
+      total_series_points: 849053,
+      sportsbook_events: 1422,
+      total_sportsbook_points: 455572
     },
     events: []
   },
@@ -1164,21 +1201,20 @@ const SNAPSHOT = {
   gateReasons: [
     "queue/fill model not validated on authenticated fills",
     "Polymarket user-channel credentials not configured",
-    "collector not healthy",
-    "Telonex convergence research gate failed",
-    "execution-adjusted backtest replay failed: no selected historical replay trades",
     "no predeclared executable taker strategy bucket cleared validation",
+    "market-type separate-weight readiness gate failed",
     "Telonex model monitor hold",
     "live paper-fill LEV/price-hold quality gate failed",
-    "Telonex market-disjoint validation gate failed",
-    "Telonex temporal validation gate failed",
-    "Telonex microstructure bucket audit failed"
+    "Telonex temporal validation gate failed"
   ],
   warnings: [
-    "Odds API fusion not yet proven on held-out Telonex test",
+    "predeclared non-ML Telonex strategy buckets failed",
+    "live game-state feed too thin for event-regime/scoreline/garbage-time features",
+    "trade-flow feature family has no confirmed economic permutation impact yet",
+    "Odds feature family has no confirmed economic permutation impact in latest audit",
+    "Odds API fusion reports are not target-compatible with latest Telonex model",
     "live strategy LEV evidence incomplete",
-    "favorite-longshot bucket has raw edge but not robust event-cluster CI yet",
-    "live game-state feed too thin for event-regime/scoreline/garbage-time features"
+    "Telonex market-disjoint validation not run"
   ],
   plainCards: [
     {
@@ -1190,22 +1226,22 @@ const SNAPSHOT = {
     {
       tone: "warn",
       label: "Is the ML score impressive?",
-      answer: "Maybe, but not useful yet",
-      copy: "AUC is high, but the model abstains once the target becomes real fills and PnL."
+      answer: "Maybe, but not deployable yet",
+      copy: "The pooled model finds trades, but strict temporal validation and separate market-type gates still block capital."
     },
     {
       tone: "warn",
       label: "Is the data the problem?",
       answer: "Partly",
-      copy: "There is a lot of CLOB data now, but authenticated fills, test odds coverage, and manifest integrity still block proof."
+      copy: "There is a lot of CLOB data now, but authenticated fills, temporal validation, and market-type coverage still block proof."
     }
   ],
   gates: [
     { name: "Live money", ok: false, evidence: "Off. The dashboard is saying research only." },
-    { name: "Current model makes trades", ok: false, evidence: "No. Run 20260530T215450Z selects 0 validation trades and 0 test trades." },
-    { name: "Works on different markets", ok: false, evidence: "No. The market-disjoint check failed, so the edge has not generalized." },
-    { name: "Works in later time periods", ok: false, evidence: "No. The temporal check failed, so it has not proven it survives time." },
-    { name: "Enough clean inputs", ok: false, evidence: "Not yet. Test odds coverage is weak and active observed markets are below the target." },
+    { name: "Current model makes trades", ok: false, evidence: "Research-only. Run 20260531T234614Z selects 2,134 pooled test trades, but strict temporal validation abstains." },
+    { name: "Works on different markets", ok: false, evidence: "Not yet. Production weights must be separated by market type; only soccer moneyline currently clears the count gate." },
+    { name: "Works in later time periods", ok: false, evidence: "No. The strict temporal check uses train_max_date < test_min_date in every fold and still does not clear the trading gate." },
+    { name: "Enough clean inputs", ok: false, evidence: "Partly. Odds coverage is strong on the current test split, but market-type coverage is uneven." },
     { name: "Real fill proof", ok: false, evidence: "No. There are 0 authenticated fills, so paper fills are not enough." },
     { name: "Historical order-book data", ok: false, evidence: "Needs audit. The dashboard now checks whether Telonex manifest entries resolve to files before counting them." },
     { name: "Secret hygiene", ok: false, evidence: "Not safe for live execution until chat-leaked keys are rotated." }
@@ -1292,26 +1328,26 @@ const SNAPSHOT = {
       note: "Fill-aware target; abstained."
     },
     {
-      runId: "20260530T215450Z",
-      targetCol: "maker_trade_fill_positive",
-      featureSet: "base_odds",
-      selectedThreshold: 1.000001,
-      selectionAbstained: true,
-      valTrades: 0,
-      valRoi: null,
-      valCiLo: null,
-      testTrades: 0,
-      testRoi: null,
-      testCiLo: null,
-      researchGate: false,
+      runId: "20260531T234614Z",
+      targetCol: "maker_positive",
+      featureSet: "all_odds",
+      selectedThreshold: 0.5483912013758625,
+      selectionAbstained: false,
+      valTrades: 2496,
+      valRoi: 0.03686073298700606,
+      valCiLo: 0.021539657747056108,
+      testTrades: 2134,
+      testRoi: 0.09215129866564915,
+      testCiLo: 0.07253860862525935,
+      researchGate: true,
       liveCapitalGate: false,
-      note: "Current fill-aware odds run; abstained."
+      note: "Current pooled all-odds run; research-only until strict temporal and market-type gates pass."
     }
   ],
   dataSanity: [
-    { tone: "bad", text: "No profitable executable bot is proven. The latest fill-aware model chooses not to trade." },
-    { tone: "warn", text: "The classifier looks smart on paper, but profitable fill examples are tiny: 97 positive rows out of 159,230 test rows." },
-    { tone: "warn", text: "Odds coverage in the test period is weak, so the model is partly flying with missing market context." },
+    { tone: "bad", text: "No profitable executable bot is proven. The latest pooled model is research-only until strict temporal validation and market-type gates pass." },
+    { tone: "warn", text: "The classifier looks smart on paper, but time-safe validation abstains from all test trades." },
+    { tone: "warn", text: "Sportsbook features are present for most rows, but missing Odds API rows stay as NaN and market groups need separate weights." },
     { tone: "good", text: "The current verdict is sourced from Telonex/Odds API execution artifacts; retired proxy and exploratory outputs are no longer part of the repo." },
     { tone: "good", text: "The repo now has a lot of historical order-book data, so the next bottleneck is proof quality, not just data volume." }
   ],
@@ -1327,11 +1363,11 @@ const SNAPSHOT = {
   ],
   retiredArtifacts: [],
   artifactSizes: {
-    "data/status/latest_status.json": 25873,
-    "data/model/telonex_convergence/20260530T215450Z/summary.json": 31450,
+    "data/status/latest_status.json": 26486,
+    "data/model/telonex_convergence/20260531T234614Z/summary.json": 46565,
     "data/live/clob/live_telonex_convergence_signals_latest.json": 3974,
     "data/model/training/telonex_strategy_buckets_latest.json": 319650,
-    "data/model/replays/event_replays_latest.json": 2759719,
+    "data/model/replays/event_replays_latest.json": 1749593,
     "data/model/replays/audits/replay_sportsbook_gap_audit_latest.json": 1094086,
     "data/model/replays/audits/dashboard_sportsbook_integrity_audit_latest.json": 442651
   }
@@ -1344,8 +1380,10 @@ const state = {
   selectedReplayId: null,
   selectedReplayMarket: "__all__",
   selectedReplayStrategy: "__all__",
+  selectedReplayBetType: "__all__",
   selectedReplayDataSource: "both",
   preferredReplayDataSource: "both",
+  selectedSportsbookSourcesById: {},
   selectedEvidenceStrategy: "Favorite-longshot fade",
   selectedReplayMarkerById: {},
   replayTab: "backtest",
@@ -2227,6 +2265,41 @@ function marketLabel(event) {
     .replace(/\b\w/g, letter => letter.toUpperCase());
 }
 
+function marketTypeValue(event) {
+  const explicit = String(event?.bet_type || event?.market_type || "").trim();
+  if (explicit) {
+    const key = explicit.toLowerCase();
+    const labels = {
+      moneyline: "Moneyline",
+      h2h: "Moneyline",
+      draw: "Draw",
+      total: "Total",
+      totals: "Total",
+      spread: "Spread",
+      spreads: "Spread",
+      nrfi: "NRFI",
+      exact_score: "Exact score"
+    };
+    return labels[key] || explicit.replaceAll("_", " ").replaceAll("-", " ").replace(/\b\w/g, letter => letter.toUpperCase());
+  }
+  const slug = String(event?.slug || event?.question || event?.title || "").toLowerCase();
+  const outcome = String(event?.outcome || "").toLowerCase();
+  const oddsMarket = String(event?.sportsbook_match?.market || event?.odds_market || "").toLowerCase();
+  if (slug.includes("nrfi")) return "NRFI";
+  if (slug.includes("exact-score")) return "Exact score";
+  if (oddsMarket === "spreads" || slug.includes("-spread-")) return "Spread";
+  if (oddsMarket === "totals" || slug.includes("-total-") || ["over", "under"].includes(outcome)) return "Total";
+  if (outcome.includes("draw") || slug.endsWith("-draw") || slug.includes("-draw-")) return "Draw";
+  return "Moneyline";
+}
+
+function replayDateLabel(event) {
+  const raw = event?.event_end_ts || event?.series_start_ts || "";
+  const date = new Date(raw);
+  if (!Number.isFinite(date.getTime())) return "";
+  return date.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" });
+}
+
 function replayExperimentLabel(event) {
   return cleanReplayEventName(event);
 }
@@ -2307,6 +2380,10 @@ function replayMarketValue(event) {
   return marketLabel(event);
 }
 
+function replayBetTypeValue(event) {
+  return marketTypeValue(event);
+}
+
 function replayOptionCounts(events, valueFn) {
   const counts = new Map();
   events.forEach(item => {
@@ -2327,6 +2404,7 @@ function replayEventsForFilters(events) {
   return events.filter(item => (
     replayFilterMatch(replayMarketValue(item), state.selectedReplayMarket)
     && replayFilterMatch(replayStrategyValue(item), state.selectedReplayStrategy)
+    && replayFilterMatch(replayBetTypeValue(item), state.selectedReplayBetType)
   ));
 }
 
@@ -2379,7 +2457,14 @@ function replaySide(event) {
 }
 
 function replayOptionLabel(event) {
-  return replayExperimentLabel(event);
+  const bits = [replayExperimentLabel(event)];
+  const date = replayDateLabel(event);
+  const betType = replayBetTypeValue(event);
+  const outcome = String(event?.outcome || "").trim();
+  if (date) bits.push(date);
+  if (betType) bits.push(betType);
+  if (outcome) bits.push(outcome);
+  return bits.filter(Boolean).join(" | ");
 }
 
 function replayPricePoints(event) {
@@ -2409,8 +2494,12 @@ function sportsbookPricePoints(event) {
     schema.slice(1).forEach((name, index) => {
       const value = num(point[index + 1]);
       row[name] = value;
-      row[`${name} opposite`] = value === null ? null : Math.max(0, Math.min(1, 1 - value));
     });
+    const sourceKeys = schema.slice(1).filter(name => name !== "Sportsbook consensus");
+    const sourceValues = sourceKeys.map(name => row[name]).filter(value => value !== null);
+    if (sourceValues.length && Object.prototype.hasOwnProperty.call(row, "Sportsbook consensus")) {
+      row["Sportsbook consensus"] = sourceValues.reduce((sum, value) => sum + value, 0) / sourceValues.length;
+    }
     return row;
   }).filter(point => Number.isFinite(point.offset));
 }
@@ -2424,22 +2513,59 @@ function replayHasSportsbook(event) {
 function replayDataSourceOptions(event) {
   const hasSportsbook = replayHasSportsbook(event);
   const sportsbookPointCount = event?.sportsbook_series_point_count ?? (event?.sportsbook_series_points || []).length;
-  const bookCount = Math.max(0, (event?.sportsbook_series_schema || []).length - 2);
+  const sourceCount = Math.max(0, (event?.sportsbook_series_schema || []).length - 1);
   return [
-    { value: "both", label: hasSportsbook ? `CLOB + sportsbook consensus (${fmtInt(sportsbookPointCount)} book pts)` : "CLOB + sportsbook consensus", enabled: hasSportsbook },
+    { value: "both", label: hasSportsbook ? `CLOB + sportsbook sources (${fmtInt(sportsbookPointCount)} snapshots)` : "CLOB + sportsbook sources", enabled: hasSportsbook },
     { value: "polymarket", label: "Polymarket CLOB", enabled: true },
-    { value: "sportsbooks", label: hasSportsbook ? `Sportsbook consensus (${fmtInt(sportsbookPointCount)} pts)` : "Sportsbook consensus", enabled: hasSportsbook },
-    { value: "sportsbook_books", label: hasSportsbook ? `Sportsbook by book (${fmtInt(bookCount)} books)` : "Sportsbook by book", enabled: hasSportsbook && bookCount > 0 },
+    { value: "sportsbooks", label: hasSportsbook ? `Sportsbook sources (${fmtInt(sourceCount)})` : "Sportsbook sources", enabled: hasSportsbook },
   ];
+}
+
+function sportsbookSourceKeys(event) {
+  return (event.sportsbook_series_schema || []).slice(1);
+}
+
+function selectedSportsbookSourceSet(event) {
+  const keys = sportsbookSourceKeys(event);
+  if (!event?.replay_id || !keys.length) return new Set(keys);
+  if (!state.selectedSportsbookSourcesById[event.replay_id]) {
+    state.selectedSportsbookSourcesById[event.replay_id] = keys.slice();
+  }
+  const selected = new Set(state.selectedSportsbookSourcesById[event.replay_id].filter(key => keys.includes(key)));
+  if (!selected.size) {
+    const fallback = keys.includes("Sportsbook consensus") ? "Sportsbook consensus" : keys[0];
+    selected.add(fallback);
+    state.selectedSportsbookSourcesById[event.replay_id] = [fallback];
+  }
+  return selected;
 }
 
 function sportsbookKeysForMode(event, sourceMode) {
   const schemaKeys = (event.sportsbook_series_schema || []).slice(1);
   if (!schemaKeys.length) return [];
-  if (sourceMode === "sportsbook_books") {
-    return schemaKeys.filter(key => key !== "Sportsbook consensus");
+  if (!["sportsbooks", "both"].includes(sourceMode)) return [];
+  const selected = selectedSportsbookSourceSet(event);
+  return schemaKeys.filter(key => selected.has(key));
+}
+
+function renderSportsbookSourceToggles(event) {
+  const container = $("replay-source-toggles");
+  if (!container) return;
+  const keys = sportsbookSourceKeys(event);
+  const sourceMode = state.selectedReplayDataSource || "polymarket";
+  const show = keys.length && ["sportsbooks", "both"].includes(sourceMode);
+  container.classList.toggle("active", Boolean(show));
+  if (!show) {
+    container.innerHTML = "";
+    return;
   }
-  return schemaKeys.includes("Sportsbook consensus") ? ["Sportsbook consensus"] : [schemaKeys[0]];
+  const selected = selectedSportsbookSourceSet(event);
+  container.innerHTML = keys.map(key => `
+    <label class="source-toggle">
+      <input type="checkbox" data-sportsbook-source="${esc(key)}" ${selected.has(key) ? "checked" : ""}>
+      <span>${esc(key)}</span>
+    </label>
+  `).join("");
 }
 
 function setChartSourceNote(text = "") {
@@ -2863,6 +2989,7 @@ function drawReplayChart(event) {
   const showPolymarket = sourceMode === "polymarket" || sourceMode === "both" || !bookPoints.length;
   const showSportsbooks = bookPoints.length && (sourceMode === "sportsbooks" || sourceMode === "sportsbook_books" || sourceMode === "both");
   const sportsbookKeys = sportsbookKeysForMode(event, sourceMode);
+  renderSportsbookSourceToggles(event);
   const points = showPolymarket && showSportsbooks
     ? [...polyPoints, ...bookPoints]
     : showPolymarket ? polyPoints : bookPoints;
@@ -2898,7 +3025,7 @@ function drawReplayChart(event) {
   const visibleMarkers = markers.filter(marker => num(marker.offset_sec) >= bounds.minX && num(marker.offset_sec) <= bounds.maxX);
   const spanX = Math.max(1, bounds.maxX - bounds.minX);
   if ($("chart-title")) {
-    $("chart-title").textContent = replayExperimentLabel(event);
+    $("chart-title").textContent = replayOptionLabel(event);
   }
   const clobPointCount = event.series_point_count ?? polyPoints.length;
   const sportsbookPointCount = event.sportsbook_series_point_count ?? bookPoints.length;
@@ -2913,16 +3040,16 @@ function drawReplayChart(event) {
     if (coverage.maxGapSec && coverage.maxGapSec > 30 * 60) gapBits.push(`max gap ${durationLabel(coverage.maxGapSec)}`);
     const gapText = gapBits.length ? `; ${gapBits.join(", ")}` : "";
     const qualityText = sportsbookQuality ? ` ${sportsbookQuality}.` : "";
-    setChartSourceNote(`${fmtInt(clobPointCount)} CLOB minute pts; ${fmtInt(sportsbookPointCount)} book snapshots; book span ${fmtPct(coverage.coverage)}${gapText}.${qualityText} Sportsbooks show last quoted fair %, not settlement.`);
+    setChartSourceNote(`${fmtInt(clobPointCount)} CLOB minute pts; ${fmtInt(sportsbookPointCount)} book snapshots; book span ${fmtPct(coverage.coverage)}${gapText}.${qualityText} Consensus is recomputed from available sportsbook source columns; books show last quoted fair %, not settlement.`);
   } else if (showSportsbooks) {
     const qualityText = sportsbookQuality ? ` ${sportsbookQuality}.` : "";
-    setChartSourceNote(`${fmtInt(sportsbookPointCount)} sportsbook snapshots.${qualityText} Sportsbooks show last quoted fair %, not settlement.`);
+    setChartSourceNote(`${fmtInt(sportsbookPointCount)} sportsbook snapshots.${qualityText} Consensus is recomputed from available sportsbook source columns; books show last quoted fair %, not settlement.`);
   } else {
     setChartSourceNote(`${fmtInt(clobPointCount)} CLOB minute pts`);
   }
   const priceValues = [
     ...(showPolymarket ? visiblePolyPoints.flatMap(point => [point.selected, point.other]) : []),
-    ...(showSportsbooks ? visibleBookPoints.flatMap(point => sportsbookKeys.flatMap(name => [point[name], point[`${name} opposite`]])) : []),
+    ...(showSportsbooks ? visibleBookPoints.flatMap(point => sportsbookKeys.map(name => point[name])) : []),
     ...visibleMarkers.map(marker => num(marker.price))
   ].filter(value => value !== null);
   let minY = Math.max(0, Math.min(...priceValues));
@@ -2963,48 +3090,32 @@ function drawReplayChart(event) {
     return `<text x="${(width - pad.right + 10).toFixed(1)}" y="${y.toFixed(1)}" fill="${color}" font-size="12" font-weight="800" paint-order="stroke" stroke="#fff" stroke-width="4">${esc(shortLabel(label, 16))}</text>`;
   };
   const sportsbookColors = ["#16a34a", "#7c3aed", "#dc2626", "#0891b2", "#9333ea", "#65a30d", "#be123c", "#0f766e", "#a16207"];
-  const sportsbookOtherColor = sourceMode === "sportsbook_books" ? null : "#be123c";
   const polyLabels = showPolymarket ? [
     lineLabel(visiblePolyPoints, "selected", `PM ${event.outcome || "Selected"}`, "#1f77b4", -22),
     lineLabel(visiblePolyPoints, "other", `PM ${event.other_outcome || "Other side"}`, "#f59e0b", 18)
   ] : [];
-  const bookLabels = showSportsbooks ? sportsbookKeys.slice(0, sourceMode === "sportsbook_books" ? 4 : 1).flatMap((key, index) => {
+  const bookLabels = showSportsbooks ? sportsbookKeys.slice(0, 6).map((key, index) => {
     const selectedColor = sportsbookColors[index % sportsbookColors.length];
-    const otherColor = sportsbookOtherColor || selectedColor;
-    const selectedLabel = key === "Sportsbook consensus" ? `SB ${event.outcome || "selected"}` : `${key} sel`;
-    const otherLabel = key === "Sportsbook consensus" ? `SB ${event.other_outcome || "opposite"}` : `${key} opp`;
-    return [
-      lineLabel(visibleBookPoints, key, selectedLabel, selectedColor, index * 20 - 26),
-      lineLabel(visibleBookPoints, `${key} opposite`, otherLabel, otherColor, index * 20 - 8)
-    ];
+    return lineLabel(visibleBookPoints, key, key, selectedColor, index * 18 - 26);
   }) : [];
   const lineLabels = [...polyLabels, ...bookLabels].join("");
   const sportsbookLines = showSportsbooks ? sportsbookKeys.flatMap((key, index) => {
     const selectedColor = sportsbookColors[index % sportsbookColors.length];
-    const otherColor = sportsbookOtherColor || selectedColor;
     const isConsensus = key === "Sportsbook consensus";
     const selectedOpacity = isConsensus ? 0.95 : 0.58;
-    const otherOpacity = isConsensus ? 0.88 : 0.34;
     const selectedWidth = isConsensus ? 3 : 1.8;
-    const otherWidth = isConsensus ? 2.6 : 1.6;
     const selectedSegments = replaySegmentPaths(visibleBookPoints, key, sx, sy);
-    const otherSegments = replaySegmentPaths(visibleBookPoints, `${key} opposite`, sx, sy);
     return [
       ...selectedSegments.map(path => `<polyline class="chart-series" points="${path}" fill="none" stroke="${selectedColor}" stroke-width="${selectedWidth}" stroke-dasharray="none" opacity="${selectedOpacity}" />`),
-      ...otherSegments.map(path => `<polyline class="chart-series" points="${path}" fill="none" stroke="${otherColor}" stroke-width="${otherWidth}" stroke-dasharray="none" opacity="${otherOpacity}" />`)
     ];
   }).join("") : "";
   const sportsbookDots = showSportsbooks ? sportsbookKeys.flatMap((key, index) => {
     const selectedColor = sportsbookColors[index % sportsbookColors.length];
-    const otherColor = sportsbookOtherColor || selectedColor;
     const isConsensus = key === "Sportsbook consensus";
     return [
       ...visibleBookPoints
         .filter(point => point[key] !== null)
         .map(point => `<circle cx="${sx(point.offset).toFixed(1)}" cy="${sy(point[key]).toFixed(1)}" r="${isConsensus ? "4.2" : "2.8"}" fill="${selectedColor}" opacity="${isConsensus ? "0.92" : "0.5"}" />`),
-      ...visibleBookPoints
-        .filter(point => point[`${key} opposite`] !== null)
-        .map(point => `<circle cx="${sx(point.offset).toFixed(1)}" cy="${sy(point[`${key} opposite`]).toFixed(1)}" r="${isConsensus ? "4.0" : "2.5"}" fill="${otherColor}" opacity="${isConsensus ? "0.82" : "0.32"}" />`)
     ];
   }).join("") : "";
   const bookOffsets = bookPoints.map(point => point.offset).filter(value => Number.isFinite(value));
@@ -3026,11 +3137,9 @@ function drawReplayChart(event) {
     ] : []),
     ...(showSportsbooks ? sportsbookKeys.flatMap((key, index) => {
       const selectedColor = sportsbookColors[index % sportsbookColors.length];
-      const otherColor = sportsbookOtherColor || selectedColor;
       const sourceLabel = key === "Sportsbook consensus" ? "Sportsbook consensus" : key;
       return [
-        { label: `${sourceLabel} ${event.outcome || "selected"}`, color: selectedColor, opacity: key === "Sportsbook consensus" ? 0.95 : 0.58 },
-        { label: `${sourceLabel} ${event.other_outcome || "opposite"}`, color: otherColor, opacity: key === "Sportsbook consensus" ? 0.88 : 0.34 }
+        { label: sourceLabel, color: selectedColor, opacity: key === "Sportsbook consensus" ? 0.95 : 0.58 }
       ];
     }) : [])
   ];
@@ -3362,15 +3471,18 @@ function renderReplay(data) {
   const select = $("replay-select");
   const marketSelect = $("replay-market-select");
   const strategySelect = $("replay-strategy-select");
+  const betTypeSelect = $("replay-bet-type-select");
   if (state.replayTab === "paper") {
     $("replay-count-pill").textContent = "no paper trades";
     $("replay-count-pill").className = "pill warn";
     marketSelect.disabled = true;
     strategySelect.disabled = true;
+    betTypeSelect.disabled = true;
     $("replay-data-source-select").disabled = true;
     select.disabled = true;
     marketSelect.innerHTML = `<option>No paper markets yet</option>`;
     strategySelect.innerHTML = `<option>No paper strategies yet</option>`;
+    betTypeSelect.innerHTML = `<option>No paper bet types yet</option>`;
     $("replay-data-source-select").innerHTML = `<option>No paper data yet</option>`;
     select.innerHTML = `<option>No paper trades yet</option>`;
     $("replay-title").textContent = "Paper Trade";
@@ -3387,6 +3499,7 @@ function renderReplay(data) {
 
   marketSelect.disabled = false;
   strategySelect.disabled = false;
+  betTypeSelect.disabled = false;
   $("replay-data-source-select").disabled = false;
   select.disabled = false;
   if (!events.length) {
@@ -3395,10 +3508,12 @@ function renderReplay(data) {
     const coverageLine = `${fmtPct(dataset.oddsRowCoverage)} Odds API coverage`;
     marketSelect.disabled = true;
     strategySelect.disabled = true;
+    betTypeSelect.disabled = true;
     $("replay-data-source-select").disabled = true;
     select.disabled = true;
     marketSelect.innerHTML = `<option>No markets loaded</option>`;
     strategySelect.innerHTML = `<option>No strategies loaded</option>`;
+    betTypeSelect.innerHTML = `<option>No bet types loaded</option>`;
     $("replay-data-source-select").innerHTML = `<option>No sources loaded</option>`;
     select.innerHTML = `<option>No replay data loaded</option>`;
     $("replay-count-pill").textContent = "no events";
@@ -3430,6 +3545,13 @@ function renderReplay(data) {
     marketFiltered,
     state.selectedReplayStrategy
   );
+  const strategyFiltered = marketFiltered.filter(item => replayFilterMatch(replayStrategyValue(item), state.selectedReplayStrategy));
+  state.selectedReplayBetType = renderReplayFilterOptions(
+    betTypeSelect,
+    replayOptionCounts(strategyFiltered, replayBetTypeValue),
+    state.selectedReplayBetType,
+    "All bet types"
+  );
   const filteredEvents = replayEventsForFilters(events);
   $("replay-count-pill").textContent = filteredEvents.length
     ? `${fmtInt(filteredEvents.length)} / ${fmtInt(events.length)} events`
@@ -3438,6 +3560,7 @@ function renderReplay(data) {
 
   if (!filteredEvents.length) {
     select.disabled = true;
+    betTypeSelect.disabled = false;
     $("replay-data-source-select").disabled = true;
     $("replay-data-source-select").innerHTML = `<option>No sources loaded</option>`;
     select.innerHTML = `<option>No events for selected filters</option>`;
@@ -3481,6 +3604,7 @@ function renderReplay(data) {
     $("replay-event-strip").innerHTML = [
       ["Strategy", strategyLabel(event.strategy_label || event.strategy || event.bucket)],
       ["Market", marketLabel(event)],
+      ["Bet type", replayBetTypeValue(event)],
       ["Order", plotOnly ? `Plot ${side.display}` : side.order],
       ["Position", plotOnly ? "--" : replayTradeAmount(stats)],
       ["Event PnL", plotOnly ? "--" : `${fmtSignedUsd(pos.pnlUsd)} (${fmtPct(stats.roi)})`],
@@ -3527,14 +3651,15 @@ function renderReplay(data) {
   }
   $("replay-title").textContent = replayExperimentLabel(fullEvent);
   const dataLabel = state.selectedReplayDataSource === "sportsbooks"
-    ? "Sportsbook fair %"
+    ? "Sportsbook sources"
     : state.selectedReplayDataSource === "both"
-      ? "CLOB + sportsbook"
+      ? "CLOB + sportsbook sources"
       : "Polymarket CLOB";
   const qualityLabel = replaySportsbookQuality(fullEvent);
   $("replay-event-strip").innerHTML = [
     ["Strategy", strategyLabel(fullEvent.strategy_label || fullEvent.strategy || fullEvent.bucket)],
     ["Market", marketLabel(fullEvent)],
+    ["Bet type", replayBetTypeValue(fullEvent)],
     ["Data", qualityLabel ? `${dataLabel}; ${qualityLabel}` : dataLabel],
     ["Order", plotOnly ? `Plot ${side.display}` : side.order],
     ["Result", plotOnly ? "No trade" : stats.won ? "Won" : "Lost"],
@@ -3685,6 +3810,7 @@ document.addEventListener("change", event => {
   if (event.target && event.target.id === "replay-market-select") {
     state.selectedReplayMarket = event.target.value || "__all__";
     state.selectedReplayStrategy = "__all__";
+    state.selectedReplayBetType = "__all__";
     state.selectedReplayId = null;
     state.replayWindow = "full";
     state.replayZoomById = {};
@@ -3695,6 +3821,17 @@ document.addEventListener("change", event => {
   }
   if (event.target && event.target.id === "replay-strategy-select") {
     state.selectedReplayStrategy = event.target.value || "__all__";
+    state.selectedReplayBetType = "__all__";
+    state.selectedReplayId = null;
+    state.replayWindow = "full";
+    state.replayZoomById = {};
+    state.replayYRangeById = {};
+    state.replayDrag = null;
+    renderReplay(deriveDashboard());
+    return;
+  }
+  if (event.target && event.target.id === "replay-bet-type-select") {
+    state.selectedReplayBetType = event.target.value || "__all__";
     state.selectedReplayId = null;
     state.replayWindow = "full";
     state.replayZoomById = {};
@@ -3717,6 +3854,17 @@ document.addEventListener("change", event => {
     renderReplay(deriveDashboard());
     return;
   }
+  if (event.target?.matches?.("[data-sportsbook-source]")) {
+    const detail = state.replayDetails[state.selectedReplayId] || {};
+    const keys = sportsbookSourceKeys(detail);
+    const checked = [...document.querySelectorAll("[data-sportsbook-source]")]
+      .filter(input => input.checked)
+      .map(input => input.dataset.sportsbookSource)
+      .filter(key => keys.includes(key));
+    state.selectedSportsbookSourcesById[state.selectedReplayId] = checked;
+    renderReplay(deriveDashboard());
+    return;
+  }
   if (event.target && event.target.id === "strategy-evidence-select") {
     state.selectedEvidenceStrategy = event.target.value || "Favorite-longshot fade";
     renderStrategyOverview(deriveDashboard());
@@ -3730,6 +3878,7 @@ document.addEventListener("click", event => {
     state.selectedReplayId = null;
     state.selectedReplayMarket = "__all__";
     state.selectedReplayStrategy = "__all__";
+    state.selectedReplayBetType = "__all__";
     state.replayWindow = "full";
     state.replayZoomById = {};
     state.replayYRangeById = {};

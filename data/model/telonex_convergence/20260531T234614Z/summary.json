@@ -1,0 +1,1365 @@
+{
+  "classification": {
+    "calibration": {
+      "auc": 0.9432725256637928,
+      "brier": 0.003421260601284001,
+      "ece_10": 3.581580118915166e-08,
+      "log_loss": 0.016094096509753283,
+      "positive_rate": 0.003846988048081643,
+      "rows": 525606
+    },
+    "test": {
+      "auc": 0.9368845579511055,
+      "brier": 0.011325126163090896,
+      "ece_10": 0.002852705387360348,
+      "log_loss": 0.046595022611273074,
+      "positive_rate": 0.013260628534692395,
+      "rows": 858632
+    },
+    "train": {
+      "auc": 0.9661311509730947,
+      "brier": 0.007373180279172516,
+      "ece_10": 0.0008981062706296687,
+      "log_loss": 0.029785255010008314,
+      "positive_rate": 0.009103917879136903,
+      "rows": 3825386
+    },
+    "val": {
+      "auc": 0.9496710533346977,
+      "brier": 0.015211682322926717,
+      "ece_10": 0.0022973725014300947,
+      "log_loss": 0.05798903186766052,
+      "positive_rate": 0.019565094345555666,
+      "rows": 477023
+    }
+  },
+  "dataset": {
+    "markets": 1550,
+    "positive_rate": 0.012063021562979422,
+    "rows": 6395081,
+    "splits": {
+      "test": 858632,
+      "train": 3825386,
+      "unobserved": 708434,
+      "val": 1002629
+    },
+    "sports": {
+      "americanfootball_nfl": 415814,
+      "baseball_mlb": 455159,
+      "basketball_nba": 358998,
+      "basketball_wnba": 245118,
+      "icehockey_nhl": 1224570,
+      "soccer": 3267734,
+      "tennis": 427688
+    },
+    "tokens": 3098
+  },
+  "ensemble": {
+    "blend_recent_weight": 0.0,
+    "historical_model": true,
+    "recent_model": false,
+    "recent_model_audit": {
+      "blend_recent_weight": 0.0,
+      "cutoff": "2026-05-07 23:59:00+00:00",
+      "enabled": true,
+      "markets": 132,
+      "min_recent_positive_rows": 100,
+      "min_recent_rows": 10000,
+      "positive_rate": 0.014360417539867873,
+      "positive_rows": 10073,
+      "reason": "trained",
+      "rows": 701442,
+      "window_days": 21.0
+    },
+    "recent_window_days": 21.0
+  },
+  "feature_audit": {
+    "all_null_features": [],
+    "categorical_feature_count": 6,
+    "feature_count": 100,
+    "high_missing_features": {},
+    "numeric_feature_count": 94,
+    "numeric_missing_ratio": {
+      "depth_imbalance_delta_30s": 0.1688507151043122,
+      "lag_quote_age_30s": 0.1688507151043122,
+      "last_trade_age_sec": 0.1705029224805753,
+      "last_trade_price": 0.1705029224805753,
+      "last_trade_price_delta_mid": 0.1705029224805753,
+      "last_trade_size": 0.1705029224805753,
+      "mid_abs_delta_30s": 0.1688507151043122,
+      "mid_delta_30s": 0.1688507151043122,
+      "obi_3c_delta_30s": 0.1688507151043122,
+      "odds_book_count": 0.16210553079781162,
+      "odds_fair_mean": 0.16210553079781162,
+      "odds_fair_median": 0.16210553079781162,
+      "odds_fair_prob": 0.16210553079781162,
+      "odds_fair_std": 0.16832077654684904,
+      "odds_poly_gap_ask": 0.16210553079781162,
+      "odds_poly_gap_mid": 0.16210553079781162,
+      "odds_quote_age_sec": 0.16210553079781162,
+      "odds_sharp_book_count": 0.16210553079781162,
+      "odds_source_minutes_to_commence": 0.16210553079781162,
+      "spread_delta_30s": 0.1688507151043122
+    },
+    "split_feature_audit": {
+      "calibration": {
+        "all_null_features": [],
+        "high_missing_features": {},
+        "rows": 525606
+      },
+      "test": {
+        "all_null_features": [],
+        "high_missing_features": {},
+        "rows": 858632
+      },
+      "train": {
+        "all_null_features": [],
+        "high_missing_features": {},
+        "rows": 3825386
+      },
+      "val": {
+        "all_null_features": [],
+        "high_missing_features": {},
+        "rows": 477023
+      }
+    },
+    "unsafe_feature_columns": []
+  },
+  "generated_at": "2026-05-31T23:46:20.390439+00:00",
+  "independent_metric_audit": {
+    "all_splits_match": true,
+    "splits": {
+      "test": {
+        "markets": 50,
+        "matches_summary": true,
+        "pnl": 47.33425177,
+        "roi": 0.09215129866564915,
+        "stake": 513.6579999999999,
+        "trades": 2134
+      },
+      "train": {
+        "markets": 300,
+        "matches_summary": true,
+        "pnl": 233.8424792,
+        "roi": 0.17396133463173094,
+        "stake": 1344.221,
+        "trades": 4943
+      },
+      "val": {
+        "markets": 35,
+        "matches_summary": true,
+        "pnl": 24.89828245,
+        "roi": 0.03686073298700606,
+        "stake": 675.469,
+        "trades": 2496
+      }
+    }
+  },
+  "label_audit": {
+    "critical_nulls": {
+      "asof_ts": 0,
+      "entry_ask": 0,
+      "entry_bid": 0,
+      "future_ask": 0,
+      "future_bid": 0,
+      "future_ts": 0,
+      "maker_pnl_per_share": 0,
+      "maker_positive": 0,
+      "target_ts": 0
+    },
+    "markets": 1550,
+    "quantiles": {
+      "entry_ask": {
+        "0.0": 0.001,
+        "0.01": 0.1,
+        "0.05": 0.13,
+        "0.5": 0.51,
+        "0.95": 0.89,
+        "0.99": 0.94,
+        "1.0": 0.999
+      },
+      "entry_bid": {
+        "0.0": 0.001,
+        "0.01": 0.06,
+        "0.05": 0.11,
+        "0.5": 0.49,
+        "0.95": 0.87,
+        "0.99": 0.9,
+        "1.0": 0.999
+      },
+      "entry_mid": {
+        "0.0": 0.001,
+        "0.01": 0.095,
+        "0.05": 0.125,
+        "0.5": 0.5,
+        "0.95": 0.875,
+        "0.99": 0.905,
+        "1.0": 0.999
+      },
+      "entry_spread": {
+        "0.0": 0.0,
+        "0.01": 0.009999999999999898,
+        "0.05": 0.009999999999999953,
+        "0.5": 0.010000000000000009,
+        "0.95": 0.03,
+        "0.99": 0.48,
+        "1.0": 0.98
+      },
+      "future_ask": {
+        "0.0": 0.001,
+        "0.01": 0.1,
+        "0.05": 0.13,
+        "0.5": 0.51,
+        "0.95": 0.89,
+        "0.99": 0.94,
+        "1.0": 0.999
+      },
+      "future_bid": {
+        "0.0": 0.001,
+        "0.01": 0.06,
+        "0.05": 0.11,
+        "0.5": 0.49,
+        "0.95": 0.87,
+        "0.99": 0.9,
+        "1.0": 0.999
+      },
+      "future_mid": {
+        "0.0": 0.001,
+        "0.01": 0.095,
+        "0.05": 0.125,
+        "0.5": 0.5,
+        "0.95": 0.875,
+        "0.99": 0.905,
+        "1.0": 0.999
+      },
+      "maker_pnl_per_share": {
+        "0.0": -0.8833300000000001,
+        "0.01": -0.024817000000000006,
+        "0.05": -0.014994,
+        "0.5": -0.0126,
+        "0.95": -0.004913999999999998,
+        "0.99": 0.0021430000000000086,
+        "1.0": 0.979406
+      },
+      "mid_delta_60s": {
+        "0.0": -0.425,
+        "0.01": -0.0050000000000000044,
+        "0.05": 0.0,
+        "0.5": 0.0,
+        "0.95": 0.0,
+        "0.99": 0.0050000000000000044,
+        "1.0": 0.42500000000000004
+      },
+      "mid_move_horizon": {
+        "0.0": -0.86,
+        "0.01": -0.010000000000000009,
+        "0.05": 0.0,
+        "0.5": 0.0,
+        "0.95": 0.0,
+        "0.99": 0.010000000000000009,
+        "1.0": 0.86
+      },
+      "spread_delta_60s": {
+        "0.0": -0.95,
+        "0.01": -0.010000000000000009,
+        "0.05": 0.0,
+        "0.5": 0.0,
+        "0.95": 0.0,
+        "0.99": 0.010000000000000009,
+        "1.0": 0.95
+      }
+    },
+    "rows": 6395081,
+    "target_rate": 0.012063021562979422,
+    "time_max": "2026-05-30 23:50:00+00:00",
+    "time_min": "2025-11-04 00:01:00+00:00",
+    "tokens": 3098
+  },
+  "label_coverage": {
+    "by_split": {
+      "calibration": {
+        "maker_trade_fill_any_rate": 0.456381776463739,
+        "maker_trade_fill_any_rows": 239877,
+        "maker_trade_fill_positive_rate": 7.610263200952804e-05,
+        "maker_trade_fill_positive_rows": 40,
+        "maker_trade_fill_queue_rate": 0.0234377080931344,
+        "maker_trade_fill_queue_rows": 12319,
+        "maker_trade_target_observed_rate": 1.0,
+        "maker_trade_target_observed_rows": 525606,
+        "markets": 102,
+        "nonzero_pnl_rows": 525606,
+        "positive_rate": 0.003846988048081643,
+        "positive_rows": 2022,
+        "rows": 525606,
+        "stake_sum": 260121.01,
+        "tokens": 204,
+        "trade_feature_rate": 0.9786836527741312,
+        "trade_feature_rows": 514402
+      },
+      "test": {
+        "maker_trade_fill_any_rate": 0.24849295157879045,
+        "maker_trade_fill_any_rows": 213364,
+        "maker_trade_fill_positive_rate": 0.0006475416709370254,
+        "maker_trade_fill_positive_rows": 556,
+        "maker_trade_fill_queue_rate": 0.01719479357862274,
+        "maker_trade_fill_queue_rows": 14764,
+        "maker_trade_target_observed_rate": 0.9966784373282151,
+        "maker_trade_target_observed_rows": 855780,
+        "markets": 208,
+        "nonzero_pnl_rows": 858632,
+        "positive_rate": 0.013260628534692395,
+        "positive_rows": 11386,
+        "rows": 858632,
+        "stake_sum": 420136.1190000002,
+        "tokens": 416,
+        "trade_feature_rate": 0.9191807433219353,
+        "trade_feature_rows": 789238
+      },
+      "train": {
+        "maker_trade_fill_any_rate": 0.26483837186626397,
+        "maker_trade_fill_any_rows": 1013109,
+        "maker_trade_fill_positive_rate": 0.000313432422244448,
+        "maker_trade_fill_positive_rows": 1199,
+        "maker_trade_fill_queue_rate": 0.022050585221988054,
+        "maker_trade_fill_queue_rows": 84352,
+        "maker_trade_target_observed_rate": 0.9987541126568665,
+        "maker_trade_target_observed_rows": 3820620,
+        "markets": 960,
+        "nonzero_pnl_rows": 3825386,
+        "positive_rate": 0.009103917879136903,
+        "positive_rows": 34826,
+        "rows": 3825386,
+        "stake_sum": 1884923.5170000012,
+        "tokens": 1919,
+        "trade_feature_rate": 0.930313437650475,
+        "trade_feature_rows": 3558808
+      },
+      "val": {
+        "maker_trade_fill_any_rate": 0.2938055397748117,
+        "maker_trade_fill_any_rows": 140152,
+        "maker_trade_fill_positive_rate": 0.0020837569676933816,
+        "maker_trade_fill_positive_rows": 994,
+        "maker_trade_fill_queue_rate": 0.021248451332535327,
+        "maker_trade_fill_queue_rows": 10136,
+        "maker_trade_target_observed_rate": 1.0,
+        "maker_trade_target_observed_rows": 477023,
+        "markets": 103,
+        "nonzero_pnl_rows": 477023,
+        "positive_rate": 0.019565094345555666,
+        "positive_rows": 9333,
+        "rows": 477023,
+        "stake_sum": 233724.93399999995,
+        "tokens": 205,
+        "trade_feature_rate": 0.9271104328302828,
+        "trade_feature_rows": 442253
+      }
+    },
+    "gate": true,
+    "pnl_col": "maker_pnl_per_share",
+    "reasons": [],
+    "stake_col": "entry_bid",
+    "target_col": "maker_positive",
+    "trade_fill_target": false
+  },
+  "odds_coverage_performance": {
+    "by_split": {
+      "calibration": {
+        "clob_only": {
+          "classification": {
+            "auc": null,
+            "brier": null,
+            "ece_10": null,
+            "log_loss": null,
+            "positive_rate": null,
+            "rows": 0
+          },
+          "markets": 0,
+          "rows": 0,
+          "trading": {
+            "avg_prob": null,
+            "ci_hi": null,
+            "ci_lo": null,
+            "markets": 0,
+            "pnl": 0.0,
+            "roi": null,
+            "stake": 0.0,
+            "threshold": 0.5483912013758625,
+            "tokens": 0,
+            "trades": 0,
+            "win_rate": null
+          }
+        },
+        "odds_api_covered": {
+          "avg_convergence_prob": 0.0038469880480816432,
+          "avg_entry_mid": 0.5,
+          "classification": {
+            "auc": 0.9432725256637928,
+            "brier": 0.003421260601284001,
+            "ece_10": 3.581580118915166e-08,
+            "log_loss": 0.016094096509753283,
+            "positive_rate": 0.003846988048081643,
+            "rows": 525606
+          },
+          "convergence_prob_vs_odds_fair_corr": 0.052399566966577334,
+          "convergence_prob_vs_odds_fair_mae": 0.4538208379330162,
+          "markets": 102,
+          "positive_rate": 0.003846988048081643,
+          "rows": 525606,
+          "tokens": 204,
+          "trading": {
+            "avg_prob": 0.6449429255137935,
+            "ci_hi": 0.004978221081851758,
+            "ci_lo": 0.0018811936404886827,
+            "markets": 1,
+            "pnl": 0.16095866000000014,
+            "roi": 0.0033169570951654815,
+            "stake": 48.525999999999996,
+            "threshold": 0.5483912013758625,
+            "tokens": 2,
+            "trades": 65,
+            "win_rate": 0.6307692307692307
+          }
+        }
+      },
+      "test": {
+        "clob_only": {
+          "avg_convergence_prob": 0.05979290852321327,
+          "avg_entry_mid": 0.5,
+          "classification": {
+            "auc": 0.8634148865355522,
+            "brier": 0.03284447331789524,
+            "ece_10": 0.029238045311284655,
+            "log_loss": 0.12115946288324557,
+            "positive_rate": 0.030554876558298704,
+            "rows": 40910
+          },
+          "markets": 23,
+          "positive_rate": 0.030554876558298704,
+          "rows": 40910,
+          "tokens": 46,
+          "trading": {
+            "avg_prob": 0.5880018647327035,
+            "ci_hi": 0.3953754527367209,
+            "ci_lo": 0.16351001888255567,
+            "markets": 10,
+            "pnl": 9.769533,
+            "roi": 0.2646135698808234,
+            "stake": 36.919999999999995,
+            "threshold": 0.5483912013758625,
+            "tokens": 16,
+            "trades": 270,
+            "win_rate": 0.26296296296296295
+          }
+        },
+        "odds_api_covered": {
+          "avg_convergence_prob": 0.01386836683994464,
+          "avg_entry_mid": 0.4999999999999998,
+          "classification": {
+            "auc": 0.9393303477038258,
+            "brier": 0.010248529847835775,
+            "ece_10": 0.001555484867324465,
+            "log_loss": 0.042864621262738496,
+            "positive_rate": 0.012395410665238308,
+            "rows": 817722
+          },
+          "convergence_prob_vs_odds_fair_corr": 0.0454729479485416,
+          "convergence_prob_vs_odds_fair_mae": 0.47040903651905497,
+          "markets": 186,
+          "positive_rate": 0.012395410665238308,
+          "rows": 817722,
+          "tokens": 372,
+          "trading": {
+            "avg_prob": 0.6625606074487266,
+            "ci_hi": 0.09870653820247777,
+            "ci_lo": 0.05860660402282673,
+            "markets": 41,
+            "pnl": 37.56471877,
+            "roi": 0.07879531056890787,
+            "stake": 476.738,
+            "threshold": 0.5483912013758625,
+            "tokens": 69,
+            "trades": 1864,
+            "win_rate": 0.5697424892703863
+          }
+        }
+      },
+      "train": {
+        "clob_only": {
+          "avg_convergence_prob": 0.016101460481897166,
+          "avg_entry_mid": 0.49999999999999994,
+          "classification": {
+            "auc": 0.9652028849452561,
+            "brier": 0.011441702088183488,
+            "ece_10": 0.0013596678777510376,
+            "log_loss": 0.04387170378898739,
+            "positive_rate": 0.015470033042789023,
+            "rows": 792306
+          },
+          "markets": 176,
+          "positive_rate": 0.015470033042789023,
+          "rows": 792306,
+          "tokens": 352,
+          "trading": {
+            "avg_prob": 0.6519311566921455,
+            "ci_hi": 0.6868000591597032,
+            "ci_lo": 0.5596640417053901,
+            "markets": 60,
+            "pnl": 209.2643342,
+            "roi": 0.6197284759425595,
+            "stake": 337.671,
+            "threshold": 0.5483912013758625,
+            "tokens": 100,
+            "trades": 2571,
+            "win_rate": 0.6394399066511085
+          }
+        },
+        "odds_api_covered": {
+          "avg_convergence_prob": 0.008208076738840499,
+          "avg_entry_mid": 0.5002704017038784,
+          "classification": {
+            "auc": 0.964918810978903,
+            "brier": 0.00631039451670986,
+            "ece_10": 0.0008710578488980405,
+            "log_loss": 0.02610557037054026,
+            "positive_rate": 0.007440951112400596,
+            "rows": 3033080
+          },
+          "convergence_prob_vs_odds_fair_corr": 0.013391649055933433,
+          "convergence_prob_vs_odds_fair_mae": 0.4895865251301809,
+          "markets": 844,
+          "positive_rate": 0.007440951112400596,
+          "rows": 3033080,
+          "tokens": 1687,
+          "trading": {
+            "avg_prob": 0.6671936605381177,
+            "ci_hi": 0.03496098269633663,
+            "ci_lo": 0.0139793024354661,
+            "markets": 240,
+            "pnl": 24.578145000000003,
+            "roi": 0.024418205752322293,
+            "stake": 1006.55,
+            "threshold": 0.5483912013758625,
+            "tokens": 398,
+            "trades": 2372,
+            "win_rate": 0.4877740303541315
+          }
+        }
+      },
+      "val": {
+        "clob_only": {
+          "avg_convergence_prob": 0.03476420154946244,
+          "avg_entry_mid": 0.5,
+          "classification": {
+            "auc": 0.9211019789361555,
+            "brier": 0.01948359706681521,
+            "ece_10": 0.01212191062525793,
+            "log_loss": 0.07644850064932934,
+            "positive_rate": 0.022712190589952882,
+            "rows": 60276
+          },
+          "markets": 24,
+          "positive_rate": 0.022712190589952882,
+          "rows": 60276,
+          "tokens": 48,
+          "trading": {
+            "avg_prob": 0.6267233137967775,
+            "ci_hi": 0.7591149913846124,
+            "ci_lo": 0.35657025510498047,
+            "markets": 11,
+            "pnl": 16.069603999999998,
+            "roi": 0.539973252688172,
+            "stake": 29.759999999999998,
+            "threshold": 0.5483912013758625,
+            "tokens": 19,
+            "trades": 174,
+            "win_rate": 0.5919540229885057
+          }
+        },
+        "odds_api_covered": {
+          "avg_convergence_prob": 0.01999537614835357,
+          "avg_entry_mid": 0.5000000359930606,
+          "classification": {
+            "auc": 0.9535942599450908,
+            "brier": 0.014593816008105918,
+            "ece_10": 0.0024277104714506164,
+            "log_loss": 0.055319155563130745,
+            "positive_rate": 0.019109915608270727,
+            "rows": 416747
+          },
+          "convergence_prob_vs_odds_fair_corr": 0.040538045458063665,
+          "convergence_prob_vs_odds_fair_mae": 0.45480501317813615,
+          "markets": 82,
+          "positive_rate": 0.019109915608270727,
+          "rows": 416747,
+          "tokens": 163,
+          "trading": {
+            "avg_prob": 0.6509542722419036,
+            "ci_hi": 0.026678239022357903,
+            "ci_lo": 0.0016045542018151041,
+            "markets": 24,
+            "pnl": 8.828678449999998,
+            "roi": 0.013672844036555165,
+            "stake": 645.709,
+            "threshold": 0.5483912013758625,
+            "tokens": 45,
+            "trades": 2322,
+            "win_rate": 0.45348837209302323
+          }
+        }
+      }
+    },
+    "enabled": true,
+    "note": "Covered vs uncovered metrics show whether optional sportsbook features help the CLOB target. For maker/convergence targets, correlation to sportsbook fair probability is not interpreted as event-outcome calibration."
+  },
+  "odds_features": {
+    "coverage_by_split": {
+      "test": {
+        "markets": 208,
+        "matched_markets": 186,
+        "matched_rows": 817722,
+        "matched_tokens": 372,
+        "row_coverage": 0.9523544428812344,
+        "rows": 858632
+      },
+      "train": {
+        "markets": 960,
+        "matched_markets": 844,
+        "matched_rows": 3033080,
+        "matched_tokens": 1687,
+        "row_coverage": 0.7928820777824773,
+        "rows": 3825386
+      },
+      "unobserved": {
+        "markets": 177,
+        "matched_markets": 98,
+        "matched_rows": 565248,
+        "matched_tokens": 196,
+        "row_coverage": 0.797883783104707,
+        "rows": 708434
+      },
+      "val": {
+        "markets": 205,
+        "matched_markets": 184,
+        "matched_rows": 942353,
+        "matched_tokens": 367,
+        "row_coverage": 0.9398820500903126,
+        "rows": 1002629
+      }
+    },
+    "enabled": true,
+    "fallback_policy": "No sportsbook fallback imputation. Rows without causal Odds API matches keep sportsbook feature columns as NaN and set odds_has_feature/odds_api_available=0 so native-missing tree splits can learn the uncovered-market regime.",
+    "fallback_to_polymarket_mid_rows": 0,
+    "feature_rows": 5358403,
+    "matched_label_rows": 5358403,
+    "matched_markets": 1312,
+    "matched_tokens": 2622,
+    "max_snapshot_age_min": 4000.366666666667,
+    "missing_odds_rows": 1036678,
+    "path": "/Users/yongkanglin/Documents/Codex/2026-05-31/pull-this-github-yongkanglin-sports-betting/Sports-Betting/data/model/training/telonex_odds_features_latest.parquet",
+    "require_odds_feature": false,
+    "row_coverage": 0.8378944692021884,
+    "sha256": "ba09820773ca67d2d1e415c1524fe717e8c2182dabff914c2c90bf215a8f0533",
+    "sports": {
+      "americanfootball_nfl": 415814,
+      "baseball_mlb": 191587,
+      "basketball_nba": 246808,
+      "basketball_wnba": 241782,
+      "icehockey_nhl": 1219688,
+      "soccer_brazil_campeonato": 262476,
+      "soccer_brazil_serie_b": 1482,
+      "soccer_conmebol_copa_libertadores": 53636,
+      "soccer_epl": 808328,
+      "soccer_france_ligue_one": 233766,
+      "soccer_germany_bundesliga": 338706,
+      "soccer_italy_serie_a": 412806,
+      "soccer_italy_serie_b": 48744,
+      "soccer_spain_la_liga": 472702,
+      "soccer_spain_segunda_division": 29984,
+      "soccer_uefa_champs_league": 380094
+    }
+  },
+  "outputs": {
+    "audit_samples": "/Users/yongkanglin/Documents/Codex/2026-05-31/pull-this-github-yongkanglin-sports-betting/Sports-Betting/data/model/telonex_convergence/20260531T234614Z/audit_sample_rows.csv",
+    "calibration_bins": "/Users/yongkanglin/Documents/Codex/2026-05-31/pull-this-github-yongkanglin-sports-betting/Sports-Betting/data/model/telonex_convergence/20260531T234614Z/calibration_bins.csv",
+    "calibration_plot": "/Users/yongkanglin/Documents/Codex/2026-05-31/pull-this-github-yongkanglin-sports-betting/Sports-Betting/data/model/telonex_convergence/20260531T234614Z/calibration_reliability.png",
+    "model": "/Users/yongkanglin/Documents/Codex/2026-05-31/pull-this-github-yongkanglin-sports-betting/Sports-Betting/data/model/telonex_convergence/20260531T234614Z/model.joblib",
+    "predictions": "/Users/yongkanglin/Documents/Codex/2026-05-31/pull-this-github-yongkanglin-sports-betting/Sports-Betting/data/model/telonex_convergence/20260531T234614Z/predictions.parquet",
+    "report": "/tmp/sports-betting-reports/telonex_convergence_model_latest.md",
+    "summary": "/Users/yongkanglin/Documents/Codex/2026-05-31/pull-this-github-yongkanglin-sports-betting/Sports-Betting/data/model/telonex_convergence/20260531T234614Z/summary.json"
+  },
+  "price_regime_audit": [
+    {
+      "avg_convergence_prob": 0.04597997877799877,
+      "avg_entry_mid": 0.04325132625994694,
+      "ece_10": 0.013906748539652129,
+      "entry_price_regime": "003_005",
+      "markets": 13,
+      "positive_rate": 0.05238726790450928,
+      "rows": 3016,
+      "selected_markets": 6,
+      "selected_roi": -0.03774267734553774,
+      "selected_trades": 27,
+      "selected_win_rate": 0.4444444444444444,
+      "split": "train"
+    },
+    {
+      "avg_convergence_prob": 0.02396983146094932,
+      "avg_entry_mid": 0.11220146220451778,
+      "ece_10": 0.002583939115219392,
+      "entry_price_regime": "005_015_longshot",
+      "markets": 136,
+      "positive_rate": 0.022770317009755982,
+      "rows": 209615,
+      "selected_markets": 39,
+      "selected_roi": 0.27575816297691946,
+      "selected_trades": 154,
+      "selected_win_rate": 0.5909090909090909,
+      "split": "train"
+    },
+    {
+      "avg_convergence_prob": 0.14818820836710547,
+      "avg_entry_mid": 0.013414039039039038,
+      "ece_10": 0.05358420923475448,
+      "entry_price_regime": "00_003",
+      "markets": 15,
+      "positive_rate": 0.14339339339339338,
+      "rows": 1332,
+      "selected_markets": 4,
+      "selected_roi": -0.24427835538752354,
+      "selected_trades": 38,
+      "selected_win_rate": 0.13157894736842105,
+      "split": "train"
+    },
+    {
+      "avg_convergence_prob": 0.0072450537325458786,
+      "avg_entry_mid": 0.3296258500569264,
+      "ece_10": 0.0007711571826136746,
+      "entry_price_regime": "015_050",
+      "markets": 885,
+      "positive_rate": 0.006473896549932208,
+      "rows": 1693416,
+      "selected_markets": 244,
+      "selected_roi": 0.3392104870606086,
+      "selected_trades": 2146,
+      "selected_win_rate": 0.5237651444547996,
+      "split": "train"
+    },
+    {
+      "avg_convergence_prob": 0.005812073261954925,
+      "avg_entry_mid": 0.6333973664850229,
+      "ece_10": 0.0008742673466081869,
+      "entry_price_regime": "050_075",
+      "markets": 736,
+      "positive_rate": 0.005046704553875443,
+      "rows": 1308973,
+      "selected_markets": 174,
+      "selected_roi": 0.13420798172094758,
+      "selected_trades": 2226,
+      "selected_win_rate": 0.6046720575022462,
+      "split": "train"
+    },
+    {
+      "avg_convergence_prob": 0.019951262647565287,
+      "avg_entry_mid": 0.8173146262207545,
+      "ece_10": 0.002213722466891235,
+      "entry_price_regime": "075_092_favorite",
+      "markets": 365,
+      "positive_rate": 0.01961638445865243,
+      "rows": 569320,
+      "selected_markets": 75,
+      "selected_roi": 0.022442623426306763,
+      "selected_trades": 304,
+      "selected_win_rate": 0.6447368421052632,
+      "split": "train"
+    },
+    {
+      "avg_convergence_prob": 0.02272937922481828,
+      "avg_entry_mid": 0.9359671721119277,
+      "ece_10": 0.004502055783002153,
+      "entry_price_regime": "092_097",
+      "markets": 30,
+      "positive_rate": 0.018394038872388097,
+      "rows": 38382,
+      "selected_markets": 6,
+      "selected_roi": -0.000654693647664636,
+      "selected_trades": 27,
+      "selected_win_rate": 0.4444444444444444,
+      "split": "train"
+    },
+    {
+      "avg_convergence_prob": 0.13870108332835032,
+      "avg_entry_mid": 0.986585960960961,
+      "ece_10": 0.05960138580745213,
+      "entry_price_regime": "097_100",
+      "markets": 15,
+      "positive_rate": 0.19594594594594594,
+      "rows": 1332,
+      "selected_markets": 4,
+      "selected_roi": 0.00456964438815277,
+      "selected_trades": 21,
+      "selected_win_rate": 0.7142857142857143,
+      "split": "train"
+    },
+    {
+      "avg_convergence_prob": 0.1540014541367266,
+      "avg_entry_mid": 0.035,
+      "ece_10": 0.15400145413672658,
+      "entry_price_regime": "003_005",
+      "markets": 1,
+      "positive_rate": 0.0,
+      "rows": 9,
+      "selected_markets": 0,
+      "selected_roi": null,
+      "selected_trades": 0,
+      "selected_win_rate": null,
+      "split": "calibration"
+    },
+    {
+      "avg_convergence_prob": 0.02656813617553351,
+      "avg_entry_mid": 0.13212695461479787,
+      "ece_10": 0.0036070020042514974,
+      "entry_price_regime": "005_015_longshot",
+      "markets": 13,
+      "positive_rate": 0.026077421815408085,
+      "rows": 20976,
+      "selected_markets": 0,
+      "selected_roi": null,
+      "selected_trades": 0,
+      "selected_win_rate": null,
+      "split": "calibration"
+    },
+    {
+      "avg_convergence_prob": 0.27217123462571685,
+      "avg_entry_mid": 0.005840206185567011,
+      "ece_10": 0.1824934181427659,
+      "entry_price_regime": "00_003",
+      "markets": 1,
+      "positive_rate": 0.11855670103092783,
+      "rows": 194,
+      "selected_markets": 1,
+      "selected_roi": -0.3243204545454546,
+      "selected_trades": 16,
+      "selected_win_rate": 0.125,
+      "split": "calibration"
+    },
+    {
+      "avg_convergence_prob": 0.0015315229891506386,
+      "avg_entry_mid": 0.41099041220084714,
+      "ece_10": 0.00024693392970792405,
+      "entry_price_regime": "015_050",
+      "markets": 92,
+      "positive_rate": 0.0017635589115612463,
+      "rows": 241557,
+      "selected_markets": 0,
+      "selected_roi": null,
+      "selected_trades": 0,
+      "selected_win_rate": null,
+      "split": "calibration"
+    },
+    {
+      "avg_convergence_prob": 0.0010707299406528784,
+      "avg_entry_mid": 0.5843714631850434,
+      "ece_10": 0.00025352070120512963,
+      "entry_price_regime": "050_075",
+      "markets": 84,
+      "positive_rate": 0.0012958999750950818,
+      "rows": 236901,
+      "selected_markets": 0,
+      "selected_roi": null,
+      "selected_trades": 0,
+      "selected_win_rate": null,
+      "split": "calibration"
+    },
+    {
+      "avg_convergence_prob": 0.027117815427975582,
+      "avg_entry_mid": 0.8566634233518667,
+      "ece_10": 0.004031622225926889,
+      "entry_price_regime": "075_092_favorite",
+      "markets": 21,
+      "positive_rate": 0.02319301032565528,
+      "rows": 25180,
+      "selected_markets": 0,
+      "selected_roi": null,
+      "selected_trades": 0,
+      "selected_win_rate": null,
+      "split": "calibration"
+    },
+    {
+      "avg_convergence_prob": 0.04935673483259764,
+      "avg_entry_mid": 0.9253949579831933,
+      "ece_10": 0.04311168472443173,
+      "entry_price_regime": "092_097",
+      "markets": 2,
+      "positive_rate": 0.06890756302521009,
+      "rows": 595,
+      "selected_markets": 0,
+      "selected_roi": null,
+      "selected_trades": 0,
+      "selected_win_rate": null,
+      "split": "calibration"
+    },
+    {
+      "avg_convergence_prob": 0.38514742739536145,
+      "avg_entry_mid": 0.9941597938144331,
+      "ece_10": 0.11079931774889376,
+      "entry_price_regime": "097_100",
+      "markets": 1,
+      "positive_rate": 0.4845360824742268,
+      "rows": 194,
+      "selected_markets": 1,
+      "selected_roi": 0.0036143055154490363,
+      "selected_trades": 49,
+      "selected_win_rate": 0.7959183673469388,
+      "split": "calibration"
+    },
+    {
+      "avg_convergence_prob": 0.3077264168733939,
+      "avg_entry_mid": 0.03916998191681736,
+      "ece_10": 0.06543128097109426,
+      "entry_price_regime": "003_005",
+      "markets": 13,
+      "positive_rate": 0.34177215189873417,
+      "rows": 553,
+      "selected_markets": 10,
+      "selected_roi": 0.0964585273492286,
+      "selected_trades": 64,
+      "selected_win_rate": 0.5,
+      "split": "val"
+    },
+    {
+      "avg_convergence_prob": 0.027919864751665194,
+      "avg_entry_mid": 0.12633270670178115,
+      "ece_10": 0.0053749107712679515,
+      "entry_price_regime": "005_015_longshot",
+      "markets": 32,
+      "positive_rate": 0.023095848638159264,
+      "rows": 57716,
+      "selected_markets": 15,
+      "selected_roi": -0.09856915846711552,
+      "selected_trades": 89,
+      "selected_win_rate": 0.449438202247191,
+      "split": "val"
+    },
+    {
+      "avg_convergence_prob": 0.3550518510892242,
+      "avg_entry_mid": 0.014294801641586868,
+      "ece_10": 0.15122148173217898,
+      "entry_price_regime": "00_003",
+      "markets": 9,
+      "positive_rate": 0.20383036935704515,
+      "rows": 731,
+      "selected_markets": 9,
+      "selected_roi": 0.29010018646408847,
+      "selected_trades": 161,
+      "selected_win_rate": 0.30434782608695654,
+      "split": "val"
+    },
+    {
+      "avg_convergence_prob": 0.018410242081444535,
+      "avg_entry_mid": 0.38776633609184613,
+      "ece_10": 0.004248357244266477,
+      "entry_price_regime": "015_050",
+      "markets": 87,
+      "positive_rate": 0.014993131638020572,
+      "rows": 179082,
+      "selected_markets": 24,
+      "selected_roi": 0.019193542419229617,
+      "selected_trades": 1276,
+      "selected_win_rate": 0.4286833855799373,
+      "split": "val"
+    },
+    {
+      "avg_convergence_prob": 0.012617300163684014,
+      "avg_entry_mid": 0.5874028310251382,
+      "ece_10": 0.0029967999720709117,
+      "entry_price_regime": "050_075",
+      "markets": 74,
+      "positive_rate": 0.012350612535434645,
+      "rows": 160154,
+      "selected_markets": 22,
+      "selected_roi": 0.1135367710013411,
+      "selected_trades": 567,
+      "selected_win_rate": 0.47619047619047616,
+      "split": "val"
+    },
+    {
+      "avg_convergence_prob": 0.03176285680133587,
+      "avg_entry_mid": 0.8535156090415524,
+      "ece_10": 0.006234484869976846,
+      "entry_price_regime": "075_092_favorite",
+      "markets": 42,
+      "positive_rate": 0.029941407299897867,
+      "rows": 74412,
+      "selected_markets": 12,
+      "selected_roi": 0.029375223543798852,
+      "selected_trades": 85,
+      "selected_win_rate": 0.6941176470588235,
+      "split": "val"
+    },
+    {
+      "avg_convergence_prob": 0.11096929378921029,
+      "avg_entry_mid": 0.9436233159197142,
+      "ece_10": 0.019640377750328356,
+      "entry_price_regime": "092_097",
+      "markets": 22,
+      "positive_rate": 0.12757767390706626,
+      "rows": 3637,
+      "selected_markets": 7,
+      "selected_roi": 0.013516503021773273,
+      "selected_trades": 26,
+      "selected_win_rate": 0.8076923076923077,
+      "split": "val"
+    },
+    {
+      "avg_convergence_prob": 0.4099382465484054,
+      "avg_entry_mid": 0.9855562330623306,
+      "ece_10": 0.042135743676518594,
+      "entry_price_regime": "097_100",
+      "markets": 9,
+      "positive_rate": 0.4159891598915989,
+      "rows": 738,
+      "selected_markets": 9,
+      "selected_roi": 0.0002683123813090136,
+      "selected_trades": 228,
+      "selected_win_rate": 0.6052631578947368,
+      "split": "val"
+    },
+    {
+      "avg_convergence_prob": 0.28823201292081113,
+      "avg_entry_mid": 0.040711048158640226,
+      "ece_10": 0.07986423196622347,
+      "entry_price_regime": "003_005",
+      "markets": 12,
+      "positive_rate": 0.21529745042492918,
+      "rows": 353,
+      "selected_markets": 7,
+      "selected_roi": 0.281233770661157,
+      "selected_trades": 31,
+      "selected_win_rate": 0.5483870967741935,
+      "split": "test"
+    },
+    {
+      "avg_convergence_prob": 0.014870128345360011,
+      "avg_entry_mid": 0.1224618597601436,
+      "ece_10": 0.002280463588014838,
+      "entry_price_regime": "005_015_longshot",
+      "markets": 54,
+      "positive_rate": 0.013990458828377652,
+      "rows": 143169,
+      "selected_markets": 11,
+      "selected_roi": 0.04578160644418873,
+      "selected_trades": 56,
+      "selected_win_rate": 0.48214285714285715,
+      "split": "test"
+    },
+    {
+      "avg_convergence_prob": 0.2788558888096056,
+      "avg_entry_mid": 0.010067467652495379,
+      "ece_10": 0.15685958566727656,
+      "entry_price_regime": "00_003",
+      "markets": 6,
+      "positive_rate": 0.12199630314232902,
+      "rows": 541,
+      "selected_markets": 6,
+      "selected_roi": -0.13758195548489663,
+      "selected_trades": 78,
+      "selected_win_rate": 0.24358974358974358,
+      "split": "test"
+    },
+    {
+      "avg_convergence_prob": 0.01511885953508612,
+      "avg_entry_mid": 0.38910905836498944,
+      "ece_10": 0.004099679462451763,
+      "entry_price_regime": "015_050",
+      "markets": 174,
+      "positive_rate": 0.011438577662293647,
+      "rows": 283252,
+      "selected_markets": 39,
+      "selected_roi": 0.16722764916037072,
+      "selected_trades": 1255,
+      "selected_win_rate": 0.6055776892430279,
+      "split": "test"
+    },
+    {
+      "avg_convergence_prob": 0.013487215239217027,
+      "avg_entry_mid": 0.5861086366316052,
+      "ece_10": 0.005466292753632804,
+      "entry_price_regime": "050_075",
+      "markets": 152,
+      "positive_rate": 0.009401470725123337,
+      "rows": 257832,
+      "selected_markets": 32,
+      "selected_roi": 0.08753412544901906,
+      "selected_trades": 574,
+      "selected_win_rate": 0.37282229965156793,
+      "split": "test"
+    },
+    {
+      "avg_convergence_prob": 0.01915679936136711,
+      "avg_entry_mid": 0.8662718016409745,
+      "ece_10": 0.003010264556245772,
+      "entry_price_regime": "075_092_favorite",
+      "markets": 76,
+      "positive_rate": 0.017433171872001673,
+      "rows": 171971,
+      "selected_markets": 10,
+      "selected_roi": 0.010046577659353323,
+      "selected_trades": 64,
+      "selected_win_rate": 0.671875,
+      "split": "test"
+    },
+    {
+      "avg_convergence_prob": 0.18926128310279494,
+      "avg_entry_mid": 0.9462311661506709,
+      "ece_10": 0.16450058697571243,
+      "entry_price_regime": "092_097",
+      "markets": 20,
+      "positive_rate": 0.34262125902992774,
+      "rows": 969,
+      "selected_markets": 4,
+      "selected_roi": -0.014875886138613875,
+      "selected_trades": 11,
+      "selected_win_rate": 0.36363636363636365,
+      "split": "test"
+    },
+    {
+      "avg_convergence_prob": 0.3070774466122729,
+      "avg_entry_mid": 0.98978623853211,
+      "ece_10": 0.14662067622433966,
+      "entry_price_regime": "097_100",
+      "markets": 7,
+      "positive_rate": 0.45321100917431195,
+      "rows": 545,
+      "selected_markets": 7,
+      "selected_roi": 0.0035138933441507827,
+      "selected_trades": 65,
+      "selected_win_rate": 0.7538461538461538,
+      "split": "test"
+    }
+  ],
+  "profit_gates": {
+    "label_coverage_gate": true,
+    "label_coverage_reasons": [],
+    "live_capital_gate": false,
+    "min_odds_test_markets": 5,
+    "min_test_markets": 10,
+    "min_test_trades": 100,
+    "min_val_trades": 100,
+    "odds_feature_gate": true,
+    "performance_gate": true,
+    "research_gate": true,
+    "uses_odds_features": true
+  },
+  "reproducibility": {
+    "git_sha": "2f6fead97faeeb9f9ce82f3e19196e9262b5312b",
+    "historical_sample_weight": {
+      "mean_weight": 1.1684939401841188,
+      "model_family": "HistGradientBoostingClassifier",
+      "model_random_seed": 42,
+      "native_missing_numeric_features": true,
+      "numeric_imputation": "none",
+      "p01_weight": 0.19096911924117943,
+      "p50_weight": 0.2228675523562988,
+      "p99_weight": 1.5616824037801738,
+      "positive_rate": 0.009103917879136903,
+      "positive_rows": 34826,
+      "preferred_model_import_errors": {
+        "lightgbm": "OSError: dlopen(/Users/yongkanglin/Documents/Codex/2026-05-31/pull-this-github-yongkanglin-sports-betting/Sports-Betting/.venv/lib/python3.11/site-packages/lightgbm/lib/lib_lightgbm.dylib, 0x0006): Library not loaded: @rpath/libomp.dylib\n  Referenced from: <231012EE-C624-39BF-9168-0899EB683529> /Users/yongkanglin/Documents/Codex/2026-05-31/pull-this-github-yongkanglin-sports-betting/Sports-Betting/.venv/lib/python3.11/site-packages/lightgbm/lib/lib_lightgbm.dylib\n  Reason: tried: '/usr/local/opt/libomp/lib/libomp.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/usr/local/opt/libomp/lib/libomp.dylib' (no such file), '/opt/homebrew/opt/libomp/lib/libomp.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/opt/homebrew/opt/libomp/lib/libomp.dylib' (no such file), '/opt/local/lib/libomp/libomp.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/opt/local/lib/libomp/libomp.dylib' (no such file), '/usr/local/opt/libomp/lib/libomp.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/usr/local/opt/libomp/lib/libomp.dylib' (no such file), '/opt/homebrew/opt/libomp/lib/libomp.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/opt/homebrew/opt/libomp/lib/libomp.dylib' (no such file), '/opt/local/lib/libomp/libomp.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/opt/local/lib/libomp/libomp.dylib' (no such file), '/usr/local/lib/libomp.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/usr/local/lib/libomp.dylib' (no such file), '/usr/local/lib/libomp.dylib' (no such file), '/usr/lib/libomp.dylib' (no such file, not in dyld cache)",
+        "xgboost": "XGBoostError: \nXGBoost Library (libxgboost.dylib) could not be loaded.\nLikely causes:\n  * OpenMP runtime is not installed\n    - vcomp140.dll or libgomp-1.dll for Windows\n    - libomp.dylib for Mac OSX\n    - libgomp.so for Linux and other UNIX-like OSes\n    Mac OSX users: Run `brew install libomp` to install OpenMP runtime.\n\n  * You are running 32-bit Python on a 64-bit OS\n\nError message(s): [\"dlopen(/Users/yongkanglin/Documents/Codex/2026-05-31/pull-this-github-yongkanglin-sports-betting/Sports-Betting/.venv/lib/python3.11/site-packages/xgboost/lib/libxgboost.dylib, 0x0006): Library not loaded: @rpath/libomp.dylib\\n  Referenced from: <33C992FB-C1EB-390D-846C-E9915F53FAB8> /Users/yongkanglin/Documents/Codex/2026-05-31/pull-this-github-yongkanglin-sports-betting/Sports-Betting/.venv/lib/python3.11/site-packages/xgboost/lib/libxgboost.dylib\\n  Reason: tried: '/usr/local/opt/libomp/lib/libomp.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/usr/local/opt/libomp/lib/libomp.dylib' (no such file), '/usr/local/opt/libomp/lib/libomp.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/usr/local/opt/libomp/lib/libomp.dylib' (no such file), '/usr/local/lib/libomp.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/usr/local/lib/libomp.dylib' (no such file)\"]\n"
+      },
+      "rows": 3825386,
+      "sample_half_life_days": 60.0
+    },
+    "labels_path": "/Users/yongkanglin/Documents/Codex/2026-05-31/pull-this-github-yongkanglin-sports-betting/Sports-Betting/data/model/training/telonex_clob_execution_labels_partitioned",
+    "labels_sha256": "f30ef06b71724637fcd0d4701cb56382ba4b1bb07ae541e18a0f53f7e7eabc46",
+    "model_artifact_sha256": "03d084dd3bd68e7b6a99dc3e886057c283fea275bd86766fded6a733d0bd9edd",
+    "model_version": "20260531T234614Z-03d084dd3bd6",
+    "numpy_seed": 42,
+    "prediction_rows_saved": 858632,
+    "predictions_scope": "test",
+    "python_random_seed": 42,
+    "random_seed": 42,
+    "sample_half_life_days": 60.0
+  },
+  "run_id": "20260531T234614Z",
+  "selected_threshold": 0.5483912013758625,
+  "selection_abstained": false,
+  "split_audit": {
+    "calibration_reused_validation": false,
+    "market_overlap": [],
+    "ranges": {
+      "calibration": {
+        "markets": 102,
+        "max_asof": "2026-04-14 23:09:00+00:00",
+        "min_asof": "2026-03-07 00:01:00+00:00",
+        "positive_rate": 0.003846988048081643,
+        "rows": 525606
+      },
+      "test": {
+        "markets": 208,
+        "max_asof": "2026-05-29 02:09:00+00:00",
+        "min_asof": "2026-04-09 00:01:00+00:00",
+        "positive_rate": 0.013260628534692395,
+        "rows": 858632
+      },
+      "train": {
+        "markets": 960,
+        "max_asof": "2026-05-28 23:59:00+00:00",
+        "min_asof": "2025-11-04 00:01:00+00:00",
+        "positive_rate": 0.009103917879136903,
+        "rows": 3825386
+      },
+      "val": {
+        "markets": 103,
+        "max_asof": "2026-05-28 23:59:00+00:00",
+        "min_asof": "2026-03-26 00:01:00+00:00",
+        "positive_rate": 0.019565094345555666,
+        "rows": 477023
+      }
+    },
+    "validation_markets_before_split": 205
+  },
+  "target": {
+    "feature_count": 100,
+    "feature_set": "all_odds",
+    "pnl_col": "maker_pnl_per_share",
+    "stake_col": "entry_bid",
+    "target_col": "maker_positive"
+  },
+  "threshold_grid": [
+    {
+      "avg_prob": 0.6492650948502964,
+      "ci_hi": 0.051836334948134076,
+      "ci_lo": 0.021539657747056108,
+      "markets": 35,
+      "pnl": 24.89828245,
+      "roi": 0.03686073298700606,
+      "stake": 675.469,
+      "threshold": 0.5483912013758625,
+      "tokens": 64,
+      "trades": 2496,
+      "win_rate": 0.46314102564102566
+    },
+    {
+      "avg_prob": 0.5130940777487918,
+      "ci_hi": 0.017122821575425447,
+      "ci_lo": 0.0004037260897724335,
+      "markets": 47,
+      "pnl": 15.529170960000002,
+      "roi": 0.009187042892114815,
+      "stake": 1690.3339999999998,
+      "threshold": 0.38237624444520996,
+      "tokens": 88,
+      "trades": 5444,
+      "win_rate": 0.418626010286554
+    },
+    {
+      "avg_prob": 0.3856991406877622,
+      "ci_hi": 0.0015189265691180392,
+      "ci_lo": -0.005758185473762213,
+      "markets": 52,
+      "pnl": -9.519711020000003,
+      "roi": -0.002052498339301643,
+      "stake": 4638.1089999999995,
+      "threshold": 0.21061226545231532,
+      "tokens": 103,
+      "trades": 12402,
+      "win_rate": 0.35615223351072406
+    },
+    {
+      "avg_prob": 0.260002383989033,
+      "ci_hi": -0.010057217593209985,
+      "ci_lo": -0.01432747842472475,
+      "markets": 65,
+      "pnl": -120.29255100999998,
+      "roi": -0.012137979841633444,
+      "stake": 9910.426000000001,
+      "threshold": 0.1025360105020553,
+      "tokens": 122,
+      "trades": 25051,
+      "win_rate": 0.25212566364616185
+    },
+    {
+      "avg_prob": 0.1469290930394178,
+      "ci_hi": -0.019369162280870062,
+      "ci_lo": -0.021520532950565052,
+      "markets": 96,
+      "pnl": -415.94954369,
+      "roi": -0.02043860290952271,
+      "stake": 20351.173,
+      "threshold": 0.01034150499111567,
+      "tokens": 182,
+      "trades": 49502,
+      "win_rate": 0.1522362732818876
+    },
+    {
+      "avg_prob": 0.015413862849913777,
+      "ci_hi": -0.023900045534038513,
+      "ci_lo": -0.024118406400443985,
+      "markets": 103,
+      "pnl": -5611.994209649999,
+      "roi": -0.024011106190535925,
+      "stake": 233724.93399999995,
+      "threshold": 0.0,
+      "tokens": 205,
+      "trades": 477023,
+      "win_rate": 0.019565094345555666
+    }
+  ],
+  "trading": {
+    "test": {
+      "avg_prob": 0.6531272145090234,
+      "ci_hi": 0.1143532122951372,
+      "ci_lo": 0.07253860862525935,
+      "markets": 50,
+      "pnl": 47.33425177,
+      "roi": 0.09215129866564915,
+      "stake": 513.6579999999999,
+      "threshold": 0.5483912013758625,
+      "tokens": 83,
+      "trades": 2134,
+      "win_rate": 0.5309278350515464
+    },
+    "train": {
+      "avg_prob": 0.6592551824098566,
+      "ci_hi": 0.19177730720492817,
+      "ci_lo": 0.156477622321491,
+      "markets": 300,
+      "pnl": 233.8424792,
+      "roi": 0.17396133463173094,
+      "stake": 1344.221,
+      "threshold": 0.5483912013758625,
+      "tokens": 498,
+      "trades": 4943,
+      "win_rate": 0.5666599231236091
+    },
+    "val": {
+      "avg_prob": 0.6492650948502964,
+      "ci_hi": 0.051836334948134076,
+      "ci_lo": 0.021539657747056108,
+      "markets": 35,
+      "pnl": 24.89828245,
+      "roi": 0.03686073298700606,
+      "stake": 675.469,
+      "threshold": 0.5483912013758625,
+      "tokens": 64,
+      "trades": 2496,
+      "win_rate": 0.46314102564102566
+    }
+  },
+  "uncertainty": {
+    "bet_sizing_policy": "paper_only; only size with lower-bound edge after fill model exists",
+    "conformal_abs_error_q90": 0.0033329365551720033,
+    "conformal_coverage": 0.9,
+    "conformal_regime_min_rows": 200,
+    "conformal_widths_by_entry_price_regime": {
+      "005_015_longshot": 0.10477515067222995,
+      "015_050": 0.002239140170174653,
+      "050_075": 0.002239140170174653,
+      "075_092_favorite": 0.10477515067222995,
+      "092_097": 0.15705128205128205
+    },
+    "selection_mode": "conformal_lower",
+    "selection_score_col": "convergence_prob_lower"
+  }
+}
