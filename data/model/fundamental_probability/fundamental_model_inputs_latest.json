@@ -26,7 +26,7 @@
     "telonex_asset_rows": 787696,
     "telonex_feature_events": 51
   },
-  "generated_at": "2026-06-01T15:28:30.931852+00:00",
+  "generated_at": "2026-06-01T16:58:43.811857+00:00",
   "inputs": {
     "asset_plan": "/Users/yongkanglin/Documents/Codex/2026-05-31/pull-this-github-yongkanglin-sports-betting/Sports-Betting/data/model/training/odds_api_telonex_backfill_assets_latest.parquet",
     "focus_sport": "basketball_wnba",
