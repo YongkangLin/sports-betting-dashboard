@@ -1,14 +1,14 @@
 {
   "dashboard": "index.html",
-  "data_artifacts_copied": 0,
-  "data_artifacts_unchanged": 10,
-  "event_replay_details_copied": 0,
+  "data_artifacts_copied": 10,
+  "data_artifacts_unchanged": 0,
+  "event_replay_details_copied": 57284,
   "event_replay_details_removed_stale": 0,
   "event_replay_details_skipped_too_large": 0,
-  "event_replay_details_unchanged": 57284,
-  "generated_at": "2026-06-02T01:45:45.177569+00:00",
+  "event_replay_details_unchanged": 0,
+  "generated_at": "2026-06-02T01:46:43.302871+00:00",
   "note": "Static dashboard bundle for GitHub Pages. Raw data, .env, parquet, joblib, and logs are intentionally excluded.",
-  "shell_files_copied": 0,
-  "status_copied": 0,
+  "shell_files_copied": 2,
+  "status_copied": 1,
   "status_skipped_too_large": 0
 }
