@@ -1523,7 +1523,7 @@ const RUN_ARTIFACTS = [
   path: `data/model/telonex_convergence/${runId}/summary.json`
 }));
 
-const DATA_VERSION = "2026-06-02-wnba-945-coverage-v1";
+const DATA_VERSION = "2026-06-03-wnba-1295-coverage-v2";
 
 const SNAPSHOT = {
   generatedAt: "2026-06-01T00:37:16.228041+00:00",
@@ -1905,7 +1905,7 @@ const SNAPSHOT = {
     "data/model/telonex_convergence/20260531T234614Z/summary.json": 46565,
     "data/live/clob/live_telonex_convergence_signals_latest.json": 3974,
     "data/model/training/telonex_strategy_buckets_latest.json": 319650,
-    "data/model/replays/event_replays_latest.json": 60007386,
+    "data/model/replays/event_replays_latest.json": 78603857,
     "data/model/replays/audits/replay_sportsbook_gap_audit_latest.json": 1094086,
     "data/model/replays/audits/dashboard_sportsbook_integrity_audit_latest.json": 442651
   }
@@ -2685,8 +2685,8 @@ function marketLabel(event) {
   const raw = String(
     event?.market_label
     || event?.sport_market
-    || event?.market_type
     || event?.sport_family
+    || event?.market_type
     || "unknown market"
   ).trim();
   const key = raw.toLowerCase();
@@ -4139,7 +4139,7 @@ function replayMarkerPnl(marker) {
 }
 
 function isPlotOnlyReplay(event) {
-  return event?.replay_kind === "plot_only" || event?.replay_kind === "pbp_only" || event?.strategy === "market_replay_only";
+  return ["plot_only", "sportsbook_only", "pbp_only"].includes(event?.replay_kind) || event?.strategy === "market_replay_only";
 }
 
 function replayPosition(stats, marker = null) {
